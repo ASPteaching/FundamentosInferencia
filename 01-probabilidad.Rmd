@@ -647,13 +647,18 @@ $$
 $$
 
 Al valor anterior se le conoce como sensibilidad del test.
-$\mathrm{P}(+/ \mathrm{A})=$ Probabilidad de test positivo en individuos que no padecen la sordera.
+
+$$\mathrm{P}(+/ \mathrm{A})=$$ 
+Probabilidad de test positivo en individuos que no padecen la sordera.
 
 Al valor anterior se le conoce como probabilidad de falso-positivo.
-$\mathrm{P}(-/ \mathrm{E})=$ Probabilidad de test negativo en individuos que padecen la sordera
+$$\$mathrm{P}(-/ \mathrm{E})=$$ 
+
+Probabilidad de test negativo en individuos que padecen la sordera
 
 Al valor anterior se le conoce como probabilidad de falso-negativo.
-$P(-/ A)=$ Probabilidad de test negativo en individuos que no padecen sordera
+$$P(-/ A)=$$ 
+Probabilidad de test negativo en individuos que no padecen sordera
 Al valor anterior se le conoce como especificidad del test.
 
 A la probabilidad $\mathrm{P}(\mathrm{E})$ de presentar la enfermedad se le conoce como prevalencia de la enfermedad.
@@ -662,11 +667,17 @@ Lógicamente, interesa que la sensibilidad y la especificidad sean elevadas, mie
 
 Por otro lado, el interés de aplicar el test consiste en que sirva de elemento predictivo para diagnosticar la sordera.
 
-Por lo tanto, interesa que las probabilidades
-$\mathrm{P}(\mathrm{E} /+)=$ Probabilidad de padecer sordera si el test da positivo
-$\mathrm{P}(\mathrm{A} /-)=$ Probabilidad de no padecer sordera si el test da negativo
+Por lo tanto, interesa que las probabilidades:
+
+- $\mathrm{P}(\mathrm{E} /+)=$ Probabilidad de padecer sordera si el test da positivo
+
+- $\mathrm{P}(\mathrm{A} /-)=$ Probabilidad de no padecer sordera si el test da negativo
+
 sean realmente altas.
-A las probabilidades anteriores se las conoce como: valor predictivo del test.
+
+A las probabilidades 
+anteriores se las conoce como: valor predictivo del test.
+
 Estamos pues en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras.
 
 ### APlicación del Teorema de Bayes
@@ -676,9 +687,13 @@ Para el cálculo del valor predictivo del test utilizaremos el teorema de Bayes.
 Habitualmente, a partir de estudios epidemiológicos y muestras experimentales, se estiman:
 
 - La prevalencia
+
 - La sensibilidad del test
+
 - La especificidad del test
+
 - La probabilidad de falso positivo
+
 - La probabilidad de falso negativo
 
 ¿Cómo se obtiene entonces el valor predictivo del test?
@@ -700,6 +715,7 @@ $$
 ### Cálculos
 
 Supongamos que en el ejemplo de la sordera, se sabe que:
+
 - Prevalencia $=0,003$, Es decir, que un tres por mil padece sordera profunda a esta edad.
 
 - Sensibilidad $=0,98$
