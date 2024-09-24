@@ -1,0 +1,3 @@
+# Introducción a la inferencia estadística
+
+Se plantean los problemas que trata la inferencia. Se relaciona con el capítulo anterior a través de la idea del muestreo aleatorio simple y las distribuciones en el muestreo.

@@ -1,0 +1,10 @@
+# Distribuciones de probabilidad multidimensionales
+
+En este capítulo se extiende el concepto de variable aleatoria a un conjunto de variables que pueden interpretarse asociadas a un conjunto de medidas distintas y que pueden estar, o no relacionadas. 
+
+Tras introducir los conceptos de distribuciones multidimensionales, condicionales y marginales, se pasa a considerar el caso más habitual en inferencia estadística en el que las componentes de los vectrores son independientes entre ellas.
+
+Este es, de hecho, el punto de partida de muchos modelos y métodos en estadística.
+
+
+

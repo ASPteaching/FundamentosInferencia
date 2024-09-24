@@ -1,0 +1,180 @@
+# Grandes muestras
+
+## Introducción: Aproximaciones asintóticas
+
+### Convergencia de variables aleatorias
+
+
+## Leyes de los grandes números
+
+
+## El teorema central del límite
+
+El teorema central del límite (a partir de ahora, TCL) presenta un doble interés. Por un lado, proporciona a la estadística un resultado crucial para abordar el estudio de la distribución asintótica de muchos tipos de variables aleatorias. Como se verá en próximos capítulos, va a resultar básico en la construcción de contrastes de hipótesis y de intervalos de confianza, dos herramientas esenciales en estadística aplicada.
+
+Además, el TCL proporciona una explicación teórica fundamentada a un fenómeno habitual en experimentos reales: las variables estudiadas presentan muchas veces una distribución empírica aproximadamente normal.
+
+El TCL forma parte de un conjunto de propiedades relativas a las convergencias de variables aleatorias. En este tema se estudia sólo un tipo de convergencia, la convergencia en ley, ya que es necesaria para entender el enunciado del TCL. Se descarta, pues, en este documento el estudio de los otros tipos de convergencias (en probabilidad, casi segura, etc.) y el estudio de las leyes de los grandes números.
+
+Posiblemente el lector con poca formación en análisis matemático hallará alguna dificultad en la primera lectura de la definición de convergencia en ley y en el enunciado del TCL. Si es este el caso, los ejemplos incluidos han de ayudar en su comprensión. Consideramos al TCL un resultado básico con el que hay que familiarizarse, ya que se aplicará repetidamente en los próximos temas.
+
+### Sumas de variables aleatorias
+
+El TCL estudia el comportamiento de las sumas de variables aleatorias. En temas anteriores se han visto ya ejemplos de sumas de variables aleatorias.
+
+Formalmente, la suma de dos variables aleatorias corresponde a la siguiente aplicación: si $X_{1}$ y $X_{2}$ son dos variables aleatorias definidas sobre $\Omega$, la suma es:
+
+$$
+\begin{aligned}
+X_{1}+X_{2}: & \Omega \rightarrow \mathbb{R} \\
+& \omega \mapsto X_{1}(\omega)+X_{2}(\omega)
+\end{aligned}
+$$
+
+La suma de dos variables puede extenderse sin dificultad a sumas de tres, cuatro,... y, en general, $n$ variables aleatorias.
+
+El TCL se ocupa de las sucesiones de variables aleatorias. En el contexto del TCL una sucesión corresponde a un conjunto donde el primer elemento es una variable aleatoria, el segundo elemento es la suma de dos variables aleatorias, el tercero es la suma de tres variables aleatorias, y así sucesivamente.
+
+Una sucesión es un conjunto de elementos infinitos, que se designan simbólicamente mediante $\left\{X_{n}\right\}$.
+Cada uno de los elementos de la sucesión (que es una variable aleatoria) lleva asociada una determinada función de distribución:
+
+$$
+X_{n} \rightarrow F_{n}
+$$
+
+Así pues, la sucesión de variables aleatorias lleva asociada una secuencia paralela de funciones de distribución.
+
+En los ejemplos se presentan sumas de variables aleatorias de diferentes tipos.
+
+#### Presentación de los ejemplos
+
+1. Ejemplo 1: sumas de variables binomiales.
+2. Ejemplo 2: sumas de variables Poisson.
+3. Ejemplo 3: sumas de $n$ puntuaciones de dados.
+4. Ejemplo 4: sumas de variables uniformes.
+5. Ejemplo 5: sumas de variables exponenciales.
+
+### Definición de convergencia en ley
+
+La siguiente definición se ocupa del comportamiento de las sucesiones.
+Sea $\left\{X_{n}\right\}$ una sucesión de variables aleatorias, y sea $\left\{F_{n}\right\}$ la correspondiente sucesión de funciones de distribución. Se dice que $\left\{X_{n}\right\}$ converge en ley a una variable aleatoria $X$ de función de distribución $F$ si:
+
+$$
+\lim _{n \rightarrow \infty} F_{n}(x)=F(x) \quad \text { para todo } \mathrm{x} \text { donde } F \text { es contínua. }
+$$
+
+Se indica que la sucesión converge en ley mediante el símbolo:
+
+$$
+X_{n} \stackrel{\mathrm{L}}{\rightarrow} X
+$$
+
+El significado de la definición es que, al aumentar arbitrariamente $n$, las sucesivas funciones de distribución de la secuencia se aproximan a la distribución $F$ de la variable $X$.
+
+En los ejemplos se presentan gráficamente algunas situaciones donde diferentes sucesiones de variables aleatorias convergen en ley a una variable aleatoria normal.
+
+#### Representación gráfica de la convergencia
+
+1. Ejemplo 1: primeros elementos de una sucesión de sumas de variables binomiales.
+2. Ejemplo 2: primeros elementos de una sucesión de sumas de variables Poisson.
+3. Ejemplo 3: primeros elementos de una sucesión de sumas de variables discretas.
+4. Ejemplo 4: primeros elementos de una sucesión de sumas de variables uniformes.
+5. Ejemplo 5: primeros elementos de una sucesión de sumas de variables exponenciales.
+
+### Enunciado del teorema central del límite
+
+A continuación se presenta el enunciado del TCL en la versión de Lindeberg y Lévy.
+Teorema:
+Sea $X_{1}, X_{2}, \ldots, X_{n}$, un conjunto de variables aleatorias independientes idénticamente distribuidas, cada una de ellas con función de distribución $F$, y supongamos que $E\left(X_{k}\right)$ $=\mu \mathrm{y} \operatorname{var}\left(X_{k}\right)=\sigma^{2}$ para cualquier elemento del conjunto. Si designamos a la suma normalizada de $n$ términos con el símbolo:
+
+$$
+S_{n}^{*}=\frac{X_{1}+X_{2}+\cdots+X_{n}-n \mu}{\sigma \sqrt{n}}
+$$
+
+entonces la sucesión de sumas normalizadas converge en ley a la variable aleatoria normal tipificada $\mathrm{Z} \sim N(0,1)$, es decir:
+
+$$
+S_{n}^{*} \xrightarrow{\mathrm{L}}
+$$
+
+El teorema anterior tiene dos importantes corolarios:
+
+1. Si consideramos la suma ordinaria de las $n$ variables aleatorias, es decir, $S_{n}=X_{1}+X_{2}+\ldots+X_{n}$, entonces la sucesión de sumas ordinarias converge en ley a una normal de media $n \mu$ y varianza $n \sigma^{2}$.
+
+2. Si consideramos el promedio de las $n$ variables aleatorias, es decir, $n^{-1} S_{n}$, entonces la sucesión de promedios converge en ley a una normal de media $\mu$ y varianza $n^{-1} \sigma^{2}$.
+
+#### Comentarios al teorema:
+
+1. La convergencia a la normal tipificada se produce con cualquier tipo de variable que cumpla las condiciones del teorema, sea discreta o absolutamente continua.
+2. Un sinónimo para indicar que una sucesión converge en ley a una normal es señalar que es asintóticamente normal.
+3. El TCL presenta el comportamiento de sumas infinitas de variables aleatorias. Veremos posteriormente como interpretar el resultado para valores finitos.
+4. Existen otras versiones del TCL dónde se relajan las condiciones de la versión de Lindeberg y Lévy, que, como se ha visto, obliga a las variables aleatorias a tener idénticas medias y varianzas. Dichas versiones del TCL necesitan el conocimiento de conceptos matemáticos que exceden el nivel al que se orienta Statmedia, y por esta razón se omite su enunciado.
+
+### Aplicación del TCL a los ejemplos
+
+- Ejemplo 1: normalidad asintótica de la Binomial.
+- Ejemplo 2: normalidad asintótica de la Poisson.
+- Ejemplo 3: normalidad asintótica de la suma de puntuaciones de un dado.
+- Ejemplo 4: normalidad asintótica de la suma de uniformes.
+- Ejemplo 5: normalidad asintótica de la suma de exponenciales.
+
+
+### Casos particulares más notables
+
+Aunque el TCL tiene multitud de casos particulares interesantes, son especialmente relevantes para el desarrollo de los próximos temas los siguientes casos:
+
+#### Promedio de $\boldsymbol{n}$ variables aleatorias
+
+Al considerar $n$ variables independientes, todas con la misma distribución, cada una de ellas con esperanza igual a $\mu$ y varianza igual a $\sigma^{2}$, el promedio es asintóticamente normal con media $\mu$ y varianza $n^{-1} \sigma^{2}$. Este resultado proporciona una distribución asintótica a la media de $n$ observaciones en el muestreo aleatorio simple que se estudiará en el próximo tema.
+
+#### Binomial de parámetros $n$ y $p$
+
+Es asintóticamente normal con media $n p$ y varianza $n p$ (1-p). Históricamente (de Moivre, 1733), es el primer resultado demostrado de convergencia a una normal.
+
+#### Poisson de parámetro $n \lambda$
+
+Es asintóticamente normal con media $n \lambda$ y varianza $n \lambda$.
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_9442f5d7328580e79f50g-7.jpg?height=58&width=1580&top_left_y=1276&top_left_x=44)
+
+### Interpretación del teorema central del límite
+
+El TCL hace referencia a sucesiones infinitas, por tanto, la igualdad de las distribuciones se alcanza sólo en el límite, y hace mención a una distribución final teórica o de referencia.
+
+Sin embargo, puede utilizarse esta distribución final de referencia para aproximar distribuciones correspondientes a sumas finitas. Algunos casos particulares importantes (binomial, Poisson, etc.) alcanzan grados de aproximación suficientes para sumas con no demasiados términos.
+
+Los resultados que se indican a continuación son, por tanto, aproximaciones que se consideran usualmente suficientes, pero conllevan errores numéricos de aproximación.
+
+1. Binomial: aproximar si $n \geq 30$ y $0.1 \leq p \leq 0.9$ a una normal de media $n p$, varianza $n p(1-p)$. Ver aquí más detalles.
+
+2. Poisson: aproximar si $\lambda \geq 10$ a una normal de media $\lambda$ y varianza $\lambda$. Ver aquí más detalles.
+
+Para evaluar aproximadamente el error cometido en las aproximaciones, puede consultarse los cuadros gráficos de los ejemplos de este tema.
+
+El TCL permite aproximar funciones de distribución, independientemente del carácter (continuo o discreto) de las variables sumadas. No sirve, por tanto, para aproximar la funciones de densidad discretas por una normal. En el caso continuo sí puede establecerse también una convergencia de las densidades asociadas.
+
+Finalmente, es conveniente mencionar que existen resultados teóricos que permiten estudiar la velocidad de convergencia de una suma de variables aleatorias a la normal, sin embargo la dificultad técnica que conllevan trasciende el nivel marcado para el conjunto de documentos marcado para Statmedia.
+
+### Aproximaciones y errores numéricos
+
+- Ejemplo 1: error en la aproximación de la binomial.
+- Ejemplo 2: error en la aproximación de la Poisson.
+- Ejemplo 3: error en la aproximación de la suma de puntuaciones de un dado.
+- Ejemplo 4: error en la aproximación de la suma de uniformes.
+- Ejemplo 5: error en la aproximación de la suma de exponenciales.
+
+
+### Acerca de las variables aproximadamente normales
+
+En general, cuando se estudia en experimentos reales una determinada variable no se conoce su distribución teórica. Sin embargo, puede establecerse su distribución empirica a partir de una muestra más o menos amplia.
+
+Una forma habitual de presentar la distribución empírica es construir el histograma de clases de dicha variable. Es un hecho conocido desde el siglo XIX que esta distribución empírica presenta muchas veces una forma que es aproximadamente normal. Por ejemplo, al realizar un estudio sobre el peso de adultos varones de dieciocho años en Catalunya, se observó la distribución siguiente en la muestra:
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_9442f5d7328580e79f50g-9.jpg?height=532&width=538&top_left_y=819&top_left_x=745)
+
+El TCL permite dar una explicación a este fenómeno. La variable peso de un adulto viene determinada en cada individuo por la conjunción de multitud de diferentes factores. Algunos de estos factores son ambientales (dietas, ejercicio, enfermedades, etc.) y otros son congénitos. Con el nivel actual de conocimiento no se pueden desglosar completamente todos los factores que intervienen, pero puede aceptarse en cambio que la variable peso es el resultante de la suma de diferentes variables primarias, congénitas o ambientales, y que posiblemente no todas tienen el mismo grado de influencia. Seguramente, estas variables primarias tampoco tienen la misma media, varianza o, incluso, la misma distribución.
+
+La versión del TCL que se ha presentado aquí exige estas condiciones para la convergencia a la normal, pero, como ya se ha comentado antes otras versiones más elaboradas del TCL permiten modelar la suma de variables de forma menos restringida. En este contexto, al considerar la variable peso como una suma más o menos extensa (pero finita) de diferentes variables primarias, es esperable que ocurra que la variable resultante, el peso, siga una distribución aproximadamente normal.
+
+De forma similar es explicable la normalidad aproximada que se observa en muchas variables biométricas (pesos, alturas, longitudes, concentraciones de metabolitos, distribuciones de edad, etc.) así cómo en muchos otros contextos (distribución de rentas, errores de medición, etc.). A pesar de esta ubicuidad de la distribución normal, el lector no debe inferir que es forzosamente, ni mucho menos, la distribución de referencia en todo estudio aplicado.
+

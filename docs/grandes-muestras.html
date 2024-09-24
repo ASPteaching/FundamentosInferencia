@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Fundamentos de Inferencia Estadistica</title>
-  <meta name="description" content="Fundamentos de Inferencia Estadistica" />
+  <title>Capítulo 5 Grandes muestras | Fundamentos de Inferencia Estadistica</title>
+  <meta name="description" content="Capítulo 5 Grandes muestras | Fundamentos de Inferencia Estadistica" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Fundamentos de Inferencia Estadistica" />
+  <meta property="og:title" content="Capítulo 5 Grandes muestras | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Fundamentos de Inferencia Estadistica" />
+  <meta name="twitter:title" content="Capítulo 5 Grandes muestras | Fundamentos de Inferencia Estadistica" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="probabilidad-y-experimentos-aleatorios.html"/>
+<link rel="prev" href="distribuciones-notables.html"/>
+<link rel="next" href="distribuciones-de-probabilidad-multidimensionales.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -244,76 +244,162 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Fundamentos de Inferencia Estadistica</h1>
-<p class="author"><em>Alex Sanchez Pla y Santiago Pérez Hoyos</em></p>
-<p class="date"><em>2024-09-24</em></p>
-</div>
-<div id="presentación" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> Presentación<a href="index.html#presentación" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="objetivo" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Objetivo<a href="index.html#objetivo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El objetivo de estas notas es presentar un material de soporte para la asignatura de “Inferencia Estadística” del <a href="https://www.uoc.edu/es/estudios/masters/master-universitario-bioinformatica-bioestadistica">Máster interuniversitario de Bioiestadística y Bioinformática</a> impartido conjuntamente por la <a href="https://www.uoc.edu">Universitat Oberta de Catalunya (UOC)</a> y la <a href="https://www.ub.edu">Universidad de Barcelona (UB)</a>.</p>
-<p>Esta asignatura adolece de las características habituales de las asignaturas de posgrado, y especialmente de un posgrado de estadística (y bioinformática), que muestran algunas de las cosas que no debe de ser esta asignatura:</p>
-<ul>
-<li>No puede ser un primer curso de estadística, porque se supone que los estudiantes del máster ya lo han cursado en sus grados. Por no decir que, a quien viene a especializarse en estadística se le puede suponer una base mínima.</li>
-<li>Tampoco debe ser como los segundos cursos de estadística de algunos grados, que tratan temas como la regresión, el diseño de experimentos o el análisis multivariante, porque esto ya se trata en diversas asignaturas del máster.</li>
-</ul>
-<p>¿Que debemos pues esperar que sea este curso?</p>
-<ul>
-<li>Puestos a pedir, este curso debería servir para repasar y consolidar los conceptos básicos que la mayoría de estudiantes traerán consigo.</li>
-<li>Además, y sobretodo, debe proporcionar una visión general, lo más completa posible dentro de las limitaciones de tiempo, del campo de la inferencia estadística</li>
-<li>Y, naturalmente, esto significa proporcionar aquellos conceptos sobre los que se apoyaran muchas de las restantes asignaturas como “Regresión modelos y métodos”, “Diseño de Experimentos”, “Análisis Multivariante”, “Análisis de la Supervivencia” o “Análisis de datos ómicos”.</li>
-</ul>
-<div id="prerequisitos-y-organización-del-material" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Prerequisitos y organización del material<a href="index.html#prerequisitos-y-organización-del-material" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Uno de los problemas “eternos” en el estudio de la estadística ha sido siempre la falta de acuerdo, entre la comunidad de docentes, de cual debería ser el nivel matemático a que se impartan los cursos.</p>
-<p>En los cursos de pre-grado ha habido un cierto consenso, y con los años el nivel de formalismo ha disminuido, incluso en estudios de tipo “STEM”, tendiendo a centrarse en la aplicación de los conceptos, por ejemplo usando R, más que en un tratamiento formal (“matemático”) de los mismos.</p>
-<p>Aunque esto puede ser práctico para aquellos estudios en los que la estadística és una asignatura de un grado, es también obvio que dicha aproximación no permite profundizar en muchos de los puntos que se tratan.</p>
-<p>Es por ello que en este curso seguiremos la indicación habitual en cursos similares de asumir que el estudiante:</p>
-<ul>
-<li>Se siente comodo con el lenguaje algebráico, desarrollo de expresiones, sumatorios etc.</li>
-<li>Está familiarizado con el cálculo diferencial en una o varias variables, aunque esta familiaridad no será imprescindible para seguir la mayoría de los contenidos del curso.</li>
-<li>Conoce el lenguaje estadístico R, que en muchas ocasiones nos ofrecerá una solución directa a los problemas de cálculo.</li>
-</ul>
-</div>
-<div id="referencias" class="section level3 hasAnchor" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Referencias<a href="index.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los prerequisitos anteriores corresponden básicamente a las matemáticas del bachilerato. Algunas funetes adiconales pueden ser:</p>
-<ul>
-<li><p><a href="http://cimanet.uoc.edu/cursMates0/IniciacionMatematicas/pdf/PID_00273914.pdf">Iniciación a las matemáticas para la ingeniería. M. Besalú y Joana Villalonga</a></p>
-<ul>
-<li><a href="https://www.youtube.com/playlist?list=PLv8FweHfYYMo6Lr2zt6H4znq5KuBacq28">Colección de (100) videos de soporte a las matemáticas para la ingeniería</a></li>
-</ul></li>
-</ul>
+<div id="grandes-muestras" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> Grandes muestras<a href="grandes-muestras.html#grandes-muestras" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducción-aproximaciones-asintóticas" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introducción: Aproximaciones asintóticas<a href="grandes-muestras.html#introducción-aproximaciones-asintóticas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="convergencia-de-variables-aleatorias" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Convergencia de variables aleatorias<a href="grandes-muestras.html#convergencia-de-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="agradecimiento-y-fuentes-utilizadas" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Agradecimiento y fuentes utilizadas<a href="index.html#agradecimiento-y-fuentes-utilizadas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Salvo que uno desee escribir un libro sobre algo muy extraño, siempre habran otros libros o manuales similares al que se está planteando.</p>
-<p>La respuesta a la pregunta, “Y entonces, ¿porque hacer un nuevo matrerial?” suele ser más una excusa que una explicación sólida.</p>
-<p>Una posible razón puede ser <em>para ajustarlo al máximo al perfil del curso para al que se destinan dichos materiales</em>, condición que otros textos, pensados para cursos y audiencias distintas, pueden no satisfacer. En este caso adoptaremos esta explicación y el tiempo decidirá si el objetivo se alcanza.</p>
-<p>Dicho esto, debemos agradecer a las distintas fuentes utilizadas, el que hayan puesto a disposición sus materiales para poder reutilizarlos. Entre estos destacamos:</p>
+<div id="leyes-de-los-grandes-números" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Leyes de los grandes números<a href="grandes-muestras.html#leyes-de-los-grandes-números" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="el-proyecto-statmedia" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> El proyecto Statmedia<a href="index.html#el-proyecto-statmedia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Statmedia fue un proyecto para impulsar el aprendizaje de la estadística mediante gadgets interactvos que, sin duda fue pionero en este campo.</p>
-<p>El programa contenía unas explicaciones de los contenidos de probabilidad y estadística para un sólido curso de introducción, complementado con:
-- Una serie de casos para motivar e ilustrar los conceptos introducidos.
-- Un conjunto de gadgets interactivos con los que interactuar y experimentar y
-- Ejercicios de respuesta múltiple para verificar los conceptos trabajados.</p>
-<p>Este programa, sin embargo, como tantos otros, no sobrevivió al desarrollo tecnológico, y la evolución (o decadencia) del lenguaje Java lo llevo a dejar de ser funcional.</p>
-<p>Para estos apuntes hemos recuperado, y en ocasiones adaptado o modificado, algunos de los contenidos de Statmedia, que habían estado escritos con gran pulcritud. Esto se ha hecho siguiendo las indicaciones de la licencia (CC-Share-alike) que permite adaptar contenidos atribuyendolo a sus atores y citando la fuente.</p>
-<p>Los gadgets originales ya no son funcionales pero muchos de ellos han sido re-escritos en R como aplicaciones Shiny (disponibles en: ) y se enlazaran desde los puntos necesarios del texto.</p>
-<p>Dejando aparte (además) de la licencia, vaya nuestro agradecimiento explícito al equipo de profesores del Departamento de Estadística de la Universidad de Barcelona, redactor de la versión inicial del proyecto, que es la que hemos utilizado: Antonio Arcas Pons, Miquel calvo Llorca, Antonio Miñarro Alonso, Sergi Civit Vives y Angel Vilarroya del Campo.</p>
-<p><a href="https://www.emis.de/journals/BEIO/files/BEIOv25n1_HE_A.Arcas+A.Minarro+M.Calvo.pdf">Antoni Arcas, Antonio Miñarro and Miguel Calvo (2008) Statmedia projects in Statistical Education</a></p>
-<div id="otros-materiales-utilizados" class="section level3 hasAnchor" number="1.3.1">
-<h3><span class="header-section-number">1.3.1</span> Otros materiales utilizados<a href="index.html#otros-materiales-utilizados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="el-teorema-central-del-límite" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> El teorema central del límite<a href="grandes-muestras.html#el-teorema-central-del-límite" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El teorema central del límite (a partir de ahora, TCL) presenta un doble interés. Por un lado, proporciona a la estadística un resultado crucial para abordar el estudio de la distribución asintótica de muchos tipos de variables aleatorias. Como se verá en próximos capítulos, va a resultar básico en la construcción de contrastes de hipótesis y de intervalos de confianza, dos herramientas esenciales en estadística aplicada.</p>
+<p>Además, el TCL proporciona una explicación teórica fundamentada a un fenómeno habitual en experimentos reales: las variables estudiadas presentan muchas veces una distribución empírica aproximadamente normal.</p>
+<p>El TCL forma parte de un conjunto de propiedades relativas a las convergencias de variables aleatorias. En este tema se estudia sólo un tipo de convergencia, la convergencia en ley, ya que es necesaria para entender el enunciado del TCL. Se descarta, pues, en este documento el estudio de los otros tipos de convergencias (en probabilidad, casi segura, etc.) y el estudio de las leyes de los grandes números.</p>
+<p>Posiblemente el lector con poca formación en análisis matemático hallará alguna dificultad en la primera lectura de la definición de convergencia en ley y en el enunciado del TCL. Si es este el caso, los ejemplos incluidos han de ayudar en su comprensión. Consideramos al TCL un resultado básico con el que hay que familiarizarse, ya que se aplicará repetidamente en los próximos temas.</p>
+<div id="sumas-de-variables-aleatorias" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Sumas de variables aleatorias<a href="grandes-muestras.html#sumas-de-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El TCL estudia el comportamiento de las sumas de variables aleatorias. En temas anteriores se han visto ya ejemplos de sumas de variables aleatorias.</p>
+<p>Formalmente, la suma de dos variables aleatorias corresponde a la siguiente aplicación: si <span class="math inline">\(X_{1}\)</span> y <span class="math inline">\(X_{2}\)</span> son dos variables aleatorias definidas sobre <span class="math inline">\(\Omega\)</span>, la suma es:</p>
+<p><span class="math display">\[
+\begin{aligned}
+X_{1}+X_{2}: &amp; \Omega \rightarrow \mathbb{R} \\
+&amp; \omega \mapsto X_{1}(\omega)+X_{2}(\omega)
+\end{aligned}
+\]</span></p>
+<p>La suma de dos variables puede extenderse sin dificultad a sumas de tres, cuatro,… y, en general, <span class="math inline">\(n\)</span> variables aleatorias.</p>
+<p>El TCL se ocupa de las sucesiones de variables aleatorias. En el contexto del TCL una sucesión corresponde a un conjunto donde el primer elemento es una variable aleatoria, el segundo elemento es la suma de dos variables aleatorias, el tercero es la suma de tres variables aleatorias, y así sucesivamente.</p>
+<p>Una sucesión es un conjunto de elementos infinitos, que se designan simbólicamente mediante <span class="math inline">\(\left\{X_{n}\right\}\)</span>.
+Cada uno de los elementos de la sucesión (que es una variable aleatoria) lleva asociada una determinada función de distribución:</p>
+<p><span class="math display">\[
+X_{n} \rightarrow F_{n}
+\]</span></p>
+<p>Así pues, la sucesión de variables aleatorias lleva asociada una secuencia paralela de funciones de distribución.</p>
+<p>En los ejemplos se presentan sumas de variables aleatorias de diferentes tipos.</p>
+<div id="presentación-de-los-ejemplos" class="section level4 hasAnchor" number="5.3.1.1">
+<h4><span class="header-section-number">5.3.1.1</span> Presentación de los ejemplos<a href="grandes-muestras.html#presentación-de-los-ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Ejemplo 1: sumas de variables binomiales.</li>
+<li>Ejemplo 2: sumas de variables Poisson.</li>
+<li>Ejemplo 3: sumas de <span class="math inline">\(n\)</span> puntuaciones de dados.</li>
+<li>Ejemplo 4: sumas de variables uniformes.</li>
+<li>Ejemplo 5: sumas de variables exponenciales.</li>
+</ol>
+</div>
+</div>
+<div id="definición-de-convergencia-en-ley" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Definición de convergencia en ley<a href="grandes-muestras.html#definición-de-convergencia-en-ley" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La siguiente definición se ocupa del comportamiento de las sucesiones.
+Sea <span class="math inline">\(\left\{X_{n}\right\}\)</span> una sucesión de variables aleatorias, y sea <span class="math inline">\(\left\{F_{n}\right\}\)</span> la correspondiente sucesión de funciones de distribución. Se dice que <span class="math inline">\(\left\{X_{n}\right\}\)</span> converge en ley a una variable aleatoria <span class="math inline">\(X\)</span> de función de distribución <span class="math inline">\(F\)</span> si:</p>
+<p><span class="math display">\[
+\lim _{n \rightarrow \infty} F_{n}(x)=F(x) \quad \text { para todo } \mathrm{x} \text { donde } F \text { es contínua. }
+\]</span></p>
+<p>Se indica que la sucesión converge en ley mediante el símbolo:</p>
+<p><span class="math display">\[
+X_{n} \stackrel{\mathrm{L}}{\rightarrow} X
+\]</span></p>
+<p>El significado de la definición es que, al aumentar arbitrariamente <span class="math inline">\(n\)</span>, las sucesivas funciones de distribución de la secuencia se aproximan a la distribución <span class="math inline">\(F\)</span> de la variable <span class="math inline">\(X\)</span>.</p>
+<p>En los ejemplos se presentan gráficamente algunas situaciones donde diferentes sucesiones de variables aleatorias convergen en ley a una variable aleatoria normal.</p>
+<div id="representación-gráfica-de-la-convergencia" class="section level4 hasAnchor" number="5.3.2.1">
+<h4><span class="header-section-number">5.3.2.1</span> Representación gráfica de la convergencia<a href="grandes-muestras.html#representación-gráfica-de-la-convergencia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Ejemplo 1: primeros elementos de una sucesión de sumas de variables binomiales.</li>
+<li>Ejemplo 2: primeros elementos de una sucesión de sumas de variables Poisson.</li>
+<li>Ejemplo 3: primeros elementos de una sucesión de sumas de variables discretas.</li>
+<li>Ejemplo 4: primeros elementos de una sucesión de sumas de variables uniformes.</li>
+<li>Ejemplo 5: primeros elementos de una sucesión de sumas de variables exponenciales.</li>
+</ol>
+</div>
+</div>
+<div id="enunciado-del-teorema-central-del-límite" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Enunciado del teorema central del límite<a href="grandes-muestras.html#enunciado-del-teorema-central-del-límite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A continuación se presenta el enunciado del TCL en la versión de Lindeberg y Lévy.
+Teorema:
+Sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span>, un conjunto de variables aleatorias independientes idénticamente distribuidas, cada una de ellas con función de distribución <span class="math inline">\(F\)</span>, y supongamos que <span class="math inline">\(E\left(X_{k}\right)\)</span> <span class="math inline">\(=\mu \mathrm{y} \operatorname{var}\left(X_{k}\right)=\sigma^{2}\)</span> para cualquier elemento del conjunto. Si designamos a la suma normalizada de <span class="math inline">\(n\)</span> términos con el símbolo:</p>
+<p><span class="math display">\[
+S_{n}^{*}=\frac{X_{1}+X_{2}+\cdots+X_{n}-n \mu}{\sigma \sqrt{n}}
+\]</span></p>
+<p>entonces la sucesión de sumas normalizadas converge en ley a la variable aleatoria normal tipificada <span class="math inline">\(\mathrm{Z} \sim N(0,1)\)</span>, es decir:</p>
+<p><span class="math display">\[
+S_{n}^{*} \xrightarrow{\mathrm{L}}
+\]</span></p>
+<p>El teorema anterior tiene dos importantes corolarios:</p>
+<ol style="list-style-type: decimal">
+<li><p>Si consideramos la suma ordinaria de las <span class="math inline">\(n\)</span> variables aleatorias, es decir, <span class="math inline">\(S_{n}=X_{1}+X_{2}+\ldots+X_{n}\)</span>, entonces la sucesión de sumas ordinarias converge en ley a una normal de media <span class="math inline">\(n \mu\)</span> y varianza <span class="math inline">\(n \sigma^{2}\)</span>.</p></li>
+<li><p>Si consideramos el promedio de las <span class="math inline">\(n\)</span> variables aleatorias, es decir, <span class="math inline">\(n^{-1} S_{n}\)</span>, entonces la sucesión de promedios converge en ley a una normal de media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(n^{-1} \sigma^{2}\)</span>.</p></li>
+</ol>
+<div id="comentarios-al-teorema" class="section level4 hasAnchor" number="5.3.3.1">
+<h4><span class="header-section-number">5.3.3.1</span> Comentarios al teorema:<a href="grandes-muestras.html#comentarios-al-teorema" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>La convergencia a la normal tipificada se produce con cualquier tipo de variable que cumpla las condiciones del teorema, sea discreta o absolutamente continua.</li>
+<li>Un sinónimo para indicar que una sucesión converge en ley a una normal es señalar que es asintóticamente normal.</li>
+<li>El TCL presenta el comportamiento de sumas infinitas de variables aleatorias. Veremos posteriormente como interpretar el resultado para valores finitos.</li>
+<li>Existen otras versiones del TCL dónde se relajan las condiciones de la versión de Lindeberg y Lévy, que, como se ha visto, obliga a las variables aleatorias a tener idénticas medias y varianzas. Dichas versiones del TCL necesitan el conocimiento de conceptos matemáticos que exceden el nivel al que se orienta Statmedia, y por esta razón se omite su enunciado.</li>
+</ol>
+</div>
+</div>
+<div id="aplicación-del-tcl-a-los-ejemplos" class="section level3 hasAnchor" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Aplicación del TCL a los ejemplos<a href="grandes-muestras.html#aplicación-del-tcl-a-los-ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p><a href="https://github.com/ASPteaching/ApuntsEstadisticaMatematica">Alex Sanchez y Francesc Carmona (2002). Apunts d’Estadística Matemàtica</a> Licencia CC0 1.0 Universal</p></li>
-<li><p><a href="https://bookdown.org/egarpor/inference/">Molina Peralta, I. and García-Portugués, E. (2024). <em>A First Course on Statistical Inference</em>. Version 2.4.1. ISBN 978-84-09-29680-4</a>. Licencia CC BY-NC-ND 4.0</p></li>
-<li><p><a href="https://bookdown.org/pkaldunn/DistTheory">Peter K. Dunn (2024) <em>The theory of distributions</em>.</a> Licencia CC BY-NC-ND 4.0</p></li>
+<li>Ejemplo 1: normalidad asintótica de la Binomial.</li>
+<li>Ejemplo 2: normalidad asintótica de la Poisson.</li>
+<li>Ejemplo 3: normalidad asintótica de la suma de puntuaciones de un dado.</li>
+<li>Ejemplo 4: normalidad asintótica de la suma de uniformes.</li>
+<li>Ejemplo 5: normalidad asintótica de la suma de exponenciales.</li>
 </ul>
+</div>
+<div id="casos-particulares-más-notables" class="section level3 hasAnchor" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> Casos particulares más notables<a href="grandes-muestras.html#casos-particulares-más-notables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Aunque el TCL tiene multitud de casos particulares interesantes, son especialmente relevantes para el desarrollo de los próximos temas los siguientes casos:</p>
+<div id="promedio-de-boldsymboln-variables-aleatorias" class="section level4 hasAnchor" number="5.3.5.1">
+<h4><span class="header-section-number">5.3.5.1</span> Promedio de <span class="math inline">\(\boldsymbol{n}\)</span> variables aleatorias<a href="grandes-muestras.html#promedio-de-boldsymboln-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Al considerar <span class="math inline">\(n\)</span> variables independientes, todas con la misma distribución, cada una de ellas con esperanza igual a <span class="math inline">\(\mu\)</span> y varianza igual a <span class="math inline">\(\sigma^{2}\)</span>, el promedio es asintóticamente normal con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(n^{-1} \sigma^{2}\)</span>. Este resultado proporciona una distribución asintótica a la media de <span class="math inline">\(n\)</span> observaciones en el muestreo aleatorio simple que se estudiará en el próximo tema.</p>
+</div>
+<div id="binomial-de-parámetros-n-y-p" class="section level4 hasAnchor" number="5.3.5.2">
+<h4><span class="header-section-number">5.3.5.2</span> Binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span><a href="grandes-muestras.html#binomial-de-parámetros-n-y-p" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Es asintóticamente normal con media <span class="math inline">\(n p\)</span> y varianza <span class="math inline">\(n p\)</span> (1-p). Históricamente (de Moivre, 1733), es el primer resultado demostrado de convergencia a una normal.</p>
+</div>
+<div id="poisson-de-parámetro-n-lambda" class="section level4 hasAnchor" number="5.3.5.3">
+<h4><span class="header-section-number">5.3.5.3</span> Poisson de parámetro <span class="math inline">\(n \lambda\)</span><a href="grandes-muestras.html#poisson-de-parámetro-n-lambda" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Es asintóticamente normal con media <span class="math inline">\(n \lambda\)</span> y varianza <span class="math inline">\(n \lambda\)</span>.</p>
+<p><img src="https://cdn.mathpix.com/cropped/2024_09_12_9442f5d7328580e79f50g-7.jpg?height=58&amp;width=1580&amp;top_left_y=1276&amp;top_left_x=44" /></p>
+</div>
+</div>
+<div id="interpretación-del-teorema-central-del-límite" class="section level3 hasAnchor" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> Interpretación del teorema central del límite<a href="grandes-muestras.html#interpretación-del-teorema-central-del-límite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El TCL hace referencia a sucesiones infinitas, por tanto, la igualdad de las distribuciones se alcanza sólo en el límite, y hace mención a una distribución final teórica o de referencia.</p>
+<p>Sin embargo, puede utilizarse esta distribución final de referencia para aproximar distribuciones correspondientes a sumas finitas. Algunos casos particulares importantes (binomial, Poisson, etc.) alcanzan grados de aproximación suficientes para sumas con no demasiados términos.</p>
+<p>Los resultados que se indican a continuación son, por tanto, aproximaciones que se consideran usualmente suficientes, pero conllevan errores numéricos de aproximación.</p>
+<ol style="list-style-type: decimal">
+<li><p>Binomial: aproximar si <span class="math inline">\(n \geq 30\)</span> y <span class="math inline">\(0.1 \leq p \leq 0.9\)</span> a una normal de media <span class="math inline">\(n p\)</span>, varianza <span class="math inline">\(n p(1-p)\)</span>. Ver aquí más detalles.</p></li>
+<li><p>Poisson: aproximar si <span class="math inline">\(\lambda \geq 10\)</span> a una normal de media <span class="math inline">\(\lambda\)</span> y varianza <span class="math inline">\(\lambda\)</span>. Ver aquí más detalles.</p></li>
+</ol>
+<p>Para evaluar aproximadamente el error cometido en las aproximaciones, puede consultarse los cuadros gráficos de los ejemplos de este tema.</p>
+<p>El TCL permite aproximar funciones de distribución, independientemente del carácter (continuo o discreto) de las variables sumadas. No sirve, por tanto, para aproximar la funciones de densidad discretas por una normal. En el caso continuo sí puede establecerse también una convergencia de las densidades asociadas.</p>
+<p>Finalmente, es conveniente mencionar que existen resultados teóricos que permiten estudiar la velocidad de convergencia de una suma de variables aleatorias a la normal, sin embargo la dificultad técnica que conllevan trasciende el nivel marcado para el conjunto de documentos marcado para Statmedia.</p>
+</div>
+<div id="aproximaciones-y-errores-numéricos" class="section level3 hasAnchor" number="5.3.7">
+<h3><span class="header-section-number">5.3.7</span> Aproximaciones y errores numéricos<a href="grandes-muestras.html#aproximaciones-y-errores-numéricos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Ejemplo 1: error en la aproximación de la binomial.</li>
+<li>Ejemplo 2: error en la aproximación de la Poisson.</li>
+<li>Ejemplo 3: error en la aproximación de la suma de puntuaciones de un dado.</li>
+<li>Ejemplo 4: error en la aproximación de la suma de uniformes.</li>
+<li>Ejemplo 5: error en la aproximación de la suma de exponenciales.</li>
+</ul>
+</div>
+<div id="acerca-de-las-variables-aproximadamente-normales" class="section level3 hasAnchor" number="5.3.8">
+<h3><span class="header-section-number">5.3.8</span> Acerca de las variables aproximadamente normales<a href="grandes-muestras.html#acerca-de-las-variables-aproximadamente-normales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En general, cuando se estudia en experimentos reales una determinada variable no se conoce su distribución teórica. Sin embargo, puede establecerse su distribución empirica a partir de una muestra más o menos amplia.</p>
+<p>Una forma habitual de presentar la distribución empírica es construir el histograma de clases de dicha variable. Es un hecho conocido desde el siglo XIX que esta distribución empírica presenta muchas veces una forma que es aproximadamente normal. Por ejemplo, al realizar un estudio sobre el peso de adultos varones de dieciocho años en Catalunya, se observó la distribución siguiente en la muestra:</p>
+<p><img src="https://cdn.mathpix.com/cropped/2024_09_12_9442f5d7328580e79f50g-9.jpg?height=532&amp;width=538&amp;top_left_y=819&amp;top_left_x=745" /></p>
+<p>El TCL permite dar una explicación a este fenómeno. La variable peso de un adulto viene determinada en cada individuo por la conjunción de multitud de diferentes factores. Algunos de estos factores son ambientales (dietas, ejercicio, enfermedades, etc.) y otros son congénitos. Con el nivel actual de conocimiento no se pueden desglosar completamente todos los factores que intervienen, pero puede aceptarse en cambio que la variable peso es el resultante de la suma de diferentes variables primarias, congénitas o ambientales, y que posiblemente no todas tienen el mismo grado de influencia. Seguramente, estas variables primarias tampoco tienen la misma media, varianza o, incluso, la misma distribución.</p>
+<p>La versión del TCL que se ha presentado aquí exige estas condiciones para la convergencia a la normal, pero, como ya se ha comentado antes otras versiones más elaboradas del TCL permiten modelar la suma de variables de forma menos restringida. En este contexto, al considerar la variable peso como una suma más o menos extensa (pero finita) de diferentes variables primarias, es esperable que ocurra que la variable resultante, el peso, siga una distribución aproximadamente normal.</p>
+<p>De forma similar es explicable la normalidad aproximada que se observa en muchas variables biométricas (pesos, alturas, longitudes, concentraciones de metabolitos, distribuciones de edad, etc.) así cómo en muchos otros contextos (distribución de rentas, errores de medición, etc.). A pesar de esta ubicuidad de la distribución normal, el lector no debe inferir que es forzosamente, ni mucho menos, la distribución de referencia en todo estudio aplicado.</p>
 
 </div>
 </div>
@@ -323,8 +409,8 @@
           </div>
         </div>
       </div>
-
-<a href="probabilidad-y-experimentos-aleatorios.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distribuciones-notables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distribuciones-de-probabilidad-multidimensionales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -355,7 +441,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/index.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/04-grandesMuestras.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -363,7 +449,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/blob/main/index.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia/blob/main/04-grandesMuestras.Rmd",
 "text": null
 },
 "download": ["FundInfProj.pdf"],

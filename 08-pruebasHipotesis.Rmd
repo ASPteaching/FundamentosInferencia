@@ -1,0 +1,5 @@
+# Pruebas de hipótesis
+
+Se plantea el problema de las pruebas de hipótesis. Se discuten las aproximaciones y los conceptos asociados. Se trata el problema de la crisis de la significación.
+
+

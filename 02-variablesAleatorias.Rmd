@@ -1,0 +1,560 @@
+# Variables aleatorias y Distribuciones de probabilidad
+
+
+## El espacio muestral y sus elementos
+
+Cuando llevamos a cabo un experimento aleatorio, el conjunto $\Omega$ de resultados posibles forman el denominado espacio muestral. Sus elementos $\omega$ (resultados o sucesos elementales) deben ser conocidos por el investigador que realiza la experiencia, aun cuando no podamos determinar a priori el resultado particular de una realización concreta.
+
+Supondremos que también conocemos la manera de asignar una probabilidad sobre el conjunto de enunciados o sucesos observables que se pueden construir a partir de $\Omega$. Es decir, supondremos la existencia de un espacio de probabilidad construido a partir de los resultados de $\Omega$.
+
+Generalmente, la estructura del espacio muestral no permite, o por lo menos no facilita, su tratamiento matemático. Pensemos en la inmensa variedad en la naturaleza de resultados posibles de diferentes experimentos. Además es bastante frecuente que no nos interesen los resultados en sí, sino una característica que, de alguna manera, resuma el resultado del experimento.
+
+## Representación numérica de los sucesos elementales. Variables aleatorias
+
+La forma de resumen que adoptaremos es la asignación a cada suceso elemental de un valor numérico, en particular, de un número real.
+
+En la práctica la asignación de un valor numérico a cada elemento del espacio muestral se hace siguiendo una regla o enunciado, según el interés concreto del experimentador. Evidentemente, podemos construir diversas maneras de asignar valores numéricos a los mismos resultados de un experimento.
+
+Hablando en términos coloquiales, podemos decir que cada regla de asignación corresponde a una determinada variable que se puede medir sobre los sucesos elementales.
+
+Nótese que es posible construir múltiples variables sobre un mismo espacio de probabilidad.
+En términos algo más formales, las reglas de asignación se pueden interpretar como una aplicación de $\Omega$ en el conjunto de números reales.
+$$
+\begin{aligned}
+X: \Omega & \rightarrow \mathbb{R} \\
+\omega & \rightarrow X(\omega)
+\end{aligned}
+$$
+
+$X$ representa la variable o regla de asignación concreta.
+El conjunto de valores numéricos que puede tomar una variable, y que depende de la naturaleza de la misma variable, recibe el nombre de recorrido de la variable.
+
+A partir de este momento, los sucesos elementales quedan substituidos por sus valores numéricos de acuerdo a una determinada variable y permiten un mayor tratamiento matemático en el marco de la teoría de la probabilidad.
+
+El apelativo aleatoria que reciben las variables hace referencia al hecho de que los posibles valores que toman dependen de los resultados de un fenómeno aleatorio que se presentan con una determinada probabilidad.
+
+Como un complemento al tema presentamos la definición formal de variable aleatoria, donde se introducen las restricciones a las reglas de asignación numérica que posibilitan el tratamiento matemático de las variables.
+
+## Caracterización de una variable aleatoria a través de la probabilidad. Función de distribución
+
+Una vez que tenemos definida una variable aleatoria, ésta queda totalmente caracterizada en el momento en que somos capaces de determinar la probabilidad de que la variable tome valores en cualquier intervalo de la recta real. Dado que los posibles valores que puede tomar la variable, es decir, su recorrido, pueden ser muy grandes (infinitos de hecho), el problema de caracterizar una variable aleatoria se ha resuelto a través de la definición de una serie de funciones matemáticas.
+
+La más general de dichas funciones es la función de distribución.
+Definimos la función de distribución de una variable aleatoria $X$ como la aplicación
+
+$$
+\begin{array}{rll}
+F: & \mathbb{R} & \rightarrow[0,1] \\
+& x & \rightarrow F(x)=P(X \leq x)=P\{\omega \in \Omega \mid X(\omega) \leq x\}
+\end{array}
+$$
+
+Por tanto, para cada punto de la recta real, el valor de la función de distribución es la probabilidad del suceso formado por los resultados del experimento que tienen asignado un valor de la variable aleatoria menor o igual a dicho punto. O también podemos decir que es la probabilidad inducida en el intervalo de la recta $(-\infty, x]$.
+
+Hay que hacer notar que siempre será posible determinar dicha probabilidad gracias a los requerimientos exigidos en la definición formal de variable aleatoria. Por tanto, toda variable aleatoria tiene asociada una función de distribución. Nos referimos a esta función cuando decimos que conocemos la distribución de la variable aleatoria.
+
+## Propiedades de la función de distribución
+
+Resumimos a continuación las propiedades más importantes de la función de distribución:
+
+1. $0 \leq F(x) \leq 1$
+2. $\lim _{x \rightarrow+\infty} F(x)=1$
+3. $\lim _{x \rightarrow-\infty} F(x)=0$
+4. $x_{1}<x_{2} \Rightarrow F\left(x_{1}\right) \leq F\left(x_{2}\right)$
+5. $\lim _{x \rightarrow a^{+}} F(x)=F(a) \quad \forall a \in \mathbb{R}_{\text {la derecha. }}^{\text {Función siempre continua por }}$
+
+Toda función que verifique las propiedades anteriores es una función de distribución y toda función de distribución caracteriza una determinada variable aleatoria sobre algún espacio de probabilidad.
+
+Las propiedades anteriores se traducen en un tipo de gráfica para la función de distribución del tipo de las que mostramos a continuación:
+
+Primer tipo
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-06.jpg?height=824&width=1315&top_left_y=1527&top_left_x=376)
+
+Segundo tipo
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-07.jpg?height=823&width=1315&top_left_y=91&top_left_x=376)
+
+Evidentemente, podrían aparecer distribuciones, y por tanto gráficas, que combinen las características de los dos modelos anteriores.
+
+## Clasificación de las variables aleatorias
+
+Para su estudio, las variables aleatorias se clasifican en variables discretas o variables contínuas. 
+
+### Variables aleatorias discretas
+
+Diremos que una variable aleatoria es discreta si su recorrido es finito o infinito numerable.
+Generalmente, este tipo de variables van asociadas a experimentos en los cuales se cuenta el número de veces que se ha presentado un suceso o donde el resultado es una puntuación concreta.
+
+Los puntos del recorrido se corresponden con saltos en la gráfica de la función de distribución, que correspondería al segundo tipo de gráfica visto anteriormente.
+
+### Variables aleatorias continuas
+
+Son aquellas en las que la función de distribución es una función continua. Se corresponde con el primer tipo de gráfica visto.
+
+Generalmente, se corresponden con variables asociadas a experimentos en los cuales la variable medida puede tomar cualquier valor en un intervalo; mediciones biométricas, por ejemplo.
+
+Un caso particular dentro de las variables aleatorias continuas y al cual pertenecen todos los ejemplos usualmente utilizados, son las denominadas variables aleatorias absolutamente continuas.
+
+#### Variables aleatorias absolutamente continuas
+
+Diremos que una variable aleatoria $X$ continua tiene una distribución absolutamente continua si existe una función real $f$, positiva e integrable en el conjunto de números reales, tal que la función de distribución $F$ de $X$ se puede expresar como
+
+$$
+F(x)=\int_{-\infty}^{x} f(t) d t
+$$
+
+Una variable aleatoria con distribución absolutamente continua, por extensión, se la clasifica como variable aleatoria absolutamente continua.
+
+A la función $f$ se la denomina función de densidad de probabilidad de la variable $X$.
+
+Hay que hacer notar que no toda variable continua es absolutamente continua, pero los ejemplos son complicados, algunos utilizan para su construcción el conjunto de Cantor, y quedan fuera del nivel y del objetivo de este curso.
+
+Igualmente indicaremos que los tipos de variables comentados anteriormente forman únicamente una parte de todos los posibles tipos de variables, sin embargo contienen prácticamente todas las variables aleatorias que encontramos usualmente.
+
+Tal como se estudiará más adelante, existen algunas familias de funciones de distribución, tanto dentro del grupo de las discretas como de las continuas, que por su importancia reciben un nombre propio y se estudiarán en los capítulos siguientes.
+
+En  ocasiones encontramos variables de tipo mixto, es decir que se comportan como discretas o contínuas para distintos grupos de valores.
+
+## Variable aleatoria discretas
+
+Una variable aleatoria $X$ diremos que es discreta si su recorrido es finito o infinito numerable, recorrido que denotaremos de la forma $\left\{x_{1}, x_{2}, \ldots, x_{\mathrm{k}}, \ldots\right\}$.
+
+El ejemplo más sencillo de variable aleatoria discreta lo constituyen las variables indicadoras. Sea $A$ un suceso observable, se llama indicador de $A$ a la variable aleatoria definida por
+
+$$
+\begin{aligned}
+I_{A}: \Omega & \rightarrow \mathbb{R} \\
+\omega & \rightarrow I_{A}(\omega)=\left\{\begin{array}{lll}
+1 & \text { si } \omega \in A \\
+0 & \text { si } & A
+\end{array}\right.
+\end{aligned}
+$$
+
+#### Ejercicio: 
+
+Construir, a partir de las variables indicadoras de $A$ y $B$, las siguientes variables indicadoras?
+
+$$
+I_{A \cap B} ; I_{A \cup B} ; I_{A} c ; I_{\Omega}
+$$
+
+##### Solución
+
+$$
+\begin{gathered}
+I_{A \cap B}=I_{A} \cdot I_{B} \\
+I_{A \cup B}=I_{A}+I_{B}-I_{A \cap B} \\
+I_{A} c=1-I_{A} \\
+\Omega=1
+\end{gathered}
+$$
+
+### Caracterización a través de la función de densidad o de probabilidad
+
+Las variables aleatorias discretas vienen caracterizadas a través de una función que asocia cada elemento del recorrido con su probabilidad. Dicha función recibe varios nombres según los autores: función o ley de probabilidad, o también función de densidad de la variable aleatoria discreta.
+
+Podemos representarla de la manera siguiente:
+
+$$
+\begin{array}{rll}
+f: & \mathbb{R} & \rightarrow[0,1] \\
+& x & \rightarrow f(x)=P(X=x)=P\{\omega \in \Omega \mid X(\omega)=x\}
+\end{array}
+$$
+
+La función definida anteriormente es nula en todo punto que no pertenezca al recorrido.
+Es evidente que, al ser una probabilidad, la función de densidad discreta está acotada $0 \leq f(x) \leq 1$.
+Toda función de densidad discreta puede expresarse de manera explícita a través de una tabla que asocie directamente puntos del recorrido con sus probabilidades.
+
+Ejemplo: Consideremos la variable indicadora del suceso $A$ :
+
+$$
+\begin{aligned}
+I_{A}: \Omega & \rightarrow \mathbb{R} \\
+\omega & \rightarrow I_{A}(\omega)=\left\{\begin{array}{lll}
+1 & \text { si } & \omega \in A \\
+0 & \text { si } & A
+\end{array}\right.
+\end{aligned}
+$$
+
+La función de densidad de esta variable sería la siguiente:
+
+| $x$ | 0 | 1 |
+| :---: | :---: | :---: |
+| $f(x)=P(X=x)$ | $1-P(A)=P\left(A^{\mathrm{c}}\right)$ | $P(A)$ |
+
+El recorrido está formado por dos valores: 1 y 0 , con las mismas probabilidades que las del suceso $A$ y su complementario, respectivamente.
+
+En otros casos la función de densidad se expresa a través de una fórmula matemática que define una regla de asignación de probabilidades para los valores del recorrido.
+
+#### Ejemplo
+
+$$
+P(X=x)=0,2 \cdot 0,8^{x-1}, \quad x=1,2, \ldots
+$$
+
+es la función de densidad de una variable aleatoria discreta con recorrido numerable.
+
+### Propiedades de la función de densidad discreta
+
+1. 
+
+$$
+0 \leq f(x) \leq 1
+$$
+
+2. $\sum_{i=1}^{n} f\left(x_{i}\right)=1$, si el recorrido es finito.
+3. $\sum_{i=1}^{\infty} f\left(x_{i}\right)=1$, si el recorrido es numerable.
+
+### Relaciones entre la función de distribución y la función de densidad discreta. <br> Probabilidad de intervalos.
+
+Existe una relación muy importante entre las funciones de distribución $F(x)$ y de densidad $f(x)$ de una variable aleatoria discreta. La función de distribución en un punto se obtiene acumulando el valor de la función de densidad para todos los valores del recorrido menores o iguales al punto en cuestión.
+
+$$
+F(x)=\sum_{x_{i} \leq x} f\left(x_{i}\right) \quad \text { para todo } \mathrm{x}_{\mathrm{i}} \text { perteneciente al recorrido de la variable. }
+$$
+
+En efecto, supongamos que el recorrido de una variable discreta $X$ es $\left\{x_{1}, x_{2}, \ldots, x_{k}, \ldots\right\}$ y que deseamos conocer el valor de la función de distribución en un punto $x$ tal que $x_{i} \leq x<x_{i+1}$, entonces es inmediato que
+
+$$
+F(x)=P(X \leq x)=P\left(X=x_{1}\right)+P\left(X=x_{2}\right)+\ldots+P\left(X=x_{i}\right)=f\left(x_{1}\right)+f\left(x_{2}\right)+f\left(x_{3}\right)+\ldots+f\left(x_{i}\right)
+$$
+
+Por ejemplo, para una variable indicadora de un suceso $A$, tenemos la relación siguiente:
+
+| Valor de $\boldsymbol{x}$ | $\boldsymbol{f}(\boldsymbol{x})$ | $\boldsymbol{F}(\boldsymbol{x})$ |
+| :---: | :---: | :---: |
+| $(-\infty, 0)$ |  | 0 |
+| 0 | $P\left(A^{c}\right)$ | $P\left(A^{\mathrm{c}}\right)$ |
+| $(0,1)$ |  | $P\left(A^{\mathrm{c}}\right)$ |
+| 1 | $P(A)$ | $P\left(A^{\mathrm{c}}\right)+P(A)=1$ |
+| $(1,+\infty)$ |  | 1 |
+
+A partir de las funciones de densidad y de distribución es posible expresar las probabilidades para cualquier posible intervalo de valores de la variable. Por ejemplo:
+
+| Intervalo |
+| :--- |
+| $P(X \leq a)=F(a)$ |
+| $P(X<a)=F(a)-f(a)$ |
+| $P(X>a)=1-F(a)=1-P(X \leq a)$ |
+| $P(X \geq a)=1-F(a)+f(a)=1-P(X>a)$ |
+| $P(a<X \leq b)=F(b)-F(a)$ |
+| $P(a<X<b)=F(b)-f(b)-F(a)$ |
+| $P(a \leq X \leq b)=F(b)-F(a)+f(a)$ |
+| $P(a \leq X<b)=F(b)-f(b)-F(a)+f(a)$ |
+
+## Variables aleatorias continuas
+
+Una variable aleatoria $X$ diremos que es continua si su función de distribución es una función continua.
+En la práctica, se corresponden con variables asociadas con experimentos en los cuales la variable medida puede tomar cualquier valor en un intervalo: mediciones biométricas, intervalos de tiempo, áreas, etc.
+
+### Ejemplos
+
+- Resultado de un generador de números aleatorios entre 0 y 1. Es el ejemplo más sencillo que podemos considerar, es un caso particular de una familia de variables aleatorias que tienen una distribución uniforme en un intervalo $[a, b]$. Se corresponde con la elección al azar de cualquier valor entre $a$ y $b$.
+- Estatura de una persona elegida al azar en una población. El valor que se obtenga será una medición en cualquier unidad de longitud ( m , cm , etc.) dentro de unos límites condicionados por la naturaleza de la variable. El resultado es impredecible con antelación, pero existen intervalos de valores más probables que otros debido a la distribución de alturas en la población. Más adelante veremos que, generalmente, variables biométricas como la altura se adaptan un modelo de distribución denominado distribución Normal y representado por una campana de Gauss.
+
+Dentro de las variables aleatorias continuas tenemos las variables aleatorias absolutamente continuas.
+
+Diremos que una variable aleatoria $X$ continua tiene una distribución absolutamente continua si existe una función real $f$, positiva e integrable en el conjunto de números reales, tal que la función de distribución $F$ de $X$ se puede expresar como
+
+$$
+F(x)=\int_{-\infty}^{x} f(t) d t
+$$
+
+Una variable aleatoria con distribución absolutamente continua, por extensión, se clasifica como variable aleatoria absolutamente continua.
+
+En cuanto a nuestro manual, todas las variables aleatorias continuas con las que trabajemos pertenecen al grupo de las variables absolutamente continuas, en particular, los ejemplos y casos expuestos.
+
+### Función de densidad continua
+
+La función que caracteriza las variables continuas es aquella función $f$ positiva e integrable en los reales, tal que acumulada desde $-\infty$ hasta un punto $x$, nos proporciona el valor de la función de distribución en $x, F(\mathrm{x})$. Recibe el nombre de función de densidad de la variable aleatoria continua.
+
+$$
+F(x)=\int_{-\infty}^{x} f(t) d t
+$$
+
+Las funciones de densidad discreta y continua tienen, por tanto, un significado análogo, ambas son las funciones que acumuladas (en forma de sumatorio en el caso discreto o en forma de integral en el caso continuo) dan como resultado la función de distribución.
+
+La diferencia entre ambas, sin embargo, es notable.
+
+- La función de densidad discreta toma valores positivos únicamente en los puntos del recorrido y se interpreta como la probabilidad de la que la variable tome ese valor $f(x)=P(X=x)$.
+- La función de densidad continua toma valores en el conjunto de números reales y no se interpreta como una probabilidad. No está acotada por 1, puede tomar cualquier valor positivo. Es más, en una variable continua se cumple que probabilidades definidas sobre puntos concretos siempre son nulas.
+
+$$
+P(X=x)=0 \text { para todo } x \text { real. }
+$$
+
+¿Cómo se interpreta, entonces, la función de densidad continua?
+Las probabilidades son las áreas bajo la función de densidad. El área bajo la función de densidad entre dos puntos a y b se interpreta como la probabilidad de que la variable aleatoria tome valores comprendidos entre $a$ y $b$.
+
+Por tanto, siempre se cumple lo siguiente:
+
+$$
+\int_{-\infty}^{+\infty} f(x) d x=1
+$$
+
+La función de densidad se expresa a través de una función matemática. La forma específica de la función matemática generalmente pasa por considerar a la variable aleatoria como miembro de una determinada familia de distribuciones, un determinado modelo de probabilidad. Estas familias generalmente dependen de uno o más parámetros y serán objeto de un estudio específico en un capítulo posterior. La atribución a una determinada familia depende de la naturaleza de la variable en cuestión.
+
+Podemos ver, únicamente con ánimo ilustrativo, la expresión analítica y la gráfica para los ejemplos comentados con anterioridad:
+
+- Resultado de un generador de números aleatorios entre $\boldsymbol{a}$ y $\boldsymbol{b}$. Modelo Uniforme.
+$f(x)=\left\{\begin{array}{cc}\frac{1}{b-a} & x \in[a, b] \\ 0 & x \notin[a, b]\end{array}\right\}$
+- Estatura de una persona elegida al azar en una población. Modelo Normal.
+
+$$
+f(x)=\frac{1}{\sqrt{2 \pi}} e^{\frac{-(x-170)^{2}}{2}}-\infty<x<\infty
+$$
+
+### Relaciones entre la función de distribución y la función de densidad. 
+
+Para una variable continua, la relación entre las funciones de distribución y de densidad viene dada directamente a través de la definición. La función de distribución en un punto se obtiene integrando el valor de la función de densidad desde menos infinito hasta el punto en cuestión. Por ejemplo:
+
+$$
+F(x)=\int_{-\infty}^{x} f(t) d t
+$$
+
+#### Probabilidad de intervalos
+
+A partir de las funciones de densidad y de distribución, y teniendo en cuenta que $P(X=x)=0$ para todo $x$ real, es posible expresar las probabilidades para cualquier posible intervalo de valores de la variable. Por ejemplo:
+
+| Intervalo |
+| :---: |
+| $P(X \leq a)=P(X<a)=F(a)=\int_{-\infty}^{a} f(x) d x$ |
+| $P(X \geq a)=P(X>a)=1-F(a)=\int_{a}^{+\infty} f(x) d x$ |
+| $P(a<X \leq b)=P(a<X<b)=P(a \leq X \leq b)=P(a \leq X<b)$ |
+| $=F(b)-F(a)=\int^{b} f(x) d x$ |
+
+Fijémonos que la probabilidad de los intervalos se corresponde con el área bajo la función de densidad dentro del intervalo considerado.
+![](https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-19.jpg?height=2339&width=1236&top_left_y=92&top_left_x=409)
+
+## Independencia de variables aleatorias
+
+De manera intuitiva podemos decir que dos variables aleatorias son independientes si los valores que toma una de ellas no afectan a los de la otra ni a sus probabilidades.
+
+En muchas ocasiones la independencia será evidente a partir del experimento, por ejemplo, es independiente el resultado del lanzamiento de un dado y el de una moneda, por tanto las variables Puntuación obtenida con el dado y Número de caras obtenidas al lanzar la moneda una vez serán variables independientes.
+
+En otras ocasiones tenemos una dependencia clara, por ejemplo, al lanzar un dado consideremos las variables
+$X=$ puntuación del dado
+$Y=$ variable indicadora de puntuación par
+Es evidente que existe una clara dependencia, si sabemos que $Y=1$, la variable $X$ sólo puede tomar los valores 2 , 4 o 6 ; si sabemos que $X=3$, entonces, $Y=0$ forzosamente.
+
+Algunas veces podemos suponer la existencia de una cierta relación entre variables, aunque sea en forma algo abstracta y sin concretar. Por ejemplo si realizamos unas mediciones sobre unos individuos, las variables altura en cm y peso en Kg probablemente estarán relacionadas, los valores de una influirán en los valores de la otra. Intentar determinar la naturaleza exacta de la relación entre ambas es lo que en estadística conocemos como un problema de regresión.
+
+Si queremos una definición algo más formal, basta con que recordemos que dos sucesos son independientes si la probabilidad de la intersección es igual al producto de probabilidades, aplicando esta definición a sucesos del tipo $X \leq a$ tenemos la definición siguiente:
+
+### Caracterización de la independencia
+
+Diremos que dos variables aleatorias $X$ e $Y$ son independientes si y sólo si
+
+$$
+P(X \leq a \cap Y \leq b)=P(X \leq a) \cdot P(Y \leq b)=F_{X}(a) \cdot F_{Y}(b)
+$$
+
+A la función $F(x, y)=P(X \leq a \cap Y \leq b)$ se la conoce como la función de distribución conjunta de $X$ e $Y$.
+Como consecuencia inmediata de la independencia de $X$ e $Y$, se cumple lo siguiente:
+
+$$
+P(a<X \leq c \cap b<Y \leq d)=P(a<X \leq c) \cdot P(b<Y \leq d)
+$$
+
+## Caracterización de una variable aleatoria a través de parámetros
+
+Hasta el momento hemos visto que toda variable aleatoria viene caracterizada a través de unas determinadas funciones matemáticas, las funciones de distribución y de densidad. Una vez caracterizada, y por tanto conocida, la distribución de una variable aleatoria, podemos obtener cualquier probabilidad asociada.
+
+En ocasiones podemos acotar más el problema y reducir el estudio de una variable aleatoria a determinar una serie de características numéricas asociadas con la distribución de la variable. Dichas características tienen como propiedad fundamental el hecho de resumir gran parte de las propiedades de la variable aleatoria y juegan un papel muy destacado en las técnicas estadísticas que desarrollaremos a lo largo del curso.
+
+Por ejemplo, supuesta la pertenencia de una variable aleatoria a una determinada familia de distribuciones de probabilidad, bien sea discreta o continua, los diferentes miembros de la familia diferirán en el valor de esas características numéricas. En este caso, denominaremos a tales características los parámetros de la distribución.
+
+Existe un buen número de tales características, pero nos centraremos en las dos más importantes: la esperanza y la varianza. La primera nos informa sobre la localización de los valores de la variable y la segunda, sobre el grado de dispersión de estos valores.
+
+## Esperanza de una variable aleatoria discreta
+
+La esperanza matemática de una variable aleatoria es una característica numérica que proporciona una idea de la localización de la variable aleatoria sobre la recta real. Decimos que es un parámetro de centralización o de localización.
+
+Su interpretación intuitiva o significado se corresponde con el valor medio teórico de los posibles valores que pueda tomar la variable aleatoria, o también con el centro de gravedad de los valores de la variable supuesto que cada valor tuviera una masa proporcional a la función de densidad en ellos.
+
+La definición matemática de la esperanza en el caso de las variables aleatorias discretas se corresponde directamente con las interpretaciones proporcionadas en el párrafo anterior. Efectivamente, supuesta una variable aleatoria discreta $X$ con recorrido $\left\{x_{1}, x_{2}, \ldots, x_{k}, \ldots\right\}$ y con función de densidad $f(x)$, se define la esperanza matemática de $X$ como el valor
+
+$$
+E(X)=\sum_{x_{i} \in X(\Omega)} x_{i} f\left(x_{i}\right)
+$$
+
+donde el sumatorio se efectúa para todo valor que pertenece al recorrido de $X$.
+En caso de que el recorrido sea infinito la esperanza existe si la serie resultante es absolutamente convergente, condición que no siempre se cumple.
+
+La definición se corresponde con un promedio ponderado según su probabilidad de los valores del recorrido y, por tanto, se corresponde con la idea de un valor medio teórico.
+
+## Esperanza de una variable aleatoria continua
+
+La idea intuitiva que más nos puede ayudar en la definición de la esperanza matemática de una variable aleatoria continua es la idea del centro de gravedad de los valores de la variable, donde cada valor tiene una masa proporcional a la función de densidad en ellos.
+
+Dada una variable aleatoria absolutamente continua $X$ con función de densidad $f(x)$, se define la esperanza matemática de $X$ como el valor
+
+$$
+E(X)=\int_{-\infty}^{+\infty} x f(x) d x
+$$
+
+suponiendo que la integral exista.
+
+## Propiedades de la esperanza matemática
+
+1. Esperanza de una función de una variable aleatoria
+
+- Variable discreta
+
+$$
+E(h(X))=\sum_{x_{i} \in X(\Omega)} h\left(x_{i}\right) f\left(x_{i}\right)
+$$
+
+- Variable continua
+
+$$
+E(h(X))=\int_{-\infty}^{+\infty} h(x) f(x) d x
+$$
+
+### Linealidad de la esperanza matemática
+
+- $E(X+Y)=E(X)+E(Y)$
+- $E(k \cdot X)=k \cdot E(X)$ para todo número real $k$.
+- $E(k)=k$ para todo número real $k$.
+
+○ $E(a \cdot X+b)=a \cdot E(X)+b$ para todo par de números reales $a$ y $b$.
+
+### Esperanza del producto
+
+- $E(X \cdot Y)=E(X) \cdot E(Y)$ únicamente en el caso de que $X$ e $Y$ sean variables aleatorias independientes.
+
+
+## Varianza de una variable aleatoria
+
+La varianza de una variable aleatoria es una característica numérica que proporciona una idea de la dispersión de la variable aleatoria respecto de su esperanza. Decimos que es un parámetro de dispersión.
+
+La definición es la siguiente:
+
+$$
+\operatorname{Var}(X)=E\left((X-E(X))^{2}\right)
+$$
+
+Es, por tanto, el promedio teórico de las desviaciones cuadráticas de los diferentes valores que puede tomar la variable respecto de su valor medio teórico o esperanza.
+
+En el caso de las variables discretas, la expresión se convierte en:
+
+$$
+\operatorname{Var}(X)=\sum_{x_{i} \in X(\Omega)}\left(x_{i}-E(X)\right)^{2} f\left(x_{i}\right)
+$$
+
+mientras que para las variables continuas tenemos:
+
+$$
+\operatorname{Var}(X)=\int_{-\infty}^{+\infty}(x-E(X))^{2} f(x) d x
+$$
+
+En ambos casos existe una expresión equivalente alternativa y generalmente de cálculo más fácil:
+
+$$
+\operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}
+$$
+
+Una de las características de la varianza es que viene expresada en unidades cuadráticas respecto de las unidades originales de la variable. Un parámetro de dispersión derivado de la varianza y que tiene las mismas unidades de la variable aleatoria es la desviación típica, que se define como la raíz cuadrada de la varianza.
+
+$$
+\sigma_{X}=\sqrt{\operatorname{Var}(X)}=\sqrt{E\left((X-E(X))^{2}\right)}
+$$
+
+### Propiedades de la varianza
+
+1. $\operatorname{Var}(X) \geq 0$
+2. $\operatorname{Var}(k \cdot X)=k^{2} \cdot \operatorname{Var}(X)$ para todo numero real $k$.
+3. $\operatorname{Var}(k)=0$ para todo numero real $k$.
+4. $\operatorname{Var}(a \cdot X+b)=a^{2} \cdot \operatorname{Var}(X)$ para todo par de números reales $a$ i $b$.
+5. $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ únicamente en el caso que $X$ y $Y$ sean independientes.
+
+## Momentos (de orden $k$) de una variable aleatoria
+
+- Dada una variable aleatoria $X$, definimos el momento de orden $k$ como:
+
+$$
+m_{k}=E\left(X^{k}\right)
+$$
+
+suponiendo que tal esperanza exista.
+Podemos ver que la esperanza es el momento de orden $1, E(X)=m_{1}$.
+
+- Definimos el momento central de orden $k$ como:
+
+$$
+\mu_{k}=E\left((X-E(X))^{k}\right)
+$$
+
+Con la denominación anterior, la varianza es el momento central de orden $2, \operatorname{Var}(X)=\mu_{2}$.
+
+- Es posible también definir momentos mixtos de dos variables aleatorias. Dadas dos variables aleatorias $X$ e $Y$ definimos el momento mixto de orden $(r, k)$ como
+
+$$
+m_{r k}=E\left(X^{r} \cdot Y^{k}\right)
+$$
+
+y el momento mixto central de orden $(r, k)$ como
+
+$$
+\left.\mu_{r k}=E(X-E(X))^{r} \cdot(Y-E(Y))^{k}\right)
+$$
+
+- El momento mixto central más importante es el $\mu_{11}$, denominado la covarianza de $X$ e $Y$, y con una interpretación en el sentido de cuantificar el grado de dependencia entre dos variables aleatorias, puesto que si $X$ e $Y$ son independientes se verifica que $\mu_{11}=0$, mientras que si $\mu_{11} \neq 0$ entonces las variables son dependientes.
+
+
+## Definición formal de variable aleatoria
+
+Tal como hemos comentado, la definición formal de variable aleatoria impone una restricción matemática en la formulación vista hasta el momento.
+
+Definiremos una variable aleatoria como una aplicación de $\Omega$ en el conjunto de números reales
+
+$$
+\begin{aligned}
+X: \Omega & \rightarrow \mathbb{R} \\
+\omega & \rightarrow X(\omega)
+\end{aligned}
+$$
+que verifique la propiedad siguiente
+
+$$
+\forall x \in \mathbb{R} \quad \text { el conjunto } \mathrm{A}=\{a \mid \mathrm{X}(a) \leq \mathrm{x}\} \text { es un suceso observable }
+$$
+
+es decir, para todo número real $x$, el conjunto de resultados elementales tales que la variable aleatoria toma sobre ellos valores inferiores o iguales a $x$ ha de ser un suceso sobre el cual podamos definir una probabilidad.
+
+Dicha propiedad recibe el nombre de medibilidad y por tanto podríamos decir que una variable aleatoria es una función medible de $\Omega$ en los reales.
+
+Esta condición nos asegura que podremos calcular sin problemas, probabilidades sobre intervalos de la recta real a partir de las probabilidades de los sucesos correspondientes.
+
+$$
+P(X \leq x)=P\{\omega \mid X(\omega) \leq x\}
+$$
+
+La expresión anterior se leería de la manera siguiente: La probabilidad de que la variable aleatoria tome valores inferiores o iguales a $x$ es igual a la probabilidad del suceso formado por el conjunto de resultados elementales sobre los que el valor de la variable es menor o igual que $x$.
+
+La probabilidad obtenida de esta manera se denomina probabilidad inducida.
+Se puede comprobar que, a partir de la condición requerida, se pueden obtener probabilidades sobre cualquier tipo de intervalo de la recta real. Por ejemplo:
+
+$$
+P(a<X \leq b)=P(X \leq b)-P(X \leq a)
+$$
+
+La condición exigida para ser variable aleatoria discreta ahora puede ser expresada como:
+
+$$
+\forall k=1,2, \ldots \text { el conjunto } \mathrm{A}=\left\{\omega \mid \mathrm{X}(\omega)=\mathrm{x}_{\mathrm{k}}\right\}=\mathrm{X}^{-1}\left(\left\{\mathrm{x}_{\mathrm{k}}\right\}\right) \text { es un suceso observable }
+$$
+
+Toda variable aleatoria definida sobre un espacio de probabilidad finito es necesariamente discreta.
+La suma y el producto de variables aleatorias discretas, definido por:
+
+$$
+(X+Y)(w)=X(w)+Y(w) \text { y }(X \cdot Y)(w)=X(w) \cdot Y(w)
+$$
+
+es también una variable aleatoria discreta.
+

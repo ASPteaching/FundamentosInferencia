@@ -1,0 +1,4 @@
+# Inferencia Aplicada
+
+Se muestra como deducir y aplicar algunos de los tests mas populares.
+

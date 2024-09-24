@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica</title>
+  <meta name="description" content="Capítulo 2 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica" />
+  
+  
+  
+
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
+
+
+<meta name="date" content="2024-09-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Fundamentos de Inferencia</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Presentación</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.1</b> Objetivo</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#prerequisitos-y-organización-del-material"><i class="fa fa-check"></i><b>1.1.1</b> Prerequisitos y organización del material</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#referencias"><i class="fa fa-check"></i><b>1.1.2</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#agradecimiento-y-fuentes-utilizadas"><i class="fa fa-check"></i><b>1.2</b> Agradecimiento y fuentes utilizadas</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#el-proyecto-statmedia"><i class="fa fa-check"></i><b>1.3</b> El proyecto Statmedia</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#otros-materiales-utilizados"><i class="fa fa-check"></i><b>1.3.1</b> Otros materiales utilizados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html"><i class="fa fa-check"></i><b>2</b> Probabilidad y Experimentos aleatorios</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#introducción"><i class="fa fa-check"></i><b>2.1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#fenómenos-deterministas-y-fenómenos-aleatorios"><i class="fa fa-check"></i><b>2.1.1</b> Fenómenos deterministas y fenómenos aleatorios</a></li>
+<li class="chapter" data-level="2.1.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos"><i class="fa fa-check"></i><b>2.1.2</b> Sucesos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#función-de-probabilidad"><i class="fa fa-check"></i><b>2.2</b> Función de probabilidad</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#diferentes-funciones-de-probabilidad-para-una-misma-experiencia-aleatoria"><i class="fa fa-check"></i><b>2.2.1</b> ¿Diferentes funciones de probabilidad para una misma experiencia aleatoria?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#cómo-se-calculan-las-probabilidades"><i class="fa fa-check"></i><b>2.3</b> ¿Cómo se calculan las probabilidades?</a></li>
+<li class="chapter" data-level="2.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#propiedades-inmediatas-de-la-probabilidad"><i class="fa fa-check"></i><b>2.4</b> Propiedades inmediatas de la probabilidad</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#succeso-nulo"><i class="fa fa-check"></i><b>2.4.1</b> Succeso nulo</a></li>
+<li class="chapter" data-level="2.4.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#suceso-implicado"><i class="fa fa-check"></i><b>2.4.2</b> Suceso implicado</a></li>
+<li class="chapter" data-level="2.4.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#complementario-de-un-suceso"><i class="fa fa-check"></i><b>2.4.3</b> Complementario de un suceso</a></li>
+<li class="chapter" data-level="2.4.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#ocurrencia-de-algun-suceso"><i class="fa fa-check"></i><b>2.4.4</b> Ocurrencia de algun suceso</a></li>
+<li class="chapter" data-level="2.4.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#propiedad-de-que-ocurra-algun-suceso"><i class="fa fa-check"></i><b>2.4.5</b> Propiedad de que ocurra algun suceso</a></li>
+<li class="chapter" data-level="2.4.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-de-que-ocurran-dos-o-más-sucesos-a-la-vez"><i class="fa fa-check"></i><b>2.4.6</b> Probabilidad de que ocurran dos (o más) sucesos a la vez</a></li>
+<li class="chapter" data-level="2.4.7" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#una-formula-que-los-relaciona"><i class="fa fa-check"></i><b>2.4.7</b> Una formula que los relaciona</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>2.5</b> Probabilidad condicionada</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>2.5.1</b> Sucesos dependientes y sucesos independientes</a></li>
+<li class="chapter" data-level="2.5.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>2.5.2</b> Incompatibilidad e independencia</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#dos-teoremas-importantes"><i class="fa fa-check"></i><b>2.6</b> Dos Teoremas importantes</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-las-probabilidades-totales"><i class="fa fa-check"></i><b>2.6.1</b> Teorema de las probabilidades totales</a></li>
+<li class="chapter" data-level="2.6.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-bayes"><i class="fa fa-check"></i><b>2.6.2</b> Teorema de Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#introducción-a-los-experimentos-múltiples"><i class="fa fa-check"></i><b>2.7</b> Introducción a los experimentos múltiples</a></li>
+<li class="chapter" data-level="2.8" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinatoria"><i class="fa fa-check"></i><b>2.8</b> Combinatoria</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#permutaciones"><i class="fa fa-check"></i><b>2.8.1</b> Permutaciones</a></li>
+<li class="chapter" data-level="2.8.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#variaciones"><i class="fa fa-check"></i><b>2.8.2</b> Variaciones</a></li>
+<li class="chapter" data-level="2.8.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#variaciones-con-repetición"><i class="fa fa-check"></i><b>2.8.3</b> Variaciones con repetición</a></li>
+<li class="chapter" data-level="2.8.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinaciones"><i class="fa fa-check"></i><b>2.8.4</b> Combinaciones</a></li>
+<li class="chapter" data-level="2.8.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#permutaciones-con-repetición"><i class="fa fa-check"></i><b>2.8.5</b> Permutaciones con repetición</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>2.9</b> Frecuencia relativa y probabilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><i class="fa fa-check"></i><b>3</b> Variables aleatorias y Distribuciones de probabilidad</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#el-espacio-muestral-y-sus-elementos"><i class="fa fa-check"></i><b>3.1</b> El espacio muestral y sus elementos</a></li>
+<li class="chapter" data-level="3.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#representación-numérica-de-los-sucesos-elementales.-variables-aleatorias"><i class="fa fa-check"></i><b>3.2</b> Representación numérica de los sucesos elementales. Variables aleatorias</a></li>
+<li class="chapter" data-level="3.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caracterización-de-una-variable-aleatoria-a-través-de-la-probabilidad.-función-de-distribución"><i class="fa fa-check"></i><b>3.3</b> Caracterización de una variable aleatoria a través de la probabilidad. Función de distribución</a></li>
+<li class="chapter" data-level="3.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-función-de-distribución"><i class="fa fa-check"></i><b>3.4</b> Propiedades de la función de distribución</a></li>
+<li class="chapter" data-level="3.5" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#clasificación-de-las-variables-aleatorias"><i class="fa fa-check"></i><b>3.5</b> Clasificación de las variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-discretas"><i class="fa fa-check"></i><b>3.5.1</b> Variables aleatorias discretas</a></li>
+<li class="chapter" data-level="3.5.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-continuas"><i class="fa fa-check"></i><b>3.5.2</b> Variables aleatorias continuas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variable-aleatoria-discretas"><i class="fa fa-check"></i><b>3.6</b> Variable aleatoria discretas</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caracterización-a-través-de-la-función-de-densidad-o-de-probabilidad"><i class="fa fa-check"></i><b>3.6.1</b> Caracterización a través de la función de densidad o de probabilidad</a></li>
+<li class="chapter" data-level="3.6.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-función-de-densidad-discreta"><i class="fa fa-check"></i><b>3.6.2</b> Propiedades de la función de densidad discreta</a></li>
+<li class="chapter" data-level="3.6.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#relaciones-entre-la-función-de-distribución-y-la-función-de-densidad-discreta.-probabilidad-de-intervalos."><i class="fa fa-check"></i><b>3.6.3</b> Relaciones entre la función de distribución y la función de densidad discreta. <br> Probabilidad de intervalos.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-continuas-1"><i class="fa fa-check"></i><b>3.7</b> Variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#ejemplos"><i class="fa fa-check"></i><b>3.7.1</b> Ejemplos</a></li>
+<li class="chapter" data-level="3.7.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#función-de-densidad-continua"><i class="fa fa-check"></i><b>3.7.2</b> Función de densidad continua</a></li>
+<li class="chapter" data-level="3.7.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#relaciones-entre-la-función-de-distribución-y-la-función-de-densidad."><i class="fa fa-check"></i><b>3.7.3</b> Relaciones entre la función de distribución y la función de densidad.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#independencia-de-variables-aleatorias"><i class="fa fa-check"></i><b>3.8</b> Independencia de variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caracterización-de-la-independencia"><i class="fa fa-check"></i><b>3.8.1</b> Caracterización de la independencia</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caracterización-de-una-variable-aleatoria-a-través-de-parámetros"><i class="fa fa-check"></i><b>3.9</b> Caracterización de una variable aleatoria a través de parámetros</a></li>
+<li class="chapter" data-level="3.10" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-una-variable-aleatoria-discreta"><i class="fa fa-check"></i><b>3.10</b> Esperanza de una variable aleatoria discreta</a></li>
+<li class="chapter" data-level="3.11" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-una-variable-aleatoria-continua"><i class="fa fa-check"></i><b>3.11</b> Esperanza de una variable aleatoria continua</a></li>
+<li class="chapter" data-level="3.12" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-esperanza-matemática"><i class="fa fa-check"></i><b>3.12</b> Propiedades de la esperanza matemática</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#linealidad-de-la-esperanza-matemática"><i class="fa fa-check"></i><b>3.12.1</b> Linealidad de la esperanza matemática</a></li>
+<li class="chapter" data-level="3.12.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-del-producto"><i class="fa fa-check"></i><b>3.12.2</b> Esperanza del producto</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#varianza-de-una-variable-aleatoria"><i class="fa fa-check"></i><b>3.13</b> Varianza de una variable aleatoria</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-varianza"><i class="fa fa-check"></i><b>3.13.1</b> Propiedades de la varianza</a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#momentos-de-orden-k-de-una-variable-aleatoria"><i class="fa fa-check"></i><b>3.14</b> Momentos (de orden <span class="math inline">\(k\)</span>) de una variable aleatoria</a></li>
+<li class="chapter" data-level="3.15" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#definición-formal-de-variable-aleatoria"><i class="fa fa-check"></i><b>3.15</b> Definición formal de variable aleatoria</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html"><i class="fa fa-check"></i><b>4</b> Distribuciones Notables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-discretas"><i class="fa fa-check"></i><b>4.1</b> Distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-bernouilli"><i class="fa fa-check"></i><b>4.1.1</b> La distribución de Bernouilli</a></li>
+<li class="chapter" data-level="4.1.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-binomial"><i class="fa fa-check"></i><b>4.1.2</b> La distribución Binomial</a></li>
+<li class="chapter" data-level="4.1.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-poisson"><i class="fa fa-check"></i><b>4.1.3</b> La distribución de Poisson</a></li>
+<li class="chapter" data-level="4.1.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-multinomial"><i class="fa fa-check"></i><b>4.1.4</b> La distribución Multinomial</a></li>
+<li class="chapter" data-level="4.1.5" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-hipergeométrica"><i class="fa fa-check"></i><b>4.1.5</b> La distribución Hipergeométrica</a></li>
+<li class="chapter" data-level="4.1.6" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-geométrica-o-de-pascal"><i class="fa fa-check"></i><b>4.1.6</b> La distribución Geométrica o de Pascal</a></li>
+<li class="chapter" data-level="4.1.7" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-binomial-negativa"><i class="fa fa-check"></i><b>4.1.7</b> La distribución Binomial negativa</a></li>
+<li class="chapter" data-level="4.1.8" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#tabla-resumen-de-las-distribuciones-discretas-principales"><i class="fa fa-check"></i><b>4.1.8</b> Tabla resumen de las distribuciones discretas principales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-continuas"><i class="fa fa-check"></i><b>4.2</b> DISTRIBUCIONES CONTINUAS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-uniforme"><i class="fa fa-check"></i><b>4.2.1</b> La distribución Uniforme</a></li>
+<li class="chapter" data-level="4.2.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-exponencial"><i class="fa fa-check"></i><b>4.2.2</b> La distribución Exponencial</a></li>
+<li class="chapter" data-level="4.2.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-normal"><i class="fa fa-check"></i><b>4.2.3</b> La distribución Normal</a></li>
+<li class="chapter" data-level="4.2.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-gamma"><i class="fa fa-check"></i><b>4.2.4</b> La distribución Gamma</a></li>
+<li class="chapter" data-level="4.2.5" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-cauchy"><i class="fa fa-check"></i><b>4.2.5</b> La distribución de Cauchy</a></li>
+<li class="chapter" data-level="4.2.6" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-weibull"><i class="fa fa-check"></i><b>4.2.6</b> La distribución de Weibull</a></li>
+<li class="chapter" data-level="4.2.7" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#tabla-resumen-de-las-principales-distribuciones-continuas"><i class="fa fa-check"></i><b>4.2.7</b> Tabla resumen de las principales distribuciones continuas</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-familia-exponencial-de-distribuciones"><i class="fa fa-check"></i><b>4.3</b> LA FAMILIA EXPONENCIAL DE DISTRIBUCIONES</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="grandes-muestras.html"><a href="grandes-muestras.html"><i class="fa fa-check"></i><b>5</b> Grandes muestras</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#introducción-aproximaciones-asintóticas"><i class="fa fa-check"></i><b>5.1</b> Introducción: Aproximaciones asintóticas</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#convergencia-de-variables-aleatorias"><i class="fa fa-check"></i><b>5.1.1</b> Convergencia de variables aleatorias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="grandes-muestras.html"><a href="grandes-muestras.html#leyes-de-los-grandes-números"><i class="fa fa-check"></i><b>5.2</b> Leyes de los grandes números</a></li>
+<li class="chapter" data-level="5.3" data-path="grandes-muestras.html"><a href="grandes-muestras.html#el-teorema-central-del-límite"><i class="fa fa-check"></i><b>5.3</b> El teorema central del límite</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#sumas-de-variables-aleatorias"><i class="fa fa-check"></i><b>5.3.1</b> Sumas de variables aleatorias</a></li>
+<li class="chapter" data-level="5.3.2" data-path="grandes-muestras.html"><a href="grandes-muestras.html#definición-de-convergencia-en-ley"><i class="fa fa-check"></i><b>5.3.2</b> Definición de convergencia en ley</a></li>
+<li class="chapter" data-level="5.3.3" data-path="grandes-muestras.html"><a href="grandes-muestras.html#enunciado-del-teorema-central-del-límite"><i class="fa fa-check"></i><b>5.3.3</b> Enunciado del teorema central del límite</a></li>
+<li class="chapter" data-level="5.3.4" data-path="grandes-muestras.html"><a href="grandes-muestras.html#aplicación-del-tcl-a-los-ejemplos"><i class="fa fa-check"></i><b>5.3.4</b> Aplicación del TCL a los ejemplos</a></li>
+<li class="chapter" data-level="5.3.5" data-path="grandes-muestras.html"><a href="grandes-muestras.html#casos-particulares-más-notables"><i class="fa fa-check"></i><b>5.3.5</b> Casos particulares más notables</a></li>
+<li class="chapter" data-level="5.3.6" data-path="grandes-muestras.html"><a href="grandes-muestras.html#interpretación-del-teorema-central-del-límite"><i class="fa fa-check"></i><b>5.3.6</b> Interpretación del teorema central del límite</a></li>
+<li class="chapter" data-level="5.3.7" data-path="grandes-muestras.html"><a href="grandes-muestras.html#aproximaciones-y-errores-numéricos"><i class="fa fa-check"></i><b>5.3.7</b> Aproximaciones y errores numéricos</a></li>
+<li class="chapter" data-level="5.3.8" data-path="grandes-muestras.html"><a href="grandes-muestras.html#acerca-de-las-variables-aproximadamente-normales"><i class="fa fa-check"></i><b>5.3.8</b> Acerca de las variables aproximadamente normales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html"><i class="fa fa-check"></i><b>6</b> Distribuciones de probabilidad multidimensionales</a></li>
+<li class="chapter" data-level="7" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html"><i class="fa fa-check"></i><b>7</b> Introducción a la inferencia estadística</a></li>
+<li class="chapter" data-level="8" data-path="estimando-las-características-de-las-distribuciones.html"><a href="estimando-las-características-de-las-distribuciones.html"><i class="fa fa-check"></i><b>8</b> Estimando las características de las distribuciones</a></li>
+<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de hipótesis</a></li>
+<li class="chapter" data-level="10" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html"><i class="fa fa-check"></i><b>10</b> Inferencia Aplicada</a></li>
+<li class="chapter" data-level="11" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html"><i class="fa fa-check"></i><b>11</b> Computación Intensiva y <em>Multiple Testing</em></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fundamentos de Inferencia Estadistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probabilidad-y-experimentos-aleatorios" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Probabilidad y Experimentos aleatorios<a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-y-experimentos-aleatorios" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducción" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Introducción<a href="probabilidad-y-experimentos-aleatorios.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fenómenos-deterministas-y-fenómenos-aleatorios" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Fenómenos deterministas y fenómenos aleatorios<a href="probabilidad-y-experimentos-aleatorios.html#fenómenos-deterministas-y-fenómenos-aleatorios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos que disponemos de un dado regular con todas las caras
+pintadas de blanco y con un número, que irá de 1 a <span class="math inline">\(6 \sin\)</span> repetir
+ninguno, en cada una de las seis caras.</p>
+<p>Definamos los dos experimentos siguientes: Experimento 1: Tirar el dado
+y anotar el color de la cara resultante. Experimento 2: Tirar el dado y
+anotar el número de la cara resultante. ¿Qué diferencia fundamental
+observamos entre ambos experimentos? Muy simple! En el experimento 1, el
+resultado es obvio: saldrá una cara de color blanco. Es decir, es
+posible predecir el resultado. Se trata de un experimento o fenómeno
+determinista.</p>
+<p>En cambio, en el experimento 2 no podemos predecir cuál será el valor
+resultante. El resultado puede ser : <span class="math inline">\(1,2,3,4,5\)</span> o 6 . Se trata de un
+experimento o fenómeno aleatorio.</p>
+<p>El conjunto de resultados se anotará con el símbolo: <span class="math inline">\(\Omega\)</span>. En este
+caso, <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>. En los fenómenos aleatorios, al hacer
+muchas veces la experiencia, la frecuencia relativa de cualquier
+elemento del conjunto de resultados debe aproximarse siempre hacia un
+mismo valor.</p>
+</div>
+<div id="sucesos" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Sucesos<a href="probabilidad-y-experimentos-aleatorios.html#sucesos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos que se ejecuta un experimento aleatorio. Se nos puede ocurrir
+emitir un enunciado que, una vez realizada la experiencia, pueda decirse
+si se ha verificado o no se ha verificado. A dichos enunciados los
+denominamos sucesos.</p>
+<p>Por otro lado, los sucesos van asociados a subconjuntos del conjunto de
+resultados. Cada suceso se corresponderá exactamente con uno, y sólo con
+un, subconjunto del conjunto de resultados.</p>
+<p>Veamos un ejemplo: Experimento: Tirar un dado regular. Conjunto de
+resultados : <span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span> Enunciado: Obtener múltiplo de 3.
+Subconjunto al que se asocia el enunciado: <span class="math inline">\(A=\{3,6\}\)</span> Nos referiremos
+habitualmente al suceso A.</p>
+<div id="sucesos-y-conjuntos" class="section level4 hasAnchor" number="2.1.2.1">
+<h4><span class="header-section-number">2.1.2.1</span> Sucesos y conjuntos<a href="probabilidad-y-experimentos-aleatorios.html#sucesos-y-conjuntos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Al conjunto de resultados <span class="math inline">\(\Omega\)</span>, se le denomina suceso seguro. Al
+conjunto Ø ( conjunto sin elementos), se le denomina suceso imposible.
+Al complementario del conjunto
+<span class="math inline">\(\mathrm{A}\left(\mathrm{A}^{\mathrm{c}}\right)\)</span>, se le denomina suceso
+contrario o complementario de <span class="math inline">\(A\)</span>. A partir de dos sucesos A y B,
+podemos formar los sucesos siguientes:</p>
+<ul>
+<li>A intersección B, que anotaremos como:</li>
+</ul>
+<p><span class="math display">\[
+A \cap B
+\]</span></p>
+<ul>
+<li>A unión B, que anotaremos como:</li>
+</ul>
+<p><span class="math display">\[
+A \cup B
+\]</span></p>
+<p>A intersección B, significa que se verifican a la vez A y B. A unión B,
+significa que se verifica <span class="math inline">\(A\)</span> o <span class="math inline">\(B\)</span> ( se pueden verificar a la vez).</p>
+</div>
+</div>
+</div>
+<div id="función-de-probabilidad" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Función de probabilidad<a href="probabilidad-y-experimentos-aleatorios.html#función-de-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lógicamente, una vez tenemos un suceso, nos preocupa saber si hay muchas
+o pocas posibilidades de que al realizar la experiencia se haya
+verificado.</p>
+<p>Por lo tanto, sería interesante el tener alguna función que midiera el
+grado de confianza a depositar en que se verifique el suceso.</p>
+<p>A esta función la denominaremos función de probabilidad. La función de
+probabilidad será, pues, una aplicación entre el conjunto de resultados
+y el conjunto de números reales, que asignará a cada suceso la
+probabilidad de que se verifique.</p>
+<p>La notación: <span class="math inline">\(\mathrm{P}(\mathrm{A})\)</span> significará: probabilidad de que
+se verifique el suceso A . Pero claro, de funciones de probabilidad
+asociadas a priori a una experiencia aleatoria podrían haber muchas.</p>
+<p>Lo que se hace para decir qué es y qué no es una función de probabilidad
+es construir una serie de propiedades (denominadas axiomas) que se
+exigirán a una función para poder ser catalogada como función de
+probabilidad.</p>
+<p>Y, ¿cuáles son estos axiomas? Pues los siguientes: Sea S el conjunto de
+sucesos. Axioma 1: Para cualquier suceso A, la probabilidad debe ser
+mayor o igual que 0 . Axioma 2: <span class="math inline">\(\mathrm{P}(\Omega)=1\)</span> Axioma 3: Para
+sucesos <span class="math inline">\(\mathrm{A}_{\mathrm{i}}\)</span>, de modo que cada par de sucesos no
+tengan ningún resultado común, se verifica que:</p>
+<p><span class="math display">\[
+P\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} P\left(A_{i}\right)
+\]</span></p>
+<p>De este modo, pueden haber muchas funciones de probabilidad que se
+podrían asociar con la experiencia.</p>
+<p>El problema pasa entonces al investigador para decidir cual o cuales son
+las funciones de probabilidad más razonables asociadas con la
+experiencia que está manejando.</p>
+<div id="diferentes-funciones-de-probabilidad-para-una-misma-experiencia-aleatoria" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> ¿Diferentes funciones de probabilidad para una misma experiencia aleatoria?<a href="probabilidad-y-experimentos-aleatorios.html#diferentes-funciones-de-probabilidad-para-una-misma-experiencia-aleatoria" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos la experiencia de tirar un dado regular. A todo el mundo se
+le ocurriría pensar que la función de probabilidad se obtiene de contar
+el número de resultados que contiene el suceso dividido por 6 , que es
+el número total de resultados posibles. Así pues, la probabilidad de
+obtener un múltiplo de 3 sería igual a <span class="math inline">\(2 / 6\)</span>, la probabilidad de
+obtener el número 2 sería <span class="math inline">\(1 / 6\)</span> i la probabilidad de obtener un número
+par sería 3/6. Es decir, parece inmediato construir la función de
+probabilidad que, además, parece única. A nadie se le ocurre decir, por
+ejemplo, que la probabilidad de obtener un número par es <span class="math inline">\(5 / 6\)</span> !</p>
+<p>En este caso, todo ha sido muy fácil. Hemos visto que existe una única
+función de probabilidad que encaje de forma lógica con la experiencia y,
+además, ha sido muy sencillo encontrarla.</p>
+<p>Pero esto, por desgracia, no siempre es así. En muchísimas ocasiones
+resulta muy complejo el decidir cuál es la función de probabilidad.</p>
+<p>En el tema de variables aleatorias y de función de distribución se
+explica el problema de la modelización de muchas situaciones reales.</p>
+</div>
+</div>
+<div id="cómo-se-calculan-las-probabilidades" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> ¿Cómo se calculan las probabilidades?<a href="probabilidad-y-experimentos-aleatorios.html#cómo-se-calculan-las-probabilidades" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>No siempre es fácil conocer los valores de la función de probabilidad de
+todos los sucesos. Sin embargo, muchas veces se pueden conocer las
+probabilidades de algunos de estos sucesos. Con la ayuda de ciertas
+propiedades que se deducen de manera inmediata a partir de la axiomática
+es posible calcular las probabilidades de más sucesos.</p>
+<p>Por otro lado, en caso de que el número de resultados sea finito y de
+que todos los resultados tengan las mismas posibilidades de verificarse,
+la probabilidad de un suceso cualquiera se puede calcular a partir de la
+regla de Laplace:</p>
+<p>Si A es un suceso :</p>
+<p><span class="math display">\[
+\text { Probabilidad }(A)=\frac{\text { Número de casos favorables }}{\text { Número de casos posibles }}
+\]</span></p>
+<p>donde: Número de casos favorables <span class="math inline">\(=\)</span> Número de resultados contenidos en
+<span class="math inline">\(\mathrm{A}(\)</span> cardinal de A<span class="math inline">\()\)</span> Número de casos posibles <span class="math inline">\(=\)</span> Número total
+de resultados posibles (cardinal del conjunto total de resultados)</p>
+<p>En este caso, el contar número de resultados, ya sean favorables o
+posibles, debe hacerse por medio de la combinatoria.</p>
+<p>Veamos con unos ejemplos muy sencillos y visuales cómo se obtienen y qué
+representan los casos posibles y los casos favorables.</p>
+<!-- ### Ejemplo  -->
+<!-- Se dispone de un dado regular. Se lanza el dado una vez. Se elige un suceso entre los que se proponen. -->
+<!-- Una vez hecho esto, se visualizan en la parte inferior de la pantalla los casos posibles y los favorables. También se contabilizan y, mediante la regla de Laplace, se calcula la probabilidad del suceso elegido. -->
+<!-- 1) Elegid el suceso a estudiar. -->
+<!-- 2) Desplazad, si procede, las barras de puntos. -->
+<!-- 3) Comprobad los sucesos posibles $y$ -->
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_11_4f112ca503bf745765b6g-07.jpg?height=284&width=412&top_left_y=81&top_left_x=822) -->
+<!-- ## Ejemplo 2 -->
+<!-- Se dispone de una urna con cinco bolas (blancas y negras). La urna se puede configurar a priori mediante la barra de desplazamiento. Se decide la extracción de una, dos o tres bolas sin reposición. Se elige un suceso entre los que se observan en la parte derecha de la pantalla. -->
+<!-- Una vez hecho esto, se visualizan en la parte inferior de la pantalla los casos posibles y los casos favorables. Se contabilizan y, mediante la regla de Laplace, se calcula la probabilidad del suceso elegido. -->
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_11_4f112ca503bf745765b6g-07.jpg?height=1132&width=366&top_left_y=1079&top_left_x=845) -->
+<p>También es posible obtener de manera aproximada la probabilidad de un
+suceso si se puede repetir muchas veces la experiencia: la probabilidad
+del suceso sería el valor al que tendería la frecuencia relativa del
+suceso. Podéis consultar más detalles acerca de esta aproximación.</p>
+<p>En este caso, la cuestión estriba en poder hacer muchas veces la
+experiencia en condiciones independientes.</p>
+</div>
+<div id="propiedades-inmediatas-de-la-probabilidad" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Propiedades inmediatas de la probabilidad<a href="probabilidad-y-experimentos-aleatorios.html#propiedades-inmediatas-de-la-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Veremos a continuación una serie de propiedades que se deducen de manera
+inmediata de la axiomática de la probabilidad.</p>
+<div id="succeso-nulo" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Succeso nulo<a href="probabilidad-y-experimentos-aleatorios.html#succeso-nulo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Probabilidad del suceso conjunto vacío (es decir del suceso que no
+contiene ningún resultado):</p>
+<p><span class="math display">\[
+P(\varnothing)=0
+\]</span></p>
+</div>
+<div id="suceso-implicado" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Suceso implicado<a href="probabilidad-y-experimentos-aleatorios.html#suceso-implicado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si A es un suceso que está contenido en B (todos los resultados de A
+también pertenecen a B ), entonces:</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{A}) \leq \mathrm{P}(\mathrm{B})
+\]</span></p>
+</div>
+<div id="complementario-de-un-suceso" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Complementario de un suceso<a href="probabilidad-y-experimentos-aleatorios.html#complementario-de-un-suceso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(A^{\mathrm{c}}\)</span> el suceso formado por todos los elementos de
+<span class="math inline">\(\Omega\)</span> que no pertenecen a A (Suceso complementario de A). La
+probabilidad de dicho suceso es igual a:</p>
+<p><span class="math display">\[
+\mathrm{P}\left(\mathrm{A}^{\mathrm{c}}\right)=1-\mathrm{P}(\mathrm{A})
+\]</span></p>
+</div>
+<div id="ocurrencia-de-algun-suceso" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Ocurrencia de algun suceso<a href="probabilidad-y-experimentos-aleatorios.html#ocurrencia-de-algun-suceso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La probabilidad de la unión de dos sucesos A y B es igual a:</p>
+<p><span class="math display">\[
+P(A \cup B)=P(A)+P(B)-P(A \cap B)
+\]</span></p>
+</div>
+<div id="propiedad-de-que-ocurra-algun-suceso" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Propiedad de que ocurra algun suceso<a href="probabilidad-y-experimentos-aleatorios.html#propiedad-de-que-ocurra-algun-suceso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si tenemos una colección de <span class="math inline">\(k\)</span> sucesos, la probabilidad de la unión de
+dichos sucesos será:</p>
+<p><span class="math display">\[
+P\left(\bigcup_{i=1}^{k} A_{i}\right)=\sum_{i=1}^{k} P\left(A_{i}\right)-\sum_{i&lt;j} P\left(A_{i} \cap A_{j}\right)+\sum P\left(A_{i} \cap A_{j} \cap A_{k}\right)+\ldots+(-1)^{k+1} \cdot P\left(A_{1} \cap . . \cap A_{k}\right)
+\]</span></p>
+</div>
+<div id="probabilidad-de-que-ocurran-dos-o-más-sucesos-a-la-vez" class="section level3 hasAnchor" number="2.4.6">
+<h3><span class="header-section-number">2.4.6</span> Probabilidad de que ocurran dos (o más) sucesos a la vez<a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-de-que-ocurran-dos-o-más-sucesos-a-la-vez" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="una-formula-que-los-relaciona" class="section level3 hasAnchor" number="2.4.7">
+<h3><span class="header-section-number">2.4.7</span> Una formula que los relaciona<a href="probabilidad-y-experimentos-aleatorios.html#una-formula-que-los-relaciona" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se verifica que:</p>
+<p><span class="math display">\[
+P\left(\bigcap_{i=1}^{n} A_{i}\right) \geq 1-\sum_{i=1}^{n} P\left(\bar{A}_{i}\right)
+\]</span></p>
+</div>
+</div>
+<div id="probabilidad-condicionada" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Probabilidad condicionada<a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-condicionada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Imaginemos que en la experiencia de tirar un dado regular supiéramos de
+antemano que se ha obtenido un número par. Es decir, que se ha
+verificado el suceso: B = número par.</p>
+<p>Pregunta: ¿Cuál es ahora la probabilidad de que se verifique el suceso
+mayor o igual a cuatro? Lógicamente, el resultado sería : <span class="math inline">\(2 / 3\)</span>. Por
+lo tanto, la probabilidad del suceso <span class="math inline">\(\mathrm{A}=\)</span> mayor o igual a
+cuatro se ha modificado. Evidentemente, ha pasado de ser <span class="math inline">\(1 / 2\)</span> (
+cuando no tenemos ninguna información previa) a ser <span class="math inline">\(2 / 3\)</span> (cuando
+sabemos que se ha verificado el suceso B). ¿Cómo podemos anotar esta
+última probabilidad <span class="math inline">\((2 / 3)\)</span> ? Muy sencillo. Anotaremos
+<span class="math inline">\(\mathrm{P}(\mathrm{A} / \mathrm{B})\)</span>, que se lee como probabilidad de A
+condicionada a B . Así, en este ejemplo,</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{P}(\mathrm{A} / \mathrm{B})=2 / 3 \\
+\mathrm{P}(\mathrm{A})=1 / 2
+\end{gathered}
+\]</span></p>
+<p>En términos generales, estamos en condiciones de poder definir la
+probabilidad condicionada, y lo hacemos como:</p>
+<p><span class="math display">\[
+P(A / B)=\frac{P(A \cap B)}{P(B)}
+\]</span></p>
+<p>Podemos ahora visualizar de una manera práctica y divertida el ejemplo
+anterior. Siguiendo con la notación utilizada, el suceso A será lo que
+denominamos suceso de obtención, mientras que el suceso B será lo que
+denominamos suceso condicionado. La pantalla nos proporcionará los casos
+posibles para el condicionante elegido y los casos favorables,
+calculando mediante la regla de Laplace la probabilidad del suceso.</p>
+<ol style="list-style-type: decimal">
+<li>Elegid suceso a estudiar. Desplazad, si procede, las barras de
+puntos.</li>
+<li>Elegir suceso condicionante. Desplazad, si procede, las barras de
+puntos.</li>
+<li>Comprobad los sucesos posibles y los favorables.</li>
+</ol>
+<p>La probabilidad condicionada se comporta, entonces, como una función de
+probabilidad. Es decir, verifica los tres axiomas siguientes:</p>
+<p>Axioma 1:</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{A} / \mathrm{B}) \geq 0
+\]</span></p>
+<p>Axioma 2:</p>
+<p><span class="math display">\[
+P(\Omega / B)=1
+\]</span></p>
+<p>Axioma 3:</p>
+<p><span class="math display">\[
+P\left(\bigcup_{i=1}^{\infty} A_{i} / B\right)=\sum_{i=1}^{\infty} P\left(A_{i} / B\right)
+\]</span></p>
+<p>para sucesos <span class="math inline">\(\mathrm{A}_{\mathrm{i}}\)</span> con intersección vacía dos a dos.</p>
+<div id="sucesos-dependientes-y-sucesos-independientes" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Sucesos dependientes y sucesos independientes<a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sean A y B dos sucesos con probabilidad mayor que 0 . Evidentemente, si</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{A} / \mathrm{B})=\mathrm{P}(\mathrm{A})
+\]</span></p>
+<p>B no ha modificado la probabilidad de que suceda A. En este caso diremos
+que son sucesos independientes.</p>
+<p>En caso contrario diremos que son sucesos dependientes. En el ejemplo
+del apartado anterior, se observa que los sucesos son dependientes
+puesto que las probabilidades anteriores no coinciden.</p>
+<p>Se verifica que independencia de los sucesos A y B es equivalente a
+decir que la probabilidad de la intersección es igual a producto de
+probabilidades de los dos sucesos.</p>
+<p>Se verifica también que si A y B son independientes: a) El
+complementario del suceso A y el suceso B son independientes. b) El
+complementario del suceso A y el complementario del suceso B son
+independientes. c) El complementario del suceso B y el suceso A son
+independientes.</p>
+</div>
+<div id="incompatibilidad-e-independencia" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Incompatibilidad e independencia<a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dos sucesos con intersección vacía se denominan sucesos incompatibles.
+Esto, ¿qué implica? Pues, que si se verifica uno seguro que no se
+verifica el otro, ya que no tienen resultados en común. Por lo tanto es
+el caso extremo de dependencia. Obtenemos en este caso que:</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{A} / \mathrm{B})=0
+\]</span></p>
+<p>y, en consecuencia, si <span class="math inline">\(\mathrm{P}(\mathrm{A})\)</span> y
+<span class="math inline">\(\mathrm{P}(\mathrm{B})\)</span> son diferentes de cero, la probabilidad
+condicionada anterior es diferente de <span class="math inline">\(\mathrm{P}(\mathrm{A})\)</span>, y así se
+deduce la dependencia.</p>
+<p>La única posibilidad de que se dé incompatibilidad e independencia a la
+vez, es que alguno de los dos sucesos tenga probabilidad igual a cero.</p>
+</div>
+</div>
+<div id="dos-teoremas-importantes" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Dos Teoremas importantes<a href="probabilidad-y-experimentos-aleatorios.html#dos-teoremas-importantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="teorema-de-las-probabilidades-totales" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Teorema de las probabilidades totales<a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-las-probabilidades-totales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(\Omega\)</span> el conjunto total formado por una partición (colección de
+sucesos con intersección vacía dos a dos):</p>
+<p><span class="math display">\[
+\Omega=H_{1} \cup \ldots \ldots \cup H_{n}
+\]</span></p>
+<p>La probabilidad de cualquier otro suceso A , se puede obtener a partir
+de las probabilidades de los sucesos de la partición y de las
+probabilidades de A condicionado a los sucesos de la partición, de la
+manera siguiente:</p>
+<p><span class="math display">\[
+P(A)=\sum_{i=1}^{n} P\left(A / H_{i}\right) \cdot P\left(H_{i}\right)
+\]</span></p>
+<p>Esto es lo que se conoce como teorema de las probabilidades totales.</p>
+</div>
+<div id="teorema-de-bayes" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Teorema de Bayes<a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es una consecuencia del teorema de las probabilidades totales. Sea
+<span class="math inline">\(\Omega\)</span> el conjunto total formado por una partición (colección de
+sucesos con intersección vacía dos a dos).</p>
+<p><span class="math display">\[
+\Omega=H_{1} \cup \ldots \ldots \cup H_{n}
+\]</span></p>
+<p>Ahora el interés se centrará en la obtención de la probabilidad de
+cualquier suceso de la partición condicionada a un suceso A cualquiera.</p>
+<p>El resultado será:</p>
+<p><span class="math display">\[
+P\left(\mathrm{H}_{\mathrm{i}} / \mathrm{A}\right)=\frac{\mathrm{P}\left(\mathrm{A} / \mathrm{H}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{H}_{\mathrm{i}}\right)}{\sum_{i=1}^{n} \mathrm{P}\left(\mathrm{A} / \mathrm{H}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{H}_{\mathrm{i}}\right)}
+\]</span></p>
+<p>Esto es conocido como teorema o regla de Bayes.</p>
+</div>
+</div>
+<div id="introducción-a-los-experimentos-múltiples" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Introducción a los experimentos múltiples<a href="probabilidad-y-experimentos-aleatorios.html#introducción-a-los-experimentos-múltiples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Supongamos que tiramos a la vez un dado y una moneda. Tenemos una
+experiencia múltiple, puesto que la experiencia que se realiza es la
+composición de dos experiencias (experiencia <span class="math inline">\(1=\)</span> tirar un dado regular;
+experiencia 2 = tirar una moneda regular). ¿Cuál es en este caso el
+conjunto de resultados? Si <span class="math inline">\(\Omega_{1}\)</span> es el conjunto de resultados
+asociado con la experiencia tirar un dado y <span class="math inline">\(\Omega_{2}\)</span> es el conjunto
+de resultados asociado con la experiencia tirar una moneda, el conjunto
+de resultados asociado a la experiencia múltiple será
+<span class="math inline">\(\Omega_{1} \times \Omega_{2}\)</span>.</p>
+<p>Es decir, <span class="math inline">\(\Omega_{1}=\{1,2,3,4,5,6\}\)</span> <span class="math inline">\(\Omega_{2}=\{\)</span> cara, cruz <span class="math inline">\(\}\)</span>
+<span class="math inline">\(\Omega_{1} \times \Omega_{2}=\{(1\)</span>, cara <span class="math inline">\(),(2\)</span>, cara <span class="math inline">\(),(3\)</span>, cara
+<span class="math inline">\(),(4\)</span>, cara <span class="math inline">\(),(5\)</span>, cara <span class="math inline">\(),(6\)</span>, cara <span class="math inline">\(),(1\)</span>, cruz ), ( 2 , cruz ), (
+3, cruz ), (4, cruz <span class="math inline">\(),(5\)</span>, cruz <span class="math inline">\(),(6\)</span>, cruz <span class="math inline">\()\}\)</span></p>
+<p>Si <span class="math inline">\(\mathrm{P}_{1}\)</span> y <span class="math inline">\(\mathrm{P}_{2}\)</span> son, respectivamente, las
+funciones de probabilidad asociadas a las experiencias 1 y 2 , ¿es
+posible calcular probabilidades de la experiencia múltiple a partir de
+<span class="math inline">\(\mathrm{P}_{1}\)</span> y <span class="math inline">\(\mathrm{P}_{2}\)</span> ?</p>
+<p>Efectivamente! Pero hemos de distinguir dos situaciones:</p>
+<ul>
+<li>Experiencias independientes: cuando el resultado de una no influya
+en la otra.</li>
+<li>Experiencias dependientes: cuando el resultado de una influya en la
+otra.</li>
+</ul>
+<p>En nuestro caso se trata de experiencias independientes, puesto que el
+resultado que se obtenga al tirar el dado no influye sobre el resultado
+que se obtenga al lanzar la moneda y al revés. ¿Como se calculan, pues,
+las probabilidades de la experiencia múltiple? Sea un suceso de la
+experiencia múltiple: A x B.</p>
+<ul>
+<li>Caso de experiencias independientes:</li>
+</ul>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{A} \times \mathrm{B})=\mathrm{P}_{1}(\mathrm{~A}) \times \mathrm{P}_{2}(\mathrm{~B})
+\]</span></p>
+<ul>
+<li>Caso de experiencias dependientes:</li>
+</ul>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{A} \times \mathrm{B})=\mathrm{P}_{1}(\mathrm{~A}) \times \mathrm{P}_{2}(\mathrm{~B} / \mathrm{A})
+\]</span></p>
+<p>Entendemos que existe una <span class="math inline">\(\mathrm{P}_{2}\)</span> para cada suceso A .</p>
+<p>Esto que hemos explicado se puede, lógicamente, generalizar a una
+experiencia múltiple formada por <span class="math inline">\(n\)</span> experiencias.</p>
+</div>
+<div id="combinatoria" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Combinatoria<a href="probabilidad-y-experimentos-aleatorios.html#combinatoria" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Veamos algunas fórmulas simples que se utilizan en combinatoria y que
+nos pueden ayudar a calcular el número de casos posibles o el número de
+casos favorables.</p>
+<div id="permutaciones" class="section level3 hasAnchor" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> Permutaciones<a href="probabilidad-y-experimentos-aleatorios.html#permutaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea un conjunto de <span class="math inline">\(n\)</span> elementos. A las ordenaciones que se pueden hacer
+con estos <span class="math inline">\(n\)</span> elementos <span class="math inline">\(\sin\)</span> repetir ningún elemento y utilizándolos
+todos se las denomina permutaciones. El número de permutaciones que se
+pueden realizar coincide con el factorial de <span class="math inline">\(n\)</span>, y su cálculo es:</p>
+<p><span class="math display">\[
+n!=n \cdot(n-1) \cdot(n-2) \ldots \ldots .2 \cdot 1
+\]</span></p>
+<p>Ejemplo:</p>
+<p>¿De cuántas maneras distintas podemos alinear a seis personas
+en una fila?</p>
+<p>Respuesta</p>
+<p>De <span class="math inline">\(6!=6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1=720\)</span> maneras
+(permutaciones de 6 elementos).</p>
+</div>
+<div id="variaciones" class="section level3 hasAnchor" number="2.8.2">
+<h3><span class="header-section-number">2.8.2</span> Variaciones<a href="probabilidad-y-experimentos-aleatorios.html#variaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea un conjunto de <span class="math inline">\(n\)</span> elementos. Supongamos que deseamos ordenar <span class="math inline">\(r\)</span>
+elementos de entre los <span class="math inline">\(n\)</span>. A cada una de estas ordenaciones la
+denominamos variación. El número de variaciones que se pueden hacer de
+los <span class="math inline">\(n\)</span> elementos tomados de <span class="math inline">\(r\)</span> en <span class="math inline">\(r\)</span> es:</p>
+<p><span class="math display">\[
+V_{n}^{r}=n \cdot(n-1) \ldots \ldots(n-r+1)
+\]</span></p>
+<p>Ejemplo</p>
+<p>En una carrera de velocidad compiten diez atletas. ¿De cuántas maneras
+distintas podría estar formado el podio? (el podio lo forman el primer,
+el segundo y el tercer clasificado)</p>
+<p>Respuesta</p>
+<p>Cada podio posible es una variación de diez elementos tomado de tres en
+tres. Por tanto, el número posible de podios es:</p>
+<p><span class="math display">\[
+\mathrm{V}_{10}^{3}=10.9 .8=720
+\]</span></p>
+</div>
+<div id="variaciones-con-repetición" class="section level3 hasAnchor" number="2.8.3">
+<h3><span class="header-section-number">2.8.3</span> Variaciones con repetición<a href="probabilidad-y-experimentos-aleatorios.html#variaciones-con-repetición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea un conjunto de <span class="math inline">\(n\)</span> elementos. Supongamos que se trata de ordenar <span class="math inline">\(r\)</span>
+elementos que pueden estar repetidos. Cada ordenación es una variación
+con repetición. El número de variaciones con repetición para un conjunto
+de <span class="math inline">\(n\)</span> tomados de <span class="math inline">\(r\)</span> en <span class="math inline">\(r\)</span> es :</p>
+<p><span class="math display">\[
+\mathrm{RV}_{\mathrm{n}}^{\mathrm{r}}=\mathrm{n}^{\mathrm{r}}
+\]</span></p>
+<p><u>Ejemplo</u></p>
+<p>En una urna tenemos cinco bolas numeradas del 1 al 5 . Se extraen tres
+bolas sucesivamente con reposición (devolviendo cada vez la bola a la
+urna). ¿Cuántos resultados distintos es posible obtener?</p>
+<p>Respuesta: Se trata de variaciones con repetición de un conjunto de
+cinco bolas tomadas de tres en tres. En total tendremos:</p>
+<p><span class="math display">\[
+\mathrm{RV}_{5}^{3}=5^{3}=125
+\]</span></p>
+</div>
+<div id="combinaciones" class="section level3 hasAnchor" number="2.8.4">
+<h3><span class="header-section-number">2.8.4</span> Combinaciones<a href="probabilidad-y-experimentos-aleatorios.html#combinaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cuando se trata de contar el número de subconjuntos de <span class="math inline">\(x\)</span> elementos en un conjunto de <span class="math inline">\(n\)</span> elementos tenemos lo que se denomina combinaciones de
+x elementos en un conjunto de n . El cálculo del contaje se hace
+mediante el número combinatorio, de la manera siguiente:</p>
+<p><span class="math display">\[
+\mathrm{C}_{\mathrm{n}}^{\mathrm{x}}=\binom{n}{\mathrm{x}}=\frac{\mathrm{n!}}{\mathrm{x}!.(\mathrm{n}-\mathrm{x})!}
+\]</span></p>
+<p>Ejemplo</p>
+<p>¿De cuántas maneras podemos elegir, en la urna anterior (recordemos que
+había cinco bolas), tres bolas en una única extracción?</p>
+<p>Respuesta</p>
+<p>Serán combinaciones de cinco elementos tomados de tres en tres, por
+tanto, tendremos:</p>
+<p><span class="math display">\[
+\mathrm{C}_{5}^{3}=\binom{5}{3}=\frac{5!}{3!(5-3)!}=10
+\]</span></p>
+</div>
+<div id="permutaciones-con-repetición" class="section level3 hasAnchor" number="2.8.5">
+<h3><span class="header-section-number">2.8.5</span> Permutaciones con repetición<a href="probabilidad-y-experimentos-aleatorios.html#permutaciones-con-repetición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea un conjunto de <span class="math inline">\(n\)</span> elementos, de entre los cuales tenemos <span class="math inline">\(a\)</span>
+elementos indistinguibles entre sí, <span class="math inline">\(b\)</span> elementos indistinguibles entre
+sí, <span class="math inline">\(c\)</span> elementos indistinguibles entre sí, etc. Cada ordenación de
+estos elementos se denominará permutación con repetición. El número de
+permutaciones con repetición es:</p>
+<p><span class="math display">\[
+R P{ }_{n}^{a, b, c, \ldots}=\frac{n!}{a!b!c!\ldots}
+\]</span></p>
+<p>Ejemplo</p>
+<p>¿Cuantas palabras con sentido o sin él pueden formarse con las letras
+PATATA?</p>
+<p>Respuesta: Tenemos tres veces la letra A, dos veces la T y una vez la P.
+Por tanto, serán:</p>
+<p><span class="math display">\[
+\mathrm{RP}_{6}^{3,2,1}=\frac{6!}{3!2!!}=60
+\]</span></p>
+</div>
+</div>
+<div id="frecuencia-relativa-y-probabilidad" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Frecuencia relativa y probabilidad<a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La definición moderna de probabilidad basada en la axiomática de
+Kolmogorov (presentada anteriormente) es relativamente reciente.
+Históricamente hubo otros intentos previos de definir el escurridizo
+concepto de probabilidad, descartados por diferentes razones. Sin
+embargo conviene destacar aquí algunas ideas que aparecen en la antigua
+definición basada en la frecuencia relativa, ya que permiten intuir
+algunas profundas propiedades de la probabilidad.</p>
+<p>Recordemos antes que si en un experimento que se ha repetido <span class="math inline">\(n\)</span> veces
+un determinado suceso A se ha observado en <span class="math inline">\(k\)</span> de estas repeticiones, la
+frecuencia relativa <span class="math inline">\(\mathrm{f}_{\mathrm{r}}\)</span> del suceso A es:</p>
+<p><span class="math display">\[
+\mathrm{f}_{\mathrm{r}}=k / n
+\]</span></p>
+<p>El interés por la frecuencia relativa y su relación con el concepto de
+probabilidad aparece a lo largo de los siglos XVIII a XX al observar el
+comportamiento de numerosas repeticiones de experimentos reales.</p>
+<p>A título de ejemplo de un experimento de este tipo, supongamos que se
+dispone de una moneda ideal perfectamente equilibrada. Aplicando
+directamente la regla de Laplace resulta claro que el suceso
+<span class="math inline">\(\mathrm{A}=\)</span> obtener cara tiene probabilidad:</p>
+<p><span class="math display">\[
+\mathrm{p}(\mathrm{A})=1 / 2=0,5
+\]</span></p>
+<p>En el cuadro siguiente se simula por ordenador el comportamiento de la
+frecuencia relativa del suceso <span class="math inline">\(\mathrm{A}=\)</span> obtener cara. El cuadro
+inicia la simulación con el lanzamiento consecutivo de la moneda veinte
+veces, calculando la frecuencia relativa de cara y comparándolo con la
+<span class="math inline">\(p(A)=0.5\)</span>. Aunque no es imposible que coincidan, la mayoría de veces
+<span class="math inline">\(\mathrm{f}_{\mathrm{r}}\)</span> será diferente.</p>
+<p>El lector puede manipular el cuadro para observar qué ocurre con rachas
+entre <span class="math inline">\(n=1\)</span> y <span class="math inline">\(n=1000\)</span> lanzamientos. También puede empezarse una nueva
+racha de lanzamientos con el botón Reiniciar.</p>
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_11_4f112ca503bf745765b6g-20.jpg?height=938&width=366&top_left_y=1781&top_left_x=845) -->
+<p>Al realizar este tipo de experimento ha de llamar la atención:</p>
+<ul>
+<li>el carácter errático del comportamiento de <span class="math inline">\(\mathrm{f}_{\mathrm{r}}\)</span>
+entre los valores 0 y 1 , pero a pesar de ello se intuye que a mayor
+número de lanzamientos <span class="math inline">\(n\)</span>, más improbable es que <span class="math inline">\(f_{r}\)</span> se aleje
+mucho de <span class="math inline">\(p(A)\)</span>.</li>
+</ul>
+<p>La teoría moderna de la probabilidad enlaza formalmente estas ideas con
+el estudio de las leyes de los grandes números, que se discutiran brevemente en el capítulo dedicado a las “Grandes muestras”
+.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="variables-aleatorias-y-distribuciones-de-probabilidad.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/01-probabilidad.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ASPteaching/FundamentosInferencia/blob/main/01-probabilidad.Rmd",
+"text": null
+},
+"download": ["FundInfProj.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

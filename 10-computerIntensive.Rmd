@@ -1,0 +1,4 @@
+# Computación Intensiva y _Multiple Testing_
+
+Se introducen distintos métodos cuyo nexo común es la computación intensiva.
+

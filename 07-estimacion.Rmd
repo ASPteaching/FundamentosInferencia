@@ -1,0 +1,6 @@
+# Estimando las características de las distribuciones
+
+Se plantea el problema de la estimación como una forma de aproximación a las características de las distribucionesa partir de muestras aleatorias simples.
+
+Se abordan las distintas filosofías para la construcción de estimadores.
+
