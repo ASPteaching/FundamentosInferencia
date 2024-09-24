@@ -81,5 +81,3 @@ Dejando aparte (además) de la licencia, vaya nuestro agradecimiento explícito 
 
 - [Peter K. Dunn (2024) _The theory of distributions_. ](https://bookdown.org/pkaldunn/DistTheory) Licencia CC BY-NC-ND 4.0
 
-
-

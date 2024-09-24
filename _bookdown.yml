@@ -1,4 +1,3 @@
-book_filename: "FundInfProj"
 output_dir: docs
 delete_merged_file: true
 edit: https://github.com/ASPteaching/FundamentosInferencia/edit/main/%s
