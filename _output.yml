@@ -10,4 +10,3 @@ bookdown::gitbook:
     download: ["pdf"]
 bookdown::pdf_book:
   keep_tex: yes
-bookdown::epub_book: default
