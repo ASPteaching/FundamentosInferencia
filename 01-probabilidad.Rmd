@@ -608,30 +608,31 @@ $\mathrm{A}=$ obtener cara tiene probabilidad:
 $$
 \mathrm{p}(\mathrm{A})=1 / 2=0,5
 $$
+### Ilustración por simulación
 
-En el cuadro siguiente se simula por ordenador el comportamiento de la
-frecuencia relativa del suceso $\mathrm{A}=$ obtener cara. El cuadro
-inicia la simulación con el lanzamiento consecutivo de la moneda veinte
-veces, calculando la frecuencia relativa de cara y comparándolo con la
-$p(A)=0.5$. Aunque no es imposible que coincidan, la mayoría de veces
-$\mathrm{f}_{\mathrm{r}}$ será diferente.
+En el enlace siguiente se accede a una simulación por ordenador de la _ley de los grandes números_ en la que se basa precisamente la idea de asimilar "a la larga" (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.
 
-El lector puede manipular el cuadro para observar qué ocurre con rachas
-entre $n=1$ y $n=1000$ lanzamientos. También puede empezarse una nueva
-racha de lanzamientos con el botón Reiniciar.
+:::: {.calloutBox .link}
+[Enlace a la simulación](https://www.grbio.eu/statmedia/Statmedia_1/)
+::::
 
-<!-- ![](https://cdn.mathpix.com/cropped/2024_09_11_4f112ca503bf745765b6g-20.jpg?height=938&width=366&top_left_y=1781&top_left_x=845) -->
 
-Al realizar este tipo de experimento ha de llamar la atención:
+En la simulación podéis definir:
 
--   el carácter errático del comportamiento de $\mathrm{f}_{\mathrm{r}}$
-    entre los valores 0 y 1 , pero a pesar de ello se intuye que a mayor
+- La verdadera probabilidad" de que al tirar la moneda salga cara,
+- EL número de tiradas.
+
+Como podréis comprobar, sea cual sea la probabilidad (una moneda justa es un 0.5) a la larga la frecuencia relativa converge hacia el valor que habéis fijado.
+
+Eso sí, observad lo que sucede si fijais probabilidades cercanas a 0.5 o muy alejadas de ell.
+
+¿La idea de lo que sucede a la larga es la misma? ¿En que encontráis diferencias? 
+Aunque no deje de llamar la atención el carácter errático del comportamiento de $\mathrm{f}_{\mathrm{r}}$ entre los valores 0 y 1, estaréis seguramente de acuerdo que  a mayor
     número de lanzamientos $n$, más improbable es que $f_{r}$ se aleje
     mucho de $p(A)$.
 
 La teoría moderna de la probabilidad enlaza formalmente estas ideas con
-el estudio de las leyes de los grandes números, que se discutiran brevemente en el capítulo dedicado a las "Grandes muestras"
-.
+el estudio de las leyes de los grandes números, que se discutiran con más detalle en el capítulo dedicado a las "Grandes muestras".
 
 ## CASO DE ESTUDIO: Eficacia de una prueba diagnóstica 
 
@@ -639,33 +640,33 @@ Para decidir la presencia(E) o ausencia (A) de sordera profunda a la edad de sei
 
 Considerando el caso en que la prueba pueda dar positivo $(+)$ o negativo $(-)$, hay que tener en cuenta que en individuos con dicha sordera la prueba dará a veces positivo y a veces negativo, e igual ocurrirá con individuos que no presentan la sordera.
 
-Así pues, es conveniente cuantificar estas probabilidades.
-Sean,
+En este contexto todas las probabilidades pueden ser interpretadas en terminos de resultados positivos o neghativos, correctamente o no y cada una ha recibe un nombre que la ha popularizado dentro de la literatura médica:
 
-$$
-\mathrm{P}(+/ \mathrm{E})=\text { Probabilidad de test positivo en individuos que padecen la sordera }
-$$
+Así tenemos: 
 
-Al valor anterior se le conoce como sensibilidad del test.
+- $\mathrm{P}(+/ \mathrm{E})$
 
-$$\mathrm{P}(+/ \mathrm{A})=$$ 
-Probabilidad de test positivo en individuos que no padecen la sordera.
+  - Probabilidad de test positivo en individuos que padecen la sordera.
+  - Este valor se conoce como _sensibilidad del test_.
 
-Al valor anterior se le conoce como probabilidad de falso-positivo.
-$$\$mathrm{P}(-/ \mathrm{E})=$$ 
+- $\mathrm{P}(+/ \mathrm{A})=$
+  - Probabilidad de test positivo en individuos que no padecen la sordera.
+  - Este valor se conoce como _probabilidad de falso-positivo_.
+  
+- $\mathrm{P}(-/ \mathrm{E})=$
+  - Probabilidad de test negativo en individuos que padecen la sordera
+  - Este valor se conoce como  _probabilidad de falso-negativo_.
+  
+- $P(-/ A)=$
+  - Probabilidad de test negativo en individuos que no padecen sordera.
+  - Este valor se conoce como
+_especificidad del test_.
 
-Probabilidad de test negativo en individuos que padecen la sordera
+- Finalmente a la probabilidad, $\mathrm{P}(\mathrm{E})$, de presentar la enfermedad se le conoce como _prevalencia_ de la enfermedad.
 
-Al valor anterior se le conoce como probabilidad de falso-negativo.
-$$P(-/ A)=$$ 
-Probabilidad de test negativo en individuos que no padecen sordera
-Al valor anterior se le conoce como especificidad del test.
+Lógicamente, en un "buen test" nos interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsos-positivos y falsos-negativos sean valores bajos.
 
-A la probabilidad $\mathrm{P}(\mathrm{E})$ de presentar la enfermedad se le conoce como prevalencia de la enfermedad.
-
-Lógicamente, interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsospositivos y falsos-negativos sean valores bajos.
-
-Por otro lado, el interés de aplicar el test consiste en que sirva de elemento predictivo para diagnosticar la sordera.
+Además no debemos olvidar que, el interés de aplicar el test, consiste en que sirva de elemento predictivo para diagnosticar la sordera.
 
 Por lo tanto, interesa que las probabilidades:
 
@@ -676,13 +677,15 @@ Por lo tanto, interesa que las probabilidades:
 sean realmente altas.
 
 A las probabilidades 
-anteriores se las conoce como: valor predictivo del test.
+anteriores se las conoce como: _valores predictivos_ del test, en concreto:
 
-Estamos pues en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras.
+- $\mathrm{P}(\mathrm{E} /+)=$ es el _valor predictivo positivo_ y 
 
-### APlicación del Teorema de Bayes
+- $\mathrm{P}(\mathrm{A} /-)=$ es el _valor predictivo negativo_
 
-Para el cálculo del valor predictivo del test utilizaremos el teorema de Bayes.
+### Aplicación del Teorema de Bayes
+
+Estamos en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras, para lo que utilizaremos el teorema de Bayes.
 
 Habitualmente, a partir de estudios epidemiológicos y muestras experimentales, se estiman:
 
@@ -698,21 +701,20 @@ Habitualmente, a partir de estudios epidemiológicos y muestras experimentales, 
 
 ¿Cómo se obtiene entonces el valor predictivo del test?
 
-Muy sencillo!: Aplicando el teorema de Bayes.
+Veamos como aplicar el teorema de Bayes a este problema:
 
 Si dividimos a la población global (en este caso, el conjunto de todos los bebés de seis meses) entre los que padecen sordera y los que no la padecen, aplicando el teorema de Bayes resulta que:
 
 $$
 \mathrm{P}(\mathrm{E} /+)=(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})) /(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})+\mathrm{P}(+/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A}))
 $$
-
 y
 
 $$
 \mathrm{P}(\mathrm{~A} /-)=(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})) /(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})+\mathrm{P}(-/ \mathrm{E}) \times \mathrm{P}(\mathrm{E}))
 $$
 
-### Cálculos
+### Ejemplo numérico
 
 Supongamos que en el ejemplo de la sordera, se sabe que:
 

@@ -61,6 +61,7 @@
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="blocks.css" type="text/css" />
 </head>
 
 <body>
@@ -133,8 +134,8 @@
 <li class="chapter" data-level="2.9" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>2.9</b> Frecuencia relativa y probabilidad</a></li>
 <li class="chapter" data-level="2.10" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#caso-de-estudio-eficacia-de-una-prueba-diagnóstica"><i class="fa fa-check"></i><b>2.10</b> CASO DE ESTUDIO: Eficacia de una prueba diagnóstica</a>
 <ul>
-<li class="chapter" data-level="2.10.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#aplicación-del-teorema-de-bayes"><i class="fa fa-check"></i><b>2.10.1</b> APlicación del Teorema de Bayes</a></li>
-<li class="chapter" data-level="2.10.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#cálculos"><i class="fa fa-check"></i><b>2.10.2</b> Cálculos</a></li>
+<li class="chapter" data-level="2.10.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#aplicación-del-teorema-de-bayes"><i class="fa fa-check"></i><b>2.10.1</b> Aplicación del Teorema de Bayes</a></li>
+<li class="chapter" data-level="2.10.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#ejemplo-numérico"><i class="fa fa-check"></i><b>2.10.2</b> Ejemplo numérico</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><i class="fa fa-check"></i><b>3</b> Variables aleatorias y Distribuciones de probabilidad</a>
@@ -795,50 +796,58 @@ directamente la regla de Laplace resulta claro que el suceso
 <span class="math inline">\(\mathrm{A}=\)</span> obtener cara tiene probabilidad:</p>
 <p><span class="math display">\[
 \mathrm{p}(\mathrm{A})=1 / 2=0,5
-\]</span></p>
-<p>En el cuadro siguiente se simula por ordenador el comportamiento de la
-frecuencia relativa del suceso <span class="math inline">\(\mathrm{A}=\)</span> obtener cara. El cuadro
-inicia la simulación con el lanzamiento consecutivo de la moneda veinte
-veces, calculando la frecuencia relativa de cara y comparándolo con la
-<span class="math inline">\(p(A)=0.5\)</span>. Aunque no es imposible que coincidan, la mayoría de veces
-<span class="math inline">\(\mathrm{f}_{\mathrm{r}}\)</span> será diferente.</p>
-<p>El lector puede manipular el cuadro para observar qué ocurre con rachas
-entre <span class="math inline">\(n=1\)</span> y <span class="math inline">\(n=1000\)</span> lanzamientos. También puede empezarse una nueva
-racha de lanzamientos con el botón Reiniciar.</p>
-<!-- ![](https://cdn.mathpix.com/cropped/2024_09_11_4f112ca503bf745765b6g-20.jpg?height=938&width=366&top_left_y=1781&top_left_x=845) -->
-<p>Al realizar este tipo de experimento ha de llamar la atención:</p>
+\]</span>
+### Ilustración por simulación</p>
+<p>En el enlace siguiente se accede a una simulación por ordenador de la <em>ley de los grandes números</em> en la que se basa precisamente la idea de asimilar “a la larga” (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.</p>
+<div class="calloutBox link">
+<p><a href="https://www.grbio.eu/statmedia/Statmedia_1/">Enlace a la simulación</a></p>
+</div>
+<p>En la simulación podéis definir:</p>
 <ul>
-<li>el carácter errático del comportamiento de <span class="math inline">\(\mathrm{f}_{\mathrm{r}}\)</span>
-entre los valores 0 y 1 , pero a pesar de ello se intuye que a mayor
-número de lanzamientos <span class="math inline">\(n\)</span>, más improbable es que <span class="math inline">\(f_{r}\)</span> se aleje
-mucho de <span class="math inline">\(p(A)\)</span>.</li>
+<li>La verdadera probabilidad” de que al tirar la moneda salga cara,</li>
+<li>EL número de tiradas.</li>
 </ul>
+<p>Como podréis comprobar, sea cual sea la probabilidad (una moneda justa es un 0.5) a la larga la frecuencia relativa converge hacia el valor que habéis fijado.</p>
+<p>Eso sí, observad lo que sucede si fijais probabilidades cercanas a 0.5 o muy alejadas de ell.</p>
+<p>¿La idea de lo que sucede a la larga es la misma? ¿En que encontráis diferencias?
+Aunque no deje de llamar la atención el carácter errático del comportamiento de <span class="math inline">\(\mathrm{f}_{\mathrm{r}}\)</span> entre los valores 0 y 1, estaréis seguramente de acuerdo que a mayor
+número de lanzamientos <span class="math inline">\(n\)</span>, más improbable es que <span class="math inline">\(f_{r}\)</span> se aleje
+mucho de <span class="math inline">\(p(A)\)</span>.</p>
 <p>La teoría moderna de la probabilidad enlaza formalmente estas ideas con
-el estudio de las leyes de los grandes números, que se discutiran brevemente en el capítulo dedicado a las “Grandes muestras”
-.</p>
+el estudio de las leyes de los grandes números, que se discutiran con más detalle en el capítulo dedicado a las “Grandes muestras”.</p>
 </div>
 <div id="caso-de-estudio-eficacia-de-una-prueba-diagnóstica" class="section level2 hasAnchor" number="2.10">
 <h2><span class="header-section-number">2.10</span> CASO DE ESTUDIO: Eficacia de una prueba diagnóstica<a href="probabilidad-y-experimentos-aleatorios.html#caso-de-estudio-eficacia-de-una-prueba-diagnóstica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para decidir la presencia(E) o ausencia (A) de sordera profunda a la edad de seis meses, se está ensayando una batería de tests.</p>
 <p>Considerando el caso en que la prueba pueda dar positivo <span class="math inline">\((+)\)</span> o negativo <span class="math inline">\((-)\)</span>, hay que tener en cuenta que en individuos con dicha sordera la prueba dará a veces positivo y a veces negativo, e igual ocurrirá con individuos que no presentan la sordera.</p>
-<p>Así pues, es conveniente cuantificar estas probabilidades.
-Sean,</p>
-<p><span class="math display">\[
-\mathrm{P}(+/ \mathrm{E})=\text { Probabilidad de test positivo en individuos que padecen la sordera }
-\]</span></p>
-<p>Al valor anterior se le conoce como sensibilidad del test.</p>
-<p><span class="math display">\[\mathrm{P}(+/ \mathrm{A})=\]</span>
-Probabilidad de test positivo en individuos que no padecen la sordera.</p>
-<p>Al valor anterior se le conoce como probabilidad de falso-positivo.
-<span class="math display">\[\$mathrm{P}(-/ \mathrm{E})=\]</span></p>
-<p>Probabilidad de test negativo en individuos que padecen la sordera</p>
-<p>Al valor anterior se le conoce como probabilidad de falso-negativo.
-<span class="math display">\[P(-/ A)=\]</span>
-Probabilidad de test negativo en individuos que no padecen sordera
-Al valor anterior se le conoce como especificidad del test.</p>
-<p>A la probabilidad <span class="math inline">\(\mathrm{P}(\mathrm{E})\)</span> de presentar la enfermedad se le conoce como prevalencia de la enfermedad.</p>
-<p>Lógicamente, interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsospositivos y falsos-negativos sean valores bajos.</p>
-<p>Por otro lado, el interés de aplicar el test consiste en que sirva de elemento predictivo para diagnosticar la sordera.</p>
+<p>En este contexto todas las probabilidades pueden ser interpretadas en terminos de resultados positivos o neghativos, correctamente o no y cada una ha recibe un nombre que la ha popularizado dentro de la literatura médica:</p>
+<p>Así tenemos:</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{P}(+/ \mathrm{E})\)</span></p>
+<ul>
+<li>Probabilidad de test positivo en individuos que padecen la sordera.</li>
+<li>Este valor se conoce como <em>sensibilidad del test</em>.</li>
+</ul></li>
+<li><p><span class="math inline">\(\mathrm{P}(+/ \mathrm{A})=\)</span></p>
+<ul>
+<li>Probabilidad de test positivo en individuos que no padecen la sordera.</li>
+<li>Este valor se conoce como <em>probabilidad de falso-positivo</em>.</li>
+</ul></li>
+<li><p><span class="math inline">\(\mathrm{P}(-/ \mathrm{E})=\)</span></p>
+<ul>
+<li>Probabilidad de test negativo en individuos que padecen la sordera</li>
+<li>Este valor se conoce como <em>probabilidad de falso-negativo</em>.</li>
+</ul></li>
+<li><p><span class="math inline">\(P(-/ A)=\)</span></p>
+<ul>
+<li>Probabilidad de test negativo en individuos que no padecen sordera.</li>
+<li>Este valor se conoce como
+<em>especificidad del test</em>.</li>
+</ul></li>
+<li><p>Finalmente a la probabilidad, <span class="math inline">\(\mathrm{P}(\mathrm{E})\)</span>, de presentar la enfermedad se le conoce como <em>prevalencia</em> de la enfermedad.</p></li>
+</ul>
+<p>Lógicamente, en un “buen test” nos interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsos-positivos y falsos-negativos sean valores bajos.</p>
+<p>Además no debemos olvidar que, el interés de aplicar el test, consiste en que sirva de elemento predictivo para diagnosticar la sordera.</p>
 <p>Por lo tanto, interesa que las probabilidades:</p>
 <ul>
 <li><p><span class="math inline">\(\mathrm{P}(\mathrm{E} /+)=\)</span> Probabilidad de padecer sordera si el test da positivo</p></li>
@@ -846,11 +855,14 @@ Al valor anterior se le conoce como especificidad del test.</p>
 </ul>
 <p>sean realmente altas.</p>
 <p>A las probabilidades
-anteriores se las conoce como: valor predictivo del test.</p>
-<p>Estamos pues en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras.</p>
+anteriores se las conoce como: <em>valores predictivos</em> del test, en concreto:</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{P}(\mathrm{E} /+)=\)</span> es el <em>valor predictivo positivo</em> y</p></li>
+<li><p><span class="math inline">\(\mathrm{P}(\mathrm{A} /-)=\)</span> es el <em>valor predictivo negativo</em></p></li>
+</ul>
 <div id="aplicación-del-teorema-de-bayes" class="section level3 hasAnchor" number="2.10.1">
-<h3><span class="header-section-number">2.10.1</span> APlicación del Teorema de Bayes<a href="probabilidad-y-experimentos-aleatorios.html#aplicación-del-teorema-de-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para el cálculo del valor predictivo del test utilizaremos el teorema de Bayes.</p>
+<h3><span class="header-section-number">2.10.1</span> Aplicación del Teorema de Bayes<a href="probabilidad-y-experimentos-aleatorios.html#aplicación-del-teorema-de-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Estamos en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras, para lo que utilizaremos el teorema de Bayes.</p>
 <p>Habitualmente, a partir de estudios epidemiológicos y muestras experimentales, se estiman:</p>
 <ul>
 <li><p>La prevalencia</p></li>
@@ -860,18 +872,18 @@ anteriores se las conoce como: valor predictivo del test.</p>
 <li><p>La probabilidad de falso negativo</p></li>
 </ul>
 <p>¿Cómo se obtiene entonces el valor predictivo del test?</p>
-<p>Muy sencillo!: Aplicando el teorema de Bayes.</p>
+<p>Veamos como aplicar el teorema de Bayes a este problema:</p>
 <p>Si dividimos a la población global (en este caso, el conjunto de todos los bebés de seis meses) entre los que padecen sordera y los que no la padecen, aplicando el teorema de Bayes resulta que:</p>
 <p><span class="math display">\[
 \mathrm{P}(\mathrm{E} /+)=(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})) /(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})+\mathrm{P}(+/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A}))
-\]</span></p>
-<p>y</p>
+\]</span>
+y</p>
 <p><span class="math display">\[
 \mathrm{P}(\mathrm{~A} /-)=(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})) /(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})+\mathrm{P}(-/ \mathrm{E}) \times \mathrm{P}(\mathrm{E}))
 \]</span></p>
 </div>
-<div id="cálculos" class="section level3 hasAnchor" number="2.10.2">
-<h3><span class="header-section-number">2.10.2</span> Cálculos<a href="probabilidad-y-experimentos-aleatorios.html#cálculos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-numérico" class="section level3 hasAnchor" number="2.10.2">
+<h3><span class="header-section-number">2.10.2</span> Ejemplo numérico<a href="probabilidad-y-experimentos-aleatorios.html#ejemplo-numérico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supongamos que en el ejemplo de la sordera, se sabe que:</p>
 <ul>
 <li><p>Prevalencia <span class="math inline">\(=0,003\)</span>, Es decir, que un tres por mil padece sordera profunda a esta edad.</p></li>

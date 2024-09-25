@@ -1,0 +1,78 @@
+/* Estilo base para todos los bloques */
+.calloutBox {
+    padding: 1em 1em 1em 4em; /* Espacio para el ícono a la izquierda */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    background-position: 10px center;
+    background-size: 3em;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+}
+
+/* Estilos específicos con imágenes para cada tipo de bloque */
+.objectives {
+    background-image: url('images/objective-icon.png');
+    border-color: #cc0000;
+    background-color: #ffe6e6; /* Rosa pálido */
+}
+
+.important {
+    background-image: url('images/important-icon.png');
+    border-color: #e67300;
+    background-color: #ffe6cc; /* Naranja pálido */
+}
+
+.tip {
+    background-image: url('images/tip-icon.png');
+    border-color: #004080;
+    background-color: #e6f2ff; /* Azul pálido */
+}
+
+.software {
+    background-image: url('images/software-icon.png');
+    border-color: #006600;
+    background-color: #e6ffe6; /* Verde pálido */
+}
+
+.link {
+    background-image: url('images/link-icon.png');
+    border-color: #cc8400;
+    background-color: #fff5e6; /* Amarillo pálido */
+}
+
+.think {
+    background-image: url('images/think-icon.png');
+    border-color: #9900cc;
+    background-color: #f5e6ff; /* Morado pálido */
+}
+
+/* Clases adicionales con solo fondo de color */
+
+/* Bloque para definiciones (fondo amarillo) */
+.definicion {
+    background-color: #fff9c4; /* Amarillo pálido */
+    border-left: 5px solid #fbc02d; /* Borde amarillo más oscuro */
+    padding: 1em;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Bloque para ejemplos (fondo rosa) */
+.ejemplo {
+    background-color: #f8bbd0; /* Rosa pálido */
+    border-left: 5px solid #ec407a; /* Borde rosa más oscuro */
+    padding: 1em;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Bloque para teoremas (fondo azul) */
+.teorema {
+    background-color: #bbdefb; /* Azul pálido */
+    border-left: 5px solid #42a5f5; /* Borde azul más oscuro */
+    padding: 1em;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
