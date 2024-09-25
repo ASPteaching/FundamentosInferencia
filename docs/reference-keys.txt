@@ -35,6 +35,9 @@ variaciones-con-repetición
 combinaciones
 permutaciones-con-repetición
 frecuencia-relativa-y-probabilidad
+caso-de-estudio-eficacia-de-una-prueba-diagnóstica
+aplicación-del-teorema-de-bayes
+cálculos
 variables-aleatorias-y-distribuciones-de-probabilidad
 el-espacio-muestral-y-sus-elementos
 representación-numérica-de-los-sucesos-elementales.-variables-aleatorias

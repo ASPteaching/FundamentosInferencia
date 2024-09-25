@@ -632,3 +632,117 @@ Al realizar este tipo de experimento ha de llamar la atención:
 La teoría moderna de la probabilidad enlaza formalmente estas ideas con
 el estudio de las leyes de los grandes números, que se discutiran brevemente en el capítulo dedicado a las "Grandes muestras"
 .
+
+## CASO DE ESTUDIO: Eficacia de una prueba diagnóstica 
+
+Para decidir la presencia(E) o ausencia (A) de sordera profunda a la edad de seis meses, se está ensayando una batería de tests.
+
+Considerando el caso en que la prueba pueda dar positivo $(+)$ o negativo $(-)$, hay que tener en cuenta que en individuos con dicha sordera la prueba dará a veces positivo y a veces negativo, e igual ocurrirá con individuos que no presentan la sordera.
+
+Así pues, es conveniente cuantificar estas probabilidades.
+Sean,
+
+$$
+\mathrm{P}(+/ \mathrm{E})=\text { Probabilidad de test positivo en individuos que padecen la sordera }
+$$
+
+Al valor anterior se le conoce como sensibilidad del test.
+
+$$\mathrm{P}(+/ \mathrm{A})=$$ 
+Probabilidad de test positivo en individuos que no padecen la sordera.
+
+Al valor anterior se le conoce como probabilidad de falso-positivo.
+$$\$mathrm{P}(-/ \mathrm{E})=$$ 
+
+Probabilidad de test negativo en individuos que padecen la sordera
+
+Al valor anterior se le conoce como probabilidad de falso-negativo.
+$$P(-/ A)=$$ 
+Probabilidad de test negativo en individuos que no padecen sordera
+Al valor anterior se le conoce como especificidad del test.
+
+A la probabilidad $\mathrm{P}(\mathrm{E})$ de presentar la enfermedad se le conoce como prevalencia de la enfermedad.
+
+Lógicamente, interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsospositivos y falsos-negativos sean valores bajos.
+
+Por otro lado, el interés de aplicar el test consiste en que sirva de elemento predictivo para diagnosticar la sordera.
+
+Por lo tanto, interesa que las probabilidades:
+
+- $\mathrm{P}(\mathrm{E} /+)=$ Probabilidad de padecer sordera si el test da positivo
+
+- $\mathrm{P}(\mathrm{A} /-)=$ Probabilidad de no padecer sordera si el test da negativo
+
+sean realmente altas.
+
+A las probabilidades 
+anteriores se las conoce como: valor predictivo del test.
+
+Estamos pues en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras.
+
+### APlicación del Teorema de Bayes
+
+Para el cálculo del valor predictivo del test utilizaremos el teorema de Bayes.
+
+Habitualmente, a partir de estudios epidemiológicos y muestras experimentales, se estiman:
+
+- La prevalencia
+
+- La sensibilidad del test
+
+- La especificidad del test
+
+- La probabilidad de falso positivo
+
+- La probabilidad de falso negativo
+
+¿Cómo se obtiene entonces el valor predictivo del test?
+
+Muy sencillo!: Aplicando el teorema de Bayes.
+
+Si dividimos a la población global (en este caso, el conjunto de todos los bebés de seis meses) entre los que padecen sordera y los que no la padecen, aplicando el teorema de Bayes resulta que:
+
+$$
+\mathrm{P}(\mathrm{E} /+)=(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})) /(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})+\mathrm{P}(+/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A}))
+$$
+
+y
+
+$$
+\mathrm{P}(\mathrm{~A} /-)=(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})) /(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})+\mathrm{P}(-/ \mathrm{E}) \times \mathrm{P}(\mathrm{E}))
+$$
+
+### Cálculos
+
+Supongamos que en el ejemplo de la sordera, se sabe que:
+
+- Prevalencia $=0,003$, Es decir, que un tres por mil padece sordera profunda a esta edad.
+
+- Sensibilidad $=0,98$
+
+- Especificidad $=0,95$
+
+- Probabilidad de falso positivo $=0,05$
+
+- Probabilidad de falso negativo $=0,02$
+
+¿Cuál es el valor predictivo del test?
+
+$$
+\begin{aligned}
+& \mathrm{P}(\mathrm{E} /+)=(0,98 \times 0,003) /(0,98 \times 0,003+0,05 \times 0,997)=0,00294 / 0,05279=0,055692 \\
+& \mathrm{P}(\mathrm{~A} /-)=(0,95 \times 0,997) /(0,95 \times 0,997+0,02 \times 0,003)=0,94715 / 0,94721=0,999936
+\end{aligned}
+$$
+
+En conclusión,
+Podemos afirmar que se trata de un test muy válido para decidir que no hay sordera en caso de que el resultado del test sea negativo.
+
+Sin embargo, el valor tan bajo de $\mathrm{P}(\mathrm{E} /+)$ no permite poder considerar al test como un predictor válido para diagnosticar la sordera.
+
+Obsérvese que:
+
+- Probabilidad de falso positivo $=1-$ especificidad
+
+- Probabilidad de falso negativo $=1-$ sensibilidad
+

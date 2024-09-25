@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica</title>
   <meta name="description" content="Capítulo 2 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
@@ -131,6 +131,11 @@
 <li class="chapter" data-level="2.8.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#permutaciones-con-repetición"><i class="fa fa-check"></i><b>2.8.5</b> Permutaciones con repetición</a></li>
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>2.9</b> Frecuencia relativa y probabilidad</a></li>
+<li class="chapter" data-level="2.10" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#caso-de-estudio-eficacia-de-una-prueba-diagnóstica"><i class="fa fa-check"></i><b>2.10</b> CASO DE ESTUDIO: Eficacia de una prueba diagnóstica</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#aplicación-del-teorema-de-bayes"><i class="fa fa-check"></i><b>2.10.1</b> APlicación del Teorema de Bayes</a></li>
+<li class="chapter" data-level="2.10.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#cálculos"><i class="fa fa-check"></i><b>2.10.2</b> Cálculos</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><i class="fa fa-check"></i><b>3</b> Variables aleatorias y Distribuciones de probabilidad</a>
 <ul>
@@ -811,7 +816,87 @@ mucho de <span class="math inline">\(p(A)\)</span>.</li>
 <p>La teoría moderna de la probabilidad enlaza formalmente estas ideas con
 el estudio de las leyes de los grandes números, que se discutiran brevemente en el capítulo dedicado a las “Grandes muestras”
 .</p>
+</div>
+<div id="caso-de-estudio-eficacia-de-una-prueba-diagnóstica" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> CASO DE ESTUDIO: Eficacia de una prueba diagnóstica<a href="probabilidad-y-experimentos-aleatorios.html#caso-de-estudio-eficacia-de-una-prueba-diagnóstica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para decidir la presencia(E) o ausencia (A) de sordera profunda a la edad de seis meses, se está ensayando una batería de tests.</p>
+<p>Considerando el caso en que la prueba pueda dar positivo <span class="math inline">\((+)\)</span> o negativo <span class="math inline">\((-)\)</span>, hay que tener en cuenta que en individuos con dicha sordera la prueba dará a veces positivo y a veces negativo, e igual ocurrirá con individuos que no presentan la sordera.</p>
+<p>Así pues, es conveniente cuantificar estas probabilidades.
+Sean,</p>
+<p><span class="math display">\[
+\mathrm{P}(+/ \mathrm{E})=\text { Probabilidad de test positivo en individuos que padecen la sordera }
+\]</span></p>
+<p>Al valor anterior se le conoce como sensibilidad del test.</p>
+<p><span class="math display">\[\mathrm{P}(+/ \mathrm{A})=\]</span>
+Probabilidad de test positivo en individuos que no padecen la sordera.</p>
+<p>Al valor anterior se le conoce como probabilidad de falso-positivo.
+<span class="math display">\[\$mathrm{P}(-/ \mathrm{E})=\]</span></p>
+<p>Probabilidad de test negativo en individuos que padecen la sordera</p>
+<p>Al valor anterior se le conoce como probabilidad de falso-negativo.
+<span class="math display">\[P(-/ A)=\]</span>
+Probabilidad de test negativo en individuos que no padecen sordera
+Al valor anterior se le conoce como especificidad del test.</p>
+<p>A la probabilidad <span class="math inline">\(\mathrm{P}(\mathrm{E})\)</span> de presentar la enfermedad se le conoce como prevalencia de la enfermedad.</p>
+<p>Lógicamente, interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsospositivos y falsos-negativos sean valores bajos.</p>
+<p>Por otro lado, el interés de aplicar el test consiste en que sirva de elemento predictivo para diagnosticar la sordera.</p>
+<p>Por lo tanto, interesa que las probabilidades:</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{P}(\mathrm{E} /+)=\)</span> Probabilidad de padecer sordera si el test da positivo</p></li>
+<li><p><span class="math inline">\(\mathrm{P}(\mathrm{A} /-)=\)</span> Probabilidad de no padecer sordera si el test da negativo</p></li>
+</ul>
+<p>sean realmente altas.</p>
+<p>A las probabilidades
+anteriores se las conoce como: valor predictivo del test.</p>
+<p>Estamos pues en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras.</p>
+<div id="aplicación-del-teorema-de-bayes" class="section level3 hasAnchor" number="2.10.1">
+<h3><span class="header-section-number">2.10.1</span> APlicación del Teorema de Bayes<a href="probabilidad-y-experimentos-aleatorios.html#aplicación-del-teorema-de-bayes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para el cálculo del valor predictivo del test utilizaremos el teorema de Bayes.</p>
+<p>Habitualmente, a partir de estudios epidemiológicos y muestras experimentales, se estiman:</p>
+<ul>
+<li><p>La prevalencia</p></li>
+<li><p>La sensibilidad del test</p></li>
+<li><p>La especificidad del test</p></li>
+<li><p>La probabilidad de falso positivo</p></li>
+<li><p>La probabilidad de falso negativo</p></li>
+</ul>
+<p>¿Cómo se obtiene entonces el valor predictivo del test?</p>
+<p>Muy sencillo!: Aplicando el teorema de Bayes.</p>
+<p>Si dividimos a la población global (en este caso, el conjunto de todos los bebés de seis meses) entre los que padecen sordera y los que no la padecen, aplicando el teorema de Bayes resulta que:</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{E} /+)=(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})) /(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})+\mathrm{P}(+/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A}))
+\]</span></p>
+<p>y</p>
+<p><span class="math display">\[
+\mathrm{P}(\mathrm{~A} /-)=(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})) /(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})+\mathrm{P}(-/ \mathrm{E}) \times \mathrm{P}(\mathrm{E}))
+\]</span></p>
+</div>
+<div id="cálculos" class="section level3 hasAnchor" number="2.10.2">
+<h3><span class="header-section-number">2.10.2</span> Cálculos<a href="probabilidad-y-experimentos-aleatorios.html#cálculos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos que en el ejemplo de la sordera, se sabe que:</p>
+<ul>
+<li><p>Prevalencia <span class="math inline">\(=0,003\)</span>, Es decir, que un tres por mil padece sordera profunda a esta edad.</p></li>
+<li><p>Sensibilidad <span class="math inline">\(=0,98\)</span></p></li>
+<li><p>Especificidad <span class="math inline">\(=0,95\)</span></p></li>
+<li><p>Probabilidad de falso positivo <span class="math inline">\(=0,05\)</span></p></li>
+<li><p>Probabilidad de falso negativo <span class="math inline">\(=0,02\)</span></p></li>
+</ul>
+<p>¿Cuál es el valor predictivo del test?</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{P}(\mathrm{E} /+)=(0,98 \times 0,003) /(0,98 \times 0,003+0,05 \times 0,997)=0,00294 / 0,05279=0,055692 \\
+&amp; \mathrm{P}(\mathrm{~A} /-)=(0,95 \times 0,997) /(0,95 \times 0,997+0,02 \times 0,003)=0,94715 / 0,94721=0,999936
+\end{aligned}
+\]</span></p>
+<p>En conclusión,
+Podemos afirmar que se trata de un test muy válido para decidir que no hay sordera en caso de que el resultado del test sea negativo.</p>
+<p>Sin embargo, el valor tan bajo de <span class="math inline">\(\mathrm{P}(\mathrm{E} /+)\)</span> no permite poder considerar al test como un predictor válido para diagnosticar la sordera.</p>
+<p>Obsérvese que:</p>
+<ul>
+<li><p>Probabilidad de falso positivo <span class="math inline">\(=1-\)</span> especificidad</p></li>
+<li><p>Probabilidad de falso negativo <span class="math inline">\(=1-\)</span> sensibilidad</p></li>
+</ul>
 
+</div>
 </div>
 </div>
             </section>
