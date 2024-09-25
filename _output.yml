@@ -2,11 +2,13 @@ bookdown::gitbook:
   css: [style.css,blocks.css]
   config:
     toc:
+      collapse: section
+      scroll_highlight: true
       before: |
         <li><a href="./">Fundamentos de Inferencia</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/%s
-    download: ["pdf"]
+    download: ["Fundamentos-de-Inferencia-Estadistica.pdf"]
 bookdown::pdf_book:
   keep_tex: yes
