@@ -157,20 +157,20 @@ Toda función que verifique las propiedades anteriores es una función de
 distribución y toda función de distribución caracteriza una determinada
 variable aleatoria sobre algún espacio de probabilidad.
 
-Las propiedades anteriores determinan la forma de la función de distribución. En concreto, según la variable sea contínua o discreta, conceptos definidos a continuación en el capítulo, la foprma de la función será: :
+Las propiedades anteriores determinan la forma de la función de distribución. En concreto, según la variable sea contínua o discreta, conceptos definidos a continuación en el capítulo, la forma de la función será: :
 
 Primer tipo (Variables contínuas)
 
-```{r, echo=FALSE}
-knitr::include_graphics("./images/cdfContinua.png")
+```{r cdfContinuas, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/cdfContinua.png")
 ```
 
 
 Segundo tipo (variables discretas)
 
 
-```{r, echo=FALSE}
-knitr::include_graphics("./images/cdfDiscreta.png")
+```{r cdfDiscretas, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/cdfDiscreta.png")
 ```
 
 
@@ -853,9 +853,9 @@ $$
 
 es también una variable aleatoria discreta.
 
-# Caso práctico 1: Lanzamiento de dos dados
+# Caso práctico: Lanzamiento de dos dados
 
-## 1. Espacio muestral
+## Espacio muestral
 
 Supongamos que estamos realizando un experimento consistente en el lanzamiento simultáneo de dos dados y en la observación del resultado
 obtenido.
@@ -884,7 +884,7 @@ probabilidades a diferentes sucesos observables, por ejemplo:
 No entramos en detalles de la obtención de las probabilidades dado que
 se ha estudiado suficientemente en el tema anterior.
 
-## 2. Representación numérica
+## Representación numérica
 
 Continuando con el experimento anterior, podemos representar los
 resultados obtenidos al lanzar dos dados por valores numéricos. ¿Cómo
@@ -924,7 +924,7 @@ El recorrido, en este caso, está formado por los valores: $1,2,3,4,5$ y
 sobre este experimento son ejemplos absolutamente equivalentes desde el
 punto de vista formal.
 
-## 3. Algunas probabilidades
+## Algunas probabilidades
 
 En el ejemplo de los dados vamos a centrarnos en la variable aleatoria
 
@@ -949,7 +949,7 @@ Ahora podéis intentar calcular por vosotros mismos algunas
 probabilidades: (a) $P(X \leq 6)$ (b) $P(X \leq 8,2)$; (c)
 $P(X \leq 12)$; (d) $P(X \leq 20)$ i (e) $P(2,2<X \leq 7)$
 
-## 4. Función de distribución
+## Función de distribución
 
 Para calcular la función de distribución de la variable X $=$ Suma de
 puntos de las caras :
@@ -972,12 +972,15 @@ la puntuación al lanzar dos dados.
 
 Vamos a ver su representación gráfica:
 
-![](images/clipboard-1894572766.png)
+```{r, cdfSumaDados, out.width="90%", echo=FALSE}
+knitr::include_graphics("images/clipboard-1894572766.png")
+```
+
 
 Ejercicio : Haced lo mismo para la variable aleatoria el menor de los
 puntos de las dos caras al lanzar dos dados.
 
-## 5. Clasificación de las variables
+## Clasificación de las variables
 
 En el experimento que estamos considerando, lanzar simultáneamente dos
 dados, cualquiera de las dos variables aleatorias que hemos considerado
@@ -1001,7 +1004,7 @@ Ejercicio: ¿Sabríais construir una variable aleatoria discreta con
 recorrido infinito numerable basada en el experimento que consiste en el
 lanzamiento de dos dados?
 
-## 6. Función de densidad discreta
+## Función de densidad discreta
 
 Para calcular la función de densidad de la variable
 
@@ -1033,7 +1036,7 @@ permitir una visualización de la función óptima.
 Ejercicio: Haced lo mismo para la variable aleatoria el menor de los
 puntos de las dos caras al lanzar dos dados.
 
-## 7. Probabilidad de intervalos
+## Probabilidad de intervalos
 
 Vamos a centrarnos en la variable
 
@@ -1084,7 +1087,7 @@ basados directamente en los resultados elementales.
 -   $P(2,2<X \leq 7)=F(7)-F(2,2)=21 / 36-1 / 36=20 / 36=f(3)+f(4)+f(5)+f(6)+f(7)$
 -   $P(2<X<7)=F(7)-f(7)-F(2)=21 / 36-6 / 36-1 / 36=14 / 36=f(3)+f(4)+f(5)+f(6)$
 
-## 8. Esperanza
+## Esperanza
 
 Supongamos que estamos interesados en determinar cual sería el valor
 medio teórico de la variable
@@ -1105,10 +1108,13 @@ calcular la esperanza. A partir de la fórmula de la esperanza para
 variables discretas, tenemos
 
 $$
-\begin{gathered}
-E(X)=2 \cdot 1 / 36+3 \cdot 2 / 36+4 \cdot 3 / 36+5 \cdot 4 / 36+6 \cdot 5 / 36+7 \cdot 6 / 36+8 \cdot 5 / 36+9 \cdot 4 / 36+10 \cdot 3 / 36+ \\
-11 \cdot 2 / 36+12 \cdot 1 / 36=7
-\end{gathered}
+\begin{aligned}
+E(X) &=2 \cdot 1 / 36+3 \cdot 2 / 36+4 \cdot 3 / 36+5 \cdot 4 / 36+6 \cdot 5 / 36+\\
+& + 7 \cdot 6 / 36+8 \cdot 5 / 36+9 \cdot 4 / 36+\\
+&+ 10 \cdot 3 / 36+ 
+11 \cdot 2 / 36+12 \cdot 1 / 36=\\
+& =7
+\end{aligned}
 $$
 
 Por tanto, 7 es la esperanza de la variable $X=$ Suma de puntos de las
@@ -1131,7 +1137,7 @@ caras, de este modo se modifica la esperanza.
 Ejercicio: ¿Podríais hacer lo mismo para la variable $X=$ El menor de
 los puntos de las dos caras al lanzar dos dados?
 
-## 9. Esperanza de un juego
+## Esperanza de un juego
 
 Imaginemos que alguien os propone el juego siguiente: lanzad dos dados,
 si la suma obtenida es menor o igual a 6 ganáis 100 euros, sin embargo,
@@ -1165,7 +1171,7 @@ $$
 Es decir, la ganancia media por jugada es negativa, por tanto no es
 favorable dicho juego para el jugador, es un juego no equitativo.
 
-## 10. Esperanza con recorrido infinito
+## Esperanza con recorrido infinito
 
 Vamos a tratar de calcular la esperanza de la siguiente variable
 aleatoria: $X=$ Número de lanzamientos que hemos de hacer para conseguir
@@ -1190,13 +1196,17 @@ $p=1 / 36$ y $q=1-p=35 / 36$, con esta nomenclatura
 $P(X=\mathrm{k})=q^{k-1} p$. Por tanto, la esperanza será:
 
 $$
-E(X)=\sum_{i=1}^{\infty} i q^{i-1} p=p \sum_{i=1}^{\infty} i q^{i-1}=p \frac{d}{d q} \sum_{i=1}^{\infty} q^{i}=p \frac{d}{d q}\left(\frac{q}{1-q}\right)=p \frac{1}{(1-q)^{2}}=\frac{1}{p}
+\begin{aligned}
+E(X)& =\sum_{i=1}^{\infty} i q^{i-1} p=p \sum_{i=1}^{\infty} i q^{i-1}=p \frac{d}{d q} \sum_{i=1}^{\infty} q^{i}= \\ 
+&= p \frac{d}{d q}\left(\frac{q}{1-q}\right)=p \frac{1}{(1-q)^{2}}=\\
+& = \frac{1}{p}
+\end{aligned}
 $$
 
 En nuestro ejemplo el número medio de tiradas antes de salir un doble
 seis será 36 .
 
-## 11. Esperanza infinita
+## Esperanza infinita
 
 Ahora calcularemos la esperanza del juego siguiente: lanzamos un dado
 hasta que aparece un número par, el jugador gana $2^{n}$ unidades
@@ -1219,7 +1229,7 @@ enunciado presentado es una versión del problema presentado alrededor de
 Petersburgo y conocido como la paradoja de San Petersburgo, dado que la
 esperanza del juego es aparentemente infinita.
 
-## 12. Varianza
+## Varianza
 
 Si ahora queremos calcular la varianza de la variable
 
@@ -1242,20 +1252,24 @@ $$
 La esperanza ya la tenemos calculada con anterioridad
 
 $$
-\begin{gathered}
-E(X)=2 \cdot 1 / 36+3 \cdot 2 / 36+4 \cdot 3 / 36+5 \cdot 4 / 36+6 \cdot 5 / 36+7 \cdot 6 / 36+8 \cdot 5 / 36+9 \cdot 4 / 36+10 \cdot 3 / 36+ \\
-11 \cdot 2 / 36+12 \cdot 1 / 36=7
-\end{gathered}
+\begin{aligned}
+E(X) & =2 \cdot 1 / 36+3 \cdot 2 / 36+4 \cdot 3 / 36+5 \cdot 4 / 36+\\
+& +6 \cdot 5 / 36+7 \cdot 6 / 36+8 \cdot 5 / 36+9 \cdot 4 / 36+\\
+& +10 \cdot 3 / 36+ 11 \cdot 2 / 36+12 \cdot 1 / 36=\\
+& =7
+\end{aligned}
 $$
 
 Necesitamos calcular la esperanza de la variable al cuadrado, que en
 este caso resulta:
 
 $$
-\begin{gathered}
-E\left(X^{2}\right)=2^{2} \cdot 1 / 36+3^{2} \cdot 2 / 36+4^{2} \cdot 3 / 36+5^{2} \cdot 4 / 36+6^{2} \cdot 5 / 36+7^{2} \cdot 6 / 36+8^{2} \cdot 5 / 36+9^{2} \cdot 4 / 36+ \\
-10^{2} \cdot 3 / 36+11^{2} \cdot 2 / 36+12^{2} \cdot 1 / 36=329 / 6 \approx 54,833
-\end{gathered}
+\begin{aligned}
+E\left(X^{2}\right)& =2^{2} \cdot 1 / 36+3^{2} \cdot 2 / 36+4^{2} \cdot 3 / 36+5^{2} \cdot 4 / 36+6^{2} \cdot 5 / 36+\\
+& + 7^{2} \cdot 6 / 36+8^{2} \cdot 5 / 36+9^{2} \cdot 4 / 36+  10^{2} \cdot 3 / 36+\\
+& + 11^{2} \cdot 2 / 36+12^{2} \cdot 1 / 36=329 / 6 \\
+&\approx 54,833
+\end{aligned}
 $$
 
 Con lo que la varianza resulta ser
@@ -1268,19 +1282,13 @@ Nuevamente, para la variable Puntuación de un dado, la varianza se
 obtendría de la manera siguiente:
 
 $$
-E(X)=1 \cdot 1 / 6+2 \cdot 1 / 6+3 \cdot 1 / 6+4 \cdot 1 / 6+5 \cdot 1 / 6+6 \cdot 1 / 6=3,5
-$$
-
-$$
-E\left(X^{2}\right)=1^{2} \cdot 1 / 6+2^{2} \cdot 1 / 6+3^{2} \cdot 1 / 6+4^{2} \cdot 1 / 6+5^{2} \cdot 1 / 6+6^{2} \cdot 1 / 6=91 / 6 \approx 15,167
-$$
-
-$$
-\operatorname{Var}(X)=91 / 6-3,5^{2}=35 / 12 \approx 2,9167
+\begin{aligned}
+E(X)& =1 \cdot 1 / 6+2 \cdot 1 / 6+3 \cdot 1 / 6+4 \cdot 1 / 6+5 \cdot 1 / 6+6 \cdot 1 / 6= \\& =3,5\\
+E \left(X^{2}\right)&=1^{2} \cdot 1 / 6+2^{2} \cdot 1 / 6+3^{2} \cdot 1 / 6+4^{2} \cdot 1 / 6+\\
+& + 5^{2} \cdot 1 / 6+6^{2} \cdot 1 / 6=91 / 6\\ &  \approx 15,167 \\
+\operatorname{Var}(X)&=91 / 6-3,5^{2}=35 / 12 \approx 2,9167
+\end{aligned}
 $$
 
 y se cumple que la varianza de la variable Suma de puntos de las dos
-caras es la suma de las varianzas de las puntuaciones de cada dado por
-separado. Recordemos que esto sólo sucede si las variables sumadas son
-independientes, como así ocurre con las puntuaciones de cada dado por
-separado.
+caras es la suma de las varianzas de las puntuaciones de cada dado por separado. Recordemos que esto sólo sucede si las variables sumadas son independientes, como así ocurre con las puntuaciones de cada dado por separado.

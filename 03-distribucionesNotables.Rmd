@@ -362,7 +362,6 @@ si $\operatorname{máx}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq 
 
 La dependencia se debe al hecho de que $N$ es finito y las extracciones se efectúan sin reemplazamiento. El caso de extracciones con reemplazamiento sería equivalente al de $N$ infinito y se resolvería mediante el modelo Binomial.
 
-El programa siguiente nos muestra la forma de la función de densidad de esta variable y el valor de la función de densidad y de la función de distribución en el punto que elijamos:
 
 #### Propiedades del modelo hipergeométrico
 
@@ -473,7 +472,7 @@ $$
 
 ![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-22.jpg?height=339&width=1993&top_left_y=61&top_left_x=40)
 
-## DISTRIBUCIONES CONTINUAS
+## Distribuciones Continuas
 
 ### La distribución Uniforme
 
@@ -767,7 +766,45 @@ donde $\Gamma(x)$ representa la función Gamma de Euler definida anteriormente.
 | Cauchy | - | $\frac{1}{\pi\left(1+x^{2}\right)}$ <br> $-\infty<\mathbf{x}<\infty$ | -- | -- |
 | Weibull | $\alpha>0$ <br> $\beta>0$ | $\frac{\boldsymbol{\beta}}{\boldsymbol{\alpha}}\left(\frac{x}{\boldsymbol{\alpha}}\right)^{\beta-1} e^{-\left(\frac{x}{\alpha}\right)^{\beta}}$ <br> $x \geq 0$ | $\alpha \Gamma\left(\frac{1}{\beta}+1\right)$ | $\alpha^{2}\left\{\Gamma\left(\frac{2}{\beta}+1\right)-\left[\Gamma\left(\frac{1}{\beta}+1\right)\right]^{2}\right\}$ |
 
-## LA FAMILIA EXPONENCIAL DE DISTRIBUCIONES
+
+## Distribuciones con R (y Python)
+
+El lenguaje estadístico R es muy potente en cuanto al cálculo con distribuciones de probabilidad.
+
+Dado que el trabajo con distribucines de probabilidad usando R está muy estandarizado y explicado en múltiples fuentes no repetiremos aquí estas explicaciones.
+
+Tan solo os referimos a dos buenas fuentes de información que podéis utilizar para aprender como hacer los cálculos con R y también una aplicación que os permite visualizar casi cualquier distribución conocida.
+
+
+::::{.software}
+**R Tutorials** 
+
+Explicación detallada y de nivel básico del manejo de las principales distribuciones con R
+
+[https://www.r-tutor.com/elementary-statistics/probability-distributions](https://www.r-tutor.com/elementary-statistics/probability-distributions)
+
+::::
+
+
+::::{.software}
+**The distribution Zoo**
+
+Permite visualizar de forma interactiva distintas distribuciones y proporciona información diversa sobre sus propiedades e incluso su aplicación.
+
+[https://ben18785.shinyapps.io/distribution-zoo/](https://ben18785.shinyapps.io/distribution-zoo/)
+
+::::
+
+::::{.software}
+**Distribution explorer**
+
+Más completo que los anteriores. No se basa en R sino en python.
+
+[https://distribution-explorer.github.io/index.html](https://distribution-explorer.github.io/index.html)
+
+::::
+
+## La familia exponencial de distribuciones
 
 En el estudio de las propiedades de los estimadores, vemos que algunas distribuciones se comportan mejor que otras. Muchas veces, este buen comportamiento refleja una estructura común que proviene de pertenecer a una misma familia de distribuciones llamada familia exponencial.
 
@@ -781,10 +818,11 @@ La familia exponencial no representa un nuevo tipo de distribuciones, sino la co
 
 Veamos algunos ejemplos de que esto es efectivamente así.
 
-## Ejemplos de distribuciones de esta familia
+### Ejemplos de distribuciones de esta familia
 
-### Distribución de Poisson
+#### Distribución de Poisson
 
+::::{.ejemplo}
 La ley de Poisson pertenece a la familia exponencial uniparamétrica.
 
 Efectivamente,
@@ -797,7 +835,10 @@ $$Q(\lambda)=\log(\lambda) \quad T(x)=x \quad D(\lambda)=-\lambda \quad S(x)=-\l
 
 se hace evidente que $f_{\lambda}$ pertenece a la familia exponencial.
 
-### Distribución normal uniparamétrica
+::::
+
+
+#### Distribución normal uniparamétrica
 
 La ley normal depende de dos parámetros $\mu$ y $\sigma$. Fijado uno de ellos, nos queda una distribución que depende de un solo parámetro, y de aquí la denominación "normal uniparamétrica".
 
@@ -812,7 +853,8 @@ $$
 
 Si queremos considerar ambos parámetros a la vez, debemos extender la definición al caso de parámetros $k$-dimensionales. En estos materiales no trataremos esta extensión.
 
-#### Caso 1: Fijando la media $\mu_0$
+::::{.ejemplo}
+##### Caso 1: Fijando la media $\mu_0$
 
 Consideramos la distribución normal $N(\mu_0, \sigma^2)$, donde fijamos $\mu = \mu_0$ y $\sigma^2$ es el parámetro libre.
 
@@ -832,9 +874,11 @@ Ahora identificamos las funciones que se corresponden con la forma de la familia
 - $h(x) = 1$
 
 Esto confirma que la distribución normal, con $\mu_0$ fijo, pertenece a la familia exponencial.
+::::
 
-#### Caso 2: Fijando la varianza $\sigma_0^2$
+##### Caso 2: Fijando la varianza $\sigma_0^2$
 
+::::{.ejemplo}
 Ahora consideramos la distribución $N(\mu, \sigma_0^2)$, donde la varianza está fijada y el parámetro libre es $\mu$.
 
 La función de densidad es
@@ -853,7 +897,9 @@ Identificamos las funciones correspondientes:
 - $S(x) = -\frac{x^2}{2\sigma_0^2}$
 
 Esto prueba que la distribución normal con $\sigma_0$ fijo pertenece a la familia exponencial.
+::::
 
+::::{.ejemplo}
 ### Distribución Binomial
 
 La distribución binomial es un ejemplo interesante, puesto que, a priori, no parece tener la estructura propia de la distribución exponencial, cosa que si pasa con la distribución de Poisson o con la Normales uniparamétricas que acabamos de ver.
@@ -880,8 +926,9 @@ Identificamos las funciones correspondientes a la familia exponencial:
 - $S(x) = \log \binom{n}{x}$
 
 Por lo tanto, la distribución binomial pertenece a la familia exponencial.
+::::
 
-## Importancia y utilidad de la familia exponencial
+### Importancia y utilidad de la familia exponencial
 
 Muchas de las distribuciones usadas para modelar gran cantidad de situaciones prácticas pertenecen a esta familia.
 

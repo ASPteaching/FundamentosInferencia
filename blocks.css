@@ -23,14 +23,12 @@
     background-color: #ffe6cc; /* Naranja pálido */
 }
 
-.tip {
-    background-image: url('images/tip-icon.png');
+.software {
     border-color: #004080;
     background-color: #e6f2ff; /* Azul pálido */
 }
 
-.software {
-    background-image: url('images/software-icon.png');
+.tip {
     border-color: #006600;
     background-color: #e6ffe6; /* Verde pálido */
 }

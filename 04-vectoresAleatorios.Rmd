@@ -212,7 +212,7 @@ cat("P(X < 3, Y < 2) =", prob_X_lt_3_Y_lt_2, "\n")
 Para visualizar la distribución conjunta, podemos usar el código siguiente;
 
 
-```{r}
+```{r plotTrinomial, out.width="90%"}
 # Es preciso instalar y cargar el paquete scatterplot3d si no lo tienes instalado
 # install.packages("scatterplot3d")
 library(scatterplot3d)
@@ -228,17 +228,25 @@ Y_grid <- rep(Y_vals, times = length(X_vals))
 # Extraer las probabilidades como un vector
 Z_vals <- as.vector(prob_table)
 
-# Crear el gráfico 3D de barras simuladas
-s3d <- scatterplot3d(X_grid, Y_grid, Z_vals, type = "h", color = "lightblue", 
+# Enviar el gráfico 3D de barras simuladas a pdf
+png("images/pmfTrinomial.png")
+scatterplot3d(X_grid, Y_grid, Z_vals,
+                     type = "h", color = "lightblue", 
                      pch = 16, lwd = 5, 
+                     cex.symbols = 1,
+                     angle=60,
                      xlab = "Celulas Infectadas (X)", 
                      ylab = "Linfocitos Activados (Y)", 
                      zlab = "Probabilidad",
                      main = "Distribución Conjunta de \n Celulas Infectadas y Linfocitos Activados")
+dev.off()
 
 # Añadir texto con los valores de las probabilidades en la parte superior de las barras
 # s3d$text(X_grid, Y_grid, Z_vals, labels = round(Z_vals, 2), pos = 3, col = "black")
+```
 
+```{r pmfTrinomial, out.width="90%"}
+knitr::include_graphics("images/pmfTrinomial.png", rel_path = TRUE )
 ```
 
 

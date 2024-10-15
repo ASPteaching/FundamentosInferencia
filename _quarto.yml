@@ -59,6 +59,7 @@ format:
     toc-title: "Tabla de Contenidos"
     toc-depth: 2
     toc-location: right
+    embed-resources: true
     theme: [cosmo]
     css: blocks.css
   pdf:
@@ -74,6 +75,7 @@ format:
         - text: |
             \usepackage{amsfonts}
             \usepackage{amsmath}
+            \usepackage{graphicx}
 
 
 
