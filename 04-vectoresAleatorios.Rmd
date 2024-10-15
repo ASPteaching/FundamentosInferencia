@@ -20,7 +20,7 @@ Este es, de hecho, el punto de partida de muchos modelos y métodos en estadíst
 
   - La altura, el peso y el sexo de un individuo.
   - La expresión coordinada de los genes que participan en una determinada via metabólica.
-  - El número de nucleótidos A, C, G, T en una región del genoma de tamaño \n $.
+  - El número de nucleótidos A, C, G, T en una región del genoma de tamaño $n$.
 
 - Estas características numéricas que, de forma análoga al caso univariante, podemos suponer asociadas a los resultados de experimentos aleatorios se denominan *variables aleatorias multidimensionales* o, atendiendo a sus componentes, **vectores aleatorios**. 
 
@@ -39,17 +39,17 @@ Empezaremos por el caso más sencillo que, sin embargo permite estudiar la mayor
 Una **variable aleatoria bivariante** es una aplicación que, a cada resultado de un experimento, le asocia dos números:
 
 $$
-(X, Y): $Omega $to \mathbb{R}^2
+(X, Y): \Omega \to \mathbb{R}^2
 $$
 
 $$
-w $mapsto (X(w), Y(w))
+w \mapsto (X(w), Y(w))
 $$
 
 De modo que, para todo par de valores numéricos, $(x, y) \in \mathbb{R}^2$, se tiene
 
 $$
-${w \in $Omega \mid X(w) \leq x,\quad Y(w) \leq y$} \in $mathcal{A}
+\{w \in \Omega \mid X(w) \leq x,\quad Y(w) \leq y\} \in \mathcal{A}
 $$
 donde $\mathcal{A}$ representa el conjunto de _sucesos observables_ definido en el capítulo 1. 
 
@@ -62,7 +62,7 @@ Fijémonos también que, como en el caso univariante, la función que _transport
 La función de distribución  conjunta de $X$ y $Y$, $F$, es una generalización inmediata del caso univariado i se define como:
 
 $$
-F(x, y) = P${w \in $Omega \mid X(w) \leq x, Y(w) \leq y$} = P[X \leq x, Y \leq y]
+F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y]
 $$
 
 Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.
@@ -91,7 +91,7 @@ $$
 f: \mathbb{R}^2 \to [0, 1]
 $$
 
-Que asigna la probabilidad a cada punto del plano: para todo $(x, y) \in \mathbb{R}^2 $:
+Que asigna la probabilidad a cada punto del plano: para todo $(x, y) \in \mathbb{R}^{2}$:
 
 $$
 f(x, y) = P\{w \in \Omega \mid X(w) = x, Y(w) = y\} = P[X = x, Y = y]
@@ -103,7 +103,7 @@ $$
 - La masa total de probabilidad sobre el plano es 1:
 
 $$
-\sum_{(x_i, y_j) \in \mathbb{R}^2} f(x_i, y_j) = 1
+\sum_{(x_i, y_j) \in \mathbb{R}^{2}} f(x_i, y_j) = 1
 $$
 
 - Para todo subconjunto $B \subseteq \mathbb{R}^2$, se verifica:
@@ -149,6 +149,7 @@ Puede comprobarse como la suma de todos los valores de la tabla es 1, y calcular
 **Probabilidad de 1uye hayan dos celulas infectadas y un linfocito:**
 
 Para calcular la probabilidad de que haya exactamente 2 células infectadas y 1 linfocito activado, se puede usar el valor directamente de la tabla.
+
 $$
 P(X = 2, Y = 1) = 0.12
 $$
@@ -391,7 +392,7 @@ Distribución de $X_1$ condicionada a que $X_2 = 1$.
 - Diremos que $(X, Y)$ es absolutamente continua si existe una función $f(x, y)$, llamada **función de densidad conjunta absolutamente continua** o **bivariada**, tal que, para todo $(x, y) \in \mathbb{R}^2$,
 
 $$
-F(x, y) = \int_{-\infty}^{x} \int_{-\infty}^{y} f(u, v) $, du $, dv
+F(x, y) = \int_{-\infty}^{x} \int_{-\infty}^{y} f(u, v)\, du \, dv
 $$
 
 - Si existe, la función de densidad absolutamente continua es única.
@@ -409,13 +410,13 @@ $$
 - Para cualquier conjunto $S$:
 
 $$
-P${(X, Y) \in S$} = \int_S f(x, y) \, dx \, dy
+P\{(X, Y) \in S\} = \int_S f(x, y) \, dx \, dy
 $$
 
 En particular, la probabilidad de que $(X, Y)$ esté en un rectángulo:
 
 $$
-P(a_1 < X \leq a_2, b_1 < Y \leq b_2) = \int_{a_1}^{a_2} \int_{b_1}^{b_2} f(x, y) $, dx $, dy
+P(a_1 < X \leq a_2, b_1 < Y \leq b_2) = \int_{a_1}^{a_2} \int_{b_1}^{b_2} f(x, y) \, dx \, dy
 $$
 
 ### Densidades marginales en el caso continuo

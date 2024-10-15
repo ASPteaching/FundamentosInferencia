@@ -849,12 +849,10 @@ es también una variable aleatoria discreta.
 
 ## 1. Espacio muestral
 
-Supongamos que estamos realizando un experimento consistente en el
-lanzamiento simultáneo de dos dados y en la observación del resultado
+Supongamos que estamos realizando un experimento consistente en el lanzamiento simultáneo de dos dados y en la observación del resultado
 obtenido.
 
-El conjunto de resultados posibles forma el espacio muestral $\Omega$
-asociado a dicho experimento. Sus elementos serán como los que se
+El conjunto de resultados posibles forma el espacio muestral $\Omega$ asociado a dicho experimento. Sus elementos serán como los que se
 muestran a continuación:
 
 ![](images/clipboard-1434716414.png)

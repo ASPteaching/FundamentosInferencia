@@ -225,6 +225,8 @@ window.Quarto = {
   <li><a href="#distribuciones-discretas" id="toc-distribuciones-discretas" class="nav-link active" data-scroll-target="#distribuciones-discretas"><span class="header-section-number">3.1</span> Distribuciones discretas</a></li>
   <li><a href="#distribuciones-continuas" id="toc-distribuciones-continuas" class="nav-link" data-scroll-target="#distribuciones-continuas"><span class="header-section-number">3.2</span> DISTRIBUCIONES CONTINUAS</a></li>
   <li><a href="#la-familia-exponencial-de-distribuciones" id="toc-la-familia-exponencial-de-distribuciones" class="nav-link" data-scroll-target="#la-familia-exponencial-de-distribuciones"><span class="header-section-number">3.3</span> LA FAMILIA EXPONENCIAL DE DISTRIBUCIONES</a></li>
+  <li><a href="#ejemplos-de-distribuciones-de-esta-familia" id="toc-ejemplos-de-distribuciones-de-esta-familia" class="nav-link" data-scroll-target="#ejemplos-de-distribuciones-de-esta-familia"><span class="header-section-number">3.4</span> Ejemplos de distribuciones de esta familia</a></li>
+  <li><a href="#importancia-y-utilidad-de-la-familia-exponencial" id="toc-importancia-y-utilidad-de-la-familia-exponencial" class="nav-link" data-scroll-target="#importancia-y-utilidad-de-la-familia-exponencial"><span class="header-section-number">3.5</span> Importancia y utilidad de la familia exponencial</a></li>
   </ul>
 </nav>
     </div>
@@ -1098,8 +1100,107 @@ Weibull | <span class="math inline">\(\alpha&gt;0\)</span> <br> <span class="mat
 </section>
 <section id="la-familia-exponencial-de-distribuciones" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="la-familia-exponencial-de-distribuciones"><span class="header-section-number">3.3</span> LA FAMILIA EXPONENCIAL DE DISTRIBUCIONES</h2>
+<p>En el estudio de las propiedades de los estimadores, vemos que algunas distribuciones se comportan mejor que otras. Muchas veces, este buen comportamiento refleja una estructura común que proviene de pertenecer a una misma familia de distribuciones llamada familia exponencial.</p>
+<p><strong>Definición</strong>: Sea <span class="math inline">\(f_{\theta}\)</span> una familia de probabilidades que depende de un parámetro unidimensional <span class="math inline">\(\left\{f_{\theta}(x), \theta \in \Theta \subseteq \mathbb{R}\right\}\)</span> tal que el soporte <span class="math inline">\(S(\theta)=\left\{x \mid f_{\theta}(x)&gt;0\right\}\)</span> no depende de <span class="math inline">\(\theta\)</span>. Si existen funciones de los parámetros <span class="math inline">\(Q(\theta)\)</span> y <span class="math inline">\(C(\theta)\)</span> y funciones de las muestras, <span class="math inline">\(T(x)\)</span> y <span class="math inline">\(h(x)\)</span>, tales que la función de densidad puede escribirse como:</p>
+<p><span class="math display">\[f_{\theta}(x)=C(\theta) h(x) \exp\{Q(\theta) \cdot T(x)\}\]</span></p>
+<p>diremos que <span class="math inline">\(f_{\theta}(x)\)</span> <em>pertenece a la familia exponencial de distribuciones</em>.</p>
+<p>La familia exponencial no representa un nuevo tipo de distribuciones, sino la constatación de que muchas distribuciones comunes, que pueden reformularse para ajustarse a la expresión anterior, pertenecen a esta familia.</p>
+<p>Veamos algunos ejemplos de que esto es efectivamente así.</p>
+</section>
+<section id="ejemplos-de-distribuciones-de-esta-familia" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="ejemplos-de-distribuciones-de-esta-familia"><span class="header-section-number">3.4</span> Ejemplos de distribuciones de esta familia</h2>
+<section id="distribución-de-poisson" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="distribución-de-poisson"><span class="header-section-number">3.4.1</span> Distribución de Poisson</h3>
+<p>La ley de Poisson pertenece a la familia exponencial uniparamétrica.</p>
+<p>Efectivamente,</p>
+<p><span class="math display">\[f_{\lambda}(x)=e^{-\lambda} \frac{\lambda^{x}}{x!}=\exp\{-\lambda+x \log \lambda-\log(x!)\}\]</span></p>
+<p>y si hacemos</p>
+<p><span class="math display">\[Q(\lambda)=\log(\lambda) \quad T(x)=x \quad D(\lambda)=-\lambda \quad S(x)=-\log(x!)\]</span></p>
+<p>se hace evidente que <span class="math inline">\(f_{\lambda}\)</span> pertenece a la familia exponencial.</p>
+</section>
+<section id="distribución-normal-uniparamétrica" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="distribución-normal-uniparamétrica"><span class="header-section-number">3.4.2</span> Distribución normal uniparamétrica</h3>
+<p>La ley normal depende de dos parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span>. Fijado uno de ellos, nos queda una distribución que depende de un solo parámetro, y de aquí la denominación “normal uniparamétrica”.</p>
+<p>Si, con el subíndice “0”, indicamos el parámetro fijado, tenemos:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;f_{\sigma}=\left\{N\left(\mu_0, \sigma\right), \sigma&gt;0\right\} \text{ Normal uniparamétrica, de parámetro } \sigma^2, \\
+&amp;f_{\mu}=\left\{N\left(\mu, \sigma_0\right), \mu \in \mathbb{R}\right\} \text{ normal uniparamétrica, de parámetro } \mu.
+\end{aligned}
+\]</span></p>
+<p>Si queremos considerar ambos parámetros a la vez, debemos extender la definición al caso de parámetros <span class="math inline">\(k\)</span>-dimensionales. En estos materiales no trataremos esta extensión.</p>
+<section id="caso-1-fijando-la-media-mu_0" class="level4" data-number="3.4.2.1">
+<h4 data-number="3.4.2.1" class="anchored" data-anchor-id="caso-1-fijando-la-media-mu_0"><span class="header-section-number">3.4.2.1</span> Caso 1: Fijando la media <span class="math inline">\(\mu_0\)</span></h4>
+<p>Consideramos la distribución normal <span class="math inline">\(N(\mu_0, \sigma^2)\)</span>, donde fijamos <span class="math inline">\(\mu = \mu_0\)</span> y <span class="math inline">\(\sigma^2\)</span> es el parámetro libre.</p>
+<p>La función de densidad de probabilidad es</p>
+<p><span class="math display">\[f_{\sigma}(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left\{-\frac{(x - \mu_0)^2}{2\sigma^2}\right\}\]</span></p>
+<p>Vamos a reescribir esta función en forma de la familia exponencial. Primero, reorganizamos los términos de la densidad:</p>
+<p><span class="math display">\[f_{\sigma}(x) = \frac{1}{\sqrt{2\pi}} \cdot \sigma^{-1} \exp\left\{-\frac{1}{2\sigma^2}(x - \mu_0)^2\right\}\]</span></p>
+<p>Ahora identificamos las funciones que se corresponden con la forma de la familia exponencial <span class="math inline">\(f_{\theta}(x) = C(\theta) h(x) \exp\{Q(\theta) T(x)\}\)</span>:</p>
+<ul>
+<li><span class="math inline">\(Q(\sigma) = -\frac{1}{2\sigma^2}\)</span></li>
+<li><span class="math inline">\(T(x) = (x - \mu_0)^2\)</span></li>
+<li><span class="math inline">\(C(\sigma) = \frac{1}{\sqrt{2\pi}\sigma}\)</span></li>
+<li><span class="math inline">\(h(x) = 1\)</span></li>
+</ul>
+<p>Esto confirma que la distribución normal, con <span class="math inline">\(\mu_0\)</span> fijo, pertenece a la familia exponencial.</p>
+</section>
+<section id="caso-2-fijando-la-varianza-sigma_02" class="level4" data-number="3.4.2.2">
+<h4 data-number="3.4.2.2" class="anchored" data-anchor-id="caso-2-fijando-la-varianza-sigma_02"><span class="header-section-number">3.4.2.2</span> Caso 2: Fijando la varianza <span class="math inline">\(\sigma_0^2\)</span></h4>
+<p>Ahora consideramos la distribución <span class="math inline">\(N(\mu, \sigma_0^2)\)</span>, donde la varianza está fijada y el parámetro libre es <span class="math inline">\(\mu\)</span>.</p>
+<p>La función de densidad es</p>
+<p><span class="math display">\[f_{\mu}(x) = \frac{1}{\sqrt{2\pi\sigma_0^2}} \exp\left\{-\frac{(x - \mu)^2}{2\sigma_0^2}\right\}\]</span></p>
+<p>Vamos a reescribir esta función de la misma manera:</p>
+<p><span class="math display">\[f_{\mu}(x) = \frac{1}{\sqrt{2\pi\sigma_0^2}} \exp\left\{-\frac{1}{2\sigma_0^2}(x^2 - 2\mu x + \mu^2)\right\}\]</span></p>
+<p>Identificamos las funciones correspondientes:</p>
+<ul>
+<li><span class="math inline">\(Q(\mu) = \frac{\mu}{\sigma_0^2}\)</span></li>
+<li><span class="math inline">\(T(x) = x\)</span></li>
+<li><span class="math inline">\(D(\mu) = -\frac{\mu^2}{2\sigma_0^2}\)</span></li>
+<li><span class="math inline">\(S(x) = -\frac{x^2}{2\sigma_0^2}\)</span></li>
+</ul>
+<p>Esto prueba que la distribución normal con <span class="math inline">\(\sigma_0\)</span> fijo pertenece a la familia exponencial.</p>
+</section>
+</section>
+<section id="distribución-binomial" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="distribución-binomial"><span class="header-section-number">3.4.3</span> Distribución Binomial</h3>
+<p>La distribución binomial es un ejemplo interesante, puesto que, a priori, no parece tener la estructura propia de la distribución exponencial, cosa que si pasa con la distribución de Poisson o con la Normales uniparamétricas que acabamos de ver.</p>
+<p>Sin embargo, tras aplicar algunas transformaciones se puede ver como, también esta distribución pertenece a la familia exponencial</p>
+<p>La función de masa de probabilidad para la distribución binomial es</p>
+<p><span class="math display">\[f(x; n, p) = \binom{n}{x} p^x (1 - p)^{n - x}, \quad x = 0, 1, \dots, n\]</span></p>
+<p>Reescribimos esta función en términos exponenciales:</p>
+<p><span class="math display">\[f(x; n, p) = \binom{n}{x} \exp\{x \log(p) + (n - x) \log(1 - p)\}\]</span></p>
+<p>Agrupamos los términos dependientes de <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[f(x; n, p) = \binom{n}{x} \exp\left\{x \log\left(\frac{p}{1 - p}\right) + n \log(1 - p)\right\}\]</span></p>
+<p>Identificamos las funciones correspondientes a la familia exponencial:</p>
+<ul>
+<li><span class="math inline">\(Q(p) = \log\left(\frac{p}{1 - p}\right)\)</span></li>
+<li><span class="math inline">\(T(x) = x\)</span></li>
+<li><span class="math inline">\(D(p) = n \log(1 - p)\)</span></li>
+<li><span class="math inline">\(S(x) = \log \binom{n}{x}\)</span></li>
+</ul>
+<p>Por lo tanto, la distribución binomial pertenece a la familia exponencial.</p>
+</section>
+</section>
+<section id="importancia-y-utilidad-de-la-familia-exponencial" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="importancia-y-utilidad-de-la-familia-exponencial"><span class="header-section-number">3.5</span> Importancia y utilidad de la familia exponencial</h2>
+<p>Muchas de las distribuciones usadas para modelar gran cantidad de situaciones prácticas pertenecen a esta familia.</p>
+<p>Esto significa que es posible estudiar sus propiedades en conjunto. Es decir, si establecemos que una propiedad se verifica en una distribución que pertenece a la familia exponencial, automáticamente sabemos que todos los miembros de la familia verifican esa propiedad.</p>
+<p>A continuación, se describen tres ventajas importantes de trabajar con esta familia:</p>
+<section id="los-modelos-lineales-generalizados-glms" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="los-modelos-lineales-generalizados-glms"><span class="header-section-number">3.5.1</span> Los modelos lineales generalizados (GLMs)</h3>
+<p>Una de las aplicaciones más importantes de la familia exponencial es su uso en los <strong>Modelos Lineales Generalizados (GLMs)</strong>.</p>
+<p>Estos modelos nos permiten extender la regresión lineal clásica a diferentes tipos de datos, como los resultados binarios (por ejemplo, éxito o fracaso), mediante la <em>regresión logística</em>, recuentos de eventos (como el número de llamadas recibidas en una hora) mediante la <em>regresión de Poisson</em>, y muchos otros.</p>
+<p>Gracias a la estructura de la familia exponencial, podemos conectar la media de la variable que estamos modelando con las variables explicativas de forma flexible, lo que hace posible aplicar GLMs en una amplia variedad de situaciones.</p>
+</section>
+<section id="estimación-en-la-familia-exponencial" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="estimación-en-la-familia-exponencial"><span class="header-section-number">3.5.2</span> Estimación en la familia exponencial</h3>
+<p>Otra ventaja importante es que, al trabajar con distribuciones de la familia exponencial, los métodos que usamos para hacer inferencias estadísticas suelen tener <strong>buenas propiedades</strong>.</p>
+<p>Esto, que se explicará con más detalle en capítulos siguientes, implica que los estimadores que obtenemos con estos modelos suelen ser precisos y reflejar correctamente la información que contienen los datos.</p>
+<p>Naturalmente esto se puede ver al revés: Si podemos trabajar con distribuciones de la familia exponencial, solemos tener, de entrada, una serie de ventajas, como el buen comportamiento de los etimadores, por lo que siempre es una buena opción intentar utilizarlas en nuestros modelos.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
