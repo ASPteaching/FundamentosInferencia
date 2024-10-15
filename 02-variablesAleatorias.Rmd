@@ -161,11 +161,18 @@ Las propiedades anteriores determinan la forma de la función de distribución. 
 
 Primer tipo (Variables contínuas)
 
-![](images/cdfContinua.png)
+```{r, echo=FALSE}
+knitr::include_graphics("images/cdfContinua.png")
+```
+
 
 Segundo tipo (variables discretas)
 
-![](images/cdfDiscreta.png)
+
+```{r, echo=FALSE}
+knitr::include_graphics("images/cdfDiscreta.png")
+```
+
 
 <!-- Evidentemente, podrían aparecer distribuciones, y por tanto gráficas, -->
 <!-- que combinen las características de los dos modelos anteriores. -->
@@ -571,6 +578,7 @@ variable. Por ejemplo:
 
 Fijémonos que la probabilidad de los intervalos se corresponde con el
 área bajo la función de densidad dentro del intervalo considerado.
+
 ![](https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-19.jpg?height=2339&width=1236&top_left_y=92&top_left_x=409)
 
 ## Caracterización de una variable aleatoria a través de parámetros
