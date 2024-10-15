@@ -161,11 +161,11 @@ Las propiedades anteriores determinan la forma de la función de distribución. 
 
 Primer tipo (Variables contínuas)
 
-![](images/clipboard-666558700.png)
+![](images/cdfContinua.png)
 
 Segundo tipo (variables discretas)
 
-![](images/clipboard-1620287922.png)
+![](images/cdfDiscreta.png)
 
 <!-- Evidentemente, podrían aparecer distribuciones, y por tanto gráficas, -->
 <!-- que combinen las características de los dos modelos anteriores. -->
