@@ -162,7 +162,7 @@ Las propiedades anteriores determinan la forma de la función de distribución. 
 Primer tipo (Variables contínuas)
 
 ```{r, echo=FALSE}
-knitr::include_graphics("images/cdfContinua.png")
+knitr::include_graphics("./images/cdfContinua.png")
 ```
 
 
@@ -170,7 +170,7 @@ Segundo tipo (variables discretas)
 
 
 ```{r, echo=FALSE}
-knitr::include_graphics("images/cdfDiscreta.png")
+knitr::include_graphics("./images/cdfDiscreta.png")
 ```
 
 
