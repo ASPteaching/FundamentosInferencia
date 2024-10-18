@@ -15,40 +15,40 @@ book:
       - text: "Presentación"
         href: index.qmd
       - text: "Probabilidad"
-        href: 01-probabilidad.Rmd
+        href: 01-probabilidad.qmd
       - text: "Variables aleatorias"
-        href: 02-variablesAleatorias.Rmd
+        href: 02-variablesAleatorias.qmd
       - text: "Distribuciones notables"
-        href: 03-distribucionesNotables.Rmd
+        href: 03-distribucionesNotables.qmd
       - text: "Distribuciones multidimensionales"
-        href: 04-vectoresAleatorios.Rmd
+        href: 04-vectoresAleatorios.qmd
       - text: "Grandes muestras"
-        href: 05-grandesMuestras.Rmd
+        href: 05-grandesMuestras.qmd
       - text: "Inferencia y estimación"
-        href: 06-introInferencia.Rmd
+        href: 06-introInferencia.qmd
       - text: "Estimación por intervalos"
-        href: 07-estimacion.Rmd
+        href: 07-estimacion.qmd
       - text: "Contrastes de hipótesis"
-        href: 08-pruebasHipotesis.Rmd
+        href: 08-pruebasHipotesis.qmd
       - text: "Aplicaciones"
-        href: 09-inferenciaAplicada.Rmd
+        href: 09-inferenciaAplicada.qmd
       - text: "Computación Intensiva"
-        href: 10-computerintensive.Rmd
+        href: 10-computerintensive.qmd
       - text: "Referencias"
         href: referencias.qmd
   
   chapters:
     - index.qmd
-    - 01-probabilidad.Rmd
-    - 02-variablesAleatorias.Rmd
-    - 03-distribucionesNotables.Rmd
-    - 04-vectoresAleatorios.Rmd
-    - 05-grandesMuestras.Rmd
-    - 06-introInferencia.Rmd
-    - 07-estimacion.Rmd
-    - 08-pruebasHipotesis.Rmd
-    - 09-inferenciaAplicada.Rmd
-    - 10-computerintensive.Rmd
+    - 01-probabilidad.qmd
+    - 02-variablesAleatorias.qmd
+    - 03-distribucionesNotables.qmd
+    - 04-vectoresAleatorios.qmd
+    - 05-grandesMuestras.qmd
+    - 06-introInferencia.qmd
+    - 07-estimacion.qmd
+    - 08-pruebasHipotesis.qmd
+    - 09-inferenciaAplicada.qmd
+    - 10-computerintensive.qmd
     - referencias.qmd
   
 # bibliography: references.bib
