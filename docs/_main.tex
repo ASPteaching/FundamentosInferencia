@@ -3606,10 +3606,6 @@ Naturalmente esto se puede ver al revés: Si podemos trabajar con distribuciones
 
 \section{Distribuciones de probabilidad multidimensionales}\label{distribuciones-de-probabilidad-multidimensionales}
 
-Este capítulo está en curso de ser introducido en los apuntes.
-
-La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).
-
 En este capítulo se extiende el concepto de variable aleatoria a un conjunto de variables que pueden interpretarse asociadas a un conjunto de medidas distintas y que pueden estar, o no relacionadas.
 
 Tras introducir los conceptos de distribuciones multidimensionales, condicionales y marginales, se pasa a considerar el caso más habitual en inferencia estadística en el que las componentes de los vectrores son independientes entre ellas.
@@ -3680,6 +3676,98 @@ F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y
 \]
 
 Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.
+
+Vamos a modificar el ejemplo para que las variables tengan un significado concreto relacionado con bioestadística.
+
+\subsubsection{Ejemplo: Distribución conjunta del estado de infección y activación de células}\label{ejemplo-distribuciuxf3n-conjunta-del-estado-de-infecciuxf3n-y-activaciuxf3n-de-cuxe9lulas}
+
+Supongamos que estamos observando dos características de células en un experimento de inmunología. Las variables que describen las células son:
+
+\begin{itemize}
+\tightlist
+\item
+  \(X\): La célula está infectada (\(X = 1\)) o no infectada (\(X = 0\)).
+\item
+  \(Y\): La célula está activada (\(Y = 1\)) o no activada (\(Y = 0\)).
+\end{itemize}
+
+La siguiente tabla muestra la probabilidad conjunta de observar cada combinación de infección y activación en una célula:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2973}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3649}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3378}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(X \backslash Y\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(Y = 0\) (No activada)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(Y = 1\) (Activada)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(X = 0\) (No infectada) & 0.4 & 0.2 \\
+\(X = 1\) (Infectada) & 0.1 & 0.3 \\
+\end{longtable}
+
+\paragraph{1. Función de distribución conjunta}\label{funciuxf3n-de-distribuciuxf3n-conjunta}
+
+La función de distribución conjunta \(F(x, y)\) para esta situación se calcula como:
+
+\[
+F(x, y) = P(X \leq x, Y \leq y)
+\]
+
+Los valores para los pares posibles de \(x\) y \(y\) son:
+
+\begin{itemize}
+\tightlist
+\item
+  \(F(0, 0) = P(X = 0, Y = 0) = 0.4\)
+\item
+  \(F(0, 1) = P(X = 0, Y \leq 1) = P(X = 0, Y = 0) + P(X = 0, Y = 1) = 0.4 + 0.2 = 0.6\)
+\item
+  \(F(1, 0) = P(X \leq 1, Y = 0) = P(X = 0, Y = 0) + P(X = 1, Y = 0) = 0.4 + 0.1 = 0.5\)
+\item
+  \(F(1, 1) = P(X \leq 1, Y \leq 1) = 1\)
+\end{itemize}
+
+\paragraph{2. Cálculo de la probabilidad de eventos específicos}\label{cuxe1lculo-de-la-probabilidad-de-eventos-especuxedficos}
+
+Por ejemplo, la probabilidad de que una célula esté infectada pero no activada es:
+
+\[
+P(X = 1, Y = 0) = 0.1
+\]
+
+\subsubsection{Implementación en R}\label{implementaciuxf3n-en-r}
+
+Podemos visualizar esta distribución conjunta con un gráfico en R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Crear los datos de la distribución conjunta}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{X =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{Y =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{Prob }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.4}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.3}\NormalTok{)}
+
+\CommentTok{\# Graficar la distribución conjunta}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(X, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"No infectada"}\NormalTok{, }\StringTok{"Infectada"}\NormalTok{)),}
+                 \AttributeTok{y =} \FunctionTok{factor}\NormalTok{(Y, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"No activada"}\NormalTok{, }\StringTok{"Activada"}\NormalTok{)))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_tile}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ Prob), }\AttributeTok{color =} \StringTok{"white"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_gradient}\NormalTok{(}\AttributeTok{low =} \StringTok{"white"}\NormalTok{, }\AttributeTok{high =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{round}\NormalTok{(Prob, }\DecValTok{2}\NormalTok{)), }\AttributeTok{size =} \DecValTok{5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Estado de infección (X)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Estado de activación (Y)"}\NormalTok{, }
+       \AttributeTok{title =} \StringTok{"Distribución Conjunta de Infección y Activación Celular"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \subsection{Variable aleatorias bivariantes discretas}\label{variable-aleatorias-bivariantes-discretas}
 
@@ -3898,8 +3986,8 @@ Para visualizar la distribución conjunta, podemos usar el código siguiente;
 \end{Shaded}
 
 \begin{verbatim}
-## pdf 
-##   2
+## RStudioGD 
+##         2
 \end{verbatim}
 
 \begin{Shaded}
@@ -4196,6 +4284,180 @@ f(y \mid X = x) = \frac{f(x, y)}{f_X(x)}
 \]
 
 siempre que \(f_X(x) > 0\).
+
+\subsubsection{La Distribución Normal Bivariante}\label{la-distribuciuxf3n-normal-bivariante}
+
+El ejemplo más importante de una distribución de probabilidad absolutamente continua para vectores aleatorios es la \textbf{distribución normal bivariante}. Esta distribución describe dos variables aleatorias continuas, \(X\) y \(Y\), cuya relación está modelada por una correlación lineal y tiene forma de campana (gaussiana) en dos dimensiones.
+
+\paragraph{Función de Densidad Conjunta}\label{funciuxf3n-de-densidad-conjunta}
+
+La función de densidad conjunta de la distribución normal bivariante con medias \(\mu_X\), \(\mu_Y\), desviaciones estándar \(\sigma_X\), \(\sigma_Y\) y coeficiente de correlación \(\rho\) es:
+
+\[
+f(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+\]
+
+Esta expresión se generaliza fácilmente de la distribución normal univariante, pero en este caso incluye términos adicionales que representan la interacción entre \(X\) y \(Y\).
+
+\paragraph{Ejemplo}\label{ejemplo}
+
+Consideremos el siguiente ejemplo: queremos modelar el peso (\(X\)) y la altura (\(Y\)) de una población con la siguiente distribución normal bivariante:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mu_X = 70\) kg (media del peso),
+\item
+  \(\mu_Y = 175\) cm (media de la altura),
+\item
+  \(\sigma_X = 10\) kg (desviación estándar del peso),
+\item
+  \(\sigma_Y = 7\) cm (desviación estándar de la altura),
+\item
+  \(\rho = 0.6\) (correlación positiva entre peso y altura).
+\end{itemize}
+
+Podemos simular y visualizar esta distribución en R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(MASS)  }\CommentTok{\# Para la función mvrnorm}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Definir parámetros}
+\NormalTok{mu }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{70}\NormalTok{, }\DecValTok{175}\NormalTok{)  }\CommentTok{\# Medias (peso, altura)}
+\NormalTok{sigma }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{, }\FloatTok{0.6}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{*}\DecValTok{7}\NormalTok{, }\FloatTok{0.6}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{*}\DecValTok{7}\NormalTok{, }\DecValTok{7}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{), }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)  }\CommentTok{\# Matriz de covarianza}
+
+\CommentTok{\# Generar 1000 observaciones de la distribución normal bivariante}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{1000}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ mu, }\AttributeTok{Sigma =}\NormalTok{ sigma)}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Peso =}\NormalTok{ data[,}\DecValTok{1}\NormalTok{], }\AttributeTok{Altura =}\NormalTok{ data[,}\DecValTok{2}\NormalTok{])}
+
+\CommentTok{\# Graficar la distribución conjunta}
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Peso, }\AttributeTok{y =}\NormalTok{ Altura)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Simulación de la Distribución Normal Bivariante"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Peso (kg)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Altura (cm)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\paragraph{Distribuciones Marginales}\label{distribuciones-marginales-1}
+
+Para obtener las \textbf{distribuciones marginales} a partir de una \textbf{normal bivariante}, debemos integrar la densidad conjunta sobre una de las variables. Dado que estamos trabajando con una distribución normal bivariante, su densidad conjunta está dada por:
+
+\[
+f_{X,Y}(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp\left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+\]
+
+Para obtener la \textbf{marginal de \(X\)}, debemos integrar sobre \(Y\):
+
+\[
+f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dy
+\]
+
+Al realizar esta integral, se obtiene que la distribución marginal de \(X\) es:
+
+\[
+f_X(x) = \frac{1}{\sqrt{2 \pi \sigma_X^2}} \exp\left( -\frac{(x - \mu_X)^2}{2 \sigma_X^2} \right)
+\]
+
+Esto muestra que \(X\) sigue una distribución normal con media \(\mu_X\) y varianza \(\sigma_X^2\), es decir, \(X \sim N(\mu_X, \sigma_X^2)\).
+
+Del mismo modo, para la \textbf{marginal de \(Y\)}, integramos sobre \(X\):
+
+\[
+f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dx
+\]
+
+La solución de esta integral da:
+
+\[
+f_Y(y) = \frac{1}{\sqrt{2 \pi \sigma_Y^2}} \exp\left( -\frac{(y - \mu_Y)^2}{2 \sigma_Y^2} \right)
+\]
+
+Lo que significa que \(Y\) sigue una distribución normal con media \(\mu_Y\) y varianza \(\sigma_Y^2\), es decir, \(Y \sim N(\mu_Y, \sigma_Y^2)\).
+
+\paragraph{Ejemplo}\label{ejemplo-1}
+
+Supongamos que tenemos una distribución normal bivariante con los siguientes parámetros:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mu_X = 100\), \(\sigma_X = 15\)
+\item
+  \(\mu_Y = 50\), \(\sigma_Y = 10\)
+\item
+  \(\rho = 0.5\)
+\end{itemize}
+
+La densidad conjunta es:
+
+\[
+f_{X,Y}(x, y) = \frac{1}{2 \pi (15)(10) \sqrt{1 - 0.5^2}} \exp\left( -\frac{1}{2(1 - 0.5^2)} \left[ \frac{(x - 100)^2}{15^2} + 
+       \frac{(y - 50)^2}{10^2} - \frac{2(0.5)(x - 100)(y - 50)}{(15)(10)} \right] \right)
+\]
+
+Integrando sobre \(Y\), obtenemos la distribución marginal de \(X\):
+
+\[
+f_X(x) = \frac{1}{\sqrt{2 \pi (15^2)}} \exp\left( -\frac{(x - 100)^2}{2 \cdot 15^2} \right)
+\]
+
+De manera análoga, la marginal de \(Y\) es:
+
+\[
+f_Y(y) = \frac{1}{\sqrt{2 \pi (10^2)}} \exp\left( -\frac{(y - 50)^2}{2 \cdot 10^2} \right)
+\]
+
+\subsubsection{Distribuciones Condicionales}\label{distribuciones-condicionales-1}
+
+La distribución condicional de una variable dado un valor específico de la otra también es normal univariante. Por ejemplo, la distribución condicional de \(X\) dado \(Y = y\) es:
+
+\[
+X \mid Y = y \sim N \left( \mu_X + \rho \frac{\sigma_X}{\sigma_Y} (y - \mu_Y), (1 - \rho^2)\sigma_X^2 \right)
+\]
+
+De forma análoga, la distribución condicional de \(Y\) dado \(X = x\) es:
+
+\[
+Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (1 - \rho^2)\sigma_Y^2 \right)
+\]
+
+\paragraph{Ejemplo}\label{ejemplo-2}
+
+Podemos calcular la distribución condicional de \(X\) dado que \(Y = 180\) cm, y mostrar cómo cambia la distribución de \(X\) bajo esta condición:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Condicionar X dado Y = 180}
+\NormalTok{y\_cond }\OtherTok{\textless{}{-}} \DecValTok{180}
+\NormalTok{mu\_cond }\OtherTok{\textless{}{-}}\NormalTok{ mu[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{+} \FloatTok{0.6} \SpecialCharTok{*}\NormalTok{ (}\DecValTok{10}\SpecialCharTok{/}\DecValTok{7}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ (y\_cond }\SpecialCharTok{{-}}\NormalTok{ mu[}\DecValTok{2}\NormalTok{])}
+\NormalTok{sigma\_cond }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}} \FloatTok{0.6}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{*} \DecValTok{10}
+
+\CommentTok{\# Mostrar la media y desviación estándar condicionales}
+\NormalTok{mu\_cond}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 74.28571
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sigma\_cond}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+Esto nos dice que el peso medio de una persona con altura de 180 cm es mayor que el peso medio de la población total, y su desviación estándar es menor debido a la correlación positiva entre peso y altura.
 
 \subsection{Independencia de variables aleatorias}\label{independencia-de-variables-aleatorias}
 

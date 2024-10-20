@@ -125,6 +125,10 @@ distribuciones-de-probabilidad-multidimensionales
 distribuciones-conjuntas-de-probabilidades
 variable-aleatoria-bivariante
 función-de-distribución-bivariante
+ejemplo-distribución-conjunta-del-estado-de-infección-y-activación-de-células
+función-de-distribución-conjunta
+cálculo-de-la-probabilidad-de-eventos-específicos
+implementación-en-r
 variable-aleatorias-bivariantes-discretas
 función-de-masa-de-probabilidad-discreta-fmp
 propiedades-de-la-fmp-bivariante
@@ -148,6 +152,13 @@ vectores-aleatorios-absolutamente-continuos
 propiedades-de-la-función-de-densidad-conjunta
 densidades-marginales-en-el-caso-continuo
 densidad-condicional-en-el-caso-continuo
+la-distribución-normal-bivariante
+función-de-densidad-conjunta
+ejemplo
+distribuciones-marginales-1
+ejemplo-1
+distribuciones-condicionales-1
+ejemplo-2
 independencia-de-variables-aleatorias
 primera-caracterización-de-la-independencia
 variables-discretas-independientes

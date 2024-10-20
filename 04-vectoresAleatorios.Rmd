@@ -67,6 +67,71 @@ $$
 
 Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.
 
+::::{.ejemplo}
+Vamos a modificar el ejemplo para que las variables tengan un significado concreto relacionado con bioestadística.
+
+### Ejemplo: Distribución conjunta del estado de infección y activación de células
+
+Supongamos que estamos observando dos características de células en un experimento de inmunología. Las variables que describen las células son:
+
+- \( X \): La célula está infectada (\( X = 1 \)) o no infectada (\( X = 0 \)).
+- \( Y \): La célula está activada (\( Y = 1 \)) o no activada (\( Y = 0 \)).
+
+La siguiente tabla muestra la probabilidad conjunta de observar cada combinación de infección y activación en una célula:
+
+| \( X \backslash Y \) | \( Y = 0 \) (No activada) | \( Y = 1 \) (Activada) |
+|----------------------|---------------------------|-------------------------|
+| \( X = 0 \) (No infectada)  | 0.4                       | 0.2                     |
+| \( X = 1 \) (Infectada)     | 0.1                       | 0.3                     |
+
+#### 1. Función de distribución conjunta
+
+La función de distribución conjunta \( F(x, y) \) para esta situación se calcula como:
+
+$$
+F(x, y) = P(X \leq x, Y \leq y)
+$$
+
+Los valores para los pares posibles de \( x \) y \( y \) son:
+
+- \( F(0, 0) = P(X = 0, Y = 0) = 0.4 \)
+- \( F(0, 1) = P(X = 0, Y \leq 1) = P(X = 0, Y = 0) + P(X = 0, Y = 1) = 0.4 + 0.2 = 0.6 \)
+- \( F(1, 0) = P(X \leq 1, Y = 0) = P(X = 0, Y = 0) + P(X = 1, Y = 0) = 0.4 + 0.1 = 0.5 \)
+- \( F(1, 1) = P(X \leq 1, Y \leq 1) = 1 \)
+
+#### 2. Cálculo de la probabilidad de eventos específicos
+
+Por ejemplo, la probabilidad de que una célula esté infectada pero no activada es:
+
+$$
+P(X = 1, Y = 0) = 0.1
+$$
+
+### Implementación en R
+
+Podemos visualizar esta distribución conjunta con un gráfico en R.
+
+```{r,  echo=TRUE, collapse=TRUE}
+library(ggplot2)
+
+# Crear los datos de la distribución conjunta
+data <- expand.grid(X = c(0, 1), Y = c(0, 1))
+data$Prob <- c(0.4, 0.2, 0.1, 0.3)
+
+# Graficar la distribución conjunta
+ggplot(data, aes(x = factor(X, labels = c("No infectada", "Infectada")),
+                 y = factor(Y, labels = c("No activada", "Activada")))) +
+  geom_tile(aes(fill = Prob), color = "white") +
+  scale_fill_gradient(low = "white", high = "blue") +
+  geom_text(aes(label = round(Prob, 2)), size = 5) +
+  labs(x = "Estado de infección (X)", y = "Estado de activación (Y)", 
+       title = "Distribución Conjunta de Infección y Activación Celular") +
+  theme_minimal()
+```
+
+::::
+
+
 ## Variable aleatorias bivariantes discretas
 
 Una vez introducidos los conceptos de forma general pasamos a estudiar el problema en el caso discreto, que es muy intuitivo y, a la vez permite introducir todos los conceptos relevantes. 
@@ -449,6 +514,156 @@ $$
 
 siempre que $f_X(x) > 0$.
 
+### La Distribución Normal Bivariante
+
+El ejemplo más importante de una distribución de probabilidad absolutamente continua para vectores aleatorios es la **distribución normal bivariante**. Esta distribución describe dos variables aleatorias continuas, $X$ y $Y$, cuya relación está modelada por una correlación lineal y tiene forma de campana (gaussiana) en dos dimensiones.
+
+#### Función de Densidad Conjunta
+
+La función de densidad conjunta de la distribución normal bivariante con medias $\mu_X$, $\mu_Y$, desviaciones estándar $\sigma_X$, $\sigma_Y$ y coeficiente de correlación $\rho$ es:
+
+$$
+f(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+$$
+
+Esta expresión se generaliza fácilmente de la distribución normal univariante, pero en este caso incluye términos adicionales que representan la interacción entre $X$ y $Y$.
+
+::::{.ejemplo}
+
+#### Ejemplo
+
+Consideremos el siguiente ejemplo: queremos modelar el peso ($X$) y la altura ($Y$) de una población con la siguiente distribución normal bivariante:
+
+- $\mu_X = 70$ kg (media del peso),
+- $\mu_Y = 175$ cm (media de la altura),
+- $\sigma_X = 10$ kg (desviación estándar del peso),
+- $\sigma_Y = 7$ cm (desviación estándar de la altura),
+- $\rho = 0.6$ (correlación positiva entre peso y altura).
+
+Podemos simular y visualizar esta distribución en R:
+
+```{r}
+library(MASS)  # Para la función mvrnorm
+library(ggplot2)
+
+# Definir parámetros
+mu <- c(70, 175)  # Medias (peso, altura)
+sigma <- matrix(c(10^2, 0.6*10*7, 0.6*10*7, 7^2), 2, 2)  # Matriz de covarianza
+
+# Generar 1000 observaciones de la distribución normal bivariante
+set.seed(123)
+data <- mvrnorm(n = 1000, mu = mu, Sigma = sigma)
+df <- data.frame(Peso = data[,1], Altura = data[,2])
+
+# Graficar la distribución conjunta
+ggplot(df, aes(x = Peso, y = Altura)) +
+  geom_point(alpha = 0.6, color = "blue") +
+  labs(title = "Simulación de la Distribución Normal Bivariante",
+       x = "Peso (kg)", y = "Altura (cm)") +
+  theme_minimal()
+```
+
+::::
+
+#### Distribuciones Marginales
+
+Para obtener las **distribuciones marginales** a partir de una **normal bivariante**, debemos integrar la densidad conjunta sobre una de las variables. Dado que estamos trabajando con una distribución normal bivariante, su densidad conjunta está dada por:
+
+$$
+f_{X,Y}(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp\left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+$$
+
+Para obtener la **marginal de $X$**, debemos integrar sobre $Y$:
+
+$$
+f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dy
+$$
+
+Al realizar esta integral, se obtiene que la distribución marginal de $X$ es:
+
+$$
+f_X(x) = \frac{1}{\sqrt{2 \pi \sigma_X^2}} \exp\left( -\frac{(x - \mu_X)^2}{2 \sigma_X^2} \right)
+$$
+
+Esto muestra que $X$ sigue una distribución normal con media $\mu_X$ y varianza $\sigma_X^2$, es decir, $X \sim N(\mu_X, \sigma_X^2)$.
+
+Del mismo modo, para la **marginal de $Y$**, integramos sobre $X$:
+
+$$
+f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dx
+$$
+
+La solución de esta integral da:
+
+$$
+f_Y(y) = \frac{1}{\sqrt{2 \pi \sigma_Y^2}} \exp\left( -\frac{(y - \mu_Y)^2}{2 \sigma_Y^2} \right)
+$$
+
+Lo que significa que $Y$ sigue una distribución normal con media $\mu_Y$ y varianza $\sigma_Y^2$, es decir, $Y \sim N(\mu_Y, \sigma_Y^2)$.
+
+::::{.ejemplo}
+#### Ejemplo 
+
+Supongamos que tenemos una distribución normal bivariante con los siguientes parámetros:
+
+- $\mu_X = 100$, $\sigma_X = 15$
+- $\mu_Y = 50$, $\sigma_Y = 10$
+- $\rho = 0.5$
+
+La densidad conjunta es:
+
+$$
+f_{X,Y}(x, y) = \frac{1}{2 \pi (15)(10) \sqrt{1 - 0.5^2}} \exp\left( -\frac{1}{2(1 - 0.5^2)} \left[ \frac{(x - 100)^2}{15^2} + 
+       \frac{(y - 50)^2}{10^2} - \frac{2(0.5)(x - 100)(y - 50)}{(15)(10)} \right] \right)
+$$
+
+Integrando sobre $Y$, obtenemos la distribución marginal de $X$:
+
+$$
+f_X(x) = \frac{1}{\sqrt{2 \pi (15^2)}} \exp\left( -\frac{(x - 100)^2}{2 \cdot 15^2} \right)
+$$
+
+De manera análoga, la marginal de $Y$ es:
+
+$$
+f_Y(y) = \frac{1}{\sqrt{2 \pi (10^2)}} \exp\left( -\frac{(y - 50)^2}{2 \cdot 10^2} \right)
+$$
+::::
+
+### Distribuciones Condicionales
+
+La distribución condicional de una variable dado un valor específico de la otra también es normal univariante. Por ejemplo, la distribución condicional de $X$ dado $Y = y$ es:
+
+$$
+X \mid Y = y \sim N \left( \mu_X + \rho \frac{\sigma_X}{\sigma_Y} (y - \mu_Y), (1 - \rho^2)\sigma_X^2 \right)
+$$
+
+De forma análoga, la distribución condicional de $Y$ dado $X = x$ es:
+
+$$
+Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (1 - \rho^2)\sigma_Y^2 \right)
+$$
+
+::::{.ejemplo}
+
+#### Ejemplo
+
+Podemos calcular la distribución condicional de $X$ dado que $Y = 180$ cm, y mostrar cómo cambia la distribución de $X$ bajo esta condición:
+
+```{r}
+# Condicionar X dado Y = 180
+y_cond <- 180
+mu_cond <- mu[1] + 0.6 * (10/7) * (y_cond - mu[2])
+sigma_cond <- sqrt(1 - 0.6^2) * 10
+
+# Mostrar la media y desviación estándar condicionales
+mu_cond
+sigma_cond
+```
+
+Esto nos dice que el peso medio de una persona con altura de 180 cm es mayor que el peso medio de la población total, y su desviación estándar es menor debido a la correlación positiva entre peso y altura.
+
+::::
 
 ## Independencia de variables aleatorias
 

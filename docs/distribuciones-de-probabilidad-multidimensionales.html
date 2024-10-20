@@ -323,6 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-la-función-de-densidad-conjunta"><i class="fa fa-check"></i><b>4.6.1</b> Propiedades de la función de densidad conjunta</a></li>
 <li class="chapter" data-level="4.6.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidades-marginales-en-el-caso-continuo"><i class="fa fa-check"></i><b>4.6.2</b> Densidades marginales en el caso continuo</a></li>
 <li class="chapter" data-level="4.6.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidad-condicional-en-el-caso-continuo"><i class="fa fa-check"></i><b>4.6.3</b> Densidad condicional en el caso continuo</a></li>
+<li class="chapter" data-level="4.6.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#la-distribución-normal-bivariante"><i class="fa fa-check"></i><b>4.6.4</b> La Distribución Normal Bivariante</a></li>
+<li class="chapter" data-level="4.6.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales-1"><i class="fa fa-check"></i><b>4.6.5</b> Distribuciones Condicionales</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#independencia-de-variables-aleatorias"><i class="fa fa-check"></i><b>4.7</b> Independencia de variables aleatorias</a>
 <ul>
@@ -471,6 +473,85 @@ donde <span class="math inline">\(\mathcal{A}\)</span> representa el conjunto de
 F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y]
 \]</span></p>
 <p>Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.</p>
+<div class="ejemplo">
+<p>Vamos a modificar el ejemplo para que las variables tengan un significado concreto relacionado con bioestadística.</p>
+<div id="ejemplo-distribución-conjunta-del-estado-de-infección-y-activación-de-células" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Ejemplo: Distribución conjunta del estado de infección y activación de células<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-distribución-conjunta-del-estado-de-infección-y-activación-de-células" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos que estamos observando dos características de células en un experimento de inmunología. Las variables que describen las células son:</p>
+<ul>
+<li><span class="math inline">\(X\)</span>: La célula está infectada (<span class="math inline">\(X = 1\)</span>) o no infectada (<span class="math inline">\(X = 0\)</span>).</li>
+<li><span class="math inline">\(Y\)</span>: La célula está activada (<span class="math inline">\(Y = 1\)</span>) o no activada (<span class="math inline">\(Y = 0\)</span>).</li>
+</ul>
+<p>La siguiente tabla muestra la probabilidad conjunta de observar cada combinación de infección y activación en una célula:</p>
+<table>
+<colgroup>
+<col width="29%" />
+<col width="36%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(X \backslash Y\)</span></th>
+<th><span class="math inline">\(Y = 0\)</span> (No activada)</th>
+<th><span class="math inline">\(Y = 1\)</span> (Activada)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X = 0\)</span> (No infectada)</td>
+<td>0.4</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X = 1\)</span> (Infectada)</td>
+<td>0.1</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
+<div id="función-de-distribución-conjunta" class="section level4 hasAnchor" number="4.1.3.1">
+<h4><span class="header-section-number">4.1.3.1</span> 1. Función de distribución conjunta<a href="distribuciones-de-probabilidad-multidimensionales.html#función-de-distribución-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La función de distribución conjunta <span class="math inline">\(F(x, y)\)</span> para esta situación se calcula como:</p>
+<p><span class="math display">\[
+F(x, y) = P(X \leq x, Y \leq y)
+\]</span></p>
+<p>Los valores para los pares posibles de <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> son:</p>
+<ul>
+<li><span class="math inline">\(F(0, 0) = P(X = 0, Y = 0) = 0.4\)</span></li>
+<li><span class="math inline">\(F(0, 1) = P(X = 0, Y \leq 1) = P(X = 0, Y = 0) + P(X = 0, Y = 1) = 0.4 + 0.2 = 0.6\)</span></li>
+<li><span class="math inline">\(F(1, 0) = P(X \leq 1, Y = 0) = P(X = 0, Y = 0) + P(X = 1, Y = 0) = 0.4 + 0.1 = 0.5\)</span></li>
+<li><span class="math inline">\(F(1, 1) = P(X \leq 1, Y \leq 1) = 1\)</span></li>
+</ul>
+</div>
+<div id="cálculo-de-la-probabilidad-de-eventos-específicos" class="section level4 hasAnchor" number="4.1.3.2">
+<h4><span class="header-section-number">4.1.3.2</span> 2. Cálculo de la probabilidad de eventos específicos<a href="distribuciones-de-probabilidad-multidimensionales.html#cálculo-de-la-probabilidad-de-eventos-específicos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Por ejemplo, la probabilidad de que una célula esté infectada pero no activada es:</p>
+<p><span class="math display">\[
+P(X = 1, Y = 0) = 0.1
+\]</span></p>
+</div>
+</div>
+<div id="implementación-en-r" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Implementación en R<a href="distribuciones-de-probabilidad-multidimensionales.html#implementación-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Podemos visualizar esta distribución conjunta con un gráfico en R.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-3" tabindex="-1"></a><span class="co"># Crear los datos de la distribución conjunta</span></span>
+<span id="cb1-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-5" tabindex="-1"></a>data<span class="sc">$</span>Prob <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb1-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-7" tabindex="-1"></a><span class="co"># Graficar la distribución conjunta</span></span>
+<span id="cb1-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-8" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(X, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No infectada&quot;</span>, <span class="st">&quot;Infectada&quot;</span>)),</span>
+<span id="cb1-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-9" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">factor</span>(Y, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No activada&quot;</span>, <span class="st">&quot;Activada&quot;</span>)))) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-10" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prob), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-11" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;white&quot;</span>, <span class="at">high =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-12" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Prob, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-13" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Estado de infección (X)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Estado de activación (Y)&quot;</span>, </span>
+<span id="cb1-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-14" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribución Conjunta de Infección y Activación Celular&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-15" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+</div>
 </div>
 </div>
 <div id="variable-aleatorias-bivariantes-discretas" class="section level2 hasAnchor" number="4.2">
@@ -606,21 +687,21 @@ Esta última expresión se corresponde con la función de distribución evaluada
 <div id="código-r-para-el-cálculo-de-la-pmf" class="section level4 hasAnchor" number="4.2.3.1">
 <h4><span class="header-section-number">4.2.3.1</span> Código R para el cálculo de la pmf<a href="distribuciones-de-probabilidad-multidimensionales.html#código-r-para-el-cálculo-de-la-pmf" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Podemos hacer los cálculos usando R:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-1" tabindex="-1"></a>prob_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.02</span>, <span class="fl">0.00</span>,</span>
-<span id="cb1-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-2" tabindex="-1"></a>                       <span class="fl">0.10</span>, <span class="fl">0.10</span>, <span class="fl">0.04</span>, <span class="fl">0.01</span>,</span>
-<span id="cb1-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-3" tabindex="-1"></a>                       <span class="fl">0.06</span>, <span class="fl">0.12</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>,</span>
-<span id="cb1-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-4" tabindex="-1"></a>                       <span class="fl">0.03</span>, <span class="fl">0.12</span>, <span class="fl">0.10</span>, <span class="fl">0.05</span>,</span>
-<span id="cb1-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-5" tabindex="-1"></a>                       <span class="fl">0.01</span>, <span class="fl">0.08</span>, <span class="fl">0.12</span>, <span class="fl">0.06</span>,</span>
-<span id="cb1-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-6" tabindex="-1"></a>                       <span class="fl">0.00</span>, <span class="fl">0.03</span>, <span class="fl">0.10</span>, <span class="fl">0.07</span>), </span>
-<span id="cb1-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-7" tabindex="-1"></a>                     <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-8" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-9" tabindex="-1"></a><span class="co"># Asignar nombres a las filas y columnas</span></span>
-<span id="cb1-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-10" tabindex="-1"></a><span class="fu">rownames</span>(prob_table) <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb1-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-11" tabindex="-1"></a><span class="fu">colnames</span>(prob_table) <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb1-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-12" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-13" tabindex="-1"></a><span class="co"># Mostrar la tabla</span></span>
-<span id="cb1-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-14" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-15" tabindex="-1"></a>prob_table</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-1" tabindex="-1"></a>prob_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.02</span>, <span class="fl">0.00</span>,</span>
+<span id="cb2-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-2" tabindex="-1"></a>                       <span class="fl">0.10</span>, <span class="fl">0.10</span>, <span class="fl">0.04</span>, <span class="fl">0.01</span>,</span>
+<span id="cb2-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-3" tabindex="-1"></a>                       <span class="fl">0.06</span>, <span class="fl">0.12</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>,</span>
+<span id="cb2-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-4" tabindex="-1"></a>                       <span class="fl">0.03</span>, <span class="fl">0.12</span>, <span class="fl">0.10</span>, <span class="fl">0.05</span>,</span>
+<span id="cb2-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-5" tabindex="-1"></a>                       <span class="fl">0.01</span>, <span class="fl">0.08</span>, <span class="fl">0.12</span>, <span class="fl">0.06</span>,</span>
+<span id="cb2-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-6" tabindex="-1"></a>                       <span class="fl">0.00</span>, <span class="fl">0.03</span>, <span class="fl">0.10</span>, <span class="fl">0.07</span>), </span>
+<span id="cb2-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-7" tabindex="-1"></a>                     <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-9" tabindex="-1"></a><span class="co"># Asignar nombres a las filas y columnas</span></span>
+<span id="cb2-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-10" tabindex="-1"></a><span class="fu">rownames</span>(prob_table) <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb2-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-11" tabindex="-1"></a><span class="fu">colnames</span>(prob_table) <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb2-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-13" tabindex="-1"></a><span class="co"># Mostrar la tabla</span></span>
+<span id="cb2-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-14" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-15" tabindex="-1"></a>prob_table</span></code></pre></div>
 <pre><code>##      0    1    2    3
 ## 0 0.12 0.06 0.02 0.00
 ## 1 0.10 0.10 0.04 0.01
@@ -628,50 +709,50 @@ Esta última expresión se corresponde con la función de distribución evaluada
 ## 3 0.03 0.12 0.10 0.05
 ## 4 0.01 0.08 0.12 0.06
 ## 5 0.00 0.03 0.10 0.07</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-1" tabindex="-1"></a><span class="co"># Calcular la probabilidad de (X = 2, Y = 1)</span></span>
-<span id="cb3-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-2" tabindex="-1"></a>prob_X2_Y1 <span class="ot">&lt;-</span> prob_table[<span class="st">&quot;2&quot;</span>, <span class="st">&quot;1&quot;</span>]</span>
-<span id="cb3-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;P(X = 2, Y = 1) =&quot;</span>, prob_X2_Y1, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb4-1" tabindex="-1"></a><span class="co"># Calcular la probabilidad de (X = 2, Y = 1)</span></span>
+<span id="cb4-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb4-2" tabindex="-1"></a>prob_X2_Y1 <span class="ot">&lt;-</span> prob_table[<span class="st">&quot;2&quot;</span>, <span class="st">&quot;1&quot;</span>]</span>
+<span id="cb4-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb4-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;P(X = 2, Y = 1) =&quot;</span>, prob_X2_Y1, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## P(X = 2, Y = 1) = 0.12</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb5-1" tabindex="-1"></a><span class="co"># Calcular la probabilidad de (X &lt; 3, Y &lt; 2)</span></span>
-<span id="cb5-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb5-2" tabindex="-1"></a>prob_X_lt_3_Y_lt_2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(prob_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
-<span id="cb5-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb5-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;P(X &lt; 3, Y &lt; 2) =&quot;</span>, prob_X_lt_3_Y_lt_2, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb6-1" tabindex="-1"></a><span class="co"># Calcular la probabilidad de (X &lt; 3, Y &lt; 2)</span></span>
+<span id="cb6-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb6-2" tabindex="-1"></a>prob_X_lt_3_Y_lt_2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(prob_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb6-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb6-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;P(X &lt; 3, Y &lt; 2) =&quot;</span>, prob_X_lt_3_Y_lt_2, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## P(X &lt; 3, Y &lt; 2) = 0.56</code></pre>
 </div>
 <div id="código-r-para-visualizar-la-distribución-conjunta" class="section level4 hasAnchor" number="4.2.3.2">
 <h4><span class="header-section-number">4.2.3.2</span> Código R para visualizar la distribución conjunta<a href="distribuciones-de-probabilidad-multidimensionales.html#código-r-para-visualizar-la-distribución-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Para visualizar la distribución conjunta, podemos usar el código siguiente;</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-1" tabindex="-1"></a><span class="co"># Es preciso instalar y cargar el paquete scatterplot3d si no lo tienes instalado</span></span>
-<span id="cb7-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-2" tabindex="-1"></a><span class="co"># install.packages(&quot;scatterplot3d&quot;)</span></span>
-<span id="cb7-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-3" tabindex="-1"></a><span class="fu">library</span>(scatterplot3d)</span>
-<span id="cb7-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-4" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-5" tabindex="-1"></a><span class="co"># Crear una matriz con los datos de la tabla de probabilidades</span></span>
-<span id="cb7-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-6" tabindex="-1"></a>X_vals <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rownames</span>(prob_table))</span>
-<span id="cb7-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-7" tabindex="-1"></a>Y_vals <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">colnames</span>(prob_table))</span>
-<span id="cb7-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-8" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-9" tabindex="-1"></a><span class="co"># Crear un grid de valores X e Y</span></span>
-<span id="cb7-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-10" tabindex="-1"></a>X_grid <span class="ot">&lt;-</span> <span class="fu">rep</span>(X_vals, <span class="at">each =</span> <span class="fu">length</span>(Y_vals))</span>
-<span id="cb7-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-11" tabindex="-1"></a>Y_grid <span class="ot">&lt;-</span> <span class="fu">rep</span>(Y_vals, <span class="at">times =</span> <span class="fu">length</span>(X_vals))</span>
-<span id="cb7-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-12" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-13" tabindex="-1"></a><span class="co"># Extraer las probabilidades como un vector</span></span>
-<span id="cb7-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-14" tabindex="-1"></a>Z_vals <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(prob_table)</span>
-<span id="cb7-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-15" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-16" tabindex="-1"></a><span class="co"># Enviar el gráfico 3D de barras simuladas a pdf</span></span>
-<span id="cb7-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-17" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;images/pmfTrinomial.png&quot;</span>)</span>
-<span id="cb7-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-18" tabindex="-1"></a><span class="fu">scatterplot3d</span>(X_grid, Y_grid, Z_vals,</span>
-<span id="cb7-19"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-19" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;h&quot;</span>, <span class="at">color =</span> <span class="st">&quot;lightblue&quot;</span>, </span>
-<span id="cb7-20"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-20" tabindex="-1"></a>                     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lwd =</span> <span class="dv">5</span>, </span>
-<span id="cb7-21"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-21" tabindex="-1"></a>                     <span class="at">cex.symbols =</span> <span class="dv">1</span>,</span>
-<span id="cb7-22"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-22" tabindex="-1"></a>                     <span class="at">angle=</span><span class="dv">60</span>,</span>
-<span id="cb7-23"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-23" tabindex="-1"></a>                     <span class="at">xlab =</span> <span class="st">&quot;Celulas Infectadas (X)&quot;</span>, </span>
-<span id="cb7-24"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-24" tabindex="-1"></a>                     <span class="at">ylab =</span> <span class="st">&quot;Linfocitos Activados (Y)&quot;</span>, </span>
-<span id="cb7-25"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-25" tabindex="-1"></a>                     <span class="at">zlab =</span> <span class="st">&quot;Probabilidad&quot;</span>,</span>
-<span id="cb7-26"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-26" tabindex="-1"></a>                     <span class="at">main =</span> <span class="st">&quot;Distribución Conjunta de </span><span class="sc">\n</span><span class="st"> Celulas Infectadas y Linfocitos Activados&quot;</span>)</span>
-<span id="cb7-27"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-27" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
-<pre><code>## png 
-##   2</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-1" tabindex="-1"></a><span class="co"># Añadir texto con los valores de las probabilidades en la parte superior de las barras</span></span>
-<span id="cb9-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-2" tabindex="-1"></a><span class="co"># s3d$text(X_grid, Y_grid, Z_vals, labels = round(Z_vals, 2), pos = 3, col = &quot;black&quot;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb10-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/pmfTrinomial.png&quot;</span>, <span class="at">rel_path =</span> <span class="cn">TRUE</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-1" tabindex="-1"></a><span class="co"># Es preciso instalar y cargar el paquete scatterplot3d si no lo tienes instalado</span></span>
+<span id="cb8-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-2" tabindex="-1"></a><span class="co"># install.packages(&quot;scatterplot3d&quot;)</span></span>
+<span id="cb8-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-3" tabindex="-1"></a><span class="fu">library</span>(scatterplot3d)</span>
+<span id="cb8-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-5" tabindex="-1"></a><span class="co"># Crear una matriz con los datos de la tabla de probabilidades</span></span>
+<span id="cb8-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-6" tabindex="-1"></a>X_vals <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rownames</span>(prob_table))</span>
+<span id="cb8-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-7" tabindex="-1"></a>Y_vals <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">colnames</span>(prob_table))</span>
+<span id="cb8-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-9" tabindex="-1"></a><span class="co"># Crear un grid de valores X e Y</span></span>
+<span id="cb8-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-10" tabindex="-1"></a>X_grid <span class="ot">&lt;-</span> <span class="fu">rep</span>(X_vals, <span class="at">each =</span> <span class="fu">length</span>(Y_vals))</span>
+<span id="cb8-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-11" tabindex="-1"></a>Y_grid <span class="ot">&lt;-</span> <span class="fu">rep</span>(Y_vals, <span class="at">times =</span> <span class="fu">length</span>(X_vals))</span>
+<span id="cb8-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-13" tabindex="-1"></a><span class="co"># Extraer las probabilidades como un vector</span></span>
+<span id="cb8-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-14" tabindex="-1"></a>Z_vals <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(prob_table)</span>
+<span id="cb8-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-15" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-16" tabindex="-1"></a><span class="co"># Enviar el gráfico 3D de barras simuladas a pdf</span></span>
+<span id="cb8-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-17" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;images/pmfTrinomial.png&quot;</span>)</span>
+<span id="cb8-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-18" tabindex="-1"></a><span class="fu">scatterplot3d</span>(X_grid, Y_grid, Z_vals,</span>
+<span id="cb8-19"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-19" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;h&quot;</span>, <span class="at">color =</span> <span class="st">&quot;lightblue&quot;</span>, </span>
+<span id="cb8-20"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-20" tabindex="-1"></a>                     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lwd =</span> <span class="dv">5</span>, </span>
+<span id="cb8-21"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-21" tabindex="-1"></a>                     <span class="at">cex.symbols =</span> <span class="dv">1</span>,</span>
+<span id="cb8-22"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-22" tabindex="-1"></a>                     <span class="at">angle=</span><span class="dv">60</span>,</span>
+<span id="cb8-23"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-23" tabindex="-1"></a>                     <span class="at">xlab =</span> <span class="st">&quot;Celulas Infectadas (X)&quot;</span>, </span>
+<span id="cb8-24"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-24" tabindex="-1"></a>                     <span class="at">ylab =</span> <span class="st">&quot;Linfocitos Activados (Y)&quot;</span>, </span>
+<span id="cb8-25"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-25" tabindex="-1"></a>                     <span class="at">zlab =</span> <span class="st">&quot;Probabilidad&quot;</span>,</span>
+<span id="cb8-26"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-26" tabindex="-1"></a>                     <span class="at">main =</span> <span class="st">&quot;Distribución Conjunta de </span><span class="sc">\n</span><span class="st"> Celulas Infectadas y Linfocitos Activados&quot;</span>)</span>
+<span id="cb8-27"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb8-27" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>## RStudioGD 
+##         2</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb10-1" tabindex="-1"></a><span class="co"># Añadir texto con los valores de las probabilidades en la parte superior de las barras</span></span>
+<span id="cb10-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb10-2" tabindex="-1"></a><span class="co"># s3d$text(X_grid, Y_grid, Z_vals, labels = round(Z_vals, 2), pos = 3, col = &quot;black&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb11-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/pmfTrinomial.png&quot;</span>, <span class="at">rel_path =</span> <span class="cn">TRUE</span> )</span></code></pre></div>
 <p><img src="images/pmfTrinomial.png" width="90%" /></p>
 </div>
 </div>
@@ -1122,6 +1203,122 @@ f_Y(y) = \int_{-\infty}^{\infty} f(x, y) \, dx
 f(y \mid X = x) = \frac{f(x, y)}{f_X(x)}
 \]</span></p>
 <p>siempre que <span class="math inline">\(f_X(x) &gt; 0\)</span>.</p>
+</div>
+<div id="la-distribución-normal-bivariante" class="section level3 hasAnchor" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> La Distribución Normal Bivariante<a href="distribuciones-de-probabilidad-multidimensionales.html#la-distribución-normal-bivariante" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El ejemplo más importante de una distribución de probabilidad absolutamente continua para vectores aleatorios es la <strong>distribución normal bivariante</strong>. Esta distribución describe dos variables aleatorias continuas, <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>, cuya relación está modelada por una correlación lineal y tiene forma de campana (gaussiana) en dos dimensiones.</p>
+<div id="función-de-densidad-conjunta" class="section level4 hasAnchor" number="4.6.4.1">
+<h4><span class="header-section-number">4.6.4.1</span> Función de Densidad Conjunta<a href="distribuciones-de-probabilidad-multidimensionales.html#función-de-densidad-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La función de densidad conjunta de la distribución normal bivariante con medias <span class="math inline">\(\mu_X\)</span>, <span class="math inline">\(\mu_Y\)</span>, desviaciones estándar <span class="math inline">\(\sigma_X\)</span>, <span class="math inline">\(\sigma_Y\)</span> y coeficiente de correlación <span class="math inline">\(\rho\)</span> es:</p>
+<p><span class="math display">\[
+f(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+\]</span></p>
+<p>Esta expresión se generaliza fácilmente de la distribución normal univariante, pero en este caso incluye términos adicionales que representan la interacción entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="ejemplo" class="section level4 hasAnchor ejemplo" number="4.6.4.2">
+<h4><span class="header-section-number">4.6.4.2</span> Ejemplo<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Consideremos el siguiente ejemplo: queremos modelar el peso (<span class="math inline">\(X\)</span>) y la altura (<span class="math inline">\(Y\)</span>) de una población con la siguiente distribución normal bivariante:</p>
+<ul>
+<li><span class="math inline">\(\mu_X = 70\)</span> kg (media del peso),</li>
+<li><span class="math inline">\(\mu_Y = 175\)</span> cm (media de la altura),</li>
+<li><span class="math inline">\(\sigma_X = 10\)</span> kg (desviación estándar del peso),</li>
+<li><span class="math inline">\(\sigma_Y = 7\)</span> cm (desviación estándar de la altura),</li>
+<li><span class="math inline">\(\rho = 0.6\)</span> (correlación positiva entre peso y altura).</li>
+</ul>
+<p>Podemos simular y visualizar esta distribución en R:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(MASS)  <span class="co"># Para la función mvrnorm</span></span>
+<span id="cb12-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-4" tabindex="-1"></a><span class="co"># Definir parámetros</span></span>
+<span id="cb12-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-5" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">175</span>)  <span class="co"># Medias (peso, altura)</span></span>
+<span id="cb12-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-6" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">2</span>, <span class="fl">0.6</span><span class="sc">*</span><span class="dv">10</span><span class="sc">*</span><span class="dv">7</span>, <span class="fl">0.6</span><span class="sc">*</span><span class="dv">10</span><span class="sc">*</span><span class="dv">7</span>, <span class="dv">7</span><span class="sc">^</span><span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>)  <span class="co"># Matriz de covarianza</span></span>
+<span id="cb12-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-7" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-8" tabindex="-1"></a><span class="co"># Generar 1000 observaciones de la distribución normal bivariante</span></span>
+<span id="cb12-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb12-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-10" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mu =</span> mu, <span class="at">Sigma =</span> sigma)</span>
+<span id="cb12-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-11" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Peso =</span> data[,<span class="dv">1</span>], <span class="at">Altura =</span> data[,<span class="dv">2</span>])</span>
+<span id="cb12-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-12" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-13" tabindex="-1"></a><span class="co"># Graficar la distribución conjunta</span></span>
+<span id="cb12-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-14" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Peso, <span class="at">y =</span> Altura)) <span class="sc">+</span></span>
+<span id="cb12-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-15" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-16" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Simulación de la Distribución Normal Bivariante&quot;</span>,</span>
+<span id="cb12-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-17" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Peso (kg)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Altura (cm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-18" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="distribuciones-marginales-1" class="section level4 hasAnchor" number="4.6.4.3">
+<h4><span class="header-section-number">4.6.4.3</span> Distribuciones Marginales<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-marginales-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Para obtener las <strong>distribuciones marginales</strong> a partir de una <strong>normal bivariante</strong>, debemos integrar la densidad conjunta sobre una de las variables. Dado que estamos trabajando con una distribución normal bivariante, su densidad conjunta está dada por:</p>
+<p><span class="math display">\[
+f_{X,Y}(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp\left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+\]</span></p>
+<p>Para obtener la <strong>marginal de <span class="math inline">\(X\)</span></strong>, debemos integrar sobre <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dy
+\]</span></p>
+<p>Al realizar esta integral, se obtiene que la distribución marginal de <span class="math inline">\(X\)</span> es:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{\sqrt{2 \pi \sigma_X^2}} \exp\left( -\frac{(x - \mu_X)^2}{2 \sigma_X^2} \right)
+\]</span></p>
+<p>Esto muestra que <span class="math inline">\(X\)</span> sigue una distribución normal con media <span class="math inline">\(\mu_X\)</span> y varianza <span class="math inline">\(\sigma_X^2\)</span>, es decir, <span class="math inline">\(X \sim N(\mu_X, \sigma_X^2)\)</span>.</p>
+<p>Del mismo modo, para la <strong>marginal de <span class="math inline">\(Y\)</span></strong>, integramos sobre <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dx
+\]</span></p>
+<p>La solución de esta integral da:</p>
+<p><span class="math display">\[
+f_Y(y) = \frac{1}{\sqrt{2 \pi \sigma_Y^2}} \exp\left( -\frac{(y - \mu_Y)^2}{2 \sigma_Y^2} \right)
+\]</span></p>
+<p>Lo que significa que <span class="math inline">\(Y\)</span> sigue una distribución normal con media <span class="math inline">\(\mu_Y\)</span> y varianza <span class="math inline">\(\sigma_Y^2\)</span>, es decir, <span class="math inline">\(Y \sim N(\mu_Y, \sigma_Y^2)\)</span>.</p>
+</div>
+<div id="ejemplo-1" class="section level4 hasAnchor ejemplo" number="4.6.4.4">
+<h4><span class="header-section-number">4.6.4.4</span> Ejemplo<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Supongamos que tenemos una distribución normal bivariante con los siguientes parámetros:</p>
+<ul>
+<li><span class="math inline">\(\mu_X = 100\)</span>, <span class="math inline">\(\sigma_X = 15\)</span></li>
+<li><span class="math inline">\(\mu_Y = 50\)</span>, <span class="math inline">\(\sigma_Y = 10\)</span></li>
+<li><span class="math inline">\(\rho = 0.5\)</span></li>
+</ul>
+<p>La densidad conjunta es:</p>
+<p><span class="math display">\[
+f_{X,Y}(x, y) = \frac{1}{2 \pi (15)(10) \sqrt{1 - 0.5^2}} \exp\left( -\frac{1}{2(1 - 0.5^2)} \left[ \frac{(x - 100)^2}{15^2} +
+       \frac{(y - 50)^2}{10^2} - \frac{2(0.5)(x - 100)(y - 50)}{(15)(10)} \right] \right)
+\]</span></p>
+<p>Integrando sobre <span class="math inline">\(Y\)</span>, obtenemos la distribución marginal de <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{\sqrt{2 \pi (15^2)}} \exp\left( -\frac{(x - 100)^2}{2 \cdot 15^2} \right)
+\]</span></p>
+<p>De manera análoga, la marginal de <span class="math inline">\(Y\)</span> es:</p>
+<p><span class="math display">\[
+f_Y(y) = \frac{1}{\sqrt{2 \pi (10^2)}} \exp\left( -\frac{(y - 50)^2}{2 \cdot 10^2} \right)
+\]</span></p>
+</div>
+</div>
+<div id="distribuciones-condicionales-1" class="section level3 hasAnchor" number="4.6.5">
+<h3><span class="header-section-number">4.6.5</span> Distribuciones Condicionales<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La distribución condicional de una variable dado un valor específico de la otra también es normal univariante. Por ejemplo, la distribución condicional de <span class="math inline">\(X\)</span> dado <span class="math inline">\(Y = y\)</span> es:</p>
+<p><span class="math display">\[
+X \mid Y = y \sim N \left( \mu_X + \rho \frac{\sigma_X}{\sigma_Y} (y - \mu_Y), (1 - \rho^2)\sigma_X^2 \right)
+\]</span></p>
+<p>De forma análoga, la distribución condicional de <span class="math inline">\(Y\)</span> dado <span class="math inline">\(X = x\)</span> es:</p>
+<p><span class="math display">\[
+Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (1 - \rho^2)\sigma_Y^2 \right)
+\]</span></p>
+<div id="ejemplo-2" class="section level4 hasAnchor ejemplo" number="4.6.5.1">
+<h4><span class="header-section-number">4.6.5.1</span> Ejemplo<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Podemos calcular la distribución condicional de <span class="math inline">\(X\)</span> dado que <span class="math inline">\(Y = 180\)</span> cm, y mostrar cómo cambia la distribución de <span class="math inline">\(X\)</span> bajo esta condición:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-1" tabindex="-1"></a><span class="co"># Condicionar X dado Y = 180</span></span>
+<span id="cb13-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-2" tabindex="-1"></a>y_cond <span class="ot">&lt;-</span> <span class="dv">180</span></span>
+<span id="cb13-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-3" tabindex="-1"></a>mu_cond <span class="ot">&lt;-</span> mu[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">0.6</span> <span class="sc">*</span> (<span class="dv">10</span><span class="sc">/</span><span class="dv">7</span>) <span class="sc">*</span> (y_cond <span class="sc">-</span> mu[<span class="dv">2</span>])</span>
+<span id="cb13-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-4" tabindex="-1"></a>sigma_cond <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.6</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb13-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-6" tabindex="-1"></a><span class="co"># Mostrar la media y desviación estándar condicionales</span></span>
+<span id="cb13-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-7" tabindex="-1"></a>mu_cond</span></code></pre></div>
+<pre><code>## [1] 74.28571</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb15-1" tabindex="-1"></a>sigma_cond</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Esto nos dice que el peso medio de una persona con altura de 180 cm es mayor que el peso medio de la población total, y su desviación estándar es menor debido a la correlación positiva entre peso y altura.</p>
+</div>
 </div>
 </div>
 <div id="independencia-de-variables-aleatorias" class="section level2 hasAnchor" number="4.7">
