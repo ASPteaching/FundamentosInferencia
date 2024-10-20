@@ -3755,19 +3755,28 @@ Podemos visualizar esta distribución conjunta con un gráfico en R.
 \NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{X =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{Y =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
 \NormalTok{data}\SpecialCharTok{$}\NormalTok{Prob }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.4}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.3}\NormalTok{)}
 
-\CommentTok{\# Graficar la distribución conjunta}
-\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(X, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"No infectada"}\NormalTok{, }\StringTok{"Infectada"}\NormalTok{)),}
-                 \AttributeTok{y =} \FunctionTok{factor}\NormalTok{(Y, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"No activada"}\NormalTok{, }\StringTok{"Activada"}\NormalTok{)))) }\SpecialCharTok{+}
+\CommentTok{\# Crear el gráfico}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(X, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"No infectada"}\NormalTok{, }\StringTok{"Infectada"}\NormalTok{)),}
+                      \AttributeTok{y =} \FunctionTok{factor}\NormalTok{(Y, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"No activada"}\NormalTok{, }\StringTok{"Activada"}\NormalTok{)))) }\SpecialCharTok{+}
   \FunctionTok{geom\_tile}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ Prob), }\AttributeTok{color =} \StringTok{"white"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{scale\_fill\_gradient}\NormalTok{(}\AttributeTok{low =} \StringTok{"white"}\NormalTok{, }\AttributeTok{high =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{round}\NormalTok{(Prob, }\DecValTok{2}\NormalTok{)), }\AttributeTok{size =} \DecValTok{5}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Estado de infección (X)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Estado de activación (Y)"}\NormalTok{, }
        \AttributeTok{title =} \StringTok{"Distribución Conjunta de Infección y Activación Celular"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{theme\_minimal}\NormalTok{()}
+
+\CommentTok{\# Guardar el gráfico en el subdirectorio imagenes}
+\FunctionTok{ggsave}\NormalTok{(}\StringTok{"images/distribucion\_conjunta.png"}\NormalTok{, }\AttributeTok{plot =}\NormalTok{ p, }\AttributeTok{width =} \DecValTok{6}\NormalTok{, }\AttributeTok{height =} \DecValTok{4}\NormalTok{, }\AttributeTok{dpi =} \DecValTok{300}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-9-1.pdf}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"images/distribucion\_conjunta.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.8\linewidth]{images/distribucion_conjunta}
 
 \subsection{Variable aleatorias bivariantes discretas}\label{variable-aleatorias-bivariantes-discretas}
 
@@ -3986,8 +3995,8 @@ Para visualizar la distribución conjunta, podemos usar el código siguiente;
 \end{Shaded}
 
 \begin{verbatim}
-## RStudioGD 
-##         2
+## pdf 
+##   2
 \end{verbatim}
 
 \begin{Shaded}
@@ -4301,48 +4310,7 @@ Esta expresión se generaliza fácilmente de la distribución normal univariante
 
 \paragraph{Ejemplo}\label{ejemplo}
 
-Consideremos el siguiente ejemplo: queremos modelar el peso (\(X\)) y la altura (\(Y\)) de una población con la siguiente distribución normal bivariante:
-
-\begin{itemize}
-\tightlist
-\item
-  \(\mu_X = 70\) kg (media del peso),
-\item
-  \(\mu_Y = 175\) cm (media de la altura),
-\item
-  \(\sigma_X = 10\) kg (desviación estándar del peso),
-\item
-  \(\sigma_Y = 7\) cm (desviación estándar de la altura),
-\item
-  \(\rho = 0.6\) (correlación positiva entre peso y altura).
-\end{itemize}
-
-Podemos simular y visualizar esta distribución en R:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(MASS)  }\CommentTok{\# Para la función mvrnorm}
-\FunctionTok{library}\NormalTok{(ggplot2)}
-
-\CommentTok{\# Definir parámetros}
-\NormalTok{mu }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{70}\NormalTok{, }\DecValTok{175}\NormalTok{)  }\CommentTok{\# Medias (peso, altura)}
-\NormalTok{sigma }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{, }\FloatTok{0.6}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{*}\DecValTok{7}\NormalTok{, }\FloatTok{0.6}\SpecialCharTok{*}\DecValTok{10}\SpecialCharTok{*}\DecValTok{7}\NormalTok{, }\DecValTok{7}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{), }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)  }\CommentTok{\# Matriz de covarianza}
-
-\CommentTok{\# Generar 1000 observaciones de la distribución normal bivariante}
-\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
-\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{mvrnorm}\NormalTok{(}\AttributeTok{n =} \DecValTok{1000}\NormalTok{, }\AttributeTok{mu =}\NormalTok{ mu, }\AttributeTok{Sigma =}\NormalTok{ sigma)}
-\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Peso =}\NormalTok{ data[,}\DecValTok{1}\NormalTok{], }\AttributeTok{Altura =}\NormalTok{ data[,}\DecValTok{2}\NormalTok{])}
-
-\CommentTok{\# Graficar la distribución conjunta}
-\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Peso, }\AttributeTok{y =}\NormalTok{ Altura)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.6}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Simulación de la Distribución Normal Bivariante"}\NormalTok{,}
-       \AttributeTok{x =} \StringTok{"Peso (kg)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Altura (cm)"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-11-1.pdf}
+En vez de proporcionar un código para visualizar la distribución normal bivariante podéis seguir este enlace: \url{https://datasciencegenie.com/3d-contour-plots-of-bivariate-normal-distribution/} en donde se extiende lo que acabamos de discutir y se proporciona algunos ejemplos con R.
 
 \paragraph{Distribuciones Marginales}\label{distribuciones-marginales-1}
 
@@ -4444,7 +4412,7 @@ Podemos calcular la distribución condicional de \(X\) dado que \(Y = 180\) cm, 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 74.28571
+## [1] 154.2857
 \end{verbatim}
 
 \begin{Shaded}

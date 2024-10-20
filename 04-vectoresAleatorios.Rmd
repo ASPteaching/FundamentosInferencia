@@ -118,16 +118,24 @@ library(ggplot2)
 data <- expand.grid(X = c(0, 1), Y = c(0, 1))
 data$Prob <- c(0.4, 0.2, 0.1, 0.3)
 
-# Graficar la distribución conjunta
-ggplot(data, aes(x = factor(X, labels = c("No infectada", "Infectada")),
-                 y = factor(Y, labels = c("No activada", "Activada")))) +
+# Crear el gráfico
+p <- ggplot(data, aes(x = factor(X, labels = c("No infectada", "Infectada")),
+                      y = factor(Y, labels = c("No activada", "Activada")))) +
   geom_tile(aes(fill = Prob), color = "white") +
   scale_fill_gradient(low = "white", high = "blue") +
   geom_text(aes(label = round(Prob, 2)), size = 5) +
   labs(x = "Estado de infección (X)", y = "Estado de activación (Y)", 
        title = "Distribución Conjunta de Infección y Activación Celular") +
   theme_minimal()
+
+# Guardar el gráfico en el subdirectorio imagenes
+ggsave("images/distribucion_conjunta.png", plot = p, width = 6, height = 4, dpi = 300)
 ```
+
+```{r, out.width="80%"}
+knitr::include_graphics("images/distribucion_conjunta.png")
+```
+
 
 ::::
 
@@ -532,38 +540,10 @@ Esta expresión se generaliza fácilmente de la distribución normal univariante
 
 #### Ejemplo
 
-Consideremos el siguiente ejemplo: queremos modelar el peso ($X$) y la altura ($Y$) de una población con la siguiente distribución normal bivariante:
-
-- $\mu_X = 70$ kg (media del peso),
-- $\mu_Y = 175$ cm (media de la altura),
-- $\sigma_X = 10$ kg (desviación estándar del peso),
-- $\sigma_Y = 7$ cm (desviación estándar de la altura),
-- $\rho = 0.6$ (correlación positiva entre peso y altura).
-
-Podemos simular y visualizar esta distribución en R:
-
-```{r}
-library(MASS)  # Para la función mvrnorm
-library(ggplot2)
-
-# Definir parámetros
-mu <- c(70, 175)  # Medias (peso, altura)
-sigma <- matrix(c(10^2, 0.6*10*7, 0.6*10*7, 7^2), 2, 2)  # Matriz de covarianza
-
-# Generar 1000 observaciones de la distribución normal bivariante
-set.seed(123)
-data <- mvrnorm(n = 1000, mu = mu, Sigma = sigma)
-df <- data.frame(Peso = data[,1], Altura = data[,2])
-
-# Graficar la distribución conjunta
-ggplot(df, aes(x = Peso, y = Altura)) +
-  geom_point(alpha = 0.6, color = "blue") +
-  labs(title = "Simulación de la Distribución Normal Bivariante",
-       x = "Peso (kg)", y = "Altura (cm)") +
-  theme_minimal()
-```
-
+En vez de proporcionar un código para visualizar la distribución normal bivariante podéis seguir este enlace: [https://datasciencegenie.com/3d-contour-plots-of-bivariate-normal-distribution/](https://datasciencegenie.com/3d-contour-plots-of-bivariate-normal-distribution/) en donde se extiende lo que acabamos de discutir y se proporciona algunos ejemplos con R.
 ::::
+
+
 
 #### Distribuciones Marginales
 
