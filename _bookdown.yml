@@ -1,7 +1,7 @@
 output_dir: docs
 delete_merged_file: true
-edit: https://github.com/ASPteaching/FundamentosInferencia/edit/main/%s
-view: https://github.com/ASPteaching/FundamentosInferencia/blob/main/%s
+edit: https://github.com/ASPteaching/FundamentosInferencia-Bookdown/edit/main/%s
+view: https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/%s
 language:
   ui:
     chapter_name: "Capítulo "
