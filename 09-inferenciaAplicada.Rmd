@@ -1,5 +1,13 @@
 # Inferencia Aplicada
 
+:::: {.calloutBox .important}
+
+Este capítulo está pendiente de ser introducida en los apuntes.
+
+La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).
+
+::::
+
 Se muestra como deducir y aplicar algunos de los tests mas populares.
 
 ## Pruebas de normalidad.Pruebas gráficas.  El test de Shapiro-Wilks

@@ -1,0 +1,750 @@
+# Probabilidad y Experimentos aleatorios
+
+
+## Introducción
+
+### Fenómenos deterministas y fenómenos aleatorios
+
+Supongamos que disponemos de un dado regular con todas las caras
+pintadas de blanco y con un número, que irá de 1 a $6 \sin$ repetir
+ninguno, en cada una de las seis caras.
+
+Definamos los dos experimentos siguientes: Experimento 1: Tirar el dado
+y anotar el color de la cara resultante. Experimento 2: Tirar el dado y
+anotar el número de la cara resultante. ¿Qué diferencia fundamental
+observamos entre ambos experimentos? Muy simple! En el experimento 1, el
+resultado es obvio: saldrá una cara de color blanco. Es decir, es
+posible predecir el resultado. Se trata de un experimento o fenómeno
+determinista.
+
+En cambio, en el experimento 2 no podemos predecir cuál será el valor
+resultante. El resultado puede ser : $1,2,3,4,5$ o 6 . Se trata de un
+experimento o fenómeno aleatorio.
+
+El conjunto de resultados se anotará con el símbolo: $\Omega$. En este
+caso, $\Omega=\{1,2,3,4,5,6\}$. En los fenómenos aleatorios, al hacer
+muchas veces la experiencia, la frecuencia relativa de cualquier
+elemento del conjunto de resultados debe aproximarse siempre hacia un
+mismo valor.
+
+### Sucesos
+
+Supongamos que se ejecuta un experimento aleatorio. Se nos puede ocurrir
+emitir un enunciado que, una vez realizada la experiencia, pueda decirse
+si se ha verificado o no se ha verificado. A dichos enunciados los
+denominamos sucesos.
+
+Por otro lado, los sucesos van asociados a subconjuntos del conjunto de
+resultados. Cada suceso se corresponderá exactamente con uno, y sólo con
+un, subconjunto del conjunto de resultados.
+
+Veamos un ejemplo: Experimento: Tirar un dado regular. Conjunto de
+resultados : $\Omega=\{1,2,3,4,5,6\}$ Enunciado: Obtener múltiplo de 3.
+Subconjunto al que se asocia el enunciado: $A=\{3,6\}$ Nos referiremos
+habitualmente al suceso A.
+
+#### Sucesos y conjuntos
+
+Al conjunto de resultados $\Omega$, se le denomina suceso seguro. Al
+conjunto Ø ( conjunto sin elementos), se le denomina suceso imposible.
+Al complementario del conjunto
+$\mathrm{A}\left(\mathrm{A}^{\mathrm{c}}\right)$, se le denomina suceso
+contrario o complementario de $A$. A partir de dos sucesos A y B,
+podemos formar los sucesos siguientes:
+
+-   A intersección B, que anotaremos como:
+
+$$
+A \cap B
+$$
+
+-   A unión B, que anotaremos como:
+
+$$
+A \cup B
+$$
+
+A intersección B, significa que se verifican a la vez A y B. A unión B,
+significa que se verifica $A$ o $B$ ( se pueden verificar a la vez).
+
+## Función de probabilidad
+
+Lógicamente, una vez tenemos un suceso, nos preocupa saber si hay muchas
+o pocas posibilidades de que al realizar la experiencia se haya
+verificado.
+
+Por lo tanto, sería interesante el tener alguna función que midiera el
+grado de confianza a depositar en que se verifique el suceso.
+
+A esta función la denominaremos función de probabilidad. La función de
+probabilidad será, pues, una aplicación entre el conjunto de resultados
+y el conjunto de números reales, que asignará a cada suceso la
+probabilidad de que se verifique.
+
+La notación: $\mathrm{P}(\mathrm{A})$ significará: probabilidad de que
+se verifique el suceso A . Pero claro, de funciones de probabilidad
+asociadas a priori a una experiencia aleatoria podrían haber muchas.
+
+Lo que se hace para decir qué es y qué no es una función de probabilidad
+es construir una serie de propiedades (denominadas axiomas) que se
+exigirán a una función para poder ser catalogada como función de
+probabilidad.
+
+Y, ¿cuáles son estos axiomas? Pues los siguientes: Sea S el conjunto de
+sucesos. Axioma 1: Para cualquier suceso A, la probabilidad debe ser
+mayor o igual que 0 . Axioma 2: $\mathrm{P}(\Omega)=1$ Axioma 3: Para
+sucesos $\mathrm{A}_{\mathrm{i}}$, de modo que cada par de sucesos no
+tengan ningún resultado común, se verifica que:
+
+$$
+P\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} P\left(A_{i}\right)
+$$
+
+De este modo, pueden haber muchas funciones de probabilidad que se
+podrían asociar con la experiencia.
+
+El problema pasa entonces al investigador para decidir cual o cuales son
+las funciones de probabilidad más razonables asociadas con la
+experiencia que está manejando.
+
+### ¿Diferentes funciones de probabilidad para una misma experiencia aleatoria?
+
+Supongamos la experiencia de tirar un dado regular. A todo el mundo se
+le ocurriría pensar que la función de probabilidad se obtiene de contar
+el número de resultados que contiene el suceso dividido por 6 , que es
+el número total de resultados posibles. Así pues, la probabilidad de
+obtener un múltiplo de 3 sería igual a $2 / 6$, la probabilidad de
+obtener el número 2 sería $1 / 6$ i la probabilidad de obtener un número
+par sería 3/6. Es decir, parece inmediato construir la función de
+probabilidad que, además, parece única. A nadie se le ocurre decir, por
+ejemplo, que la probabilidad de obtener un número par es $5 / 6$ !
+
+En este caso, todo ha sido muy fácil. Hemos visto que existe una única
+función de probabilidad que encaje de forma lógica con la experiencia y,
+además, ha sido muy sencillo encontrarla.
+
+Pero esto, por desgracia, no siempre es así. En muchísimas ocasiones
+resulta muy complejo el decidir cuál es la función de probabilidad.
+
+En el tema de variables aleatorias y de función de distribución se
+explica el problema de la modelización de muchas situaciones reales.
+
+## ¿Cómo se calculan las probabilidades?
+
+No siempre es fácil conocer los valores de la función de probabilidad de
+todos los sucesos. Sin embargo, muchas veces se pueden conocer las
+probabilidades de algunos de estos sucesos. Con la ayuda de ciertas
+propiedades que se deducen de manera inmediata a partir de la axiomática
+es posible calcular las probabilidades de más sucesos.
+
+Por otro lado, en caso de que el número de resultados sea finito y de
+que todos los resultados tengan las mismas posibilidades de verificarse,
+la probabilidad de un suceso cualquiera se puede calcular a partir de la
+regla de Laplace:
+
+Si A es un suceso :
+
+$$
+\text { Probabilidad }(A)=\frac{\text { Número de casos favorables }}{\text { Número de casos posibles }}
+$$
+
+donde: Número de casos favorables $=$ Número de resultados contenidos en
+$\mathrm{A}($ cardinal de A$)$ Número de casos posibles $=$ Número total
+de resultados posibles (cardinal del conjunto total de resultados)
+
+En este caso, el contar número de resultados, ya sean favorables o
+posibles, debe hacerse por medio de la combinatoria.
+
+Veamos con unos ejemplos muy sencillos y visuales cómo se obtienen y qué
+representan los casos posibles y los casos favorables.
+
+<!-- ### Ejemplo  -->
+
+<!-- Se dispone de un dado regular. Se lanza el dado una vez. Se elige un suceso entre los que se proponen. -->
+
+<!-- Una vez hecho esto, se visualizan en la parte inferior de la pantalla los casos posibles y los favorables. También se contabilizan y, mediante la regla de Laplace, se calcula la probabilidad del suceso elegido. -->
+
+<!-- 1) Elegid el suceso a estudiar. -->
+
+<!-- 2) Desplazad, si procede, las barras de puntos. -->
+
+<!-- 3) Comprobad los sucesos posibles $y$ -->
+
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_11_4f112ca503bf745765b6g-07.jpg?height=284&width=412&top_left_y=81&top_left_x=822) -->
+
+<!-- ## Ejemplo 2 -->
+
+<!-- Se dispone de una urna con cinco bolas (blancas y negras). La urna se puede configurar a priori mediante la barra de desplazamiento. Se decide la extracción de una, dos o tres bolas sin reposición. Se elige un suceso entre los que se observan en la parte derecha de la pantalla. -->
+
+<!-- Una vez hecho esto, se visualizan en la parte inferior de la pantalla los casos posibles y los casos favorables. Se contabilizan y, mediante la regla de Laplace, se calcula la probabilidad del suceso elegido. -->
+
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_11_4f112ca503bf745765b6g-07.jpg?height=1132&width=366&top_left_y=1079&top_left_x=845) -->
+
+También es posible obtener de manera aproximada la probabilidad de un
+suceso si se puede repetir muchas veces la experiencia: la probabilidad
+del suceso sería el valor al que tendería la frecuencia relativa del
+suceso. Podéis consultar más detalles acerca de esta aproximación.
+
+En este caso, la cuestión estriba en poder hacer muchas veces la
+experiencia en condiciones independientes.
+
+## Propiedades inmediatas de la probabilidad
+
+Veremos a continuación una serie de propiedades que se deducen de manera
+inmediata de la axiomática de la probabilidad.
+
+### Succeso nulo
+
+Probabilidad del suceso conjunto vacío (es decir del suceso que no
+contiene ningún resultado):
+
+$$
+P(\varnothing)=0
+$$
+
+### Suceso implicado
+
+Si A es un suceso que está contenido en B (todos los resultados de A
+también pertenecen a B ), entonces:
+
+$$
+\mathrm{P}(\mathrm{A}) \leq \mathrm{P}(\mathrm{B})
+$$
+
+### Complementario de un suceso
+
+Sea $A^{\mathrm{c}}$ el suceso formado por todos los elementos de
+$\Omega$ que no pertenecen a A (Suceso complementario de A). La
+probabilidad de dicho suceso es igual a:
+
+$$
+\mathrm{P}\left(\mathrm{A}^{\mathrm{c}}\right)=1-\mathrm{P}(\mathrm{A})
+$$
+
+### Ocurrencia de algun suceso
+
+La probabilidad de la unión de dos sucesos A y B es igual a:
+
+$$
+P(A \cup B)=P(A)+P(B)-P(A \cap B)
+$$
+
+### Propiedad de que ocurra algun suceso
+
+Si tenemos una colección de $k$ sucesos, la probabilidad de la unión de
+dichos sucesos será:
+
+$$
+P\left(\bigcup_{i=1}^{k} A_{i}\right)=\sum_{i=1}^{k} P\left(A_{i}\right)-\sum_{i<j} P\left(A_{i} \cap A_{j}\right)+\sum P\left(A_{i} \cap A_{j} \cap A_{k}\right)+\ldots+(-1)^{k+1} \cdot P\left(A_{1} \cap . . \cap A_{k}\right)
+$$
+
+### Probabilidad de que ocurran dos (o más) sucesos a la vez
+
+### Una formula que los relaciona
+
+Se verifica que:
+
+$$
+P\left(\bigcap_{i=1}^{n} A_{i}\right) \geq 1-\sum_{i=1}^{n} P\left(\bar{A}_{i}\right)
+$$
+
+## Probabilidad condicionada
+
+Imaginemos que en la experiencia de tirar un dado regular supiéramos de
+antemano que se ha obtenido un número par. Es decir, que se ha
+verificado el suceso: B = número par.
+
+Pregunta: ¿Cuál es ahora la probabilidad de que se verifique el suceso
+mayor o igual a cuatro? Lógicamente, el resultado sería : $2 / 3$. Por
+lo tanto, la probabilidad del suceso $\mathrm{A}=$ mayor o igual a
+cuatro se ha modificado. Evidentemente, ha pasado de ser $1 / 2$ (
+cuando no tenemos ninguna información previa) a ser $2 / 3$ (cuando
+sabemos que se ha verificado el suceso B). ¿Cómo podemos anotar esta
+última probabilidad $(2 / 3)$ ? Muy sencillo. Anotaremos
+$\mathrm{P}(\mathrm{A} / \mathrm{B})$, que se lee como probabilidad de A
+condicionada a B . Así, en este ejemplo,
+
+$$
+\begin{gathered}
+\mathrm{P}(\mathrm{A} / \mathrm{B})=2 / 3 \\
+\mathrm{P}(\mathrm{A})=1 / 2
+\end{gathered}
+$$
+
+En términos generales, estamos en condiciones de poder definir la
+probabilidad condicionada, y lo hacemos como:
+
+$$
+P(A / B)=\frac{P(A \cap B)}{P(B)}
+$$
+
+Podemos ahora visualizar de una manera práctica y divertida el ejemplo
+anterior. Siguiendo con la notación utilizada, el suceso A será lo que
+denominamos suceso de obtención, mientras que el suceso B será lo que
+denominamos suceso condicionado. La pantalla nos proporcionará los casos
+posibles para el condicionante elegido y los casos favorables,
+calculando mediante la regla de Laplace la probabilidad del suceso.
+
+1)  Elegid suceso a estudiar. Desplazad, si procede, las barras de
+    puntos.
+2)  Elegir suceso condicionante. Desplazad, si procede, las barras de
+    puntos.
+3)  Comprobad los sucesos posibles y los favorables.
+
+La probabilidad condicionada se comporta, entonces, como una función de
+probabilidad. Es decir, verifica los tres axiomas siguientes:
+
+Axioma 1:
+
+$$
+\mathrm{P}(\mathrm{A} / \mathrm{B}) \geq 0
+$$
+
+Axioma 2:
+
+$$
+P(\Omega / B)=1
+$$
+
+Axioma 3:
+
+$$
+P\left(\bigcup_{i=1}^{\infty} A_{i} / B\right)=\sum_{i=1}^{\infty} P\left(A_{i} / B\right)
+$$
+
+para sucesos $\mathrm{A}_{\mathrm{i}}$ con intersección vacía dos a dos.
+
+### Sucesos dependientes y sucesos independientes
+
+Sean A y B dos sucesos con probabilidad mayor que 0 . Evidentemente, si
+
+$$
+\mathrm{P}(\mathrm{A} / \mathrm{B})=\mathrm{P}(\mathrm{A})
+$$
+
+B no ha modificado la probabilidad de que suceda A. En este caso diremos
+que son sucesos independientes.
+
+En caso contrario diremos que son sucesos dependientes. En el ejemplo
+del apartado anterior, se observa que los sucesos son dependientes
+puesto que las probabilidades anteriores no coinciden.
+
+Se verifica que independencia de los sucesos A y B es equivalente a
+decir que la probabilidad de la intersección es igual a producto de
+probabilidades de los dos sucesos.
+
+Se verifica también que si A y B son independientes: a) El
+complementario del suceso A y el suceso B son independientes. b) El
+complementario del suceso A y el complementario del suceso B son
+independientes. c) El complementario del suceso B y el suceso A son
+independientes.
+
+### Incompatibilidad e independencia
+
+Dos sucesos con intersección vacía se denominan sucesos incompatibles.
+Esto, ¿qué implica? Pues, que si se verifica uno seguro que no se
+verifica el otro, ya que no tienen resultados en común. Por lo tanto es
+el caso extremo de dependencia. Obtenemos en este caso que:
+
+$$
+\mathrm{P}(\mathrm{A} / \mathrm{B})=0
+$$
+
+y, en consecuencia, si $\mathrm{P}(\mathrm{A})$ y
+$\mathrm{P}(\mathrm{B})$ son diferentes de cero, la probabilidad
+condicionada anterior es diferente de $\mathrm{P}(\mathrm{A})$, y así se
+deduce la dependencia.
+
+La única posibilidad de que se dé incompatibilidad e independencia a la
+vez, es que alguno de los dos sucesos tenga probabilidad igual a cero.
+
+## Dos Teoremas importantes
+
+### Teorema de las probabilidades totales
+
+Sea $\Omega$ el conjunto total formado por una partición (colección de
+sucesos con intersección vacía dos a dos):
+
+$$
+\Omega=H_{1} \cup \ldots \ldots \cup H_{n}
+$$
+
+La probabilidad de cualquier otro suceso A , se puede obtener a partir
+de las probabilidades de los sucesos de la partición y de las
+probabilidades de A condicionado a los sucesos de la partición, de la
+manera siguiente:
+
+$$
+P(A)=\sum_{i=1}^{n} P\left(A / H_{i}\right) \cdot P\left(H_{i}\right)
+$$
+
+Esto es lo que se conoce como teorema de las probabilidades totales.
+
+### Teorema de Bayes
+
+Es una consecuencia del teorema de las probabilidades totales. Sea
+$\Omega$ el conjunto total formado por una partición (colección de
+sucesos con intersección vacía dos a dos).
+
+$$
+\Omega=H_{1} \cup \ldots \ldots \cup H_{n}
+$$
+
+Ahora el interés se centrará en la obtención de la probabilidad de
+cualquier suceso de la partición condicionada a un suceso A cualquiera.
+
+El resultado será:
+
+$$
+P\left(\mathrm{H}_{\mathrm{i}} / \mathrm{A}\right)=\frac{\mathrm{P}\left(\mathrm{A} / \mathrm{H}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{H}_{\mathrm{i}}\right)}{\sum_{i=1}^{n} \mathrm{P}\left(\mathrm{A} / \mathrm{H}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{H}_{\mathrm{i}}\right)}
+$$
+
+Esto es conocido como teorema o regla de Bayes.
+
+## Introducción a los experimentos múltiples
+
+Supongamos que tiramos a la vez un dado y una moneda. Tenemos una
+experiencia múltiple, puesto que la experiencia que se realiza es la
+composición de dos experiencias (experiencia $1=$ tirar un dado regular;
+experiencia 2 = tirar una moneda regular). ¿Cuál es en este caso el
+conjunto de resultados? Si $\Omega_{1}$ es el conjunto de resultados
+asociado con la experiencia tirar un dado y $\Omega_{2}$ es el conjunto
+de resultados asociado con la experiencia tirar una moneda, el conjunto
+de resultados asociado a la experiencia múltiple será
+$\Omega_{1} \times \Omega_{2}$.
+
+Es decir, $\Omega_{1}=\{1,2,3,4,5,6\}$ $\Omega_{2}=\{$ cara, cruz $\}$
+$\Omega_{1} \times \Omega_{2}=\{(1$, cara $),(2$, cara $),(3$, cara
+$),(4$, cara $),(5$, cara $),(6$, cara $),(1$, cruz ), ( 2 , cruz ), (
+3, cruz ), (4, cruz $),(5$, cruz $),(6$, cruz $)\}$
+
+Si $\mathrm{P}_{1}$ y $\mathrm{P}_{2}$ son, respectivamente, las
+funciones de probabilidad asociadas a las experiencias 1 y 2 , ¿es
+posible calcular probabilidades de la experiencia múltiple a partir de
+$\mathrm{P}_{1}$ y $\mathrm{P}_{2}$ ?
+
+Efectivamente! Pero hemos de distinguir dos situaciones:
+
+-   Experiencias independientes: cuando el resultado de una no influya
+    en la otra.
+-   Experiencias dependientes: cuando el resultado de una influya en la
+    otra.
+
+En nuestro caso se trata de experiencias independientes, puesto que el
+resultado que se obtenga al tirar el dado no influye sobre el resultado
+que se obtenga al lanzar la moneda y al revés. ¿Como se calculan, pues,
+las probabilidades de la experiencia múltiple? Sea un suceso de la
+experiencia múltiple: A x B.
+
+-   Caso de experiencias independientes:
+
+$$
+\mathrm{P}(\mathrm{A} \times \mathrm{B})=\mathrm{P}_{1}(\mathrm{~A}) \times \mathrm{P}_{2}(\mathrm{~B})
+$$
+
+-   Caso de experiencias dependientes:
+
+$$
+\mathrm{P}(\mathrm{A} \times \mathrm{B})=\mathrm{P}_{1}(\mathrm{~A}) \times \mathrm{P}_{2}(\mathrm{~B} / \mathrm{A})
+$$
+
+Entendemos que existe una $\mathrm{P}_{2}$ para cada suceso A .
+
+Esto que hemos explicado se puede, lógicamente, generalizar a una
+experiencia múltiple formada por $n$ experiencias.
+
+## Combinatoria
+
+Veamos algunas fórmulas simples que se utilizan en combinatoria y que
+nos pueden ayudar a calcular el número de casos posibles o el número de
+casos favorables.
+
+### Permutaciones
+
+Sea un conjunto de $n$ elementos. A las ordenaciones que se pueden hacer
+con estos $n$ elementos $\sin$ repetir ningún elemento y utilizándolos
+todos se las denomina permutaciones. El número de permutaciones que se
+pueden realizar coincide con el factorial de $n$, y su cálculo es:
+
+$$
+n!=n \cdot(n-1) \cdot(n-2) \ldots \ldots .2 \cdot 1
+$$
+
+Ejemplo: 
+
+¿De cuántas maneras distintas podemos alinear a seis personas
+en una fila?
+
+Respuesta
+
+De $6!=6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1=720$ maneras
+(permutaciones de 6 elementos).
+
+### Variaciones
+
+Sea un conjunto de $n$ elementos. Supongamos que deseamos ordenar $r$
+elementos de entre los $n$. A cada una de estas ordenaciones la
+denominamos variación. El número de variaciones que se pueden hacer de
+los $n$ elementos tomados de $r$ en $r$ es:
+
+$$
+V_{n}^{r}=n \cdot(n-1) \ldots \ldots(n-r+1)
+$$
+
+Ejemplo
+
+En una carrera de velocidad compiten diez atletas. ¿De cuántas maneras
+distintas podría estar formado el podio? (el podio lo forman el primer,
+el segundo y el tercer clasificado)
+
+Respuesta
+
+Cada podio posible es una variación de diez elementos tomado de tres en
+tres. Por tanto, el número posible de podios es:
+
+$$
+\mathrm{V}_{10}^{3}=10.9 .8=720
+$$
+
+### Variaciones con repetición
+
+Sea un conjunto de $n$ elementos. Supongamos que se trata de ordenar $r$
+elementos que pueden estar repetidos. Cada ordenación es una variación
+con repetición. El número de variaciones con repetición para un conjunto
+de $n$ tomados de $r$ en $r$ es :
+
+$$
+\mathrm{RV}_{\mathrm{n}}^{\mathrm{r}}=\mathrm{n}^{\mathrm{r}}
+$$
+
+[Ejemplo]{.underline}
+
+En una urna tenemos cinco bolas numeradas del 1 al 5 . Se extraen tres
+bolas sucesivamente con reposición (devolviendo cada vez la bola a la
+urna). ¿Cuántos resultados distintos es posible obtener?
+
+Respuesta: Se trata de variaciones con repetición de un conjunto de
+cinco bolas tomadas de tres en tres. En total tendremos:
+
+$$
+\mathrm{RV}_{5}^{3}=5^{3}=125
+$$
+
+### Combinaciones
+
+Cuando se trata de contar el número de subconjuntos de $x$ elementos en un conjunto de $n$ elementos tenemos lo que se denomina combinaciones de
+x elementos en un conjunto de n . El cálculo del contaje se hace
+mediante el número combinatorio, de la manera siguiente:
+
+$$
+\mathrm{C}_{\mathrm{n}}^{\mathrm{x}}=\binom{n}{\mathrm{x}}=\frac{\mathrm{n!}}{\mathrm{x}!.(\mathrm{n}-\mathrm{x})!}
+$$
+
+Ejemplo
+
+¿De cuántas maneras podemos elegir, en la urna anterior (recordemos que
+había cinco bolas), tres bolas en una única extracción?
+
+Respuesta
+
+Serán combinaciones de cinco elementos tomados de tres en tres, por
+tanto, tendremos:
+
+$$
+\mathrm{C}_{5}^{3}=\binom{5}{3}=\frac{5!}{3!(5-3)!}=10
+$$
+
+### Permutaciones con repetición
+
+Sea un conjunto de $n$ elementos, de entre los cuales tenemos $a$
+elementos indistinguibles entre sí, $b$ elementos indistinguibles entre
+sí, $c$ elementos indistinguibles entre sí, etc. Cada ordenación de
+estos elementos se denominará permutación con repetición. El número de
+permutaciones con repetición es:
+
+$$
+R P{ }_{n}^{a, b, c, \ldots}=\frac{n!}{a!b!c!\ldots}
+$$
+
+Ejemplo
+
+¿Cuantas palabras con sentido o sin él pueden formarse con las letras
+PATATA?
+
+Respuesta: Tenemos tres veces la letra A, dos veces la T y una vez la P.
+Por tanto, serán:
+
+$$
+\mathrm{RP}_{6}^{3,2,1}=\frac{6!}{3!2!!}=60
+$$
+
+## Frecuencia relativa y probabilidad
+
+La definición moderna de probabilidad basada en la axiomática de
+Kolmogorov (presentada anteriormente) es relativamente reciente.
+Históricamente hubo otros intentos previos de definir el escurridizo
+concepto de probabilidad, descartados por diferentes razones. Sin
+embargo conviene destacar aquí algunas ideas que aparecen en la antigua
+definición basada en la frecuencia relativa, ya que permiten intuir
+algunas profundas propiedades de la probabilidad.
+
+Recordemos antes que si en un experimento que se ha repetido $n$ veces
+un determinado suceso A se ha observado en $k$ de estas repeticiones, la
+frecuencia relativa $\mathrm{f}_{\mathrm{r}}$ del suceso A es:
+
+$$
+\mathrm{f}_{\mathrm{r}}=k / n
+$$
+
+El interés por la frecuencia relativa y su relación con el concepto de
+probabilidad aparece a lo largo de los siglos XVIII a XX al observar el
+comportamiento de numerosas repeticiones de experimentos reales.
+
+A título de ejemplo de un experimento de este tipo, supongamos que se
+dispone de una moneda ideal perfectamente equilibrada. Aplicando
+directamente la regla de Laplace resulta claro que el suceso
+$\mathrm{A}=$ obtener cara tiene probabilidad:
+
+$$
+\mathrm{p}(\mathrm{A})=1 / 2=0,5
+$$
+### Ilustración por simulación
+
+En el enlace siguiente se accede a una simulación por ordenador de la _ley de los grandes números_ en la que se basa precisamente la idea de asimilar "a la larga" (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.
+
+:::: {.calloutBox .link}
+[Enlace a la simulación](https://www.grbio.eu/statmedia/Statmedia_1/)
+::::
+
+
+En la simulación podéis definir:
+
+- La verdadera probabilidad" de que al tirar la moneda salga cara,
+- EL número de tiradas.
+
+Como podréis comprobar, sea cual sea la probabilidad (una moneda justa es un 0.5) a la larga la frecuencia relativa converge hacia el valor que habéis fijado.
+
+Eso sí, observad lo que sucede si fijais probabilidades cercanas a 0.5 o muy alejadas de ell.
+
+¿La idea de lo que sucede a la larga es la misma? ¿En que encontráis diferencias? 
+Aunque no deje de llamar la atención el carácter errático del comportamiento de $\mathrm{f}_{\mathrm{r}}$ entre los valores 0 y 1, estaréis seguramente de acuerdo que  a mayor
+    número de lanzamientos $n$, más improbable es que $f_{r}$ se aleje
+    mucho de $p(A)$.
+
+La teoría moderna de la probabilidad enlaza formalmente estas ideas con
+el estudio de las leyes de los grandes números, que se discutiran con más detalle en el capítulo dedicado a las "Grandes muestras".
+
+## CASO DE ESTUDIO: Eficacia de una prueba diagnóstica 
+
+Para decidir la presencia(E) o ausencia (A) de sordera profunda a la edad de seis meses, se está ensayando una batería de tests.
+
+Considerando el caso en que la prueba pueda dar positivo $(+)$ o negativo $(-)$, hay que tener en cuenta que en individuos con dicha sordera la prueba dará a veces positivo y a veces negativo, e igual ocurrirá con individuos que no presentan la sordera.
+
+En este contexto todas las probabilidades pueden ser interpretadas en terminos de resultados positivos o neghativos, correctamente o no y cada una ha recibe un nombre que la ha popularizado dentro de la literatura médica:
+
+Así tenemos: 
+
+- $\mathrm{P}(+/ \mathrm{E})$
+
+  - Probabilidad de test positivo en individuos que padecen la sordera.
+  - Este valor se conoce como _sensibilidad del test_.
+
+- $\mathrm{P}(+/ \mathrm{A})=$
+  - Probabilidad de test positivo en individuos que no padecen la sordera.
+  - Este valor se conoce como _probabilidad de falso-positivo_.
+  
+- $\mathrm{P}(-/ \mathrm{E})=$
+  - Probabilidad de test negativo en individuos que padecen la sordera
+  - Este valor se conoce como  _probabilidad de falso-negativo_.
+  
+- $P(-/ A)=$
+  - Probabilidad de test negativo en individuos que no padecen sordera.
+  - Este valor se conoce como
+_especificidad del test_.
+
+- Finalmente a la probabilidad, $\mathrm{P}(\mathrm{E})$, de presentar la enfermedad se le conoce como _prevalencia_ de la enfermedad.
+
+Lógicamente, en un "buen test" nos interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsos-positivos y falsos-negativos sean valores bajos.
+
+Además no debemos olvidar que, el interés de aplicar el test, consiste en que sirva de elemento predictivo para diagnosticar la sordera.
+
+Por lo tanto, interesa que las probabilidades:
+
+- $\mathrm{P}(\mathrm{E} /+)=$ Probabilidad de padecer sordera si el test da positivo
+
+- $\mathrm{P}(\mathrm{A} /-)=$ Probabilidad de no padecer sordera si el test da negativo
+
+sean realmente altas.
+
+A las probabilidades 
+anteriores se las conoce como: _valores predictivos_ del test, en concreto:
+
+- $\mathrm{P}(\mathrm{E} /+)=$ es el _valor predictivo positivo_ y 
+
+- $\mathrm{P}(\mathrm{A} /-)=$ es el _valor predictivo negativo_
+
+### Aplicación del Teorema de Bayes
+
+Estamos en una situación en que, a partir de conocimiento de unas probabilidades, nos interesa calcular otras, para lo que utilizaremos el teorema de Bayes.
+
+Habitualmente, a partir de estudios epidemiológicos y muestras experimentales, se estiman:
+
+- La prevalencia
+
+- La sensibilidad del test
+
+- La especificidad del test
+
+- La probabilidad de falso positivo
+
+- La probabilidad de falso negativo
+
+¿Cómo se obtiene entonces el valor predictivo del test?
+
+Veamos como aplicar el teorema de Bayes a este problema:
+
+Si dividimos a la población global (en este caso, el conjunto de todos los bebés de seis meses) entre los que padecen sordera y los que no la padecen, aplicando el teorema de Bayes resulta que:
+
+$$
+\mathrm{P}(\mathrm{E} /+)=(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})) /(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})+\mathrm{P}(+/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A}))
+$$
+y
+
+$$
+\mathrm{P}(\mathrm{~A} /-)=(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})) /(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})+\mathrm{P}(-/ \mathrm{E}) \times \mathrm{P}(\mathrm{E}))
+$$
+
+### Ejemplo numérico
+
+Supongamos que en el ejemplo de la sordera, se sabe que:
+
+- Prevalencia $=0,003$, Es decir, que un tres por mil padece sordera profunda a esta edad.
+
+- Sensibilidad $=0,98$
+
+- Especificidad $=0,95$
+
+- Probabilidad de falso positivo $=0,05$
+
+- Probabilidad de falso negativo $=0,02$
+
+¿Cuál es el valor predictivo del test?
+
+$$
+\begin{aligned}
+& \mathrm{P}(\mathrm{E} /+)=(0,98 \times 0,003) /(0,98 \times 0,003+0,05 \times 0,997)=0,00294 / 0,05279=0,055692 \\
+& \mathrm{P}(\mathrm{~A} /-)=(0,95 \times 0,997) /(0,95 \times 0,997+0,02 \times 0,003)=0,94715 / 0,94721=0,999936
+\end{aligned}
+$$
+
+En conclusión,
+Podemos afirmar que se trata de un test muy válido para decidir que no hay sordera en caso de que el resultado del test sea negativo.
+
+Sin embargo, el valor tan bajo de $\mathrm{P}(\mathrm{E} /+)$ no permite poder considerar al test como un predictor válido para diagnosticar la sordera.
+
+Obsérvese que:
+
+- Probabilidad de falso positivo $=1-$ especificidad
+
+- Probabilidad de falso negativo $=1-$ sensibilidad
+

@@ -1,0 +1,11 @@
+# Computación Intensiva y _Multiple Testing_
+
+Se introducen distintos métodos cuyo nexo común es la computación intensiva.
+
+## Tests de permutaciones; ¿Qué?, ¿Cuándo?, ¿Cómo?
+
+## El bootstrap en contraste de hipótesis
+
+## El problema de las comparaciones múltiples
+
+## Métodos de control de error: FWER y FDR

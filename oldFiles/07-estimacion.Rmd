@@ -1,0 +1,19 @@
+# Estimación por intérvalos
+
+Se plantea el problema de la estimación como una forma de aproximación a las características de las distribucionesa partir de muestras aleatorias simples.
+
+Se abordan las distintas filosofías para la construcción de estimadores.
+
+## Preliminares: estimación del error estándar e Introducción al bootstrap
+
+## Estimadores por intervalo: intervalos de confianza
+
+## Intervalos de confianza para características de una población normal (media, varianza),
+
+## Intervalos de confianza bootstrap.
+
+## Intervalos de confianza para proporciones binomiales
+
+## Intervalos de confianza para parámetros en muestra grandes y para casos generales (tasas, OR, ...)
+
+## Aplicaciones: cálculo del tamaño muestral

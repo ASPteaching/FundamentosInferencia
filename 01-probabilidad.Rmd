@@ -91,14 +91,20 @@ exigirán a una función para poder ser catalogada como función de
 probabilidad.
 
 Y, ¿cuáles son estos axiomas? Pues los siguientes: Sea S el conjunto de
-sucesos. Axioma 1: Para cualquier suceso A, la probabilidad debe ser
-mayor o igual que 0 . Axioma 2: $\mathrm{P}(\Omega)=1$ Axioma 3: Para
-sucesos $\mathrm{A}_{\mathrm{i}}$, de modo que cada par de sucesos no
+sucesos. 
+
+- Axioma 1: Para cualquier suceso A, la probabilidad debe ser
+mayor o igual que 0. 
+
+- Axioma 2: La probabilidad del _suceso seguro_ debe ser 1: $\mathrm{P}(\Omega)=1$ 
+
+- Axioma 3: Para sucesos $\mathrm{A}_{\mathrm{i}}$, de modo que cada par de sucesos no
 tengan ningún resultado común, se verifica que:
 
 $$
 P\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} P\left(A_{i}\right)
 $$
+
 
 De este modo, pueden haber muchas funciones de probabilidad que se
 podrían asociar con la experiencia.
@@ -188,15 +194,38 @@ suceso. Podéis consultar más detalles acerca de esta aproximación.
 En este caso, la cuestión estriba en poder hacer muchas veces la
 experiencia en condiciones independientes.
 
+## Sucesos elementales y sucesos observables
+
+En el contexto de la probabilidad, es fundamental diferenciar entre los **sucesos elementales** y los **sucesos observables**. 
+
+Los sucesos elementales son los resultados individuales que pueden ocurrir al realizar un experimento aleatorio, es decir, cada uno de los elementos que conforman el conjunto de resultados \(\Omega\). En nuestro ejemplo del dado, los sucesos elementales son los números \(1, 2, 3, 4, 5\) y \(6\). 
+
+Sin embargo, no todos los sucesos elementales son necesariamente observables. Un suceso observable es un subconjunto de estos sucesos elementales que permite formular afirmaciones verificables sobre el resultado del experimento.
+
+:::: {.ejemplo}
+**Ejemplo**
+
+1. Podemos imaginar un dado en el que pintamos de blanco las caras pares y de negro las impares. En este caso los sucesos elementales serían los habituales 1, 2, 3,...6. 
+Sin embargo tan solo "Par" ("blanco") o impar ("negro") se pueden observar.
+
+2. Si repintamos el dado de forma que las caras 1 y 2 esten blancas, las 3 y 4, azules y las 5 y 6 rojas podremos observar el suceso "Sale 1 o 2 (=Sale blanco)" o "sale blanco o azul", pero no el suceso "sale par" dado que cada color contiene un número par y uno impar
+::::
+
+
+Para formalizar estos conceptos, definimos el **espacio de probabilizable** como el par  de conjuntos formados por: $(\Omega, \mathcal{A})$
+
+- $\Omega$ es el conjunto de todos los resultados posibles (el conjunto de resultados o sucesos elementales).
+- $\mathcal{A}$ es el conjunto de todos los sucesos observables, que vienen definidos por el _nivel de observación_ del experimento.
+
+
 ## Propiedades inmediatas de la probabilidad
 
 Veremos a continuación una serie de propiedades que se deducen de manera
 inmediata de la axiomática de la probabilidad.
 
-### Succeso nulo
+### Succeso imposible
 
-Probabilidad del suceso conjunto vacío (es decir del suceso que no
-contiene ningún resultado):
+El suceso imposible se identifica con el conjunto vacío, puesto que no hay ningún resultado asociado a él. La probabilidad del suceso imposible es:
 
 $$
 P(\varnothing)=0
@@ -204,8 +233,8 @@ $$
 
 ### Suceso implicado
 
-Si A es un suceso que está contenido en B (todos los resultados de A
-también pertenecen a B ), entonces:
+Decimos que un suceso, B, esta implicado por otro suceso A, si siempre que se presenta A, también lo hace B. Por ejemplo, si al tirar un dado se obtiene un dos (suceso A), ello implica que ha salido un número par (suceso B). En terminos de conjuntos, A es un suceso que está contenido en B (todos los resultados de A
+también pertenecen a B ), por lo que:
 
 $$
 \mathrm{P}(\mathrm{A}) \leq \mathrm{P}(\mathrm{B})
@@ -229,7 +258,7 @@ $$
 P(A \cup B)=P(A)+P(B)-P(A \cap B)
 $$
 
-### Propiedad de que ocurra algun suceso
+### Probabilidad de que ocurra algun suceso
 
 Si tenemos una colección de $k$ sucesos, la probabilidad de la unión de
 dichos sucesos será:
@@ -240,19 +269,36 @@ $$
 
 ### Probabilidad de que ocurran dos (o más) sucesos a la vez
 
-### Una formula que los relaciona
+No existe una expresión cerrada única para la probabilidad de que ocurran dos o más sucesos a la vez, pues esto depende de si los sucesos que consideramos son dependientes o independientes, conceptos éstos, que introduciremos en la próxima sección.
 
-Se verifica que:
+Lo que si que existe es una cota para dicha probabilidad, es decir, podemos decir que valor alcanza dicha probabilidad, _como mínimo_.
 
 $$
 P\left(\bigcap_{i=1}^{n} A_{i}\right) \geq 1-\sum_{i=1}^{n} P\left(\bar{A}_{i}\right)
 $$
 
+## Espacios de probabilidad
+
+Para concluir esta introducción introduciremos los **espacio de probabilidad** que, extienden los **espacios probabilizables** definidos en la sección anterior
+
+La terna $(\Omega, \mathcal{A}, P)$ donde:
+
+- $Omega$ es el conjunto de todos los resultados posibles (el conjunto de resultados o sucesos elementales),
+- $\mathcal{A}$ es el conjunto de todos los sucesos observables, que vienen definidos por el _nivel de observación_ del experimento y 
+- $P$ es una función de probabilidad, que asigna a cada suceso observable $A \in \mathcal{A}$ un número real \(P(A)\) que representa la probabilidad de que ocurra dicho suceso
+
+se conoce como **espacio de probabilidad**.
+
+
+Es importante destacar que **la probabilidad se calcula exclusivamente para los sucesos observables**, lo que garantiza que la medida sea coherente y verificada a través de experimentos.
+
+Los espacios de probabilidad proporcionan una estructura fundamental para analizar y medir las incertidumbres asociadas a los fenómenos aleatorios, facilitando el estudio de sus propiedades, la construcción, sobre ellos de diversos conceptos fundamentales como el de variables aleatorias, y, en general, la aplicación de teorías de la probabilidad a diversas áreas de conocimiento.
+
 ## Probabilidad condicionada
 
 Imaginemos que en la experiencia de tirar un dado regular supiéramos de
 antemano que se ha obtenido un número par. Es decir, que se ha
-verificado el suceso: B = número par.
+verificado el suceso: $\{B = \mbox{número par}\}$".
 
 Pregunta: ¿Cuál es ahora la probabilidad de que se verifique el suceso
 mayor o igual a cuatro? Lógicamente, el resultado sería : $2 / 3$. Por
@@ -634,7 +680,7 @@ Aunque no deje de llamar la atención el carácter errático del comportamiento 
 La teoría moderna de la probabilidad enlaza formalmente estas ideas con
 el estudio de las leyes de los grandes números, que se discutiran con más detalle en el capítulo dedicado a las "Grandes muestras".
 
-## CASO DE ESTUDIO: Eficacia de una prueba diagnóstica 
+## Caso de Estudio: Eficacia de una prueba diagnóstica 
 
 Para decidir la presencia(E) o ausencia (A) de sordera profunda a la edad de seis meses, se está ensayando una batería de tests.
 

@@ -1,5 +1,14 @@
 # Distribuciones Notables
 
+<!-- :::: {.calloutBox .important} -->
+
+<!-- Este capítulo está pendiente de revisión, para corregir posibles problemas derivados de la importación, desde la antigua version en HTML, a la versión actual. -->
+
+<!-- Estos problemas siempre serán _estéticos y no conceptuales_, por lo que la lectura del texto en su estado actual no debería  inducir a errores conceptuales en ningún caso. -->
+
+<!-- La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1). -->
+<!-- :::: -->
+
 ## Distribuciones discretas
 
 ### La distribución de Bernouilli
@@ -35,7 +44,11 @@ $$
 
 Gráficamente:
 
-![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-02.jpg?height=881&width=1194&top_left_y=1821&top_left_x=431)
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/fmpBernouilli.png")
+```
+
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-02.jpg?height=881&width=1194&top_left_y=1821&top_left_x=431) -->
 
 Mientras que la función de distribución será:
 
@@ -49,7 +62,11 @@ $$
 
 Gráficamente:
 
-![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-03.jpg?height=778&width=1220&top_left_y=636&top_left_x=424)
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/cdfBernouilli.png")
+```
+
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-03.jpg?height=778&width=1220&top_left_y=636&top_left_x=424) -->
 
 #### Propiedades del modelo de Bernouilli
 
@@ -240,12 +257,12 @@ F(k)=P[X \leq k]=\left\{\begin{array}{cc}
 \end{array}\right\}
 $$
 
-En el programa siguiente se muestra la forma de la función de densidad junto con los valores de la función de densidad y de la función de distribución para cualquier valor:
+<!-- En el programa siguiente se muestra la forma de la función de densidad junto con los valores de la función de densidad y de la función de distribución para cualquier valor: -->
 
-::: {.callout-note icon=false}
-#### AVIS
-Posar un exemple de com fer-ho amb R
-:::
+<!-- ::: {.callout-note icon=false} -->
+<!-- #### AVIS -->
+<!-- Posar un exemple de com fer-ho amb R -->
+<!-- ::: -->
 
 #### Propiedades del modelo Binomial
 
@@ -299,44 +316,7 @@ $$
 
 Este resultado se extiende inmediatamente al caso de $n$ variables aleatorias independientes con distribución de Poisson. En este caso, la variable suma de todas ellas sigue una distribución de Poisson de parámetro igual a la suma de los parámetros.
 
-### La distribución Multinomial
-
-::: {.callout-note icon=false}
-
-#### COMPTE:Distribució Multivariant!
-
-Using callouts is an effective way to highlight content that your reader give special consideration or attention.
-
-:::
-
-Este modelo se puede ver como una generalización del Binomial en el que, en lugar de tener dos posibles resultados, tenemos $r$ resultados posibles.
-
-Supongamos que el resultado de una determinada experiencia puede ser $r$ valores distintos: $A_{1}, A_{2}, \ldots$ $A_{r}$ cada uno de ellos con probabilidad $p_{1}, p_{2}, \ldots, p_{r}$, respectivamente.
-
-$$
-P\left(A_{1}\right)=p_{1} ; \quad P\left(A_{2}\right)=p_{2} ; \quad \cdots \quad P\left(A_{r}\right)=p_{r} ; \quad \text { con } \quad \sum_{i=1}^{r} P\left(A_{i}\right)=1
-$$
-
-Si repetimos la experiencia $n$ veces en condiciones independientes, podemos preguntarnos la probabilidad de que el suceso $A_{1}$ aparezca $k_{1}$ veces, el suceso $A_{2}, k_{2}$ veces y así sucesivamente:
-
-$$
-P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]
-$$
-
-Al modelo estadístico que nos da dicha probabilidad se le denomina Multinomial, y su función de densidad viene dada por:
-
-$$
-\begin{gathered}
-f\left(k_{1}, k_{2}, \ldots, k_{r}\right)=P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]=\frac{n!}{k_{1}!k!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}} \\
-\operatorname{con} \sum_{i=1}^{r} P\left(A_{i}\right)=1 \quad \text { y } \quad \sum_{i=1}^{r} k_{i}=n
-\end{gathered}
-$$
-
-como se ve, el modelo Multinomial queda definido por los parámetros $\left(n, p_{1}, p_{2}, \ldots, p_{r}\right)$. La fórmula anterior puede deducirse de forma análoga al caso Binomial. En realidad, si tomamos $r=2$ tenemos exactamente el modelo Binomial.
-
-Se debe destacar que este modelo es un ejemplo de distribución multivariante, es decir, de distribución conjunta de varias ( $r$ ) variables aleatorias. En efecto, si definimos la variable aleatoria $X_{1}$ como número de veces que se produce el suceso $A_{1}$ de un total de n experiencias, y así sucesivamente, tenemos un conjunto de $r$ variables aleatorias discretas cuya función de densidad conjunta (valorada a la vez) viene definida por la anterior fórmula. Nótese que si consideramos cada una de estas variables $X_{i}(i=1,2, \ldots, r)$ por separado, su distribución es la Binomial de parámetros $n$ y $p_{i}$.
-
-#### La distribución Uniforme discreta
+### La distribución Uniforme discreta
 
 Tenemos esta distribución cuando el resultado de una experiencia aleatoria puede ser un conjunto finito de $n$ posibles resultados, todos ellos igualmente probables.
 
@@ -346,7 +326,15 @@ $$
 f(k)=P[X=k]=1 / 6 \quad k=1,2,3,4,5,6
 $$
 
-![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-13.jpg?height=1720&width=1158&top_left_y=773&top_left_x=449)
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/pmfUnifDiscreta.png")
+```
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/cdfUnifDiscreta.png")
+```
+
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-13.jpg?height=1720&width=1158&top_left_y=773&top_left_x=449) -->
 
 En general, si la variable $X$ puede tomar $n(k=1,2, \ldots, n)$ valores, todos con igual probabilidad, su función de densidad será:
 
@@ -386,11 +374,10 @@ $$
 f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{k}}}
 $$
 
-si $\operatorname{máx}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}$
+si $\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}$
 
 La dependencia se debe al hecho de que $N$ es finito y las extracciones se efectúan sin reemplazamiento. El caso de extracciones con reemplazamiento sería equivalente al de $N$ infinito y se resolvería mediante el modelo Binomial.
 
-El programa siguiente nos muestra la forma de la función de densidad de esta variable y el valor de la función de densidad y de la función de distribución en el punto que elijamos:
 
 #### Propiedades del modelo hipergeométrico
 
@@ -495,13 +482,13 @@ $$
 | Poisson | $\lambda>0$ | $e^{-\lambda} \frac{\lambda^{k}}{k!}$ <br> $k=012, \ldots$ | $\lambda$ | $\lambda$ |
 | Multinomial | $0 \leq p_{1}, \ldots$ <br> $p_{r} \leq 1$ <br> $\left(p_{1}+\ldots+\right.$ <br> $\left.p_{\mathrm{r}}=1\right)$ <br> $n=1,2$ | $\frac{n!}{k_{1}!k_{2}!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}}$ <br> $\sum_{i=1}^{r} k_{i}=n$ | $\left(\begin{array}{c}n p_{1} \\ n p_{2} \\ \vdots \\ n p_{r}\end{array}\right)$ | $\boldsymbol{\sigma}_{i i}=n p_{i}\left(1-p_{i}\right)$ <br> $\boldsymbol{\sigma}_{i j}=n p_{i} p_{j} \quad i \neq j$ |
 | Uniforme <br> discreta | $n=1,2, \ldots$ | $\frac{1}{n}$ <br> $k=1,2, \ldots . n$ | $\frac{n+1}{2}$ | $\frac{(n+1)[2(2 n+1)-3(n+1)}{12}$ |
-| Hipergeométrica | $\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.$ | $\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{k}}}$ <br> $\operatorname{máx}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \operatorname{mí}\left\{N_{1}, n\right\}$ | $n p$ | $n p(1-p) \frac{N-n}{N-1}$ |
+| Hipergeométrica | $\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.$ | $\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{k}}}$ <br> $\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}$ | $n p$ | $n p(1-p) \frac{N-n}{N-1}$ |
 | Pascal | $0 \leq p \leq 1$ | $p(1-p)^{k}$ <br> $k=0,1,2, \ldots$ | $\frac{1-p}{p}$ | $\frac{1-p}{p^{2}}$ |
 | Binomial <br> negativa | $0 \leq p \leq 1$ <br> $r>0$ |  | $\frac{r(1-p)}{p}$ | $\frac{r(1-p)}{p^{2}}$ |
 
-![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-22.jpg?height=339&width=1993&top_left_y=61&top_left_x=40)
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-22.jpg?height=339&width=1993&top_left_y=61&top_left_x=40) -->
 
-## DISTRIBUCIONES CONTINUAS
+## Distribuciones Continuas
 
 ### La distribución Uniforme
 
@@ -518,7 +505,11 @@ $$
 
 Gráficamente:
 
-![](https://cdn.mathpix.com/cropped/2024_09_12_b68827a9dbee383dec2cg-02.jpg?height=755&width=1328&top_left_y=1416&top_left_x=364)
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/pdfUnifContinua.png")
+```
+
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_b68827a9dbee383dec2cg-02.jpg?height=755&width=1328&top_left_y=1416&top_left_x=364) -->
 
 La función de distribución se obtiene integrando la función de densidad y viene dada por:
 
@@ -534,7 +525,11 @@ Gráficamente:
 
 Función de distribución del modelo uniforme
 
-![](https://cdn.mathpix.com/cropped/2024_09_12_b68827a9dbee383dec2cg-03.jpg?height=623&width=1223&top_left_y=885&top_left_x=425)
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/cdfUnifContinua.png")
+```
+
+<!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_b68827a9dbee383dec2cg-03.jpg?height=623&width=1223&top_left_y=885&top_left_x=425) -->
 
 #### Propiedades del modelo Uniforme
 
@@ -543,7 +538,7 @@ Función de distribución del modelo uniforme
 
 #### Una aplicación del modelo Uniforme: el muestreo de Montecarlo
 
-En ciertos casos es útil simular el muestreo de una variable aleatoria con una distribución dada. El muestreo de Montecarlo es un procedimiento general para obtener muestras aleatorias de cualquier tipo de variable (discreta o continua) si su función de distribución es conocida o se puede calcular. De hecho, todas las muestras artificiales de Statmedia han sido generadas a través del método de Montecarlo.
+En ciertos casos es útil simular el muestreo de una variable aleatoria con una distribución dada. El muestreo de Montecarlo es un procedimiento general para obtener muestras aleatorias de cualquier tipo de variable (discreta o continua) si su función de distribución es conocida o se puede calcular. 
 
 Supongamos que queremos generar una muestra procedente de una variable aleatoria $X$ con función de distribución $F(x)$. El proceso comprende los siguientes pasos:
 
@@ -657,23 +652,23 @@ Debemos remarcar que el proceso de tipificación no resuelve el problema de la i
 
 Hoy en día, cada vez se utilizan menos tablas como la mencionada anteriormente, ya que los ordenadores, junto con los abundantes programas estadísticos existentes nos resuelven este problema. Sin embargo, la imposibilidad de integrar analíticamente la función de densidad persiste y, aunque nosotros no seamos conscientes, los programas informáticos realizan el proceso de tipificación para simplificar el problema.
 
-A continuación se presenta un programa que permite comparar la función de densidad de una distribución Normal cualquiera con la de la Normal tipificada:
+<!-- A continuación se presenta un programa que permite comparar la función de densidad de una distribución Normal cualquiera con la de la Normal tipificada: -->
 
-#### Cálculo de probabilidades del modelo Normal con Statmedia
+<!-- #### Cálculo de probabilidades del modelo Normal con Statmedia -->
 
-::: {.callout-note icon=false}
-##### AVIS
-Posar un exemple de com fer-ho amb R
-O buscar si algun Shiny ho fa
-:::
+<!-- ::: {.callout-note icon=false} -->
+<!-- ##### AVIS -->
+<!-- Posar un exemple de com fer-ho amb R -->
+<!-- O buscar si algun Shiny ho fa -->
+<!-- ::: -->
 
-El siguiente programa dibuja el área bajo de la función de densidad de una Normal cualquiera, a la izquierda de un valor $x$, es decir, el valor de la función de distribución en el punto $x$, cuyo valor también calcula el programa.
+<!-- El siguiente programa dibuja el área bajo de la función de densidad de una Normal cualquiera, a la izquierda de un valor $x$, es decir, el valor de la función de distribución en el punto $x$, cuyo valor también calcula el programa. -->
 
-Para acabar, debemos recordar que Statmedia dispone de una calculadora estadística que también nos permite calcular la función de distribución de cualquier valor para una distribución Normal cualquiera. A continuación se muestra dicha calculadora una vez se ha escogido la opción de calculadora probabilística y, posteriormente, el modelo Normal:
+<!-- Para acabar, debemos recordar que Statmedia dispone de una calculadora estadística que también nos permite calcular la función de distribución de cualquier valor para una distribución Normal cualquiera. A continuación se muestra dicha calculadora una vez se ha escogido la opción de calculadora probabilística y, posteriormente, el modelo Normal: -->
 
-Como podéis observar, calcula la función de densidad, la de distribución y la inversa de esta última. Además, incluye otras distribuciones ya vistas o que se verán posteriormente.
+<!-- Como podéis observar, calcula la función de densidad, la de distribución y la inversa de esta última. Además, incluye otras distribuciones ya vistas o que se verán posteriormente. -->
 
-Para utilizar esta calculadora sólo tenéis que apretar el botón Calculadora de la barra de navegación.
+<!-- Para utilizar esta calculadora sólo tenéis que apretar el botón Calculadora de la barra de navegación. -->
 
 ### La distribución Gamma
 
@@ -694,8 +689,9 @@ $$
 \Gamma(p)=\int_{0}^{\infty} x^{p-1} e^{-x} d x
 $$
 
-que verifica $\Gamma(p+1)=p \Gamma(p)$, con lo que, si $p$ es un número entero positivo, $\Gamma(p+1)=p$ !
-El siguiente programa permite visualizar la forma de la función de densidad de este modelo (para simplificar, se ha restringido al caso en que $p$ es un número entero).
+que verifica $\Gamma(p+1)=p \Gamma(p)$, con lo que, si $p$ es un número entero positivo, $\Gamma(p+1)=p$.
+
+<!-- El siguiente programa permite visualizar la forma de la función de densidad de este modelo (para simplificar, se ha restringido al caso en que $p$ es un número entero). -->
 
 #### Propiedades de la distribución Gamma
 
@@ -795,5 +791,188 @@ donde $\Gamma(x)$ representa la función Gamma de Euler definida anteriormente.
 | Cauchy | - | $\frac{1}{\pi\left(1+x^{2}\right)}$ <br> $-\infty<\mathbf{x}<\infty$ | -- | -- |
 | Weibull | $\alpha>0$ <br> $\beta>0$ | $\frac{\boldsymbol{\beta}}{\boldsymbol{\alpha}}\left(\frac{x}{\boldsymbol{\alpha}}\right)^{\beta-1} e^{-\left(\frac{x}{\alpha}\right)^{\beta}}$ <br> $x \geq 0$ | $\alpha \Gamma\left(\frac{1}{\beta}+1\right)$ | $\alpha^{2}\left\{\Gamma\left(\frac{2}{\beta}+1\right)-\left[\Gamma\left(\frac{1}{\beta}+1\right)\right]^{2}\right\}$ |
 
-## LA FAMILIA EXPONENCIAL DE DISTRIBUCIONES
 
+## Distribuciones con R (y Python)
+
+El lenguaje estadístico R es muy potente en cuanto al cálculo con distribuciones de probabilidad.
+
+Dado que el trabajo con distribucines de probabilidad usando R está muy estandarizado y explicado en múltiples fuentes no repetiremos aquí estas explicaciones.
+
+Tan solo os referimos a dos buenas fuentes de información que podéis utilizar para aprender como hacer los cálculos con R y también una aplicación que os permite visualizar casi cualquier distribución conocida.
+
+
+::::{.software}
+**R Tutorials** 
+
+Explicación detallada y de nivel básico del manejo de las principales distribuciones con R
+
+[https://www.r-tutor.com/elementary-statistics/probability-distributions](https://www.r-tutor.com/elementary-statistics/probability-distributions)
+
+::::
+
+
+::::{.software}
+**The distribution Zoo**
+
+Permite visualizar de forma interactiva distintas distribuciones y proporciona información diversa sobre sus propiedades e incluso su aplicación.
+
+[https://ben18785.shinyapps.io/distribution-zoo/](https://ben18785.shinyapps.io/distribution-zoo/)
+
+::::
+
+::::{.software}
+**Distribution explorer**
+
+Más completo que los anteriores. No se basa en R sino en python.
+
+[https://distribution-explorer.github.io/index.html](https://distribution-explorer.github.io/index.html)
+
+::::
+
+## La familia exponencial de distribuciones
+
+En el estudio de las propiedades de los estimadores, vemos que algunas distribuciones se comportan mejor que otras. Muchas veces, este buen comportamiento refleja una estructura común que proviene de pertenecer a una misma familia de distribuciones llamada familia exponencial.
+
+**Definición**: Sea $f_{\theta}$ una familia de probabilidades que depende de un parámetro unidimensional $\left\{f_{\theta}(x), \theta \in \Theta \subseteq \mathbb{R}\right\}$ tal que el soporte $S(\theta)=\left\{x \mid f_{\theta}(x)>0\right\}$ no depende de $\theta$. Si existen funciones de los parámetros $Q(\theta)$ y $C(\theta)$ y funciones de las muestras, $T(x)$ y $h(x)$, tales que la función de densidad puede escribirse como:
+
+$$f_{\theta}(x)=C(\theta) h(x) \exp\{Q(\theta) \cdot T(x)\}$$
+
+diremos que $f_{\theta}(x)$ _pertenece a la familia exponencial de distribuciones_.
+
+La familia exponencial no representa un nuevo tipo de distribuciones, sino la constatación de que muchas distribuciones comunes, que pueden reformularse para ajustarse a la expresión anterior, pertenecen a esta familia.
+
+Veamos algunos ejemplos de que esto es efectivamente así.
+
+### Ejemplos de distribuciones de esta familia
+
+#### Distribución de Poisson
+
+::::{.ejemplo}
+La ley de Poisson pertenece a la familia exponencial uniparamétrica.
+
+Efectivamente,
+
+$$f_{\lambda}(x)=e^{-\lambda} \frac{\lambda^{x}}{x!}=\exp\{-\lambda+x \log \lambda-\log(x!)\}$$
+
+y si hacemos
+
+$$Q(\lambda)=\log(\lambda) \quad T(x)=x \quad D(\lambda)=-\lambda \quad S(x)=-\log(x!)$$
+
+se hace evidente que $f_{\lambda}$ pertenece a la familia exponencial.
+
+::::
+
+
+#### Distribución normal uniparamétrica
+
+La ley normal depende de dos parámetros $\mu$ y $\sigma$. Fijado uno de ellos, nos queda una distribución que depende de un solo parámetro, y de aquí la denominación "normal uniparamétrica".
+
+Si, con el subíndice "0", indicamos el parámetro fijado, tenemos:
+
+$$
+\begin{aligned}
+&f_{\sigma}=\left\{N\left(\mu_0, \sigma\right), \sigma>0\right\} \text{ Normal uniparamétrica, de parámetro } \sigma^2, \\
+&f_{\mu}=\left\{N\left(\mu, \sigma_0\right), \mu \in \mathbb{R}\right\} \text{ normal uniparamétrica, de parámetro } \mu.
+\end{aligned}
+$$
+
+Si queremos considerar ambos parámetros a la vez, debemos extender la definición al caso de parámetros $k$-dimensionales. En estos materiales no trataremos esta extensión.
+
+::::{.ejemplo}
+##### Caso 1: Fijando la media $\mu_0$
+
+Consideramos la distribución normal $N(\mu_0, \sigma^2)$, donde fijamos $\mu = \mu_0$ y $\sigma^2$ es el parámetro libre.
+
+La función de densidad de probabilidad es
+
+$$f_{\sigma}(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left\{-\frac{(x - \mu_0)^2}{2\sigma^2}\right\}$$
+
+Vamos a reescribir esta función en forma de la familia exponencial. Primero, reorganizamos los términos de la densidad:
+
+$$f_{\sigma}(x) = \frac{1}{\sqrt{2\pi}} \cdot \sigma^{-1} \exp\left\{-\frac{1}{2\sigma^2}(x - \mu_0)^2\right\}$$
+
+Ahora identificamos las funciones que se corresponden con la forma de la familia exponencial $f_{\theta}(x) = C(\theta) h(x) \exp\{Q(\theta) T(x)\}$:
+
+- $Q(\sigma) = -\frac{1}{2\sigma^2}$
+- $T(x) = (x - \mu_0)^2$
+- $C(\sigma) = \frac{1}{\sqrt{2\pi}\sigma}$
+- $h(x) = 1$
+
+Esto confirma que la distribución normal, con $\mu_0$ fijo, pertenece a la familia exponencial.
+::::
+
+##### Caso 2: Fijando la varianza $\sigma_0^2$
+
+::::{.ejemplo}
+Ahora consideramos la distribución $N(\mu, \sigma_0^2)$, donde la varianza está fijada y el parámetro libre es $\mu$.
+
+La función de densidad es
+
+$$f_{\mu}(x) = \frac{1}{\sqrt{2\pi\sigma_0^2}} \exp\left\{-\frac{(x - \mu)^2}{2\sigma_0^2}\right\}$$
+
+Vamos a reescribir esta función de la misma manera:
+
+$$f_{\mu}(x) = \frac{1}{\sqrt{2\pi\sigma_0^2}} \exp\left\{-\frac{1}{2\sigma_0^2}(x^2 - 2\mu x + \mu^2)\right\}$$
+
+Identificamos las funciones correspondientes:
+
+- $Q(\mu) = \frac{\mu}{\sigma_0^2}$
+- $T(x) = x$
+- $D(\mu) = -\frac{\mu^2}{2\sigma_0^2}$
+- $S(x) = -\frac{x^2}{2\sigma_0^2}$
+
+Esto prueba que la distribución normal con $\sigma_0$ fijo pertenece a la familia exponencial.
+::::
+
+::::{.ejemplo}
+### Distribución Binomial
+
+La distribución binomial es un ejemplo interesante, puesto que, a priori, no parece tener la estructura propia de la distribución exponencial, cosa que si pasa con la distribución de Poisson o con la Normales uniparamétricas que acabamos de ver.
+
+Sin embargo, tras aplicar algunas transformaciones  se puede ver como, también esta distribución  pertenece a la familia exponencial
+
+La función de masa de probabilidad para la distribución binomial es
+
+$$f(x; n, p) = \binom{n}{x} p^x (1 - p)^{n - x}, \quad x = 0, 1, \dots, n$$
+
+Reescribimos esta función en términos exponenciales:
+
+$$f(x; n, p) = \binom{n}{x} \exp\{x \log(p) + (n - x) \log(1 - p)\}$$
+
+Agrupamos los términos dependientes de $x$:
+
+$$f(x; n, p) = \binom{n}{x} \exp\left\{x \log\left(\frac{p}{1 - p}\right) + n \log(1 - p)\right\}$$
+
+Identificamos las funciones correspondientes a la familia exponencial:
+
+- $Q(p) = \log\left(\frac{p}{1 - p}\right)$
+- $T(x) = x$
+- $D(p) = n \log(1 - p)$
+- $S(x) = \log \binom{n}{x}$
+
+Por lo tanto, la distribución binomial pertenece a la familia exponencial.
+::::
+
+### Importancia y utilidad de la familia exponencial
+
+Muchas de las distribuciones usadas para modelar gran cantidad de situaciones prácticas pertenecen a esta familia.
+
+Esto significa que es posible estudiar sus propiedades en conjunto. Es decir, si establecemos que una propiedad se verifica en una distribución que pertenece a la familia exponencial, automáticamente sabemos que todos los miembros de la familia verifican esa propiedad.
+
+A continuación, se describen tres ventajas importantes de trabajar con esta familia:
+
+### Los modelos lineales generalizados (GLMs)
+
+Una de las aplicaciones más importantes de la familia exponencial es su uso en los **Modelos Lineales Generalizados (GLMs)**.
+
+Estos modelos nos permiten extender la regresión lineal clásica a diferentes tipos de datos, como los resultados binarios (por ejemplo, éxito o fracaso), mediante la _regresión logística_, recuentos de eventos (como el número de llamadas recibidas en una hora) mediante la _regresión de Poisson_, y muchos otros.
+
+Gracias a la estructura de la familia exponencial, podemos conectar la media de la variable que estamos modelando con las variables explicativas de forma flexible, lo que hace posible aplicar GLMs en una amplia variedad de situaciones.
+
+### Estimación en la familia exponencial
+
+Otra ventaja importante es que, al trabajar con distribuciones de la familia exponencial, los métodos que usamos para hacer inferencias estadísticas suelen tener **buenas propiedades**.
+
+Esto, que se explicará con más detalle en capítulos siguientes, implica que los estimadores que obtenemos con estos modelos suelen ser precisos y reflejar correctamente la información que contienen los datos.
+
+Naturalmente esto se puede ver al revés: Si podemos trabajar con distribuciones de la familia exponencial, solemos tener, de entrada, una serie de ventajas, como el buen comportamiento de los etimadores, por lo que siempre es una buena opción intentar utilizarlas en nuestros modelos.

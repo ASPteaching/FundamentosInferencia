@@ -1,5 +1,13 @@
 # Computación Intensiva y _Multiple Testing_
 
+:::: {.calloutBox .important}
+
+Este capítulo está pendiente de ser introducida en los apuntes.
+
+La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).
+
+::::
+
 Se introducen distintos métodos cuyo nexo común es la computación intensiva.
 
 ## Tests de permutaciones; ¿Qué?, ¿Cuándo?, ¿Cómo?

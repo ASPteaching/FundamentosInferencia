@@ -1,0 +1,83 @@
+--- 
+title: "Fundamentos de Inferencia Estadistica"
+author: "Alex Sanchez Pla y Santiago Pérez Hoyos"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+---
+
+# Presentación
+
+## Objetivo
+
+El objetivo de estas notas es presentar un material de soporte para la asignatura de "Inferencia Estadística" del [Máster interuniversitario de Bioiestadística y Bioinformática](https://www.uoc.edu/es/estudios/masters/master-universitario-bioinformatica-bioestadistica) impartido conjuntamente por la [Universitat Oberta de Catalunya (UOC)](https://www.uoc.edu) y la [Universidad de Barcelona (UB)](https://www.ub.edu).
+
+Esta asignatura adolece de las características habituales de las asignaturas de posgrado, y especialmente de un posgrado de estadística (y bioinformática), que muestran algunas de las cosas que no debe de ser esta asignatura:
+
+- No puede ser un primer curso de estadística, porque se supone que los estudiantes del máster ya lo han cursado en sus grados. Por no decir que, a  quien viene a especializarse en estadística se le puede suponer una base mínima.
+- Tampoco debe ser como los segundos cursos de estadística de algunos grados, que tratan temas como la regresión, el diseño de experimentos o el análisis multivariante, porque esto ya se trata en diversas asignaturas del máster.
+
+¿Que debemos pues esperar que sea este curso?
+
+- Puestos a pedir, este curso debería servir para repasar y consolidar los conceptos básicos que la mayoría de estudiantes traerán consigo.
+- Además, y sobretodo, debe proporcionar una visión general, lo más completa posible dentro de las limitaciones de tiempo, del campo de la inferencia estadística
+- Y, naturalmente, esto significa proporcionar aquellos conceptos sobre los que se apoyaran muchas de las restantes asignaturas como "Regresión modelos y métodos", "Diseño de Experimentos", "Análisis Multivariante", "Análisis de la Supervivencia" o "Análisis de datos ómicos".
+
+### Prerequisitos y organización del material
+
+Uno de los problemas "eternos" en el estudio de la estadística ha sido siempre la falta de acuerdo, entre la comunidad de docentes, de cual debería ser el nivel matemático a que se impartan los cursos.
+
+En los cursos de pre-grado ha habido un cierto consenso, y con los años el nivel de formalismo ha disminuido, incluso en estudios de tipo "STEM", tendiendo a centrarse en la aplicación de los conceptos, por ejemplo usando R, más que en un tratamiento formal ("matemático") de los mismos.
+
+Aunque esto puede ser práctico para aquellos estudios en los que  la estadística és una asignatura de un grado, es también obvio que dicha aproximación no permite profundizar en muchos de los puntos que se tratan. 
+
+Es por ello que en este curso seguiremos la indicación habitual en cursos similares de asumir que el estudiante:
+
+- Se siente comodo con el lenguaje algebráico, desarrollo de expresiones, sumatorios etc.
+- Está familiarizado con el cálculo diferencial en una o varias variables, aunque esta familiaridad no será imprescindible para seguir la mayoría de los contenidos del curso.
+- Conoce el lenguaje estadístico R, que en muchas ocasiones nos ofrecerá una solución directa a los problemas de cálculo.
+
+### Referencias
+
+Los prerequisitos anteriores corresponden básicamente a las matemáticas del bachilerato. Algunas funetes adiconales pueden ser:
+
+- [Iniciación a las matemáticas para la ingeniería. M. Besalú y Joana Villalonga](http://cimanet.uoc.edu/cursMates0/IniciacionMatematicas/pdf/PID_00273914.pdf)
+
+  - [Colección de (100) videos de soporte a las matemáticas para la ingeniería](https://www.youtube.com/playlist?list=PLv8FweHfYYMo6Lr2zt6H4znq5KuBacq28)
+  
+## Agradecimiento y fuentes utilizadas
+
+Salvo que uno desee escribir un libro sobre algo muy extraño, siempre habran otros libros o manuales similares al que se está planteando.
+
+La respuesta a la pregunta, "Y entonces, ¿porque hacer un nuevo matrerial?" suele ser más una excusa que una explicación sólida. 
+
+Una posible razón puede ser _para ajustarlo al máximo al perfil del curso para al que se destinan dichos materiales_, condición que otros textos, pensados para cursos y audiencias distintas, pueden no satisfacer. En este caso adoptaremos esta explicación y el tiempo decidirá si el objetivo se alcanza.
+
+Dicho esto, debemos agradecer a las distintas fuentes utilizadas, el que hayan puesto a disposición sus materiales para poder reutilizarlos. Entre estos destacamos:
+
+## El proyecto Statmedia 
+
+Statmedia  fue un proyecto para impulsar el aprendizaje de la estadística mediante gadgets interactvos que, sin duda fue pionero en este campo.
+
+El programa contenía unas explicaciones de los contenidos de probabilidad y estadística para un sólido curso de introducción, complementado con:
+- Una serie de casos para motivar e ilustrar los conceptos introducidos.
+- Un conjunto de gadgets interactivos con los que interactuar y experimentar y
+- Ejercicios de respuesta múltiple para verificar los conceptos trabajados.
+
+Este programa, sin embargo, como tantos otros, no sobrevivió al desarrollo tecnológico, y la evolución (o decadencia) del lenguaje Java lo llevo a dejar de ser funcional.
+
+Para estos apuntes hemos recuperado, y en ocasiones adaptado o modificado, algunos de los contenidos de Statmedia, que habían estado escritos con gran pulcritud. Esto se ha hecho siguiendo las indicaciones de la licencia (CC-Share-alike) que permite adaptar contenidos atribuyendolo a sus atores y citando la fuente. 
+
+Los gadgets originales ya no son funcionales pero muchos de ellos han sido re-escritos en R como aplicaciones Shiny (disponibles en: ) y se enlazaran desde los puntos necesarios del texto.
+
+Dejando aparte (además) de la licencia, vaya nuestro agradecimiento explícito al equipo de profesores del Departamento de Estadística de la Universidad de Barcelona, redactor de la versión inicial del proyecto, que es la que hemos utilizado: Antonio Arcas Pons, Miquel calvo Llorca, Antonio Miñarro Alonso, Sergi Civit Vives y Angel Vilarroya del Campo.
+
+[Antoni Arcas, Antonio Miñarro and Miguel Calvo (2008) Statmedia projects in Statistical Education](https://www.emis.de/journals/BEIO/files/BEIOv25n1_HE_A.Arcas+A.Minarro+M.Calvo.pdf)
+
+### Otros materiales utilizados
+
+- [Alex Sanchez y Francesc Carmona (2002). Apunts d'Estadística Matemàtica](https://github.com/ASPteaching/ApuntsEstadisticaMatematica) Licencia CC0 1.0 Universal
+
+- [Molina Peralta, I. and García-Portugués, E. (2024). _A First Course on Statistical Inference_. Version 2.4.1. ISBN 978-84-09-29680-4](https://bookdown.org/egarpor/inference/). Licencia CC BY-NC-ND 4.0
+
+- [Peter K. Dunn (2024) _The theory of distributions_. ](https://bookdown.org/pkaldunn/DistTheory) Licencia CC BY-NC-ND 4.0
+

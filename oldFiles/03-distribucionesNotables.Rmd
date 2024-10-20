@@ -1,0 +1,799 @@
+# Distribuciones Notables
+
+## Distribuciones discretas
+
+### La distribución de Bernouilli
+
+Es el modelo discreto más sencillo en que podamos pensar. Hace referencia a situaciones en las que el resultado de un experimento sólo puede ser: se ha dado el suceso $A$ ó no se ha dado el suceso $A$. Por ejemplo, en el lanzamiento de una moneda sólo puede darse el suceso sale cara o su complementario no sale cara (sale cruz).
+
+Por lo tanto, definimos la variable aleatoria $X$ de la siguiente manera:
+
+- $X=1$ si se ha dado $A$.
+- $X=0$ si no se ha dado $A$, es decir, se ha dado el complementario $A^{c}$.
+
+Si además, conocemos la probabilidad de que suceda $A$ :
+
+$$
+P[A]=p
+$$
+
+y, por tanto,
+
+$$
+P\left[A^{c}\right]=1-p
+$$
+
+ya podemos definir la distribución de la variable aleatoria $X$.
+En estas condiciones diremos que $X$ sigue una distribución de Bernouilli de parámetro $p$, que abreviaremos así $X \sim \operatorname{Bernouilli}(p)$, y su función de densidad se define así:
+
+$$
+f(k)=P[X=k]=\left\{\begin{array}{cc}
+p & \text { si } k=1(\text { se ha dado } A) \\
+1-p & \text { si } k=0\left(\text { se ha dado } A^{c}\right)
+\end{array}\right\}
+$$
+
+Gráficamente:
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-02.jpg?height=881&width=1194&top_left_y=1821&top_left_x=431)
+
+Mientras que la función de distribución será:
+
+$$
+F(k)=P[X \leq k]=\left\{\begin{array}{lc}
+0 & \text { si } \mathbf{k}<0 \\
+\mathbf{p} & \text { si } 0 \leq \mathbf{k}<1 \\
+1 & \text { si } \mathbf{p} \geq 1
+\end{array}\right\}
+$$
+
+Gráficamente:
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-03.jpg?height=778&width=1220&top_left_y=636&top_left_x=424)
+
+#### Propiedades del modelo de Bernouilli
+
+1) La esperanza vale $E(X)=p$.
+2) La varianza vale $V(X)=p(1-p)$.
+
+### La distribución Binomial
+
+Al igual que el modelo de Bernouilli, hace referencia a experiencias con resultados dicotómicos (el resultado sólo puede ser $A$ o $A^{\mathcal{C}}$ ). Sin embargo en este modelo estamos interesados en la repetición de $n$ veces una experiencia de este tipo en condiciones independientes.
+
+Tomemos el ejemplo del contaje del número de caras en el lanzamiento $n$ veces de una moneda regular.
+Para concretar, vamos a suponer que disponemos de una moneda regular $(P[$ cara $]=P[c r u z]=1 / 2)$ que lanzamos cuatro veces. Es evidente que, en estas condiciones, la variable X: número de caras en cuatro lanzamientos independientes de una moneda regular es una variable aleatoria discreta que sólo puede tomar cinco posibles valores:
+
+$$
+x=0,1,2,3,4
+$$
+
+Pasemos ahora a calcular la probabilidad de cada valor (en terminología estadística, vamos a calcular la función de densidad de la variable $X$ ).
+
+Es evidente que la $P[X=0]$ es igual a la probabilidad de salgan cuatro cruces seguidas:
+
+$$
+P[X=0]=P[c r u z, c r u z, c r u z, c r u z]=\mathrm{P}[c r u z]^{4}=(1 / 2)^{4}=0,0625
+$$
+
+ya que la moneda es regular y, por tanto, $P[$ cara $]=P[$ cruz $]=1 / 2$.
+La $P[X=3]$ corresponde al suceso de que salgan tres caras ( $c$ en adelante) y una cruz ( + en adelante). Sin embargo, en este caso tenemos hasta cuatro posibles maneras de obtener dicho resultado, según el orden en que aparezcan las tres caras y la cruz:
+
+| +ccc | $\mathrm{c}+\mathrm{cc}$ | $\mathrm{cc}+\mathrm{c}$ | $\mathrm{ccc}+$ |
+| :---: | :---: | :---: | :---: |
+
+También debería resultar evidente que la probabilidad de cada uno de estos sucesos es la misma:
+
+$$
+P[+\mathrm{ccc}]=P[\mathrm{c}+\mathrm{cc}]=P[\mathrm{cc}+\mathrm{c}]=P[\mathrm{ccc}+]=(1 / 2)^{4}=(1 / 2)^{4}=0,0625
+$$
+
+de manera que, finalmente, la probabilidad de que salgan tres caras y una cruz es la suma de las probabilidades de los 4 casos anteriores:
+
+$$
+P[X=3]=4(1 / 2)^{4}=0,25
+$$
+
+Y así podríamos ir calculando el resto de casos. Podemos ver que, en este ejemplo, todos los casos tienen la misma probabilidad $(0,0625)$ y que el número total de casos posibles es 16 . En términos de combinatoria dicho número se obtendría como variaciones con repetición de dos valores (cara o cruz) tomados de cuatro en cuatro (el número de lanzamientos de la moneda):
+
+$$
+V R_{2}{ }^{4}=2^{4}=16
+$$
+
+En la siguiente tabla se muestran los dieciséis posibles resultados:
+
+| $k=$ número de <br> caras | Casos |
+| :---: | :---: |
+| 0 | +++++ |
+| 1 | +++c |
+|  | $++\mathrm{c}+$ |
+|  | $+\mathrm{c}++$ |
+|  | $\mathrm{c}+++$ |
+|  | ++cc |
+|  | $+\mathrm{c}+\mathrm{c}$ |
+|  | $\mathrm{c}++\mathrm{c}+$ |
+|  | $\mathrm{c}+\mathrm{c}+$ |
+|  | cc++ |
+|  | $\mathrm{ccc}+$ |
+|  | $\mathrm{c}+\mathrm{cc}$ |
+
+Si hacemos uso de nuestros conocimientos de combinatoria, comprobamos que el número de casos para cada posible valor $k(k=0,1,2,3,4)$ puede calcularse como permutaciones con repetición de cuatro elementos tomado de $k$ y $4-k$ :
+
+$$
+R P_{4}^{k, 4-k}=\frac{4!}{k!(4-k)!}=\binom{4}{k}
+$$
+
+y obtenemos finalmente el número combinatorio 4 sobre $k$. En efecto, para el caso $k=3$, tendríamos:
+
+$$
+\binom{4}{3}=\frac{4!}{3!1!}=4
+$$
+
+que son los cuatro posibles casos que nos dan tres caras y una cruz.
+Finalmente, recordando que todos los casos tienen la misma probabilidad, se construye la siguiente tabla:
+
+| $k=$ número de caras | Número de casos | $P[X=k]$ |
+| :---: | :---: | :---: |
+| 0 | 1 | 0,0625 |
+| 1 | 4 | 0,2500 |
+|  |  |  |
+
+
+| 2 | 6 | 0,3750 |
+| :---: | :---: | :---: |
+| 3 | 4 | 0,2500 |
+| 4 | 1 | 0,0625 |
+| Total | 16 | 1 |
+
+#### Los parámetros de la distribución Binomial
+
+La última tabla de la página anterior es, justamente, la función de densidad de nuestra variable $X$.
+
+| Función de densidad de $X$ |  |
+| :---: | :---: |
+| $k$ | $P[X=k]$ |
+| 0 | 0,0625 |
+| 1 | 0,2500 |
+| 2 | 0,3750 |
+| 3 | 0,2500 |
+| 4 | 0,0625 |
+| En otro caso | 0 |
+
+Como hemos visto, para obtener los resultados anteriores, hemos tenido que definir dos valores:
+
+1. $n$ : el número de lanzamientos (repeticiones de la experiencia aleatoria en condiciones independientes), en nuestro caso $n=4$.
+2. $p$ : la probabilidad de que salga cara $(P[c])$, en nuestro caso $p=1 / 2$.
+
+Se dice, por tanto, que la distribución Binomial depende de dos parámetros: $n$ y $p$. En nuestro ejemplo, diremos que $X$ sigue una distribución Binomial de parámetros $n=4$ i $p=1 / 2$. De forma abreviada:
+
+$$
+X \sim B(n=4 ; p=1 / 2)
+$$
+
+En el ejemplo que hemos visto, suponíamos que la moneda era regular y, por tanto,
+
+$$
+P[c]=P[+]=1 / 2
+$$
+
+Si tenemos una moneda trucada con las siguientes probabilidades:
+
+$$
+P[c]=2 / 3 \quad \text { i } \quad P[+]=1 / 3
+$$
+
+diremos que en este caso la variable $X$ : número de caras en cuatro lanzamientos independientes de nuestra moneda trucada sigue una distribución Binomial de parámetros:
+
+$$
+X \sim B(n=4 ; p=2 / 3)
+$$
+
+El problema se nos complica levemente ya que ahora no todos los posibles resultados tienen la misma probabilidad. Veamos dos ejemplos:
+
+- La probabilidad de obtener cuatro caras es:
+
+$$
+P[c c c c]=(2 / 3)^{4}=0,1975
+$$
+
+- La probabilidad de que el primer lanzamiento sea cara y el resto sean cruces valdrá:
+
+$$
+P\left[c^{+++}\right]=(2 / 3)^{\prime}(1 / 3)^{3}=0,0247
+$$
+
+Sin embargo sí se cumplirá que la probabilidad de que todos los caso que resulten en el mismo número de caras y cruces tendrán la misma probabilidad. Por ejemplo, para los cuatro casos en los que el número total de caras es 1 y el de cruces 3 :
+
+$$
+P[c+++]=P[+c++]=P[++c+]=P[+++c]=(2 / 3)^{\prime}(1 / 3)^{3}=0,0247
+$$
+
+Y, por tanto, la probabilidad de obtener una sola cara en el lanzamiento de nuestra moneda trucada será:
+
+$$
+P[X=1]=4^{\prime} 0,0247=0,0988
+$$
+
+O, generalizando, si $P[A]=p$ y $P\left[A^{c}\right]=1-p$ tenemos que
+
+$$
+P[X=k]=c(n, k) p^{k}(1-\mathrm{p})^{n-k} \quad \text { si } k=0,1, \ldots, n
+$$
+
+donde $c(n, k)$ representa el número de posibles resultados en los que obtenemos $k$ caras y $n-k$ cruces en $n$ lanzamientos. Tal como hemos visto, dicho número se puede calcular como permutaciones con repetición de $n$ unidades tomadas de $k$ y $n-k$.
+
+Todo lo anterior nos  lleva a formular el model binoial a traves de la siguiente función de densidad:
+
+$$
+f(k)=P[X=k]=\left\{\begin{array}{ll}
+\binom{\mathbf{n}}{\mathbf{k}} p^{k}(1-p)^{n-k} & \text { si } \quad k=0, \ldots, n \\
+0 & \text { en caso contrario }
+\end{array}\right\}
+$$
+
+con lo que la función de distribución se calcularía:
+
+$$
+F(k)=P[X \leq k]=\left\{\begin{array}{cc}
+0 & \text { si } k<0 \\
+\sum_{i=0}^{k}\binom{\mathbf{i}}{\mathbf{n}} p^{i}(\mathbf{1}-p)^{n-i} \\
+\mathbf{1} & \text { si } k \geq n
+\end{array}\right\}
+$$
+
+En el programa siguiente se muestra la forma de la función de densidad junto con los valores de la función de densidad y de la función de distribución para cualquier valor:
+
+::: {.callout-note icon=false}
+#### AVIS
+Posar un exemple de com fer-ho amb R
+:::
+
+#### Propiedades del modelo Binomial
+
+1. La esperanza vale $E(X)=n p$.
+2. La varianza es $V(X)=n p(1-p)$.
+3. Es una generalización del modelo de Bernouilli. En efecto, la Binomial con $n=1$ (una sola realización) coincide con la distribución de Bernouilli.
+4. La suma de dos variables aleatorias binomiales independientes con igual parámetro $p$ también sigue una distribución Binomial:
+
+$$
+X_{1} \sim B\left(n=n_{1} ; p=p_{0}\right) \quad \text { i } \quad X_{2} \sim B\left(n=n_{2} ; p=p_{0}\right)
+$$
+
+Si definimos $Z=X_{1}+X_{2}$ entonces,
+
+$$
+Z \sim B\left(n=n_{1}+n_{2} ; p=p_{0}\right)
+$$
+
+### La distribución de Poisson
+
+Se trata de un modelo discreto, pero en el que el conjunto de valores con probabilidad no nula no es finito, sino numerable. Se dice que una variable aleatoria $X$ sigue la distribución de Poisson si su función de densidad viene dada por:
+
+$$
+f(k)=P[X=k]=\left\{\begin{array}{ll}
+e^{-\lambda \frac{\lambda^{k}}{k!}} & \text { si } k=0,12, \ldots \\
+0 & \text { en caso contrario }
+\end{array}\right\}
+$$
+
+Como vemos, este modelo se caracteriza por un sólo parámetro $\lambda$, que debe ser positivo.
+Esta distribución suele utilizarse para contajes del tipo número de individuos por unidad de tiempo, de espacio, etc.
+
+#### Propiedades del modelo de Poisson
+
+1. Esperanza: $E(X)=\lambda$.
+2. Varianza: $V(X)=\lambda$.
+
+En esta distribución la esperanza y la varianza coinciden.
+
+3. La suma de dos variables aleatorias independientes con distribución de Poisson resulta en una nueva variable aleatoria, también con distribución de Poisson, de parámetro igual a la suma de parámetros:
+
+$$
+X_{1} \sim P\left(\lambda=\lambda_{1}\right) \quad \text { y } \quad X_{2} \sim P\left(\lambda=\lambda_{2}\right)
+$$
+
+y definimos $Z=X_{1}+X_{2}$, entonces,
+
+$$
+Z \sim P\left(\lambda=\lambda_{1}+\lambda_{2}\right)
+$$
+
+Este resultado se extiende inmediatamente al caso de $n$ variables aleatorias independientes con distribución de Poisson. En este caso, la variable suma de todas ellas sigue una distribución de Poisson de parámetro igual a la suma de los parámetros.
+
+### La distribución Multinomial
+
+::: {.callout-note icon=false}
+
+#### COMPTE:Distribució Multivariant!
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+Este modelo se puede ver como una generalización del Binomial en el que, en lugar de tener dos posibles resultados, tenemos $r$ resultados posibles.
+
+Supongamos que el resultado de una determinada experiencia puede ser $r$ valores distintos: $A_{1}, A_{2}, \ldots$ $A_{r}$ cada uno de ellos con probabilidad $p_{1}, p_{2}, \ldots, p_{r}$, respectivamente.
+
+$$
+P\left(A_{1}\right)=p_{1} ; \quad P\left(A_{2}\right)=p_{2} ; \quad \cdots \quad P\left(A_{r}\right)=p_{r} ; \quad \text { con } \quad \sum_{i=1}^{r} P\left(A_{i}\right)=1
+$$
+
+Si repetimos la experiencia $n$ veces en condiciones independientes, podemos preguntarnos la probabilidad de que el suceso $A_{1}$ aparezca $k_{1}$ veces, el suceso $A_{2}, k_{2}$ veces y así sucesivamente:
+
+$$
+P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]
+$$
+
+Al modelo estadístico que nos da dicha probabilidad se le denomina Multinomial, y su función de densidad viene dada por:
+
+$$
+\begin{gathered}
+f\left(k_{1}, k_{2}, \ldots, k_{r}\right)=P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]=\frac{n!}{k_{1}!k!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}} \\
+\operatorname{con} \sum_{i=1}^{r} P\left(A_{i}\right)=1 \quad \text { y } \quad \sum_{i=1}^{r} k_{i}=n
+\end{gathered}
+$$
+
+como se ve, el modelo Multinomial queda definido por los parámetros $\left(n, p_{1}, p_{2}, \ldots, p_{r}\right)$. La fórmula anterior puede deducirse de forma análoga al caso Binomial. En realidad, si tomamos $r=2$ tenemos exactamente el modelo Binomial.
+
+Se debe destacar que este modelo es un ejemplo de distribución multivariante, es decir, de distribución conjunta de varias ( $r$ ) variables aleatorias. En efecto, si definimos la variable aleatoria $X_{1}$ como número de veces que se produce el suceso $A_{1}$ de un total de n experiencias, y así sucesivamente, tenemos un conjunto de $r$ variables aleatorias discretas cuya función de densidad conjunta (valorada a la vez) viene definida por la anterior fórmula. Nótese que si consideramos cada una de estas variables $X_{i}(i=1,2, \ldots, r)$ por separado, su distribución es la Binomial de parámetros $n$ y $p_{i}$.
+
+#### La distribución Uniforme discreta
+
+Tenemos esta distribución cuando el resultado de una experiencia aleatoria puede ser un conjunto finito de $n$ posibles resultados, todos ellos igualmente probables.
+
+Un ejemplo puede ser la variable $X$, puntuación en el lanzamiento de un dado regular. Esta variable toma seis valores posibles, todos con la misma probabilidad $p=1 / 6$. La función de densidad de esta variable será:
+
+$$
+f(k)=P[X=k]=1 / 6 \quad k=1,2,3,4,5,6
+$$
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-13.jpg?height=1720&width=1158&top_left_y=773&top_left_x=449)
+
+En general, si la variable $X$ puede tomar $n(k=1,2, \ldots, n)$ valores, todos con igual probabilidad, su función de densidad será:
+
+$$
+f(k)=P[X=k]=1 / n \quad k=1,2, \ldots, n
+$$
+
+#### Propiedades del modelo Uniforme discreto
+
+Sea $n$ el número de valores equiprobables posibles:
+
+#### Esperanza:
+
+$$
+E(X)=\frac{n+1}{2}
+$$
+
+#### Varianza:
+
+$$
+V(X)=\frac{(n+1)[2(2 n+1)-3(n+1)]}{12}
+$$
+
+### La distribución Hipergeométrica
+
+Este modelo presenta similitudes con el Binomial, pero sin la suposición de independencia de éste último. Veámoslo:
+
+- Partimos de un conjunto formado por $N$ individuos divididos en dos categorías mutuamente excluyentes: $A$ y $A^{c}$; de manera que $N_{1}$ individuos pertenecen a la categoría $A$ y $N_{2}$ individuos, a la categoría $A^{c}$. Por tanto, se cumple que
+
+$$
+N=N_{1}+N_{2}
+$$
+
+- Si del conjunto anterior extraemos $n$ individuos sin reemplazamiento $(n \leq N)$, la variable $X$ que representa el número k de individuos que pertenecen a la categoría A (de los n extraídos) tiene por función de densidad:
+
+$$
+f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{k}}}
+$$
+
+si $\operatorname{máx}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}$
+
+La dependencia se debe al hecho de que $N$ es finito y las extracciones se efectúan sin reemplazamiento. El caso de extracciones con reemplazamiento sería equivalente al de $N$ infinito y se resolvería mediante el modelo Binomial.
+
+El programa siguiente nos muestra la forma de la función de densidad de esta variable y el valor de la función de densidad y de la función de distribución en el punto que elijamos:
+
+#### Propiedades del modelo hipergeométrico
+
+1. Esperanza: $\mathrm{E}(\mathrm{X})=\mathrm{n} \mathrm{N}_{1} / \mathrm{N}_{2}$.
+
+2. Varianza: $V(X)=\left(n N_{1} N_{2}(N-n)\right) /\left(N_{2}(N-1)\right)$
+
+<!-- ### 15. Propiedades: -->
+
+<!-- 1) Esperanza: $E(X)=n N_{1} / N_{2}$. -->
+<!-- 2) Varianza: $V(X)=\left(n N_{1} N_{2}(N-n)\right) /\left(N_{2}(N-1)\right)$ -->
+
+<!-- ### 16. Propiedades del modelo Hipergeométrico -->
+
+<!-- 1) Esperanza: $E(X)=n^{\prime} N_{1} / N$ -->
+<!-- 2) Varianza: $V(X)=\left(n^{\prime} N_{1}{ }^{\prime} N_{2}(N-n)\right) /\left(N^{\prime}{ }^{\prime}(N-1)\right)$ -->
+
+
+### La distribución Geométrica o de Pascal
+
+Definamos una experiencia aleatoria cuyo resultado sólo puede ser el suceso $A$ o su complementario $A^{c}$, y que se repite secuencialmente hasta que aparece el suceso $A$ por primera vez.
+
+Definamos la variable aleatoria $X$ como el número de veces que repetimos la experiencia en condiciones independientes hasta que se dé A por primera vez. Bajo estas condiciones, decimos que la variable $X$ sigue una distribución geométrica o de Pascal de parámetro $p=P(A)$.
+
+La función de densidad puede deducirse fácilmente de la definición:
+
+$$
+f(k)=P[X=k]=(1-p)^{k} p \quad k=0,1,2, \ldots
+$$
+
+En el programa siguiente podéis ver su forma y obtener los valores de la función de densidad y de la de distribución:
+
+Algunas puntualizaciones de la definición de $X$ :
+
+- Notése que, en esta definición, condiciones independientes significa que $p$, la probabilidad de $A$, y $1-p$, la de su complementario $A^{c}$, no varían a lo largo de las sucesivas repeticiones de la experiencia.
+- Tal y como la hemos definido, $X$ se refiere al número de lanzamientos hasta que se produce $A$, pero sin contabilizar el último caso en que se da $A$. Por dicha razón $X$ puede tomar los valores $k=$ $0,1,2, \ldots$ con probabilidad no nula.
+
+Un ejemplo de este modelo podría ser la experiencia consistente en lanzar sucesivamente un dado regular hasta que aparezca el número 6 . Si definimos la variable aleatoria $X$ como el número de lanzamientos de un dado regular hasta que aparezca un 6 , queda claro que $X$ sigue una distribución geométrica de parámetro $p=1 / 6$.
+
+#### Propiedades del modelo Geométrico o de Pascal
+
+1) Esperanza: $E(X)=(1-p) / p$
+2) Varianza: $V(X)=(1-p) / p^{2}$
+
+
+#### Preguntas:
+
+- ¿A que suceso nos referimos cuando decimos $X=0$ ? Respuesta.
+
+  - Cuando decimos que $X=0$ nos referimos al caso en que el 6 aparece en el primer lanzamiento. La probabilidad de que esto suceda, suponiendo un dado regular, es de $1 / 6$ :
+
+$$
+P[X=0]=1 / 6
+$$
+
+- ¿Cuál es la probabilidad de que el primer 6 aparezca en el cuarto lanzamiento? Respuesta.
+
+  - La probabilidad de que el primer 6 aparezca en el cuarto lanzamiento corresponde a:
+
+$$
+P[X=3]=(5 / 6)^{3 \cdot} 1 / 6=0,0965
+$$
+
+Fijémonos en que, si definimos $A$ como el suceso sale un 6, la probabilidad anterior corresponde a la del suceso: $\left\{A^{c} A^{c} A^{c} A\right\}$ (en este orden).
+
+### La distribución Binomial negativa
+
+Puede definirse como una generalización del modelo Geométrico o de Pascal. Así, dado un suceso $A$ y su complementario $A^{c}$, cuando $X$ representa el número de veces que se da $\mathrm{A}^{\mathrm{c}}$ (ausencias, fallos, etc.) hasta que se produce r veces el suceso A , en una serie de repeticiones de la experiencia aleatoria en condiciones independientes, decimos que $X$ sigue la distribución Binomial negativa. Nótese que, cuando $r=1$, tenemos exactamente el modelo geométrico.
+
+Este modelo queda definido por dos parámetros $p$ (la probabilidad de $A: p=P(A)$ ) y $r$ (el número de veces que debe producirse $A$ para que detengamos la experiencia).
+
+La función de densidad viene dada por:
+
+$$
+f(k)=P[X=k]=\binom{\mathbf{k}+\mathbf{r}-\mathbf{1}}{\mathbf{r}-\mathbf{1}} \mathbf{p}^{\mathbf{r}} \mathbf{q}^{\mathbf{k}} \quad \mathbf{k}=\mathbf{0}, \mathbf{1}, \mathbf{2}, \ldots
+$$
+
+donde $q$ representa el complementario de $p: q=1-p$.
+
+#### Propiedades del modelo Binomial negativo
+
+1. Esperanza: $E(X)=r^{\prime} q / p$
+
+2. Varianza: $V(X)=r^{\prime} q / p^{2}$
+
+3. Se cumplen las siguientes propiedades respecto la función de densidad:
+
+$$
+f(0)=p^{r} \quad \text { y } \quad f(k+1)=\frac{(1-p)(k+r)}{k+1} f(k)
+$$
+
+4. Este modelo se ajusta bien a contajes (números de individuos por unidad de superficie) cuando se produce una distribución contagiosa (los individuos tienden a agruparse).
+
+5. La distribución Binomial negativa puede definirse con mayor generalidad si tomamos $r$ como un número real positivo cualquiera (no necesariamente entero). Pero, en dicho caso, se pierde el carácter intuitivo del modelo y se complican ligeramente los cálculos. Por dichas razones, se ha excluido dicha posibilidad en esta presentación.
+
+### Tabla resumen de las distribuciones discretas principales
+
+| Distribución | Parámetros | Función de densidad | Esperanza | Varianza |
+| :---: | :---: | :---: | :---: | :---: |
+| Bernouilli | $0 \leq p \leq 1$ | $p^{k}(1-p)^{1-k}$ <br> $k=0,1$ | $p$ | $p(1-p)$ |
+| Binomial | $0 \leq p \leq 1$ <br> $n=1,2, \ldots$ | $\binom{\mathbf{n}}{\mathbf{k}} p^{k}(1-p)^{n-k}$ <br> $k=0,1, \ldots, n$ | $n p$ | $n p(1-p)$ |
+| Poisson | $\lambda>0$ | $e^{-\lambda} \frac{\lambda^{k}}{k!}$ <br> $k=012, \ldots$ | $\lambda$ | $\lambda$ |
+| Multinomial | $0 \leq p_{1}, \ldots$ <br> $p_{r} \leq 1$ <br> $\left(p_{1}+\ldots+\right.$ <br> $\left.p_{\mathrm{r}}=1\right)$ <br> $n=1,2$ | $\frac{n!}{k_{1}!k_{2}!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}}$ <br> $\sum_{i=1}^{r} k_{i}=n$ | $\left(\begin{array}{c}n p_{1} \\ n p_{2} \\ \vdots \\ n p_{r}\end{array}\right)$ | $\boldsymbol{\sigma}_{i i}=n p_{i}\left(1-p_{i}\right)$ <br> $\boldsymbol{\sigma}_{i j}=n p_{i} p_{j} \quad i \neq j$ |
+| Uniforme <br> discreta | $n=1,2, \ldots$ | $\frac{1}{n}$ <br> $k=1,2, \ldots . n$ | $\frac{n+1}{2}$ | $\frac{(n+1)[2(2 n+1)-3(n+1)}{12}$ |
+| Hipergeométrica | $\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.$ | $\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{k}}}$ <br> $\operatorname{máx}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \operatorname{mí}\left\{N_{1}, n\right\}$ | $n p$ | $n p(1-p) \frac{N-n}{N-1}$ |
+| Pascal | $0 \leq p \leq 1$ | $p(1-p)^{k}$ <br> $k=0,1,2, \ldots$ | $\frac{1-p}{p}$ | $\frac{1-p}{p^{2}}$ |
+| Binomial <br> negativa | $0 \leq p \leq 1$ <br> $r>0$ |  | $\frac{r(1-p)}{p}$ | $\frac{r(1-p)}{p^{2}}$ |
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_27933884804d51713ebag-22.jpg?height=339&width=1993&top_left_y=61&top_left_x=40)
+
+## DISTRIBUCIONES CONTINUAS
+
+### La distribución Uniforme
+
+La distribución Uniforme es el modelo (absolutamente) continuo más simple. Corresponde al caso de una variable aleatoria que sólo puede tomar valores comprendidos entre dos extremos $a$ y $b$, de manera que todos los intervalos de una misma longitud (dentro de $(a, b)$ ) tienen la misma probabilidad. También puede expresarse como el modelo probabilístico correspondiente a tomar un número al azar dentro de un intervalo $(a, b)$.
+
+De la anterior definición se desprende que la función de densidad debe tomar el mismo valor para todos los puntos dentro del intervalo $(a, b)$ (y cero fuera del intervalo). Es decir,
+
+$$
+f_{X}(x)=\left\{\begin{array}{ll}
+\frac{1}{b-a} & \text { si } x \in(a, b) \\
+0 & \text { si } x \notin(a, b)
+\end{array}\right\}
+$$
+
+Gráficamente:
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_b68827a9dbee383dec2cg-02.jpg?height=755&width=1328&top_left_y=1416&top_left_x=364)
+
+La función de distribución se obtiene integrando la función de densidad y viene dada por:
+
+$$
+F_{X}(x)=P(X \leq x)=\left\{\begin{array}{ll}
+0 & \text { si } x \leq a \\
+\frac{x-a}{b-a} & \text { si } x \in(a, b) \\
+1 & \text { si } x \geq b
+\end{array}\right\}
+$$
+
+Gráficamente:
+
+Función de distribución del modelo uniforme
+
+![](https://cdn.mathpix.com/cropped/2024_09_12_b68827a9dbee383dec2cg-03.jpg?height=623&width=1223&top_left_y=885&top_left_x=425)
+
+#### Propiedades del modelo Uniforme
+
+1. Su esperanza vale $(b+a) / 2$
+2. Su varianza es $(b-a)^{2} / 12$
+
+#### Una aplicación del modelo Uniforme: el muestreo de Montecarlo
+
+En ciertos casos es útil simular el muestreo de una variable aleatoria con una distribución dada. El muestreo de Montecarlo es un procedimiento general para obtener muestras aleatorias de cualquier tipo de variable (discreta o continua) si su función de distribución es conocida o se puede calcular. De hecho, todas las muestras artificiales de Statmedia han sido generadas a través del método de Montecarlo.
+
+Supongamos que queremos generar una muestra procedente de una variable aleatoria $X$ con función de distribución $F(x)$. El proceso comprende los siguientes pasos:
+
+1. Obtener un valor aleatorio $y$ entre cero y uno. Es decir, obtener una muestra de una distribución Uniforme entre cero y uno. La mayoría de lenguajes de programación incorporan un generador de este tipo.
+
+2. Considerar el valor obtenido como el valor de la función de distribución a generar: $y=F(x)$.
+
+3. El valor $x=F^{-1}(y)$ (la inversa de la función de distribución en el punto $y$ ) es un valor procedente de la distribución de la que deseábamos generar la muestra.
+
+4. Si queremos obtener una muestra con $n$ individuos debemos repetir los pasos anteriores $n$ veces.
+
+#### Generación de una muestra procedente de una distribución Binomial
+
+Supongamos que queremos simular el experimento de contar el número de caras obtenidas en 5 lanzamientos de una moneda trucada con probabilidad de cara igual a 0,75 . Es decir, queremos obtener una muestra de una distribución Binomial con $n=5$ y $p=0,75$.
+
+Siguiendo los pasos anteriores deberemos obtener un número al azar entre 0 y 1 (un valor procedente de una distribución Uniforme entre 0 y 1) y si este valor es menor o igual a 0,75 diremos que ha salido cara y, si es superior a 0,75 , cruz. Utiliza el siguiente programa para simular cinco lanzamientos con nuestra moneda trucada:
+
+### La distribución Exponencial
+
+Este modelo suele utilizarse para variables que describen el tiempo hasta que se produce un determinado suceso.
+
+Su función de densidad es de la forma:
+
+$$
+f(x)=\left\{\begin{array}{lll}
+\frac{1}{\alpha} \exp \left(-\frac{x}{\alpha}\right) & \text { si } & x>0 \\
+0 & \text { si } & x \leq 0
+\end{array}\right\}
+$$
+
+Como vemos este modelo depende de un único parámetro $\alpha$ que debe ser positivo: $\alpha>0$. A continuación se muestra un programa que nos permite ver cómo cambia la forma de la función de densidad según el parámetro $\alpha$.
+
+La función de distribución se obtiene integrando la de densidad y es de la forma:
+
+$$
+F(x)=\left\{\begin{array}{lll}
+1-\exp \left(-\frac{x}{\alpha}\right) & \text { si } & x>0 \\
+0 & \text { si } & x \leq 0
+\end{array}\right\}
+$$
+
+Podemos utilizar el programa siguiente para calcular dicha función de distribución:
+
+#### Propiedades del modelo Exponencial
+
+1. Su esperanza es $\alpha$.
+
+2. Su varianza es $\alpha^{2}$.
+
+3. Una propiedad importante es la denominada *carencia de memoria*, que podemos definir así: si la variable $X$ mide el tiempo de vida y sigue una distribución Exponencial, significará que la probabilidad de que siga con vida dentro de 20 años es la misma para un individuo que a fecha de hoy tiene 25 años que para otro que tenga 60 años.
+4. Cuando el número de sucesos por unidad de tiempo sigue una distribución de Poisson de parámetro $\lambda$ (proceso de Poisson), el tiempo entre dos sucesos consecutivos sigue una distribución Exponencial de parámetro $\alpha=1 / \lambda$.
+
+### La distribución Normal
+
+Se trata, sin duda, del modelo continuo más importante en estadística, tanto por su aplicación directa, veremos que muchas variables de interés general pueden describirse por dicho modelo, como por sus propiedades, que han permitido el desarrollo de numerosas técnicas de inferencia estadística. En realidad, el nombre de Normal proviene del hecho de que durante un tiempo se creyó, por parte de médicos y biólogos, que todas las variables naturales de interés seguían este modelo.
+
+Su función de densidad viene dada por la fórmula:
+
+$$
+f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left\{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right\} \quad \text { donde }-\infty<x<+\infty
+$$
+
+que, como vemos, depende de dos parámetros $\mu$ (que puede ser cualquier valor real) y $\sigma$ (que ha de ser positiva). Por esta razón, a partir de ahora indicaremos de forma abreviada que una variable $X$ sigue el modelo Normal así: $X \sim N(\mu, \sigma)$. Por ejemplo, si nos referimos a una distribución Normal con $\mu=0$ y $\sigma$ $=1$ lo abreviaremos $N(0,1)$.
+
+A continuación vemos gráfica de esta función de densidad (podeis probar a cambiar los parámetros):
+
+Como puedes ver, la función de densidad del modelo Normal tiene forma de campana, la que habitualmente se denomina campana de Gauss. De hecho, a este modelo, también se le conoce con el nombre de distribución gaussiana.
+
+#### Propiedades del modelo Normal
+
+1. Su esperanza es $\mu$.
+
+2. Su varianza es $\sigma^{2} \mathrm{y}$, por tanto, su desviación típica es $\sigma$.
+
+3. Es simétrica respecto a su media $\mu$, como puede apreciarse en la representación anterior.
+
+4. Media, moda y mediana coinciden $(\mu)$.
+
+5. Cualquier transformación lineal de una variable con distribución Normal seguirá también el modelo Normal. Si $X \sim N(\mu, \sigma)$ y definimos $Y=a X+b(\operatorname{con} a \neq 0)$, entonces $Y \sim N(a \mu+b,|a| \sigma)$. Es decir, la esperanza de $Y$ será $a \mu+b$ y su desviación típica, $|a| \sigma$.
+
+6. Cualquier combinación lineal de variables normales independientes sigue también una distribución Normal. Es decir, dadas $n$ variables aleatorias independientes con distribución $X_{i} \sim$ $N\left(\mu_{i}, \sigma_{i}\right)$ para $i=1,2, \ldots, n$ la combinación lineal: $Y=a_{n} X_{n}+a_{n-1} X_{n-1}+\ldots+a_{1} X_{1}+\mathrm{a}_{0}$ sigue también el modelo Normal:
+
+$$
+Y \approx N\left(a_{0}+\sum_{i=1}^{n} a_{i} \boldsymbol{\mu}_{i}, \sqrt{\sum_{i=1}^{n} a_{i}^{2} \boldsymbol{\sigma}^{2}}\right)
+$$
+
+###La función de distribución del modelo Normal
+
+La función de distribución del modelo Normal se debería calcular, como en el resto de distribuciones continuas, integrando la función de densidad:
+
+$$
+F(x)=P[X \leq x]=\int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left\{-\frac{(t-\mu)^{2}}{2 \sigma^{2}}\right\} \mathrm{dt}
+$$
+
+Pero nos encontramos con el problema de que no existe ninguna primitiva conocida para esta función, es decir, no sabemos resolver la anterior integral. Sin embargo, si somos incapaces de calcular la función distribución no podremos efectuar ningún cálculo con este modelo. ¿Cómo solucionamos el problema?
+
+Una primera solución podría consistir en aproximar la integral a través de técnicas de cálculo numérico. Sin embargo, dado que el conjunto de valores que pueden tomar los parámetros $\mu$ y $\sigma$ son infinitos, deberíamos repetir el proceso para cada valor diferente de algún parámetro. Afortunadamente, podemos ahorrarnos el esfuerzo aprovechando la propiedad de que cualquier transformación lineal de una variable Normal sigue también el modelo Normal. Por tanto, replantearemos cualquier problema en términos de una Normal concreta, que suele ser la $\mathrm{N}(0,1)$, de la siguiente manera:
+
+Si $X \sim N(\mu, \sigma)$ y entonces definimos $Z=(\mathrm{X}-\mu) / \sigma$ se cumplirá que $Z \sim N(0,1)$
+
+$$
+\begin{gathered}
+\text { y, por tanto: } \\
+F_{X}(x)=P[X \leq x]=P\left[\frac{X-\boldsymbol{\mu}}{\boldsymbol{\sigma}} \leq \frac{x-\boldsymbol{\mu}}{\boldsymbol{\sigma}}\right]=P\left[Z \leq \frac{x-\boldsymbol{\mu}}{\boldsymbol{\sigma}}\right]=F_{Z}\left(\frac{x-\boldsymbol{\mu}}{\boldsymbol{\sigma}}\right)
+\end{gathered}
+$$
+
+A la distribución $N(0,1)$, es decir, la que tiene por media cero y por desviación típica uno, se le denomina Normal reducida o tipificada. En cambio, al proceso de transformación del cálculo de la función de distribución de una Normal cualquiera a través de la Normal tipificada, se le denomina tipificación.
+
+Debemos remarcar que el proceso de tipificación no resuelve el problema de la inexistencia de la función primitiva correspondiente. Sin embargo, sí es posible, mediante técnicas de cálculo numérico, obtener la integral numérica correspondiente y elaborar unas tablas que podemos consultar. Naturalmente, la tipificación permite que con una sola tabla, la de la $N(0,1)$, tengamos suficiente.
+
+Hoy en día, cada vez se utilizan menos tablas como la mencionada anteriormente, ya que los ordenadores, junto con los abundantes programas estadísticos existentes nos resuelven este problema. Sin embargo, la imposibilidad de integrar analíticamente la función de densidad persiste y, aunque nosotros no seamos conscientes, los programas informáticos realizan el proceso de tipificación para simplificar el problema.
+
+A continuación se presenta un programa que permite comparar la función de densidad de una distribución Normal cualquiera con la de la Normal tipificada:
+
+#### Cálculo de probabilidades del modelo Normal con Statmedia
+
+::: {.callout-note icon=false}
+##### AVIS
+Posar un exemple de com fer-ho amb R
+O buscar si algun Shiny ho fa
+:::
+
+El siguiente programa dibuja el área bajo de la función de densidad de una Normal cualquiera, a la izquierda de un valor $x$, es decir, el valor de la función de distribución en el punto $x$, cuyo valor también calcula el programa.
+
+Para acabar, debemos recordar que Statmedia dispone de una calculadora estadística que también nos permite calcular la función de distribución de cualquier valor para una distribución Normal cualquiera. A continuación se muestra dicha calculadora una vez se ha escogido la opción de calculadora probabilística y, posteriormente, el modelo Normal:
+
+Como podéis observar, calcula la función de densidad, la de distribución y la inversa de esta última. Además, incluye otras distribuciones ya vistas o que se verán posteriormente.
+
+Para utilizar esta calculadora sólo tenéis que apretar el botón Calculadora de la barra de navegación.
+
+### La distribución Gamma
+
+Este modelo es una generalización del modelo Exponencial ya que, en ocasiones, se utiliza para modelar variables que describen el tiempo hasta que se produce p veces un determinado suceso.
+
+Su función de densidad es de la forma:
+
+$$
+f(x)=\left\{\begin{array}{lll}
+\frac{1}{\alpha^{p} \Gamma(p)} e^{-\frac{x}{\alpha}} x^{p-1} & \text { si } & x>0 \\
+0 & \text { si } & x \leq 0
+\end{array}\right\}
+$$
+
+Como vemos, este modelo depende de dos parámetros positivos: $\alpha$ y p. La función $\Gamma(p)$ es la denominada función Gamma de Euler que representa la siguiente integral:
+
+$$
+\Gamma(p)=\int_{0}^{\infty} x^{p-1} e^{-x} d x
+$$
+
+que verifica $\Gamma(p+1)=p \Gamma(p)$, con lo que, si $p$ es un número entero positivo, $\Gamma(p+1)=p$ !
+El siguiente programa permite visualizar la forma de la función de densidad de este modelo (para simplificar, se ha restringido al caso en que $p$ es un número entero).
+
+#### Propiedades de la distribución Gamma
+
+1. Su esperanza es $p \alpha$.
+
+2. Su varianza es $p \alpha^{2}$
+
+3. La distribución Gamma $(\alpha, p=1)$ es una distribución Exponencial de parámetro $\alpha$. Es decir, el modelo Exponencial es un caso particular de la Gamma $\operatorname{con} p=1$.
+
+4. Dadas dos variables aleatorias con distribución Gamma y parámetro $\alpha$ común
+
+$$
+X \sim G\left(\alpha, p_{1}\right) \text { y } Y \sim G\left(\alpha, p_{2}\right)
+$$
+
+se cumplirá que la suma también sigue una distribución Gamma
+
+$$
+X+Y \sim G\left(\alpha, p_{1}+p_{2}\right)
+$$
+
+Una consecuencia inmediata de esta propiedad es que, si tenemos $k$ variables aleatorias con distribución Exponencial de parámetro $\alpha$ (común) e independientes, la suma de todas ellas seguirá una distribución $G(\alpha, k)$.
+
+### La distribución de Cauchy
+
+Se trata de un modelo continuo cuya función de densidad es:
+
+$$
+f(x)=\frac{1}{\pi\left(1+x^{2}\right)} \quad \text { para } \quad-\infty<x<\infty
+$$
+
+Cuya integral nos proporciona la función de distribución:
+
+$$
+F(x)=\int_{-\infty}^{x} \frac{1}{\pi\left(1+t^{2}\right)} d t=\frac{1}{\pi}[\arctan (t)]_{t=-\infty}^{t=x}=\frac{1}{2}+\frac{\arctan (x)}{\pi}
+$$
+
+El siguiente programa permite visualizar la forma de la función de densidad de este modelo y el valor de la función de distribución:
+
+#### Propiedades de la distribución de Cauchy
+
+Se trata de un ejemplo de variable aleatoria que carece de esperanza (y, por tanto, también de varianza o cualquier otro momento), ya que la integral impropia correspondiente no es convergente:
+
+$$
+E(X)=\int_{-\infty}^{\infty} \frac{x}{\pi\left(1+x^{2}\right)} d x=\frac{1}{2 \pi} \int_{-\infty}^{\infty} \frac{2 x}{1+x^{2}} d x=\frac{1}{2 \pi}\left[\lim _{x \rightarrow \infty} \ln \left(x^{2}\right)-\lim _{x \rightarrow-\infty} \ln \left(x^{2}\right)\right]=\frac{1}{2 \pi}[\infty-\infty]
+$$
+
+y nos queda una indeterminación. Por tanto, la esperanza de una distribución de Cauchy no existe. Cabe señalar que la función de densidad es simétrica respecto al valor cero (que sería la mediana y la moda), pero al no existir la integral anterior, la esperanza no existe.
+
+### La distribución de Weibull
+
+Se trata de un modelo continuo asociado a variables del tipo tiempo de vida, tiempo hasta que un mecanismo falla, etc. La función de densidad de este modelo viene dada por:
+
+$$
+f(x)=\left\{\begin{array}{ll}
+\frac{\beta}{\alpha}\left(\frac{x}{\alpha}\right)^{\beta-1} e^{-\left(\frac{x}{\alpha}\right)^{\beta}} & \text { si } x \geq 0 \\
+0 & \text { si } x<0
+\end{array}\right\}
+$$
+
+que, como vemos, depende de dos parámetros: $\alpha>0$ y $\beta>0$, donde $\alpha$ es un parámetro de escala y $\beta$ es un parámetro de forma (lo que proporciona una gran flexibilidad a este modelo).
+
+La función de distribución se obtiene por la integración de la función de densidad y vale:
+
+$$
+F(x)=1-e^{-\left(\frac{x}{\alpha}\right)^{\beta}}
+$$
+
+El siguiente programa permite visualizar la forma de la función de densidad de este modelo y el valor de la función de distribución:
+
+#### Propiedades de la distribución Weibull
+
+1. Si tomamos $\beta=1$ tenemos una distribución Exponencial.
+
+2. Su esperanza vale:
+
+$$
+E(X)=\alpha \Gamma\left(\frac{1}{\boldsymbol{\beta}}+\mathbf{1}\right)
+$$
+
+3. Su varianza vale:
+
+$$
+V(X)=\alpha^{2}\left\{\Gamma\left(\frac{2}{\beta}+1\right)-\left[\Gamma\left(\frac{1}{\beta}+1\right)\right]^{2}\right\}
+$$
+
+donde $\Gamma(x)$ representa la función Gamma de Euler definida anteriormente.
+
+### Tabla resumen de las principales distribuciones continuas
+
+| Distribución | Parámetros | Función de densidad | Esperanza | Varianza |
+| :---: | :---: | :---: | :---: | :---: |
+| Uniforme | $a, b$ | $\frac{1}{b-a}$ <br> $a<x<b$ | $\frac{a+b}{2}$ | $\frac{(b-a)^{2}}{12}$ |
+| Exponencial | $\alpha>0$ | $\frac{1}{\alpha} \exp \left(-\frac{x}{\alpha}\right)$ <br> $x>0$ | $\alpha$ | $\alpha^{2}$ |
+| Normal | $-\infty<\mu<\infty$ <br> $\sigma>0$ | $\frac{1}{\sqrt{2 \pi} \sigma} \exp \left\{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right\}$ <br> $-\infty<x<+\infty$ | $\mu$ | $\sigma^{2}$ |
+<!-- | Gamma | $\begin{aligned}$\alpha$ & $> 0$ \\ $p$ & $> 0$ $\end{aligned}$ | $\frac{1}{\boldsymbol{\alpha}^{p} \Gamma(p)} e^{-\frac{x}{\alpha}} x^{p-1}$ <br> $x>0$ | $p \alpha$ | $p \alpha^{2}$ | -->
+| Cauchy | - | $\frac{1}{\pi\left(1+x^{2}\right)}$ <br> $-\infty<\mathbf{x}<\infty$ | -- | -- |
+| Weibull | $\alpha>0$ <br> $\beta>0$ | $\frac{\boldsymbol{\beta}}{\boldsymbol{\alpha}}\left(\frac{x}{\boldsymbol{\alpha}}\right)^{\beta-1} e^{-\left(\frac{x}{\alpha}\right)^{\beta}}$ <br> $x \geq 0$ | $\alpha \Gamma\left(\frac{1}{\beta}+1\right)$ | $\alpha^{2}\left\{\Gamma\left(\frac{2}{\beta}+1\right)-\left[\Gamma\left(\frac{1}{\beta}+1\right)\right]^{2}\right\}$ |
+
+## LA FAMILIA EXPONENCIAL DE DISTRIBUCIONES
+

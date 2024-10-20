@@ -1,0 +1,12 @@
+# Pruebas de hipótesis
+
+Se plantea el problema de las pruebas de hipótesis. Se discuten las aproximaciones y los conceptos asociados. Se trata el problema de la crisis de la significación.
+
+## Conceptos básicos: pruebas de hipótesis y de significación, pruebas unilaterales y bilaterales, tipos de error, valores críticos de test y p-valores
+
+## Potencia de un test. Cálculos de potencia y de tamaño de la muestra. Tamaño del efecto.
+
+## Métodos de construcción de tests.
+
+## Problemas asociados al uso de tests estadísticos. La crisis de la significación
+

@@ -1,5 +1,13 @@
 # Pruebas de hipótesis
 
+:::: {.calloutBox .important}
+
+Este capítulo está pendiente de ser introducida en los apuntes.
+
+La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).
+
+::::
+
 Se plantea el problema de las pruebas de hipótesis. Se discuten las aproximaciones y los conceptos asociados. Se trata el problema de la crisis de la significación.
 
 ## Conceptos básicos: pruebas de hipótesis y de significación, pruebas unilaterales y bilaterales, tipos de error, valores críticos de test y p-valores

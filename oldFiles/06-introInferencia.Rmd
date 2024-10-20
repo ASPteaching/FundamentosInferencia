@@ -1,0 +1,20 @@
+# Introducción a la inferencia estadística
+
+Se plantean los problemas que trata la inferencia. Se relaciona con el capítulo anterior a través de la idea del muestreo aleatorio simple y las distribuciones en el muestreo.
+
+Se plantea el problema de la estimación como una forma de aproximación a las características de las distribucionesa partir de muestras aleatorias simples.
+
+Se abordan las distintas formas de construcción de estimadores.
+
+## Los problemas de la inferencia estadística.
+
+## Muestreo y distribuciones en el muestreo.
+
+## La verosimilitud y su papel en la inferencia estadística
+
+## El problema de la estimación. Tipos de estimadores.
+
+## Métodos de obtención de estimadores. Estimadores máximo verosímiles  y estimadores bayesianos.
+
+## Propiedades de los estimadores.
+
