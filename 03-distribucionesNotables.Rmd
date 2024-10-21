@@ -371,7 +371,7 @@ $$
 - Si del conjunto anterior extraemos $n$ individuos sin reemplazamiento $(n \leq N)$, la variable $X$ que representa el número k de individuos que pertenecen a la categoría A (de los n extraídos) tiene por función de densidad:
 
 $$
-f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{k}}}
+f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{n}}}
 $$
 
 si $\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}$
@@ -482,7 +482,7 @@ $$
 | Poisson | $\lambda>0$ | $e^{-\lambda} \frac{\lambda^{k}}{k!}$ <br> $k=012, \ldots$ | $\lambda$ | $\lambda$ |
 | Multinomial | $0 \leq p_{1}, \ldots$ <br> $p_{r} \leq 1$ <br> $\left(p_{1}+\ldots+\right.$ <br> $\left.p_{\mathrm{r}}=1\right)$ <br> $n=1,2$ | $\frac{n!}{k_{1}!k_{2}!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}}$ <br> $\sum_{i=1}^{r} k_{i}=n$ | $\left(\begin{array}{c}n p_{1} \\ n p_{2} \\ \vdots \\ n p_{r}\end{array}\right)$ | $\boldsymbol{\sigma}_{i i}=n p_{i}\left(1-p_{i}\right)$ <br> $\boldsymbol{\sigma}_{i j}=n p_{i} p_{j} \quad i \neq j$ |
 | Uniforme <br> discreta | $n=1,2, \ldots$ | $\frac{1}{n}$ <br> $k=1,2, \ldots . n$ | $\frac{n+1}{2}$ | $\frac{(n+1)[2(2 n+1)-3(n+1)}{12}$ |
-| Hipergeométrica | $\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.$ | $\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{k}}}$ <br> $\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}$ | $n p$ | $n p(1-p) \frac{N-n}{N-1}$ |
+| Hipergeométrica | $\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.$ | $\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{n}}}$ <br> $\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}$ | $n p$ | $n p(1-p) \frac{N-n}{N-1}$ |
 | Pascal | $0 \leq p \leq 1$ | $p(1-p)^{k}$ <br> $k=0,1,2, \ldots$ | $\frac{1-p}{p}$ | $\frac{1-p}{p^{2}}$ |
 | Binomial <br> negativa | $0 \leq p \leq 1$ <br> $r>0$ |  | $\frac{r(1-p)}{p}$ | $\frac{r(1-p)}{p^{2}}$ |
 

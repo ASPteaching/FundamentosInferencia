@@ -2929,7 +2929,7 @@ N=N_{1}+N_{2}
 \end{itemize}
 
 \[
-f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{k}}}
+f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{n}}}
 \]
 
 si \(\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}\)
@@ -3085,7 +3085,7 @@ Binomial & \(0 \leq p \leq 1\) \(n=1,2, \ldots\) & \(\binom{\mathbf{n}}{\mathbf{
 Poisson & \(\lambda>0\) & \(e^{-\lambda} \frac{\lambda^{k}}{k!}\) \(k=012, \ldots\) & \(\lambda\) & \(\lambda\) \\
 Multinomial & \(0 \leq p_{1}, \ldots\) \(p_{r} \leq 1\) \(\left(p_{1}+\ldots+\right.\) \(\left.p_{\mathrm{r}}=1\right)\) \(n=1,2\) & \(\frac{n!}{k_{1}!k_{2}!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}}\) \(\sum_{i=1}^{r} k_{i}=n\) & \(\left(\begin{array}{c}n p_{1} \\ n p_{2} \\ \vdots \\ n p_{r}\end{array}\right)\) & \(\boldsymbol{\sigma}_{i i}=n p_{i}\left(1-p_{i}\right)\) \(\boldsymbol{\sigma}_{i j}=n p_{i} p_{j} \quad i \neq j\) \\
 Uniforme discreta & \(n=1,2, \ldots\) & \(\frac{1}{n}\) \(k=1,2, \ldots . n\) & \(\frac{n+1}{2}\) & \(\frac{(n+1)[2(2 n+1)-3(n+1)}{12}\) \\
-Hipergeométrica & \(\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.\) & \(\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{k}}}\) \(\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}\) & \(n p\) & \(n p(1-p) \frac{N-n}{N-1}\) \\
+Hipergeométrica & \(\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.\) & \(\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{n}}}\) \(\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}\) & \(n p\) & \(n p(1-p) \frac{N-n}{N-1}\) \\
 Pascal & \(0 \leq p \leq 1\) & \(p(1-p)^{k}\) \(k=0,1,2, \ldots\) & \(\frac{1-p}{p}\) & \(\frac{1-p}{p^{2}}\) \\
 Binomial negativa & \(0 \leq p \leq 1\) \(r>0\) & & \(\frac{r(1-p)}{p}\) & \(\frac{r(1-p)}{p^{2}}\) \\
 \end{longtable}
@@ -3869,7 +3869,7 @@ La distribución conjunta se refleja en la siguiente tabla de probabilidades con
 
 Puede comprobarse como la suma de todos los valores de la tabla es 1, y calcular probabilidades de sucesos como
 
-\textbf{Probabilidad de 1uye hayan dos celulas infectadas y un linfocito:}
+\textbf{Probabilidad de que hayan dos células infectadas y un linfocito:}
 
 Para calcular la probabilidad de que haya exactamente 2 células infectadas y 1 linfocito activado, se puede usar el valor directamente de la tabla.
 
@@ -3891,7 +3891,7 @@ P(X < 3, Y < 2) = P(X = 0, Y = 0) + P(X = 0, Y = 1) + P(X = 1, Y = 0) + P(X = 1,
 P(X < 3, Y < 2) = 0.12 + 0.06 + 0.10 + 0.10 + 0.06 + 0.12 = 0.56
 \]
 
-Recordemos que, al tratarse de variables discretas, no es lo mismo \(P[X< x]\) que \(P[X\leq x]\), por lo que si la pregunta fuera ``Probabilidad de que hayan al menos tres celulas infectadas y al menos dos linfocitos'' deberíamos calcular:
+Recordemos que, al tratarse de variables discretas, no es lo mismo \(P[X < x]\) que \(P[X \leq x]\), por lo que si la pregunta fuera ``Probabilidad de que hayan al menos tres celulas infectadas y al menos dos linfocitos'' deberíamos calcular:
 
 \[
 P(X \leq 3, Y \leq 2) 

@@ -218,7 +218,7 @@ La distribución conjunta se refleja en la siguiente tabla de probabilidades con
 
 Puede comprobarse como la suma de todos los valores de la tabla es 1, y calcular probabilidades de sucesos como
 
-**Probabilidad de 1uye hayan dos celulas infectadas y un linfocito:**
+**Probabilidad de que hayan dos células infectadas y un linfocito:**
 
 Para calcular la probabilidad de que haya exactamente 2 células infectadas y 1 linfocito activado, se puede usar el valor directamente de la tabla.
 
@@ -240,7 +240,7 @@ $$
 P(X < 3, Y < 2) = 0.12 + 0.06 + 0.10 + 0.10 + 0.06 + 0.12 = 0.56
 $$
 
-Recordemos que, al tratarse de variables discretas, no es lo mismo $P[X< x]$ que $P[X\leq x]$, por lo que si la pregunta fuera "Probabilidad de que hayan al menos  tres celulas infectadas y al menos dos linfocitos" deberíamos calcular:
+Recordemos que, al tratarse de variables discretas, no es lo mismo $P[X < x]$ que $P[X \leq x]$, por lo que si la pregunta fuera "Probabilidad de que hayan al menos  tres celulas infectadas y al menos dos linfocitos" deberíamos calcular:
 
 $$
 P(X \leq 3, Y \leq 2) 

@@ -844,7 +844,7 @@ N=N_{1}+N_{2}
 <li>Si del conjunto anterior extraemos <span class="math inline">\(n\)</span> individuos sin reemplazamiento <span class="math inline">\((n \leq N)\)</span>, la variable <span class="math inline">\(X\)</span> que representa el número k de individuos que pertenecen a la categoría A (de los n extraídos) tiene por función de densidad:</li>
 </ul>
 <p><span class="math display">\[
-f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{k}}}
+f(k)=P[X=k]=\frac{\binom{\mathbf{N}_{1}}{\mathbf{k}}\binom{\mathrm{N}_{2}}{\mathbf{n}-\mathbf{k}}}{\binom{\mathbf{N}}{\mathbf{n}}}
 \]</span></p>
 <p>si <span class="math inline">\(\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}\)</span></p>
 <p>La dependencia se debe al hecho de que <span class="math inline">\(N\)</span> es finito y las extracciones se efectúan sin reemplazamiento. El caso de extracciones con reemplazamiento sería equivalente al de <span class="math inline">\(N\)</span> infinito y se resolvería mediante el modelo Binomial.</p>
@@ -990,7 +990,7 @@ f(0)=p^{r} \quad \text { y } \quad f(k+1)=\frac{(1-p)(k+r)}{k+1} f(k)
 <tr class="even">
 <td align="center">Hipergeométrica</td>
 <td align="center"><span class="math inline">\(\left\{\begin{array}{c}N=N_{1}+ \\ N_{2} \\ p=N_{1} / N\end{array}\right.\)</span></td>
-<td align="center"><span class="math inline">\(\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{k}}}\)</span> <br> <span class="math inline">\(\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\binom{\mathrm{N}_{1}}{\mathrm{k}}\binom{\mathrm{N}_{2}}{\mathrm{n}-\mathrm{k}}}{\binom{\mathrm{N}}{\mathrm{n}}}\)</span> <br> <span class="math inline">\(\operatorname{max}\left\{0, \mathrm{n}-N_{2}\right\} \leq \mathrm{k} \leq \min \left\{N_{1}, n\right\}\)</span></td>
 <td align="center"><span class="math inline">\(n p\)</span></td>
 <td align="center"><span class="math inline">\(n p(1-p) \frac{N-n}{N-1}\)</span></td>
 </tr>
