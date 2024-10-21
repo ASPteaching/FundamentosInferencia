@@ -59,7 +59,7 @@ Fijémonos también que, como en el caso univariante, la función que _transport
 
 ### Función de distribución bivariante
 
-La función de distribución  conjunta de $X$ y $Y$, $F$, es una generalización inmediata del caso univariado i se define como:
+La función de distribución  conjunta de $X$ y $Y$, $F$, es una generalización inmediata del caso univariado y se define como:
 
 $$
 F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y]
@@ -68,7 +68,6 @@ $$
 Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.
 
 ::::{.ejemplo}
-Vamos a modificar el ejemplo para que las variables tengan un significado concreto relacionado con bioestadística.
 
 ### Ejemplo: Distribución conjunta del estado de infección y activación de células
 
@@ -631,6 +630,11 @@ $$
 Podemos calcular la distribución condicional de $X$ dado que $Y = 180$ cm, y mostrar cómo cambia la distribución de $X$ bajo esta condición:
 
 ```{r}
+# Valores originales
+mu <- c(100, 50)
+sigma <- c(15, 10)
+rho <- 0.5
+
 # Condicionar X dado Y = 180
 y_cond <- 180
 mu_cond <- mu[1] + 0.6 * (10/7) * (y_cond - mu[2])

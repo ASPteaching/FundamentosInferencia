@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2024-10-20" />
+<meta name="date" content="2024-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -468,13 +468,13 @@ donde <span class="math inline">\(\mathcal{A}\)</span> representa el conjunto de
 </div>
 <div id="función-de-distribución-bivariante" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Función de distribución bivariante<a href="distribuciones-de-probabilidad-multidimensionales.html#función-de-distribución-bivariante" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La función de distribución conjunta de <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>, <span class="math inline">\(F\)</span>, es una generalización inmediata del caso univariado i se define como:</p>
+<p>La función de distribución conjunta de <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>, <span class="math inline">\(F\)</span>, es una generalización inmediata del caso univariado y se define como:</p>
 <p><span class="math display">\[
 F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y]
 \]</span></p>
 <p>Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.</p>
+</div>
 <div class="ejemplo">
-<p>Vamos a modificar el ejemplo para que las variables tengan un significado concreto relacionado con bioestadística.</p>
 <div id="ejemplo-distribución-conjunta-del-estado-de-infección-y-activación-de-células" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Ejemplo: Distribución conjunta del estado de infección y activación de células<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-distribución-conjunta-del-estado-de-infección-y-activación-de-células" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supongamos que estamos observando dos características de células en un experimento de inmunología. Las variables que describen las células son:</p>
@@ -554,7 +554,6 @@ P(X = 1, Y = 0) = 0.1
 <span id="cb1-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-18" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>)</span></code></pre></div>
 <p><img src="images/distribucion_conjunta.png" width="80%" /></p>
-</div>
 </div>
 </div>
 </div>
@@ -1284,14 +1283,19 @@ Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (
 <div id="ejemplo-2" class="section level4 hasAnchor ejemplo" number="4.6.5.1">
 <h4><span class="header-section-number">4.6.5.1</span> Ejemplo<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Podemos calcular la distribución condicional de <span class="math inline">\(X\)</span> dado que <span class="math inline">\(Y = 180\)</span> cm, y mostrar cómo cambia la distribución de <span class="math inline">\(X\)</span> bajo esta condición:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-1" tabindex="-1"></a><span class="co"># Condicionar X dado Y = 180</span></span>
-<span id="cb13-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-2" tabindex="-1"></a>y_cond <span class="ot">&lt;-</span> <span class="dv">180</span></span>
-<span id="cb13-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-3" tabindex="-1"></a>mu_cond <span class="ot">&lt;-</span> mu[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">0.6</span> <span class="sc">*</span> (<span class="dv">10</span><span class="sc">/</span><span class="dv">7</span>) <span class="sc">*</span> (y_cond <span class="sc">-</span> mu[<span class="dv">2</span>])</span>
-<span id="cb13-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-4" tabindex="-1"></a>sigma_cond <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.6</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="dv">10</span></span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-1" tabindex="-1"></a><span class="co"># Valores originales</span></span>
+<span id="cb13-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-2" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">50</span>)</span>
+<span id="cb13-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-3" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">10</span>)</span>
+<span id="cb13-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-4" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
 <span id="cb13-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-5" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-6" tabindex="-1"></a><span class="co"># Mostrar la media y desviación estándar condicionales</span></span>
-<span id="cb13-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-7" tabindex="-1"></a>mu_cond</span></code></pre></div>
-<pre><code>## [1] 154.2857</code></pre>
+<span id="cb13-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-6" tabindex="-1"></a><span class="co"># Condicionar X dado Y = 180</span></span>
+<span id="cb13-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-7" tabindex="-1"></a>y_cond <span class="ot">&lt;-</span> <span class="dv">180</span></span>
+<span id="cb13-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-8" tabindex="-1"></a>mu_cond <span class="ot">&lt;-</span> mu[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">0.6</span> <span class="sc">*</span> (<span class="dv">10</span><span class="sc">/</span><span class="dv">7</span>) <span class="sc">*</span> (y_cond <span class="sc">-</span> mu[<span class="dv">2</span>])</span>
+<span id="cb13-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-9" tabindex="-1"></a>sigma_cond <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.6</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb13-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-10" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-11" tabindex="-1"></a><span class="co"># Mostrar la media y desviación estándar condicionales</span></span>
+<span id="cb13-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-12" tabindex="-1"></a>mu_cond</span></code></pre></div>
+<pre><code>## [1] 211.4286</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb15-1" tabindex="-1"></a>sigma_cond</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>Esto nos dice que el peso medio de una persona con altura de 180 cm es mayor que el peso medio de la población total, y su desviación estándar es menor debido a la correlación positiva entre peso y altura.</p>

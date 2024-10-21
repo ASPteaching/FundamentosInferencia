@@ -124,7 +124,7 @@
 
 \title{Fundamentos de Inferencia Estadistica}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2024-10-20}
+\date{2024-10-21}
 
 \begin{document}
 \maketitle
@@ -3669,15 +3669,13 @@ Fijémonos también que, como en el caso univariante, la función que \emph{tran
 
 \subsubsection{Función de distribución bivariante}\label{funciuxf3n-de-distribuciuxf3n-bivariante}
 
-La función de distribución conjunta de \(X\) y \(Y\), \(F\), es una generalización inmediata del caso univariado i se define como:
+La función de distribución conjunta de \(X\) y \(Y\), \(F\), es una generalización inmediata del caso univariado y se define como:
 
 \[
 F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y]
 \]
 
 Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.
-
-Vamos a modificar el ejemplo para que las variables tengan un significado concreto relacionado con bioestadística.
 
 \subsubsection{Ejemplo: Distribución conjunta del estado de infección y activación de células}\label{ejemplo-distribuciuxf3n-conjunta-del-estado-de-infecciuxf3n-y-activaciuxf3n-de-cuxe9lulas}
 
@@ -4401,6 +4399,11 @@ Podemos calcular la distribución condicional de \(X\) dado que \(Y = 180\) cm, 
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# Valores originales}
+\NormalTok{mu }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{50}\NormalTok{)}
+\NormalTok{sigma }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\NormalTok{rho }\OtherTok{\textless{}{-}} \FloatTok{0.5}
+
 \CommentTok{\# Condicionar X dado Y = 180}
 \NormalTok{y\_cond }\OtherTok{\textless{}{-}} \DecValTok{180}
 \NormalTok{mu\_cond }\OtherTok{\textless{}{-}}\NormalTok{ mu[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{+} \FloatTok{0.6} \SpecialCharTok{*}\NormalTok{ (}\DecValTok{10}\SpecialCharTok{/}\DecValTok{7}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ (y\_cond }\SpecialCharTok{{-}}\NormalTok{ mu[}\DecValTok{2}\NormalTok{])}
@@ -4412,7 +4415,7 @@ Podemos calcular la distribución condicional de \(X\) dado que \(Y = 180\) cm, 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 154.2857
+## [1] 211.4286
 \end{verbatim}
 
 \begin{Shaded}
