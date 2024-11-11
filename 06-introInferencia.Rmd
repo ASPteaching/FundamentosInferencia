@@ -304,6 +304,13 @@ Una vez ordenada queda:
 
 y si hacemos la representación gráfica:
 
+```{r}
+x <- c(5.1 , 3.4 , 1.2 , 17.6 , 2.1 , 16.4 , 4.3, 1.2 , 2.1 , 3.4 , 4.3 , 5.1 , 16.4 , 17.6 )
+
+plot(ecdf(x))
+```
+
+
 Figura 1.1: Función de distribución empírica con los datos del ejemplo
 
 La distribución empírica refleja exclusivamente los valores observados en la muestra y, por lo tanto, no se relaciona directamente ni con la distribución conjunta de la muestra $G\left(x_{1}, x_{2}, \ldots, x_{n}\right)$ ni con la distribución de la población $F$.
