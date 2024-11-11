@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Estimación puntual | Fundamentos de Inferencia Estadistica</title>
+  <meta name="description" content="Capítulo 7 Estimación puntual | Fundamentos de Inferencia Estadistica" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Estimación puntual | Fundamentos de Inferencia Estadistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Estimación puntual | Fundamentos de Inferencia Estadistica" />
+  
+  
+  
+
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
+
+
+<meta name="date" content="2024-11-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introducción-a-la-inferencia-estadística.html"/>
+<link rel="next" href="métodos-de-obtención-de-estimadores.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="blocks.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf" title="Version en PDF" target="_blank"><img alt="Versión en pdf" src="./images(pdf.png)" width="12" height="15" />    </a>
+</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i>Objetivo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisitos-y-organización-del-material"><i class="fa fa-check"></i>Prerequisitos y organización del material</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#referencias"><i class="fa fa-check"></i>Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="agradecimiento-y-fuentes-utilizadas.html"><a href="agradecimiento-y-fuentes-utilizadas.html"><i class="fa fa-check"></i>Agradecimiento y fuentes utilizadas</a>
+<ul>
+<li class="chapter" data-level="" data-path="agradecimiento-y-fuentes-utilizadas.html"><a href="agradecimiento-y-fuentes-utilizadas.html#el-proyecto-statmedia"><i class="fa fa-check"></i>El proyecto Statmedia</a></li>
+<li class="chapter" data-level="" data-path="agradecimiento-y-fuentes-utilizadas.html"><a href="agradecimiento-y-fuentes-utilizadas.html#otros-materiales-utilizados"><i class="fa fa-check"></i>Otros materiales utilizados</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html"><i class="fa fa-check"></i><b>1</b> Probabilidad y Experimentos aleatorios</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#introducción"><i class="fa fa-check"></i><b>1.1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#fenómenos-deterministas-y-fenómenos-aleatorios"><i class="fa fa-check"></i><b>1.1.1</b> Fenómenos deterministas y fenómenos aleatorios</a></li>
+<li class="chapter" data-level="1.1.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos"><i class="fa fa-check"></i><b>1.1.2</b> Sucesos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#función-de-probabilidad"><i class="fa fa-check"></i><b>1.2</b> Función de probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#diferentes-funciones-de-probabilidad-para-una-misma-experiencia-aleatoria"><i class="fa fa-check"></i><b>1.2.1</b> ¿Diferentes funciones de probabilidad para una misma experiencia aleatoria?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#cómo-se-calculan-las-probabilidades"><i class="fa fa-check"></i><b>1.3</b> ¿Cómo se calculan las probabilidades?</a></li>
+<li class="chapter" data-level="1.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-elementales-y-sucesos-observables"><i class="fa fa-check"></i><b>1.4</b> Sucesos elementales y sucesos observables</a></li>
+<li class="chapter" data-level="1.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#propiedades-inmediatas-de-la-probabilidad"><i class="fa fa-check"></i><b>1.5</b> Propiedades inmediatas de la probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#succeso-imposible"><i class="fa fa-check"></i><b>1.5.1</b> Succeso imposible</a></li>
+<li class="chapter" data-level="1.5.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#suceso-implicado"><i class="fa fa-check"></i><b>1.5.2</b> Suceso implicado</a></li>
+<li class="chapter" data-level="1.5.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#complementario-de-un-suceso"><i class="fa fa-check"></i><b>1.5.3</b> Complementario de un suceso</a></li>
+<li class="chapter" data-level="1.5.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#ocurrencia-de-algun-suceso"><i class="fa fa-check"></i><b>1.5.4</b> Ocurrencia de algun suceso</a></li>
+<li class="chapter" data-level="1.5.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-de-que-ocurra-algun-suceso"><i class="fa fa-check"></i><b>1.5.5</b> Probabilidad de que ocurra algun suceso</a></li>
+<li class="chapter" data-level="1.5.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-de-que-ocurran-dos-o-más-sucesos-a-la-vez"><i class="fa fa-check"></i><b>1.5.6</b> Probabilidad de que ocurran dos (o más) sucesos a la vez</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>1.6</b> Espacios de probabilidad</a></li>
+<li class="chapter" data-level="1.7" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>1.7</b> Probabilidad condicionada</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.1</b> Sucesos dependientes y sucesos independientes</a></li>
+<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.2</b> Incompatibilidad e independencia</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#dos-teoremas-importantes"><i class="fa fa-check"></i><b>1.8</b> Dos Teoremas importantes</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-las-probabilidades-totales"><i class="fa fa-check"></i><b>1.8.1</b> Teorema de las probabilidades totales</a></li>
+<li class="chapter" data-level="1.8.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-bayes"><i class="fa fa-check"></i><b>1.8.2</b> Teorema de Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#introducción-a-los-experimentos-múltiples"><i class="fa fa-check"></i><b>1.9</b> Introducción a los experimentos múltiples</a></li>
+<li class="chapter" data-level="1.10" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinatoria"><i class="fa fa-check"></i><b>1.10</b> Combinatoria</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#permutaciones"><i class="fa fa-check"></i><b>1.10.1</b> Permutaciones</a></li>
+<li class="chapter" data-level="1.10.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#variaciones"><i class="fa fa-check"></i><b>1.10.2</b> Variaciones</a></li>
+<li class="chapter" data-level="1.10.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#variaciones-con-repetición"><i class="fa fa-check"></i><b>1.10.3</b> Variaciones con repetición</a></li>
+<li class="chapter" data-level="1.10.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinaciones"><i class="fa fa-check"></i><b>1.10.4</b> Combinaciones</a></li>
+<li class="chapter" data-level="1.10.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#permutaciones-con-repetición"><i class="fa fa-check"></i><b>1.10.5</b> Permutaciones con repetición</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a></li>
+<li class="chapter" data-level="1.12" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#caso-de-estudio-eficacia-de-una-prueba-diagnóstica"><i class="fa fa-check"></i><b>1.12</b> Caso de Estudio: Eficacia de una prueba diagnóstica</a>
+<ul>
+<li class="chapter" data-level="1.12.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#aplicación-del-teorema-de-bayes"><i class="fa fa-check"></i><b>1.12.1</b> Aplicación del Teorema de Bayes</a></li>
+<li class="chapter" data-level="1.12.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#ejemplo-numérico"><i class="fa fa-check"></i><b>1.12.2</b> Ejemplo numérico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><i class="fa fa-check"></i><b>2</b> Variables aleatorias y Distribuciones de probabilidad</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#el-espacio-muestral-y-sus-elementos"><i class="fa fa-check"></i><b>2.1</b> El espacio muestral y sus elementos</a></li>
+<li class="chapter" data-level="2.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#representación-numérica-de-los-sucesos-elementales.-variables-aleatorias"><i class="fa fa-check"></i><b>2.2</b> Representación numérica de los sucesos elementales. Variables aleatorias</a></li>
+<li class="chapter" data-level="2.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caracterización-de-una-variable-aleatoria-a-través-de-la-probabilidad.-función-de-distribución"><i class="fa fa-check"></i><b>2.3</b> Caracterización de una variable aleatoria a través de la probabilidad. Función de distribución</a></li>
+<li class="chapter" data-level="2.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-función-de-distribución"><i class="fa fa-check"></i><b>2.4</b> Propiedades de la función de distribución</a></li>
+<li class="chapter" data-level="2.5" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#clasificación-de-las-variables-aleatorias"><i class="fa fa-check"></i><b>2.5</b> Clasificación de las variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-discretas"><i class="fa fa-check"></i><b>2.5.1</b> Variables aleatorias discretas</a></li>
+<li class="chapter" data-level="2.5.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-continuas"><i class="fa fa-check"></i><b>2.5.2</b> Variables aleatorias continuas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variable-aleatoria-discretas"><i class="fa fa-check"></i><b>2.6</b> Variable aleatoria discretas</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caracterización-de-las-v.a.-discretas"><i class="fa fa-check"></i><b>2.6.1</b> Caracterización de las v.a. discretas</a></li>
+<li class="chapter" data-level="2.6.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-función-de-densidad-discreta"><i class="fa fa-check"></i><b>2.6.2</b> Propiedades de la función de densidad discreta</a></li>
+<li class="chapter" data-level="2.6.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#relaciones-entre-la-función-de-distribución-y-la-función-de-densidad-discreta.-probabilidad-de-intervalos."><i class="fa fa-check"></i><b>2.6.3</b> Relaciones entre la función de distribución y la función de densidad discreta. <br> Probabilidad de intervalos.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-continuas-1"><i class="fa fa-check"></i><b>2.7</b> Variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#función-de-densidad-continua"><i class="fa fa-check"></i><b>2.7.1</b> Función de densidad continua</a></li>
+<li class="chapter" data-level="2.7.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#relaciones-entre-la-función-de-distribución-y-la-función-de-densidad."><i class="fa fa-check"></i><b>2.7.2</b> Relaciones entre la función de distribución y la función de densidad.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caracterización-de-una-variable-aleatoria-a-través-de-parámetros"><i class="fa fa-check"></i><b>2.8</b> Caracterización de una variable aleatoria a través de parámetros</a></li>
+<li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-una-variable-aleatoria-discreta"><i class="fa fa-check"></i><b>2.9</b> Esperanza de una variable aleatoria discreta</a></li>
+<li class="chapter" data-level="2.10" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-una-variable-aleatoria-continua"><i class="fa fa-check"></i><b>2.10</b> Esperanza de una variable aleatoria continua</a></li>
+<li class="chapter" data-level="2.11" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-esperanza-matemática"><i class="fa fa-check"></i><b>2.11</b> Propiedades de la esperanza matemática</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#linealidad-de-la-esperanza-matemática"><i class="fa fa-check"></i><b>2.11.1</b> Linealidad de la esperanza matemática</a></li>
+<li class="chapter" data-level="2.11.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-del-producto"><i class="fa fa-check"></i><b>2.11.2</b> Esperanza del producto</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#varianza-de-una-variable-aleatoria"><i class="fa fa-check"></i><b>2.12</b> Varianza de una variable aleatoria</a>
+<ul>
+<li class="chapter" data-level="2.12.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-varianza"><i class="fa fa-check"></i><b>2.12.1</b> Propiedades de la varianza</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#momentos-de-orden-k-de-una-variable-aleatoria"><i class="fa fa-check"></i><b>2.13</b> Momentos (de orden <span class="math inline">\(k\)</span>) de una variable aleatoria</a></li>
+<li class="chapter" data-level="2.14" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#definición-formal-de-variable-aleatoria"><i class="fa fa-check"></i><b>2.14</b> Definición formal de variable aleatoria</a></li>
+<li class="chapter" data-level="2.15" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#caso-práctico-lanzamiento-de-dos-dados"><i class="fa fa-check"></i><b>2.15</b> Caso práctico: Lanzamiento de dos dados</a>
+<ul>
+<li class="chapter" data-level="2.15.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#espacio-muestral"><i class="fa fa-check"></i><b>2.15.1</b> Espacio muestral</a></li>
+<li class="chapter" data-level="2.15.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#representación-numérica"><i class="fa fa-check"></i><b>2.15.2</b> Representación numérica</a></li>
+<li class="chapter" data-level="2.15.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#algunas-probabilidades"><i class="fa fa-check"></i><b>2.15.3</b> Algunas probabilidades</a></li>
+<li class="chapter" data-level="2.15.4" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#función-de-distribución"><i class="fa fa-check"></i><b>2.15.4</b> Función de distribución</a></li>
+<li class="chapter" data-level="2.15.5" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#clasificación-de-las-variables"><i class="fa fa-check"></i><b>2.15.5</b> Clasificación de las variables</a></li>
+<li class="chapter" data-level="2.15.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#función-de-densidad-discreta"><i class="fa fa-check"></i><b>2.15.6</b> Función de densidad discreta</a></li>
+<li class="chapter" data-level="2.15.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-intervalos-1"><i class="fa fa-check"></i><b>2.15.7</b> Probabilidad de intervalos</a></li>
+<li class="chapter" data-level="2.15.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza"><i class="fa fa-check"></i><b>2.15.8</b> Esperanza</a></li>
+<li class="chapter" data-level="2.15.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-un-juego"><i class="fa fa-check"></i><b>2.15.9</b> Esperanza de un juego</a></li>
+<li class="chapter" data-level="2.15.10" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-con-recorrido-infinito"><i class="fa fa-check"></i><b>2.15.10</b> Esperanza con recorrido infinito</a></li>
+<li class="chapter" data-level="2.15.11" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-infinita"><i class="fa fa-check"></i><b>2.15.11</b> Esperanza infinita</a></li>
+<li class="chapter" data-level="2.15.12" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#varianza"><i class="fa fa-check"></i><b>2.15.12</b> Varianza</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html"><i class="fa fa-check"></i><b>3</b> Distribuciones Notables</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-discretas"><i class="fa fa-check"></i><b>3.1</b> Distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-bernouilli"><i class="fa fa-check"></i><b>3.1.1</b> La distribución de Bernouilli</a></li>
+<li class="chapter" data-level="3.1.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-binomial"><i class="fa fa-check"></i><b>3.1.2</b> La distribución Binomial</a></li>
+<li class="chapter" data-level="3.1.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-poisson"><i class="fa fa-check"></i><b>3.1.3</b> La distribución de Poisson</a></li>
+<li class="chapter" data-level="3.1.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-uniforme-discreta"><i class="fa fa-check"></i><b>3.1.4</b> La distribución Uniforme discreta</a></li>
+<li class="chapter" data-level="3.1.5" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-hipergeométrica"><i class="fa fa-check"></i><b>3.1.5</b> La distribución Hipergeométrica</a></li>
+<li class="chapter" data-level="3.1.6" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-geométrica-o-de-pascal"><i class="fa fa-check"></i><b>3.1.6</b> La distribución Geométrica o de Pascal</a></li>
+<li class="chapter" data-level="3.1.7" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-binomial-negativa"><i class="fa fa-check"></i><b>3.1.7</b> La distribución Binomial negativa</a></li>
+<li class="chapter" data-level="3.1.8" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#tabla-resumen-de-las-distribuciones-discretas-principales"><i class="fa fa-check"></i><b>3.1.8</b> Tabla resumen de las distribuciones discretas principales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-continuas"><i class="fa fa-check"></i><b>3.2</b> Distribuciones Continuas</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-uniforme"><i class="fa fa-check"></i><b>3.2.1</b> La distribución Uniforme</a></li>
+<li class="chapter" data-level="3.2.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-exponencial"><i class="fa fa-check"></i><b>3.2.2</b> La distribución Exponencial</a></li>
+<li class="chapter" data-level="3.2.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-normal"><i class="fa fa-check"></i><b>3.2.3</b> La distribución Normal</a></li>
+<li class="chapter" data-level="3.2.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-gamma"><i class="fa fa-check"></i><b>3.2.4</b> La distribución Gamma</a></li>
+<li class="chapter" data-level="3.2.5" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-cauchy"><i class="fa fa-check"></i><b>3.2.5</b> La distribución de Cauchy</a></li>
+<li class="chapter" data-level="3.2.6" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-distribución-de-weibull"><i class="fa fa-check"></i><b>3.2.6</b> La distribución de Weibull</a></li>
+<li class="chapter" data-level="3.2.7" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#tabla-resumen-de-las-principales-distribuciones-continuas"><i class="fa fa-check"></i><b>3.2.7</b> Tabla resumen de las principales distribuciones continuas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-con-r-y-python"><i class="fa fa-check"></i><b>3.3</b> Distribuciones con R (y Python)</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-familia-exponencial-de-distribuciones"><i class="fa fa-check"></i><b>3.4</b> La familia exponencial de distribuciones</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#ejemplos-de-distribuciones-de-esta-familia"><i class="fa fa-check"></i><b>3.4.1</b> Ejemplos de distribuciones de esta familia</a></li>
+<li class="chapter" data-level="3.4.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribución-binomial"><i class="fa fa-check"></i><b>3.4.2</b> Distribución Binomial</a></li>
+<li class="chapter" data-level="3.4.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#importancia-y-utilidad-de-la-familia-exponencial"><i class="fa fa-check"></i><b>3.4.3</b> Importancia y utilidad de la familia exponencial</a></li>
+<li class="chapter" data-level="3.4.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#los-modelos-lineales-generalizados-glms"><i class="fa fa-check"></i><b>3.4.4</b> Los modelos lineales generalizados (GLMs)</a></li>
+<li class="chapter" data-level="3.4.5" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#estimación-en-la-familia-exponencial"><i class="fa fa-check"></i><b>3.4.5</b> Estimación en la familia exponencial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html"><i class="fa fa-check"></i><b>4</b> Distribuciones de probabilidad multidimensionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-conjuntas-de-probabilidades"><i class="fa fa-check"></i><b>4.1</b> Distribuciones conjuntas de probabilidades</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#variable-aleatoria-bivariante"><i class="fa fa-check"></i><b>4.1.1</b> Variable aleatoria bivariante</a></li>
+<li class="chapter" data-level="4.1.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#función-de-distribución-bivariante"><i class="fa fa-check"></i><b>4.1.2</b> Función de distribución bivariante</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#variable-aleatorias-bivariantes-discretas"><i class="fa fa-check"></i><b>4.2</b> Variable aleatorias bivariantes discretas</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#función-de-masa-de-probabilidad-discreta-fmp"><i class="fa fa-check"></i><b>4.2.1</b> Función de masa de probabilidad discreta (fmp)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-la-fmp-bivariante"><i class="fa fa-check"></i><b>4.2.2</b> Propiedades de la fmp bivariante</a></li>
+<li class="chapter" data-level="4.2.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-de-distribución-bivariante-discreta"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo de distribución bivariante discreta</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#la-distribución-multinomial"><i class="fa fa-check"></i><b>4.3</b> La distribución multinomial</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#generación-de-las-observaciones"><i class="fa fa-check"></i><b>4.3.1</b> Generación de las observaciones</a></li>
+<li class="chapter" data-level="4.3.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#funcion-de-masa-de-probabilidad-de-la-distribución-multinomial"><i class="fa fa-check"></i><b>4.3.2</b> Funcion de masa de probabilidad de la distribución multinomial</a></li>
+<li class="chapter" data-level="4.3.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#relación-con-la-distribución-binomial"><i class="fa fa-check"></i><b>4.3.3</b> Relación con la distribución binomial</a></li>
+<li class="chapter" data-level="4.3.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#un-caso-particular-la-distribución-trinomial"><i class="fa fa-check"></i><b>4.3.4</b> Un caso particular: La distribución trinomial</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-marginales"><i class="fa fa-check"></i><b>4.4</b> Distribuciones marginales</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#las-marginales-están-en-los-márgenes"><i class="fa fa-check"></i><b>4.4.1</b> Las marginales están en los márgenes</a></li>
+<li class="chapter" data-level="4.4.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidades-marginales-discretas"><i class="fa fa-check"></i><b>4.4.2</b> Densidades marginales discretas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#trinomial-m5-0.6-0.2-distribuciones-marginales"><i class="fa fa-check"></i><b>4.4.3</b> Trinomial M(5; 0.6, 0.2): Distribuciones marginales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales"><i class="fa fa-check"></i><b>4.5</b> Distribuciones condicionales</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidad-condicional"><i class="fa fa-check"></i><b>4.5.1</b> Densidad condicional</a></li>
+<li class="chapter" data-level="4.5.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#trinomial-m5-0.6-0.2-distribución-condicional"><i class="fa fa-check"></i><b>4.5.2</b> Trinomial M(5; 0.6, 0.2): Distribución condicional</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#vectores-aleatorios-absolutamente-continuos"><i class="fa fa-check"></i><b>4.6</b> Vectores aleatorios absolutamente continuos</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-la-función-de-densidad-conjunta"><i class="fa fa-check"></i><b>4.6.1</b> Propiedades de la función de densidad conjunta</a></li>
+<li class="chapter" data-level="4.6.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidades-marginales-en-el-caso-continuo"><i class="fa fa-check"></i><b>4.6.2</b> Densidades marginales en el caso continuo</a></li>
+<li class="chapter" data-level="4.6.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidad-condicional-en-el-caso-continuo"><i class="fa fa-check"></i><b>4.6.3</b> Densidad condicional en el caso continuo</a></li>
+<li class="chapter" data-level="4.6.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#la-distribución-normal-bivariante"><i class="fa fa-check"></i><b>4.6.4</b> La Distribución Normal Bivariante</a></li>
+<li class="chapter" data-level="4.6.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales-1"><i class="fa fa-check"></i><b>4.6.5</b> Distribuciones Condicionales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#independencia-de-variables-aleatorias"><i class="fa fa-check"></i><b>4.7</b> Independencia de variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#primera-caracterización-de-la-independencia"><i class="fa fa-check"></i><b>4.7.1</b> Primera caracterización de la independencia</a></li>
+<li class="chapter" data-level="4.7.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-las-variables-independientes"><i class="fa fa-check"></i><b>4.7.2</b> Propiedades de las variables independientes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#momentos-de-vectores-aleatorios"><i class="fa fa-check"></i><b>4.8</b> Momentos de vectores aleatorios</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#esperanza-de-un-vector-aleatorio-o-vector-de-medias"><i class="fa fa-check"></i><b>4.8.1</b> Esperanza de un vector aleatorio o vector de medias</a></li>
+<li class="chapter" data-level="4.8.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#covarianza-entre-dos-variables-aleatorias"><i class="fa fa-check"></i><b>4.8.2</b> Covarianza entre dos variables aleatorias</a></li>
+<li class="chapter" data-level="4.8.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#covarianza-y-correlación"><i class="fa fa-check"></i><b>4.8.3</b> Covarianza y correlación</a></li>
+<li class="chapter" data-level="4.8.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#matriz-de-varianzas-covarianzas"><i class="fa fa-check"></i><b>4.8.4</b> Matriz de varianzas-covarianzas</a></li>
+<li class="chapter" data-level="4.8.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#matriz-de-correlaciones"><i class="fa fa-check"></i><b>4.8.5</b> Matriz de correlaciones</a></li>
+<li class="chapter" data-level="4.8.6" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#segunda-caracterización-de-la-independencia"><i class="fa fa-check"></i><b>4.8.6</b> Segunda caracterización de la independencia</a></li>
+<li class="chapter" data-level="4.8.7" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#relación-entre-incorrelación-e-independencia"><i class="fa fa-check"></i><b>4.8.7</b> Relación entre incorrelación e independencia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="grandes-muestras.html"><a href="grandes-muestras.html"><i class="fa fa-check"></i><b>5</b> Grandes muestras</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#introducción-aproximaciones-asintóticas"><i class="fa fa-check"></i><b>5.1</b> Introducción: Aproximaciones asintóticas</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#convergencia-de-variables-aleatorias"><i class="fa fa-check"></i><b>5.1.1</b> Convergencia de variables aleatorias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="grandes-muestras.html"><a href="grandes-muestras.html#leyes-de-los-grandes-números"><i class="fa fa-check"></i><b>5.2</b> Leyes de los grandes números</a></li>
+<li class="chapter" data-level="5.3" data-path="grandes-muestras.html"><a href="grandes-muestras.html#el-teorema-central-del-límite"><i class="fa fa-check"></i><b>5.3</b> El teorema central del límite</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#sumas-de-variables-aleatorias"><i class="fa fa-check"></i><b>5.3.1</b> Sumas de variables aleatorias</a></li>
+<li class="chapter" data-level="5.3.2" data-path="grandes-muestras.html"><a href="grandes-muestras.html#definición-de-convergencia-en-ley"><i class="fa fa-check"></i><b>5.3.2</b> Definición de convergencia en ley</a></li>
+<li class="chapter" data-level="5.3.3" data-path="grandes-muestras.html"><a href="grandes-muestras.html#enunciado-del-teorema-central-del-límite"><i class="fa fa-check"></i><b>5.3.3</b> Enunciado del teorema central del límite</a></li>
+<li class="chapter" data-level="5.3.4" data-path="grandes-muestras.html"><a href="grandes-muestras.html#aplicación-del-tcl-a-los-ejemplos"><i class="fa fa-check"></i><b>5.3.4</b> Aplicación del TCL a los ejemplos</a></li>
+<li class="chapter" data-level="5.3.5" data-path="grandes-muestras.html"><a href="grandes-muestras.html#casos-particulares-más-notables"><i class="fa fa-check"></i><b>5.3.5</b> Casos particulares más notables</a></li>
+<li class="chapter" data-level="5.3.6" data-path="grandes-muestras.html"><a href="grandes-muestras.html#interpretación-del-teorema-central-del-límite"><i class="fa fa-check"></i><b>5.3.6</b> Interpretación del teorema central del límite</a></li>
+<li class="chapter" data-level="5.3.7" data-path="grandes-muestras.html"><a href="grandes-muestras.html#aproximaciones-y-errores-numéricos"><i class="fa fa-check"></i><b>5.3.7</b> Aproximaciones y errores numéricos</a></li>
+<li class="chapter" data-level="5.3.8" data-path="grandes-muestras.html"><a href="grandes-muestras.html#acerca-de-las-variables-aproximadamente-normales"><i class="fa fa-check"></i><b>5.3.8</b> Acerca de las variables aproximadamente normales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html"><i class="fa fa-check"></i><b>6</b> Introducción a la inferencia estadística</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#inferencia-estadística"><i class="fa fa-check"></i><b>6.1</b> Inferencia estadística</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#problemas-de-inferencia-estadística"><i class="fa fa-check"></i><b>6.2</b> Problemas de inferencia estadística</a></li>
+<li class="chapter" data-level="6.3" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#distribución-de-la-población"><i class="fa fa-check"></i><b>6.3</b> Distribución de la población</a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#muestra-aleatoria-simple"><i class="fa fa-check"></i><b>6.4</b> Muestra aleatoria simple</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#definición"><i class="fa fa-check"></i><b>6.4.1</b> Definición</a></li>
+<li class="chapter" data-level="6.4.2" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#distribución-de-la-muestra"><i class="fa fa-check"></i><b>6.4.2</b> Distribución de la muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#estadísticos"><i class="fa fa-check"></i><b>6.5</b> Estadísticos</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#definición-1"><i class="fa fa-check"></i><b>6.5.1</b> Definición</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#distribución-en-el-muestreo-de-un-estadístico"><i class="fa fa-check"></i><b>6.6</b> Distribución en el muestreo de un estadístico</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#demostración"><i class="fa fa-check"></i><b>6.6.1</b> Demostración:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#la-distribución-empírica"><i class="fa fa-check"></i><b>6.7</b> La distribución empírica</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#definición-2"><i class="fa fa-check"></i><b>6.7.1</b> Definición</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#los-momentos-muestrales"><i class="fa fa-check"></i><b>6.8</b> Los momentos muestrales</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#definición-3"><i class="fa fa-check"></i><b>6.8.1</b> Definición</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#distribución-en-el-muestreo-de-los-momentos-muestrales"><i class="fa fa-check"></i><b>6.9</b> Distribución en el muestreo de los momentos muestrales</a></li>
+<li class="chapter" data-level="6.10" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#propiedades-asintóticas-de-los-momentos-muestrales"><i class="fa fa-check"></i><b>6.10</b> Propiedades asintóticas de los momentos muestrales</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#convergencia-de-los-momentos-muestrales"><i class="fa fa-check"></i><b>6.10.1</b> Convergencia de los momentos muestrales</a></li>
+<li class="chapter" data-level="6.10.2" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#distribución-asintótica"><i class="fa fa-check"></i><b>6.10.2</b> Distribución asintótica</a></li>
+</ul></li>
+<li class="chapter" data-level="6.11" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#muestreo-en-poblaciones-normales"><i class="fa fa-check"></i><b>6.11</b> Muestreo en poblaciones normales</a>
+<ul>
+<li class="chapter" data-level="6.11.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#la-distribución-chi-cuadrado"><i class="fa fa-check"></i><b>6.11.1</b> La distribución chi-cuadrado</a></li>
+<li class="chapter" data-level="6.11.2" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#distribución-t-de-student"><i class="fa fa-check"></i><b>6.11.2</b> Distribución <span class="math inline">\(t\)</span> de Student</a></li>
+<li class="chapter" data-level="6.11.3" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#la-distribución-f-de-fisher"><i class="fa fa-check"></i><b>6.11.3</b> La distribución <span class="math inline">\(F\)</span> de Fisher</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estimación-puntual.html"><a href="estimación-puntual.html"><i class="fa fa-check"></i><b>7</b> Estimación puntual</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#el-problema-de-la-estimación-puntual"><i class="fa fa-check"></i><b>7.1</b> El problema de la estimación puntual</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#criterios-de-optimalidad-de-estimadores.-el-riesgo"><i class="fa fa-check"></i><b>7.1.1</b> Criterios de optimalidad de estimadores. El Riesgo</a></li>
+<li class="chapter" data-level="7.1.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#el-error-cuadrático-medio"><i class="fa fa-check"></i><b>7.1.2</b> El error cuadrático medio</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#estudio-de-las-propiedades-deseables-de-los-estimadores"><i class="fa fa-check"></i><b>7.2</b> Estudio de las propiedades deseables de los estimadores</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#el-sesgo"><i class="fa fa-check"></i><b>7.2.1</b> El sesgo</a></li>
+<li class="chapter" data-level="7.2.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#consistencia"><i class="fa fa-check"></i><b>7.2.2</b> Consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#propiedades-de-los-estimadores-consistentes"><i class="fa fa-check"></i><b>7.3</b> Propiedades de los estimadores consistentes</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#eficiencia"><i class="fa fa-check"></i><b>7.3.1</b> Eficiencia</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="estimación-puntual.html"><a href="estimación-puntual.html#información-de-fisher-y-cota-de-cramerrao"><i class="fa fa-check"></i><b>7.4</b> Información de Fisher y cota de CramerRao</a></li>
+<li class="chapter" data-level="7.5" data-path="estimación-puntual.html"><a href="estimación-puntual.html#información-y-verosimilitud-de-un-modelo-estadístico"><i class="fa fa-check"></i><b>7.5</b> Información y verosimilitud de un modelo estadístico</a></li>
+<li class="chapter" data-level="7.6" data-path="estimación-puntual.html"><a href="estimación-puntual.html#información-de-fisher"><i class="fa fa-check"></i><b>7.6</b> Información de Fisher</a></li>
+<li class="chapter" data-level="7.7" data-path="estimación-puntual.html"><a href="estimación-puntual.html#la-desigualdad-de-cramer-rao"><i class="fa fa-check"></i><b>7.7</b> La desigualdad de Cramer-Rao</a></li>
+<li class="chapter" data-level="7.8" data-path="estimación-puntual.html"><a href="estimación-puntual.html#caracterización-del-estimador-eficiente"><i class="fa fa-check"></i><b>7.8</b> Caracterización del estimador eficiente</a></li>
+<li class="chapter" data-level="7.9" data-path="estimación-puntual.html"><a href="estimación-puntual.html#estadísticos-suficientes"><i class="fa fa-check"></i><b>7.9</b> Estadísticos suficientes</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#definició-de-estadísticop-suficiente"><i class="fa fa-check"></i><b>7.9.1</b> Definició de estadísticop suficiente</a></li>
+<li class="chapter" data-level="7.9.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#teorema-de-factorización"><i class="fa fa-check"></i><b>7.9.2</b> Teorema de factorización</a></li>
+<li class="chapter" data-level="7.9.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#propiedades-de-los-estadísticos-suficientes"><i class="fa fa-check"></i><b>7.9.3</b> Propiedades de los estadísticos suficientes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html"><i class="fa fa-check"></i><b>8</b> MÉTODOS DE OBTENCIÓN DE ESTIMADORES</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html#el-método-de-los-momentos"><i class="fa fa-check"></i><b>8.1</b> El método de los momentos</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html#observaciones"><i class="fa fa-check"></i><b>8.1.1</b> Observaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html#el-método-del-máximo-de-verosimilitud"><i class="fa fa-check"></i><b>8.2</b> El método del máximo de verosimilitud</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html"><i class="fa fa-check"></i><b>9</b> Estimación puntual</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#preliminares-estimación-del-error-estándar-e-introducción-al-bootstrap"><i class="fa fa-check"></i><b>9.1</b> Preliminares: estimación del error estándar e Introducción al bootstrap</a></li>
+<li class="chapter" data-level="9.2" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#estimadores-por-intervalo-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.2</b> Estimadores por intervalo: intervalos de confianza</a></li>
+<li class="chapter" data-level="9.3" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-características-de-una-población-normal-media-varianza"><i class="fa fa-check"></i><b>9.3</b> Intervalos de confianza para características de una población normal (media, varianza),</a></li>
+<li class="chapter" data-level="9.4" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-bootstrap."><i class="fa fa-check"></i><b>9.4</b> Intervalos de confianza bootstrap.</a></li>
+<li class="chapter" data-level="9.5" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-proporciones-binomiales"><i class="fa fa-check"></i><b>9.5</b> Intervalos de confianza para proporciones binomiales</a></li>
+<li class="chapter" data-level="9.6" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-parámetros-en-muestra-grandes-y-para-casos-generales-tasas-or"><i class="fa fa-check"></i><b>9.6</b> Intervalos de confianza para parámetros en muestra grandes y para casos generales (tasas, OR, …)</a></li>
+<li class="chapter" data-level="9.7" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#aplicaciones-cálculo-del-tamaño-muestral"><i class="fa fa-check"></i><b>9.7</b> Aplicaciones: cálculo del tamaño muestral</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>10</b> Pruebas de hipótesis</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#conceptos-básicos-pruebas-de-hipótesis-y-de-significación-pruebas-unilaterales-y-bilaterales-tipos-de-error-valores-críticos-de-test-y-p-valores"><i class="fa fa-check"></i><b>10.1</b> Conceptos básicos: pruebas de hipótesis y de significación, pruebas unilaterales y bilaterales, tipos de error, valores críticos de test y p-valores</a></li>
+<li class="chapter" data-level="10.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#potencia-de-un-test.-cálculos-de-potencia-y-de-tamaño-de-la-muestra.-tamaño-del-efecto."><i class="fa fa-check"></i><b>10.2</b> Potencia de un test. Cálculos de potencia y de tamaño de la muestra. Tamaño del efecto.</a></li>
+<li class="chapter" data-level="10.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#métodos-de-construcción-de-tests."><i class="fa fa-check"></i><b>10.3</b> Métodos de construcción de tests.</a></li>
+<li class="chapter" data-level="10.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#problemas-asociados-al-uso-de-tests-estadísticos.-la-crisis-de-la-significación"><i class="fa fa-check"></i><b>10.4</b> Problemas asociados al uso de tests estadísticos. La crisis de la significación</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html"><i class="fa fa-check"></i><b>11</b> Inferencia Aplicada</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-normalidad.pruebas-gráficas.-el-test-de-shapiro-wilks"><i class="fa fa-check"></i><b>11.1</b> Pruebas de normalidad.Pruebas gráficas. El test de Shapiro-Wilks</a></li>
+<li class="chapter" data-level="11.2" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-hipótesis-para-constrastar-variables-cuantitativas-pruebas-paramètricas-t-test-y-anova"><i class="fa fa-check"></i><b>11.2</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas paramètricas t-test y Anova</a></li>
+<li class="chapter" data-level="11.3" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-hipótesis-para-constrastar-variables-cuantitativas-pruebas-de-hipótesis-no-paramétricas-de-wilcoxon-y-kruskal-wallis"><i class="fa fa-check"></i><b>11.3</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas de hipótesis no paramétricas de Wilcoxon y Kruskal-Wallis</a></li>
+<li class="chapter" data-level="11.4" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#contrastes-para-datos-categóricos.-pruebas-binomiales-ji-cuadrado-y-test-de-fisher."><i class="fa fa-check"></i><b>11.4</b> Contrastes para datos categóricos. Pruebas binomiales, ji cuadrado y test de Fisher.</a></li>
+<li class="chapter" data-level="11.5" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#riesgo-relativo-y-razón-de-odds"><i class="fa fa-check"></i><b>11.5</b> Riesgo relativo y razón de «odds»</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html"><i class="fa fa-check"></i><b>12</b> Computación Intensiva y <em>Multiple Testing</em></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#tests-de-permutaciones-qué-cuándo-cómo"><i class="fa fa-check"></i><b>12.1</b> Tests de permutaciones; ¿Qué?, ¿Cuándo?, ¿Cómo?</a></li>
+<li class="chapter" data-level="12.2" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#el-bootstrap-en-contraste-de-hipótesis"><i class="fa fa-check"></i><b>12.2</b> El bootstrap en contraste de hipótesis</a></li>
+<li class="chapter" data-level="12.3" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#el-problema-de-las-comparaciones-múltiples"><i class="fa fa-check"></i><b>12.3</b> El problema de las comparaciones múltiples</a></li>
+<li class="chapter" data-level="12.4" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#métodos-de-control-de-error-fwer-y-fdr"><i class="fa fa-check"></i><b>12.4</b> Métodos de control de error: FWER y FDR</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fundamentos de Inferencia Estadistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estimación-puntual" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Capítulo 7</span> Estimación puntual<a href="estimación-puntual.html#estimación-puntual" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="el-problema-de-la-estimación-puntual" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> El problema de la estimación puntual<a href="estimación-puntual.html#el-problema-de-la-estimación-puntual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Informalmente, la estimación de parámetros consiste en buscar aproximaciones a los valores de estos, calculables a partir de una muestra, que sean lo más precisas posible. El problema, claro, es que para medir cuán precisas son estas aproximaciones sería necesario conocer los valores de los parámetros y, como estos son siempre desconocidos, debemos basarnos en el uso de estimadores con buenas propiedades que, en algún sentido, nos garanticen esa proximidad.
+Más formalmente podemos plantear el problema de la siguiente manera:
+Sea <span class="math inline">\(X\)</span> una v.a. con distribución <span class="math inline">\(F_{\theta}\)</span> donde <span class="math inline">\(\theta=\left(\theta_{1}, \ldots, \theta_{k}\right) \in \Theta \subset \mathbb{R}^{k}\)</span> y sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una muestra de <span class="math inline">\(n\)</span> v.a. de <span class="math inline">\(X\)</span>. El problema de la estimación puntual consiste en obtener alguna aproximación de <span class="math inline">\(\theta\)</span> en base a la información disponible en la muestra mediante un estimador de <span class="math inline">\(\theta\)</span> que definimos a continuación.
+Definició 2.1 Sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una muestra aleatoria simple de <span class="math inline">\(X\)</span> con distribución <span class="math inline">\(F_{\theta}\)</span> donde <span class="math inline">\(\theta \in \Theta \subset \mathbb{R}^{k}\)</span>. Un estadístico <span class="math inline">\(T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\)</span> se denomina un estimador puntual de <span class="math inline">\(\theta\)</span> si <span class="math inline">\(T\)</span> es una aplicación de <span class="math inline">\(\mathbb{R}^{n}\)</span> en <span class="math inline">\(\Theta\)</span>, es decir, si toma valores sobre el mismo conjunto que los parámetros.</p>
+<p>Ejemplo 2.1.1 Sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una muestra aleatoria simple de una v.a. de Poisson <span class="math inline">\(X \sim P(\lambda)\)</span>. Para estimar <span class="math inline">\(\lambda\)</span> podemos utilizar:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; T_{1}=\bar{X}=\frac{1}{n} \sum_{i=1}^{n} X_{i} \\
+&amp; T_{2}=s^{2}=\frac{1}{n} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}
+\end{aligned}
+\]</span></p>
+<p>ya que <span class="math inline">\(E(X)=\operatorname{var}(X)=\lambda\)</span>, pero también</p>
+<p><span class="math display">\[
+\begin{aligned}
+T_{3} &amp; =\frac{2}{n(n+1)} \sum_{i=1}^{n} X_{i} \cdot i \\
+T_{4} &amp; =X_{i}
+\end{aligned}
+\]</span></p>
+<p>Ejemplo 2.1.2 Sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una m.a.s. de <span class="math inline">\(X \sim B(1, p)\)</span>, con <span class="math inline">\(p\)</span> desconocido. Podemos estimar p de las siguientes maneras:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; T_{1}=\bar{X}=(1 / n) \sum_{i=1}^{n} X_{i} \\
+&amp; T_{2}=1 / 2 \\
+&amp; T_{3}=\left(X_{1}+X_{2}\right) / 2
+\end{aligned}
+\]</span></p>
+<p>En cada caso resulta claro que algunos estimadores no son muy razonables mientras que la decisión entre los otros no está necesariamente clara. Básicamente debemos ocuparnos de dos problemas:</p>
+<ul>
+<li>Dado un modelo estadístico <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span>, ¿cómo podemos obtener estimadores de <span class="math inline">\(\theta\)</span> que tengan “buenas” propiedades?</li>
+<li>Dado varios estimadores para un mismo parámetro ¿cómo podemos escoger el mejor en base a algún criterio?</li>
+</ul>
+<p>Para poder alcanzar estos dos objetivos empezaremos por estudiar las propiedades de los estimadores, así como las medidas de optimalidad que podremos utilizar para decidir entre varios estimadores.
+De entrada nos restringiremos al caso en que <span class="math inline">\(\Theta \subseteq \mathbb{R}\)</span> o en que queremos aproximar alguna función <span class="math inline">\(g(\theta)\)</span> de los parámetros donde <span class="math inline">\(g\)</span> es del tipo <span class="math inline">\(g: \Theta \rightarrow\)</span> <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<div id="criterios-de-optimalidad-de-estimadores.-el-riesgo" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Criterios de optimalidad de estimadores. El Riesgo<a href="estimación-puntual.html#criterios-de-optimalidad-de-estimadores.-el-riesgo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una forma de poder comparar entre diversos estimadores consiste en definir una función de pérdida que nos permita cuantificar de alguna manera la pérdida, o coste asociado, al estimar el valor real del parámetro, es decir, <span class="math inline">\(\theta\)</span>, mediante la aproximación que proporciona un estimador, es decir, <span class="math inline">\(t\)</span>.</p>
+<p>Definició 2.2 Una función de pérdida es una aplicación</p>
+<p><span class="math display">\[
+\begin{aligned}
+L: &amp; \Theta \times \Theta \rightarrow \mathbb{R} \\
+&amp; (\theta, t) \rightarrow L(\theta, t)
+\end{aligned}
+\]</span></p>
+<p>que verifica:
+a) <span class="math inline">\(L(\theta, t) \geq 0, \quad \forall \theta, t \in \Theta\)</span>
+b) <span class="math inline">\(L(\theta, t)=0\)</span>, si <span class="math inline">\(\theta=t\)</span>
+c) <span class="math inline">\(L(\theta, t) \leq L\left(\theta, t^{\prime}\right)\)</span>, si <span class="math inline">\(d(\theta, t) \leq d\left(\theta, t^{\prime}\right)\)</span> donde <span class="math inline">\(d\)</span> es una distancia en <span class="math inline">\(\Theta\)</span>.</p>
+<p>Por ejemplo, son funciones de pérdida:</p>
+<p><span class="math display">\[
+\begin{gathered}
+L_{1}(\theta, t)=|\theta-t| \quad L_{2}(\theta, t)=(\theta-t)^{2} \\
+L_{3}(\theta, t)=\left|\frac{\theta-t}{\theta}\right| \quad L_{4}(\theta, t)=\left(\frac{\theta-t}{\theta}\right)^{2} \\
+L_{5}(\theta, t)= \begin{cases}c&gt;0 &amp; \text { si }|\theta-t|&gt;\epsilon \\
+0 &amp; \text { si }|\theta-t| \leq \epsilon\end{cases}
+\end{gathered}
+\]</span></p>
+<!-- Los valores que toma la función de pérdida dependen de los valores del estimador y de los del parámetro. Para una muestra dada podemos conocer el valor que toma el estimador, pero no el valor del parámetro. Una posibilidad que nos permitirá comparar los posibles estimadores, para un valor dado del parámetro, consiste en promediar los diferentes valores de $L(\theta, t)$ sobre todos los posibles valores de $T$. A este promedio lo llamamos el riesgo del estimador $T$ asociado a cada valor posible $\theta$ del parámetro y lo escribimos $R_{T}(\theta)$. -->
+<!-- Definició 2.3 Sea $H_{\theta}(t)$ la distribución en el muestreo de T, es decir -->
+<!-- $$ -->
+<!-- T\left(X_{1}, X_{2}, \ldots, X_{n}\right) \sim H_{\theta}(t)=P_{\theta}(T \leq t) -->
+<!-- $$ -->
+<!-- y $h_{\theta}(t)$ representa la función de densidad de probabilidad, si $H_{\theta}(t)$ es absolutamente continua, o $h_{\theta}\left(t_{i}\right)$ la función de masa de probabilidad si $H_{\theta}\left(t_{i}\right)$ es discreta. Entonces el riesgo del estimador $T$ para estimar $\theta$ se define como: -->
+<!-- $$ -->
+<!-- \begin{aligned} -->
+<!-- R_{T}(\theta) & =E_{\theta}\left[L\left(\theta, T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\right)\right]=\int_{\mathbb{R}} L(\theta, t) d H_{\theta}(t) \\ -->
+<!-- & = \begin{cases}\int_{-\infty}^{+\infty} L(\theta, t) h_{\theta}(t) d t & \text { si } H_{\theta}(t) \text { es absolutamente continua, } \\ -->
+<!-- \sum_{\forall t_{i}} L(\theta, t) h_{\theta}\left(t_{i}\right) & \text { si } H_{\theta}(t) \text { es discreta }\end{cases} -->
+<!-- \end{aligned} -->
+<!-- $$ -->
+<!-- El riesgo permite comparar dos estimadores. -->
+<!-- Definició 2.4 Diremos que un estimador $T_{1}$ es preferible a otro $T_{2}$ si: -->
+<!-- $$ -->
+<!-- \begin{aligned} -->
+<!-- & R_{T_{1}}(\theta) \leq R_{T_{2}}(\theta), \forall \theta \in \Theta, y \\ -->
+<!-- & R_{T_{1}}(\theta)<R_{T_{2}}(\theta), \text { para algún } \theta \in \Theta . -->
+<!-- \end{aligned} -->
+<!-- $$ -->
+<!-- Ejemplo 2.1.3 Sea $X_{1}, X_{2}, \ldots, X_{n}$ una muestra aleatoria simple de una distribución uniforme $X \sim U(0, \theta)$. El parámetro que nos interesa estimar es $\theta$, el máximo de la distribución. Un estimador razonable puede ser: -->
+<!-- $$ -->
+<!-- T_{1}\left(X_{1}, X_{2}, \ldots, X_{n}\right)=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\} -->
+<!-- $$ -->
+<!-- el máximo de la muestra, o un múltiplo de este: -->
+<!-- $$ -->
+<!-- T_{k}\left(X_{1}, X_{2}, \ldots, X_{n}\right)=k T_{1}\left(X_{1}, X_{2}, \ldots, X_{n}\right) -->
+<!-- $$ -->
+<!-- La distribución en el muestreo de $T_{1}\left(X_{1}, X_{2}, \ldots, X_{n}\right)$ es -->
+<!-- $$ -->
+<!-- \begin{aligned} -->
+<!-- H_{\theta}(t) & =P_{\theta}\left[T_{1} \leq t\right]=P_{\theta}\left[\max _{1 \leq i \leq n}\left\{X_{i}\right\} \leq t\right] \\ -->
+<!-- & =P_{\theta}\left[\left(X_{1} \leq t\right) \cap \cdots \cap\left(X_{n} \leq t\right)\right]=\prod_{i=1}^{n} P_{\theta}\left[X_{i} \leq t\right]=\left(\frac{t}{\theta}\right)^{n} -->
+<!-- \end{aligned} -->
+<!-- $$ -->
+<!-- si $t \in(0, \theta)$, y su función de densidad es -->
+<!-- $$ -->
+<!-- h_{\theta}(t)=H_{\theta}^{\prime}(t)=\frac{n}{\theta}\left(\frac{t}{\theta}\right)^{n-1} -->
+<!-- $$ -->
+<!-- La esperanza de $T_{1}$ vale: -->
+<!-- $$ -->
+<!-- E_{\theta}\left(T_{1}\right)=\int_{0}^{\theta} t \cdot\left[\frac{n}{\theta}\left(\frac{t}{\theta}\right)^{n-1}\right] d t=\left.\frac{n}{\theta^{n}} \frac{t^{n+1}}{n+1}\right|_{0} ^{\theta}=\frac{n}{n+1} \theta -->
+<!-- $$ -->
+<!-- y el momento de segundo orden -->
+<!-- $$ -->
+<!-- E_{\theta}\left(T_{1}^{2}\right)=\int_{0}^{\theta} t^{2} \cdot\left[\frac{n}{\theta}\left(\frac{t}{\theta}\right)^{n-1}\right] d t=\frac{n}{n+2} \theta^{2} -->
+<!-- $$ -->
+<!-- Si ahora fijamos una función de pérdida podemos comparar los dos estimadores. Tomamos como función de pérdida el error relativo en la estimación al cuadrado: -->
+<!-- $$ -->
+<!-- L_{4}(\theta, t)=\frac{(\theta-t)^{2}}{\theta^{2}} -->
+<!-- $$ -->
+<!-- El riesgo de $T_{k}$ para estimar $\theta$ será -->
+<!-- $$ -->
+<!-- \begin{aligned} -->
+<!-- R_{T_{k}}(\theta) & =E_{\theta}\left[\frac{\left(\theta-T_{k}\right)^{2}}{\theta^{2}}\right]=E_{\theta}\left[1-\frac{2}{\theta} T_{k}+\frac{1}{\theta^{2}} T_{k}^{2}\right] \\ -->
+<!-- & =1-\frac{2}{\theta} E_{\theta} T_{k}+\frac{1}{\theta^{2}} E_{\theta} T_{k}^{2}=1-\frac{2 n}{n+1} k+\frac{n}{n+2} k^{2} -->
+<!-- \end{aligned} -->
+<!-- $$ -->
+<!-- Vemos que el riesgo es una función que depende de $k$ y que, como es una parábola $a k^{2}+b k+c$, con $a=n /(n+2), b=-2 n /(n+1)$ y $c=1$, alcanza un mínimo absoluto en el punto de abscisa -->
+<!-- $$ -->
+<!-- -\frac{b}{2 a}=\frac{n+2}{n+1} -->
+<!-- $$ -->
+<!-- Por lo tanto, entre los múltiplos de $T_{1}$, el mejor estimador en el sentido de la función de pérdida elegida $L_{4}(\theta, t)=(\theta-t)^{2} / \theta^{2}$ es -->
+<!-- $$ -->
+<!-- \frac{n+2}{n+1} \max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\} -->
+<!-- $$ -->
+<!-- El ejemplo anterior es atípico, pues un solo estimador minimiza el riesgo para todos los valores de $\theta$, ya que el riesgo obtenido no depende de $\theta$. A menudo nos encontraremos con que los estimadores no son comparables, ya que el riesgo de uno es inferior al del otro para algunos valores del parámetro, mientras que la situación se invierte para otros valores. Esto hace que este criterio sea limitado, en el sentido de que no es un criterio generalmente bueno para encontrar un estimador óptimo sino para hacer una comparación puntual entre dos estimadores. -->
+</div>
+<div id="el-error-cuadrático-medio" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> El error cuadrático medio<a href="estimación-puntual.html#el-error-cuadrático-medio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una de las funciones de pérdida más usuales es la función de pérdida cuadrática <span class="math inline">\(L_{2}(\theta, t)=(\theta-t)^{2}\)</span>. Uno de los motivos de su uso es que el riesgo asociado a esta función de pérdida <span class="math inline">\(E_{\theta}\left[(\theta-T)^{2}\right]\)</span>, que llamamos error cuadrático medio <span class="math inline">\(E Q M_{T}\)</span>, representa una medida de la variabilidad del estimador <span class="math inline">\(T\)</span> en torno a <span class="math inline">\(\theta\)</span> semejante a la medida de dispersión en torno a la media que representa la varianza.
+Además, del desarrollo de esta expresión se obtiene un interesante resultado que muestra cuáles pueden ser las propiedades más interesantes para un estimador.
+Sea <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span> y sea <span class="math inline">\(T\)</span> un estimador de <span class="math inline">\(\theta\)</span>. El error cuadrático medio de <span class="math inline">\(T\)</span> para estimar <span class="math inline">\(\theta\)</span> vale</p>
+<p><span class="math display">\[
+E Q M_{T}(\theta)=E_{\theta}\left[(\theta-T)^{2}\right]=E\left[\theta^{2}-2 \theta T+T^{2}\right]=\theta^{2}-2 \theta E_{\theta}(T)+E_{\theta}\left(T^{2}\right)
+\]</span></p>
+<p>Ahora, sumando y restando <span class="math inline">\(\left(E_{\theta}(T)\right)^{2}\)</span>, obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+E Q M_{T}(\theta) &amp; =E_{\theta}\left(T^{2}\right)-\left(E_{\theta}(T)\right)^{2}+\left(E_{\theta}(T)\right)^{2}+\theta^{2}-2 \theta E_{\theta}(T)= \\
+&amp; =\operatorname{var}(T)+\left(E_{\theta}(T)-\theta\right)^{2}
+\end{aligned}
+\]</span></p>
+<p>El término <span class="math inline">\(\left(E_{\theta}(T)-\theta\right)^{2}\)</span> es el cuadrado del sesgo de <span class="math inline">\(T\)</span>, que se define como</p>
+<p><span class="math display">\[
+b_{\theta}(T)=E_{\theta}(T)-\theta
+\]</span></p>
+<p>Definició 2.5 El error cuadrático medio <span class="math inline">\(E Q M_{T}(\theta)\)</span>, o simplemente <span class="math inline">\(E Q M\)</span>, de un estimador <span class="math inline">\(T\)</span> para estimar el parámetro <span class="math inline">\(\theta\)</span> es la suma de su varianza más el cuadrado de la diferencia entre su valor medio y el verdadero valor del parámetro, que llamamos sesgo.</p>
+<p>Si en la búsqueda de estimadores de mínimo riesgo nos basamos en la función de pérdida cuadrática, parece que los estimadores más deseables deberían ser aquellos en los que la varianza y el sesgo sean lo más pequeños posibles. Idealmente, quisiéramos reducir ambas cantidades a la vez. En la práctica, sin embargo, observamos que, en general, no suele ser posible reducir simultáneamente la varianza y el sesgo. Además, incluso si fuera práctico calcular el <span class="math inline">\(E Q M\)</span> para cada estimador, encontraríamos que, para la mayoría de las familias de probabilidad <span class="math inline">\(P_{\theta}\)</span>, no existiría ningún estimador que minimizase el <span class="math inline">\(E Q M\)</span> para todos los valores de <span class="math inline">\(\theta\)</span>. Es decir, que un estimador puede tener un <span class="math inline">\(E Q M\)</span> mínimo para algunos valores de <span class="math inline">\(\theta\)</span>, mientras que otro lo tendrá en otros valores de <span class="math inline">\(\theta\)</span>.</p>
+<p>Ejemplo 2.1.4 Sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una muestra aleatoria simple de <span class="math inline">\(X \sim\)</span> <span class="math inline">\(N(\mu, \sigma)\)</span>, donde suponemos <span class="math inline">\(\sigma\)</span> conocida, y sean</p>
+<p><span class="math display">\[
+T_{1}=\bar{X} \quad T_{2}=\frac{\sum_{i=1}^{n} X_{i}}{n+1}
+\]</span></p>
+<p>Calculando la media y la varianza de los estimadores, tenemos</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+E_{\mu}\left(T_{1}\right)=\mu &amp; \Rightarrow b_{T_{1}}(\mu)=0 &amp; \operatorname{var}_{\mu}\left(T_{1}\right)=\frac{\sigma^{2}}{n} \\
+E_{\mu}\left(T_{2}\right)=\frac{n}{n+1} \mu &amp; \Rightarrow b_{T_{2}}(\mu)=\frac{-1}{n+1} \mu &amp; \operatorname{var}_{\mu}\left(T_{2}\right)=\frac{n}{(n+1)^{2}} \sigma^{2}
+\end{array}
+\]</span></p>
+<p>de donde</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; E Q M_{\mu}\left(T_{1}\right)=\operatorname{var}\left(T_{1}\right)=\frac{\sigma^{2}}{n} \\
+&amp; E Q M_{\mu}\left(T_{2}\right)=\frac{1}{(n+1)^{2}} \mu^{2}+\frac{n}{(n+1)^{2}} \sigma^{2}
+\end{aligned}
+\]</span></p>
+<p>que son respectivamente una recta y una parábola. De manera que para algunos valores de <span class="math inline">\(\mu\)</span> tenemos que <span class="math inline">\(E Q M_{\mu}\left(T_{1}\right)&lt;E Q M_{\mu}\left(T_{2}\right)\)</span> y para otros, al revés. La figura 2.1 muestra esta diferencia.</p>
+<p>Ejemplo 2.1.5 Un ejemplo trivial bastante interesante es el siguiente. Para estimar un parámetro <span class="math inline">\(\theta\)</span>, el estimador que consiste en un valor fijo <span class="math inline">\(\theta_{0}\)</span>, tiene riesgo 0 en <span class="math inline">\(\theta=\theta_{0}\)</span>. Sin embargo, el riesgo aumenta considerablemente al alejarnos del valor real de <span class="math inline">\(\theta\)</span>. Por lo tanto, no resulta un estimador razonable, aunque su riesgo pueda ser mínimo para algún (único) valor de <span class="math inline">\(\theta\)</span>.</p>
+<p>Figura 2.1: Comparación del riesgo de dos estimadores</p>
+<p>Los ejemplos anteriores nos muestran que los criterios de preferencia entre estimadores basados en el riesgo o en el <span class="math inline">\(E Q M\)</span> no son de gran utilidad general ya que muchos estimadores pueden ser incomparables. Ante este hecho nos planteamos si es posible completar el criterio de minimizar el riesgo mediante alguna propiedad o criterio adicional. Las posibles soluciones obtenidas a esta cuestión siguen dos vías:</p>
+<ol style="list-style-type: decimal">
+<li>Restringir la clase de estimadores considerados a aquellos que cumplan alguna propiedad adicional de interés, eliminando estimadores indeseables para que el criterio de minimizar el riesgo permita seleccionar uno preferible a los demás. Este criterio lleva a considerar las propiedades deseables de los estimadores como falta de sesgo, consistencia, eficiencia y analizar cómo combinarlas con el criterio de mínimo riesgo. Este proceso culmina con el estudio de los Estimadores Sin Sesgo Uniformemente de Mínima Varianza (ESUMV).</li>
+<li>Reforzar el criterio de preferencia de estimadores mediante la reducción de toda la función de riesgo <span class="math inline">\(R_{T}(\theta)\)</span> a un único valor representativo que permita ordenar linealmente todos los estimadores. Este criterio nos lleva a los Estimadores Bayes y a los Estimadores Minimax.</li>
+</ol>
+</div>
+</div>
+<div id="estudio-de-las-propiedades-deseables-de-los-estimadores" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Estudio de las propiedades deseables de los estimadores<a href="estimación-puntual.html#estudio-de-las-propiedades-deseables-de-los-estimadores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="el-sesgo" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> El sesgo<a href="estimación-puntual.html#el-sesgo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos que tenemos un modelo estadístico <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span> y un estimador <span class="math inline">\(T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\)</span> de una función medible <span class="math inline">\(g(\theta)\)</span> del parámetro. Una forma razonable de valorar qué tan próximos son los valores de <span class="math inline">\(T\)</span> a los de <span class="math inline">\(g(\theta)\)</span> es ver si, en promedio, los valores de <span class="math inline">\(T\)</span> coinciden con el valor medio de <span class="math inline">\(g(\theta)\)</span>.</p>
+<p>Definició 2.6 Bajo las condiciones mencionadas, si <span class="math inline">\(E_{\theta}(T)\)</span> es la esperanza de <span class="math inline">\(T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\)</span> y <span class="math inline">\(g(\theta)\)</span> es una función del parámetro (en particular la identidad), la diferencia</p>
+<p><span class="math display">\[
+b_{T}(\theta)=b_{T}(\theta)=E_{\theta}(T)-g(\theta)
+\]</span></p>
+<p>se denomina sesgo del estimador <span class="math inline">\(T\)</span> para estimar <span class="math inline">\(g(\theta)\)</span>. Si el sesgo es nulo, es decir, si:</p>
+<p><span class="math display">\[
+E_{\theta}(T)=g(\theta), \quad \forall \theta \in \Theta
+\]</span></p>
+<p>diremos que <span class="math inline">\(T\)</span> es un estimador insesgado de <span class="math inline">\(g(\theta)\)</span>.
+Ejemplo 2.2.1 Los dos ejemplos más conocidos son el de la media y la varianza muestrales.</p>
+<ul>
+<li>La media muestral es un estimador insesgado de <span class="math inline">\(\mu\)</span>.</li>
+<li>La varianza muestral es un estimador con sesgo de la varianza poblacional. En concreto, su sesgo vale:</li>
+</ul>
+<p><span class="math display">\[
+b_{s^{2}}\left(\sigma^{2}\right)=E_{\sigma^{2}}\left(s^{2}\right)-\sigma^{2}=\frac{n-1}{n} \sigma^{2}-\sigma^{2}=\frac{-1}{n} \sigma^{2}
+\]</span></p>
+<p>El uso de estimadores insesgados es conveniente en muestras de tamaño grande. En estas, <span class="math inline">\(\operatorname{var}_{\theta}(T)\)</span> es a menudo pequeña y entonces, como <span class="math inline">\(E_{\theta}(T)=\)</span> <span class="math inline">\(g(\theta)+b_{T}(\theta)\)</span>, es muy probable obtener estimaciones centradas en este valor en lugar de en el entorno de <span class="math inline">\(g(\theta)\)</span>.</p>
+<p>Ejemplo 2.2.2 Sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una muestra aleatoria simple de <span class="math inline">\(X \sim\)</span> <span class="math inline">\(U(0, \theta)\)</span>. Tomemos <span class="math inline">\(T=\max \left\{X_{1}, X_{2}, \ldots, X_{n}\right\}\)</span> como el estimador del máximo de la distribución. Obviamente podemos decir que <span class="math inline">\(T&lt;\theta\)</span> y, por lo tanto,
+la estimación siempre está sesgada. Como hemos visto en el ejemplo ??, la distribución en el muestreo de <span class="math inline">\(T\)</span> es</p>
+<p><span class="math display">\[
+H_{\theta}(t)=P_{\theta}[T \leq t]=\left(\frac{t}{\theta}\right)^{n}
+\]</span></p>
+<p>y su función de densidad es</p>
+<p><span class="math display">\[
+f_{\theta}(\theta)=H_{\theta}^{\prime}(\theta)=\frac{n}{\theta}\left(\frac{t}{\theta}\right)^{n-1}
+\]</span></p>
+<p>Su esperanza (ver ejemplo ??) vale</p>
+<p><span class="math display">\[
+E_{\theta}(T)=\int_{0}^{\theta} t \cdot\left[\frac{n}{\theta}\left(\frac{t}{\theta}\right)^{n-1}\right] d t=\frac{n}{n+1} \theta
+\]</span></p>
+<p>de donde el sesgo de <span class="math inline">\(T\)</span> para estimar <span class="math inline">\(\theta\)</span> es</p>
+<p><span class="math display">\[
+b_{T}(\theta)=\frac{n}{n+1} \theta-\theta=-\frac{1}{n+1} \theta
+\]</span></p>
+<p>Podemos preguntarnos si podríamos mejorar este estimador corrigiendo el sesgo de forma análoga a lo que hacíamos con <span class="math inline">\(\hat{s}^{2}\)</span>, es decir, tomando un estimador corregido para el sesgo</p>
+<p><span class="math display">\[
+T^{\prime}=\frac{n+1}{n} T \text { que, por construcción, verifica: } E\left(T^{\prime}\right)=\theta \text {. }
+\]</span></p>
+<p>Consideremos el estimador de mínimo riesgo en el sentido del error cuadrático medio, es decir, el estimador que minimiza <span class="math inline">\(E\left[(\theta-T)^{2}\right]\)</span>. De hecho, como hemos visto en el ejemplo ??, conviene elegir el que minimice <span class="math inline">\(E\left[(\theta-T)^{2} / \theta^{2}\right]\)</span>, porque también minimiza el EQM, pero alcanza un mínimo absoluto. Este estimador es</p>
+<p><span class="math display">\[
+T^{\prime \prime}=\frac{n+2}{n+1} T
+\]</span></p>
+<p>y, por tanto, es más adecuado que <span class="math inline">\(T^{\prime}\)</span>, ya que tiene un menor riesgo respecto al error cuadrático medio.
+Cuando, como aquí, nos encontramos con que dado un estimador podemos encontrar otro de menor riesgo, decimos que el primero no es admisible respecto de la función de pérdida. En este caso decimos que <span class="math inline">\(T^{\prime}\)</span> no es admisible respecto al EQM. ¡Cuidado! Esto no significa que no podamos usarlo, sino que existe otro con menor riesgo, ya que existe otro <span class="math inline">\(T^{\prime \prime}\)</span> preferible a él que, por cierto, no es centrado. Efectivamente</p>
+<p><span class="math display">\[
+E_{\theta}\left(T^{\prime \prime}\right)=\frac{n+2}{n+1} E_{\theta}(T)=\frac{(n+2) n}{(n+1)^{2}} \theta
+\]</span></p>
+<p>El ejemplo anterior muestra que, debido a la descomposición <span class="math inline">\(E Q M_{T}(\theta)=\)</span> <span class="math inline">\(\operatorname{var}_{\theta}(T)+b_{T}^{2}(\theta)\)</span>, puede ser preferible un estimador con sesgo a otro que no lo tenga.
+En general, sin embargo, eliminar el sesgo no es una mala estrategia, sobre todo porque al restringirnos a la clase de los estimadores insesgados obtenemos una solución constructiva que permitirá obtener estimadores insesgados de mínima varianza en condiciones bastante generales.
+Los siguientes ejemplos ilustran dos propiedades interesantes del sesgo. Por un lado, muestran que no siempre existe un estimador insesgado. Por otro lado, vemos cómo a veces, incluso teniendo un estimador insesgado para un parámetro <span class="math inline">\(E_{\theta}(T)=\theta\)</span>, una función <span class="math inline">\(g(T)\)</span> no es necesariamente un estimador insesgado de <span class="math inline">\(g(\theta)\)</span>.</p>
+<p>Ejemplo 2.2.3 Consideremos una variable <span class="math inline">\(X\)</span> con distribución de Bernoulli <span class="math inline">\(B(1, p)\)</span>. Supongamos que deseamos estimar <span class="math inline">\(g(p)=p^{2}\)</span> con una única observación. Para que un estimador <span class="math inline">\(T\)</span> no tenga sesgo para estimar <span class="math inline">\(p^{2}\)</span> sería necesario que</p>
+<p><span class="math display">\[
+p^{2}=E_{p}(T)=p \cdot T(1)+(1-p) \cdot T(0), \quad 0 \leq p \leq 1
+\]</span></p>
+<p>es decir, para cualquier valor de <span class="math inline">\(p \in[0,1]\)</span> se debería verificar</p>
+<p><span class="math display">\[
+p^{2}=p \cdot(T(1)-T(0))+T(0)
+\]</span></p>
+<p>Esto claramente no es posible, ya que la única forma en que una función lineal y una función parabólica coincidan en todo el intervalo <span class="math inline">\([0,1]\)</span> es cuando los coeficientes <span class="math inline">\(T(0)\)</span> y <span class="math inline">\(T(1)\)</span> valen cero.</p>
+<p>Ejemplo 2.2.4 El parámetro <span class="math inline">\(\alpha\)</span> de una ley exponencial con función de densidad</p>
+<p><span class="math display">\[
+f(x)=\alpha e^{-\alpha x} \mathbf{1}_{(0, \infty)}(x)
+\]</span></p>
+<p>es el inverso de la media de la distribución, es decir, <span class="math inline">\(\alpha=1 / E(X)\)</span>.
+Un estimador razonable de <span class="math inline">\(\alpha=g(\mu)\)</span> puede ser <span class="math inline">\(\hat{\alpha}=g(\hat{\mu})\)</span>, es decir, <span class="math inline">\(\hat{\alpha}=\)</span> <span class="math inline">\(1 / \bar{X}\)</span>. Si aplicamos la propiedad de que la suma de variables aleatorias i.i.d. exponenciales sigue una ley gamma de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(\alpha\)</span>, se obtiene que este estimador tiene sesgo. Su esperanza es</p>
+<p><span class="math display">\[
+E(\hat{\alpha})=\frac{n}{n-1} \alpha
+\]</span></p>
+<p>El sesgo se corrige simplemente con</p>
+<p><span class="math display">\[
+\hat{\alpha}^{\prime}=\frac{n-1}{n} \hat{\alpha}
+\]</span></p>
+</div>
+<div id="consistencia" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Consistencia<a href="estimación-puntual.html#consistencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La consistencia de un estimador es una propiedad bastante intuitiva que indica, de manera informal, que cuando aumenta el tamaño muestral, el valor del estimador se aproxima cada vez más al verdadero valor del parámetro.</p>
+<p>Definició 2.7 Sea <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}, \ldots\)</span> una sucesión de variables aleatorias i.i.d. <span class="math inline">\(X \sim F_{\theta}, \theta \in \Theta\)</span>. Una sucesión de estimadores puntuales <span class="math inline">\(T_{n}=\)</span> <span class="math inline">\(T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\)</span> se denomina consistente para <span class="math inline">\(g(\theta)\)</span> si</p>
+<p><span class="math display">\[
+T_{n} \xrightarrow[n \rightarrow \infty]{P} g(\theta)
+\]</span></p>
+<p>para cada <span class="math inline">\(\theta \in \Theta\)</span>, es decir, si</p>
+<p><span class="math display">\[
+\forall \varepsilon&gt;0 \quad \lim _{n \rightarrow \infty} P\left\{\left|T_{n}-g(\theta)\right|&gt;\varepsilon\right\}=0
+\]</span></p>
+<p>Observemos que:</p>
+<ol style="list-style-type: decimal">
+<li>Se trata de un concepto asintótico: Hablamos de ?sucesiones de estimadores consistentes? más que de estimadores propiamente dichos.</li>
+<li>La definición puede reforzarse si, en lugar de considerar convergencia en probabilidad (consistencia débil), consideramos convergencia casi segura o en media cuadrática:</li>
+</ol>
+<ul>
+<li><span class="math inline">\(T_{n}\)</span> es fuertemente consistente si <span class="math inline">\(T_{n} \xrightarrow{\text { c.s. }} g(\theta)\)</span></li>
+<li><span class="math inline">\(T_{n}\)</span> es consistente en media- <span class="math inline">\(r\)</span> si <span class="math inline">\(E_{\theta}\left[\left|T_{n}-g(\theta)\right|^{r}\right] \longrightarrow 0\)</span></li>
+</ul>
+<p>Ejemplo 2.2.5 Muchos estimadores consistentes lo son como consecuencia de las leyes de los grandes números. Recordemos que la Ley débil de los Grandes Números (Tchebychev) afirma que, dada una sucesión de v.a. independientes e idénticamente distribuidas con medias <span class="math inline">\(\mu&lt;\infty\)</span> y varianzas <span class="math inline">\(\sigma^{2}&lt;\infty\)</span>, entonces</p>
+<p><span class="math display">\[
+\bar{X}_{n} \xrightarrow{P} \mu
+\]</span></p>
+<p>Como consecuencia de esta ley y dado que una muestra aleatoria simple es i.i.d., por definición, podemos afirmar que <span class="math inline">\(\bar{X}_{n}\)</span> es consistente para estimar <span class="math inline">\(\mu\)</span>.</p>
+<p>Ejemplo 2.2.6 La sucesión <span class="math inline">\(T_{n}=\max _{1 \leq i \leq n}\left\{X_{i}\right\}\)</span> es consistente para estimar el máximo de una distribución uniforme en <span class="math inline">\([0, \theta]\)</span> :</p>
+<p><span class="math display">\[
+P\left[\left|\max _{1 \leq i \leq n}\left\{X_{i}\right\}-\theta\right|&gt;\varepsilon\right]=P\left[\theta-\max _{1 \leq i \leq n}\left\{X_{i}\right\}&gt;\varepsilon\right]
+\]</span></p>
+<p>ya que <span class="math inline">\(X_{i} \in[0, \theta] y\)</span>, por lo tanto, podemos escribir:</p>
+<p><span class="math display">\[
+\begin{aligned}
+P\left[\theta-\varepsilon&gt;\max _{1 \leq i \leq n}\left\{X_{i}\right\}\right] &amp; =P\left[\max _{1 \leq i \leq n}\left\{X_{i}\right\}&lt;\theta-\varepsilon\right] \\
+&amp; =\left(\frac{\theta-\varepsilon}{\theta}\right)^{n}=\left(1-\frac{\varepsilon}{\theta}\right)^{n} \underset{n \rightarrow \infty}{\longrightarrow} 0
+\end{aligned}
+\]</span></p>
+<p>Es inmediato comprobar que</p>
+<p><span class="math display">\[
+E\left[\left(\theta-T_{n}\right)^{2}\right]=\left(1-\frac{2 n}{n+1}+\frac{n}{n+2}\right) \theta^{2}
+\]</span></p>
+<p>que también tiende a cero cuando <span class="math inline">\(n \rightarrow \infty\)</span>, y por lo tanto <span class="math inline">\(T_{n}=\max _{1 \leq i \leq n}\left\{X_{i}\right\}\)</span> también es consistente en media cuadrática.</p>
+<p>Normalmente, cuando se habla de consistencia, se hace referencia a la convergencia en probabilidad, es decir, <span class="math inline">\(T_{n}\)</span> es consistente si <span class="math inline">\(\lim _{n \rightarrow \infty} P\left(\left|T_{n}-g(\theta)\right|&gt;\right.\)</span> <span class="math inline">\(\varepsilon)=0\)</span>. Si el estimador no tiene sesgo, estamos en la situación de aplicar la desigualdad de Tchebychev <span class="math inline">\({ }^{1}\)</span> :
+Si <span class="math inline">\(E\left(T_{n}\right)=g(\theta)\)</span>, entonces</p>
+<p><span class="math display">\[
+P\left(\left|T_{n}-g(\theta)\right|&gt;\varepsilon\right)=P\left(\left|T_{n}-E\left(T_{n}\right)\right|&gt;\varepsilon\right) \underset{\text { Tchebychev }}{\leq} \frac{\operatorname{var}\left(T_{n}\right)}{\varepsilon^{2}}
+\]</span></p>
+<p>Así, para intentar establecer la consistencia de <span class="math inline">\(T\)</span>, debemos probar que</p>
+<p><span class="math display">\[
+\frac{\operatorname{var}\left(T_{n}\right)}{\varepsilon^{2}} \underset{n \rightarrow \infty}{\longrightarrow} 0
+\]</span></p>
+<p>Ejemplo 2.2.7 Sea <span class="math inline">\(M_{n}=\sum_{i=1}^{n} a_{i} X_{i}\)</span> una combinación lineal de los valores de la muestra con coeficientes tales que <span class="math inline">\(\sum_{i=1}^{n} a_{i}=1\)</span> y algún <span class="math inline">\(a_{i}&gt;0\)</span>. ¿Es consistente <span class="math inline">\(M_{n}\)</span> para estimar <span class="math inline">\(E(X)\)</span> ?
+Comencemos por ver que <span class="math inline">\(M_{n}\)</span> no tiene sesgo</p>
+<p><span class="math display">\[
+\begin{aligned}
+E\left(M_{n}\right) &amp; =E\left(\sum_{i=1}^{n} a_{i} X_{i}\right)=\sum_{i=1}^{n} E\left(a_{i} X_{i}\right) \\
+&amp; =\sum_{i=1}^{n} a_{i} E\left(X_{i}\right) \stackrel{\text { i.i.d. }}{=} \sum_{i=1}^{n} a_{i} E(X)=E(X)
+\end{aligned}
+\]</span></p>
+<p>[^1]Calculemos la varianza</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{var}\left(M_{n}\right) &amp; =\operatorname{var}\left(\sum_{i=1}^{n} a_{i} X_{i}\right)=\sum_{i=1}^{n} \operatorname{var}\left(a_{i} X_{i}\right) \\
+&amp; =\sum_{i=1}^{n} a_{i}^{2} \operatorname{var}\left(X_{i}\right)=\operatorname{var}(X) \sum_{i=1}^{n} a_{i}^{2}
+\end{aligned}
+\]</span></p>
+<p>Si aplicamos ahora la desigualdad de Tchebychev tenemos:</p>
+<p><span class="math display">\[
+P\left(\left|M_{n}-\mu\right|&gt;\varepsilon\right) \leq \frac{\sigma^{2} \sum a_{i}^{2}}{\varepsilon^{2}}
+\]</span></p>
+<p>lo cual no tiene por qué tender a 0 cuando <span class="math inline">\(n \rightarrow \infty\)</span>, y por lo tanto no podemos afirmar que el estimador es consistente. Por ejemplo, si <span class="math inline">\(a_{1}=\frac{1}{2}, a_{2}=a_{3}=\)</span> <span class="math inline">\(\cdots=a_{n}=\frac{1}{2(n-1)}\)</span> tendremos que <span class="math inline">\(\lim _{n \rightarrow \infty} \sum a_{i}^{2}=\frac{1}{4}\)</span>.
+Observamos que el resultado obtenido no puede asegurar la consistencia de <span class="math inline">\(M_{n}\)</span> para cualquier familia de coeficientes <span class="math inline">\(a_{1}, \ldots, a_{n}\)</span>, aunque, obviamente, el estimador es consistente para alguno (caso <span class="math inline">\(a_{i}=1 / n\)</span> ).</p>
+</div>
+</div>
+<div id="propiedades-de-los-estimadores-consistentes" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Propiedades de los estimadores consistentes<a href="estimación-puntual.html#propiedades-de-los-estimadores-consistentes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Muchas de las propiedades de los estimadores son consecuencia directa de las propiedades de la convergencia en probabilidad, que se pueden revisar, por ejemplo, en Martin Pliego (1998a) capítulo 11.</p>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(T_{n}\)</span> es consistente para estimar <span class="math inline">\(\theta\)</span> y <span class="math inline">\(g: \mathbb{R} \rightarrow \mathbb{R}\)</span> es una función continua, entonces <span class="math inline">\(g\left(T_{n}\right)\)</span> es consistente para estimar <span class="math inline">\(g(\theta)\)</span>.</li>
+<li>Si <span class="math inline">\(T_{1 n}\)</span> y <span class="math inline">\(T_{2 n}\)</span> son consistentes para estimar <span class="math inline">\(\theta_{1}\)</span> y <span class="math inline">\(\theta_{2}\)</span> respectivamente, entonces
+<span class="math inline">\(a T_{1 n} \pm b T_{2 n}\)</span> es consistente para estimar <span class="math inline">\(a \theta_{1} \pm b \theta_{2}\)</span>
+<span class="math inline">\(T_{1 n} \cdot T_{2 n}\)</span> es consistente para estimar <span class="math inline">\(\theta_{1} \cdot \theta_{2}\)</span>
+<span class="math inline">\(T_{1 n} / T_{2 n}\)</span> es consistente para estimar <span class="math inline">\(\theta_{1} / \theta_{2}\)</span>, si <span class="math inline">\(\theta_{2} \neq 0\)</span>.</li>
+<li>Sea <span class="math inline">\(a_{r}=(1 / n) \sum X_{i}^{r}\)</span> el momento muestral de orden <span class="math inline">\(r\)</span>. Como se ha visto en el capítulo 1 , la esperanza de <span class="math inline">\(a_{r}\)</span> es</li>
+</ol>
+<p><span class="math display">\[
+E\left(a_{r}\right)=E\left[\frac{1}{n} \sum X_{i}^{r}\right]=\frac{1}{n} \sum E\left(X^{r}\right)=\frac{1}{n} n \alpha_{r}=\alpha_{r}
+\]</span></p>
+<p>donde <span class="math inline">\(\alpha_{r}\)</span> es el momento poblacional de orden <span class="math inline">\(r\)</span>. Así pues, <span class="math inline">\(a_{r}\)</span> no tiene sesgo para estimar <span class="math inline">\(\alpha_{r}\)</span>. Su varianza es</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{var}\left(a_{r}\right) &amp; =\operatorname{var}\left(\frac{1}{n} \sum X_{i}^{r}\right)=\frac{1}{n^{2}} \sum \operatorname{var}\left(X^{r}\right)=\frac{1}{n} E\left[X^{r}-E\left(X^{r}\right)\right]^{2} \\
+&amp; =\frac{1}{n} E\left[X^{r}-\alpha_{r}\right]^{2}=\frac{1}{n} E\left(X^{2 r}+\alpha_{r}^{2}-2 \alpha_{r} X^{r}\right) \\
+&amp; =\frac{1}{n}\left(\alpha_{2 r}-\alpha_{r}^{2}\right) .
+\end{aligned}
+\]</span></p>
+<p>Y si aplicamos la desigualdad de Tchebychev, se obtiene</p>
+<p><span class="math display">\[
+P\left(\left|a_{r}-\alpha_{r}\right| \geq \varepsilon\right) \leq \frac{E\left(a_{r}-\alpha_{r}\right)^{2}}{\varepsilon^{2}}=\frac{\operatorname{var}\left(a_{r}\right)}{\varepsilon^{2}}=\frac{\alpha_{2 r}-\alpha_{r}^{2}}{n \varepsilon^{2}} \underset{n \rightarrow \infty}{\longrightarrow} 0
+\]</span></p>
+<p>Así pues, hemos visto que los momentos muestrales son estimadores consistentes de los momentos poblacionales.</p>
+<div id="eficiencia" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Eficiencia<a href="estimación-puntual.html#eficiencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como ya hemos visto, un objetivo deseable en la búsqueda de estimadores óptimos es considerar estimadores de “mínimo riesgo” o, si nos basamos en la función de pérdida cuadrática, estimadores que minimicen el error cuadrático medio <span class="math inline">\(E(\theta-T)^{2}\)</span>.
+En general, es difícil encontrar estimadores que hagan mínimo el EQM para todos los valores de <span class="math inline">\(\theta\)</span>; sin embargo, si nos restringimos a los estimadores sin sesgo, el problema tiene solución en una gama más amplia de situaciones. Supongamos que <span class="math inline">\(T_{1}, T_{2}\)</span> son dos estimadores sin sesgo de un parámetro <span class="math inline">\(\theta\)</span>. Para estos estimadores tenemos que</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; E Q M_{T_{1}}(\theta)=\operatorname{var}_{\theta}\left(T_{1}\right)+b_{T_{1}}^{2}(\theta) \\
+&amp; E Q M_{T_{2}}(\theta)=\operatorname{var}_{\theta}\left(T_{2}\right)+b_{T_{2}}^{2}(\theta)
+\end{aligned}
+\]</span></p>
+<p>Si los estimadores no tienen sesgo <span class="math inline">\(b_{T_{1}}(\theta)=b_{T_{2}}(\theta)=0\)</span>, el que tenga menor varianza tendrá el menor riesgo para estimar <span class="math inline">\(\theta\)</span>. Si, por ejemplo, <span class="math inline">\(\operatorname{var}\left(T_{1}\right) \leq\)</span> <span class="math inline">\(\operatorname{var}\left(T_{2}\right)\)</span>, diremos que <span class="math inline">\(T_{1}\)</span> es más eficiente que <span class="math inline">\(T_{2}\)</span> para estimar <span class="math inline">\(\theta\)</span>.
+Para dos estimadores con sesgo cero <span class="math inline">\(b_{T_{i}}(\theta)=0\)</span>, el cociente</p>
+<p><span class="math display">\[
+E R=\frac{E Q M_{T_{1}}(\theta)}{E Q M_{T_{2}}(\theta)}=\frac{\operatorname{var}_{\theta}\left(T_{1}\right)}{\operatorname{var}_{\theta}\left(T_{2}\right)}
+\]</span></p>
+<p>se denomina eficiencia relativa de <span class="math inline">\(T_{1}\)</span> respecto a <span class="math inline">\(T_{2}\)</span>. Si solo hay dos estimadores de <span class="math inline">\(\theta\)</span> puede ser fácil ver cuál es el más eficiente. Si hay más, la cosa se complica. El “más eficiente”, en caso de que exista, se llamará el estimador sin sesgo de mínima varianza.</p>
+<p>Figura 2.2: Comparación de la eficiencia de dos estimadores para un <span class="math inline">\(\theta\)</span> dado</p>
+<p>Definició 2.8 Sea <span class="math inline">\(\mathcal{S}(\theta)\)</span> la clase de los estimadores sin sesgo de <span class="math inline">\(\theta\)</span> y con varianza. Si para todos los estimadores de esta clase <span class="math inline">\(T \in \mathcal{S}(\theta)\)</span> se verifica que</p>
+<p><span class="math display">\[
+\operatorname{var}_{\theta}(T) \leq \operatorname{var}_{\theta}\left(T^{*}\right) \quad \forall T \in \mathcal{S}(\theta)
+\]</span></p>
+<p>diremos que <span class="math inline">\(T^{*}\)</span> es un estimador sin sesgo de mínima varianza de <span class="math inline">\(\theta\)</span>. Si la desigualdad es cierta <span class="math inline">\(\forall \theta \in \Theta\)</span>, diremos que <span class="math inline">\(T^{*}\)</span> es un estimador sin sesgo uniforme de mínima varianza (ESUMV) <span class="math inline">\({ }^{2}\)</span>.</p>
+</div>
+</div>
+<div id="información-de-fisher-y-cota-de-cramerrao" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Información de Fisher y cota de CramerRao<a href="estimación-puntual.html#información-de-fisher-y-cota-de-cramerrao" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Obviamente, en un problema de estimación lo ideal es disponer de un ESUMV, pero esto no siempre es posible. Nos enfrentamos a varios problemas:</p>
+<ol style="list-style-type: decimal">
+<li>¿Existen ESUMV para un parámetro <span class="math inline">\(\theta\)</span> en un modelo dado?</li>
+<li>En caso de que exista el ESUMV, ¿sabremos cómo encontrarlo?</li>
+</ol>
+<p>Este problema tiene solución, bajo ciertas condiciones, utilizando los teoremas de Lehmann-Scheffé y Rao-Blackwell y el concepto de suficiencia, que se discute más adelante.</p>
+<p>[^2]Una solución parcial aparece gracias al Teorema de Cramer-Rao, que permite establecer una cota mínima para la varianza de un estimador. Cuando un estimador alcanza esta cota, sabemos que es un estimador de varianza mínima.
+Informalmente, este resultado sugiere que, bajo ciertas condiciones de regularidad, si <span class="math inline">\(T\)</span> es un estimador insesgado de un parámetro <span class="math inline">\(\theta\)</span>, su varianza está acotada por una expresión que llamamos cota de Cramer-Rao <span class="math inline">\(\operatorname{CCR}(\theta)\)</span></p>
+<p><span class="math display">\[
+\operatorname{var}(T) \geq \operatorname{CCR}(\theta)
+\]</span></p>
+<p>Antes de establecer con precisión este teorema, consideremos el concepto de información de un modelo estadístico introducido por Fisher.</p>
+</div>
+<div id="información-y-verosimilitud-de-un-modelo-estadístico" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Información y verosimilitud de un modelo estadístico<a href="estimación-puntual.html#información-y-verosimilitud-de-un-modelo-estadístico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una idea bastante razonable es esperar que un estimador funcione mejor en su intento de aproximarse al valor de un parámetro cuanto más información tenga para hacerlo. Por este motivo, la varianza del estimador y la información se presentan como cantidades opuestas: a mayor información, menor error (varianza) en la estimación:</p>
+<p><span class="math display">\[
+\operatorname{var}\left(T_{n}\right) \propto \frac{1}{I_{n}(\theta)}
+\]</span></p>
+<p>Ahora nos encontramos con el problema de cómo definir la cantidad de información (contenida en una muestra/de un modelo), para que se ajuste a la idea intuitiva de información. Fisher lo hizo a través de la función de verosimilitud.
+Sea un modelo estadístico <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span> y una m.a.s. <span class="math inline">\(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\)</span>, que toma valores <span class="math inline">\(\mathbf{x}=\left(x_{1}, x_{2}, \ldots, x_{n}\right)\)</span>. Si <span class="math inline">\(X\)</span> es discreta, la función de masa de probabilidad indica, en términos generales, la probabilidad de observar la muestra, dado un valor del parámetro. Si <span class="math inline">\(X\)</span> es absolutamente continua, esta interpretación ya no es tan directa.</p>
+<p><span class="math display">\[
+f\left(x_{1}, x_{2}, \ldots, x_{n} ; \theta\right)= \begin{cases}P_{\theta}\left[X=x_{1}\right] \cdots P_{\theta}\left[X=x_{n}\right], &amp; \text { si } X \text { es discreta } \\ f_{\theta}\left(x_{1}\right) \cdots f_{\theta}\left(x_{n}\right), &amp; \text { si } X \text { es abs. continua }\end{cases}
+\]</span></p>
+<p>La función de verosimilitud se obtiene si consideramos, en la expresión anterior, que lo que queda fijado es la muestra y no el parámetro. Es decir, fijada una muestra x, la función de verosimilitud indica qué tan verosímil resulta, para cada valor del parámetro, que el modelo la haya generado.</p>
+<p>Ejemplo 2.3.1 Supongamos que tenemos una m.a.s. <span class="math inline">\(x_{1}, x_{2}, \ldots, x_{n}\)</span> de tamaño n de una variable aleatoria <span class="math inline">\(X\)</span>, que sigue una ley de Poisson de parámetro <span class="math inline">\(\lambda\)</span> desconocido.</p>
+<p><span class="math display">\[
+X \sim F_{\lambda}=P(\lambda), \quad \lambda&gt;0
+\]</span></p>
+<p>La función de probabilidad de la muestra, fijado <span class="math inline">\(\lambda\)</span>, es:</p>
+<p><span class="math display">\[
+g_{\lambda}\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\prod_{i=1}^{n} e^{-\lambda} \frac{\lambda^{x_{i}}}{x_{i}!}=e^{-n \lambda} \frac{\lambda^{\sum x_{i}}}{\prod_{i=1}^{n} x_{i}!}
+\]</span></p>
+<p>y la función de verosimilitud del modelo, fijada <span class="math inline">\(\mathbf{x}\)</span>, es:</p>
+<p><span class="math display">\[
+L\left(x_{1}, x_{2}, \ldots, x_{n} ; \lambda\right)=\prod_{i=1}^{n} e^{-\lambda} \frac{\lambda^{x_{i}}}{x_{i}!}=e^{-n \lambda} \frac{\lambda^{\sum x_{i}}}{\prod_{i=1}^{n} x_{i}!}
+\]</span></p>
+<p>Aunque la forma funcional de <span class="math inline">\(g_{\lambda}(\mathbf{x})\)</span> y <span class="math inline">\(L(\mathbf{x} ; \lambda)\)</span> es la misma, su aspecto es diferente, como se puede comprobar en la figura 2.3, donde damos valores a <span class="math inline">\(g_{\lambda}(\mathbf{x})\)</span>, variando <span class="math inline">\(\mathbf{x}\)</span> o a <span class="math inline">\(L(\lambda ; \mathbf{x})\)</span> variando <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+<div id="información-de-fisher" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Información de Fisher<a href="estimación-puntual.html#información-de-fisher" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para calcular la cantidad de información de Fisher contenida en una muestra sobre un parámetro, es necesario considerar modelos estadísticos regulares, es decir, donde se cumplen las siguientes condiciones de regularidad.</p>
+<p>Definició 2.9 Diremos que <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span> es un modelo estadístico regular si se verifican las siguientes condiciones:</p>
+<ol style="list-style-type: decimal">
+<li>La población de donde proviene la muestra presenta un ?campo de variación? o soporte <span class="math inline">\(S_{\theta}=\{x \mid f(x ; \theta)&gt;0\}=S\)</span> que no depende de <span class="math inline">\(\theta\)</span>.</li>
+<li>La función <span class="math inline">\(L(\mathbf{x} ; \theta)\)</span> admite, al menos, las dos primeras derivadas.</li>
+<li>Las operaciones de derivación e integración son intercambiables.</li>
+</ol>
+<p>Definició 2.10 Sea <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span> un modelo estadístico regular, es decir, donde se verifican las condiciones de regularidad 1-3 anteriores. Si <span class="math inline">\(Z=\frac{\partial}{\partial \theta} \log L(\mathbf{X} ; \theta)\)</span>, la cantidad de información de Fisher es</p>
+<p><span class="math display">\[
+I_{n}(\theta)=\operatorname{var}_{\theta}(Z)=\operatorname{var}_{\theta}\left(\frac{\partial}{\partial \theta} \log L(\mathbf{X} ; \theta)\right)
+\]</span></p>
+<p>Figura 2.3: Probabilidad de la suma de <span class="math inline">\(n=5\)</span> valores muestrales para 10 muestras de la ley de Poisson con <span class="math inline">\(\lambda=3\)</span> versus la función de verosimilitud para una muestra observada.</p>
+<p>Las condiciones de regularidad son necesarias para calcular <span class="math inline">\(E_{\theta}\left(Z^{2}\right)\)</span>.
+A continuación, presentamos algunas propiedades de la información de Fisher. Puedes ver la demostración en Ruiz-Maya y Pliego (1995).</p>
+<ol style="list-style-type: decimal">
+<li>La información de Fisher se puede expresar como:</li>
+</ol>
+<p><span class="math display">\[
+I_{n}(\theta)=E_{\theta}\left[\left(\frac{\partial \log L(\mathbf{X} ; \theta)}{\partial \theta}\right)^{2}\right]
+\]</span></p>
+<p>Esto se puede comprobar, ya que si aplicamos las condiciones de regularidad</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(Z) &amp; =E\left(\frac{\partial \log L(\mathbf{X} ; \theta)}{\partial \theta}\right)=\int_{S^{n}} \frac{\partial \log L(\mathbf{x} ; \theta)}{\partial \theta} L(\mathbf{x} ; \theta) d \mathbf{x} \\
+&amp; =\int_{S^{n}} \frac{\frac{\partial L(\mathbf{x} ; \theta)}{\partial \theta}}{L(\mathbf{x} ; \theta)} L(\mathbf{x} ; \theta) d \mathbf{x}=\int_{S^{n}} \frac{\partial L(\mathbf{x} ; \theta)}{\partial \theta} d \mathbf{x} \\
+&amp; =\frac{\partial}{\partial \theta}\left(\int_{S^{n}} L(\mathbf{x} ; \theta) d \mathbf{x}\right)=\frac{\partial}{\partial \theta} 1=0
+\end{aligned}
+\]</span></p>
+<p>De forma que <span class="math inline">\(E(Z)=0\)</span>, y por lo tanto, tendremos que <span class="math inline">\(\operatorname{var}_{\theta}(Z)=\)</span> <span class="math inline">\(E_{\theta}\left(Z^{2}\right)\)</span>.
+2. <span class="math inline">\(I_{n}(\theta)=0\)</span> si y solo si <span class="math inline">\(L(\mathbf{x} ; \theta)\)</span> no depende de <span class="math inline">\(\theta\)</span>.
+3. Dadas dos m.a.s. <span class="math inline">\(\mathbf{x}_{1}, \mathbf{x}_{2}\)</span> de tamaños <span class="math inline">\(n_{1}, n_{2}\)</span> de la misma población, se verifica:</p>
+<p><span class="math display">\[
+I_{n_{1}, n_{2}}(\theta)=I_{n_{1}}(\theta)+I_{n_{2}}(\theta)
+\]</span></p>
+<p>De manera que podemos considerar una muestra de tamaño <span class="math inline">\(n\)</span> como <span class="math inline">\(n\)</span> muestras de tamaño 1 :</p>
+<p><span class="math display">\[
+I_{n}(\theta)=\sum_{i=1}^{n} I_{1}(\theta)=n \cdot i(\theta), \text { siendo } i(\theta)=I_{1}(\theta)
+\]</span></p>
+<p>Es decir</p>
+<p><span class="math display">\[
+E\left(\frac{\partial \log (L(\mathbf{X} ; \theta))}{\partial \theta}\right)=n E\left(\frac{\partial \log f(X ; \theta)}{\partial \theta}\right)
+\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Se verifica la siguiente relación:</li>
+</ol>
+<p><span class="math display">\[
+I_{n}(\theta)=E\left[\left(\frac{\partial \log L(\mathbf{X} ; \theta)}{\partial \theta}\right)^{2}\right]=-E\left[\frac{\partial^{2} \log L(\mathbf{X} ; \theta)}{\partial^{2} \theta}\right]
+\]</span></p>
+<p>Ejemplo 2.3.2 Vamos a calcular la cantidad de información de Fisher contenida en una m.a.s. extraída de una población <span class="math inline">\(N(\mu, \sigma)\)</span> con <span class="math inline">\(\sigma=\sigma_{0}\)</span> conocida. La función de verosimilitud es</p>
+<p><span class="math display">\[
+L(\mathbf{x} ; \mu)=\prod_{i=1}^{n} \frac{1}{\sqrt{2 \pi} \sigma_{0}} e^{-\frac{\left(x_{i}-\mu\right)^{2}}{2 \sigma_{0}^{2}}}=\left(2 \pi \sigma_{0}^{2}\right)^{-n / 2} \exp \left(-\sum_{i=1}^{n} \frac{\left(x_{i}-\mu\right)^{2}}{2 \sigma_{0}^{2}}\right)
+\]</span></p>
+<p>y su logaritmo</p>
+<p><span class="math display">\[
+\log L(\mathbf{x} ; \mu)=-\frac{n}{2} \log \left(2 \pi \sigma_{0}^{2}\right)-\frac{1}{2 \sigma_{0}^{2}} \sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}
+\]</span></p>
+<p>Si derivamos respecto a <span class="math inline">\(\mu\)</span></p>
+<p><span class="math display">\[
+\frac{\partial \log L(\mathbf{x} ; \mu)}{\mu}=\frac{\sum_{i=1}^{n}\left(x_{i}-\mu\right)}{\sigma_{0}^{2}}
+\]</span></p>
+<p>de donde</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_{n}(\mu) &amp; =E\left(\frac{\partial \log L(\mathbf{X} ; \mu)}{\partial \mu}\right)^{2}=E\left(\frac{\sum_{i=1}^{n}\left(X_{i}-\mu\right)}{\sigma_{0}^{2}}\right)^{2} \\
+&amp; =\frac{1}{\sigma_{0}^{4}} E\left[\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}+\sum_{i \neq j}\left(X_{i}-\mu\right)\left(X_{j}-\mu\right)\right] \\
+&amp; =\frac{1}{\sigma_{0}^{4}} n \sigma_{0}^{2}=\frac{n}{\sigma_{0}^{2}}
+\end{aligned}
+\]</span></p>
+<p>Este cálculo también puede hacerse a partir de la tercera propiedad de la información de Fisher:</p>
+<p><span class="math display">\[
+I_{n}(\mu)=n E\left[\frac{\partial \log f(X ; \mu)}{\partial \mu}\right]=n \frac{1}{\sigma_{0}^{2}}=\frac{n}{\sigma_{0}^{2}}
+\]</span></p>
+</div>
+<div id="la-desigualdad-de-cramer-rao" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> La desigualdad de Cramer-Rao<a href="estimación-puntual.html#la-desigualdad-de-cramer-rao" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una vez establecidas las condiciones de regularidad y características anteriores podemos enunciar el teorema de Cramer-Rao (1945).</p>
+<p>Teorema 2.1 Dado un modelo estadístico regular <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span>, es decir, un modelo donde se verifican las condiciones de regularidad enunciadas, cualquier estimador <span class="math inline">\(T \in \mathcal{S}(\theta)\)</span> de la clase de los estimadores no sesgados y con varianza verifica</p>
+<p><span class="math display">\[
+\operatorname{var}_{\theta}(T) \geq \frac{1}{I_{n}(\theta)}
+\]</span></p>
+<p>Demostración:
+El estimador <span class="math inline">\(T \in \mathcal{S}(\theta)\)</span> no tiene sesgo, es decir que</p>
+<p><span class="math display">\[
+E(T)=\int_{S^{n}} T(\mathbf{x}) \cdot L(\mathbf{x} ; \theta) d \mathbf{x}=\theta
+\]</span></p>
+<p>Si derivamos e introducimos la derivada bajo el signo de la integral, obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial \theta} E(T) &amp; =\int_{S^{n}} \frac{\partial}{\partial \theta}(T(\mathbf{x}) \cdot L(\mathbf{x} ; \theta)) d \mathbf{x}=\int_{S^{n}} T(\mathbf{x}) \frac{\partial}{\partial \theta} L(\mathbf{x} ; \theta) d \mathbf{x} \\
+&amp; =\int_{S^{n}} T(\mathbf{x})\left(\frac{\frac{\partial}{\partial \theta} L(\mathbf{x} ; \theta)}{L(\mathbf{x} ; \theta)}\right) L(\mathbf{x} ; \theta) d \mathbf{x}
+\end{aligned}
+\]</span></p>
+<p>Así pues</p>
+<p><span class="math display">\[
+1=\frac{\partial}{\partial \theta} \theta=\frac{\partial}{\partial \theta} E(T)=E(T Z)=\int_{S^{n}} T(\mathbf{x}) \cdot Z L(\mathbf{x} ; \theta) d \mathbf{x}
+\]</span></p>
+<p>En resumen</p>
+<p><span class="math display">\[
+E(T)=\theta, E(T Z)=1, E(Z)=0, \operatorname{var}(Z)=I_{n}(\theta)
+\]</span></p>
+<p>Si ahora consideramos el coeficiente de correlación al cuadrado entre <span class="math inline">\(T\)</span> y <span class="math inline">\(Z\)</span>, tenemos</p>
+<p><span class="math display">\[
+\rho^{2}(T, Z)=\frac{[\operatorname{cov}(T, Z)]^{2}}{\operatorname{var}(T) \cdot \operatorname{var}(Z)}=\frac{[E(T Z)-E(T) E(Z)]^{2}}{\operatorname{var}(T) \cdot \operatorname{var}(Z)} \leq 1
+\]</span></p>
+<p>Si sustituimos los resultados hallados antes, obtenemos</p>
+<p><span class="math display">\[
+\frac{1}{\operatorname{var}(T) \cdot I_{n}(\theta)} \leq 1
+\]</span></p>
+<p>de donde se deduce la desigualdad enunciada.</p>
+<p>Definició 2.11 Si un estimador alcanza la CCR (Cota de Cramer-Rao), diremos que es un estimador eficiente.</p>
+<p>Todo estimador eficiente es de mínima varianza en la clase <span class="math inline">\(\mathcal{S}(\theta)\)</span>. Sin embargo, también puede suceder que exista un estimador de mínima varianza sin alcanzar necesariamente la CCR.</p>
+<p>Ejemplo 2.3.3 Sea <span class="math inline">\(X \sim F_{\theta}=P(\lambda), \lambda&gt;0\)</span> (Poisson). Buscamos la <span class="math inline">\(C C R\)</span> de los estimadores de <span class="math inline">\(\lambda\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+L(\mathbf{x} ; \lambda) &amp; =\prod_{i=1}^{n} e^{-\lambda} \frac{\lambda^{x_{i}}}{x_{i}!}=e^{-n \lambda} \frac{\lambda^{\sum x_{i}}}{\prod_{i=1}^{n} x_{i}!} \\
+\log L(\mathbf{x} ; \lambda) &amp; =-n \lambda+\left(\sum x_{i}\right) \log \lambda-\log \left(\prod_{i=1}^{n} x_{i}!\right) \\
+\frac{\partial \log (L(\mathbf{x} ; \lambda))}{\partial \lambda} &amp; =-n+\frac{\sum x_{i}}{\lambda} \\
+E\left[\frac{\partial \log L(\mathbf{x} ; \lambda)}{\partial \lambda}\right]^{2} &amp; =E\left[n^{2}+\left(\frac{\sum X_{i}}{\lambda}\right)^{2}-\frac{2 n \sum X_{i}}{\lambda}\right] \\
+&amp; =n^{2}+\frac{1}{\lambda^{2}} E\left(\sum X_{i}\right)^{2}-\frac{2 n}{\lambda} n E(X)
+\end{aligned}
+\]</span></p>
+<p>Aquí recordamos que la suma de variables de Poisson también es una Poisson, es decir:</p>
+<p><span class="math display">\[
+\sum X_{i} \sim P(n \lambda)
+\]</span></p>
+<p>por lo que</p>
+<p><span class="math display">\[
+E\left(\sum X_{i}\right)^{2}=\operatorname{var}\left(\sum X_{i}\right)+\left[E\left(\sum X_{i}\right)\right]^{2}=n \lambda+(n \lambda)^{2}
+\]</span></p>
+<p>Finalmente, se obtiene:</p>
+<p><span class="math display">\[
+E\left(Z^{2}\right)=n^{2}+\frac{n \lambda}{\lambda^{2}}+\frac{n^{2} \lambda^{2}}{\lambda^{2}}-2 n^{2}=\frac{n}{\lambda}
+\]</span></p>
+<p>De esta forma,</p>
+<p><span class="math display">\[
+I_{n}(\lambda)=\frac{n}{\lambda} \quad \Longrightarrow \quad \operatorname{var}(T) \geq \frac{\lambda}{n}
+\]</span></p>
+<p>Sabemos que la media aritmética verifica</p>
+<p><span class="math display">\[
+\operatorname{var}\left(\bar{X}_{n}\right)=\frac{\lambda}{n}
+\]</span></p>
+<p>lo cual coincide con la cota de Cramer-Rao, indicando que <span class="math inline">\(\bar{X}_{n}\)</span> es el estimador eficiente de <span class="math inline">\(\lambda\)</span>.</p>
+<p>Ejemplo 2.3.4 Para calcular la CCR o, dicho de otro modo, para que el inverso de</p>
+<p><span class="math display">\[
+E\left[\frac{\partial \log L(\mathbf{x} ; \theta)}{\partial \theta}\right]^{2}
+\]</span></p>
+<p>sea realmente la cota minima de <span class="math inline">\(\operatorname{var}(\widehat{\theta})\)</span> en la clase <span class="math inline">\(\mathcal{S}(\theta)\)</span>, es necesario que se verifiquen las condiciones de regularidad. De lo contrario, se pueden obtener resultados absurdos.
+Consideremos, por ejemplo, una variable aleatoria <span class="math inline">\(X\)</span> con función de densidad</p>
+<p><span class="math display">\[
+f(x ; \theta)=\frac{3}{\theta^{3}} x^{2} \mathbf{1}_{[0, \theta]}(x)
+\]</span></p>
+<p>y esperanza</p>
+<p><span class="math display">\[
+E(X)=\int_{0}^{\theta} x \cdot \frac{3}{\theta^{3}} x^{2} d x=\frac{3}{4} \theta
+\]</span></p>
+<p>Ya que <span class="math inline">\(\theta=\frac{4}{3} E(X)\)</span>, esto sugiere estimar <span class="math inline">\(\theta\)</span> mediante <span class="math inline">\(\widehat{\theta}=\frac{4}{3} \bar{X}\)</span>, que no tiene sesgo.
+Por otro lado, si calculamos la varianza de <span class="math inline">\(X\)</span>, tenemos</p>
+<p><span class="math display">\[
+\operatorname{var}(X)=E\left(X^{2}\right)-E(X)^{2}=\frac{3}{80} \theta^{2}
+\]</span></p>
+<p>Sabemos que <span class="math inline">\(E(\widehat{\theta})=\theta, y\)</span> además</p>
+<p><span class="math display">\[
+\operatorname{var}(\widehat{\theta})=\operatorname{var}\left(\frac{4}{3} \bar{X}\right)=\frac{\theta^{2}}{15 n}
+\]</span></p>
+<p>Si evaluamos <span class="math inline">\(I_{n}(\theta)\)</span> en su forma más sencilla, obtenemos</p>
+<p><span class="math display">\[
+I_{n}(\theta)=n I(\theta)=n \frac{9}{\theta^{2}}
+\]</span></p>
+<p>Así, la CCR resulta ser mayor que la varianza de este estimador:</p>
+<p><span class="math display">\[
+\operatorname{var}(\widehat{\theta})=\frac{\theta^{2}}{15 n}&lt;\frac{\theta^{2}}{9 n}
+\]</span></p>
+<p>lo cual es un resultado absurdo. Este error se debe a no considerar que el soporte de <span class="math inline">\(X\)</span> depende de <span class="math inline">\(\theta\)</span>, por lo que no se cumplen las condiciones de regularidad, y la cota de Cramer-Rao no existe.</p>
+<p>También ocurre que la varianza de un estimador es inferior a la CCR aunque esta exista. Esto puede pasar, por ejemplo, con algún estimador sesgado.</p>
+</div>
+<div id="caracterización-del-estimador-eficiente" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Caracterización del estimador eficiente<a href="estimación-puntual.html#caracterización-del-estimador-eficiente" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calcular la cota de Cramer-Rao es una cosa; encontrar el estimador que alcanza esta cota y, en consecuencia, tiene varianza mínima es otra. La siguiente caracterización permite, en algunos casos, obtener directamente la forma del estimador eficiente.</p>
+<p>Teorema 2.2 Sea <span class="math inline">\(T\)</span> el estimador eficiente de <span class="math inline">\(\theta\)</span>, entonces se verifica</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} \frac{\partial}{\partial \theta} \log f\left(X_{i} ; \theta\right)=K(\theta, n)(T-\theta)
+\]</span></p>
+<p>donde <span class="math inline">\(K(\theta, n)\)</span> es una función que depende de <span class="math inline">\(\theta\)</span> y de <span class="math inline">\(n\)</span> y que suele coincidir con la información de Fisher.
+Demostración:
+Si <span class="math inline">\(T\)</span> es el estimador eficiente, entonces</p>
+<p><span class="math display">\[
+\operatorname{var}(T)=\frac{1}{I_{n}(\theta)}
+\]</span></p>
+<p>y, por lo tanto, <span class="math inline">\(\rho^{2}(T, Z)=1\)</span>.
+En general, dadas dos variables aleatorias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, se sabe que si <span class="math inline">\(\rho(X, Y)=1\)</span>, entonces</p>
+<p><span class="math display">\[
+Y-E(Y)=\beta(X-E(X))
+\]</span></p>
+<p>Si aplicamos este resultado a <span class="math inline">\(T\)</span> y <span class="math inline">\(Z\)</span>, tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+Z-E(Z) &amp; =\beta(T-E(T)) \\
+\frac{\partial \log L(\mathbf{x} ; \theta)}{\partial \theta} &amp; =K(\theta, n)(T-\theta)
+\end{aligned}
+\]</span></p>
+<p>Ejemplo 2.3.5 En el caso de la distribución de Poisson, tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+f(x ; \lambda) &amp; =e^{-\lambda} \frac{\lambda^{x}}{x!} \\
+\log f(x ; \lambda) &amp; =-\lambda+x \log (\lambda)-\log (x!) \\
+\frac{\partial \log f(x ; \lambda)}{\partial \lambda} &amp; =-1+x \frac{1}{\lambda} \\
+Z=\sum_{i=1}^{n} \frac{\partial \log f\left(X_{i} ; \lambda\right)}{\partial \lambda} &amp; =\sum_{i=1}^{n}\left(-1+\frac{X_{i}}{\lambda}\right)
+\end{aligned}
+\]</span></p>
+<p>Queremos ver que</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n}\left(\frac{X_{i}}{\lambda}-1\right)=K(\theta, n)(T-\theta)
+\]</span></p>
+<p>Si reescribimos esta expresión, obtenemos</p>
+<p><span class="math display">\[
+\frac{1}{\lambda} \sum_{i=1}^{n} X_{i}-n=\frac{1}{\lambda}\left(\sum_{i=1}^{n} X_{i}-n \lambda\right)=\frac{n}{\lambda}\left(\frac{1}{n} \sum_{i=1}^{n} X_{i}-\lambda\right)
+\]</span></p>
+<p>Así, <span class="math inline">\(K(\lambda, n)=\frac{n}{\lambda}\)</span>, que coincide con la información de Fisher <span class="math inline">\(I_{n}(\lambda)\)</span>. Por el teorema anterior, se deduce que <span class="math inline">\(T=\bar{X}\)</span> es el estimador eficiente <span class="math inline">\(y\)</span>, por lo tanto, de mínima varianza.</p>
+</div>
+<div id="estadísticos-suficientes" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Estadísticos suficientes<a href="estimación-puntual.html#estadísticos-suficientes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En un problema de inferencia puede suceder que los datos contengan información superflua o irrelevante a la hora de estimar el parámetro. También puede ocurrir lo contrario, que intentemos hacer la estimación sin utilizar toda la información disponible en la muestra. Ambas situaciones son indeseables. Parece razonable que, para estimar un parámetro, dada la dificultad derivada de disponer de varios estimadores entre los que queremos elegir el óptimo, nos basemos únicamente en aquellos que utilizan (solo) toda la información relevante.</p>
+<p>Ejemplo 2.4.1 Supongamos que queremos estimar la proporción de piezas defectuosas <span class="math inline">\(\theta\)</span> en un proceso de fabricación. Para ello, examinamos <span class="math inline">\(n\)</span> piezas extraídas al azar a lo largo de una jornada y asignamos un 1 a las piezas defectuosas y un 0 a las que no lo son. Así, obtenemos una muestra aleatoria simple <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> donde</p>
+<p><span class="math display">\[
+X_{i}= \begin{cases}1 &amp; \text { con probabilidad } \theta \\ 0 &amp; \text { con probabilidad }(1-\theta)\end{cases}
+\]</span></p>
+<p>Intuitivamente, está claro que para estimar <span class="math inline">\(\theta\)</span> solo nos interesa el número de ceros y unos, es decir, el valor del estadístico</p>
+<p><span class="math display">\[
+T(\mathbf{X})=\sum_{i=1}^{n} X_{i}
+\]</span></p>
+<p>En este caso, un estadístico que considere la posición de los unos y los ceros en la muestra no aportaría nada relevante. En cambio, un estadístico que no considere todos los valores, como por ejemplo <span class="math inline">\(T(\mathbf{X})=X_{1}\)</span>, sería claramente menos adecuado.</p>
+<p>Las observaciones del ejemplo anterior se justifican al observar que todas las muestras de tamaño <span class="math inline">\(n\)</span> con el mismo número <span class="math inline">\(t\)</span> de unos (1) tienen la misma probabilidad. En concreto, la función de probabilidad de una muestra <span class="math inline">\(x_{1}, x_{2}, \ldots, x_{n}\)</span> es</p>
+<p><span class="math display">\[
+f_{\theta}\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\theta^{t}(1-\theta)^{n-t}
+\]</span></p>
+<p>donde <span class="math inline">\(t=\sum_{i=1}^{n} x_{i}, x_{i} \in\{0,1\}, i=1,2, \ldots, n\)</span>.
+Como se puede ver, la probabilidad de la muestra solo depende del número de unos (o ceros) y no del orden en que aparecen en la muestra. El hecho de que la posición de los unos y los ceros en la muestra no aporte información relevante equivale a decir que el estadístico</p>
+<p><span class="math display">\[
+T(\mathbf{X})=\sum_{i=1}^{n} X_{i}
+\]</span></p>
+<p>contiene la misma información que <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> para estimar <span class="math inline">\(\theta\)</span>. Observamos, sin embargo, varias diferencias entre basarse en <span class="math inline">\(T(\mathbf{X})\)</span> o en <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> :</p>
+<ul>
+<li>Al pasar de <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> a <span class="math inline">\(\sum_{i=1}^{n} X_{i}\)</span> hay una reducción de los datos que no implica pérdida de información.</li>
+<li>Muchas muestras diferentes dan lugar al mismo valor de <span class="math inline">\(T\)</span>.</li>
+</ul>
+<p>Fisher formalizó esta idea con el cálculo de la probabilidad condicionada de la observación muestral con <span class="math inline">\(T(\mathbf{X})=\sum_{i=1}^{n} X_{i}\)</span> y para todo <span class="math inline">\(t=0,1, \ldots, n\)</span> :</p>
+<p><span class="math display">\[
+\begin{aligned}
+P_{\theta}[\mathbf{X}=\mathbf{x} \mid T=t] &amp; =\frac{P_{\theta}[\mathbf{X}=\mathbf{x}, T=t]}{P_{\theta}(T=t)} \\
+&amp; =\frac{\theta^{t}(1-\theta)^{n-t}}{\binom{n}{t} \theta^{t}(1-\theta)^{n-t}}=\frac{1}{\binom{n}{t}}
+\end{aligned}
+\]</span></p>
+<p>Es decir, dados <span class="math inline">\(\left(x_{1}, x_{2}, \ldots, x_{n}\right) \in\{0,1\}^{n} \mathrm{y} t \in\{0,1, \ldots, n\}\)</span>, tenemos</p>
+<p><span class="math display">\[
+P_{\theta}[\mathbf{X}=\mathbf{x} \mid T=t]=\left\{\begin{array}{cc}
+0 &amp; \text { si } t \neq \sum_{i=1}^{n} x_{i} \\
+\frac{1}{\binom{n}{t}} &amp; \text { si } t=\sum_{i=1}^{n} x_{i}
+\end{array}\right.
+\]</span></p>
+<p>Obviamente, <span class="math inline">\(P_{\theta}[\mathbf{X}=\mathbf{x}]\)</span> depende de <span class="math inline">\(\theta\)</span>, que es el parámetro que queremos estimar. Sin embargo, la probabilidad condicionada <span class="math inline">\(P_{\theta}[\mathbf{X}=\mathbf{x} \mid T=t]\)</span> no depende de <span class="math inline">\(\theta\)</span>. Tenemos entonces la siguiente expresión de la función de probabilidad de la muestra:</p>
+<p><span class="math display">\[
+P_{\theta}(\mathbf{X}=\mathbf{x})=P_{\theta}(T=t) \cdot P_{\theta}[\mathbf{X}=\mathbf{x} \mid T=t]
+\]</span></p>
+<p>Esta expresión muestra que <span class="math inline">\(P_{\theta}(\mathbf{X})\)</span> se puede descomponer en dos factores, uno que depende de <span class="math inline">\(\theta, P_{\theta}(T=t)\)</span>, y otro que no depende de <span class="math inline">\(\theta\)</span>,</p>
+<p><span class="math display">\[
+P_{\theta}[\mathbf{X}=\mathbf{x} \mid T=t] .
+\]</span></p>
+<p>Una forma de ver esta descomposición es pensar que el estadístico <span class="math inline">\(T=\)</span> <span class="math inline">\(\sum_{i=1}^{n} X_{i}\)</span> ?acumula? o ?absorbe? toda la información relativa a <span class="math inline">\(\theta\)</span>, lo que se refleja en que la probabilidad de la muestra, dado <span class="math inline">\(T=t\)</span>, ya no depende de <span class="math inline">\(\theta\)</span>. Es decir, podemos imaginar la construcción de la muestra en dos etapas:</p>
+<ul>
+<li>En una primera etapa se elige el valor <span class="math inline">\(t\)</span> para <span class="math inline">\(T\)</span> con distribución <span class="math inline">\(B(n, \theta)\)</span>.</li>
+<li>A continuación, se sitúan aleatoriamente <span class="math inline">\(t\)</span> unos y <span class="math inline">\(n-t\)</span> ceros en las <span class="math inline">\(n\)</span> posiciones.</li>
+</ul>
+<p>Cuando la estructura del estadístico <span class="math inline">\(T(\mathbf{X})\)</span> hace que el segundo factor en la expresión anterior no dependa de <span class="math inline">\(\theta\)</span>, significa que la observación adicional de la muestra es irrelevante. En este caso diremos que <span class="math inline">\(T(\mathbf{X})\)</span> es suficiente para la estimación de <span class="math inline">\(\theta\)</span>. Dado que esta propiedad de <span class="math inline">\(T\)</span> queda caracterizada por la independencia de <span class="math inline">\(P_{\theta}[\mathbf{X}=\mathbf{x} \mid T=t]\)</span> respecto a <span class="math inline">\(\theta\)</span>, se utiliza esta independencia para definir la suficiencia.</p>
+<div id="definició-de-estadísticop-suficiente" class="section level3 hasAnchor" number="7.9.1">
+<h3><span class="header-section-number">7.9.1</span> Definició de estadísticop suficiente<a href="estimación-puntual.html#definició-de-estadísticop-suficiente" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dado un modelo estadístico <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span> y un estadístico <span class="math inline">\(T\)</span>, diremos que <span class="math inline">\(T\)</span> es suficiente para <span class="math inline">\(\theta\)</span> si, dada una muestra <span class="math inline">\(\mathbf{X}=\left(X_{1}, X_{2}, \ldots, X_{n}\right)\)</span>, se verifica que la distribución de <span class="math inline">\(\mathbf{X}\)</span> condicionada por el valor de <span class="math inline">\(T\)</span> no depende de <span class="math inline">\(\theta\)</span>.</p>
+<ul>
+<li>No es necesario que <span class="math inline">\(F_{\theta}\)</span> sea discreta, como en el ejemplo introductorio, o que la muestra sea una muestra aleatoria simple.</li>
+<li>El estadístico suficiente para un parámetro puede ser <span class="math inline">\(k\)</span>-dimensional.</li>
+</ul>
+<p>Ejemplo 2.4.2 Dada una muestra <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> de una distribución de Poisson, la función de probabilidad de la muestra es</p>
+<p><span class="math display">\[
+P_{\theta}\left(X_{1}=x_{1}, \ldots, X_{n}=x_{n}\right)=\frac{e^{-n \lambda} \lambda \sum x_{i}}{x_{1}!\cdots x_{n}!}
+\]</span></p>
+<p>Calculemos la probabilidad de la muestra condicionada por el valor del estadístico <span class="math inline">\(T=\sum_{i=1}^{n} X_{i}\)</span> :</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; P_{\theta}\left[X_{1}=x_{1}, \ldots, X_{n}=x_{n} \mid T=t\right]=\frac{P_{\theta}\left(X_{1}=x_{1}, \ldots, X_{n}=x_{n}, T=t\right)}{P_{\theta}(T=t)}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; =\frac{t!}{x_{1}!\cdots x_{n}!}\left(\frac{1}{n}\right)^{t} \mathbf{1}_{\left\{\sum x_{i}=t\right\}}\left(x_{1}, \ldots, x_{n}\right)
+\end{aligned}
+\]</span></p>
+<p>La probabilidad condicional no depende de <span class="math inline">\(\lambda y\)</span>, por lo tanto, <span class="math inline">\(T\)</span> es suficiente para <span class="math inline">\(\lambda\)</span>. Conviene observar que, en este ejemplo, no todas las muestras tienen la misma probabilidad.</p>
+</div>
+<div id="teorema-de-factorización" class="section level3 hasAnchor" number="7.9.2">
+<h3><span class="header-section-number">7.9.2</span> Teorema de factorización<a href="estimación-puntual.html#teorema-de-factorización" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La justificación de la suficiencia de un estadístico mediante la definición no siempre es sencilla, ya que la distribución condicional puede ser intratable con las herramientas disponibles. El teorema que se presenta a continuación proporciona un método sencillo para comprobar la suficiencia de un estadístico y, a menudo, sugiere cuál es el estadístico suficiente de menor dimensión posible.</p>
+<p>Teorema 2.3 Neyman-Fisher. Sea <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span> un modelo estadístico y <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una muestra aleatoria simple de <span class="math inline">\(X\)</span>. Sea <span class="math inline">\(f_{\theta}(\mathbf{x})\)</span> la función de probabilidad o la función de densidad de la muestra, según si <span class="math inline">\(X\)</span> es discreta o absolutamente continua. Un estadístico <span class="math inline">\(T\)</span> es suficiente para <span class="math inline">\(\theta\)</span> si y solo si existen dos funciones medibles <span class="math inline">\(g_{\theta}\)</span> y <span class="math inline">\(h\)</span> tales que</p>
+<p><span class="math display">\[
+f_{\theta}(\mathbf{x})=g_{\theta}(T(\mathbf{x})) \cdot h(\mathbf{x})
+\]</span></p>
+<p>donde <span class="math inline">\(h\)</span> no depende de <span class="math inline">\(\theta\)</span> y g depende de <span class="math inline">\(\theta\)</span> y, además, solo depende de la muestra a través de <span class="math inline">\(T\)</span>.</p>
+<p>Veamos ahora la demostración del teorema de factorización, restringida al caso de variables discretas.</p>
+<p>Demostración:
+Comenzaremos suponiendo que <span class="math inline">\(T\)</span> es suficiente y concluiremos que es posible la factorización.
+Si <span class="math inline">\(T(\mathbf{X})\)</span> es suficiente para la familia de distribuciones <span class="math inline">\(\left\{F_{\theta} ; \theta \in \Theta\right\}\)</span>, la función de probabilidad de la muestra condicionada por <span class="math inline">\(T\)</span> no depende de <span class="math inline">\(\theta\)</span>. Dado que</p>
+<p><span class="math display">\[
+f_{\theta}(\mathbf{x})=P_{\theta}[T=T(\mathbf{x})] \cdot f_{\theta}[\mathbf{x} \mid T=T(\mathbf{x})]
+\]</span></p>
+<p>solo es necesario tomar <span class="math inline">\(g_{\theta}(t)=P_{\theta}[T=T(\mathbf{x})=t]\)</span> y <span class="math inline">\(h(\mathbf{x})=f_{\theta}[\mathbf{x} \mid T=T(\mathbf{x})]\)</span> para obtener el resultado.
+Ahora supongamos que es posible la factorización y deduzcamos la suficiencia.
+Si <span class="math inline">\(f_{\theta}(\mathbf{x})=g_{\theta}(T(\mathbf{x})) \cdot h(\mathbf{x})\)</span> y llamamos <span class="math inline">\(A_{t}=\left\{\mathbf{x} \in X(\Omega)^{n} \mid T(\mathbf{x})=t\right\}\)</span>, entonces</p>
+<p><span class="math display">\[
+P_{\theta}[T(\mathbf{x})=t]=\sum_{A_{t}} g_{\theta}(T(\mathbf{x})) \cdot h(\mathbf{x})=g_{\theta}(t) \cdot \sum_{A_{t}} h(\mathbf{x})
+\]</span></p>
+<p>Consideremos ahora la distribución de la muestra condicionada a <span class="math inline">\(T=t\)</span>. El Teorema de Bayes para densidad permite escribir:</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_{\theta}(\mathbf{x} \mid T=t) &amp; =\frac{f_{\theta}(\mathbf{x}, T=t)}{P_{\theta}(T=t)} \\
+&amp; = \begin{cases}\frac{g_{\theta}(t) \cdot h(\mathbf{x})}{g_{\theta}(t) \cdot \sum_{A_{t}} h(\mathbf{x})}=\frac{h(\mathbf{x})}{\sum_{A_{t}} h(\mathbf{x})} &amp; \text { si } T(\mathbf{x})=t \\
+0 &amp; \text { si } T(\mathbf{x}) \neq t\end{cases}
+\end{aligned}
+\]</span></p>
+<p>De modo que la distribución de <span class="math inline">\(\mathbf{X}\)</span> condicionada por el valor de <span class="math inline">\(T\)</span> no depende de <span class="math inline">\(\theta\)</span>, y, en consecuencia, <span class="math inline">\(T\)</span> es suficiente.</p>
+<p>Ejemplo 2.4.3 Si X sigue una distribución de Bernoulli, tenemos:</p>
+<p><span class="math display">\[
+f_{\theta}(\mathbf{x})=\theta^{\sum_{i=1}^{n} x_{i}}(1-\theta)^{n-\sum_{i=1}^{n} x_{i}}=g_{\theta}\left(\sum_{i=1}^{n} x_{i}\right) .
+\]</span></p>
+<p>Si tomamos <span class="math inline">\(h(\mathbf{x})=1\)</span>, queda probado que <span class="math inline">\(T=\sum_{i=1}^{n} X_{i}\)</span> es suficiente.
+Ejemplo 2.4.4 Si consideramos una muestra de una distribución de Poisson</p>
+<p><span class="math display">\[
+f_{\lambda}(\mathbf{x})=e^{-n \lambda} \frac{\lambda^{\sum_{i=1}^{n} x_{i}}}{x_{1}!x_{2}!\cdots x_{n}!}
+\]</span></p>
+<p><span class="math inline">\(y\)</span> tomamos <span class="math inline">\(T(\mathbf{x})=\sum_{i=1}^{n} x_{i}\)</span>, podemos escribir</p>
+<p><span class="math display">\[
+f_{\lambda}(\mathbf{x})=e^{-n \lambda} \lambda^{T(\mathbf{x})} \cdot\left(x_{1}!x_{2}!\cdots x_{n}!\right)^{-1}=g_{\lambda}(T(\mathbf{x})) \cdot h(\mathbf{x})
+\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[
+g_{\lambda}(T(\mathbf{x}))=e^{-n \lambda} \lambda^{T(\mathbf{x})}, \quad h(\mathbf{x})=\left(x_{1}!x_{2}!\cdots x_{n}!\right)^{-1}
+\]</span></p>
+<p>De modo que <span class="math inline">\(g_{\lambda}(t)=e^{-n \lambda} \lambda^{t}\)</span> depende de la muestra solo a través de <span class="math inline">\(T=\)</span> <span class="math inline">\(\sum_{i=1}^{n} x_{i}\)</span> y <span class="math inline">\(h(\mathbf{x})=\left(x_{1}!x_{2}!\cdots x_{n}!\right)^{-1}\)</span> no depende de <span class="math inline">\(\lambda\)</span>.</p>
+<p>Ejemplo 2.4.5 Supongamos que <span class="math inline">\(\mathbf{X}\)</span> es una muestra aleatoria simple de una población <span class="math inline">\(X \sim N(\mu, \sigma)\)</span>, cuya función de densidad es</p>
+<p><span class="math display">\[
+f_{\mu, \sigma^{2}}\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\frac{1}{\left(\sqrt{2 \pi \sigma^{2}}\right)^{n}} \exp \left\{-\frac{1}{2 \sigma^{2}} \sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}\right\}
+\]</span></p>
+<p>Para evidenciar la factorización, utilizamos que</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}=\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+n(\bar{x}-\mu)^{2} .
+\]</span></p>
+<p>Entonces,</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_{\mu, \sigma^{2}}\left(x_{1}, x_{2}, \ldots, x_{n}\right) &amp; =\frac{1}{\left(\sqrt{2 \pi \sigma^{2}}\right)^{n}} \exp \left\{-\frac{1}{2 \sigma^{2}}\left(\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}+n(\bar{x}-\mu)^{2}\right)\right\} \\
+&amp; =\frac{1}{\left(\sqrt{2 \pi \sigma^{2}}\right)^{n}} \exp \left\{-\frac{1}{2 \sigma^{2}}\left(n s^{2}+n(\bar{x}-\mu)^{2}\right)\right\} \\
+&amp; =g_{\mu, \sigma^{2}}\left(\bar{x}, s^{2}\right) \cdot 1
+\end{aligned}
+\]</span></p>
+<p>Así, vemos que el estadístico <span class="math inline">\(\left(\bar{X}, s^{2}\right)\)</span> es suficiente para la estimación de <span class="math inline">\(\left(\mu, \sigma^{2}\right)\)</span>.
+Si suponemos conocido uno de los dos parámetros <span class="math inline">\(\sigma^{2}\)</span> o <span class="math inline">\(\mu\)</span>, podemos obtener una factorización en la que se ve que <span class="math inline">\(\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}\)</span> es suficiente para <span class="math inline">\(\sigma^{2}\)</span> (conocido <span class="math inline">\(\mu\)</span> ) o <span class="math inline">\(\bar{x}\)</span> es suficiente para <span class="math inline">\(\mu\)</span> (conocido <span class="math inline">\(\sigma^{2}\)</span> ).</p>
+<p>En el ejemplo anterior se observa que el estadístico suficiente para un problema puede tener una dimensión superior a 1. En general, buscaremos el estadístico suficiente de menor dimensión posible, ya que a menor dimensión se elimina más información superflua. Si no es posible encontrarlo así, siempre podemos basarnos en el estadístico <span class="math inline">\(T=\left(X_{1}, X_{2}, \ldots, X_{n}\right)\)</span>, que es suficiente pero de dimensión máxima y, por lo tanto, no aporta ninguna reducción al problema de información. Estas reflexiones llevan a enunciar el principio de suficiencia, que aconseja condensar al máximo la información relevante en un estadístico suficiente <span class="math inline">\(T\)</span> de la menor dimensión posible (“mínima”) y seleccionar un estimador <span class="math inline">\(T^{\prime}\)</span> entre los estadísticos que sean función de la muestra a través de <span class="math inline">\(T: T^{\prime}(\mathbf{X})=\varphi(T(\mathbf{X}))\)</span>.</p>
+</div>
+<div id="propiedades-de-los-estadísticos-suficientes" class="section level3 hasAnchor" number="7.9.3">
+<h3><span class="header-section-number">7.9.3</span> Propiedades de los estadísticos suficientes<a href="estimación-puntual.html#propiedades-de-los-estadísticos-suficientes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Las siguientes propiedades se prueban de manera sencilla utilizando el teorema de factorización:</p>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(T\)</span> es un estadístico suficiente para <span class="math inline">\(\theta\)</span> y <span class="math inline">\(\varphi\)</span> es una función inyectiva (o monótona diferenciable), entonces <span class="math inline">\(T_{1}=\varphi(T)\)</span> también es suficiente para <span class="math inline">\(\theta\)</span>.</li>
+</ol>
+<p>Ejemplo 2.4.6 En la familia de la Poisson hemos visto que <span class="math inline">\(\sum_{i=1}^{n} X_{i}\)</span> es suficiente para <span class="math inline">\(\lambda\)</span>. Entonces <span class="math inline">\(\bar{X}=\varphi\left(\sum_{i=1}^{n} X_{i}\right)\)</span>, donde <span class="math inline">\(\varphi(z)=(1 / n) z\)</span> es inyectiva, es suficiente para <span class="math inline">\(\lambda\)</span>.
+2. Si <span class="math inline">\(T\)</span> es un estadístico suficiente para <span class="math inline">\(\theta\)</span> y <span class="math inline">\(\varphi\)</span> es una función paramétrica monótona diferenciable, entonces <span class="math inline">\(\varphi(T)\)</span> también es suficiente para <span class="math inline">\(\varphi(\theta)\)</span>.
+3. Si <span class="math inline">\(T_{1}, T_{2}\)</span> son dos estadísticos suficientes para <span class="math inline">\(\theta\)</span>, entonces <span class="math inline">\(T_{1}\)</span> es función de <span class="math inline">\(T_{2}\)</span>.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducción-a-la-inferencia-estadística.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="métodos-de-obtención-de-estimadores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/07-estimacionPuntual.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/07-estimacionPuntual.Rmd",
+"text": null
+},
+"download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

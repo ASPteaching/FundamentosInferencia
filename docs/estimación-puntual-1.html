@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 10 Pruebas de hipótesis | Fundamentos de Inferencia Estadistica</title>
-  <meta name="description" content="Capítulo 10 Pruebas de hipótesis | Fundamentos de Inferencia Estadistica" />
+  <title>Capítulo 9 Estimación puntual | Fundamentos de Inferencia Estadistica</title>
+  <meta name="description" content="Capítulo 9 Estimación puntual | Fundamentos de Inferencia Estadistica" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 10 Pruebas de hipótesis | Fundamentos de Inferencia Estadistica" />
+  <meta property="og:title" content="Capítulo 9 Estimación puntual | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 10 Pruebas de hipótesis | Fundamentos de Inferencia Estadistica" />
+  <meta name="twitter:title" content="Capítulo 9 Estimación puntual | Fundamentos de Inferencia Estadistica" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="estimación-puntual-1.html"/>
-<link rel="next" href="inferencia-aplicada.html"/>
+<link rel="prev" href="métodos-de-obtención-de-estimadores.html"/>
+<link rel="next" href="pruebas-de-hipótesis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -488,24 +488,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pruebas-de-hipótesis" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Capítulo 10</span> Pruebas de hipótesis<a href="pruebas-de-hipótesis.html#pruebas-de-hipótesis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="estimación-puntual-1" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Capítulo 9</span> Estimación puntual<a href="estimación-puntual-1.html#estimación-puntual-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="calloutBox important">
-<p>Este capítulo está pendiente de ser introducida en los apuntes.</p>
+<p>Este capítulo está pendiente de ser introducido en los apuntes.</p>
 <p>La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).</p>
 </div>
-<p>Se plantea el problema de las pruebas de hipótesis. Se discuten las aproximaciones y los conceptos asociados. Se trata el problema de la crisis de la significación.</p>
-<div id="conceptos-básicos-pruebas-de-hipótesis-y-de-significación-pruebas-unilaterales-y-bilaterales-tipos-de-error-valores-críticos-de-test-y-p-valores" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Conceptos básicos: pruebas de hipótesis y de significación, pruebas unilaterales y bilaterales, tipos de error, valores críticos de test y p-valores<a href="pruebas-de-hipótesis.html#conceptos-básicos-pruebas-de-hipótesis-y-de-significación-pruebas-unilaterales-y-bilaterales-tipos-de-error-valores-críticos-de-test-y-p-valores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se plantea el problema de la estimación como una forma de aproximación a las características de las distribucionesa partir de muestras aleatorias simples.</p>
+<p>Se abordan las distintas filosofías para la construcción de estimadores.</p>
+<div id="preliminares-estimación-del-error-estándar-e-introducción-al-bootstrap" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Preliminares: estimación del error estándar e Introducción al bootstrap<a href="estimación-puntual-1.html#preliminares-estimación-del-error-estándar-e-introducción-al-bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="potencia-de-un-test.-cálculos-de-potencia-y-de-tamaño-de-la-muestra.-tamaño-del-efecto." class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Potencia de un test. Cálculos de potencia y de tamaño de la muestra. Tamaño del efecto.<a href="pruebas-de-hipótesis.html#potencia-de-un-test.-cálculos-de-potencia-y-de-tamaño-de-la-muestra.-tamaño-del-efecto." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="estimadores-por-intervalo-intervalos-de-confianza" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Estimadores por intervalo: intervalos de confianza<a href="estimación-puntual-1.html#estimadores-por-intervalo-intervalos-de-confianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="métodos-de-construcción-de-tests." class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> Métodos de construcción de tests.<a href="pruebas-de-hipótesis.html#métodos-de-construcción-de-tests." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="intervalos-de-confianza-para-características-de-una-población-normal-media-varianza" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Intervalos de confianza para características de una población normal (media, varianza),<a href="estimación-puntual-1.html#intervalos-de-confianza-para-características-de-una-población-normal-media-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="problemas-asociados-al-uso-de-tests-estadísticos.-la-crisis-de-la-significación" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Problemas asociados al uso de tests estadísticos. La crisis de la significación<a href="pruebas-de-hipótesis.html#problemas-asociados-al-uso-de-tests-estadísticos.-la-crisis-de-la-significación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="intervalos-de-confianza-bootstrap." class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Intervalos de confianza bootstrap.<a href="estimación-puntual-1.html#intervalos-de-confianza-bootstrap." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="intervalos-de-confianza-para-proporciones-binomiales" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Intervalos de confianza para proporciones binomiales<a href="estimación-puntual-1.html#intervalos-de-confianza-para-proporciones-binomiales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="intervalos-de-confianza-para-parámetros-en-muestra-grandes-y-para-casos-generales-tasas-or" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Intervalos de confianza para parámetros en muestra grandes y para casos generales (tasas, OR, …)<a href="estimación-puntual-1.html#intervalos-de-confianza-para-parámetros-en-muestra-grandes-y-para-casos-generales-tasas-or" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="aplicaciones-cálculo-del-tamaño-muestral" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> Aplicaciones: cálculo del tamaño muestral<a href="estimación-puntual-1.html#aplicaciones-cálculo-del-tamaño-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -514,8 +524,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="estimación-puntual-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="inferencia-aplicada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="métodos-de-obtención-de-estimadores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pruebas-de-hipótesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -546,7 +556,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/09-pruebasHipotesis.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/08-estimacionIntervalos.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -554,7 +564,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/09-pruebasHipotesis.Rmd",
+"link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/08-estimacionIntervalos.Rmd",
 "text": null
 },
 "download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
