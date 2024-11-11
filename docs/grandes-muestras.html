@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 5 Grandes muestras | Fundamentos de Inferencia Estadistica</title>
   <meta name="description" content="Capítulo 5 Grandes muestras | Fundamentos de Inferencia Estadistica" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 5 Grandes muestras | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
@@ -534,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-17"><a href="grandes-muestras.html#cb17-17" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Número de lanzamientos (n)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Media muestral&quot;</span>,</span>
 <span id="cb17-18"><a href="grandes-muestras.html#cb17-18" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Ley de los Grandes Números</span><span class="sc">\n</span><span class="st"> Media de los lanzamientos de un dado&quot;</span>, <span class="at">cex.main=</span><span class="fl">0.7</span>)</span>
 <span id="cb17-19"><a href="grandes-muestras.html#cb17-19" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">3.5</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)  <span class="co"># Línea horizontal en 3.5</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="docs/imagenes/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Este comportamiento es una manifestación intuitiva de la ley débil de los grandes números, ya que nos garantiza que la media muestral se acercará a la media poblacional a medida que el número de observaciones aumente.</p>
 </div>
 </div>
@@ -652,7 +652,7 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 <span id="cb18-29"><a href="grandes-muestras.html#cb18-29" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Normal Aproximada&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Valor&quot;</span>, </span>
 <span id="cb18-30"><a href="grandes-muestras.html#cb18-30" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
 <span id="cb18-31"><a href="grandes-muestras.html#cb18-31" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(normal_sample), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="FundamentosInferenciaEstadistica_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="normalidad-asintótica-de-la-suma-de-puntuaciones-de-un-dado" class="section level4 hasAnchor" number="5.3.4.2">
 <h4><span class="header-section-number">5.3.4.2</span> Normalidad asintótica de la suma de puntuaciones de un dado<a href="grandes-muestras.html#normalidad-asintótica-de-la-suma-de-puntuaciones-de-un-dado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -683,7 +683,7 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 <span id="cb19-25"><a href="grandes-muestras.html#cb19-25" tabindex="-1"></a>  <span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> mean_dado, <span class="at">sd =</span> sd_dado), </span>
 <span id="cb19-26"><a href="grandes-muestras.html#cb19-26" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb19-27"><a href="grandes-muestras.html#cb19-27" tabindex="-1"></a>}</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="FundamentosInferenciaEstadistica_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <!-- - Ejemplo 4: normalidad asintótica de la suma de uniformes. -->
 <!-- - Ejemplo 5: normalidad asintótica de la suma de exponenciales. -->
 </div>
