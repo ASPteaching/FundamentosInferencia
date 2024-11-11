@@ -530,11 +530,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-13"><a href="grandes-muestras.html#cb17-13" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="fu">simular_dado</span>(max_n)</span>
 <span id="cb17-14"><a href="grandes-muestras.html#cb17-14" tabindex="-1"></a></span>
 <span id="cb17-15"><a href="grandes-muestras.html#cb17-15" tabindex="-1"></a><span class="co"># Graficar las medias muestrales a medida que n aumenta</span></span>
-<span id="cb17-16"><a href="grandes-muestras.html#cb17-16" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span>max_n, medias, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb17-17"><a href="grandes-muestras.html#cb17-17" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Número de lanzamientos (n)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Media muestral&quot;</span>,</span>
-<span id="cb17-18"><a href="grandes-muestras.html#cb17-18" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Ley de los Grandes Números</span><span class="sc">\n</span><span class="st"> Media de los lanzamientos de un dado&quot;</span>, <span class="at">cex.main=</span><span class="fl">0.7</span>)</span>
-<span id="cb17-19"><a href="grandes-muestras.html#cb17-19" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">3.5</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)  <span class="co"># Línea horizontal en 3.5</span></span></code></pre></div>
-<p><img src="docs/imagenes/unnamed-chunk-13-1.png" width="672" /></p>
+<span id="cb17-16"><a href="grandes-muestras.html#cb17-16" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;images/LLN1.png&quot;</span>)</span>
+<span id="cb17-17"><a href="grandes-muestras.html#cb17-17" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span>max_n, medias, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb17-18"><a href="grandes-muestras.html#cb17-18" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Número de lanzamientos (n)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Media muestral&quot;</span>,</span>
+<span id="cb17-19"><a href="grandes-muestras.html#cb17-19" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Ley de los Grandes Números</span><span class="sc">\n</span><span class="st"> Media de los lanzamientos de un dado&quot;</span>, <span class="at">cex.main=</span><span class="fl">0.7</span>)</span>
+<span id="cb17-20"><a href="grandes-muestras.html#cb17-20" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">3.5</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)  <span class="co"># Línea horizontal en 3.5</span></span>
+<span id="cb17-21"><a href="grandes-muestras.html#cb17-21" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>## png 
+##   2</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="grandes-muestras.html#cb19-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/LLN1.png&quot;</span>,<span class="at">rel_path =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="images/LLN1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Este comportamiento es una manifestación intuitiva de la ley débil de los grandes números, ya que nos garantiza que la media muestral se acercará a la media poblacional a medida que el número de observaciones aumente.</p>
 </div>
 </div>
@@ -621,68 +626,68 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 <h3><span class="header-section-number">5.3.4</span> Algunos ejemplos de aplicación del TCL<a href="grandes-muestras.html#algunos-ejemplos-de-aplicación-del-tcl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="normalidad-asintótica-de-la-binomial." class="section level4 hasAnchor" number="5.3.4.1">
 <h4><span class="header-section-number">5.3.4.1</span> Normalidad asintótica de la Binomial.<a href="grandes-muestras.html#normalidad-asintótica-de-la-binomial." class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="grandes-muestras.html#cb18-1" tabindex="-1"></a><span class="co"># Parámetros de la distribución binomial</span></span>
-<span id="cb18-2"><a href="grandes-muestras.html#cb18-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span>  <span class="co"># Número de ensayos</span></span>
-<span id="cb18-3"><a href="grandes-muestras.html#cb18-3" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span>   <span class="co"># Probabilidad de éxito</span></span>
-<span id="cb18-4"><a href="grandes-muestras.html#cb18-4" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="dv">10000</span>  <span class="co"># Número de simulaciones</span></span>
-<span id="cb18-5"><a href="grandes-muestras.html#cb18-5" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="grandes-muestras.html#cb18-6" tabindex="-1"></a><span class="co"># Generar una variable aleatoria binomial</span></span>
-<span id="cb18-7"><a href="grandes-muestras.html#cb18-7" tabindex="-1"></a>binomial_sample <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(size, n, p)</span>
-<span id="cb18-8"><a href="grandes-muestras.html#cb18-8" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="grandes-muestras.html#cb18-9" tabindex="-1"></a><span class="co"># Estimación de la media y la desviación estándar de la distribución binomial</span></span>
-<span id="cb18-10"><a href="grandes-muestras.html#cb18-10" tabindex="-1"></a>mean_binom <span class="ot">&lt;-</span> n <span class="sc">*</span> p</span>
-<span id="cb18-11"><a href="grandes-muestras.html#cb18-11" tabindex="-1"></a>sd_binom <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
-<span id="cb18-12"><a href="grandes-muestras.html#cb18-12" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="grandes-muestras.html#cb18-13" tabindex="-1"></a><span class="co"># Generar la distribución normal aproximada</span></span>
-<span id="cb18-14"><a href="grandes-muestras.html#cb18-14" tabindex="-1"></a>normal_sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(size, <span class="at">mean =</span> mean_binom, <span class="at">sd =</span> sd_binom)</span>
-<span id="cb18-15"><a href="grandes-muestras.html#cb18-15" tabindex="-1"></a></span>
-<span id="cb18-16"><a href="grandes-muestras.html#cb18-16" tabindex="-1"></a><span class="co"># Graficar los histogramas de la binomial y la normal</span></span>
-<span id="cb18-17"><a href="grandes-muestras.html#cb18-17" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># Organizar gráficos en dos paneles</span></span>
-<span id="cb18-18"><a href="grandes-muestras.html#cb18-18" tabindex="-1"></a></span>
-<span id="cb18-19"><a href="grandes-muestras.html#cb18-19" tabindex="-1"></a><span class="co"># Histograma de la muestra binomial</span></span>
-<span id="cb18-20"><a href="grandes-muestras.html#cb18-20" tabindex="-1"></a><span class="fu">hist</span>(binomial_sample, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb18-21"><a href="grandes-muestras.html#cb18-21" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, n), </span>
-<span id="cb18-22"><a href="grandes-muestras.html#cb18-22" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Binomial&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Valor&quot;</span>, </span>
-<span id="cb18-23"><a href="grandes-muestras.html#cb18-23" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
-<span id="cb18-24"><a href="grandes-muestras.html#cb18-24" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(binomial_sample), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb18-25"><a href="grandes-muestras.html#cb18-25" tabindex="-1"></a></span>
-<span id="cb18-26"><a href="grandes-muestras.html#cb18-26" tabindex="-1"></a><span class="co"># Histograma de la distribución normal aproximada</span></span>
-<span id="cb18-27"><a href="grandes-muestras.html#cb18-27" tabindex="-1"></a><span class="fu">hist</span>(normal_sample, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb18-28"><a href="grandes-muestras.html#cb18-28" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, n), </span>
-<span id="cb18-29"><a href="grandes-muestras.html#cb18-29" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Normal Aproximada&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Valor&quot;</span>, </span>
-<span id="cb18-30"><a href="grandes-muestras.html#cb18-30" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
-<span id="cb18-31"><a href="grandes-muestras.html#cb18-31" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(normal_sample), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="grandes-muestras.html#cb20-1" tabindex="-1"></a><span class="co"># Parámetros de la distribución binomial</span></span>
+<span id="cb20-2"><a href="grandes-muestras.html#cb20-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span>  <span class="co"># Número de ensayos</span></span>
+<span id="cb20-3"><a href="grandes-muestras.html#cb20-3" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span>   <span class="co"># Probabilidad de éxito</span></span>
+<span id="cb20-4"><a href="grandes-muestras.html#cb20-4" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="dv">10000</span>  <span class="co"># Número de simulaciones</span></span>
+<span id="cb20-5"><a href="grandes-muestras.html#cb20-5" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="grandes-muestras.html#cb20-6" tabindex="-1"></a><span class="co"># Generar una variable aleatoria binomial</span></span>
+<span id="cb20-7"><a href="grandes-muestras.html#cb20-7" tabindex="-1"></a>binomial_sample <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(size, n, p)</span>
+<span id="cb20-8"><a href="grandes-muestras.html#cb20-8" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="grandes-muestras.html#cb20-9" tabindex="-1"></a><span class="co"># Estimación de la media y la desviación estándar de la distribución binomial</span></span>
+<span id="cb20-10"><a href="grandes-muestras.html#cb20-10" tabindex="-1"></a>mean_binom <span class="ot">&lt;-</span> n <span class="sc">*</span> p</span>
+<span id="cb20-11"><a href="grandes-muestras.html#cb20-11" tabindex="-1"></a>sd_binom <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
+<span id="cb20-12"><a href="grandes-muestras.html#cb20-12" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="grandes-muestras.html#cb20-13" tabindex="-1"></a><span class="co"># Generar la distribución normal aproximada</span></span>
+<span id="cb20-14"><a href="grandes-muestras.html#cb20-14" tabindex="-1"></a>normal_sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(size, <span class="at">mean =</span> mean_binom, <span class="at">sd =</span> sd_binom)</span>
+<span id="cb20-15"><a href="grandes-muestras.html#cb20-15" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="grandes-muestras.html#cb20-16" tabindex="-1"></a><span class="co"># Graficar los histogramas de la binomial y la normal</span></span>
+<span id="cb20-17"><a href="grandes-muestras.html#cb20-17" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># Organizar gráficos en dos paneles</span></span>
+<span id="cb20-18"><a href="grandes-muestras.html#cb20-18" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="grandes-muestras.html#cb20-19" tabindex="-1"></a><span class="co"># Histograma de la muestra binomial</span></span>
+<span id="cb20-20"><a href="grandes-muestras.html#cb20-20" tabindex="-1"></a><span class="fu">hist</span>(binomial_sample, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb20-21"><a href="grandes-muestras.html#cb20-21" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, n), </span>
+<span id="cb20-22"><a href="grandes-muestras.html#cb20-22" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Binomial&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Valor&quot;</span>, </span>
+<span id="cb20-23"><a href="grandes-muestras.html#cb20-23" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
+<span id="cb20-24"><a href="grandes-muestras.html#cb20-24" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(binomial_sample), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb20-25"><a href="grandes-muestras.html#cb20-25" tabindex="-1"></a></span>
+<span id="cb20-26"><a href="grandes-muestras.html#cb20-26" tabindex="-1"></a><span class="co"># Histograma de la distribución normal aproximada</span></span>
+<span id="cb20-27"><a href="grandes-muestras.html#cb20-27" tabindex="-1"></a><span class="fu">hist</span>(normal_sample, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb20-28"><a href="grandes-muestras.html#cb20-28" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, n), </span>
+<span id="cb20-29"><a href="grandes-muestras.html#cb20-29" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribución Normal Aproximada&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Valor&quot;</span>, </span>
+<span id="cb20-30"><a href="grandes-muestras.html#cb20-30" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
+<span id="cb20-31"><a href="grandes-muestras.html#cb20-31" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(normal_sample), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="FundamentosInferenciaEstadistica_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="normalidad-asintótica-de-la-suma-de-puntuaciones-de-un-dado" class="section level4 hasAnchor" number="5.3.4.2">
 <h4><span class="header-section-number">5.3.4.2</span> Normalidad asintótica de la suma de puntuaciones de un dado<a href="grandes-muestras.html#normalidad-asintótica-de-la-suma-de-puntuaciones-de-un-dado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="grandes-muestras.html#cb19-1" tabindex="-1"></a><span class="co"># Parámetros de la simulación</span></span>
-<span id="cb19-2"><a href="grandes-muestras.html#cb19-2" tabindex="-1"></a>num_simulaciones <span class="ot">&lt;-</span> <span class="dv">10000</span>  <span class="co"># Número de simulaciones</span></span>
-<span id="cb19-3"><a href="grandes-muestras.html#cb19-3" tabindex="-1"></a>num_lanzamientos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>)  <span class="co"># Diferentes tamaños de muestra</span></span>
-<span id="cb19-4"><a href="grandes-muestras.html#cb19-4" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="grandes-muestras.html#cb19-5" tabindex="-1"></a><span class="co"># Función para simular la suma de las puntuaciones de un dado</span></span>
-<span id="cb19-6"><a href="grandes-muestras.html#cb19-6" tabindex="-1"></a>simular_suma_dado <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb19-7"><a href="grandes-muestras.html#cb19-7" tabindex="-1"></a>  suma <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(<span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, n <span class="sc">*</span> num_simulaciones, <span class="at">replace =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb19-8"><a href="grandes-muestras.html#cb19-8" tabindex="-1"></a>                        <span class="at">ncol =</span> n))  <span class="co"># Simulación de las sumas</span></span>
-<span id="cb19-9"><a href="grandes-muestras.html#cb19-9" tabindex="-1"></a>  <span class="fu">return</span>(suma)</span>
-<span id="cb19-10"><a href="grandes-muestras.html#cb19-10" tabindex="-1"></a>}</span>
-<span id="cb19-11"><a href="grandes-muestras.html#cb19-11" tabindex="-1"></a></span>
-<span id="cb19-12"><a href="grandes-muestras.html#cb19-12" tabindex="-1"></a><span class="co"># Graficar las distribuciones de las sumas para diferentes tamaños de muestra</span></span>
-<span id="cb19-13"><a href="grandes-muestras.html#cb19-13" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))  <span class="co"># Organizar gráficos en 2x2</span></span>
-<span id="cb19-14"><a href="grandes-muestras.html#cb19-14" tabindex="-1"></a></span>
-<span id="cb19-15"><a href="grandes-muestras.html#cb19-15" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> num_lanzamientos) {</span>
-<span id="cb19-16"><a href="grandes-muestras.html#cb19-16" tabindex="-1"></a>  suma_dado <span class="ot">&lt;-</span> <span class="fu">simular_suma_dado</span>(n)</span>
-<span id="cb19-17"><a href="grandes-muestras.html#cb19-17" tabindex="-1"></a>  <span class="co"># Histograma de la suma de las puntuaciones del dado</span></span>
-<span id="cb19-18"><a href="grandes-muestras.html#cb19-18" tabindex="-1"></a>  <span class="fu">hist</span>(suma_dado, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb19-19"><a href="grandes-muestras.html#cb19-19" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fu">min</span>(suma_dado), <span class="fu">max</span>(suma_dado)), </span>
-<span id="cb19-20"><a href="grandes-muestras.html#cb19-20" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Suma de&quot;</span>, n, <span class="st">&quot;lanzamientos de un dado&quot;</span>), </span>
-<span id="cb19-21"><a href="grandes-muestras.html#cb19-21" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">&quot;Suma de puntuaciones&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
-<span id="cb19-22"><a href="grandes-muestras.html#cb19-22" tabindex="-1"></a>  <span class="co"># Superponer la curva de densidad normal (aproximación asintótica)</span></span>
-<span id="cb19-23"><a href="grandes-muestras.html#cb19-23" tabindex="-1"></a>  mean_dado <span class="ot">&lt;-</span> <span class="fl">3.5</span> <span class="sc">*</span> n  <span class="co"># Media esperada de la suma (media de un dado es 3.5)</span></span>
-<span id="cb19-24"><a href="grandes-muestras.html#cb19-24" tabindex="-1"></a>  sd_dado <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> (<span class="dv">35</span> <span class="sc">/</span> <span class="dv">12</span>))  <span class="co"># Desviación estándar de la suma (varianza de un dado es 35/12)</span></span>
-<span id="cb19-25"><a href="grandes-muestras.html#cb19-25" tabindex="-1"></a>  <span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> mean_dado, <span class="at">sd =</span> sd_dado), </span>
-<span id="cb19-26"><a href="grandes-muestras.html#cb19-26" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-27"><a href="grandes-muestras.html#cb19-27" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="grandes-muestras.html#cb21-1" tabindex="-1"></a><span class="co"># Parámetros de la simulación</span></span>
+<span id="cb21-2"><a href="grandes-muestras.html#cb21-2" tabindex="-1"></a>num_simulaciones <span class="ot">&lt;-</span> <span class="dv">10000</span>  <span class="co"># Número de simulaciones</span></span>
+<span id="cb21-3"><a href="grandes-muestras.html#cb21-3" tabindex="-1"></a>num_lanzamientos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>)  <span class="co"># Diferentes tamaños de muestra</span></span>
+<span id="cb21-4"><a href="grandes-muestras.html#cb21-4" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="grandes-muestras.html#cb21-5" tabindex="-1"></a><span class="co"># Función para simular la suma de las puntuaciones de un dado</span></span>
+<span id="cb21-6"><a href="grandes-muestras.html#cb21-6" tabindex="-1"></a>simular_suma_dado <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb21-7"><a href="grandes-muestras.html#cb21-7" tabindex="-1"></a>  suma <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(<span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, n <span class="sc">*</span> num_simulaciones, <span class="at">replace =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb21-8"><a href="grandes-muestras.html#cb21-8" tabindex="-1"></a>                        <span class="at">ncol =</span> n))  <span class="co"># Simulación de las sumas</span></span>
+<span id="cb21-9"><a href="grandes-muestras.html#cb21-9" tabindex="-1"></a>  <span class="fu">return</span>(suma)</span>
+<span id="cb21-10"><a href="grandes-muestras.html#cb21-10" tabindex="-1"></a>}</span>
+<span id="cb21-11"><a href="grandes-muestras.html#cb21-11" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="grandes-muestras.html#cb21-12" tabindex="-1"></a><span class="co"># Graficar las distribuciones de las sumas para diferentes tamaños de muestra</span></span>
+<span id="cb21-13"><a href="grandes-muestras.html#cb21-13" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))  <span class="co"># Organizar gráficos en 2x2</span></span>
+<span id="cb21-14"><a href="grandes-muestras.html#cb21-14" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="grandes-muestras.html#cb21-15" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> num_lanzamientos) {</span>
+<span id="cb21-16"><a href="grandes-muestras.html#cb21-16" tabindex="-1"></a>  suma_dado <span class="ot">&lt;-</span> <span class="fu">simular_suma_dado</span>(n)</span>
+<span id="cb21-17"><a href="grandes-muestras.html#cb21-17" tabindex="-1"></a>  <span class="co"># Histograma de la suma de las puntuaciones del dado</span></span>
+<span id="cb21-18"><a href="grandes-muestras.html#cb21-18" tabindex="-1"></a>  <span class="fu">hist</span>(suma_dado, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb21-19"><a href="grandes-muestras.html#cb21-19" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.5</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fu">min</span>(suma_dado), <span class="fu">max</span>(suma_dado)), </span>
+<span id="cb21-20"><a href="grandes-muestras.html#cb21-20" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Suma de&quot;</span>, n, <span class="st">&quot;lanzamientos de un dado&quot;</span>), </span>
+<span id="cb21-21"><a href="grandes-muestras.html#cb21-21" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">&quot;Suma de puntuaciones&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Densidad&quot;</span>)</span>
+<span id="cb21-22"><a href="grandes-muestras.html#cb21-22" tabindex="-1"></a>  <span class="co"># Superponer la curva de densidad normal (aproximación asintótica)</span></span>
+<span id="cb21-23"><a href="grandes-muestras.html#cb21-23" tabindex="-1"></a>  mean_dado <span class="ot">&lt;-</span> <span class="fl">3.5</span> <span class="sc">*</span> n  <span class="co"># Media esperada de la suma (media de un dado es 3.5)</span></span>
+<span id="cb21-24"><a href="grandes-muestras.html#cb21-24" tabindex="-1"></a>  sd_dado <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> (<span class="dv">35</span> <span class="sc">/</span> <span class="dv">12</span>))  <span class="co"># Desviación estándar de la suma (varianza de un dado es 35/12)</span></span>
+<span id="cb21-25"><a href="grandes-muestras.html#cb21-25" tabindex="-1"></a>  <span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> mean_dado, <span class="at">sd =</span> sd_dado), </span>
+<span id="cb21-26"><a href="grandes-muestras.html#cb21-26" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-27"><a href="grandes-muestras.html#cb21-27" tabindex="-1"></a>}</span></code></pre></div>
 <p><img src="FundamentosInferenciaEstadistica_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <!-- - Ejemplo 4: normalidad asintótica de la suma de uniformes. -->
 <!-- - Ejemplo 5: normalidad asintótica de la suma de exponenciales. -->

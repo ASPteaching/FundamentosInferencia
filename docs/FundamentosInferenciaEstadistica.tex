@@ -4792,14 +4792,27 @@ Podemos ilustrarlo con el siguiente código de R
 \NormalTok{medias }\OtherTok{\textless{}{-}} \FunctionTok{simular\_dado}\NormalTok{(max\_n)}
 
 \CommentTok{\# Graficar las medias muestrales a medida que n aumenta}
+\FunctionTok{png}\NormalTok{(}\StringTok{"images/LLN1.png"}\NormalTok{)}
 \FunctionTok{plot}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\NormalTok{max\_n, medias, }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{,}
      \AttributeTok{xlab =} \StringTok{"Número de lanzamientos (n)"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Media muestral"}\NormalTok{,}
      \AttributeTok{main =} \StringTok{"Ley de los Grandes Números}\SpecialCharTok{\textbackslash{}n}\StringTok{ Media de los lanzamientos de un dado"}\NormalTok{, }\AttributeTok{cex.main=}\FloatTok{0.7}\NormalTok{)}
 \FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \FloatTok{3.5}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{)  }\CommentTok{\# Línea horizontal en 3.5}
+\FunctionTok{dev.off}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{docs/imagenes/unnamed-chunk-13-1.pdf}
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"images/LLN1.png"}\NormalTok{,}\AttributeTok{rel\_path =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{images/LLN1} \end{center}
 
 Este comportamiento es una manifestación intuitiva de la ley débil de los grandes números, ya que nos garantiza que la media muestral se acercará a la media poblacional a medida que el número de observaciones aumente.
 

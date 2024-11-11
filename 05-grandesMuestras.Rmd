@@ -37,7 +37,7 @@ Ahora, supongamos que lanzamos el dado repetidamente y calculamos la media de lo
 
 Podemos ilustrarlo con el siguiente código de R
 
-```{r,  fig.path="docs/imagenes/"}
+```{r}
 # Definir la función para simular lanzamientos de un dado
 simular_dado <- function(max_n) {
   medias <- numeric(max_n)  # Vector para almacenar las medias muestrales
@@ -53,13 +53,17 @@ max_n <- 10000
 medias <- simular_dado(max_n)
 
 # Graficar las medias muestrales a medida que n aumenta
+png("images/LLN1.png")
 plot(1:max_n, medias, type = "l", col = "blue", lwd = 2,
      xlab = "Número de lanzamientos (n)", ylab = "Media muestral",
      main = "Ley de los Grandes Números\n Media de los lanzamientos de un dado", cex.main=0.7)
 abline(h = 3.5, col = "red", lwd = 2, lty = 2)  # Línea horizontal en 3.5
-
+dev.off()
 ```
 
+```{r, LLN1, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/LLN1.png",rel_path = TRUE)
+```
 
 
 Este comportamiento es una manifestación intuitiva de la ley débil de los grandes números, ya que nos garantiza que la media muestral se acercará a la media poblacional a medida que el número de observaciones aumente.
