@@ -1,4 +1,4 @@
-# Estimación puntual
+# Estimación por intérvalos
 
 :::: {.calloutBox .important}
 
