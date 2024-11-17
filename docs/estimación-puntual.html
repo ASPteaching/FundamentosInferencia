@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 7 Estimación puntual | Fundamentos de Inferencia Estadistica</title>
   <meta name="description" content="Capítulo 7 Estimación puntual | Fundamentos de Inferencia Estadistica" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 7 Estimación puntual | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2024-11-12" />
+<meta name="date" content="2024-11-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="introducción-a-la-inferencia-estadística.html"/>
-<link rel="next" href="métodos-de-obtención-de-estimadores.html"/>
+<link rel="next" href="estimación-puntual-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -426,46 +426,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.9.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#teorema-de-factorización"><i class="fa fa-check"></i><b>7.9.2</b> Teorema de factorización</a></li>
 <li class="chapter" data-level="7.9.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#propiedades-de-los-estadísticos-suficientes"><i class="fa fa-check"></i><b>7.9.3</b> Propiedades de los estadísticos suficientes</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html"><i class="fa fa-check"></i><b>8</b> MÉTODOS DE OBTENCIÓN DE ESTIMADORES</a>
+<li class="chapter" data-level="7.10" data-path="estimación-puntual.html"><a href="estimación-puntual.html#obtención-de-estimadores"><i class="fa fa-check"></i><b>7.10</b> Obtención de estimadores</a></li>
+<li class="chapter" data-level="7.11" data-path="estimación-puntual.html"><a href="estimación-puntual.html#el-método-de-los-momentos"><i class="fa fa-check"></i><b>7.11</b> El método de los momentos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html#el-método-de-los-momentos"><i class="fa fa-check"></i><b>8.1</b> El método de los momentos</a>
-<ul>
-<li class="chapter" data-level="8.1.1" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html#observaciones"><i class="fa fa-check"></i><b>8.1.1</b> Observaciones</a></li>
+<li class="chapter" data-level="7.11.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#observaciones"><i class="fa fa-check"></i><b>7.11.1</b> Observaciones</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="métodos-de-obtención-de-estimadores.html"><a href="métodos-de-obtención-de-estimadores.html#el-método-del-máximo-de-verosimilitud"><i class="fa fa-check"></i><b>8.2</b> El método del máximo de verosimilitud</a></li>
+<li class="chapter" data-level="7.12" data-path="estimación-puntual.html"><a href="estimación-puntual.html#el-método-del-máximo-de-verosimilitud"><i class="fa fa-check"></i><b>7.12</b> El método del máximo de verosimilitud</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html"><i class="fa fa-check"></i><b>9</b> Estimación puntual</a>
+<li class="chapter" data-level="8" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html"><i class="fa fa-check"></i><b>8</b> Estimación puntual</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#preliminares-estimación-del-error-estándar-e-introducción-al-bootstrap"><i class="fa fa-check"></i><b>9.1</b> Preliminares: estimación del error estándar e Introducción al bootstrap</a></li>
-<li class="chapter" data-level="9.2" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#estimadores-por-intervalo-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.2</b> Estimadores por intervalo: intervalos de confianza</a></li>
-<li class="chapter" data-level="9.3" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-características-de-una-población-normal-media-varianza"><i class="fa fa-check"></i><b>9.3</b> Intervalos de confianza para características de una población normal (media, varianza),</a></li>
-<li class="chapter" data-level="9.4" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-bootstrap."><i class="fa fa-check"></i><b>9.4</b> Intervalos de confianza bootstrap.</a></li>
-<li class="chapter" data-level="9.5" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-proporciones-binomiales"><i class="fa fa-check"></i><b>9.5</b> Intervalos de confianza para proporciones binomiales</a></li>
-<li class="chapter" data-level="9.6" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-parámetros-en-muestra-grandes-y-para-casos-generales-tasas-or"><i class="fa fa-check"></i><b>9.6</b> Intervalos de confianza para parámetros en muestra grandes y para casos generales (tasas, OR, …)</a></li>
-<li class="chapter" data-level="9.7" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#aplicaciones-cálculo-del-tamaño-muestral"><i class="fa fa-check"></i><b>9.7</b> Aplicaciones: cálculo del tamaño muestral</a></li>
+<li class="chapter" data-level="8.1" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#preliminares-estimación-del-error-estándar-e-introducción-al-bootstrap"><i class="fa fa-check"></i><b>8.1</b> Preliminares: estimación del error estándar e Introducción al bootstrap</a></li>
+<li class="chapter" data-level="8.2" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#estimadores-por-intervalo-intervalos-de-confianza"><i class="fa fa-check"></i><b>8.2</b> Estimadores por intervalo: intervalos de confianza</a></li>
+<li class="chapter" data-level="8.3" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-características-de-una-población-normal-media-varianza"><i class="fa fa-check"></i><b>8.3</b> Intervalos de confianza para características de una población normal (media, varianza),</a></li>
+<li class="chapter" data-level="8.4" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-bootstrap."><i class="fa fa-check"></i><b>8.4</b> Intervalos de confianza bootstrap.</a></li>
+<li class="chapter" data-level="8.5" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-proporciones-binomiales"><i class="fa fa-check"></i><b>8.5</b> Intervalos de confianza para proporciones binomiales</a></li>
+<li class="chapter" data-level="8.6" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#intervalos-de-confianza-para-parámetros-en-muestra-grandes-y-para-casos-generales-tasas-or"><i class="fa fa-check"></i><b>8.6</b> Intervalos de confianza para parámetros en muestra grandes y para casos generales (tasas, OR, …)</a></li>
+<li class="chapter" data-level="8.7" data-path="estimación-puntual-1.html"><a href="estimación-puntual-1.html#aplicaciones-cálculo-del-tamaño-muestral"><i class="fa fa-check"></i><b>8.7</b> Aplicaciones: cálculo del tamaño muestral</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>10</b> Pruebas de hipótesis</a>
+<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de hipótesis</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#conceptos-básicos-pruebas-de-hipótesis-y-de-significación-pruebas-unilaterales-y-bilaterales-tipos-de-error-valores-críticos-de-test-y-p-valores"><i class="fa fa-check"></i><b>10.1</b> Conceptos básicos: pruebas de hipótesis y de significación, pruebas unilaterales y bilaterales, tipos de error, valores críticos de test y p-valores</a></li>
-<li class="chapter" data-level="10.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#potencia-de-un-test.-cálculos-de-potencia-y-de-tamaño-de-la-muestra.-tamaño-del-efecto."><i class="fa fa-check"></i><b>10.2</b> Potencia de un test. Cálculos de potencia y de tamaño de la muestra. Tamaño del efecto.</a></li>
-<li class="chapter" data-level="10.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#métodos-de-construcción-de-tests."><i class="fa fa-check"></i><b>10.3</b> Métodos de construcción de tests.</a></li>
-<li class="chapter" data-level="10.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#problemas-asociados-al-uso-de-tests-estadísticos.-la-crisis-de-la-significación"><i class="fa fa-check"></i><b>10.4</b> Problemas asociados al uso de tests estadísticos. La crisis de la significación</a></li>
+<li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#conceptos-básicos-pruebas-de-hipótesis-y-de-significación-pruebas-unilaterales-y-bilaterales-tipos-de-error-valores-críticos-de-test-y-p-valores"><i class="fa fa-check"></i><b>9.1</b> Conceptos básicos: pruebas de hipótesis y de significación, pruebas unilaterales y bilaterales, tipos de error, valores críticos de test y p-valores</a></li>
+<li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#potencia-de-un-test.-cálculos-de-potencia-y-de-tamaño-de-la-muestra.-tamaño-del-efecto."><i class="fa fa-check"></i><b>9.2</b> Potencia de un test. Cálculos de potencia y de tamaño de la muestra. Tamaño del efecto.</a></li>
+<li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#métodos-de-construcción-de-tests."><i class="fa fa-check"></i><b>9.3</b> Métodos de construcción de tests.</a></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#problemas-asociados-al-uso-de-tests-estadísticos.-la-crisis-de-la-significación"><i class="fa fa-check"></i><b>9.4</b> Problemas asociados al uso de tests estadísticos. La crisis de la significación</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html"><i class="fa fa-check"></i><b>11</b> Inferencia Aplicada</a>
+<li class="chapter" data-level="10" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html"><i class="fa fa-check"></i><b>10</b> Inferencia Aplicada</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-normalidad.pruebas-gráficas.-el-test-de-shapiro-wilks"><i class="fa fa-check"></i><b>11.1</b> Pruebas de normalidad.Pruebas gráficas. El test de Shapiro-Wilks</a></li>
-<li class="chapter" data-level="11.2" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-hipótesis-para-constrastar-variables-cuantitativas-pruebas-paramètricas-t-test-y-anova"><i class="fa fa-check"></i><b>11.2</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas paramètricas t-test y Anova</a></li>
-<li class="chapter" data-level="11.3" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-hipótesis-para-constrastar-variables-cuantitativas-pruebas-de-hipótesis-no-paramétricas-de-wilcoxon-y-kruskal-wallis"><i class="fa fa-check"></i><b>11.3</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas de hipótesis no paramétricas de Wilcoxon y Kruskal-Wallis</a></li>
-<li class="chapter" data-level="11.4" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#contrastes-para-datos-categóricos.-pruebas-binomiales-ji-cuadrado-y-test-de-fisher."><i class="fa fa-check"></i><b>11.4</b> Contrastes para datos categóricos. Pruebas binomiales, ji cuadrado y test de Fisher.</a></li>
-<li class="chapter" data-level="11.5" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#riesgo-relativo-y-razón-de-odds"><i class="fa fa-check"></i><b>11.5</b> Riesgo relativo y razón de «odds»</a></li>
+<li class="chapter" data-level="10.1" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-normalidad.pruebas-gráficas.-el-test-de-shapiro-wilks"><i class="fa fa-check"></i><b>10.1</b> Pruebas de normalidad.Pruebas gráficas. El test de Shapiro-Wilks</a></li>
+<li class="chapter" data-level="10.2" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-hipótesis-para-constrastar-variables-cuantitativas-pruebas-paramètricas-t-test-y-anova"><i class="fa fa-check"></i><b>10.2</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas paramètricas t-test y Anova</a></li>
+<li class="chapter" data-level="10.3" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#pruebas-de-hipótesis-para-constrastar-variables-cuantitativas-pruebas-de-hipótesis-no-paramétricas-de-wilcoxon-y-kruskal-wallis"><i class="fa fa-check"></i><b>10.3</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas de hipótesis no paramétricas de Wilcoxon y Kruskal-Wallis</a></li>
+<li class="chapter" data-level="10.4" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#contrastes-para-datos-categóricos.-pruebas-binomiales-ji-cuadrado-y-test-de-fisher."><i class="fa fa-check"></i><b>10.4</b> Contrastes para datos categóricos. Pruebas binomiales, ji cuadrado y test de Fisher.</a></li>
+<li class="chapter" data-level="10.5" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html#riesgo-relativo-y-razón-de-odds"><i class="fa fa-check"></i><b>10.5</b> Riesgo relativo y razón de «odds»</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html"><i class="fa fa-check"></i><b>12</b> Computación Intensiva y <em>Multiple Testing</em></a>
+<li class="chapter" data-level="11" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html"><i class="fa fa-check"></i><b>11</b> Computación Intensiva y <em>Multiple Testing</em></a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#tests-de-permutaciones-qué-cuándo-cómo"><i class="fa fa-check"></i><b>12.1</b> Tests de permutaciones; ¿Qué?, ¿Cuándo?, ¿Cómo?</a></li>
-<li class="chapter" data-level="12.2" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#el-bootstrap-en-contraste-de-hipótesis"><i class="fa fa-check"></i><b>12.2</b> El bootstrap en contraste de hipótesis</a></li>
-<li class="chapter" data-level="12.3" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#el-problema-de-las-comparaciones-múltiples"><i class="fa fa-check"></i><b>12.3</b> El problema de las comparaciones múltiples</a></li>
-<li class="chapter" data-level="12.4" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#métodos-de-control-de-error-fwer-y-fdr"><i class="fa fa-check"></i><b>12.4</b> Métodos de control de error: FWER y FDR</a></li>
+<li class="chapter" data-level="11.1" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#tests-de-permutaciones-qué-cuándo-cómo"><i class="fa fa-check"></i><b>11.1</b> Tests de permutaciones; ¿Qué?, ¿Cuándo?, ¿Cómo?</a></li>
+<li class="chapter" data-level="11.2" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#el-bootstrap-en-contraste-de-hipótesis"><i class="fa fa-check"></i><b>11.2</b> El bootstrap en contraste de hipótesis</a></li>
+<li class="chapter" data-level="11.3" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#el-problema-de-las-comparaciones-múltiples"><i class="fa fa-check"></i><b>11.3</b> El problema de las comparaciones múltiples</a></li>
+<li class="chapter" data-level="11.4" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#métodos-de-control-de-error-fwer-y-fdr"><i class="fa fa-check"></i><b>11.4</b> Métodos de control de error: FWER y FDR</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1287,6 +1285,335 @@ Si suponemos conocido uno de los dos parámetros <span class="math inline">\(\si
 3. Si <span class="math inline">\(T_{1}, T_{2}\)</span> son dos estadísticos suficientes para <span class="math inline">\(\theta\)</span>, entonces <span class="math inline">\(T_{1}\)</span> es función de <span class="math inline">\(T_{2}\)</span>.</p>
 </div>
 </div>
+<div id="obtención-de-estimadores" class="section level2 hasAnchor" number="7.10">
+<h2><span class="header-section-number">7.10</span> Obtención de estimadores<a href="estimación-puntual.html#obtención-de-estimadores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En el capítulo anterior hemos analizado el problema de la estimación puntual desde el punto de vista de, dado un estimador, ver ?qué tan bueno es? para estimar un parámetro.
+Otra cuestión que nos podemos plantear, de hecho la primera cuestión que hay que plantearse en la práctica, es cómo obtener un estimador ?razonablemente bueno? de un parámetro. De hecho, desde el punto de vista práctico parece razonable empezar por ver cómo se obtiene un estimador y, una vez obtenido, analizar ?cuán bueno resulta?.
+Existen muchos métodos para obtener estimadores, cada uno de los cuales puede llevarnos a unos resultados de diferente calidad.
+Los principales métodos de estimación son:</p>
+<ol style="list-style-type: decimal">
+<li>Método de los momentos</li>
+<li>Método de la máxima verosimilitud</li>
+<li>Método de Bayes</li>
+<li>Otros métodos</li>
+</ol>
+</div>
+<div id="el-método-de-los-momentos" class="section level2 hasAnchor" number="7.11">
+<h2><span class="header-section-number">7.11</span> El método de los momentos<a href="estimación-puntual.html#el-método-de-los-momentos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este método fue introducido por K. Pearson a finales del siglo XIX y es el principio en que nos basamos cuando hacemos una estimación de la media o de la varianza poblacional a partir de la media o la varianza muestrales.
+La idea del método de los momentos es bastante intuitiva. Si lo que queremos estimar (uno o varios parámetros) es una función de los momentos
+poblacionales, entonces una estimación razonable puede consistir en tomar como estimador la misma función en la que los momentos poblacionales han sido sustituidos por los momentos muestrales.
+Dado que estos últimos son estimadores consistentes de los momentos poblacionales, en condiciones bastante generales se puede garantizar que los estimadores obtenidos serán estimadores consistentes para las funciones de los momentos poblacionales estimadas.
+Algunos ejemplos típicos de estimadores basados en el método de los momentos son:</p>
+<p><span class="math display">\[
+\widehat{\mu}=\bar{X}_{n} \quad \widehat{\sigma}=\sqrt{S^{2}} \quad \widehat{\sigma^{2}}=S^{2}
+\]</span></p>
+<p>Sea un modelo estadístico, <span class="math inline">\(\left\{X \sim F_{\theta}: \theta \in \Theta\right\}\)</span>, y <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> una muestra aleatoria simple de <span class="math inline">\(X\)</span>. Sean <span class="math inline">\(m_{1}, m_{2}, ?, m_{k}\)</span> los momentos poblacionales de orden <span class="math inline">\(1,2, ?, k\)</span> de <span class="math inline">\(X\)</span>, que suponemos que existen,</p>
+<p><span class="math display">\[
+m_{k}=E\left(X^{k}\right)
+\]</span></p>
+<p>y <span class="math inline">\(a_{1}, a_{2}, ?, a_{k}\)</span> los momentos muestrales respectivos</p>
+<p><span class="math display">\[
+a_{k}\left(X_{1}, X_{2}, \ldots, X_{n}\right)=\frac{1}{n} \sum_{i=1}^{n} X_{i}^{k}
+\]</span></p>
+<p>Suponemos que estamos interesados en estimar:</p>
+<p><span class="math display">\[
+\theta=h\left(m_{1}, m_{2}, \ldots, m_{p}\right),
+\]</span></p>
+<p>donde <span class="math inline">\(h\)</span> es una función conocida.
+Definició 3.1 El método de los momentos consiste en estimar <span class="math inline">\(\theta\)</span> por el estadístico</p>
+<p><span class="math display">\[
+T(\mathbf{X})=h\left(a_{1}, a_{2}, \ldots, a_{p}\right)
+\]</span></p>
+<div id="observaciones" class="section level3 hasAnchor" number="7.11.1">
+<h3><span class="header-section-number">7.11.1</span> Observaciones<a href="estimación-puntual.html#observaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>El método se extiende de forma sencilla a la estimación de momentos conjuntos. Podemos usar <span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} X_{i} Y_{i}\)</span> para estimar <span class="math inline">\(E(X Y)\)</span>, etc.</li>
+<li>Por la ley débil de los grandes números,</li>
+</ul>
+<p><span class="math display">\[
+a_{k}\left(X_{1}, X_{2}, \ldots, X_{n}\right)=\frac{1}{n} \sum_{i=1}^{n} X_{i}^{k} \xrightarrow{P} E\left(X^{k}\right),
+\]</span></p>
+<p>de modo que si lo que queremos es estimar los momentos muestrales, el método garantiza que los estimadores son consistentes y sin sesgo.</p>
+<p>En este caso, además, los estimadores son asintóticamente normales. Si lo que se desea estimar es una función <span class="math inline">\(h\)</span> continua de los momentos, entonces el método garantiza que el estimador <span class="math inline">\(T(\mathbf{X})\)</span> es consistente y, bajo ciertas condiciones de regularidad, también es asintóticamente normal.</p>
+<p>Ejemplo 3.1.1 Sea <span class="math inline">\(X \sim \Gamma(p, \alpha)\)</span>. Queremos estimar <span class="math inline">\(p\)</span> y <span class="math inline">\(\alpha\)</span>. En lugar de conocer la función <span class="math inline">\(h\left(\theta_{1}, \theta_{2}\right)\)</span> sabemos que:</p>
+<p><span class="math display">\[
+\begin{aligned}
+m_{1} &amp; =\frac{p}{\alpha}=E(X) \\
+m_{2} &amp; =\frac{p(p+1)}{\alpha^{2}}=E\left(X^{2}\right) \\
+&amp; =V(X)+[E(X)]^{2}=\frac{p}{\alpha^{2}}+\left(\frac{p}{\alpha}\right)^{2}=\frac{p^{2}+p}{\alpha^{2}}=
+\end{aligned}
+\]</span></p>
+<p>De modo que podemos obtener las funciones deseadas ?aislando? p y <span class="math inline">\(\alpha\)</span> como funciones de <span class="math inline">\(m_{1}\)</span> y <span class="math inline">\(m_{2}\)</span> :</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha^{2} &amp; =\frac{p^{2}}{m_{1}^{2}} \\
+\alpha^{2} &amp; =\frac{p(p+1)}{m_{2}}
+\end{aligned}
+\]</span></p>
+<p>Procediendo por igualación:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \frac{p^{2}}{m_{1}^{2}}=\frac{p(p+1)}{m_{2}} \\
+&amp; \frac{p}{m_{1}}=\frac{p+1}{m_{2}} \\
+&amp; p m_{2}=p m_{1}^{2}+m_{1}^{2} \\
+&amp; p\left(m_{2}-m_{1}^{2}\right)=m_{1}^{2} \\
+&amp; p=\frac{m_{1}^{2}}{m_{2}-m_{1}^{2}} \\
+&amp; \alpha=\frac{m_{1}^{2}}{m_{2}-m_{1}^{2}} \\
+&amp; m_{1}
+\end{aligned} \frac{m_{1}}{m_{2}-m_{1}^{2}} .
+\]</span></p>
+<p>Los estimadores por el método de los momentos se obtendrán ahora sustituyendo <span class="math inline">\(p\)</span> y <span class="math inline">\(\alpha\)</span> por <span class="math inline">\(\hat{p}\)</span> y <span class="math inline">\(\hat{\alpha}\)</span> en la expresión anterior, es decir:</p>
+<p><span class="math display">\[
+\widehat{p}=\frac{a_{1}^{2}}{a_{2}-a_{1}^{2}}
+\]</span></p>
+<p>Hacemos lo mismo para el parámetro <span class="math inline">\(\alpha\)</span> :</p>
+<p><span class="math display">\[
+\widehat{\alpha}=\frac{a_{1}}{a_{2}-a_{1}^{2}}
+\]</span></p>
+</div>
+</div>
+<div id="el-método-del-máximo-de-verosimilitud" class="section level2 hasAnchor" number="7.12">
+<h2><span class="header-section-number">7.12</span> El método del máximo de verosimilitud<a href="estimación-puntual.html#el-método-del-máximo-de-verosimilitud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introducción-1" class="section level4 hasAnchor" number="7.12.0.1">
+<h4><span class="header-section-number">7.12.0.1</span> Introducción<a href="estimación-puntual.html#introducción-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El método de la máxima verosimilitud, introducido por Fisher, es un método de estimación que se basa en la función de verosimilitud, presentada en el capítulo anterior. Básicamente consiste en tomar como estimadores de los parámetros aquellos valores que hagan más probable observar precisamente lo que se ha observado, es decir, que hagan que la muestra observada resulte más verosímil.</p>
+<p>Ejemplo 3.2.1 Tomemos 5 papeles. En cada uno de ellos ponemos o bien un ?+? o bien un ?-?, sin que se sepa qué hay en cada papel, y los guardamos en una bolsa. Nuestro objetivo es estimar el número de papeles con el signo ?? escrito. Extraemos tres papeles, devolviéndolos a la bolsa después de cada extracción, y observamos que ha salido lo siguiente: ?++-?. Los valores posibles para la probabilidad de ?-?, llamémosla p, son:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">En la bolsa hay</th>
+<th align="center"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(4 ?+\)</span> ?, 1 ?-?</td>
+<td align="center">0,2</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(3 ?+\)</span> ?, 2 ?-?</td>
+<td align="center">0,4</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(2 ?+\)</span> ?, 3 ?-?</td>
+<td align="center">0,6</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(1 ?+\)</span> ?, 4 ?-?</td>
+<td align="center">0,8</td>
+</tr>
+</tbody>
+</table>
+<p>Supongamos que la variable <span class="math inline">\(X\)</span> mide el número de ?-? en tres extracciones consecutivas y que, por tanto, sigue una distribución binomial:</p>
+<p><span class="math display">\[
+X \sim B(3, p(?-?))
+\]</span></p>
+<p>La probabilidad de sacar un ?-? es:</p>
+<p><span class="math display">\[
+P_{p}[X=1]=\binom{3}{1} \cdot p^{1}(1-p)^{2}
+\]</span></p>
+<p>Para cada uno de los valores de p, las probabilidades quedan asi:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(p\)</span></th>
+<th align="center"><span class="math inline">\(P_{p}[X=1]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.2</td>
+<td align="center"><span class="math inline">\(3 \cdot 0.2 \cdot 0.8^{2}=0.384\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">0.4</td>
+<td align="center"><span class="math inline">\(3 \cdot 0.4 \cdot 0.6^{2}=0.432\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">0.6</td>
+<td align="center"><span class="math inline">\(3 \cdot 0.6 \cdot 0.4^{2}=0.288\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">0.8</td>
+<td align="center"><span class="math inline">\(3 \cdot 0.8 \cdot 0.2^{2}=0.096\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>El valor de p que da una probabilidad mayor a la muestra, es decir, que la hace más verosímil, es <span class="math inline">\(p=0.4\)</span>. El método del máximo de verosimilitud consiste precisamente en tomar este valor como estimación de <span class="math inline">\(p\)</span>.</p>
+</div>
+<div id="la-función-de-verosimilitud" class="section level4 hasAnchor" number="7.12.0.2">
+<h4><span class="header-section-number">7.12.0.2</span> La función de verosimilitud<a href="estimación-puntual.html#la-función-de-verosimilitud" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Una vez introducido el método con un ejemplo, podemos pasar a definirlo con mayor precisión. Para ello, comenzaremos con el concepto de función de verosimilitud.
+En el capítulo anterior presentamos la función de verosimilitud como la función que resulta de considerar que, en la función de probabilidad de la muestra, el parámetro es variable y la muestra queda fija. Es decir:</p>
+<p><span class="math display">\[
+\underbrace{f\left(x_{1}, x_{2}, \ldots, x_{n} ; \theta\right)}_{\mathbf{x} \text { variable, } \theta \text { fijo }} \longrightarrow \underbrace{L\left(\theta ; x_{1}, x_{2}, \ldots, x_{n}\right)}_{\mathbf{x} \text { fija, } \theta \text { variable }}
+\]</span></p>
+<p>Esta definición es básicamente correcta. En el caso de las variables discretas, donde <span class="math inline">\(f\left(x_{1}, x_{2}, \ldots, x_{n} ; \theta\right)\)</span> representa la probabilidad de la muestra, fijado <span class="math inline">\(\theta\)</span>, resulta intuitivamente claro decir que la verosimilitud representa la ?probabilidad de la muestra para cada valor del parámetro?.
+Refiriéndonos al ejemplo introductorio, resulta sencillo ver que se trata de ?dos puntos de vista? sobre la misma función. Fijado un valor del parámetro, por ejemplo, 0.4 , podemos considerar la probabilidad de diversas muestras posibles, como <span class="math inline">\(x=0, x=1, \ldots\)</span>, hasta <span class="math inline">\(x=3\)</span> :</p>
+<p><span class="math display">\[
+\begin{aligned}
+f\left(x_{1}, x_{2}, \ldots, x_{n} ; \theta\right) &amp; =P_{0.4}[X=x], x=0,1, \ldots, 3 \\
+&amp; =\binom{3}{x} \cdot 0.4^{x}(0.6)^{3-x} .
+\end{aligned}
+\]</span></p>
+<p>Análogamente, fijada una muestra, por ejemplo, <span class="math inline">\(x=1\)</span>, podemos considerar la probabilidad de esta para diversos valores del parámetro, <span class="math inline">\(p=0,0.2, \ldots, 1\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+L\left(x_{1}, x_{2}, \ldots, x_{n} ; \theta\right) &amp; =P_{p}[X=1], x=0,0.2,0.4, \ldots, 1 \\
+&amp; =3 \cdot p(1-p)^{2} .
+\end{aligned}
+\]</span></p>
+<p>En el caso de las distribuciones absolutamente continuas, el significado de la función de verosimilitud ya no es intuitivamente tan claro como en el caso de las discretas. En este caso, la función de densidad de la muestra ya no representa la probabilidad de esta como en el caso de las discretas. Algunos autores intentan solucionar esto explicando que existe una conocida aproximación en que la función de densidad es la probabilidad de un suceso ?infinitesimal?.
+Lo que es importante en la función de verosimilitud, a la hora de hacer inferencias, es la parte que es función del parámetro. Esto hace que a menudo se considere que la expresión de la función de verosimilitud mantenga solo aquella parte de <span class="math inline">\(f\left(x_{1}, x_{2}, \ldots, x_{n} ; \theta\right)\)</span> que depende de <span class="math inline">\(\theta\)</span>, ignorando la parte que dependa solo de la muestra. Es decir, si podemos factorizar <span class="math inline">\(f\left(x_{1}, x_{2}, \ldots, x_{n} ; \theta\right)\)</span> como</p>
+<p><span class="math display">\[
+f(\mathbf{x} ; \theta)=c(\mathbf{x}) \cdot g(\mathbf{x} ; \theta)
+\]</span></p>
+<p>podremos prescindir de la ?constante? <span class="math inline">\(c(x)\)</span> (constante porque no depende de <span class="math inline">\(\theta\)</span> ) al considerar la verosimilitud.</p>
+<p><span class="math display">\[
+L(\theta ; \mathbf{x})=g(\mathbf{x} ; \theta) \propto f(\mathbf{x} ; \theta)
+\]</span></p>
+<p>Esto implica que <span class="math inline">\(L(\theta ; \mathbf{x})\)</span> no tiene por qué integrar a 1 , como en el caso de las probabilidades, y que depende de las unidades de medida.</p>
+<p>Ejemplo 3.2.2 Si <span class="math inline">\(X\)</span> es discreta, <span class="math inline">\(X \sim \mathcal{P}(\lambda)\)</span>, y suponemos <span class="math inline">\(n=1\)</span> (muestras de tamaño 1), tenemos que la f.d.p. de la muestra es:</p>
+<p><span class="math display">\[
+P[x ; \lambda]=e^{-\lambda} \frac{\lambda^{x}}{x!}
+\]</span></p>
+<p>con <span class="math inline">\(x=0,1, \ldots\)</span> Ahora, si hemos observado <span class="math inline">\(x=5\)</span>, la función de verosimilitud vale:</p>
+<p><span class="math display">\[
+L(\lambda ; 5)=e^{-\lambda} \lambda^{5}\left[\frac{1}{5!}\right]
+\]</span></p>
+<p>Como solo nos interesa la parte que es función de <span class="math inline">\(\lambda\)</span>, podemos ignorar <span class="math inline">\(\frac{1}{5!}\)</span>, es decir:</p>
+<p><span class="math display">\[
+L(\lambda ; 5)=e^{-\lambda} \lambda^{5} \propto P[\mathbf{x} ; \lambda] .
+\]</span></p>
+<p>Ejemplo 3.2.3 Si dada una muestra de tamaño 1, por ejemplo, <span class="math inline">\(x=2\)</span>, de una ley de Poisson <span class="math inline">\(\mathcal{P}(\lambda)\)</span> queremos comparar sus verosimilitudes respecto de los valores del parámetro <span class="math inline">\(\lambda=1.5\)</span> o <span class="math inline">\(\lambda=3\)</span>, lo que haremos será basarnos en la razón de verosimilitudes:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Lambda(\mathbf{x}) &amp; =\frac{L\left(\lambda_{1} ; x\right)}{L\left(\lambda_{2} ; x\right)}=\frac{L(1.5 ; 2)}{L(3 ; 2)} \\
+&amp; =\frac{e^{-1.5} 1.5^{2}\left[\frac{1}{2!}\right]}{e^{-3} 3^{2}\left[\frac{1}{2!}\right]}=\frac{e^{-1.5} 1.5^{2}}{e^{-3} 3^{2}}=\frac{0.5020}{0.4481}=1.12 .
+\end{aligned}
+\]</span></p>
+<p>Como se observa, al basarnos en la razón de verosimilitudes, la parte correspondiente solo a la muestra no se toma en cuenta. La razón de verosimilitudes sugiere que el valor <span class="math inline">\(\lambda=1.5\)</span> hace la muestra más verosímil.</p>
+</div>
+<div id="el-método-del-máximo-de-verosimilitud-1" class="section level4 hasAnchor" number="7.12.0.3">
+<h4><span class="header-section-number">7.12.0.3</span> El método del máximo de verosimilitud<a href="estimación-puntual.html#el-método-del-máximo-de-verosimilitud-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Si partimos de las dos ideas que hemos visto en la introducción:</p>
+<ul>
+<li>Escoger como estimación el valor que maximice la probabilidad de la muestra observada.</li>
+<li>La verosimilitud de la muestra es una aproximación a la probabilidad de esta como función del valor del parámetro.</li>
+</ul>
+<p>Una forma razonable de definir el EMV es entonces como aquel que maximice la verosimilitud.</p>
+<p>Definició 3.2 Un estimador <span class="math inline">\(T: \Omega \longrightarrow \Theta\)</span> es un estimador del máximo de verosimilitud para el parámetro <span class="math inline">\(\theta\)</span> si cumple:</p>
+<p><span class="math display">\[
+L(T(\mathbf{x}) ; \mathbf{x})=\sup _{\theta \in \Theta} L(\theta ; \mathbf{x})
+\]</span></p>
+<p>Como suele ocurrir en problemas de maximización, este valor ni existe necesariamente ni tiene por qué ser único. Ahora bien, bajo ciertas condiciones (las habituales para los problemas de máximos y mínimos) el problema se podrá reducir a buscar un máximo para la función de verosimilitud.</p>
+<p>Ejemplo 3.2.4 Supongamos que <span class="math inline">\(x_{1}, \ldots, x_{n}\)</span> es una muestra de una población de Bernouilli, <span class="math inline">\(X \sim B e(p)\)</span>, donde queremos estimar p. La función de masa de la probabilidad de <span class="math inline">\(X\)</span> es:</p>
+<p><span class="math display">\[
+P\left[X=x_{i}\right]=P\left(x_{i} ; p\right)=p^{x_{i}}(1-p)^{1-x_{i}} \text { donde } x_{i} \in\{0,1\} ; i=1, \ldots, n
+\]</span></p>
+<p>La función de verosimilitud es:</p>
+<p><span class="math display">\[
+L(p ; \mathbf{x})=\prod_{i=1}^{n} p^{x_{i}}(1-p)^{1-x_{i}}=p^{\sum_{i=1}^{n} x_{i}}(1-p)^{\sum_{i=1}^{n}\left(1-x_{i}\right)}
+\]</span></p>
+<p>Debemos buscar el máximo de <span class="math inline">\(L(p ; \mathbf{x})\)</span>. En este caso, como en otros, es más sencillo buscar el máximo de su logaritmo, que, dado que es una función monótona, es el mismo que el máximo de <span class="math inline">\(L\)</span></p>
+<p><span class="math display">\[
+\ln L(p ; x)=\left(\sum_{i=1}^{n} x_{i}\right) \cdot \ln p+\left(n-\sum_{i=1}^{n} x_{i}\right) \cdot \ln (1-p)
+\]</span></p>
+<p>Derivamos respecto a p:</p>
+<p><span class="math display">\[
+\frac{\partial \ln L(p ; x)}{\partial p}=\frac{\sum_{i=1}^{n} x_{i}}{p}-\frac{n-\sum_{i=1}^{n} x_{i}}{1-p}
+\]</span></p>
+<p>e igualamos a cero la derivada, planteando lo que se denomina la ecuación de verosimilitud, cuyas soluciones nos conducirán eventualmente al estimador del máximo de verosimilitud.</p>
+<p><span class="math display">\[
+\frac{\sum_{i=1}^{n} x_{i}-n \hat{p}}{\hat{p}(1-\hat{p})}=0 \Rightarrow \hat{p}=\frac{\sum_{i=1}^{n} x_{i}}{n}
+\]</span></p>
+<p>Si la segunda derivada es negativa en <span class="math inline">\(\widehat{p}\)</span> entonces será un máximo:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{\partial^{2} \ln L(p ; x)}{\partial p^{2}} &amp; =\frac{\partial}{\partial p}\left(\frac{\sum_{i=1}^{n} x_{i}-n p}{p(1-p)}\right)=\frac{-n[p(1-p)]-\left(\sum_{i=1}^{n} x_{i}-n p\right) \cdot(1-2 p)}{p^{2}\left(1-p^{2}\right)}= \\
+&amp; =\frac{-n p+n p^{2}-\sum_{i=1}^{n} x_{i}-n p-2 p \sum_{i=1}^{n} x_{i}-2 n p^{2}}{p^{2}(1-p)^{2}}= \\
+&amp; =\frac{\left[\sum_{i=1}^{n} x_{i}(1+2 p)-n p^{2}\right]}{p^{2} \cdot(1-p)^{2}}
+\end{aligned}
+\]</span></p>
+<p>que es negativa cuando <span class="math inline">\(p=\hat{p}\)</span>, de forma que <span class="math inline">\(\hat{p}\)</span> es efectivamente un máximo.
+El método analítico expuesto en el ejemplo anterior, consistente en el cálculo de un extremo de una función, no se puede aplicar en todas las situaciones. En estos casos, una alternativa puede ser estudiar directamente la función de verosimilitud. Veamos un ejemplo:</p>
+<p>Ejemplo 3.2.5 Sea <span class="math inline">\(X_{1}, \ldots, X_{n} \stackrel{i i d}{\sim} X \sim U(0, \theta) \quad \theta&gt;0\)</span> desconocido. Sabemos que:</p>
+<p><span class="math display">\[
+f(x ; \theta)=\left\{\begin{array}{c}
+\frac{1}{\theta} \text { si } 0&lt;\min \left\{x_{i}\right\} \leq \max \left\{x_{i}\right\} \leq \theta \\
+0 \quad \text { en caso contrario }
+\end{array}\right\}
+\]</span></p>
+<p>La derivada respecto a <span class="math inline">\(\theta\)</span> es <span class="math inline">\(-\frac{n}{\theta^{n-1}}\)</span>, que se anula cuando <span class="math inline">\(\theta \underset{n \rightarrow \infty}{\longrightarrow} \infty\)</span> que lleva a una solución sin sentido de la ecuación de verosimilitud. Una inspección de la gráfica de la función de verosimilitud revela que el EMV, en este caso,</p>
+<p>Figura 3.1: Función de verosimilitud para una distribución uniforme
+es <span class="math inline">\(\max \left\{X_{i}, \ldots, X_{n}\right\}\)</span>. Efectivamente, consideremos cualquier otro valor <span class="math inline">\(\theta^{*}\)</span> diferente del máximo:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \text { Si } \theta^{*}&gt;X_{(n)} \Rightarrow \frac{1}{\left(\theta^{*}\right)^{n}}&lt;\frac{1}{\left(X_{n}\right)^{n}}, \\
+&amp; \text { Si } \theta^{*}&lt;X_{(n)} \Rightarrow L\left(\theta^{*} ; \mathbf{x}\right)=0
+\end{aligned}
+\]</span></p>
+<p>ya que si un estimador toma un valor inferior al máximo de la muestra habrá algún valor muestral, <span class="math inline">\(x_{i}\)</span> para el cual se verificará que <span class="math inline">\(\theta^{*}&lt;x_{i}\)</span>, lo que hace la muestra inverosímil, y por tanto el estimador no es admisible.
+A la vista de lo anterior, deducimos que el valor que maximiza <span class="math inline">\(L(\theta ; \mathbf{x})\)</span> es el máximo de la muestra.</p>
+<p>Ejemplo 3.2.6 El método del máximo de verosimilitud se extiende de forma inmediata a los parámetros <span class="math inline">\(K\)</span>-dimensionales. Consideremos el caso de la
+ley normal <span class="math inline">\(X \sim N\left(\mu, \sigma^{2}\right)\)</span>. Aquí el parámetro <span class="math inline">\(\theta\)</span> es bidimensional, es decir: <span class="math inline">\(\theta=\left(\mu, \sigma^{2}\right) \in \Theta=\mathbb{R} \times \mathbb{R}^{+}\)</span></p>
+<ol style="list-style-type: decimal">
+<li>La función de verosimilitud de una muestra de tamaño <span class="math inline">\(n\)</span> es:</li>
+</ol>
+<p><span class="math display">\[
+L\left(\left(\mu, \sigma^{2}\right) ; \mathbf{x}\right)=\prod_{i=1}^{n} \frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{\left(x_{i}-\mu\right)^{2}}{2 \sigma^{2}}}=\frac{1}{(2 \pi)^{n / 2}\left(\sigma^{2}(n / 2\right.} e^{-\frac{\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}}{2 \sigma^{2}}}
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Sacando logaritmos</li>
+</ol>
+<p><span class="math display">\[
+\log L\left(\left(\mu, \sigma^{2}\right) ; \mathbf{x}\right)=-\frac{n}{2} \log (2 \pi)-\frac{n}{2} \log \left(\sigma^{2}\right)-\frac{\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}}{2 \sigma^{2}}
+\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>La derivada de <span class="math inline">\(L()\)</span> es la matriz de derivadas:</li>
+</ol>
+<p><span class="math display">\[
+D \log L\left(\left(\mu, \sigma^{2}\right) ; \mathbf{x}\right)=\binom{\frac{\partial \log L\left(\left(\mu, \sigma^{2}\right) ; \mathbf{x}\right)}{\partial \mu}}{\frac{\partial \log L\left(\left(\mu, \sigma^{2}\right) ; \mathbf{x}\right)}{\partial \sigma^{2}}}=\left\{\begin{array}{c}
+\frac{\sum_{i=1}^{n}\left(x_{i}-\mu\right)}{\sigma^{2}} \\
+\frac{\sum_{i=1}^{n}\left(x_{i}-\mu\right)^{2}}{2 \sigma^{4}}-\frac{n}{2 \sigma^{2}}
+\end{array}\right.
+\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Planteando y resolviendo la ecuación de verosimilitud tenemos:</li>
+</ol>
+<p><span class="math display">\[
+D \log L\left(\left(\hat{\mu}, \hat{\sigma}^{2}\right) ; \mathbf{x}\right)=\left\{\begin{array}{c}
+\frac{\sum_{i=1}^{n}\left(x_{i}-\hat{\mu}\right)}{\hat{\sigma}^{2}}=0 \\
+\frac{\sum_{i=1}^{n}\left(x_{i}-\hat{\mu}\right)^{2}}{2 \hat{\sigma}^{4}}=\frac{n}{2 \hat{\sigma}^{2}}
+\end{array}\right.
+\]</span></p>
+<p>de donde las raíces de la ecuación de verosimilitud son:</p>
+<p><span class="math display">\[
+\hat{m} u=\bar{x}, \quad \hat{\sigma}^{2}=\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n}=s^{2} .
+\]</span></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Para decidir si las raíces de la ecuación de verosimilitud corresponden a un máximo, analizamos la matriz de derivadas segundas, denominada Hessiana.</li>
+</ol>
+<p><span class="math display">\[
+H=\left(\begin{array}{cc}
+\frac{\partial^{2} z}{\partial x^{2}} &amp; \frac{\partial^{2} z}{\partial x \partial y} \\
+\frac{\partial^{2} z}{\partial y \partial x} &amp; \frac{\partial^{2} z}{\partial y^{2}}
+\end{array}\right)
+\]</span></p>
+<p>Una condición suficiente para que un punto <span class="math inline">\(\left(x_{0}, y_{0}\right)\)</span> sea un máximo es que el determinante de <span class="math inline">\(H\)</span> sea positivo y el menor en la posición ?11? negativo, es decir:
+<span class="math inline">\(S i|H|&gt;\left.0 y \frac{\partial^{2} z}{\partial x^{2}}\right|_{\left(x_{0}, y_{0}\right)}&lt;0 \Longrightarrow\)</span> Hay un máximo relativo en <span class="math inline">\(\left(x_{0}, y_{0}\right)\)</span>.
+Si evaluamos el Hessiano en el punto <span class="math inline">\(\left(\bar{x}, s^{2}\right)\)</span> tenemos:</p>
+<p><span class="math display">\[
+H=\left(\begin{array}{cc}
+-\frac{n}{s^{2}} &amp; 0 \\
+0 &amp; -\frac{n}{2 s^{4}}
+\end{array}\right) .
+\]</span></p>
+<p>Las condiciones de extremo que hemos dado más arriba se verifican: <span class="math inline">\(H_{11}&lt;0 y|H|&gt;0\)</span>, de manera que podemos concluir que el estimador del máximo de verosimilitud de <span class="math inline">\(\left(\mu, \sigma^{2}\right)\)</span> es, efectivamente, <span class="math inline">\(\left(\bar{x}, s^{2}\right)\)</span>.</p>
+
+</div>
+</div>
 </div>
             </section>
 
@@ -1294,7 +1621,7 @@ Si suponemos conocido uno de los dos parámetros <span class="math inline">\(\si
         </div>
       </div>
 <a href="introducción-a-la-inferencia-estadística.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="métodos-de-obtención-de-estimadores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estimación-puntual-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
