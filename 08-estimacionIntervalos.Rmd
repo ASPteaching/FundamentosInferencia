@@ -8,9 +8,6 @@ La versión actualizada estará disponible en el momento de inicio de la activid
 
 ::::
 
-Se plantea el problema de la estimación como una forma de aproximación a las características de las distribucionesa partir de muestras aleatorias simples.
-
-Se abordan las distintas filosofías para la construcción de estimadores.
 
 ## Preliminares: estimación del error estándar e Introducción al bootstrap
 
