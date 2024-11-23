@@ -5,7 +5,8 @@
 Informalmente, la estimación de parámetros consiste en buscar aproximaciones a los valores de estos, calculables a partir de una muestra, que sean lo más precisas posible. El problema, claro, es que para medir cuán precisas son estas aproximaciones sería necesario conocer los valores de los parámetros y, como estos son siempre desconocidos, debemos basarnos en el uso de estimadores con buenas propiedades que, en algún sentido, nos garanticen esa proximidad.
 Más formalmente podemos plantear el problema de la siguiente manera:
 Sea $X$ una v.a. con distribución $F_{\theta}$ donde $\theta=\left(\theta_{1}, \ldots, \theta_{k}\right) \in \Theta \subset \mathbb{R}^{k}$ y sea $X_{1}, X_{2}, \ldots, X_{n}$ una muestra de $n$ v.a. de $X$. El problema de la estimación puntual consiste en obtener alguna aproximación de $\theta$ en base a la información disponible en la muestra mediante un estimador de $\theta$ que definimos a continuación.
-Definició 2.1 Sea $X_{1}, X_{2}, \ldots, X_{n}$ una muestra aleatoria simple de $X$ con distribución $F_{\theta}$ donde $\theta \in \Theta \subset \mathbb{R}^{k}$. Un estadístico $T\left(X_{1}, X_{2}, \ldots, X_{n}\right)$ se denomina un estimador puntual de $\theta$ si $T$ es una aplicación de $\mathbb{R}^{n}$ en $\Theta$, es decir, si toma valores sobre el mismo conjunto que los parámetros.
+Definició 2.1 Sea $X_{1}, X_{2}, \ldots, X_{n}$ una muestra aleatoria simple de $X$ con distribución $F_{\theta}$ donde $\theta \in \Theta \subset \mathbb{R}^{k}$. Un estadístico $T\left(X_{1}, X_{2}, \ldots, X_{n}\right)$ se denomina un estimador puntual de $\theta$ si $T$ es una función definida en el espacio muestral y cuyos valores pertenecen al mismo espacio paramétrico $\Theta$ que los parámetros."
+
 
 Ejemplo 2.1.1 Sea $X_{1}, X_{2}, \ldots, X_{n}$ una muestra aleatoria simple de una v.a. de Poisson $X \sim P(\lambda)$. Para estimar $\lambda$ podemos utilizar:
 
@@ -56,7 +57,10 @@ L: & \Theta \times \Theta \rightarrow \mathbb{R} \\
 \end{aligned}
 $$
 
-que verifica:
+La función de pérdida cuantifica el coste asociado a la desviación entre un estimador $t$ y el valor verdadero del parámetro $\theta$. 
+
+Para ser válida, debe cumplir los siguientes criterios: (a), (b), (c):
+
 a) $L(\theta, t) \geq 0, \quad \forall \theta, t \in \Theta$
 b) $L(\theta, t)=0$, si $\theta=t$
 c) $L(\theta, t) \leq L\left(\theta, t^{\prime}\right)$, si $d(\theta, t) \leq d\left(\theta, t^{\prime}\right)$ donde $d$ es una distancia en $\Theta$.
@@ -587,6 +591,7 @@ $$
 
 Esto se puede comprobar, ya que si aplicamos las condiciones de regularidad
 
+
 $$
 \begin{aligned}
 E(Z) & =E\left(\frac{\partial \log L(\mathbf{X} ; \theta)}{\partial \theta}\right)=\int_{S^{n}} \frac{\partial \log L(\mathbf{x} ; \theta)}{\partial \theta} L(\mathbf{x} ; \theta) d \mathbf{x} \\
@@ -594,6 +599,8 @@ E(Z) & =E\left(\frac{\partial \log L(\mathbf{X} ; \theta)}{\partial \theta}\righ
 & =\frac{\partial}{\partial \theta}\left(\int_{S^{n}} L(\mathbf{x} ; \theta) d \mathbf{x}\right)=\frac{\partial}{\partial \theta} 1=0
 \end{aligned}
 $$
+
+:::
 
 De forma que $E(Z)=0$, y por lo tanto, tendremos que $\operatorname{var}_{\theta}(Z)=$ $E_{\theta}\left(Z^{2}\right)$.
 2. $I_{n}(\theta)=0$ si y solo si $L(\mathbf{x} ; \theta)$ no depende de $\theta$.

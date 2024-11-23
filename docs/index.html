@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2024-11-17" />
+<meta name="date" content="2024-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -435,13 +435,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html"><i class="fa fa-check"></i><b>8</b> Estimación por intérvalos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#preliminares-estimación-del-error-estándar-e-introducción-al-bootstrap"><i class="fa fa-check"></i><b>8.1</b> Preliminares: estimación del error estándar e Introducción al bootstrap</a></li>
-<li class="chapter" data-level="8.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#estimadores-por-intervalo-intervalos-de-confianza"><i class="fa fa-check"></i><b>8.2</b> Estimadores por intervalo: intervalos de confianza</a></li>
-<li class="chapter" data-level="8.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-de-confianza-para-características-de-una-población-normal-media-varianza"><i class="fa fa-check"></i><b>8.3</b> Intervalos de confianza para características de una población normal (media, varianza),</a></li>
-<li class="chapter" data-level="8.4" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-de-confianza-bootstrap."><i class="fa fa-check"></i><b>8.4</b> Intervalos de confianza bootstrap.</a></li>
-<li class="chapter" data-level="8.5" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-de-confianza-para-proporciones-binomiales"><i class="fa fa-check"></i><b>8.5</b> Intervalos de confianza para proporciones binomiales</a></li>
-<li class="chapter" data-level="8.6" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-de-confianza-para-parámetros-en-muestra-grandes-y-para-casos-generales-tasas-or"><i class="fa fa-check"></i><b>8.6</b> Intervalos de confianza para parámetros en muestra grandes y para casos generales (tasas, OR, …)</a></li>
-<li class="chapter" data-level="8.7" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#aplicaciones-cálculo-del-tamaño-muestral"><i class="fa fa-check"></i><b>8.7</b> Aplicaciones: cálculo del tamaño muestral</a></li>
+<li class="chapter" data-level="8.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#motivación-de-los-intervalos-de-confianza-la-estimación-puntual-casi-siempre-es-falsa"><i class="fa fa-check"></i><b>8.1</b> Motivación de los intervalos de confianza: la estimación puntual casi siempre es falsa</a></li>
+<li class="chapter" data-level="8.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#definición-formal-de-intervalo-de-confianza"><i class="fa fa-check"></i><b>8.2</b> Definición formal de intervalo de confianza</a></li>
+<li class="chapter" data-level="8.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#un-ejemplo-de-construcción-de-un-intervalo-de-confianza"><i class="fa fa-check"></i><b>8.3</b> Un ejemplo de construcción de un intervalo de confianza</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#planteamiento"><i class="fa fa-check"></i><b>8.3.1</b> Planteamiento</a></li>
+<li class="chapter" data-level="8.3.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#desarrollo-de-la-construcción"><i class="fa fa-check"></i><b>8.3.2</b> Desarrollo de la construcción</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#por-qué-hablamos-de-confianza-y-no-de-probabilidad"><i class="fa fa-check"></i><b>8.4</b> ¿Por qué hablamos de confianza y no de probabilidad?</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#solución-1"><i class="fa fa-check"></i><b>8.4.1</b> Solución</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#elementos-de-un-intervalo-de-confianza"><i class="fa fa-check"></i><b>8.5</b> Elementos de un intervalo de confianza</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#solución-2"><i class="fa fa-check"></i><b>8.5.1</b> Solución</a></li>
+<li class="chapter" data-level="8.5.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#la-importancia-del-tamaño-de-la-muestra"><i class="fa fa-check"></i><b>8.5.2</b> La importancia del tamaño de la muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#método-del-pivote"><i class="fa fa-check"></i><b>8.6</b> Método del pivote</a></li>
+<li class="chapter" data-level="8.7" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#algunos-de-los-principales-estadísticos-pivote-utilizados-en-la-construcción-de-intervalos-de-confianza"><i class="fa fa-check"></i><b>8.7</b> Algunos de los principales estadísticos pivote utilizados en la construcción de intervalos de confianza</a></li>
+<li class="chapter" data-level="8.8" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-la-media-de-una-distribución-normal"><i class="fa fa-check"></i><b>8.8</b> Intervalo de confianza para la media de una distribución Normal</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-de-varianza-conocida"><i class="fa fa-check"></i><b>8.8.1</b> Caso de varianza conocida</a></li>
+<li class="chapter" data-level="8.8.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-de-varianza-desconocida"><i class="fa fa-check"></i><b>8.8.2</b> Caso de varianza desconocida</a></li>
+<li class="chapter" data-level="8.8.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#tamaño-de-muestra-para-la-media-de-una-distribución-normal"><i class="fa fa-check"></i><b>8.8.3</b> Tamaño de muestra para la media de una distribución Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-la-varianza-de-una-distribución-normal"><i class="fa fa-check"></i><b>8.9</b> Intervalo de confianza para la varianza de una distribución Normal</a></li>
+<li class="chapter" data-level="8.10" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-una-proporción"><i class="fa fa-check"></i><b>8.10</b> Intervalo de confianza para una proporción</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#aproximación-asintótica"><i class="fa fa-check"></i><b>8.10.1</b> Aproximación asintótica</a></li>
+<li class="chapter" data-level="8.10.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-exacto"><i class="fa fa-check"></i><b>8.10.2</b> Intervalo exacto</a></li>
+<li class="chapter" data-level="8.10.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#tamaño-muestral-para-una-proporción"><i class="fa fa-check"></i><b>8.10.3</b> Tamaño muestral para una proporción</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-el-parámetro-de-una-distribución-de-poisson"><i class="fa fa-check"></i><b>8.11</b> Intervalo de confianza para el parámetro de una distribución de Poisson</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#aproximación-asintótica-1"><i class="fa fa-check"></i><b>8.11.1</b> Aproximación asintótica</a></li>
+<li class="chapter" data-level="8.11.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-exacto-1"><i class="fa fa-check"></i><b>8.11.2</b> Intervalo exacto</a></li>
+<li class="chapter" data-level="8.11.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#tamaño-de-muestra-para-el-parámetro-de-una-distribución-de-poisson"><i class="fa fa-check"></i><b>8.11.3</b> Tamaño de muestra para el parámetro de una distribución de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-la-diferencia-de-medias-de-distribuciones-normales-independientes."><i class="fa fa-check"></i><b>8.12</b> Intervalo de confianza para la diferencia de medias de distribuciones normales independientes.</a>
+<ul>
+<li class="chapter" data-level="8.12.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#varianza-común"><i class="fa fa-check"></i><b>8.12.1</b> Varianza común</a></li>
+</ul></li>
+<li class="chapter" data-level="8.13" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-la-diferencia-de-medias-de-distribuciones-normales-independientes.-1"><i class="fa fa-check"></i><b>8.13</b> Intervalo de confianza para la diferencia de medias de distribuciones normales independientes.</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#varianza-diferente"><i class="fa fa-check"></i><b>8.13.1</b> Varianza diferente</a></li>
+<li class="chapter" data-level="8.13.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-de-varianzas-desconocidas-y-diferentes"><i class="fa fa-check"></i><b>8.13.2</b> Caso de varianzas desconocidas y diferentes</a></li>
+</ul></li>
+<li class="chapter" data-level="8.14" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-el-cociente-de-varianzas-de-distribuciones-normales-independientes"><i class="fa fa-check"></i><b>8.14</b> Intervalo de confianza para el cociente de varianzas de distribuciones normales independientes</a></li>
+<li class="chapter" data-level="8.15" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#complementos"><i class="fa fa-check"></i><b>8.15</b> Complementos</a>
+<ul>
+<li class="chapter" data-level="8.15.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#interpretación-geométrica-de-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>8.15.1</b> Interpretación geométrica de los intervalos de confianza</a></li>
+<li class="chapter" data-level="8.15.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-para-muestras-grandes"><i class="fa fa-check"></i><b>8.15.2</b> Intervalos para muestras grandes</a></li>
+<li class="chapter" data-level="8.15.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-exactos-para-distribuciones-discretas"><i class="fa fa-check"></i><b>8.15.3</b> Intervalos exactos para distribuciones discretas</a></li>
+<li class="chapter" data-level="8.15.4" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#una-aproximación-diferente-para-la-distribución-de-poisson"><i class="fa fa-check"></i><b>8.15.4</b> Una aproximación diferente para la distribución de Poisson</a></li>
+<li class="chapter" data-level="8.15.5" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#aproximación-mediante-chébishev"><i class="fa fa-check"></i><b>8.15.5</b> Aproximación mediante Chébishev</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de hipótesis</a>
 <ul>
@@ -488,7 +536,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Fundamentos de Inferencia Estadistica</h1>
 <p class="author"><em>Alex Sanchez Pla y Santiago Pérez Hoyos</em></p>
-<p class="date"><em>2024-11-17</em></p>
+<p class="date"><em>2024-11-23</em></p>
 </div>
 <div id="presentación" class="section level1 unnumbered hasAnchor">
 <h1>Presentación<a href="index.html#presentación" class="anchor-section" aria-label="Anchor link to header"></a></h1>
