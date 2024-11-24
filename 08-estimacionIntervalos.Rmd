@@ -77,6 +77,11 @@ La confianza del intervalo debe ser entendida como la fracción de intervalos ca
 
 **Simulación de intérvalos de confianza** 
 
+```{r out.width="90%", fig.align='center', echo=FALSE}
+knitr::include_graphics("images/simulaIC.png")
+```
+
+
 [https://www.grbio.eu/statmedia/Statmedia_5/](https://www.grbio.eu/statmedia/Statmedia_5/)
 
 ::::
@@ -86,38 +91,22 @@ El enlace anterior apunta a una aplicación Shiny que permite simular un número
 
 Manteniendo constante el tamaño muestral, incrementar el nivel de confianza del intervalo implica que la anchura de éste se incrementa. Es totalmente coherente con la lógica, puesto que al exigir mayor seguridad de que el parámetro esté incluido en el intervalo lo que hacemos es alejar los límites inferior y superior para incrementar la certeza de que incluya al parámetro.
 
-
-
-
-
-
 Como veremos más adelante, la manera de disminuir la anchura del intervalo y mantener un nivel de confianza deseado es incrementar el tamaño de la muestra utilizada para la construcción del intervalo.
 
 ##  Elementos de un intervalo de confianza
 
 A la hora de plantearnos la obtención de un intervalo de confianza hemos de adoptar una serie de decisiones previas.
 
-- La primera y más importante es la elección del parámetro poblacional del cual deseamos obtener la estimación. Generalmente esta elección está relacionada con el tipo de distribución que asumimos para la variable estudiada. De manera usual el parámetro poblacional se corresponde con alguno de los parámetros de las distribuciones, por ejemplo, si deseamos un intervalo de confianza para la probabilidad de un suceso trabajaríamos con el parámetro $p$ de la distribución Binomial. En algún caso, sin embargo, podemos estar interesados en la obtención de un intervalo de confianza para algún parámetro, por ejemplo, la media poblacional, sin hacer ninguna suposición sobre la distribución de la variable. Estaríamos dentro de la denominada estimación no paramétrica.
+- La primera y más importante es la elección del parámetro poblacional del cual deseamos obtener la estimación. Generalmente esta elección está relacionada la distribución que asumimos para la variable estudiada. De manera usual el parámetro poblacional se corresponde con alguna de las características de las distribuciones. Por ejemplo, si deseamos un intervalo de confianza para la probabilidad de un suceso trabajaríamos con el parámetro $p$ de la distribución Binomial. En algún caso, sin embargo, podemos estar interesados en la obtención de un intervalo de confianza para algún parámetro, por ejemplo, la media poblacional, sin hacer ninguna suposición sobre la distribución de la variable. Estaríamos dentro de la denominada estimación no paramétrica.
+
 - Una segunda elección es el nivel de confianza con el que deseamos trabajar. No es una elección sin importancia, puesto que del nivel de confianza dependerá la precisión de la estimación que obtengamos, es decir, la anchura del intervalo. A mayor nivel de confianza exigido, mayor será el radio del intervalo y por tanto menor la precisión en la estimación. Generalmente se trabaja con niveles de confianza del orden del $90 \%$ o $95 \%$.
 
-Podemos comprobarlo con el intervalo de confianza para la media de una distribución Normal:
-
-[^0]- Relacionado con el punto anterior tenemos la elección del tamaño muestral utilizado para la construcción del intervalo. Hemos mencionado que aumentar la confianza significa aumentar la imprecisión de la estimación, sin embargo es posible ajustar una anchura del intervalo determinada para el nivel de confianza deseado jugando con el tamaño muestral utilizado.
+- Relacionado con el punto anterior tenemos la elección del tamaño muestral utilizado para la construcción del intervalo. Hemos mencionado que aumentar la confianza significa aumentar la imprecisión de la estimación, sin embargo es posible ajustar una anchura del intervalo determinada para el nivel de confianza deseado jugando con el tamaño muestral utilizado.
 
 
-### Solución
+La aplicación mostrada en la sección anterior nos permite ilustrar estos conceptos y ver cual es el efecto de modificar el nivel de confianza o el tamaño muestral sin que cambien el resto de condiciones. Generalmente el investigador fijará el nivel de confianza con el que desea trabajar y la precisión deseada para la estimación.
 
-Manteniendo constante el tamaño muestral, incrementar el nivel de confianza del intervalo implica que la anchura de éste se incrementa. Es totalmente coherente con la lógica, puesto que al exigir más seguridad de que el parámetro esté incluido en el intervalo lo que hacemos es alejar los límites inferior y superior para incrementar la certeza de que incluya al parámetro.
-
-Como veremos más adelante, la manera de disminuir la anchura del intervalo y de mantener un nivel de confianza deseado es incrementar el tamaño de la muestra utilizada para la construcción del intervalo.
-
-### La importancia del tamaño de la muestra
-
-Una de las posibilidades que nos brinda la estimación por intervalos de confianza es fijar a priori la precisión que deseamos en la estimación. La precisión está relacionada de manera inversa con el radio del intervalo. A mayor radio del intervalo menor precisión en la estimación.
-
-La precisión deseada puede obtenerse a través del control del tamaño de la muestra empleada para la construcción del intervalo. Generalmente el investigador fijará el nivel de confianza con el que desea trabajar y la precisión deseada para la estimación.
-
-Con estas premisas y basándose generalmente en la información adicional proporcionada por una muestra piloto obtenida con anterioridad es posible determinar el tamaño muestral mínimo necesario para lograr los objetivos fijados.
+Con estas premisas y basándose generalmente en la información adicional proporcionada por una muestra piloto obtenida con anterioridad _es posible determinar el tamaño muestral mínimo necesario para lograr los objetivos fijados_.
 
 Si no se dispone de muestra piloto, es posible utilizar planteamientos alternativos, como los siguientes:
 
@@ -129,31 +118,38 @@ Si no se dispone de muestra piloto, es posible utilizar planteamientos alternati
 
 El método del pivote es uno de los principales métodos de construcción de intervalos de confianza. Generaliza la técnica empleada en la construcción del intervalo utilizado como primer ejemplo.
 
-Se basa en la elección de una variable aleatoria que sea función de la muestra y del parámetro a estimar, con la condición de que sea una función continua y monótona del parámetro y que su distribución sea conocida e independiente del parámetro. Llamemos $\varphi(\theta, X)$ a la variable escogida y que recibe el nombre de estadístico pivote.
+Se basa en la elección de una variable aleatoria que sea función de la muestra y del parámetro a estimar, con la condición de que sea una función continua y monótona del parámetro y que su distribución sea conocida e **independiente del parámetro**.
 
-Bajo estas condiciones, fijado el nivel de confianza $(1-\alpha) \cdot 100 \%$, es posible encontrar los valores $\boldsymbol{a}$ y b tales que
+La expresión "distribución independiente del parámetro" puede generar cierta confusión porqué, uno no puede evitar observar el pivote y ver que el parámetro se encuentra incluido en la formma del mismo. Por ejemplo, si suponemos $X\sim N(\mu, \sigma_0)$, hemos visto que $Z=\frac{(X-\mu)}{\sigma/\sqrt{n}}$ es el punto de partida para construir el intérvalo de confianza. Podemos decir que $Z$ es un pivote para $\mu$ porque $Z=\frac{(X-\mu)}{\sigma/\sqrt{n}}$ aunque contenga a $\mu$ en su expresión, sigue una distribución $N(0,1)$ _que es la misma sea cual sea el valor de $\mu$ por lo que no depende de éste_. 
 
-$$
+
+De forma más general denominaremos "estadístico pivote" a una función  $\varphi(\theta, X)$ cuya distribución no depende del parámetro y que puede ser invertida para expresar el parámetro como la función (inversa), $\phi^{-1}$ de $\phi$.
+
+Bajo estas condiciones, fijado el nivel de confianza $(1-\alpha) \cdot 100 \%$, es posible encontrar los valores $a$ y $b$ tales que
+
+\begin{equation}
 P(a \leq \varphi(\theta, X) \leq b)=1-\alpha
-$$
+(\#eq:pivote)
+\end{equation}
 
-Por las condiciones exigidas sobre el estadístico, será posible despejar $\theta$ y obtener los límites para el intervalo.
+Por las condiciones exigidas sobre el estadístico, será posible despejar $\theta$  de la ecuación anterior \@ref(eq:pivote) y obtener los límites para el intervalo.
 
 $$
 P\left(\varphi^{-1}(a, X) \leq \boldsymbol{\theta} \leq \varphi^{-1}(b, X)=1-\alpha\right.
 $$
 
 siendo $\mathrm{L}_{1}=\varphi^{-1}(a, X)$ i $\mathrm{L}_{2}=\varphi^{-1}(b, X)$ los límites del intervalo deseado.
-Hemos de tener en cuenta que los valores $a$ y $b$ que verifican (1) en general no son únicos. La elección se hace generalmente buscando que el intervalo tenga la máxima precisión, es decir, la longitud mínima. Para distribuciones simétricas y unimodales (Normal o $t$ de Student, por ejemplo) se consigue tomando el intervalo centrado, es decir, dejando una probabilidad de $\alpha / 2$ a cada lado.
 
-## Algunos de los principales estadísticos pivote utilizados en la construcción de intervalos de confianza
+Hemos de tener en cuenta que los valores $a$ y $b$ que verifican \@ref(eq:pivote) en general no son únicos. La elección se hace generalmente buscando que _el intervalo tenga la máxima precisión, es decir, la longitud mínima_. Para distribuciones simétricas y unimodales (Normal o $t$ de Student, por ejemplo) se consigue tomando el intervalo centrado, es decir, dejando una probabilidad de $\alpha / 2$ a cada lado.
+
+## Algunos estadísticos pivote
 
 | Estadistico pivote | Distribución del estadístico pivote | Observaciones |
 | :---: | :---: | :---: |
 | a) Poblaciones Normales |  |  |
 | $Z=\frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$ | $\mathrm{N}(0,1)$ | Varianza conocida |
 | $T=\frac{\bar{X}-\mu}{\hat{S} / \sqrt{n}}$ | t de Student con n-1 grados de libertad | Varianza desconocida |
-| $\mathrm{X}^{2}=\frac{(n-1) \hat{S}^{2}}{\sigma^{2}}$ | $x^{2} \text { con } n-1 \text { grados de }$ <br> libertad |  |
+| $\chi^{2}=\frac{(n-1) \hat{S}^{2}}{\sigma^{2}}$ | $\chi^{2} \text { con } n-1 \text { grados de }$ <br> libertad |  |
 | $T=\frac{\left(\bar{X}_{1}-\bar{X}_{2}\right)-\left(\mu_{1}-\mu_{2}\right)}{S_{T} \sqrt{1 / n_{1}+1 / n_{2}}}$ | t de Student con $\mathrm{n}_{1}+\mathrm{n}_{2}-2$ grados de libertad | $\mathrm{S}_{\mathrm{T}}=$ estimación de la $\sigma$ desconocida pero común a ambas poblaciones |
 | b) Proporciones |  |  |
 | $T=\frac{\hat{p}-p}{\sqrt{\hat{p} \hat{q} / n}}$ | N(0,1) | Distribución asintótica |
@@ -175,7 +171,7 @@ $$
 se distribuye según una Normal estándar. Por tanto, aplicando el método del pivote podemos construir la expresión
 
 $$
-P\left(-z_{c / 2} \leq \frac{\bar{X}-\mu}{\sigma / \sqrt{n}} \leq z_{c / / 2}\right)=1-\alpha
+P\left(-z_{\alpha/ 2} \leq \frac{\bar{X}-\mu}{\sigma / \sqrt{n}} \leq z_{\alpha / / 2}\right)=1-\alpha
 $$
 
 donde $z_{\alpha / 2}$ es el valor de una distribución Normal estándar que deja a su derecha una probabilidad de $\alpha / 2$, de la que se deduce el intervalo de confianza
@@ -184,7 +180,6 @@ $$
 \bar{X}-z_{\alpha / 2} \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X}+z_{\alpha / 2} \frac{\sigma}{\sqrt{n}}
 $$
 
-Puede repasarse la construcción más detallada.
 
 ### Caso de varianza desconocida
 
@@ -202,22 +197,121 @@ $$
 
 donde $t_{\alpha / 2}$ es el valor de una distribución t de Student con $\mathrm{n}-1$ grados de libertad que deja a su derecha una probabilidad de $\alpha / 2$.
 
-Con el programa siguiente podemos calcular el intervalo de confianza para la media de una distribución Normal con desviación típica desconocida.
+### Calculo con R
 
-| Pasos que habéis de seguir: |
-| :--- |
-| 1) Podemos seleccionar la muestra |
-| por defecto (992, 995, 998, 1.000 y |
-| 1.005) o bien |
-| 2) podemos introducir una muestra |
-| arbitraria clicando sobre la regla de |
-| datos. |
-| 3) Podemos modificar los límites de la |
-| regla utilizando las barras de |
-| desplazamiento correspondientes. |
-| 4) Podemos borrar datos entrados en |
-| la regla clicando nuevamente sobre |
-| ellos. |
+El lenguaje R contiene un gran número de procedimientos estadísticos implementados, pero los intérvalos de confianza no son uno de ellos. Es decir, apenas existen funciones de base para calcular intérvalos de confianza y estos aparecen ligados a las pruebas de hipótesis como es el caso de los intérvalos para la media, que tan sólo se pueden calcular con la función que realiza un test-t.
+
+En esta sección mostraremos con algo de detalle cómo calcular un intervalo de confianza para la media de una muestra utilizando diferentes métodos:
+1. Cálculo manual.
+2. Uso de una función personalizada (`Calcula_IC_Media`).
+3. Uso del paquete `DesctTols`.
+
+#### Paso a paso: Cálculo manual del intervalo de confianza
+
+```{r calculoManual}
+# Generar datos simulados
+set.seed(123)  # Para reproducibilidad
+muestra <- rnorm(30, mean = 50, sd = 10)  # 30 observaciones con media 50 y desviación estándar 10
+
+# Tamaño de la muestra
+n <- length(muestra)
+
+# Media muestral
+media <- mean(muestra)
+
+# Desviación estándar muestral
+sd_muestra <- sd(muestra)
+
+# Grados de libertad
+gl <- n - 1
+
+# Nivel de confianza
+nivel_confianza <- 0.95
+alpha <- 1 - nivel_confianza
+
+# Valor crítico t
+t_critico <- qt(1 - alpha / 2, df = gl)
+
+# Margen de error
+margen_error <- t_critico * sd_muestra / sqrt(n)
+
+# Límites del intervalo
+limite_inferior <- media - margen_error
+limite_superior <- media + margen_error
+
+# Mostrar resultados
+cat("Cálculo manual:\n")
+cat("Intervalo de confianza (95%): [", limite_inferior, ", ", limite_superior, "]\n")
+cat("Media muestral: ", media, "\n")
+cat("Margen de error: ", margen_error, "\n")
+```
+
+#### Uso de la función `Calcula_IC_Media`
+
+Dado lo extenso del cálculo podemos definir una función para automatizar los pasos anteriores:
+
+```{r calcula_IC_Media}
+Calcula_IC_Media <- function(muestra, nivel_confianza = 0.95) {
+  # Tamaño de la muestra
+  n <- length(muestra)
+  
+  # Media muestral
+  media <- mean(muestra)
+  
+  # Desviación estándar muestral
+  sd_muestra <- sd(muestra)
+  
+  # Grados de libertad
+  gl <- n - 1
+  
+  # Valor crítico t
+  alpha <- 1 - nivel_confianza
+  t_critico <- qt(1 - alpha / 2, df = gl)
+  
+  # Margen de error
+  margen_error <- t_critico * sd_muestra / sqrt(n)
+  
+  # Límites del intervalo
+  limite_inferior <- media - margen_error
+  limite_superior <- media + margen_error
+  
+  # Resultado como lista
+  return(list(
+    media = media,
+    margen_error = margen_error,
+    limite_inferior = limite_inferior,
+    limite_superior = limite_superior,
+    nivel_confianza = nivel_confianza
+  ))
+}
+```
+
+Si ahora la aplicamos a los datos anteriores, obtendremos el mismo resultado con una llamada mucho más compacta.
+
+```{r Calcula_IC_Media}
+# Calcular el intervalo con la función
+resultado_funcion <- Calcula_IC_Media(muestra, nivel_confianza = 0.95)
+
+# Mostrar resultados
+cat("Cálculo con la función:\n")
+cat("Intervalo de confianza (95%): [", resultado_funcion$limite_inferior, ", ", resultado_funcion$limite_superior, "]\n")
+cat("Media muestral: ", resultado_funcion$media, "\n")
+cat("Margen de error: ", resultado_funcion$margen_error, "\n")
+```
+
+#### Uso del paquete `DesctTols`
+
+El paquete `Desctools` simplifica el cálculo e interpretación de intervalos de confianza.
+
+```{r MeanCI}
+
+# Usar DescTools para intervalos de confianza
+library(DescTools)
+MeanCI(muestra, conf.level = 0.95)
+
+```
+
+Como puede verse los tres métodos proporcionan el mismo resultado por lo que, en aras de la simplificación, siempre que se disponga de una función incorporada en un paquete utilizaremos ésta.
 
 ### Tamaño de muestra para la media de una distribución Normal
 
@@ -260,10 +354,28 @@ $$
 
 - La última posibilidad es sustituir en la expresión (1) el valor de la desviación típica por el valor máximo que se considere que pueda tomar basado en datos bibliográficos previos o en el criterio del investigador.
 
-Podemos utilizar el programa siguiente para calcular, a partir de una muestra piloto, el tamaño muestral necesario para conseguir una precisión determinada al calcular el intervalo de confianza para la media de una distribución Normal.
+#### Calculo del tamaño muestral usando R
 
-El programa se puede aplicar de manera
-sucesiva hasta corroborar el tamaño adecuado.
+Como en el caso anterior es posible implementar las fórmulas directamente con R o usar algún paquete específico `samplesize`o el mismo `DescTools` que incorpora la función `MeanCIn` que, a partir del intérvalo de confianza centrado en la media y la desviación retorna el tamaño necesario para alcanzar una precisión determinada.
+
+Por ejemplo si en el ejemplo anterior, con una media de 49.53 y una desviación de 9,81 se desa una precisión (anchura del intérvalo entre dos) de 3 con confianza del 90%:
+
+
+
+
+```{r BinomialCI}
+library(DescTools)
+prec<- 3
+m <- 49.53
+conf =0.9
+MeanCIn(ci=c(m-prec, m+prec), sd=9.8, conf.level=conf) 
+conf =0.95
+MeanCIn(ci=c(m-prec, m+prec), sd=9.8, conf.level=conf) 
+conf =0.99
+MeanCIn(ci=c(m-prec, m+prec), sd=9.8, conf.level=conf) 
+prec <- 2; conf <- 0.95
+MeanCIn(ci=c(m-prec, m+prec), sd=9.8, conf.level=conf) 
+```
 
 ## Intervalo de confianza para la varianza de una distribución Normal
 
@@ -346,6 +458,11 @@ $$
 
 El intervalo obtenido es un intervalo asintótico y por tanto condicionado a la validez de la aproximación utilizada. Una información más general sobre los intervalos de confianza asintóticos puede encontrase aquí.
 
+#### Cálculo con R
+
+Para ver como calcular un intervalo de confianza asintótico puede consultarse el ejemplo en [R-Tutor](r-tutor.com): [interval-estimate-population-proportion](https://www.r-tutor.com/elementary-statistics/interval-estimation/interval-estimate-population-proportion)
+
+
 ### Intervalo exacto
 
 Aun cuando las condiciones anteriores no se verifiquen, es posible la construcción de un intervalo exacto, válido siempre pero algo más complicado en los cálculos. Es posible demostrar que un intervalo exacto para el parámetro $p$ viene dado por los valores siguientes:
@@ -358,9 +475,22 @@ donde $F_{\alpha / 2, a, b}$ es el valor de una distribución $F$ de Fisher-Sned
 
 Una justificación de los intervalos de confianza exactos para distribuciones discretas puede encontrarse aquí.
 
-En el programa siguiente puedéis calcular los intervalos de confianza asintótico y, si $n$ es menor de 100, también el exacto para una proporción.
 
-<!-- ![](https://cdn.mathpix.com/cropped/2024_11_23_f4d7a72ee3230f2d9abcg-20.jpg?height=841&width=1872&top_left_y=1424&top_left_x=92) -->
+#### Cálculo con R
+
+En general los paquetes de R implementan múltiples métodos exactos. Este es el caso de `DescTools`que implementa más de una docena de métodos (podéis hacer `? DescTools::BinomCI` para aprender cuales son).
+
+Por ejemplo si hemos obtenido un valor de 37 con un tamaño muestral de 43 (es decir una estimación puntual de 37/43 = ```r 37/43`) el intervalo de confianza se calculará como:
+
+```{r}
+BinomCI(x=37, n=43, 
+        method=eval(formals(BinomCI)$method))   # return all methods
+```
+Ante la duda de que método usar lo mejor es usar el métod por defecto (el primero de la lista anterior).
+
+```{r}
+BinomCI(x=37, n=43) 
+```
 
 ### Tamaño muestral para una proporción
 
@@ -385,9 +515,12 @@ La aplicación efectiva de la fórmula obtenida requiere el conocimiento de $p$ 
 
 A partir de la fórmula puede comprobarse que el tamaño muestral requerido, una vez fijada $p$, crece al incrementarse la confianza del intervalo y crece también al incrementarse la precisión (al disminuir el radio).
 
-Con el programa siguiente podemos calcular los tamaños muestrales necesarios para conseguir una precisión determinada bajo diferentes supuestos.
+#### Cálculo con R
 
-<!-- ![](https://cdn.mathpix.com/cropped/2024_11_23_f4d7a72ee3230f2d9abcg-21.jpg?height=481&width=1532&top_left_y=2075&top_left_x=265) -->
+Para ver como determinar el tamaño muestral necesario para construir un intervalo de confianza para una proporción, pueden consultarse los mismos recursos 
+
+- Para el cálculo del tamaño muestral asociado a un intérvalo de confianza asintótico tótico puede consultarse  [R-Tutor](r-tutor.com): [sampling-size-population-proportion](https://www.r-tutor.com/elementary-statistics/interval-estimation/sampling-size-population-proportion)
+
 
 ## Intervalo de confianza para el parámetro de una distribución de Poisson
 
@@ -440,7 +573,7 @@ $$
 Si no son aplicables las condiciones para utilizar la aproximación asintótica puede utilizarse la solución exacta, válida siempre. Puede demostrarse que el intervalo exacto para el parámetro $\lambda$ viene dado por
 
 $$
-\lambda_{1}=\frac{1}{2 n} \chi_{1-a / 2}^{2}\left(2 \cdot \sum_{i=1}^{n} X_{i}\right) ; \lambda_{2}=\frac{1}{2 n} \chi_{a / 2}^{2}\left(2 \cdot \sum_{i=1}^{n} X_{i}+2\right)
+\lambda_{1}=\frac{1}{2 n} \chi_{1-a / 2}^{2}\left(2 \cdot \sum_{i=1}^{n} \chi_{i}\right) ; \lambda_{2}=\frac{1}{2 n} \chi_{a / 2}^{2}\left(2 \cdot \sum_{i=1}^{n} \chi_{i}+2\right)
 $$
 
 donde $\chi_{\alpha / 2}^{2}(n)$ es el valor de una distribución Ji al cuadrado con $n$ grados de libertad que deja a su derecha una probabilidad de $\alpha / 2$.
@@ -541,7 +674,9 @@ $$
 
 Si los grados de libertad resultantes son decimales, puede optarse por hacer una interpolación entre los dos valores enteros más cercanos o bien por tomar el valor más desfavorable, aquel que suponga un radio mayor para el intervalo de confianza y que coincide con el redondeo a la baja de los grados de libertad.
 
-Es, por tanto, muy importante, antes de proceder a la obtención del intervalo de confianza para la diferencia de medias, verificar si la suposición de homogeneidad de varianzas es razonable o no. Una manera de verificarlo consiste en la construcción del intervalo para el cociente de varianzas, tal como se explica más adelante, y comprobar si en dicho intervalo está incluido el valor 1. La inclusión de la unidad dentro del intervalo resultante, la debemos interpretar en el sentido de que la muestra no proporciona evidencia suficiente para afirmar que las varianzas son diferentes y, por tanto, no es incorrecta la utilización del intervalo para varianza común. De manera análoga, el intervalo de confianza para la diferencia de medias nos puede servir para verificar la suposición de que las medias son iguales o diferentes; en este caso, si el valor 0 está incluido en el intervalo, la conclusión es que la muestra no proporciona evidencia suficiente para afirmar que las medias son diferentes.
+### Intérvalos de confianza y decisiones estadísticas
+
+Es, por tanto, importante, antes de proceder a la obtención del intervalo de confianza para la diferencia de medias, verificar si la suposición de homogeneidad de varianzas es razonable o no. Una manera de verificarlo consiste en la construcción del intervalo para el cociente de varianzas, tal como se explica más adelante, y comprobar si en dicho intervalo está incluido el valor 1. La inclusión de la unidad dentro del intervalo resultante, la debemos interpretar en el sentido de que la muestra no proporciona evidencia suficiente para afirmar que las varianzas son diferentes y, por tanto, no es incorrecta la utilización del intervalo para varianza común. De manera análoga, el intervalo de confianza para la diferencia de medias nos puede servir para verificar la suposición de que las medias son iguales o diferentes; en este caso, si el valor 0 está incluido en el intervalo, la conclusión es que la muestra no proporciona evidencia suficiente para afirmar que las medias son diferentes.
 
 Nota importante: El párrafo anterior nos introduce en la posibilidad de utilizar intervalos de confianza para verificar o rechazar ciertas suposiciones sobre el parámetro o los parámetros de las distribuciones. La técnica específica para la verificación de dichas suposiciones o hipótesis a partir de muestras aleatorias se verá en los temas siguientes, donde se introduce el concepto de contraste de hipótesis, sin embargo no podemos dejar de mencionar aquí que los intervalos de confianza nos pueden proporcionar una técnica alternativa o complementaria para la resolución de contrastes.
 
@@ -584,7 +719,9 @@ $$
 
 puede representarse por medio de la figura siguiente:
 
-<!-- ![](https://cdn.mathpix.com/cropped/2024_11_23_f4d7a72ee3230f2d9abcg-29.jpg?height=1131&width=1494&top_left_y=1142&top_left_x=281) -->
+```{r out.width="80%",fig.align='center', echo=FALSE}
+knitr::include_graphics("images/interpretacionGeometrica.png")
+```
 
 El eje horizontal representa la media muestral y el eje vertical el valor del intervalo para el parámetro $\mu$. Como puede observarse los límites son líneas rectas y la anchura del intervalo es la misma para cualquier valor de la media.
 
@@ -596,7 +733,9 @@ $$
 
 y, para una muestra de tamaño $n=9$ y un intervalo de confianza del $95 \%$, la gráfica resultante es:
 
-<!-- ![](https://cdn.mathpix.com/cropped/2024_11_23_f4d7a72ee3230f2d9abcg-30.jpg?height=1129&width=1494&top_left_y=204&top_left_x=281) -->
+```{r out.width="80%",fig.align='center', echo=FALSE}
+knitr::include_graphics("images/freqVsprop.png")
+```
 
 El eje horizontal es la frecuencia relativa observada y el eje vertical el intervalo de confianza para la proporción. Podemos notar que la anchura del intervalo varía y que, en el caso más desfavorable, la máxima amplitud se da para una frecuencia observada de 0,5.
 
@@ -716,16 +855,4 @@ h^{2}=\frac{\operatorname{Var}(X)}{1-\text { Probabilidad deseada del intervalo 
 $$
 
 El resultado final se interpreta en el sentido de que la probabilidad de que la variable se encuentre dentro del intervalo construido es mayor o igual que la probabilidad fijada.
-
-<!-- ![](https://cdn.mathpix.com/cropped/2024_11_23_f4d7a72ee3230f2d9abcg-34.jpg?height=735&width=1463&top_left_y=1934&top_left_x=296) -->
-
-
-<!-- [^0]:    Pasos que habéis de seguir: -->
-
-<!--     1) Obtenemos los datos de la muestra por defecto (992, 995, 998, 1.000 y 1.005). -->
-<!--     2) Seleccionamos un nivel de confianza del 70 \% y ejecutamos la obtención del intervalo. -->
-<!--     3) Modificamos los niveles de confianza y obtenemos los intervalos correspondientes. ¿Qué observamos? -->
-
-<!--     Solución -->
-<!--     4) Podemos borrar los datos e introducir nuestra propia muestra clicando sobre la regla de datos. -->
 
