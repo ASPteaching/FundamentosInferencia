@@ -124,7 +124,7 @@
 
 \title{Fundamentos de Inferencia Estadistica}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2024-11-23}
+\date{2024-11-24}
 
 \begin{document}
 \maketitle
@@ -7244,21 +7244,21 @@ Las condiciones de extremo que hemos dado más arriba se verifican: \(H_{11}<0 y
 
 \subsection{Motivación de los intervalos de confianza: la estimación puntual casi siempre es falsa}\label{motivaciuxf3n-de-los-intervalos-de-confianza-la-estimaciuxf3n-puntual-casi-siempre-es-falsa}
 
-Como se ha visto en el capítulo anterior, el estimador puntual (véase el tema 7) proporciona la mejor aproximación posible al valor verdadero de los parámetros poblacionales que se desean estimar y que en realidad nos son desconocidos.
+Como se ha visto en el capítulo anterior, un estimador puntual intenta proporcionar la mejor aproximación posible, en uno u otro sentido, al valor verdadero de los parámetros poblacionales que se desean estimar y que en realidad nos son desconocidos.
 
-Sin embargo, el título de la transparencia debe entenderse en el sentido de que no hemos de creer que el resultado de la estimación puntual ha de coincidir forzosamente con el valor verdadero del parámetro poblacional que queremos estimar. De hecho en muchas ocasiones de lo que podemos estar seguros es de la no-coincidencia. Baste considerar, por ejemplo, una variable Normal y una estimación de la esperanza a través de la media muestral. Como se trata de una variable continua
+Sin embargo, ésto debe entenderse en el sentido de que no hemos de creer que el resultado de la estimación puntual ha de coincidir forzosamente con el valor verdadero del parámetro poblacional que queremos estimar. De hecho en muchas ocasiones de lo que podemos estar seguros es de la no-coincidencia. Baste considerar, por ejemplo, una variable Normal y una estimación de su esperanza a través de la media muestral. Como se trata de una variable continua se tiene:
 
 \[
-P\left(\bar{X}_{n}=\mu\right)=0
+P\left(\bar{X}_{n}=\mu\right)=0.
 \]
 
-esta expresión debe ser interpretada en el sentido de que la coincidencia del estimador con el parámetro verdadero es un suceso de probabilidad cero.
+Esta expresión debe ser interpretada en el sentido de que la coincidencia del estimador con el parámetro verdadero es un suceso de probabilidad cero.
 
-La estimación por intervalos de confianza nos proporciona un rango de valores entre los que tendremos una cierta certeza o nivel de confianza de que se encuentre nuestro parámetro poblacional desconocido.
+La estimación por intervalos de confianza nos proporciona \emph{un rango de valores entre los que tendremos una cierta certeza o nivel de confianza de que se encuentre nuestro parámetro poblacional desconocido}.
 
 \subsection{Definición formal de intervalo de confianza}\label{definiciuxf3n-formal-de-intervalo-de-confianza}
 
-Dada una muestra aleatoria simple correspondiente a una variable aleatoria dependiente de un parámetro \(\theta\), diremos que los estadísticos \(L_{1}\) y \(L_{2}\) son un intervalo de confianza para \(\theta\) con nivel de confianza \((1-\alpha) \cdot 100 \%\), si se verifica:
+Dada una muestra aleatoria simple, que podemos suponer se ha obtenido de una variable aleatoria (población) cuya distribución depende de un parámetro \(\theta\), diremos que los estadísticos \(L_{1}\) y \(L_{2}\) son un intervalo de confianza para \(\theta\) con nivel de confianza \((1-\alpha) \cdot 100 \%\), si se verifica:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -7275,23 +7275,26 @@ Hay que destacar que en la segunda condición, en nuestro contexto, el valor del
 
 \subsubsection{Planteamiento}\label{planteamiento}
 
-Supongamos que tenemos una variable aleatoria que sigue una distribución Normal N \((\mu ; \sigma)\) donde la varianza es un valor fijo conocido \(\sigma^{2}=\sigma^{2}{ }_{0}\). Nuestro objetivo es, dada una muestra aleatoria simple de tamaño \(n\) de la variable obtener un intervalo de confianza con nivel de confianza del \(95 \%\) para el parámetro \(\mu\) de la distribución.
+Supongamos que tenemos una variable aleatoria que sigue una distribución Normal N \((\mu ; \sigma)\) donde la varianza es un valor fijo conocido \(\sigma^{2}=\sigma^2_0\). Nuestro objetivo es, dada una muestra aleatoria simple de tamaño \(n\) de la variable obtener un intervalo de confianza con nivel de confianza del \(95 \%\) para el parámetro \(\mu\) de la distribución.
 
 \subsubsection{Desarrollo de la construcción}\label{desarrollo-de-la-construcciuxf3n}
 
-Utilizaremos la propiedad de que la media muestral sigue una distribución Normal de parámetros y, por tanto, si construimos el estadístico
+Utilizaremos la propiedad de que la media muestral sigue una distribución Normal de parámetros \((\mu ; \sigma/\sqrt{n})\) y, por tanto, si construimos el estadístico
 
 \[
 z=\frac{\bar{X}-\mu}{\sigma_{0} / \sqrt{n}}
 \]
 
-su distribución es una Normal estándar \(\mathrm{N}(0,1)\). Es importante que sea una distribución conocida e independiente del parámetro que queremos estimar \(\mu\), puesto que esto nos permite una vez construida la expresión siguiente
+su distribución es una Normal estándar \(\mathrm{N}(0,1)\).
+El hecho de que sea una distribución conocida, que además no depende del parámetro que queremos estimar \(\mu\), nos permite, una vez construida la expresión siguiente
 
 \[
 P\left(-z_{\alpha / 2} \leq \frac{\bar{X}-\mu}{\sigma_{0} / \sqrt{n}} \leq z_{\alpha / 2}\right)=1-\alpha
 \]
 
 determinar, de manera independiente de \(\mu\) el valor \(z_{\alpha / 2}\) que delimita una probabilidad del \(95 \%\) dentro del intervalo centrado en cero \(\left(-z_{\alpha / 2} ; z_{\alpha / 2}\right)\). En este caso, para la distribución \(\mathrm{N}(0,1)\), el valor es aproximadamente 1,96.
+
+\begin{center}\includegraphics[width=0.9\linewidth]{images/dNormalQuantil975} \end{center}
 
 \[
 P\left(-1,96 \leq \frac{\bar{X}-\mu}{\sigma_{0} / \sqrt{n}} \leq 1,96\right)=0,95
@@ -7305,7 +7308,7 @@ P\left(\bar{X}-1,96 \frac{\sigma_{0}}{\sqrt{n}} \leq \mu \leq \bar{X}+1,96 \frac
 
 \subsection{¿Por qué hablamos de confianza y no de probabilidad?}\label{por-quuxe9-hablamos-de-confianza-y-no-de-probabilidad}
 
-Cuando ya hemos calculado el valor de los estadísticos que delimitan un intervalo siempre hablamos de que dicho intervalo contiene el parámetro poblacional con un nivel de confianza, por ejemplo del 95 \(\%\). No decimos que la probabilidad de que el parámetro esté dentro del intervalo es de un \(95 \%\).
+Cuando ya hemos calculado el valor de los estadísticos que delimitan un intervalo solemos decir de que dicho intervalo \emph{contiene el parámetro poblacional con un nivel de confianza, por ejemplo del 95 \(\%\)}. \textbf{No decimos} que la probabilidad de que el parámetro esté dentro del intervalo es de un \(95 \%\), puesto que esto no tiene sentido, ya que el parámetro es un valor fijo.
 
 Por ejemplo, es correcto decir que el intervalo \((0,80 ; 0,86)\) contiene el parámetro \(p\) de una distribución Binomial con una confianza del \(95 \%\), pero sería incorrecto decir que la probabilidad de que el parámetro esté dentro del intervalo \((0,80 ; 0,86)\) es del \(95 \%\).
 
@@ -7313,9 +7316,11 @@ En nuestro contexto, el parámetro poblacional es el que es, y no asociamos ning
 
 La confianza del intervalo debe ser entendida como la fracción de intervalos calculados a partir de una gran serie de muestras de tamaño idéntico que contienen el valor verdadero del parámetro poblacional.
 
-Veámoslo con un ejemplo gráfico. Se trata de simular un número determinado de intervalos de confianza para la media de una distribució Normal, basados en muestras del mismo tamaño, y comprobar en cuántas de las simulaciones el intervalo obtenido contiene el verdadero valor de la media poblacional a partir del cual se han simulado las muestras. El porcentaje de aciertos debería acercarse al nivel de confianza con el que se han construido los intervalos.
+\textbf{Simulación de intérvalos de confianza}
 
-\subsubsection{Solución}\label{soluciuxf3n-1}
+\url{https://www.grbio.eu/statmedia/Statmedia_5/}
+
+El enlace anterior apunta a una aplicación Shiny que permite simular un número determinado de intervalos de confianza para la media de una distribució Normal, basados en muestras del mismo tamaño, y comprobar en cuántas de las simulaciones el intervalo obtenido contiene el verdadero valor de la media poblacional a partir del cual se han simulado las muestras. El porcentaje de aciertos debería acercarse al nivel de confianza con el que se han construido los intervalos.
 
 Manteniendo constante el tamaño muestral, incrementar el nivel de confianza del intervalo implica que la anchura de éste se incrementa. Es totalmente coherente con la lógica, puesto que al exigir mayor seguridad de que el parámetro esté incluido en el intervalo lo que hacemos es alejar los límites inferior y superior para incrementar la certeza de que incluya al parámetro.
 
@@ -7337,7 +7342,7 @@ Podemos comprobarlo con el intervalo de confianza para la media de una distribuc
 
 {[}\^{}0{]}- Relacionado con el punto anterior tenemos la elección del tamaño muestral utilizado para la construcción del intervalo. Hemos mencionado que aumentar la confianza significa aumentar la imprecisión de la estimación, sin embargo es posible ajustar una anchura del intervalo determinada para el nivel de confianza deseado jugando con el tamaño muestral utilizado.
 
-\subsubsection{Solución}\label{soluciuxf3n-2}
+\subsubsection{Solución}\label{soluciuxf3n-1}
 
 Manteniendo constante el tamaño muestral, incrementar el nivel de confianza del intervalo implica que la anchura de éste se incrementa. Es totalmente coherente con la lógica, puesto que al exigir más seguridad de que el parámetro esté incluido en el intervalo lo que hacemos es alejar los límites inferior y superior para incrementar la certeza de que incluya al parámetro.
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2024-11-23" />
+<meta name="date" content="2024-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -124,7 +124,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="blocks.css" type="text/css" />
 </head>
 
@@ -442,13 +441,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#planteamiento"><i class="fa fa-check"></i><b>8.3.1</b> Planteamiento</a></li>
 <li class="chapter" data-level="8.3.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#desarrollo-de-la-construcción"><i class="fa fa-check"></i><b>8.3.2</b> Desarrollo de la construcción</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#por-qué-hablamos-de-confianza-y-no-de-probabilidad"><i class="fa fa-check"></i><b>8.4</b> ¿Por qué hablamos de confianza y no de probabilidad?</a>
-<ul>
-<li class="chapter" data-level="8.4.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#solución-1"><i class="fa fa-check"></i><b>8.4.1</b> Solución</a></li>
-</ul></li>
+<li class="chapter" data-level="8.4" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#por-qué-hablamos-de-confianza-y-no-de-probabilidad"><i class="fa fa-check"></i><b>8.4</b> ¿Por qué hablamos de confianza y no de probabilidad?</a></li>
 <li class="chapter" data-level="8.5" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#elementos-de-un-intervalo-de-confianza"><i class="fa fa-check"></i><b>8.5</b> Elementos de un intervalo de confianza</a>
 <ul>
-<li class="chapter" data-level="8.5.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#solución-2"><i class="fa fa-check"></i><b>8.5.1</b> Solución</a></li>
+<li class="chapter" data-level="8.5.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#solución-1"><i class="fa fa-check"></i><b>8.5.1</b> Solución</a></li>
 <li class="chapter" data-level="8.5.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#la-importancia-del-tamaño-de-la-muestra"><i class="fa fa-check"></i><b>8.5.2</b> La importancia del tamaño de la muestra</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#método-del-pivote"><i class="fa fa-check"></i><b>8.6</b> Método del pivote</a></li>
@@ -537,17 +533,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Capítulo 8</span> Estimación por intérvalos<a href="estimación-por-intérvalos.html#estimación-por-intérvalos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="motivación-de-los-intervalos-de-confianza-la-estimación-puntual-casi-siempre-es-falsa" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Motivación de los intervalos de confianza: la estimación puntual casi siempre es falsa<a href="estimación-por-intérvalos.html#motivación-de-los-intervalos-de-confianza-la-estimación-puntual-casi-siempre-es-falsa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como se ha visto en el capítulo anterior, el estimador puntual (véase el tema 7) proporciona la mejor aproximación posible al valor verdadero de los parámetros poblacionales que se desean estimar y que en realidad nos son desconocidos.</p>
-<p>Sin embargo, el título de la transparencia debe entenderse en el sentido de que no hemos de creer que el resultado de la estimación puntual ha de coincidir forzosamente con el valor verdadero del parámetro poblacional que queremos estimar. De hecho en muchas ocasiones de lo que podemos estar seguros es de la no-coincidencia. Baste considerar, por ejemplo, una variable Normal y una estimación de la esperanza a través de la media muestral. Como se trata de una variable continua</p>
+<p>Como se ha visto en el capítulo anterior, un estimador puntual intenta proporcionar la mejor aproximación posible, en uno u otro sentido, al valor verdadero de los parámetros poblacionales que se desean estimar y que en realidad nos son desconocidos.</p>
+<p>Sin embargo, ésto debe entenderse en el sentido de que no hemos de creer que el resultado de la estimación puntual ha de coincidir forzosamente con el valor verdadero del parámetro poblacional que queremos estimar. De hecho en muchas ocasiones de lo que podemos estar seguros es de la no-coincidencia. Baste considerar, por ejemplo, una variable Normal y una estimación de su esperanza a través de la media muestral. Como se trata de una variable continua se tiene:</p>
 <p><span class="math display">\[
-P\left(\bar{X}_{n}=\mu\right)=0
+P\left(\bar{X}_{n}=\mu\right)=0.
 \]</span></p>
-<p>esta expresión debe ser interpretada en el sentido de que la coincidencia del estimador con el parámetro verdadero es un suceso de probabilidad cero.</p>
-<p>La estimación por intervalos de confianza nos proporciona un rango de valores entre los que tendremos una cierta certeza o nivel de confianza de que se encuentre nuestro parámetro poblacional desconocido.</p>
+<p>Esta expresión debe ser interpretada en el sentido de que la coincidencia del estimador con el parámetro verdadero es un suceso de probabilidad cero.</p>
+<p>La estimación por intervalos de confianza nos proporciona <em>un rango de valores entre los que tendremos una cierta certeza o nivel de confianza de que se encuentre nuestro parámetro poblacional desconocido</em>.</p>
 </div>
 <div id="definición-formal-de-intervalo-de-confianza" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Definición formal de intervalo de confianza<a href="estimación-por-intérvalos.html#definición-formal-de-intervalo-de-confianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dada una muestra aleatoria simple correspondiente a una variable aleatoria dependiente de un parámetro <span class="math inline">\(\theta\)</span>, diremos que los estadísticos <span class="math inline">\(L_{1}\)</span> y <span class="math inline">\(L_{2}\)</span> son un intervalo de confianza para <span class="math inline">\(\theta\)</span> con nivel de confianza <span class="math inline">\((1-\alpha) \cdot 100 \%\)</span>, si se verifica:</p>
+<p>Dada una muestra aleatoria simple, que podemos suponer se ha obtenido de una variable aleatoria (población) cuya distribución depende de un parámetro <span class="math inline">\(\theta\)</span>, diremos que los estadísticos <span class="math inline">\(L_{1}\)</span> y <span class="math inline">\(L_{2}\)</span> son un intervalo de confianza para <span class="math inline">\(\theta\)</span> con nivel de confianza <span class="math inline">\((1-\alpha) \cdot 100 \%\)</span>, si se verifica:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\mathrm{L}_{1}&lt;\mathrm{L}_{2}\)</span> para toda muestra de tamaño <span class="math inline">\(n\)</span>.</li>
 <li><span class="math inline">\(\mathrm{P}\left(\mathrm{L}_{1} \leq \theta \leq \mathrm{L}_{2}\right)=1-\alpha\)</span>.</li>
@@ -558,20 +554,21 @@ P\left(\bar{X}_{n}=\mu\right)=0
 <h2><span class="header-section-number">8.3</span> Un ejemplo de construcción de un intervalo de confianza<a href="estimación-por-intérvalos.html#un-ejemplo-de-construcción-de-un-intervalo-de-confianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="planteamiento" class="section level3 hasAnchor" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Planteamiento<a href="estimación-por-intérvalos.html#planteamiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Supongamos que tenemos una variable aleatoria que sigue una distribución Normal N <span class="math inline">\((\mu ; \sigma)\)</span> donde la varianza es un valor fijo conocido <span class="math inline">\(\sigma^{2}=\sigma^{2}{ }_{0}\)</span>. Nuestro objetivo es, dada una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de la variable obtener un intervalo de confianza con nivel de confianza del <span class="math inline">\(95 \%\)</span> para el parámetro <span class="math inline">\(\mu\)</span> de la distribución.</p>
+<p>Supongamos que tenemos una variable aleatoria que sigue una distribución Normal N <span class="math inline">\((\mu ; \sigma)\)</span> donde la varianza es un valor fijo conocido <span class="math inline">\(\sigma^{2}=\sigma^2_0\)</span>. Nuestro objetivo es, dada una muestra aleatoria simple de tamaño <span class="math inline">\(n\)</span> de la variable obtener un intervalo de confianza con nivel de confianza del <span class="math inline">\(95 \%\)</span> para el parámetro <span class="math inline">\(\mu\)</span> de la distribución.</p>
 </div>
 <div id="desarrollo-de-la-construcción" class="section level3 hasAnchor" number="8.3.2">
 <h3><span class="header-section-number">8.3.2</span> Desarrollo de la construcción<a href="estimación-por-intérvalos.html#desarrollo-de-la-construcción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Utilizaremos la propiedad de que la media muestral sigue una distribución Normal de parámetros y, por tanto, si construimos el estadístico</p>
+<p>Utilizaremos la propiedad de que la media muestral sigue una distribución Normal de parámetros <span class="math inline">\((\mu ; \sigma/\sqrt{n})\)</span> y, por tanto, si construimos el estadístico</p>
 <p><span class="math display">\[
 z=\frac{\bar{X}-\mu}{\sigma_{0} / \sqrt{n}}
 \]</span></p>
-<p>su distribución es una Normal estándar <span class="math inline">\(\mathrm{N}(0,1)\)</span>. Es importante que sea una distribución conocida e independiente del parámetro que queremos estimar <span class="math inline">\(\mu\)</span>, puesto que esto nos permite una vez construida la expresión siguiente</p>
+<p>su distribución es una Normal estándar <span class="math inline">\(\mathrm{N}(0,1)\)</span>.
+El hecho de que sea una distribución conocida, que además no depende del parámetro que queremos estimar <span class="math inline">\(\mu\)</span>, nos permite, una vez construida la expresión siguiente</p>
 <p><span class="math display">\[
 P\left(-z_{\alpha / 2} \leq \frac{\bar{X}-\mu}{\sigma_{0} / \sqrt{n}} \leq z_{\alpha / 2}\right)=1-\alpha
 \]</span></p>
 <p>determinar, de manera independiente de <span class="math inline">\(\mu\)</span> el valor <span class="math inline">\(z_{\alpha / 2}\)</span> que delimita una probabilidad del <span class="math inline">\(95 \%\)</span> dentro del intervalo centrado en cero <span class="math inline">\(\left(-z_{\alpha / 2} ; z_{\alpha / 2}\right)\)</span>. En este caso, para la distribución <span class="math inline">\(\mathrm{N}(0,1)\)</span>, el valor es aproximadamente 1,96.</p>
-<!-- ![](https://cdn.mathpix.com/cropped/2024_11_23_f4d7a72ee3230f2d9abcg-06.jpg?height=1324&width=1472&top_left_y=89&top_left_x=289) -->
+<p><img src="images/dNormalQuantil975.png" width="90%" style="display: block; margin: auto;" /></p>
 <p><span class="math display">\[
 P\left(-1,96 \leq \frac{\bar{X}-\mu}{\sigma_{0} / \sqrt{n}} \leq 1,96\right)=0,95
 \]</span></p>
@@ -583,16 +580,17 @@ P\left(\bar{X}-1,96 \frac{\sigma_{0}}{\sqrt{n}} \leq \mu \leq \bar{X}+1,96 \frac
 </div>
 <div id="por-qué-hablamos-de-confianza-y-no-de-probabilidad" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> ¿Por qué hablamos de confianza y no de probabilidad?<a href="estimación-por-intérvalos.html#por-qué-hablamos-de-confianza-y-no-de-probabilidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Cuando ya hemos calculado el valor de los estadísticos que delimitan un intervalo siempre hablamos de que dicho intervalo contiene el parámetro poblacional con un nivel de confianza, por ejemplo del 95 <span class="math inline">\(\%\)</span>. No decimos que la probabilidad de que el parámetro esté dentro del intervalo es de un <span class="math inline">\(95 \%\)</span>.</p>
+<p>Cuando ya hemos calculado el valor de los estadísticos que delimitan un intervalo solemos decir de que dicho intervalo <em>contiene el parámetro poblacional con un nivel de confianza, por ejemplo del 95 <span class="math inline">\(\%\)</span></em>. <strong>No decimos</strong> que la probabilidad de que el parámetro esté dentro del intervalo es de un <span class="math inline">\(95 \%\)</span>, puesto que esto no tiene sentido, ya que el parámetro es un valor fijo.</p>
 <p>Por ejemplo, es correcto decir que el intervalo <span class="math inline">\((0,80 ; 0,86)\)</span> contiene el parámetro <span class="math inline">\(p\)</span> de una distribución Binomial con una confianza del <span class="math inline">\(95 \%\)</span>, pero sería incorrecto decir que la probabilidad de que el parámetro esté dentro del intervalo <span class="math inline">\((0,80 ; 0,86)\)</span> es del <span class="math inline">\(95 \%\)</span>.</p>
 <p>En nuestro contexto, el parámetro poblacional es el que es, y no asociamos ninguna probabilidad ni fenómeno aleatorio al respecto. En otros enfoques estadísticos (estadística bayesiana) sí que se considera el parámetro como un valor aleatorio, pero no es nuestro caso.</p>
 <p>La confianza del intervalo debe ser entendida como la fracción de intervalos calculados a partir de una gran serie de muestras de tamaño idéntico que contienen el valor verdadero del parámetro poblacional.</p>
-<p>Veámoslo con un ejemplo gráfico. Se trata de simular un número determinado de intervalos de confianza para la media de una distribució Normal, basados en muestras del mismo tamaño, y comprobar en cuántas de las simulaciones el intervalo obtenido contiene el verdadero valor de la media poblacional a partir del cual se han simulado las muestras. El porcentaje de aciertos debería acercarse al nivel de confianza con el que se han construido los intervalos.</p>
-<div id="solución-1" class="section level3 hasAnchor" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Solución<a href="estimación-por-intérvalos.html#solución-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="software">
+<p><strong>Simulación de intérvalos de confianza</strong></p>
+<p><a href="https://www.grbio.eu/statmedia/Statmedia_5/">https://www.grbio.eu/statmedia/Statmedia_5/</a></p>
+</div>
+<p>El enlace anterior apunta a una aplicación Shiny que permite simular un número determinado de intervalos de confianza para la media de una distribució Normal, basados en muestras del mismo tamaño, y comprobar en cuántas de las simulaciones el intervalo obtenido contiene el verdadero valor de la media poblacional a partir del cual se han simulado las muestras. El porcentaje de aciertos debería acercarse al nivel de confianza con el que se han construido los intervalos.</p>
 <p>Manteniendo constante el tamaño muestral, incrementar el nivel de confianza del intervalo implica que la anchura de éste se incrementa. Es totalmente coherente con la lógica, puesto que al exigir mayor seguridad de que el parámetro esté incluido en el intervalo lo que hacemos es alejar los límites inferior y superior para incrementar la certeza de que incluya al parámetro.</p>
 <p>Como veremos más adelante, la manera de disminuir la anchura del intervalo y mantener un nivel de confianza deseado es incrementar el tamaño de la muestra utilizada para la construcción del intervalo.</p>
-</div>
 </div>
 <div id="elementos-de-un-intervalo-de-confianza" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Elementos de un intervalo de confianza<a href="estimación-por-intérvalos.html#elementos-de-un-intervalo-de-confianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -603,8 +601,8 @@ P\left(\bar{X}-1,96 \frac{\sigma_{0}}{\sqrt{n}} \leq \mu \leq \bar{X}+1,96 \frac
 </ul>
 <p>Podemos comprobarlo con el intervalo de confianza para la media de una distribución Normal:</p>
 <p>[^0]- Relacionado con el punto anterior tenemos la elección del tamaño muestral utilizado para la construcción del intervalo. Hemos mencionado que aumentar la confianza significa aumentar la imprecisión de la estimación, sin embargo es posible ajustar una anchura del intervalo determinada para el nivel de confianza deseado jugando con el tamaño muestral utilizado.</p>
-<div id="solución-2" class="section level3 hasAnchor" number="8.5.1">
-<h3><span class="header-section-number">8.5.1</span> Solución<a href="estimación-por-intérvalos.html#solución-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="solución-1" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Solución<a href="estimación-por-intérvalos.html#solución-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Manteniendo constante el tamaño muestral, incrementar el nivel de confianza del intervalo implica que la anchura de éste se incrementa. Es totalmente coherente con la lógica, puesto que al exigir más seguridad de que el parámetro esté incluido en el intervalo lo que hacemos es alejar los límites inferior y superior para incrementar la certeza de que incluya al parámetro.</p>
 <p>Como veremos más adelante, la manera de disminuir la anchura del intervalo y de mantener un nivel de confianza deseado es incrementar el tamaño de la muestra utilizada para la construcción del intervalo.</p>
 </div>

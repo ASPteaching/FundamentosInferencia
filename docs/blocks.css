@@ -1,78 +1,41 @@
 /* Estilo base para todos los bloques */
-.calloutBox {
-    padding: 1em 1em 1em 4em; /* Espacio para el ícono a la izquierda */
+div.software {
+    background-color: #e6ffe6; /* Verde pálido */
+    border: 3px solid #006600; /* Marco verde oscuro */
+    padding: 1em; /* Espaciado interno */
+    margin-bottom: 20px; /* Separación entre bloques */
+    border-radius: 10px; /* Esquinas redondeadas */
+}
+
+/* Bloques adicionales */
+div.important {
+    background-color: #ffe6cc; /* Naranja pálido */
+    border: 3px solid #e67300; /* Marco naranja oscuro */
+    padding: 1em;
     margin-bottom: 20px;
     border-radius: 10px;
-    background-color: #f5f5f5;
-    background-position: 10px center;
-    background-size: 3em;
-    background-repeat: no-repeat;
-    border: 1px solid #ccc;
 }
 
-/* Estilos específicos con imágenes para cada tipo de bloque */
-.objectives {
-    background-image: url('images/objective-icon.png');
-    border-color: #cc0000;
-    background-color: #ffe6e6; /* Rosa pálido */
-}
-
-.important {
-    background-image: url('images/important-icon.png');
-    border-color: #e67300;
-    background-color: #ffe6cc; /* Naranja pálido */
-}
-
-.tip {
-    background-image: url('images/tip-icon.png');
-    border-color: #004080;
+div.tip {
     background-color: #e6f2ff; /* Azul pálido */
+    border: 3px solid #004080; /* Marco azul oscuro */
+    padding: 1em;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
-.software {
-    background-image: url('images/software-icon.png');
-    border-color: #006600;
-    background-color: #e6ffe6; /* Verde pálido */
-}
-
-.link {
-    background-image: url('images/link-icon.png');
-    border-color: #cc8400;
+div.link {
     background-color: #fff5e6; /* Amarillo pálido */
+    border: 3px solid #cc8400; /* Marco amarillo oscuro */
+    padding: 1em;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
-.think {
-    background-image: url('images/think-icon.png');
-    border-color: #9900cc;
+div.think {
     background-color: #f5e6ff; /* Morado pálido */
-}
-
-/* Clases adicionales con solo fondo de color */
-
-/* Bloque para definiciones (fondo amarillo) */
-.definicion {
-    background-color: #fff9c4; /* Amarillo pálido */
-    border-left: 5px solid #fbc02d; /* Borde amarillo más oscuro */
+    border: 3px solid #9900cc; /* Marco morado oscuro */
     padding: 1em;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
-
-/* Bloque para ejemplos (fondo rosa) */
-.ejemplo {
-    background-color: #f8bbd0; /* Rosa pálido */
-    border-left: 5px solid #ec407a; /* Borde rosa más oscuro */
-    padding: 1em;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-/* Bloque para teoremas (fondo azul) */
-.teorema {
-    background-color: #bbdefb; /* Azul pálido */
-    border-left: 5px solid #42a5f5; /* Borde azul más oscuro */
-    padding: 1em;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
