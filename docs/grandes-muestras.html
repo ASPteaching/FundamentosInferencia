@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2024-11-24" />
+<meta name="date" content="2024-12-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -759,9 +759,15 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 <li><p>Binomial: aproximar si <span class="math inline">\(n \geq 30\)</span> y <span class="math inline">\(0.1 \leq p \leq 0.9\)</span> a una normal de media <span class="math inline">\(n p\)</span>, varianza <span class="math inline">\(n p(1-p)\)</span>. Ver aquí más detalles.</p></li>
 <li><p>Poisson: aproximar si <span class="math inline">\(\lambda \geq 10\)</span> a una normal de media <span class="math inline">\(\lambda\)</span> y varianza <span class="math inline">\(\lambda\)</span>. Ver aquí más detalles.</p></li>
 </ol>
-<p>Para evaluar aproximadamente el error cometido en las aproximaciones, puede consultarse los cuadros gráficos de los ejemplos de este tema.</p>
-<p>El TCL permite aproximar funciones de distribución, independientemente del carácter (continuo o discreto) de las variables sumadas. No sirve, por tanto, para aproximar la funciones de densidad discretas por una normal. En el caso continuo sí puede establecerse también una convergencia de las densidades asociadas.</p>
-<p>Finalmente, es conveniente mencionar que existen resultados teóricos que permiten estudiar la velocidad de convergencia de una suma de variables aleatorias a la normal, sin embargo la dificultad técnica que conllevan trasciende el nivel marcado para el conjunto de documentos marcado para Statmedia.</p>
+<p>Desde <a href="https://github.com/ASPteaching/simple-CLT-Demo">este enlace</a> puede accederse a un repositorio de github desde donde descargar una aplicación Shiny que permite ilustrar el teorem central del límite para distintas distribuciones, con muestras de distinto tamaño y parámetros de valores distintos.</p>
+<p>Un poco de práctica con la aplicación permite ver que a la larga si el tamaño muestral es lo suficientemente grande, la suma o la media de los valores se distribuye claramente como una distribución normal.</p>
+<p>Esto, además, va a depender del valor de los parámetros. Así por ejemplo, para aproximar una distribución de Poisson de parámetro <span class="math inline">\(\lambda=1\)</span> por una normal, necesitaríamos un tamaño muestral mayor que si, con el mismo tamaño, tenemos una ley de Poisson de parámetro <span class="math inline">\(\lambda=10\)</span>.</p>
+<p><img src="images/simPoisson_1_11.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Una idea en la que debemos insistir es que cuando aproximaos una distribución de Poisson por una normal, podemos visualizarlo pensando en que estamos sumando muestras de unaa ley de Poisson de parámetro inferior</p>
+<p>Por ejemplo en la figura vemos que, aunque la muestra individual con <span class="math inline">\(\lambda=1\)</span> no tiene aspecto de normal, cuando sumamos las 11 observacion, las sumas tienden a distribuirse normalmente.</p>
+<p>Es por esto que decimos que en virtd del TCK una distribución de Poisson de parámetro <span class="math inline">\(\lambda=11\)</span> puede considerarse aproximadamente normal, porque podemos visualizarla como 11 distribuciones no normales cuya suma, en virtud del TCL tienden a la normalidad.</p>
+<!-- El TCL permite aproximar funciones de distribución, independientemente del carácter (continuo o discreto) de las variables sumadas. No sirve, por tanto, para aproximar la funciones de densidad discretas por una normal. En el caso continuo sí puede establecerse también una convergencia de las densidades asociadas. -->
+<!-- Finalmente, es conveniente mencionar que existen resultados teóricos que permiten estudiar la velocidad de convergencia de una suma de variables aleatorias a la normal, sin embargo la dificultad técnica que conllevan trasciende el nivel marcado para el conjunto de documentos marcado para Statmedia. -->
 <!-- ### Aproximaciones y errores numéricos -->
 <!-- - Ejemplo 1: error en la aproximación de la binomial. -->
 <!-- - Ejemplo 2: error en la aproximación de la Poisson. -->
@@ -773,7 +779,7 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 <h3><span class="header-section-number">5.3.7</span> Acerca de las variables aproximadamente normales<a href="grandes-muestras.html#acerca-de-las-variables-aproximadamente-normales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En general, cuando se estudia en experimentos reales una determinada variable no se conoce su distribución teórica. Sin embargo, puede establecerse su distribución empirica a partir de una muestra más o menos amplia.</p>
 <p>Una forma habitual de presentar la distribución empírica es construir el histograma de clases de dicha variable. Es un hecho conocido desde el siglo XIX que esta distribución empírica presenta muchas veces una forma que es aproximadamente normal. Por ejemplo, al realizar un estudio sobre el peso de adultos varones de dieciocho años en Catalunya, se observó la distribución siguiente en la muestra:</p>
-<!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_9442f5d7328580e79f50g-9.jpg?height=532&width=538&top_left_y=819&top_left_x=745) -->
+<p><img src="images/pesosVaronesCat.jpg" width="100%" style="display: block; margin: auto;" /></p>
 <p>El TCL permite dar una explicación a este fenómeno. La variable peso de un adulto viene determinada en cada individuo por la conjunción de multitud de diferentes factores. Algunos de estos factores son ambientales (dietas, ejercicio, enfermedades, etc.) y otros son congénitos. Con el nivel actual de conocimiento no se pueden desglosar completamente todos los factores que intervienen, pero puede aceptarse en cambio que la variable peso es el resultante de la suma de diferentes variables primarias, congénitas o ambientales, y que posiblemente no todas tienen el mismo grado de influencia. Seguramente, estas variables primarias tampoco tienen la misma media, varianza o, incluso, la misma distribución.</p>
 <p>La versión del TCL que se ha presentado aquí exige estas condiciones para la convergencia a la normal, pero, como ya se ha comentado antes otras versiones más elaboradas del TCL permiten modelar la suma de variables de forma menos restringida. En este contexto, al considerar la variable peso como una suma más o menos extensa (pero finita) de diferentes variables primarias, es esperable que ocurra que la variable resultante, el peso, siga una distribución aproximadamente normal.</p>
 <p>De forma similar es explicable la normalidad aproximada que se observa en muchas variables biométricas (pesos, alturas, longitudes, concentraciones de metabolitos, distribuciones de edad, etc.) así cómo en muchos otros contextos (distribución de rentas, errores de medición, etc.). A pesar de esta ubicuidad de la distribución normal, el lector no debe inferir que es forzosamente, ni mucho menos, la distribución de referencia en todo estudio aplicado.</p>
