@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.47">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex Sanchez-Pla y Grupo Statmedia">
+<meta name="dcterms.date" content="2024-12-15">
+
+<title>Contrastes de Hipótesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Contrastos_d'Hipòtesis_raw(CA)_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Contrastos_d'Hipòtesis_raw(CA)_files/libs/quarto-html/quarto.js"></script>
+<script src="Contrastos_d'Hipòtesis_raw(CA)_files/libs/quarto-html/popper.min.js"></script>
+<script src="Contrastos_d'Hipòtesis_raw(CA)_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Contrastos_d'Hipòtesis_raw(CA)_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Contrastos_d'Hipòtesis_raw(CA)_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Contrastos_d'Hipòtesis_raw(CA)_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Contrastos_d'Hipòtesis_raw(CA)_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Contrastos_d'Hipòtesis_raw(CA)_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Contrastos_d'Hipòtesis_raw(CA)_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#verificació-dhipòtesis" id="toc-verificació-dhipòtesis" class="nav-link active" data-scroll-target="#verificació-dhipòtesis"><span class="header-section-number">1</span> Verificació d’hipòtesis</a></li>
+  <li><a href="#del-llenguatge-natural-a-la-hipòtesi-paramètrica" id="toc-del-llenguatge-natural-a-la-hipòtesi-paramètrica" class="nav-link" data-scroll-target="#del-llenguatge-natural-a-la-hipòtesi-paramètrica"><span class="header-section-number">2</span> Del llenguatge natural a la hipòtesi paramètrica</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-presentació-del-cas" id="toc-cas-1-presentació-del-cas" class="nav-link" data-scroll-target="#cas-1-presentació-del-cas"><span class="header-section-number">2.1</span> Cas 1: Presentació del cas</a></li>
+  <li><a href="#cas-1-model-de-probabilitat" id="toc-cas-1-model-de-probabilitat" class="nav-link" data-scroll-target="#cas-1-model-de-probabilitat"><span class="header-section-number">2.2</span> Cas 1: Model de probabilitat</a></li>
+  <li><a href="#cas-2-presentació-del-cas" id="toc-cas-2-presentació-del-cas" class="nav-link" data-scroll-target="#cas-2-presentació-del-cas"><span class="header-section-number">2.3</span> Cas 2: Presentació del cas</a></li>
+  <li><a href="#cas-2-model-de-probabilitat" id="toc-cas-2-model-de-probabilitat" class="nav-link" data-scroll-target="#cas-2-model-de-probabilitat"><span class="header-section-number">2.4</span> Cas 2: Model de probabilitat</a></li>
+  </ul></li>
+  <li><a href="#hipòtesi-nulla-contra-hipòtesi-alternativa" id="toc-hipòtesi-nulla-contra-hipòtesi-alternativa" class="nav-link" data-scroll-target="#hipòtesi-nulla-contra-hipòtesi-alternativa"><span class="header-section-number">3</span> Hipòtesi nul•la contra hipòtesi alternativa</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-hipòtesi-per-dirimir-la-controvèrsia-sobre-el-nombre-de-femelles" id="toc-cas-1-hipòtesi-per-dirimir-la-controvèrsia-sobre-el-nombre-de-femelles" class="nav-link" data-scroll-target="#cas-1-hipòtesi-per-dirimir-la-controvèrsia-sobre-el-nombre-de-femelles"><span class="header-section-number">3.1</span> Cas 1: Hipòtesi per dirimir la controvèrsia sobre el nombre de femelles</a></li>
+  <li><a href="#cas-2-hipòtesi-a-contrastar-en-el-problema-de-la-taxa-de-statdrolona" id="toc-cas-2-hipòtesi-a-contrastar-en-el-problema-de-la-taxa-de-statdrolona" class="nav-link" data-scroll-target="#cas-2-hipòtesi-a-contrastar-en-el-problema-de-la-taxa-de-statdrolona"><span class="header-section-number">3.2</span> Cas 2: Hipòtesi a contrastar en el problema de la taxa de statdrolona</a></li>
+  </ul></li>
+  <li><a href="#compatibilitat-de-resultats-i-dhipòtesis" id="toc-compatibilitat-de-resultats-i-dhipòtesis" class="nav-link" data-scroll-target="#compatibilitat-de-resultats-i-dhipòtesis"><span class="header-section-number">4</span> Compatibilitat de resultats i d’hipòtesis</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-compatibilitat-de-resultats-i-dhipòtesis" id="toc-cas-1-compatibilitat-de-resultats-i-dhipòtesis" class="nav-link" data-scroll-target="#cas-1-compatibilitat-de-resultats-i-dhipòtesis"><span class="header-section-number">4.1</span> Cas 1: Compatibilitat de resultats i d’hipòtesis</a></li>
+  <li><a href="#cas-2-compatibilitat-de-resultats-i-dhipòtesis" id="toc-cas-2-compatibilitat-de-resultats-i-dhipòtesis" class="nav-link" data-scroll-target="#cas-2-compatibilitat-de-resultats-i-dhipòtesis"><span class="header-section-number">4.2</span> Cas 2: Compatibilitat de resultats i d’hipòtesis</a></li>
+  </ul></li>
+  <li><a href="#no-tot-és-igualment-probable" id="toc-no-tot-és-igualment-probable" class="nav-link" data-scroll-target="#no-tot-és-igualment-probable"><span class="header-section-number">5</span> No tot és igualment probable…</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-una-regió-amb-n0-femelles-amb-baixa-probabilitat-sota-mathrmh_0" id="toc-cas-1-una-regió-amb-n0-femelles-amb-baixa-probabilitat-sota-mathrmh_0" class="nav-link" data-scroll-target="#cas-1-una-regió-amb-n0-femelles-amb-baixa-probabilitat-sota-mathrmh_0"><span class="header-section-number">5.1</span> Cas 1: Una regió amb <span class="math inline">\(n^{0}\)</span> femelles amb baixa probabilitat sota <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+  <li><a href="#cas-2-mitjanes-de-les-taxes-de-statdrolona-improbables-si-es-compleix-mathrmh_0" id="toc-cas-2-mitjanes-de-les-taxes-de-statdrolona-improbables-si-es-compleix-mathrmh_0" class="nav-link" data-scroll-target="#cas-2-mitjanes-de-les-taxes-de-statdrolona-improbables-si-es-compleix-mathrmh_0"><span class="header-section-number">5.2</span> Cas 2: Mitjanes de les taxes de statdrolona improbables si es compleix <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+  </ul></li>
+  <li><a href="#el-paper-privilegiat-de-la-hipòtesi-nulla-criteri-de-decisió" id="toc-el-paper-privilegiat-de-la-hipòtesi-nulla-criteri-de-decisió" class="nav-link" data-scroll-target="#el-paper-privilegiat-de-la-hipòtesi-nulla-criteri-de-decisió"><span class="header-section-number">6</span> El paper privilegiat de la hipòtesi nul•la: criteri de decisió</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-ncirc-de-nius-proposats-ad-hoc-com-inici-de-regió-crítica.-regla-de-decisió-resultant" id="toc-cas-1-ncirc-de-nius-proposats-ad-hoc-com-inici-de-regió-crítica.-regla-de-decisió-resultant" class="nav-link" data-scroll-target="#cas-1-ncirc-de-nius-proposats-ad-hoc-com-inici-de-regió-crítica.-regla-de-decisió-resultant"><span class="header-section-number">6.1</span> Cas 1: <span class="math inline">\(N^{\circ}\)</span> de nius proposats ad hoc com inici de regió crítica. Regla de decisió resultant</a></li>
+  </ul></li>
+  <li><a href="#hipòtesi-nulla-i-nivell-de-significació" id="toc-hipòtesi-nulla-i-nivell-de-significació" class="nav-link" data-scroll-target="#hipòtesi-nulla-i-nivell-de-significació"><span class="header-section-number">7</span> Hipòtesi nul•la i nivell de significació</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-nivell-de-significació" id="toc-cas-1-nivell-de-significació" class="nav-link" data-scroll-target="#cas-1-nivell-de-significació"><span class="header-section-number">7.1</span> Cas 1: Nivell de significació</a></li>
+  <li><a href="#cas-1-elecció-de-la-regió-crítica" id="toc-cas-1-elecció-de-la-regió-crítica" class="nav-link" data-scroll-target="#cas-1-elecció-de-la-regió-crítica"><span class="header-section-number">7.2</span> Cas 1: Elecció de la regió crítica</a></li>
+  <li><a href="#cas-2-elecció-de-la-regió-crítica" id="toc-cas-2-elecció-de-la-regió-crítica" class="nav-link" data-scroll-target="#cas-2-elecció-de-la-regió-crítica"><span class="header-section-number">7.3</span> Cas 2: Elecció de la regió crítica</a></li>
+  </ul></li>
+  <li><a href="#regió-crítica-i-formalització-del-contrast" id="toc-regió-crítica-i-formalització-del-contrast" class="nav-link" data-scroll-target="#regió-crítica-i-formalització-del-contrast"><span class="header-section-number">8</span> Regió crítica i formalització del contrast</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-resum-de-conceptes-associats-al-contrast.-regió-crítica" id="toc-cas-1-resum-de-conceptes-associats-al-contrast.-regió-crítica" class="nav-link" data-scroll-target="#cas-1-resum-de-conceptes-associats-al-contrast.-regió-crítica"><span class="header-section-number">8.1</span> Cas 1: Resum de conceptes associats al contrast. Regió crítica</a></li>
+  <li><a href="#cas-2-taula-resum-de-la-regió-crítica-lestadístic-de-test-i-del-criteri-de-decisió" id="toc-cas-2-taula-resum-de-la-regió-crítica-lestadístic-de-test-i-del-criteri-de-decisió" class="nav-link" data-scroll-target="#cas-2-taula-resum-de-la-regió-crítica-lestadístic-de-test-i-del-criteri-de-decisió"><span class="header-section-number">8.2</span> Cas 2: Taula resum de la regió crítica, l’estadístic de test i del criteri de decisió</a></li>
+  </ul></li>
+  <li><a href="#taula-de-decisió-del-contrast" id="toc-taula-de-decisió-del-contrast" class="nav-link" data-scroll-target="#taula-de-decisió-del-contrast"><span class="header-section-number">9</span> Taula de decisió del contrast</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-avaluació-dels-dos-errors-associats-al-contrast" id="toc-cas-1-avaluació-dels-dos-errors-associats-al-contrast" class="nav-link" data-scroll-target="#cas-1-avaluació-dels-dos-errors-associats-al-contrast"><span class="header-section-number">9.1</span> Cas 1: Avaluació dels dos errors associats al contrast</a></li>
+  <li><a href="#cas-2-càlcul-explícit-dels-errors-de-primera-alpha-i-segona-espècie-1--beta" id="toc-cas-2-càlcul-explícit-dels-errors-de-primera-alpha-i-segona-espècie-1--beta" class="nav-link" data-scroll-target="#cas-2-càlcul-explícit-dels-errors-de-primera-alpha-i-segona-espècie-1--beta"><span class="header-section-number">9.2</span> Cas 2: Càlcul explícit dels errors de primera ( <span class="math inline">\(\alpha\)</span> ) <span class="math inline">\(i\)</span> segona espècie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+  </ul></li>
+  <li><a href="#relació-entre-lerror-de-tipus-i-i-el-de-tipus-ii" id="toc-relació-entre-lerror-de-tipus-i-i-el-de-tipus-ii" class="nav-link" data-scroll-target="#relació-entre-lerror-de-tipus-i-i-el-de-tipus-ii"><span class="header-section-number">10</span> Relació entre l’error de tipus I i el de tipus II</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-avaluació-da-i-1--beta-per-a-diferents-regions-crítiques" id="toc-cas-1-avaluació-da-i-1--beta-per-a-diferents-regions-crítiques" class="nav-link" data-scroll-target="#cas-1-avaluació-da-i-1--beta-per-a-diferents-regions-crítiques"><span class="header-section-number">10.1</span> Cas 1: Avaluació d’a i 1- <span class="math inline">\(\beta\)</span> per a diferents regions crítiques</a></li>
+  <li><a href="#cas-2-relació-entre-els-errors-de-primera-alpha-i-segona-espècie-1--beta" id="toc-cas-2-relació-entre-els-errors-de-primera-alpha-i-segona-espècie-1--beta" class="nav-link" data-scroll-target="#cas-2-relació-entre-els-errors-de-primera-alpha-i-segona-espècie-1--beta"><span class="header-section-number">10.2</span> Cas 2: Relació entre els errors de primera ( <span class="math inline">\(\alpha\)</span> ) i segona espècie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+  </ul></li>
+  <li><a href="#potència-i-test-més-potent" id="toc-potència-i-test-més-potent" class="nav-link" data-scroll-target="#potència-i-test-més-potent"><span class="header-section-number">11</span> Potència i test més potent</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-potència-en-hipòtesi-simple-vs-simple" id="toc-cas-1-potència-en-hipòtesi-simple-vs-simple" class="nav-link" data-scroll-target="#cas-1-potència-en-hipòtesi-simple-vs-simple"><span class="header-section-number">11.1</span> Cas 1: Potència en hipòtesi simple vs simple</a></li>
+  <li><a href="#cas-2-potència-en-hipòtesi-simple-vs-simple" id="toc-cas-2-potència-en-hipòtesi-simple-vs-simple" class="nav-link" data-scroll-target="#cas-2-potència-en-hipòtesi-simple-vs-simple"><span class="header-section-number">11.2</span> Cas 2: Potència en hipòtesi simple vs simple</a></li>
+  </ul></li>
+  <li><a href="#efecte-de-la-grandària-mostral" id="toc-efecte-de-la-grandària-mostral" class="nav-link" data-scroll-target="#efecte-de-la-grandària-mostral"><span class="header-section-number">12</span> Efecte de la grandària mostral</a>
+  <ul class="collapse">
+  <li><a href="#cas-1" id="toc-cas-1" class="nav-link" data-scroll-target="#cas-1"><span class="header-section-number">12.1</span> Cas 1</a></li>
+  <li><a href="#cas-2" id="toc-cas-2" class="nav-link" data-scroll-target="#cas-2"><span class="header-section-number">12.2</span> Cas 2</a></li>
+  </ul></li>
+  <li><a href="#hipòtesis-simples-vs.-hipòtesis-compostes" id="toc-hipòtesis-simples-vs.-hipòtesis-compostes" class="nav-link" data-scroll-target="#hipòtesis-simples-vs.-hipòtesis-compostes"><span class="header-section-number">13</span> Hipòtesis simples vs.&nbsp;hipòtesis compostes</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-hipòtesis-compostes" id="toc-cas-1-hipòtesis-compostes" class="nav-link" data-scroll-target="#cas-1-hipòtesis-compostes"><span class="header-section-number">13.1</span> Cas 1: Hipòtesis compostes</a></li>
+  <li><a href="#cas-2-hipòtesis-compostes" id="toc-cas-2-hipòtesis-compostes" class="nav-link" data-scroll-target="#cas-2-hipòtesis-compostes"><span class="header-section-number">13.2</span> Cas 2: Hipòtesis compostes</a></li>
+  </ul></li>
+  <li><a href="#funció-de-potència" id="toc-funció-de-potència" class="nav-link" data-scroll-target="#funció-de-potència"><span class="header-section-number">14</span> Funció de potència</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-funció-de-potència" id="toc-cas-1-funció-de-potència" class="nav-link" data-scroll-target="#cas-1-funció-de-potència"><span class="header-section-number">14.1</span> Cas 1: Funció de potència</a></li>
+  <li><a href="#cas-2-funció-de-potència" id="toc-cas-2-funció-de-potència" class="nav-link" data-scroll-target="#cas-2-funció-de-potència"><span class="header-section-number">14.2</span> Cas 2: Funció de potència</a></li>
+  </ul></li>
+  <li><a href="#tests-òptims" id="toc-tests-òptims" class="nav-link" data-scroll-target="#tests-òptims"><span class="header-section-number">15</span> Tests òptims</a></li>
+  <li><a href="#proves-bilaterals-i-proves-unilaterals" id="toc-proves-bilaterals-i-proves-unilaterals" class="nav-link" data-scroll-target="#proves-bilaterals-i-proves-unilaterals"><span class="header-section-number">16</span> Proves bilaterals i proves unilaterals</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-prova-unilateral" id="toc-cas-1-prova-unilateral" class="nav-link" data-scroll-target="#cas-1-prova-unilateral"><span class="header-section-number">16.1</span> Cas 1: Prova unilateral</a></li>
+  <li><a href="#cas-2-prova-unilateral" id="toc-cas-2-prova-unilateral" class="nav-link" data-scroll-target="#cas-2-prova-unilateral"><span class="header-section-number">16.2</span> Cas 2: Prova unilateral</a></li>
+  </ul></li>
+  <li><a href="#elecció-del-nivell-de-significació" id="toc-elecció-del-nivell-de-significació" class="nav-link" data-scroll-target="#elecció-del-nivell-de-significació"><span class="header-section-number">17</span> Elecció del nivell de significació</a></li>
+  <li><a href="#el-p-valor" id="toc-el-p-valor" class="nav-link" data-scroll-target="#el-p-valor"><span class="header-section-number">18</span> El p-valor</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-càlcul-del-p-valor-prova-unilateral" id="toc-cas-1-càlcul-del-p-valor-prova-unilateral" class="nav-link" data-scroll-target="#cas-1-càlcul-del-p-valor-prova-unilateral"><span class="header-section-number">18.1</span> Cas 1: Càlcul del p-valor (prova unilateral)</a></li>
+  <li><a href="#cas-2-càlcul-del-p-valor-prova-unilateral" id="toc-cas-2-càlcul-del-p-valor-prova-unilateral" class="nav-link" data-scroll-target="#cas-2-càlcul-del-p-valor-prova-unilateral"><span class="header-section-number">18.2</span> Cas 2: Càlcul del p-valor (prova unilateral)</a></li>
+  <li><a href="#cas-2-càlcul-del-p-valor-prova-bilateral" id="toc-cas-2-càlcul-del-p-valor-prova-bilateral" class="nav-link" data-scroll-target="#cas-2-càlcul-del-p-valor-prova-bilateral"><span class="header-section-number">18.3</span> Cas 2: càlcul del p-valor (prova bilateral)</a></li>
+  </ul></li>
+  <li><a href="#proves-exactes-i-proves-asimptòtiques" id="toc-proves-exactes-i-proves-asimptòtiques" class="nav-link" data-scroll-target="#proves-exactes-i-proves-asimptòtiques"><span class="header-section-number">19</span> Proves exactes i proves asimptòtiques</a>
+  <ul class="collapse">
+  <li><a href="#cas-1-test-asimptòtic" id="toc-cas-1-test-asimptòtic" class="nav-link" data-scroll-target="#cas-1-test-asimptòtic"><span class="header-section-number">19.1</span> Cas 1: Test asimptòtic</a></li>
+  <li><a href="#cas-2-test-exacte" id="toc-cas-2-test-exacte" class="nav-link" data-scroll-target="#cas-2-test-exacte"><span class="header-section-number">19.2</span> Cas 2: Test exacte</a></li>
+  </ul></li>
+  <li><a href="#relació-amb-els-intervals-de-confiança" id="toc-relació-amb-els-intervals-de-confiança" class="nav-link" data-scroll-target="#relació-amb-els-intervals-de-confiança"><span class="header-section-number">20</span> Relació amb els intervals de confiança</a>
+  <ul class="collapse">
+  <li><a href="#cas-2-relació-amb-els-intervals-de-confiança" id="toc-cas-2-relació-amb-els-intervals-de-confiança" class="nav-link" data-scroll-target="#cas-2-relació-amb-els-intervals-de-confiança"><span class="header-section-number">20.1</span> Cas 2: Relació amb els intervals de confiança</a></li>
+  </ul></li>
+  <li><a href="#grandàries-de-mostra.-diferència-mínima-significativa" id="toc-grandàries-de-mostra.-diferència-mínima-significativa" class="nav-link" data-scroll-target="#grandàries-de-mostra.-diferència-mínima-significativa"><span class="header-section-number">21</span> Grandàries de mostra. Diferència mínima significativa</a>
+  <ul class="collapse">
+  <li><a href="#cas-2-càlcul-de-la-grandària-de-la-mostra" id="toc-cas-2-càlcul-de-la-grandària-de-la-mostra" class="nav-link" data-scroll-target="#cas-2-càlcul-de-la-grandària-de-la-mostra"><span class="header-section-number">21.1</span> Cas 2: Càlcul de la grandària de la mostra</a></li>
+  </ul></li>
+  <li><a href="#esquema-dun-contrast-correctament-plantejat" id="toc-esquema-dun-contrast-correctament-plantejat" class="nav-link" data-scroll-target="#esquema-dun-contrast-correctament-plantejat"><span class="header-section-number">22</span> Esquema d’un contrast correctament plantejat</a></li>
+  <li><a href="#significació-estadística-i-significació-aplicada" id="toc-significació-estadística-i-significació-aplicada" class="nav-link" data-scroll-target="#significació-estadística-i-significació-aplicada"><span class="header-section-number">23</span> Significació estadística i significació aplicada</a>
+  <ul class="collapse">
+  <li><a href="#cas-2-significació-estadística-i-aplicada" id="toc-cas-2-significació-estadística-i-aplicada" class="nav-link" data-scroll-target="#cas-2-significació-estadística-i-aplicada"><span class="header-section-number">23.1</span> Cas 2: Significació estadística i aplicada</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Contrastos_d-Hipòtesis_raw-CA-.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Contrastes de Hipótesis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alex Sanchez-Pla y Grupo Statmedia </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 15, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="verificació-dhipòtesis" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="verificació-dhipòtesis"><span class="header-section-number">1</span> Verificació d’hipòtesis</h2>
+<p>Abans d’introduir els conceptes associats al contrast estadístic d’hipòtesis, és convenient situar aquest tema en el context més general de la confirmació d’hipòtesis, matèria que la filosofia de la ciència estudia en profunditat. Així doncs, en aquest punt només es plantegen consideracions generals, deixant pels següents com aborda l’Estadística aquest tema.</p>
+<p>Una qüestió essencial en qualsevol branca de la ciència -bàsica o aplicada- és com verificar hipòtesis sobre un determinat fenomen real. Nombroses vegades, quan s’exposa aquest tema a l’estudiant durant les primeres etapes de la seva formació científica, l’anomenat mètode de raonament científic, es simplifica en excés, presentant la verificació d’hipòtesis en termes absoluts. En aquest esquema simplificat del mètode científic s’exposa com teoritzar sobre un determinat aspecte de la realitat més o menys de la forma següent:</p>
+<ul>
+<li><ol type="a">
+<li>es formula una teoria (o una hipòtesi, o una llei, …) sobre el fenomen d’estudi</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>es fa el disseny d’un experiment per tractar de corroborar aquesta teoria</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>si els resultats de l’experiment concorden amb la teoria, aquesta es dóna provisionalment com a vàlida</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>si l’experiment contradiu la teoria, es torna a l’apartat a), es modifica la llei o se n’elabora una de nova, per tal que s’ajusti a la realitat experimental.</li>
+</ol></li>
+<li><ol start="5" type="a">
+<li>qualsevol teoria relacionada amb aspectes de la realitat és sempre provisional, pendent de ser revisada en entrar en conflicte amb resultats d’experiments posteriors.</li>
+</ol></li>
+</ul>
+<p>Aquesta forma de procedir -com veurem, excessivament simplista- es basa doncs en el fet d’assumir que en qualsevol experiment s’obtindran resultats que seran o bé totalment contradictoris amb la teoria (i per tant s’haurà d’abandonar immediatament) o bé concordants amb la teoria (i per tant resulta raonable mantenir-la).</p>
+<p>Abans s’ha qualificat aquest mètode de validació com a absolut: si obviem el possible error experimental, la decisió que es prengui no comportarà cap error, ja que és suficient verificar els resultats de l’experiment per acceptar o refusar la teoria.</p>
+<p>Ha de quedar clar al lector que l’esquema anterior no és el d’un contrast estadístic, i de fet el desenvolupament d’aquest tema s’encarregarà de revisar-ho. En els pròxims apartats s’exposarà, per començar, una primera idea fonamental en Estadística: quan s’introdueix un model de probabilitat per explicar un fenomen, emergeix inevitablement un error ja en la mateixa presa de decisió. En altres paraules, l’esquema anterior s’ha de revisar en els punts c) i d).</p>
+<p>Una vegada s’han exposat aquestes qüestions fonamentals en els primers punts del capítol, entrarem al nucli d’aquest tema que consisteix en el desenvolupament ja purament tècnic del contrast estadístic d’hipòtesis.</p>
+</section>
+<section id="del-llenguatge-natural-a-la-hipòtesi-paramètrica" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="del-llenguatge-natural-a-la-hipòtesi-paramètrica"><span class="header-section-number">2</span> Del llenguatge natural a la hipòtesi paramètrica</h2>
+<p>És necessari considerar, abans d’afrontar la validació estadística d’una hipòtesi, com es planteja aquesta en termes estadístics, ja que la seva formulació exigeix una traducció del llenguatge natural.</p>
+<p>Potser convindria recordar que una hipòtesi sobre un determinat fenomen es formula en llenguatge natural com una proposició sobre la realitat. Per exemple, si es considera una determinada espècie d’ocells, una hipòtesi és que la proporció de mascles és idèntica a la de femelles. Un segon exemple, si el problema tracta ara sobre una determinada hormona humana, és proposar com a hipòtesi que la taxa es manté constant quan se subministra un fàrmac anabolitzant.</p>
+<p>Statmedia inclou bàsicament una inferència basada en l’estadística paramètrica. En relació amb aquesta perspectiva, els fenòmens reals es modelen segons una determinada llei de probabilitat: per exemple una variable Normal, o una Binomial, o una Poisson, etc.</p>
+<p>Això comporta que en estadística paramètrica les proposicions -hipòtesis- es formulin en funció dels paràmetres del model de distribució que modelen aquell aspecte de la realitat.</p>
+<p>Aquest és per tant el primer esforç que ha de realitzar l’experimentador: traslladar les seves hipòtesis, que generalment expressa en llenguatge natural, a afirmacions (proposicions) sobre paràmetres, que és la forma en que l’estadística paramètrica comprova les hipòtesis.</p>
+<p>En els casos pràctics següents, la solució completa dels quals es veurà al llarg del capítol, es presenten dues situacions diferents.</p>
+<section id="cas-1-presentació-del-cas" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="cas-1-presentació-del-cas"><span class="header-section-number">2.1</span> Cas 1: Presentació del cas</h3>
+<p>Dos coneguts ornitòlegs, especialistes en aus autòctones de l’Amazones Central, discrepen sobre la interpretació de les dades d’una nova espècie de cacatua que ha ressenyat un d’ells. La discussió la centrarem aquí en una de les variables de l’estudi: la proporció de femelles i mascles en els nius. És important precisar que aquestes cacatues es caracteritzen per incubar un sol ou per niu.</p>
+<p>El Dr.&nbsp;da Souza Faria ha censat deu nius, les dades dels quals es detallaran després. Segons la seva experiència, aquesta espècie té una gran semblança amb una altra espècie millor estudiada, amb una proporció idèntica de mascles i femelles. Recolzat per les dades obtingudes, conclou que també la nova espècie té la mateixa proporció d’individus de cada sexe.</p>
+<p>El Dr.&nbsp;Calves discrepa en aquesta apreciació i manté que la proporció ha de ser de sis femelles per cada 4 mascles.</p>
+</section>
+<section id="cas-1-model-de-probabilitat" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="cas-1-model-de-probabilitat"><span class="header-section-number">2.2</span> Cas 1: Model de probabilitat</h3>
+<p>El Dr.&nbsp;da Souza Faria ha comptat en 10 nius el nombre de femelles (complementàriament, el de mascles). La variable és, per tant, discreta i el seu suport és el conjunt <span class="math inline">\(\{0,1,2,3,4,5,6,7,8,9,10\}\)</span>.</p>
+<p>Si assumim que el possible naixement de femelles és independent entre nius, i definim:</p>
+<p><span class="math display">\[
+X=\text { nombre de femelles en un total de } 10 \text { nius. }
+\]</span></p>
+<p>la distribució de <span class="math inline">\(X\)</span> és una distribució binomial, de paràmetres <span class="math inline">\(n=10\)</span> i <span class="math inline">\(p\)</span> desconeguda.</p>
+<p><span class="math display">\[
+f(k)=p(X=k)=\binom{10}{k} p^{k}(1-p)^{10-k}
+\]</span></p>
+<p>l’únic paràmetre desconegut és la proporció <span class="math inline">\(\boldsymbol{p}\)</span> de femelles. Les hipòtesis estadístiques es referiran només a <span class="math inline">\(p\)</span>.</p>
+</section>
+<section id="cas-2-presentació-del-cas" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="cas-2-presentació-del-cas"><span class="header-section-number">2.3</span> Cas 2: Presentació del cas</h3>
+<p>En el món de l’esport professional es controlen amb molta precisió alguns metabòlits que apareixen en baixes concentracions en condicions normals. Aquest és el cas de la statdrolona(*), que en individus normals presenta una concentració mitjana de 7.0 nanograms per ml d’orina. Aquest valor s’ha establert mitjançant una mostra molt gran d’esportistes després d’anys d’anàlisis abans, durant i després de competicions. Així mateix, s’ha descrit que la desviació estàndard és de <span class="math inline">\(\mathbf{2 . 4 ~ n g} / \mathbf{m l}\)</span>. Aquests dos valors poblacionals serveixen com a justificació mèdica a les autoritats esportives per declarar quan la taxa de statdrolona s’associa a un presumpte dopatge.</p>
+<p>No obstant això, un estudi recent encarregat per l’associació d’esportistes ADG a un prestigiós departament universitari de fisiologia propugna que, quan es mesura la concentració de statdrolona en individus no dopats amb un cert tipus d’aliments sobreabundants en la seva dieta (formatge parmesà, per exemple), el valor de la mitjana poblacional és de l’ordre de <span class="math inline">\(\mathbf{1 . 5}\)</span> unitats més gran. En canvi, la desviació estàndard poblacional es manté en el valor <span class="math inline">\(2,4 \mathrm{ng} / \mathrm{ml}\)</span>, és a dir, equivalent a la normal. Si aquesta hipòtesi fos certa, permetria explicar alguns dels falsos positius detectats en els últims temps. Com a prova experimental aporten una sèrie de dades sobre 16 esportistes que es detallaran més endavant. (*) La statdrolona no és cap hormona, s’ha adaptat aquí la informació d’hormones reals.</p>
+</section>
+<section id="cas-2-model-de-probabilitat" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="cas-2-model-de-probabilitat"><span class="header-section-number">2.4</span> Cas 2: Model de probabilitat</h3>
+<p>L’anàlisi de la concentració de statdrolona es mesura en termes de nanograms per <span class="math inline">\(\mathrm{mil} \cdot\)</span> lilitre, per tant, sembla raonable considerar-la com una variable contínua. El conjunt de resultats possibles serà un subconjunt dels reals.</p>
+<p>Amb moltes altres variables antropomètriques, la concentració es pot associar a la distribució Normal. Es pot justificar l’adopció d’aquest model d’acord amb el teorema central del límit.</p>
+<p>Segons les autoritats esportives, els valors en un esportista no dopat han de correspondre a una mitjana de <span class="math inline">\(7.0 \mathrm{ng} / \mathrm{ml}\)</span>, mentre que per a ADG la mitjana pot ser major en algunes circumstancies. En qualsevol cas la variable:</p>
+<p><span class="math display">\[
+X=\text { concentració de statdrolona en un esportista. }
+\]</span></p>
+<p>s’acceptarà que té distribució Normal. Així, la discussió se centrarà només en el paràmetre <span class="math inline">\(\mu\)</span> desconegut, mentre que la desviació estàndard es prendrà, per simplificar l’explicació, com a <span class="math inline">\(\sigma=2.4\)</span> (coneguda), encara que se sap que és més realista seleccionar-la com a desconeguda (vegeu més endavant el tema 10).</p>
+<p>La fórmula de la densitat Normal:</p>
+<p><span class="math display">\[
+f_{X}(x)=\frac{1}{2.4 \sqrt{2 \pi}} \exp \left(-\frac{(x-\mu)^{2}}{2 \times 2.4^{2}}\right)
+\]</span></p>
+<p>indica per aquest cas que l’únic paràmetre desconegut és la mitjana de la població <span class="math inline">\(\boldsymbol{\mu}\)</span>, a la que es referiran les hipòtesis estadístiques.</p>
+<p>Ara bé, també resulta important descriure la densitat de la mitjana dels setze esportistes, ja que jugarà un paper important en la construcció del test. Si acceptem la distribució <span class="math inline">\(\mathrm{N}(\mu, 2.4)\)</span> per un esportista, i considerem que el mostratge és aleatori simple, aleshores:</p>
+<p><span class="math display">\[
+\bar{X}_{16}=\text { mitjana concentració statdrolona en } 16 \text { esportistes }
+\]</span></p>
+<p>que tindrà una densitat de la forma:</p>
+<p><span class="math display">\[
+\bar{X}_{16} \approx N(\mu, 2.4 / \sqrt{16})
+\]</span></p>
+<p>Simplificant 2.4 per l’arrel quadrada de 16 resulta 0.6 , així doncs:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{16}}(x)=\frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-\mu)^{2}}{2 \times 0.6^{2}}\right)
+\]</span></p>
+<p>Una expressió més general per a tot <span class="math inline">\(n\)</span> seria:</p>
+<p><span class="math display">\[
+\bar{X}_{n} \approx N(\mu, 2.4 / \sqrt{n})
+\]</span></p>
+<p>La densitat per a tot <span class="math inline">\(n\)</span> és:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{n}}(x)=\frac{\sqrt{n}}{2.4 \sqrt{2 \pi}} \exp \left(-\frac{n \times(x-\mu)^{2}}{2 \times 2.4^{2}}\right)
+\]</span></p>
+<p>I una expressió per a tot <span class="math inline">\(n\)</span> i qualsevol variància és:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{n}}(x)=\frac{\sqrt{n}}{\sigma \sqrt{2 \pi}} \exp \left(-\frac{n \times(x-\mu)^{2}}{2 \times \sigma^{2}}\right)
+\]</span></p>
+</section>
+</section>
+<section id="hipòtesi-nulla-contra-hipòtesi-alternativa" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="hipòtesi-nulla-contra-hipòtesi-alternativa"><span class="header-section-number">3</span> Hipòtesi nul•la contra hipòtesi alternativa</h2>
+<p>Un contrast d’hipòtesis estadístic es planteja com una decisió entre dues hipòtesis. La hipòtesi nul•la consisteix en una afirmació sobre la població d’origen de la mostra. Usualment és més simple (menor nombre de paràmetres, per exemple) que la seva antagonista. La hipòtesi nul lla es designa amb el símbol <span class="math inline">\(\mathbf{H}_{\mathbf{0}}\)</span>.</p>
+<p>La hipòtesi alternativa és igualment una afirmació sobre la població d’origen. Moltes vegades, encara que no sempre, consisteix simplement en negar l’afirmació de <span class="math inline">\(\mathrm{H}_{0}\)</span>. La hipòtesi alternativa es designa amb el símbol <span class="math inline">\(\mathbf{H}_{1}\)</span>.</p>
+<p>De moment tractarem el cas més senzill, en el qual les dues hipòtesis fan referència a un únic valor del paràmetre. En aquesta situació general, les hipòtesis es refereixen a un paràmetre <span class="math inline">\(\theta\)</span> (theta). La formulació és:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \theta=\theta_{0} \\
+&amp; \mathrm{H}_{1}: \theta=\theta_{1}
+\end{aligned}
+\]</span></p>
+<p>En la teoria del contrast d’hipòtesis aquest tipus de plantejament es coneix com contrast d’hipòtesis simple contra simple. Així doncs, una hipòtesi simple postula que el paràmetre <span class="math inline">\(\theta\)</span> només pot prendre un valor, o, més tècnicament, que el conjunt de paràmetres d’una hipòtesi simple consisteix en un sol punt.</p>
+<section id="cas-1-hipòtesi-per-dirimir-la-controvèrsia-sobre-el-nombre-de-femelles" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="cas-1-hipòtesi-per-dirimir-la-controvèrsia-sobre-el-nombre-de-femelles"><span class="header-section-number">3.1</span> Cas 1: Hipòtesi per dirimir la controvèrsia sobre el nombre de femelles</h3>
+<p>El Dr.&nbsp;da Souza Faria postula la mateixa proporció per mascles i femelles. En termes de la proporció de la variable <span class="math inline">\(X\)</span> ( <span class="math inline">\(\mathrm{n}^{\mathrm{o}}\)</span> de femelles en 10 nius) això equival a la hipòtesi que la proporció (en la població) és <span class="math inline">\(\mathbf{0 . 5}\)</span>.</p>
+<p>En canvi, segons el Dr.&nbsp;Calves la proporció és 6:4 a favor de les femelles, i per tant equival a la hipòtesi que el paràmetre <span class="math inline">\(p\)</span> en la variable Binomial és 0.6.</p>
+<p>Així doncs, si <span class="math inline">\(X\)</span> és el nombre de femelles en 10 nius, i <span class="math inline">\(p\)</span> és la proporció de femelles, la forma final del contrast és:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mathrm{p}=0.5 \\
+&amp; \mathrm{H}_{1}: \mathrm{p}=0.6
+\end{aligned}
+\]</span></p>
+<p>Respecte a les dades obtingudes per da Souza són:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Niu</th>
+<th style="text-align: left;">Pollet</th>
+<th style="text-align: left;">Niu</th>
+<th style="text-align: left;">Pollet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">femella</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">mascle</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">mascle</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">femella</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">femella</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">femella</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">femella</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">mascle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">mascle</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">femella</td>
+</tr>
+</tbody>
+</table>
+<p>En resum, ha observat que en <span class="math inline">\(\mathbf{6}\)</span> dels nius hi ha una femella.</p>
+</section>
+<section id="cas-2-hipòtesi-a-contrastar-en-el-problema-de-la-taxa-de-statdrolona" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="cas-2-hipòtesi-a-contrastar-en-el-problema-de-la-taxa-de-statdrolona"><span class="header-section-number">3.2</span> Cas 2: Hipòtesi a contrastar en el problema de la taxa de statdrolona</h3>
+<p>Les autoritats esportives postulen una mitjana de <span class="math inline">\(7.0 \mathrm{ng} / \mathrm{ml}\)</span>, mentre que ADG indica una mitjana de <span class="math inline">\(8.5 \mathrm{ng} / \mathrm{ml}\)</span> per als individus sotmesos a aquest tipus de dieta. Per tant, en síntesi el contrast consistirà en:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mu=7,0 \\
+&amp; \mathrm{H}_{1}: \mu=8,5
+\end{aligned}
+\]</span></p>
+<p>tant per <span class="math inline">\(\mathrm{H}_{0}\)</span> com per <span class="math inline">\(\mathrm{H}_{1}\)</span> el model contempla <span class="math inline">\(\sigma=2,4\)</span>. Les dades de l’estudi que ha obtingut l’associació ADG, i que segons ells recolzaven la seva tesis, han estat les següents:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Individu</th>
+<th style="text-align: center;">Concentració</th>
+<th style="text-align: center;">Individu</th>
+<th style="text-align: center;">Concentració</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10.47</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">7.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5.39</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11.36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6.70</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">10.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">9.91</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">5.89</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5.99</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">10.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">11.67</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">10.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">6.23</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">6.89</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6.69</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">11.27</td>
+</tr>
+</tbody>
+</table>
+<p>La mitjana aritmètica dels 16 atletes és <span class="math inline">\(\mathbf{8 . 5 4} \mathrm{ng} / \mathrm{ml}\)</span>.</p>
+</section>
+</section>
+<section id="compatibilitat-de-resultats-i-dhipòtesis" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="compatibilitat-de-resultats-i-dhipòtesis"><span class="header-section-number">4</span> Compatibilitat de resultats i d’hipòtesis</h2>
+<p>Tornant a la qüestió fonamental de la verificació d’hipòtesis, un resultat incompatible amb una hipòtesi és aquell que no pot haver-se produït de cap de les maneres si aquesta hipòtesi és certa.</p>
+<p>En aquest sentit, incompatible és sinònim de impossible. En termes de probabilitat, un resultat incompatible és aquell que té probabilitat zero de produir-se si la hipòtesi és certa. La lògica elemental indica que si s’obté un resultat incompatible amb una hipòtesi, aquesta última és forçosament falsa.</p>
+<p>Ara bé, quan es pren un model aleatori per tal d’explicar el fenomen observat, el caràcter probabilístic del model habitualment evita que es descarti qualsevol hipòtesi per haver obtingut dades que hi son incompatibles.</p>
+<p>Al contrari, tots els resultats seran estrictament compatibles amb les dues hipòtesis, o dit d’una altra manera, qualsevol conjunt de dades que s’obtingui en l’estudi es pot arribar a observar tant sota <span class="math inline">\(\mathrm{H}_{0}\)</span> com sota <span class="math inline">\(\mathrm{H}_{1}\)</span>. Això trenca l’esquema excessivament simple exposat abans en la verificació ideal d’hipòtesis.</p>
+<p>En definitiva, si es modela la realitat com un fenomen aleatori, s’ha d’abandonar la idea de la presa de decisions basada només en una inspecció de resultats que descarti sense error en la presa de decisió una de les dues hipòtesis.</p>
+<section id="cas-1-compatibilitat-de-resultats-i-dhipòtesis" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="cas-1-compatibilitat-de-resultats-i-dhipòtesis"><span class="header-section-number">4.1</span> Cas 1: Compatibilitat de resultats i d’hipòtesis</h3>
+<p>El Dr.&nbsp;da Souza Faria ha obtingut una mostra de 6 femelles i 4 mascles en els 10 nius. Tanmateix, aquest és només un dels resultats possibles que es podien donar sota la hipòtesi nul•la. Si hagués escollit com a mostra altres nius, podria haver trobat un altre nombre de femelles.</p>
+<p>Com ja hem vist, <span class="math inline">\(X\)</span> ( <span class="math inline">\(\mathrm{n}^{\circ}\)</span> de femelles en 10 nius) és una <span class="math inline">\(\operatorname{Binomial}(10,0.5)\)</span>. En la taula següent es detallen els resultats que podien haver succeït sota <span class="math inline">\(\mathrm{H}_{0}\)</span>, juntament amb la probabilitat d’obtenir-los segons la fórmula de la densitat binomial: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-08.jpg?height=521&amp;width=849&amp;top_left_y=1941&amp;top_left_x=609" class="img-fluid"></p>
+<p>Igual que per <span class="math inline">\(\mathrm{H}_{0}\)</span>, la mostra obtinguda pel Dr.&nbsp;da Souza Faria amb 6 femelles i 4 mascles és només un dels resultats possibles que es podien donar sota la hipòtesi alternativa. En aquest cas <span class="math inline">\(X\)</span> ( <span class="math inline">\(\mathrm{n}^{\mathrm{o}}\)</span> de femelles en 10 nius) és una <span class="math inline">\(\operatorname{Binomial}(10,0.6)\)</span>.</p>
+<p>En la taula següent es detallen els resultats que podien haver esdevingut sota <span class="math inline">\(\mathrm{H}_{1}\)</span>, juntament amb la probabilitat d’obtenir-los segons la fórmula de la densitat binomial. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-09.jpg?height=507&amp;width=838&amp;top_left_y=386&amp;top_left_x=615" class="img-fluid"></p>
+<p>Consultant Statmedia en el seu format Html es pot comprovar quines probabilitats tenen els onze resultats sota d’altres hipòtesis que es podrien formular sobre el veritable valor de la probabilitat <span class="math inline">\(p\)</span> de la població. Podem entendre aquestes diferents ” <span class="math inline">\(p\)</span> ” com a hipòtesis diferents que es podrien haver establert com a alternativa a <span class="math inline">\(\mathrm{H}_{0}\)</span>. Excepte en els casos trivials <span class="math inline">\(p=0\)</span> o <span class="math inline">\(p=1\)</span>, no hi ha cap resultat que no es pugui presentar, encara que sigui amb probabilitats molt petites.</p>
+</section>
+<section id="cas-2-compatibilitat-de-resultats-i-dhipòtesis" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="cas-2-compatibilitat-de-resultats-i-dhipòtesis"><span class="header-section-number">4.2</span> Cas 2: Compatibilitat de resultats i d’hipòtesis</h3>
+<p>L’associació ADG ha obtingut una mostra de mitjana <span class="math inline">\(8.54 \mathrm{ng} / \mathrm{ml}\)</span> de statdrolona per a 16 esportistes. Ja hem vist en el model de probabilitat quina densitat associem amb la variable de cada esportista i amb la mitjana de tots ells. Cal recordar que una variable contínua té probabilitat zero d’obtenir un resultat puntual i que les probabilitats en variables contínues es calculen sobre intervals. Així doncs el valor 8.54 s’ha d’interpretar com un interval, ja que les mesures dels esportistes individualment corresponen en realitat a un cert interval de precisió experimental (per exemple, 0.3 <span class="math inline">\(\mathrm{ng} / \mathrm{ml}\)</span> ). El valor 8.54 triat com a marca d’un cert interval no és incompatible en absolut amb la hipòtesi nul lla. De fet és possible obtenir qualsevol mitjana.</p>
+<p>En la taula esquerra es detallen les probabilitats de diferents resultats que podien haver succeït sota <span class="math inline">\(\mathrm{H}_{0}\)</span> expressades en termes de la funció de distribució. La mitjana dels 16 resultats correspon a una Normal (7.0, 0.6). En la taula dreta es detallen les probabilitats per intervals d’amplada <span class="math inline">\(0.3 \mathrm{ng} / \mathrm{ml}\)</span> més propers a la mitjana sota <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mitiana <span class="math inline">\((x)\)</span></th>
+<th style="text-align: center;">Prob. <span class="math inline">\(X=\mathrm{X}=\mathrm{X}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">5,8</td>
+<td style="text-align: center;">0.0228</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6,1</td>
+<td style="text-align: center;">0.0668</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6,4</td>
+<td style="text-align: center;">0.1587</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6,7</td>
+<td style="text-align: center;">0.3085</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.5000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,3</td>
+<td style="text-align: center;">0.6915</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,6</td>
+<td style="text-align: center;">0.8413</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,9</td>
+<td style="text-align: center;">0.9332</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8,2</td>
+<td style="text-align: center;">0.9772</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8,5</td>
+<td style="text-align: center;">0.9938</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8,8</td>
+<td style="text-align: center;">0.9987</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mitiana pern</th>
+<th style="text-align: center;">Prob. Interval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\leq 5,8\)</span></td>
+<td style="text-align: center;">0.0228</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([5,8 ; 6,1]\)</span></td>
+<td style="text-align: center;">0.0441</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([6,1 ; 6,4]\)</span></td>
+<td style="text-align: center;">0.0918</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([6,4 ; 6,7]\)</span></td>
+<td style="text-align: center;">0.1499</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([6,7 ; 7]\)</span></td>
+<td style="text-align: center;">0.1915</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([7 ; 7,3]\)</span></td>
+<td style="text-align: center;">0.1915</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([7,3 ; 7,6]\)</span></td>
+<td style="text-align: center;">0.1499</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([7,6 ; 7,9]\)</span></td>
+<td style="text-align: center;">0.0918</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([7,9 ; 8,2]\)</span></td>
+<td style="text-align: center;">0.0441</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([8,2 ; 8,5]\)</span></td>
+<td style="text-align: center;">0.0165</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([8,5 ; 8,8]\)</span></td>
+<td style="text-align: center;">0.0049</td>
+</tr>
+</tbody>
+</table>
+<p>En el cas de <span class="math inline">\(\mathrm{H}_{1}\)</span> tampoc no és incompatible cap mitjana, i per tant en particular no ho és el valor 8.54. Ara la densitat de la mitjana dels 16 valors és una variable aleatòria Normal <span class="math inline">\(\mathrm{N}(8.5,0.6)\)</span>. En la taula esquerra es detallen les probabilitats de diferents resultats que podien haver succeït sota <span class="math inline">\(\mathrm{H}_{1}\)</span> expressades en termes de la funció de distribució. En la taula de la dreta es mostren les probabilitats per intervals d’amplada de <span class="math inline">\(0.3 \mathrm{ng} / \mathrm{ml}\)</span> :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mitjana <span class="math inline">\((\mathrm{x})\)</span></th>
+<th style="text-align: center;">Prob. <span class="math inline">\(\mathrm{X} \leqslant=\mathrm{x}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">6,7</td>
+<td style="text-align: center;">0.0013</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.0062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,3</td>
+<td style="text-align: center;">0.0228</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,6</td>
+<td style="text-align: center;">0.0668</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,9</td>
+<td style="text-align: center;">0.1587</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8,2</td>
+<td style="text-align: center;">0.3085</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8,5</td>
+<td style="text-align: center;">0.5000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8,8</td>
+<td style="text-align: center;">0.6915</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9,1</td>
+<td style="text-align: center;">0.8413</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9,4</td>
+<td style="text-align: center;">0.9332</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9,7</td>
+<td style="text-align: center;">0.9772</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mitiana pern</th>
+<th style="text-align: center;">Prob. Interval</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\leq 6,7\)</span></td>
+<td style="text-align: center;">0.0013</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([6,7 ; 7]\)</span></td>
+<td style="text-align: center;">0.0049</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([7 ; 7,3]\)</span></td>
+<td style="text-align: center;">0.0165</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([7,3 ; 7,6]\)</span></td>
+<td style="text-align: center;">0.0441</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([7,6 ; 7,9]\)</span></td>
+<td style="text-align: center;">0.0918</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([7,9 ; 8,2]\)</span></td>
+<td style="text-align: center;">0.1499</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([8,2 ; 8,5]\)</span></td>
+<td style="text-align: center;">0.1915</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([8,5 ; 8,8]\)</span></td>
+<td style="text-align: center;">0.1915</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([8,8 ; 9,1]\)</span></td>
+<td style="text-align: center;">0.1499</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\([9,1 ; 9,4]\)</span></td>
+<td style="text-align: center;">0.0918</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\([9,4 ; 9,7]\)</span></td>
+<td style="text-align: center;">0.0441</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="no-tot-és-igualment-probable" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="no-tot-és-igualment-probable"><span class="header-section-number">5</span> No tot és igualment probable…</h2>
+<p>La segona consideració fonamental en un contrast d’hipòtesis estadístic és que no tots els resultats són igualment probables sota <span class="math inline">\(\mathrm{H}_{0} \circ \mathrm{H}_{1}\)</span>. Aquest és el principal argument per tal d’establir un criteri de decisió -una regla- que permeti decidir en la pràctica si és acceptable <span class="math inline">\(\mathrm{H}_{0}\)</span> o bé <span class="math inline">\(\mathrm{H}_{1}\)</span>.</p>
+<p>La idea provisional que ha de guiar al lector en aquest moment quan s’inspeccionen els casos pràctics és que els resultats (molt) improbables sota una certa hipòtesi mostren que aquesta segurament no és vàlida. Així doncs, en el contrast estadístic d’hipòtesis no hi ha resultats impossibles, només improbables, i per tant en les decisions s’introdueix forçosament una probabilitat d’error.</p>
+<section id="cas-1-una-regió-amb-n0-femelles-amb-baixa-probabilitat-sota-mathrmh_0" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="cas-1-una-regió-amb-n0-femelles-amb-baixa-probabilitat-sota-mathrmh_0"><span class="header-section-number">5.1</span> Cas 1: Una regió amb <span class="math inline">\(n^{0}\)</span> femelles amb baixa probabilitat sota <span class="math inline">\(\mathrm{H}_{0}\)</span></h3>
+<p>Hem vist abans les probabilitats d’obtenir cadascun dels resultats possibles per <span class="math inline">\(X\)</span> : <span class="math inline">\(0,1, \ldots\)</span>, fins a 10 femelles. El sentit comú indica que si s’obtenen valors de X propers a 0 o a 10 , la hipòtesi <span class="math inline">\(p=0.5\)</span> és aleshores poc versemblant.</p>
+<p>És important entendre que el veritable valor de <span class="math inline">\(p\)</span> (el valor en la població) no és, ni serà mai, conegut en la pràctica, només formulem hipòtesis sobre aquest valor.</p>
+<p>Vegem quina és la probabilitat d’obtenir valors majors que 8 femelles. Per abreujar, designem la regió de valors majors o iguals a 8 amb el símbol <span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valor de <span class="math inline">\(X\)</span></th>
+<th style="text-align: center;">Prob. <span class="math inline">\(X&gt;=X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.9990</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.9893</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.9453</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.8281</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.6230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.3770</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.1719</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.0547</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0107</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.0010</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cas-2-mitjanes-de-les-taxes-de-statdrolona-improbables-si-es-compleix-mathrmh_0" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="cas-2-mitjanes-de-les-taxes-de-statdrolona-improbables-si-es-compleix-mathrmh_0"><span class="header-section-number">5.2</span> Cas 2: Mitjanes de les taxes de statdrolona improbables si es compleix <span class="math inline">\(\mathrm{H}_{0}\)</span></h3>
+<p>De la mateixa manera que s’ha raonat per al cas 1 , en aquesta ocasió amb les dues hipòtesis ( <span class="math inline">\(\mu=7\)</span> contra <span class="math inline">\(\mu=8.5\)</span> ) que tenim en el cas de la detecció de l’statdrolona, el sentit comú indica que si obtenim una mitjana de statdrolona en els 16 atletes allunyada del valor de referència 7 , farà inversemblant la hipòtesi nul•la.</p>
+<p>En la taula següent es mostren les probabilitats d’obtenir valors majors que 7 <span class="math inline">\(\mathrm{ng} / \mathrm{ml}\)</span>. Observem particularment la regió de valors majors que 7.9869 , que es representarà amb el símbol <span class="math inline">\(\mathrm{W}_{\alpha}\)</span>. Expressada com a interval, <span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869, \infty)\)</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Miljana <span class="math inline">\((x)\)</span></th>
+<th style="text-align: center;">Prob. <span class="math inline">\(X=x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">6,506</td>
+<td style="text-align: center;">0.7946</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6,671</td>
+<td style="text-align: center;">0.7083</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6,835</td>
+<td style="text-align: center;">0.6080</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.5000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,165</td>
+<td style="text-align: center;">0.3920</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,329</td>
+<td style="text-align: center;">0.2917</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,494</td>
+<td style="text-align: center;">0.2054</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,658</td>
+<td style="text-align: center;">0.1364</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,823</td>
+<td style="text-align: center;">0.0852</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,987</td>
+<td style="text-align: center;">0.0500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8,152</td>
+<td style="text-align: center;">0.0275</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="el-paper-privilegiat-de-la-hipòtesi-nulla-criteri-de-decisió" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="el-paper-privilegiat-de-la-hipòtesi-nulla-criteri-de-decisió"><span class="header-section-number">6</span> El paper privilegiat de la hipòtesi nul•la: criteri de decisió</h2>
+<p>Un contrast estadístic d’hipòtesis consta forçosament d’un criteri de decisió. En resum, consisteix en una regla operativa que divideix en dues parts disjuntes l’espai mostral. Aquestes parts son anomenades regió crítica i regió d’acceptació respectivament. En qualsevol test estadístic, si la mostra obtinguda pertany a la regió crítica, s’ha d’acceptar <span class="math inline">\(\mathrm{H}_{1}\)</span>. En cas contrari, si pertany a la regió d’acceptació, s’acceptarà <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
+<p>Un primer principi bàsic consisteix a prioritzar en el criteri de decisió <span class="math inline">\(\mathrm{H}_{0}\)</span>, en el sentit següent: es construeix el criteri fixant a priori la probabilitat d’error associada amb el fet de refusar -erròniament- <span class="math inline">\(\mathrm{H}_{0}\)</span>. A fi que el criteri de decisió sigui raonable ha de resultar improbable obtenir una mostra que pertanyi a la regió crítica quan sigui certa <span class="math inline">\(\mathrm{H}_{0}\)</span>. En l’exemple següent es proposarà una regla de decisió provisional.</p>
+<section id="cas-1-ncirc-de-nius-proposats-ad-hoc-com-inici-de-regió-crítica.-regla-de-decisió-resultant" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="cas-1-ncirc-de-nius-proposats-ad-hoc-com-inici-de-regió-crítica.-regla-de-decisió-resultant"><span class="header-section-number">6.1</span> Cas 1: <span class="math inline">\(N^{\circ}\)</span> de nius proposats ad hoc com inici de regió crítica. Regla de decisió resultant</h3>
+<p>Definirem la regió crítica de la manera següent:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=\{8,9,10\}
+\]</span></p>
+<p>Per tant, la regió d’acceptació serà:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}^{\mathrm{C}}=\{0,1,2,3,4,5,6,7\}
+\]</span></p>
+<p>El criteri de decisió serà per tant:</p>
+<ul>
+<li>si el nombre de femelles és major o igual que 8 , s’accepta <span class="math inline">\(\mathrm{H}_{1}\)</span> (la probabilitat de femelles és 0.6)</li>
+<li>si el nombre de femelles és menor o igual que 7 , s’accepta <span class="math inline">\(\mathrm{H}_{0}\)</span> (la probabilitat de femelles és 0.5 )</li>
+</ul>
+<p>És important entendre en aquest moment que es proposa ad hoc la regió crítica. Més endavant es justificarà perquè aquesta proposta és raonable.</p>
+<p>Nota: en la mostra obtinguda s’han observat 6 femelles, per tant da Souza ha d’acceptar <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
+</section>
+</section>
+<section id="hipòtesi-nulla-i-nivell-de-significació" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="hipòtesi-nulla-i-nivell-de-significació"><span class="header-section-number">7</span> Hipòtesi nul•la i nivell de significació</h2>
+<p>S’ha indicat anteriorment que, en els contrastos estadístics, la hipòtesi nul la juga un paper privilegiat, ja que la regla de decisió s’ajusta d’acord a la probabilitat d’equivocar-se en rebutjar <span class="math inline">\(H_{0}\)</span> quan aquesta és certa.</p>
+<p>Aquesta probabilitat es designa de forma equivalent com:</p>
+<ul>
+<li>error de tipus I (o de primera espècie)</li>
+<li>nivell de significació del contrast i usualment se simbolitza amb la lletra grega alfa. El nivell de significació es pot definir equivalentment de les dues maneres següents:</li>
+<li><span class="math inline">\(\alpha=\)</span> probabilitat de rebuig d’ <span class="math inline">\(\mathbf{H}_{\mathbf{0}}\)</span>, quan <span class="math inline">\(\mathrm{H}_{0}\)</span> és certa</li>
+<li><span class="math inline">\(\alpha=\)</span> probabilitat que la mostra pertanyi a la regió crítica, quan <span class="math inline">\(\mathbf{H}_{0}\)</span> és certa.</li>
+</ul>
+<section id="cas-1-nivell-de-significació" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="cas-1-nivell-de-significació"><span class="header-section-number">7.1</span> Cas 1: Nivell de significació</h3>
+<p>En l’apartat 9.5 . 1 s’ha indicat la taula resultant dels càlculs de la cua dreta de la Binomial, quan es verifica la hipòtesi nul•la <span class="math inline">\((p=0.5)\)</span>. Com la definició de nivell de significació és:</p>
+<p><span class="math display">\[
+\alpha=\text { prob. mostra pertanyi a la regió crítica, quan } \mathbf{H}_{0} \text { és certa }
+\]</span></p>
+<p>en la fila corresponent a prob <span class="math inline">\((\mathrm{X} \geq 8)\)</span> de la taula anterior es pot observar la probabilitat de rebutjar <span class="math inline">\(\mathrm{H}_{0}\)</span> quan aquesta és certa (vegeu el criteri de decisió adoptat a l’apartat 9.6.1).</p>
+<p>Simbòlicament hem calculat:</p>
+<p><span class="math display">\[
+\alpha=p\left(X \geq 8 / H_{0}\right)=\sum_{i=8}^{10} p\left(X=i / H_{0}\right)=\sum_{i=8}^{10}\binom{10}{i} 0.5^{10}
+\]</span></p>
+<p>Resulta doncs: <span class="math inline">\(\quad \alpha=0.0547\)</span>.</p>
+</section>
+<section id="cas-1-elecció-de-la-regió-crítica" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="cas-1-elecció-de-la-regió-crítica"><span class="header-section-number">7.2</span> Cas 1: Elecció de la regió crítica</h3>
+<p>S’ha proposat abans, de forma directa, la regió crítica:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=\{8,9,10\}
+\]</span></p>
+<p>Podem considerar ara una altra regió que ens proporcionaria un nivell de significació idèntic (veure taula de probabilitats sota <span class="math inline">\(\mathrm{H}_{0}\)</span> ):</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{W}_{\alpha}^{\prime}=\{0,1,2\} \\
+\alpha=0.0010+0.0098+0.0439=0.0547
+\end{gathered}
+\]</span></p>
+<p>Ara bé, un criteri de decisió basat en <span class="math inline">\(\mathrm{W}^{\prime}{ }_{\alpha}=\{0,1,2\}\)</span> és absurd, tenint en compte que <span class="math inline">\(\mathrm{H}_{1}\)</span> és <span class="math inline">\(p=0.6\)</span>. Vegem perquè.</p>
+<p>El valor <span class="math inline">\(\alpha=0.0547\)</span> indica que és improbable obtenir menys de 3 femelles sota <span class="math inline">\(\mathrm{H}_{0}\)</span>. Si es tria <span class="math inline">\(\mathrm{W}^{\prime}{ }_{\alpha}\)</span> com a regió crítica, implica acceptar <span class="math inline">\(\mathrm{H}_{1}\)</span> quan el nombre de femelles és menor que 3. No obstant això, quan es consulta la taula de probabilitats sota <span class="math inline">\(\mathrm{H}_{1}\)</span>, resulta: prob. (nombre femelles <span class="math inline">\(&lt;3 / \mathrm{H}_{1}\)</span> certa <span class="math inline">\()=0.0001+0.0016+0.0106=0.0123\)</span> És, per tant, encara més improbable obtenir 3 femelles sota <span class="math inline">\(\mathrm{H}_{1}\)</span>. En altres paraules, <span class="math inline">\(\mathrm{W}^{\prime}{ }_{\alpha}\)</span> indueix un criteri absurd, ja que portaria a acceptar la hipòtesi més inversemblant de les dues.</p>
+</section>
+<section id="cas-2-elecció-de-la-regió-crítica" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="cas-2-elecció-de-la-regió-crítica"><span class="header-section-number">7.3</span> Cas 2: Elecció de la regió crítica</h3>
+<p>A continuació es defineixen les regions crítica i d’acceptació, respectivament, com:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=[7.9869,+\infty) \quad \mathrm{W}_{a}{ }^{\mathrm{C}}=(-\infty, 7.9869)
+\]</span></p>
+<p>El criteri de decisió serà, per tant: si el nivell de statdrolona és major o igual que 7.9869, s’accepta <span class="math inline">\(\mathbf{H}_{\mathbf{1}}\)</span> (el nivell és 8.5) Com en el cas 1 , també s’ha proposat la regió crítica de manera ad hoc. Si es consulten en la taula de l’apartat 9.5.2 els valors de la cua dreta de la Normal, com la definició de nivell de significació és:</p>
+<p><span class="math display">\[
+\alpha=\text { prob. mostra pertanyi a la regió crítica, quan } \mathbf{H}_{0} \text { és certa }
+\]</span></p>
+<p>en la fila corresponent a prob ( <span class="math inline">\(\mathrm{X}&gt;=7.987\)</span> ) de la taula es pot observar la probabilitat de rebutjar <span class="math inline">\(\mathrm{H}_{0}(\mu=7.0)\)</span> quan aquesta és certa. Simbòlicament hem calculat:</p>
+<p><span class="math display">\[
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\]</span></p>
+<p>on <span class="math inline">\(F_{z}\)</span> és la funció de distribució de la Normal tipificada <span class="math inline">\(N(0,1)\)</span>. La regió crítica <span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869,+\infty)\)</span> porta associat un nivell de significació <span class="math inline">\(\alpha=0.05\)</span>. Ara bé, com que l’estadístic mitjana mostral és una variable contínua, concretament Normal, es poden trobar infinites regions que satisfan la condició</p>
+<p><span class="math display">\[
+\operatorname{prob}\left(\operatorname{mostra} \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{0}\right)=0.05
+\]</span></p>
+</section>
+</section>
+<section id="regió-crítica-i-formalització-del-contrast" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="regió-crítica-i-formalització-del-contrast"><span class="header-section-number">8</span> Regió crítica i formalització del contrast</h2>
+<p>La regla de decisió queda definida sempre (encara que sigui implícitament) a partir d’una regió crítica. A aquesta regió crítica li correspon un determinat nivell de significació. La informació continguda en la mostra es resumeix mitjançant un estadístic de test, així que una pràctica habitual és definir la regió crítica en funció de l’estadístic de test emprat. Un estadístic de test és una variable aleatòria i, com a tal, té associada una llei de distribució que juga un paper capital en el contrast.</p>
+<p>Reunint els conceptes, en un contrast d’hipòtesi <span class="math inline">\(\mathrm{H}_{0}\)</span> contra <span class="math inline">\(\mathrm{H}_{1}\)</span>, tenim:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha &amp; =\text { nivell de significació, } \\
+\mathrm{W}_{\alpha} &amp; =\text { regió crítica, subconjunt de l'espai mostral definit a partir de } \mathrm{T}
+\end{aligned}
+\]</span></p>
+<p>Regla de decisió:</p>
+<ul>
+<li>si la mostra pertany a <span class="math inline">\(\mathrm{W}_{\alpha}\)</span> aleshores rebutjar <span class="math inline">\(\mathrm{H}_{0}\)</span></li>
+<li>si la mostra no pertany a <span class="math inline">\(\mathrm{W}_{\alpha}\)</span> aleshores rebutjar <span class="math inline">\(\mathrm{H}_{1}\)</span></li>
+</ul>
+<p>Finalment:</p>
+<p><span class="math display">\[
+\alpha=\text { prob.(rebutjar } H_{0} / H_{0} \text { certa) = prob.(mostra pertanyi a } W_{\alpha} / H_{0} \text { certa) }
+\]</span></p>
+<section id="cas-1-resum-de-conceptes-associats-al-contrast.-regió-crítica" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="cas-1-resum-de-conceptes-associats-al-contrast.-regió-crítica"><span class="header-section-number">8.1</span> Cas 1: Resum de conceptes associats al contrast. Regió crítica</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Regió crítica</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Regió d’acceptació</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}{ }^{\mathrm{C}}=\{0,1,2,3,4,5,6,7\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estadístic de test</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T}=\)</span> nombre de femelles totals en els 10 nius</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Criteri de decisió:</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">acceptar <span class="math inline">\(\mathrm{H}_{1} \mathrm{si}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 8\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">acceptar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \leq 7\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivell de significació</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.0547\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>La distribució de l’estadístic de test T és una Binomial B (10, p). Es pot adoptar un estadístic alternatiu: la freqüència relativa <span class="math inline">\(=\mathbf{f r}\)</span> de nombre de femelles en els 10 nius.</p>
+</section>
+<section id="cas-2-taula-resum-de-la-regió-crítica-lestadístic-de-test-i-del-criteri-de-decisió" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="cas-2-taula-resum-de-la-regió-crítica-lestadístic-de-test-i-del-criteri-de-decisió"><span class="header-section-number">8.2</span> Cas 2: Taula resum de la regió crítica, l’estadístic de test i del criteri de decisió</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Regió crítica</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869,+\infty)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Regió d’acceptació</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha} \mathrm{C}=(-\infty, 7.9869)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estadístic de test</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T}=\)</span> mitjana de statdrolona en 16 atletes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Criteri de decisió:</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">acceptar <span class="math inline">\(\mathrm{H}_{1} \mathrm{si}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 7.9869\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">acceptar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T}&lt;7.9869\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivell de significació</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.05\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>La distribució de l’estadístic de test T sota <span class="math inline">\(\mathrm{H}_{0}\)</span> és una normal <span class="math inline">\(\mathrm{N}(7,0.6)\)</span>.</p>
+</section>
+</section>
+<section id="taula-de-decisió-del-contrast" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="taula-de-decisió-del-contrast"><span class="header-section-number">9</span> Taula de decisió del contrast</h2>
+<p>Quan es resol un contrast la decisió final pot ser correcta o bé conduir a un error. En aquesta taula es presenten les quatre possibles situacions que es poden produir:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Hipòtesi veritable</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Hipòtesi acceptada</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{0}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{0}\)</span></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">error tipus II</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{1}\)</span></td>
+<td style="text-align: center;">error tipus I</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<p>Existeix, per tant, un segon tipus d’error, designat com a error de tipus II o de segona espècie. Es pot definir de manera equivalent per a qualsevol de les dues expressions següents:</p>
+<ul>
+<li><span class="math inline">\(1-\beta=\)</span> probabilitat de rebutjar <span class="math inline">\(\mathrm{H}_{1}\)</span>, quan <span class="math inline">\(\mathrm{H}_{1}\)</span> és certa</li>
+<li><span class="math inline">\(1-\beta=\)</span> probabilitat que la mostra no pertanyi a la regió crítica, quan <span class="math inline">\(\mathbf{H}_{1}\)</span> és certa</li>
+</ul>
+<p>En realitat només una de les hipòtesis és veritable. Una vegada s’obtingui la mostra, s’acceptarà o es rebutjarà <span class="math inline">\(\mathrm{H}_{1}\)</span> segons el criteri de decisió. Si es decideix de manera equivocada, es produirà només un dels dos errors, segons quin sigui la hipòtesi veritable. És a dir, a posteriori es produeix, com a molt, només un dels errors.</p>
+<p>Ara bé, el contrast es porta a terme precisament perquè s’ignora quina de les dues hipòtesis és la veritable. Com a conseqüència, sense que això contradigui el paràgraf anterior, els dos errors tenen importància a priori.</p>
+<p>Un contrast serà més adequat si son menors els dos errors associats.</p>
+<section id="cas-1-avaluació-dels-dos-errors-associats-al-contrast" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="cas-1-avaluació-dels-dos-errors-associats-al-contrast"><span class="header-section-number">9.1</span> Cas 1: Avaluació dels dos errors associats al contrast</h3>
+<p>El criteri de decisió que s’ha adoptat per a aquest cas consisteix en:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">acceptar <span class="math inline">\(\mathrm{H}_{1} \mathrm{si}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 8\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">acceptar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \leq 7\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Nivell de significació</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.0547\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Suposem que <span class="math inline">\(\mathrm{H}_{1}\)</span> és certa, és a dir, que <span class="math inline">\(p=0,6\)</span>. En la taula següent podem trobar el valor de l’error de tipus II:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valor de <span class="math inline">\(X\)</span></th>
+<th style="text-align: center;">Prob. <span class="math inline">\(X&lt;=\mathrm{X}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.0001</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.0017</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0123</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.0548</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.1662</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.3669</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.6177</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.8327</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.9536</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.9940</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1.0000</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(1-\beta=\)</span> prob. <span class="math inline">\(\left(\right.\)</span> rebutjar <span class="math inline">\(H_{1} / H_{1}\)</span> certa <span class="math inline">\()=\)</span> prob. <span class="math inline">\(\left(T&lt;=7 / H_{1}\right.\)</span> certa <span class="math inline">\()=\mathbf{0 . 8 3 2 7}\)</span> Simbòlicament correspon a calcular:</p>
+<p><span class="math display">\[
+1-\beta=p\left(X&lt;8 / H_{1}\right)=\sum_{i=0}^{7} p\left(X=i / H_{1}\right)=\sum_{i=0}^{7}\binom{10}{i} 0.6^{i} 0.4^{10-i}
+\]</span></p>
+</section>
+<section id="cas-2-càlcul-explícit-dels-errors-de-primera-alpha-i-segona-espècie-1--beta" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="cas-2-càlcul-explícit-dels-errors-de-primera-alpha-i-segona-espècie-1--beta"><span class="header-section-number">9.2</span> Cas 2: Càlcul explícit dels errors de primera ( <span class="math inline">\(\alpha\)</span> ) <span class="math inline">\(i\)</span> segona espècie (1- <span class="math inline">\(\beta\)</span> )</h3>
+<p>El criteri de decisió que s’ha triat per a aquest cas consisteix en:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">acceptar <span class="math inline">\(\mathrm{H}_{1}\)</span> si</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 7.9869\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Nivell de significació</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.05\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Suposem que és certa <span class="math inline">\(\mathrm{H}_{1}\)</span>, és a dir, que <span class="math inline">\(\mu=8.5\)</span>. En la taula següent podem trobar el valor de l’error de tipus II:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Mitiana <span class="math inline">\((x)\)</span></th>
+<th style="text-align: center;">Prob. <span class="math inline">\(X==x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">5,933</td>
+<td style="text-align: center;">1.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6,189</td>
+<td style="text-align: center;">0.9999</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6,446</td>
+<td style="text-align: center;">0.9997</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6,703</td>
+<td style="text-align: center;">0.9986</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6,96</td>
+<td style="text-align: center;">0.9949</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,216</td>
+<td style="text-align: center;">0.9838</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,473</td>
+<td style="text-align: center;">0.9565</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7,73</td>
+<td style="text-align: center;">0.9004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7,987</td>
+<td style="text-align: center;">0.8040</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8,243</td>
+<td style="text-align: center;">0.6656</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8,5</td>
+<td style="text-align: center;">0.5000</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(1-\beta=\)</span> prob. <span class="math inline">\(\left(\right.\)</span> rebutjar <span class="math inline">\(\mathrm{H}_{1} / \mathrm{H}_{1}\)</span> certa <span class="math inline">\()=\)</span> prob. <span class="math inline">\(\left(\mathrm{T}&lt;7.9869 / \mathrm{H}_{1}\right)=1-0.8040=0.1960\)</span> Simbòlicament, correspon a calcular:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1-\beta &amp; =p\left(\bar{X}_{16}&lt;7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x \\
+&amp; =F_{Z}\left(\frac{7.9869-8.5}{2.4 / \sqrt{16}}\right)
+\end{aligned}
+\]</span></p>
+</section>
+</section>
+<section id="relació-entre-lerror-de-tipus-i-i-el-de-tipus-ii" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="relació-entre-lerror-de-tipus-i-i-el-de-tipus-ii"><span class="header-section-number">10</span> Relació entre l’error de tipus I i el de tipus II</h2>
+<p>És important entendre que no és possible reduir simultàniament els dos errors en un contrast d’hipòtesi.</p>
+<p>Suposem que s’intenta reduir a zero el nivell de significació. Això equival a plantejar que la probabilitat que una mostra pertanyi a la regió crítica, en el cas que sigui certa <span class="math inline">\(\mathrm{H}_{0}\)</span>, és zero. En la majoria de situacions aplicades aquest fet dóna lloc a una regió crítica igual al conjunt buit, o el que és el mateix, provoca que s’accepti sempre <span class="math inline">\(\mathrm{H}_{0}\)</span>, independentment del resultat obtingut en la mostra. S’arriba per tant a la situació absurda de poder prescindir de la mostra, acceptant sempre <span class="math inline">\(H_{0}\)</span> ! Així, reduir <span class="math inline">\(\alpha\)</span> a zero té la greu contrapartida de rebutjar sempre <span class="math inline">\(\mathrm{H}_{1}\)</span>, que implica a la seva vegada que l’error de tipus II sigui un. De manera anàloga es pot raonar per un error de tipus II nul. En conclusió, els dos errors estan relacionats: disminuir <span class="math inline">\(\alpha\)</span> comporta reduir la grandària de la regió crítica, i, per tant, augmentar 1- <span class="math inline">\(\beta\)</span>.</p>
+<section id="cas-1-avaluació-da-i-1--beta-per-a-diferents-regions-crítiques" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="cas-1-avaluació-da-i-1--beta-per-a-diferents-regions-crítiques"><span class="header-section-number">10.1</span> Cas 1: Avaluació d’a i 1- <span class="math inline">\(\beta\)</span> per a diferents regions crítiques</h3>
+<p>Una vegada s’especifica la regió crítica, els errors de tipus I i II queden determinats. En els dos quadres següents hi han dues regions crítiques i els seus errors associats. En la versió interactiva del document es pot canviar dinàmicament la regió crítica i es calculen automàticament els errors: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-18.jpg?height=375&amp;width=1312&amp;top_left_y=1417&amp;top_left_x=372" class="img-fluid"></p>
+<p>En el gràfic següent es representen els dos errors simultàniament per a diferents regions crítiques. Per tal de simplificar la comprensió del gràfic, es consideren només regions de la forma <span class="math inline">\(\{a, a+1, \ldots 10\}\)</span>, on <span class="math inline">\(a\)</span> és un enter entre 0 i 10 . Així, per exemple, el punt d’abscisses 8 representa la regió crítica <span class="math inline">\(\{8,9,10\}\)</span>. La hipòtesi alternativa considerada és <span class="math inline">\(p_{1}=0.6\)</span>, tal i com s’indica en la llegenda del gràfic. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-18.jpg?height=544&amp;width=778&amp;top_left_y=2118&amp;top_left_x=639" class="img-fluid"></p>
+</section>
+<section id="cas-2-relació-entre-els-errors-de-primera-alpha-i-segona-espècie-1--beta" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="cas-2-relació-entre-els-errors-de-primera-alpha-i-segona-espècie-1--beta"><span class="header-section-number">10.2</span> Cas 2: Relació entre els errors de primera ( <span class="math inline">\(\alpha\)</span> ) i segona espècie (1- <span class="math inline">\(\beta\)</span> )</h3>
+<p>La relació entre els errors de tipus I i II és més fàcil d’interpretar en aquest cas, atès que la mitjana és un estadístic de distribució contínua. En els quadres següents es presenten dues regions crítiques i els errors associats, visualitzant l’àrea que representen. En la versió interactiva es pot modificar la regió crítica mitjançant el lliscador, i es calculen automàticament els dos errors visualitzant l’àrea que representa cadascun. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-19.jpg?height=1283&amp;width=1486&amp;top_left_y=775&amp;top_left_x=291" class="img-fluid"></p>
+<p>En el gràfic següent es representen els dos errors simultàniament. Prenent sempre la mateixa alternativa:</p>
+<p><span class="math display">\[
+\mathrm{H}_{1}: \mu_{1}=8.5
+\]</span></p>
+<p>i per a cada regió crítica de la forma <span class="math inline">\([a,+\infty)\)</span> es calculen <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(1-\beta\)</span>. En l’eix d’abscisses es representa l’extrem inferior (a) de les regions crítiques més rellevants, les pròximes a <span class="math inline">\(\mu_{0}\)</span>. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-20.jpg?height=581&amp;width=854&amp;top_left_y=246&amp;top_left_x=601" class="img-fluid"></p>
+</section>
+</section>
+<section id="potència-i-test-més-potent" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="potència-i-test-més-potent"><span class="header-section-number">11</span> Potència i test més potent</h2>
+<p>La potència d’un contrast es defineix com: <span class="math inline">\(\beta=\)</span> prob.(acceptar <span class="math inline">\(H_{1} / H_{1}\)</span> certa) = prob.(mostra pertanyi a <span class="math inline">\(W_{a} / H_{1}\)</span> certa) és, per tant, la probabilitat complementària a l’error del tipus II. Reprenent idees anteriors, un contrast ha de pretendre un compromís raonable entre el nivell de significació (el més baix possible) i la potència (la més alta possible).</p>
+<p>En principi, si hi ha diversos tests alternatius (basats en diferents regles de decisió i/o estadístics) per a resoldre un mateix contrast paramètric, el millor test serà aquell que, una vegada fixats <span class="math inline">\(\mathrm{H}_{0}, \mathrm{H}_{1} \mathrm{i}\)</span> el nivell de significació <span class="math inline">\(\alpha\)</span>, proporcioni la potència més alta d’entre tots ells.</p>
+<p>Un test que tingui aquesta propietat es denomina test més potent. Simbòlicament, si <span class="math inline">\(m p\)</span> designa el test més potent, haurà de complir:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \beta_{m p}=\text { prob.(acceptar } \mathrm{H}_{1} \text { amb el test } m p / \mathrm{H}_{1} \text { certa) } \\
+&amp; \geq \beta_{t}=\text { prob.(acceptar } \mathrm{H}_{1} \text { amb el test } t / \mathrm{H}_{1} \text { certa) }
+\end{aligned}
+\]</span></p>
+<p>on <span class="math inline">\(t\)</span> és qualsevol altre test amb el mateix nivell de significació que <span class="math inline">\(m p\)</span>.</p>
+<section id="cas-1-potència-en-hipòtesi-simple-vs-simple" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="cas-1-potència-en-hipòtesi-simple-vs-simple"><span class="header-section-number">11.1</span> Cas 1: Potència en hipòtesi simple vs simple</h3>
+<p>En la taula següent s’indica la probabilitat per a cadascun dels valors del suport. Es destaca en color diferent la regió crítica. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-21.jpg?height=520&amp;width=852&amp;top_left_y=234&amp;top_left_x=605" class="img-fluid"></p>
+<p>Es pot llegir aleshores que la potència és:</p>
+<p><span class="math display">\[
+\beta=\operatorname{prob} .\left(\operatorname{acceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right)=\operatorname{prob} .\left(X \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{1}\right)=0.1673
+\]</span></p>
+<p>Simbòlicament hem calculat:</p>
+<p><span class="math display">\[
+\beta=p\left(X \geq 8 / \mathrm{H}_{1}\right)=\sum_{i=8}^{10} p\left(X=i / \mathrm{H}_{1}\right)=\sum_{i=8}^{10}\binom{10}{i} 0.6^{i} 0.4^{10-i}
+\]</span></p>
+<p>Observem que coincideix amb el càlcul anterior de l’error de tipus II per a aquest exemple.</p>
+</section>
+<section id="cas-2-potència-en-hipòtesi-simple-vs-simple" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="cas-2-potència-en-hipòtesi-simple-vs-simple"><span class="header-section-number">11.2</span> Cas 2: Potència en hipòtesi simple vs simple</h3>
+<p>Hem definit abans la regió crítica per a aquest cas. En el quadre següent es pot visualitzar els dos errors ( <span class="math inline">\(I=\)</span> verd i II = taronja) i, opcionalment, la potència del test (regió groga). <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-21.jpg?height=649&amp;width=1477&amp;top_left_y=1680&amp;top_left_x=295" class="img-fluid"></p>
+<p>La definició de potència aplicada a aquest cas resulta:</p>
+<p><span class="math display">\[
+\beta=\operatorname{prob} .\left(\operatorname{acceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right)=\operatorname{prob} .\left(\mathrm{X} \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{1}\right)=0.80377
+\]</span></p>
+<p>Simbòlicament hem calculat:</p>
+<p><span class="math display">\[
+\beta=p\left(\bar{X}_{16} \geq 7.9869 / H_{1}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x
+\]</span></p>
+<p>En el document interactiu s’especifica l’expressió per a tot <span class="math inline">\(n\)</span>.</p>
+</section>
+</section>
+<section id="efecte-de-la-grandària-mostral" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="efecte-de-la-grandària-mostral"><span class="header-section-number">12</span> Efecte de la grandària mostral</h2>
+<p>Els contrastos òptims per a les situacions aplicades més habituals ja estan completament resolts, de manera que usualment l’experimentador només ha d’escollir el nivell de significació que desitgi, (veure per exemple el capítol de contrastos d’una població).</p>
+<p>Una vegada escollit <span class="math inline">\(\alpha\)</span> queden fixades tant la regió crítica com la potència del contrast. L’única manera d’aconseguir que un contrast millori la seva potència sense que repercuteixi en un augment excessiu d’ <span class="math inline">\(\alpha\)</span> és incrementar la grandària mostral <span class="math inline">\(N\)</span>.</p>
+<p>Augmentar <span class="math inline">\(N\)</span> varia la llei de distribució de l’estadístic de test, i generalment en disminueix la variància. La conseqüència de mantenir <span class="math inline">\(\boldsymbol{\alpha}\)</span> constant i incrementar <span class="math inline">\(N\)</span> es tradueix en una millora de les propietats del test. Una pregunta crucial -oberta, de moment- és: quanta mostra fa falta?</p>
+<section id="cas-1" class="level3" data-number="12.1">
+<h3 data-number="12.1" class="anchored" data-anchor-id="cas-1"><span class="header-section-number">12.1</span> Cas 1</h3>
+<p>En el document interactiu es presenta un applet on es calcula l’error de tipus II quan augmenta N. Aquí només es presenta el gràfic on es representen els dos errors simultàniament per a diferents regions crítiques de la forma <span class="math inline">\(\{a, a+1, \ldots N\}\)</span>. La hipòtesi alternativa està indicada a la llegenda. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-22.jpg?height=507&amp;width=1474&amp;top_left_y=1728&amp;top_left_x=294" class="img-fluid"></p>
+</section>
+<section id="cas-2" class="level3" data-number="12.2">
+<h3 data-number="12.2" class="anchored" data-anchor-id="cas-2"><span class="header-section-number">12.2</span> Cas 2</h3>
+<p>Veurem aquí només com afecta la grandària de mostra (per a <span class="math inline">\(N=16\)</span> i <span class="math inline">\(N=30\)</span> ) als dos errors, mantenint la regió crítica constant. En el document interactiu es poden consultar altres combinacions. En augmentar <span class="math inline">\(N\)</span>, les distribucions en el mostreig de la mitjana sota <span class="math inline">\(\mathrm{H}_{0}\)</span> i <span class="math inline">\(\mathrm{H}_{1}\)</span> presenten cada vegada un menor solapament. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-23.jpg?height=718&amp;width=1486&amp;top_left_y=235&amp;top_left_x=271" class="img-fluid"></p>
+<p>En el gràfic següent s’observa l’efecte de <span class="math inline">\(N\)</span> per a tot el rang de regions crítiques: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-23.jpg?height=604&amp;width=869&amp;top_left_y=1080&amp;top_left_x=591" class="img-fluid"></p>
+</section>
+</section>
+<section id="hipòtesis-simples-vs.-hipòtesis-compostes" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="hipòtesis-simples-vs.-hipòtesis-compostes"><span class="header-section-number">13</span> Hipòtesis simples vs.&nbsp;hipòtesis compostes</h2>
+<p>Fins a ara hem tractat el cas més senzill de contrast: dues hipòtesis simples. En la pràctica, les situacions realment interessants comporten -almenys- una hipòtesi composta. Un dels contrastos d’hipòtesis més habituals consisteix en:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \theta=\theta_{0} \\
+&amp; \mathrm{H}_{1}: \theta \neq \theta_{0}
+\end{aligned}
+\]</span></p>
+<p>és a dir, la hipòtesi alternativa és la simple negació de la nul lla. Aquest contrast es coneix com el de l’alternativa bilateral.</p>
+<p>Els conceptes d’estadístic de test, de regió crítica, de regió d’acceptació i de nivell de significació seguiran sent els mateixos. Ara bé, com es veurà a continuació, s’ha d’ampliar la definició de potència respecte al cas simple contra simple.</p>
+<section id="cas-1-hipòtesis-compostes" class="level3" data-number="13.1">
+<h3 data-number="13.1" class="anchored" data-anchor-id="cas-1-hipòtesis-compostes"><span class="header-section-number">13.1</span> Cas 1: Hipòtesis compostes</h3>
+<p>Canviant el plantejament inicial, suposem que la polèmica sobre la proporció de femelles en els nius és refereix a si és equitativa o no respecte al nombre de mascles. Les hipòtesis a verificar aleshores seran:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mathrm{p}=0.5 \\
+&amp; \mathrm{H}_{1}: \mathrm{p} \neq 0.5
+\end{aligned}
+\]</span></p>
+<p>Observem primer que ja no és consistent mantenir una regió crítica basada només en la cua dreta de la distribució, com en el cas simple contra simple, que en resum consistia en:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Regió crítica</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Estadístic de test</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T}=\)</span> nombre de femelles totals en els 10 nius</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivell de significació</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.0547\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Ara aquesta regió ja no és adequada. N’hi ha prou amb considerar l’exemple d’obtenir una mostra amb <span class="math inline">\(\mathrm{T}=0\)</span>. Tot i ser summament improbable sota <span class="math inline">\(\mathrm{H}_{0}\)</span>, el criteri imposa acceptar la hipòtesi nul lla, en contra d’altres hipòtesis més plausibles (qualsevol amb p &lt; 0.5).</p>
+<p>El sentit comú indica que la regió crítica ha d’abastar ara els dos extrems del suport. Si prenem per exemple:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}
+\]</span></p>
+<p><img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-24.jpg?height=527&amp;width=852&amp;top_left_y=1504&amp;top_left_x=605" class="img-fluid"> la suma següent (que correspon als valors destacats en la taula):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha &amp; =p\left(X \leq 2 / H_{0}\right)+p\left(X \geq 8 / H_{0}\right)=\sum_{i=0}^{2} p\left(X=i / H_{0}\right)+\sum_{i=8}^{10} p\left(X=i / H_{0}\right) \\
+&amp; =\left[\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{8}+\binom{10}{9}+\binom{10}{10}\right] 0.5^{10}
+\end{aligned}
+\]</span></p>
+<p>ens proporciona el nivell de significació d’aquest test bilateral.</p>
+</section>
+<section id="cas-2-hipòtesis-compostes" class="level3" data-number="13.2">
+<h3 data-number="13.2" class="anchored" data-anchor-id="cas-2-hipòtesis-compostes"><span class="header-section-number">13.2</span> Cas 2: Hipòtesis compostes</h3>
+<p>Malgrat que segurament encara no és el contrast d’hipòtesi que realment interessa a l’associació ADG , per raons didàctiques suposarem que es pretén dirimir simplement si és acceptable la mitjana proposada en la bibliografia. Les hipòtesis que cal verificar seran aleshores:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H_{0}: \mu=7 \\
+&amp; H_{1}: \mu \neq 7
+\end{aligned}
+\]</span></p>
+<p>Ja no és consistent mantenir una regió crítica basada només en la cua dreta de la distribució, com en el plantejament original d’aquest cas (que contrastava una hipòtesi simple contra una altra simple).</p>
+<p>Per entendre-ho es pot considerar per exemple una mostra amb una mitjana mostral de 5. Tot i ser summament improbable sota <span class="math inline">\(\mathrm{H}_{0}\)</span>, atès que pertany a la regió d’acceptació, el criteri imposa acceptar la hipòtesi nul•la, en contra d’altres hipòtesis més plausibles (qualsevol amb <span class="math inline">\(\mu&lt;7\)</span> ).</p>
+<p>Novament, el sentit comú indica que la regió crítica ha d’abastar ara els dos extrems del suport. Si prenem per exemple:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=(-\infty, 6.0131] \mathrm{U}[7.9869,+\infty)
+\]</span></p>
+<p>S’obté <span class="math inline">\(\alpha=0.1\)</span>. En el quadre següent es visualitza la regió crítica i s’avalua el nivell de significació resultant: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-25.jpg?height=672&amp;width=849&amp;top_left_y=1503&amp;top_left_x=609" class="img-fluid"></p>
+<p>Simbòlicament, el nivell de significació d’aquest test es calcula de la forma següent:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha &amp; =p\left(\bar{X}_{16} \leq 6.0131 / H_{0}\right)+p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right) \\
+&amp; =\int_{-\infty}^{6.0131} f_{\bar{X}_{16}}(x) d x+\int_{7.9869}^{\infty} f_{\bar{X}_{16}}(x) d x \\
+&amp; =F_{Z}\left(\frac{6.0131-7}{2.4 / \sqrt{16}}\right)+1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\end{aligned}
+\]</span></p>
+<p>On:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{16}}(x)=\frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right)
+\]</span></p>
+</section>
+</section>
+<section id="funció-de-potència" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="funció-de-potència"><span class="header-section-number">14</span> Funció de potència</h2>
+<p>Una de les diferències conceptuals més importants entre el cas d’una hipòtesi simple contra una altra de simple i el cas amb una alternativa composta es troba en la definició de potència. En aquest segon cas ja no es presenta un únic possible valor del paràmetre sota la hipòtesi alternativa, sinó que es contempla tot un conjunt. En la majoria de tests habituals, serà un interval real o una reunió d’intervals reals. Per exemple:</p>
+<p><span class="math display">\[
+\mathrm{H}_{1}: \theta \neq \theta_{0}
+\]</span></p>
+<p>Des del punt de vista de l’estadística paramètrica clàssica, una vegada fet l’experiment aleatori, <span class="math inline">\(\theta\)</span> presenta només un dels possibles valors dins del subconjunt de l’alternativa, encara que aquest sigui desconegut. Per tant, la definició de potència enunciada abans:</p>
+<p><span class="math display">\[
+\beta=\operatorname{prob} .\left(\operatorname{acceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right. \text { certa) }
+\]</span></p>
+<p>no es pot calcular globalment per a tot <span class="math inline">\(\mathrm{H}_{1}\)</span>, sinó que s’ha de distingir cadascun dels valors possibles dins de <span class="math inline">\(\mathrm{H}_{1}\)</span>. D’aquí ve l’interès de definir la funció de potència:</p>
+<p><span class="math display">\[
+\beta(\theta)=\operatorname{prob}\left(\operatorname{acceptar} \mathrm{H}_{1} / \theta \text { cert }\right)
+\]</span></p>
+<p>on <span class="math inline">\(\theta\)</span> és un valor qualsevol del paràmetre, fins i tot valors corresponents a <span class="math inline">\(\mathrm{H}_{0}\)</span>. Si <span class="math inline">\(\mathrm{H}_{0}\)</span> és simple (un sol paràmetre <span class="math inline">\(\theta_{0}\)</span> ), resultarà:</p>
+<p><span class="math display">\[
+\beta\left(\theta_{0}\right)=\operatorname{prob}\left(\operatorname{acceptar} \mathrm{H}_{1} / \theta_{0} \text { cert }\right)=\alpha
+\]</span></p>
+<section id="cas-1-funció-de-potència" class="level3" data-number="14.1">
+<h3 data-number="14.1" class="anchored" data-anchor-id="cas-1-funció-de-potència"><span class="header-section-number">14.1</span> Cas 1: Funció de potència</h3>
+<p>Ara la potència depèn de la proporció concreta de femelles que es triï com alternativa. L’expressió general és:</p>
+<p><span class="math display">\[
+1-\beta=p\left(3 \leq X \leq 7 / H_{1}\right)=\sum_{i=3}^{7} p\left(X=i / H_{1}\right)=\sum_{i=3}^{7}\binom{10}{i} p^{i}(1-p)^{10-i}
+\]</span></p>
+<p>atès que la regió crítica és <span class="math inline">\(\mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}\)</span>. En els quadres següents s’obté el valor de la potència <span class="math inline">\((\beta)\)</span> inicialment per <span class="math inline">\(p=0.6\)</span> i per <span class="math inline">\(p=0.8\)</span> (en el document interactiu es pot variar arbitràriament la proporció sota <span class="math inline">\(\mathrm{H}_{1}\)</span> ):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valor de X</th>
+<th style="text-align: center;">Prob. <span class="math inline">\(\mathrm{X}=\mathrm{X}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.0001</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.0016</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0106</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.0425</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.1115</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.2007</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.2508</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.2150</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.1209</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0403</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.0060</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valor de X</th>
+<th style="text-align: center;">Prob. <span class="math inline">\(\mathrm{X}=\mathrm{X}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0001</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.0008</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.0055</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.0264</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.0881</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.2013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.3020</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.2684</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.1074</td>
+</tr>
+</tbody>
+</table>
+<p>En el gràfic següent es representa la funció de potència per a tot el rang de paràmetres: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-27.jpg?height=546&amp;width=546&amp;top_left_y=898&amp;top_left_x=572" class="img-fluid"> <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-27.jpg?height=178&amp;width=358&amp;top_left_y=902&amp;top_left_x=1106" class="img-fluid"></p>
+</section>
+<section id="cas-2-funció-de-potència" class="level3" data-number="14.2">
+<h3 data-number="14.2" class="anchored" data-anchor-id="cas-2-funció-de-potència"><span class="header-section-number">14.2</span> Cas 2: Funció de potència</h3>
+<p>Ara la potència depèn de la mitjana concreta <span class="math inline">\(\mu_{1}\)</span> que es triï com a alternativa. L’expressió general de l’error de tipus II és:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1-\beta &amp; =p\left(6.0131 \leq \bar{X}_{16} \leq 7.9869 / H_{1}\right) \\
+&amp; =\int_{6.0131}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{\left(x-\mu_{1}\right)^{2}}{2 \times 0.6^{2}}\right) d x \\
+&amp; =F_{z}\left(\frac{6.0131-\mu_{1}}{2.4 / \sqrt{16}}\right)+1-F_{z}\left(\frac{7.9869-\mu_{1}}{2.4 / \sqrt{16}}\right)
+\end{aligned}
+\]</span></p>
+<p>atès que la regió crítica és <span class="math inline">\(\mathrm{W}_{\alpha}=(-\infty, 6,0131] \mathrm{U}[7,9869,+\infty)\)</span>. En el quadre següent s’obté el valor de la potència ( <span class="math inline">\(\beta\)</span> ) inicialment per a <span class="math inline">\(\mu=8.5\)</span>. En el document interactiu es pot canviar aquest valor de la alternativa i observar els canvis en els dos errors i en la potència: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-28.jpg?height=809&amp;width=929&amp;top_left_y=235&amp;top_left_x=569" class="img-fluid"></p>
+<p>En el gràfic següent es representen dues funcions de potència, per a <span class="math inline">\(\alpha=0.05, \sigma=\)</span> 2.4 i que respectivament corresponen a <span class="math inline">\(n=16\)</span> (la situació d’aquest cas 2) i a <span class="math inline">\(n=1\)</span>. En el document interactiu es poden variar tots aquells paràmetres que afecten <span class="math inline">\(\beta: \alpha, \sigma \mathrm{i} n \mathrm{i}\)</span> comparar-los amb la situació original. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-28.jpg?height=692&amp;width=966&amp;top_left_y=1322&amp;top_left_x=545" class="img-fluid"></p>
+</section>
+</section>
+<section id="tests-òptims" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="tests-òptims"><span class="header-section-number">15</span> Tests òptims</h2>
+<p>En moltes situacions aplicades es poden plantejar diferents regles de decisió per resoldre un mateix contrast, de manera que proporcionen un mateix error de tipus I. És necessari adoptar aleshores un criteri addicional per escollir quin és el millor test possible per resoldre aquest contrast. Tal com hem vist en el cas d’hipòtesi simple vs.&nbsp;simple, això passa forçosament per analitzar l’error de tipus II associat amb cada test. En el cas d’una alternativa composta, això porta a estudiar el comportament de la funció de potència en tot el rang de paràmetres associats amb l’alternativa.</p>
+<p>L’estudi dels tests que presenten propietats òptimes des del punt de vista de la potència sobrepassa els objectius marcats per Statmedia. El lector interessat pot consultar alguna definició més en els complements, encara que aquesta informació no és estrictament necessària per seguir ni la resta d’aquest tema ni els ulteriors. En els pròxims capítols només s’assenyalarà, a títol informatiu, quan un test és òptim des del punt de vista de la potència. En el nostre desenvolupament és suficient conèixer que existeixen resultats generals en estadística matemàtica que permeten assegurar quan existeix aquest tipus de test i com obtenir-lo.</p>
+</section>
+<section id="proves-bilaterals-i-proves-unilaterals" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="proves-bilaterals-i-proves-unilaterals"><span class="header-section-number">16</span> Proves bilaterals i proves unilaterals</h2>
+<p>Un contrast bilateral adopta en general la forma:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta \neq \theta_{0}
+\]</span></p>
+<p>En determinades ocasions l’experimentador prefereix plantejar directament un contrast de la forma:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta&gt;\theta_{0}
+\]</span></p>
+<p>conegut com a contrast unilateral dret. Òbviament, una altra possibilitat és l’unilateral esquerre:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta&lt;\theta_{0}
+\]</span></p>
+<p>En aquests tres casos, el contrast d’hipòtesis és simple contra composta. En la majoria de situacions aplicades, en realitat es pretenen resoldre contrastos unilaterals que comporten hipòtesis compostes. L’unilateral dret és aleshores:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"><span class="math inline">\(\mathrm{H}_{0}: \theta \leq \theta_{0}\)</span></th>
+<th style="text-align: left;">contra</th>
+<th style="text-align: left;"><span class="math inline">\(\mathrm{H}_{1}: \theta&gt;\theta_{0}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">l ’esquerre és:</td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{H}_{0}: \theta \geq \theta_{0}\)</span></td>
+<td style="text-align: left;">contra</td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{H}_{1}: \theta&lt;\theta_{0}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Encara que aquesta última formulació està relacionada amb els contrastos unilaterals simple contra composta anteriors, les dues hipòtesis no són tècnicament equivalents. A fi de simplificar la interpretació dels contrastos unilaterals, atenent als casos de què s’encarrega Statmedia, es formulen els contrastos d’aquesta última manera (composta contra composta) i es pren el nivell de significació com si fos el del contrast simple contra composta.</p>
+<p>En qualsevol cas, és important entendre que només s’ha resolt un dels tres contrastos (bilateral o unilateral) amb un conjunt de dades concret. Per exemple, és incorrecte des del punt de vista metodològic començar contrastant bilateralment, i fer després un test unilateral. El contrast que s’ha d’emprar s’ha de decidir tenint com a base coneixements previs del problema, o bé seguint la qüestió d’interès aplicat que es vol respondre.</p>
+<section id="cas-1-prova-unilateral" class="level3" data-number="16.1">
+<h3 data-number="16.1" class="anchored" data-anchor-id="cas-1-prova-unilateral"><span class="header-section-number">16.1</span> Cas 1: Prova unilateral</h3>
+<p>Suposem que la controvèrsia entre els dos ornitòlegs s’hagués plantejat originalment en els termes següents. Segons da Souza, el nombre de femelles per niu és com a màxim del <span class="math inline">\(50 \%\)</span>. En canvi, per a Calves, hi ha més femelles que no pas mascles. El contrast que cal resoldre per dirimir quin especialista té raó seria, doncs:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mathrm{p} \leq 0.5 \\
+&amp; \mathrm{H}_{1}: \mathrm{p}&gt;0.5
+\end{aligned}
+\]</span></p>
+<p>Respecte al cas general se substitueix el paràmetre genèric <span class="math inline">\(\theta\)</span> per p , i el valor <span class="math inline">\(\theta_{0}=\)</span> 0.5 . Prenent la regió crítica com a <span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span>, en el quadre següent es presenta el nivell de significació:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valor de X</th>
+<th style="text-align: center;">Prob. <span class="math inline">\(X=x\)</span></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.0010</td>
+<td style="text-align: center;">Valor de p a la binomial</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.0098</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0439</td>
+<td style="text-align: center;">0.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.1172</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.2051</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.2461</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.2051</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.1172</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.0439</td>
+<td style="text-align: center;">Surna valors a la regió critica</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0098</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.0010</td>
+<td style="text-align: center;">0.0547</td>
+</tr>
+</tbody>
+</table>
+<p>En el document interactiu s’inclou un quadre on es pot explorar la potència amb diferents alternatives.</p>
+</section>
+<section id="cas-2-prova-unilateral" class="level3" data-number="16.2">
+<h3 data-number="16.2" class="anchored" data-anchor-id="cas-2-prova-unilateral"><span class="header-section-number">16.2</span> Cas 2: Prova unilateral</h3>
+<p>El plantejament següent s’aproxima més al que realment hauria d’intentar aclarir l’associació d’esportistes ADG. Si fan cas a la forta sospita que la taxa de statdrolona ha augmentat, és més coherent plantejar les hipòtesis següents:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mu \leq 7 \\
+&amp; \mathrm{H}_{1}: \mu&gt;7
+\end{aligned}
+\]</span></p>
+<p>Tal com ja s’ha plantejat en el cas 1, ara s’ha de considerar una regió crítica basada en la cua dreta de la distribució. Es deixa al lector raonar per què ha de ser així. Quan es pren, per exemple:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=[7,9869,+\infty)
+\]</span></p>
+<p>s’obté <span class="math inline">\(\alpha=0.05\)</span>. En el quadre següent es presenta la regió crítica (en el document interactiu es pot variar la regió crítica, i modificar per tant el nivell de significació): <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-31.jpg?height=804&amp;width=966&amp;top_left_y=232&amp;top_left_x=545" class="img-fluid"></p>
+<p>Simbòlicament, es calcula:</p>
+<p><span class="math display">\[
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\]</span></p>
+<p>que ens proporciona el nivell de significació d’aquest test unilateral. Així doncs, no hi ha cap diferència ni en el càlcul ni en el gràfic respecte al que ja hem vist en l’apartat d’hipòtesi simple contra simple. En relació amb la potència, es tracta d’una funció que depèn de la <span class="math inline">\(\mu\)</span> concreta de la hipòtesi alternativa (simple), i per aquesta raó resulta: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-31.jpg?height=798&amp;width=924&amp;top_left_y=1574&amp;top_left_x=569" class="img-fluid"></p>
+<p>Una observació final referent a aquest cas 2. En el plantejament actual només queda ja l’arbitrarietat consistent a assumir una <span class="math inline">\(\sigma=2.4\)</span> poblacional fixa. En el tema 10, s’estudiarà com abordar aquest estudi sense assumir més condició que el model de probabilitat Normal.</p>
+</section>
+</section>
+<section id="elecció-del-nivell-de-significació" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="elecció-del-nivell-de-significació"><span class="header-section-number">17</span> Elecció del nivell de significació</h2>
+<p>Quin nivell de significació s’ha d’utilitzar? En contra de certa pràctica estadística, desgraciadament bastant estesa, en realitat no es pot respondre a aquesta pregunta donant simplement un valor al nivell de significació. Si es consulten publicacions científiques aplicades per conèixer quin <span class="math inline">\(\alpha\)</span> emprar, en la majoria d’estudis s’obtindrà que el més utilitzat és <span class="math inline">\(\alpha=0.05\)</span> ( <span class="math inline">\(5 \%\)</span> d’error), essent el segon lloc ex aequo <span class="math inline">\(\alpha=0.01\)</span> ( <span class="math inline">\(1 \%\)</span> ) i <span class="math inline">\(\alpha=0.1\)</span> (10 %). Aquests són els nivells aconsellats en molts textos elementals d’estadística. Vegem per què s’ha anat aconsellant aquests valors.</p>
+<p>Abans de la universalització de l’ús de l’ordinador, els càlculs estadístics es completaven mitjançant diferents taules per trobar les fronteres de la regió crítica i decidir quina hipòtesi acceptar. Els valors <span class="math inline">\(5 \%, 1 \%\)</span> i <span class="math inline">\(10 \%\)</span> van ser inicialment triats com els més representatius en les colleccions de taules, ja que no resultava pràctic publicar taules per a qualsevol <span class="math inline">\(\alpha\)</span>. Així, aquests valors es van anar convertint, amb el pas del temps, en un convencionalisme més. S’ha arribat a produir l’efecte pervers, en alguns camps del coneixement, que alguns editors mal informats només accepten treballs amb un <span class="math inline">\(5 \%\)</span> de significació.</p>
+<p>No obstant això, no hi ha cap raó científica que indiqui que aquests valors són forçosament els més adequats. Ja hem vist que la potència té també una importància capital quan s’ha de qualificar la bondat del test, sense oblidar la influencia que té la grandària de la mostra sobre <span class="math inline">\(1-\beta\)</span>. La metodologia més raonable és obtenir el p-valor i, si és possible, definir abans de l’obtenció de la mostra una diferència mínima significativa que garanteixi la potència desitjada (definirem a continuació aquests dos conceptes). Només amb aquestes tres quantitats el contrast queda satisfactòriament plantejat.</p>
+<p>Des del nostre punt de vista, avui en dia, exposar les conclusions de qualsevol estudi només a partir d’un nivell de significació fix per a tots els contrastos és un procediment estadístic molt rudimentari.</p>
+</section>
+<section id="el-p-valor" class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="el-p-valor"><span class="header-section-number">18</span> El p-valor</h2>
+<p>L’elecció del nivell de significació, tal com s’ha comentat anteriorment, és en certa manera arbitrària. Tanmateix, una vegada obtinguda la mostra, es pot calcular una quantitat que sí que permet resumir el resultat de l’experiment de manera objectiva. Aquesta quantitat és el p-valor que correspon al nivell de significació més petit possible que es pot escollir, per al qual encara s’acceptaria la hipòtesi alternativa amb les observacions actuals. Qualsevol nivell de significació escollit inferior al p-valor (simbòlicament <span class="math inline">\(\mathrm{p}_{\mathrm{v}}\)</span> ) comporta acceptar <span class="math inline">\(\mathrm{H}_{0}\)</span>. Òbviament, com que és una probabilitat, es compleix que:</p>
+<p><span class="math display">\[
+0 \leq p_{v} \leq 1
+\]</span></p>
+<p>El p-valor és una mesura directa de com d’inversemblant resulta obtenir una mostra com l’actual si és certa <span class="math inline">\(\mathrm{H}_{0}\)</span>. Els valors petits indiquen que és molt infreqüent obtenir una mostra com l’actual, en canvi, els valors alts mostren que és freqüent. El pvalor s’utilitza per indicar quant (o quant poc) contradiu la mostra actual la hipòtesi alternativa.</p>
+<p>Informar sobre quin és el p-valor té l’avantatge de permetre que qualsevol decideixi quina hipòtesi accepta basant-se en el seu propi nivell de risc <span class="math inline">\(\boldsymbol{\alpha}\)</span>. Això no és possible quan s’informa, com ha estat tradicional, indicant només el resultat de la decisió, és a dir, acceptant o rebutjant <span class="math inline">\(\mathrm{H}_{0}\)</span> amb un <span class="math inline">\(\alpha\)</span> fix.</p>
+<p>Quan es proporciona el p-valor obtingut amb la mostra actual, la decisió es fa segons la regla següent:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \text { si } \mathrm{p}_{\mathrm{v}} \leq \alpha, \text { acceptar } \mathrm{H}_{1} \\
+&amp; \text { si } \mathrm{p}_{\mathrm{v}}&gt;\alpha, \text { acceptar } \mathrm{H}_{0}
+\end{aligned}
+\]</span></p>
+<p>Des del punt de vista pràctic, alguns paquets estadístics proporcionen en els seus llistats el “significance level”, la traducció literal del qual és “nivell de significació”, quan en moltes ocasions es refereixen en realitat al p-valor (“p-value”).</p>
+<section id="cas-1-càlcul-del-p-valor-prova-unilateral" class="level3" data-number="18.1">
+<h3 data-number="18.1" class="anchored" data-anchor-id="cas-1-càlcul-del-p-valor-prova-unilateral"><span class="header-section-number">18.1</span> Cas 1: Càlcul del p-valor (prova unilateral)</h3>
+<p>Seguim amb la hipòtesi unilateral:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H_{0}: p \leq 0.5 \\
+&amp; H_{1}: p&gt;0.5
+\end{aligned}
+\]</span></p>
+<p>Suposem que, una vegada obtinguda la mostra de <span class="math inline">\(n=10\)</span> nius, resulta que en sis d’ells el pollet correspon a una femella. Cal recordar primerament que en aquest cas l’estadístic de test T és una variable discreta, i per tant no és possible obtenir qualsevol <span class="math inline">\(\alpha\)</span>.</p>
+<p>El p-valor és el menor <span class="math inline">\(\alpha\)</span> que permet acceptar <span class="math inline">\(\mathrm{H}_{1}\)</span>. Amb la taula següent:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Valor de <span class="math inline">\(X\)</span></th>
+<th style="text-align: center;">Prob. <span class="math inline">\(X&gt;=X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.9990</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.9893</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.9453</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.8281</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.6230</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.3770</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.1719</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.0547</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0107</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.0010</td>
+</tr>
+</tbody>
+</table>
+<p>s’obté el p-valor associat a <span class="math inline">\(\mathrm{T}=6\)</span> femelles. Considerem principalment els casos següents:</p>
+<ol type="1">
+<li>Si s’escollís <span class="math inline">\(\alpha=0.1719\)</span>, la regió crítica corresponent seria <span class="math inline">\(\mathrm{W}_{\alpha}=\{7,8,9,10\}\)</span>. Com que no s’inclouen 6 femelles, s’hauria d’acceptar <span class="math inline">\(H_{0}\)</span>. Per tant, <span class="math inline">\(\alpha\)</span> no compleix la definició de p-valor, atès que s’ha de rebutjar <span class="math inline">\(\mathrm{H}_{0}\)</span> : <span class="math inline">\(\mathrm{p}_{\mathrm{v}}\)</span> ha de ser forçosament major.</li>
+<li>Si es triés <span class="math inline">\(\alpha^{\prime}=0.3770\)</span>, la regió crítica corresponent seria <span class="math inline">\(W_{a^{\prime}}=\{6,7,8,9,10\}\)</span>. Amb <span class="math inline">\(\alpha^{\prime}\)</span> es rebutjaria <span class="math inline">\(H_{0}\)</span>.</li>
+<li>Si se seleccionés <span class="math inline">\(\alpha^{\prime \prime}=0.6230\)</span>, la regió crítica corresponent seria <span class="math inline">\(\mathrm{W}_{\alpha^{\prime \prime}}=\{5,6,7\)</span>, <span class="math inline">\(8,9,10\}\)</span>. Amb <span class="math inline">\(\alpha^{\prime \prime}\)</span> també es rebutjaria <span class="math inline">\(\mathrm{H}_{0}\)</span>.</li>
+</ol>
+<p>Observem que <span class="math inline">\(\alpha^{\prime}&lt;\alpha^{\prime \prime}, \mathrm{i}\)</span> entre els dos valors no és possible obtenir cap altre nivell de significació amb el test que hem plantejat. Per tant, <span class="math inline">\(\alpha^{\prime}\)</span> és el mínim nivell de significació amb el qual rebutjaríem <span class="math inline">\(H_{0}\)</span> amb la mostra actual o, dit d’una altra manera, <span class="math inline">\(\alpha^{\prime}\)</span> és el p-valor.</p>
+<p>Aquest és el detall de com es calcula el p-valor. Usualment, d’això se n’encarrega software especialitzat (un paquet estadístic, un full de càlcul,…), que retorna simplement la informació <span class="math inline">\(\mathrm{p}_{\mathrm{v}}=0.3770\)</span>. Ara bé, el que no resol el programa és què ha de decidir finalment l’experimentador, és a dir, en el nostre cas, da Souza o Calves.</p>
+<p>Doncs bé, en aquest moment, s’haurà de comparar <span class="math inline">\(\mathrm{p}_{\mathrm{v}} \mathrm{amb}\)</span> el nivell de significació escollit a priori (per exemple, <span class="math inline">\(\alpha=0.05\)</span> ):</p>
+<p><span class="math display">\[
+\mathrm{p}_{\mathrm{v}}=0.3770&gt;\alpha=0.05 \text { per tant, acceptar } \mathbf{H}_{\mathbf{0}} .
+\]</span></p>
+<p>El valor de <span class="math inline">\(p_{v}\)</span> indica que hi ha una frequància del <span class="math inline">\(37.7 \%\)</span> d’obtenir mostres amb T <span class="math inline">\(\geq 6\)</span> femelles sota <span class="math inline">\(\mathrm{H}_{0} \mathrm{i}\)</span>, per tant, que no hi ha indicis suficients de discrepància entre la mostra obtinguda i la hipòtesi de da Souza consistent en que <span class="math inline">\(\mathrm{p} \leq 0.5\)</span>.</p>
+<p>Una vegada més s’ha d’insistir en el fet que <span class="math inline">\(\mathrm{p}_{\mathrm{v}}\)</span> és un valor objectiu -qualsevol experimentador donarà el mateix valor una vegada obtinguda la mostra-, mentre que <span class="math inline">\(\alpha\)</span> és subjectiu, escollit per l’experimentador segons la seva experiència.</p>
+</section>
+<section id="cas-2-càlcul-del-p-valor-prova-unilateral" class="level3" data-number="18.2">
+<h3 data-number="18.2" class="anchored" data-anchor-id="cas-2-càlcul-del-p-valor-prova-unilateral"><span class="header-section-number">18.2</span> Cas 2: Càlcul del p-valor (prova unilateral)</h3>
+<p>Considerem primer el càlcul del <span class="math inline">\(p\)</span>-valor quan les hipòtesis són:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu \leq 7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu&gt;7
+\]</span></p>
+<p>En el quadre següent es presenten les dades obtingudes en l’experiment, la seva mitjana i la desviació estàndard corregida, així com el p-valor i la decisió final segons el nivell de significació 0.05 . Com que <span class="math inline">\(\mathrm{T}=8.54\)</span>, el p -valor correspon a la cua de la corba Normal situada a la dreta de T. En el gràfic es superposa el color vermell del p-valor al verd de la zona corresponent a <span class="math inline">\(\alpha\)</span> en la part més extrema de la cua. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-35.jpg?height=1026&amp;width=1021&amp;top_left_y=235&amp;top_left_x=523" class="img-fluid"></p>
+<p>Així doncs, es rebutja <span class="math inline">\(\mathbf{H}_{0}\)</span>, ja que <span class="math inline">\(\alpha=0.05&gt;\mathrm{p}_{\mathrm{v}}=0.00513\)</span>. En el document interactiu és possible escollir altres nivells de significació. Segons el nivell escollit s’acceptarà o es rebutjarà la hipòtesi nul lla.</p>
+<p>El quadre anterior il•lustra la relació entre els conceptes del p-valor i del nivell de significació, ara bé, el lector NO ha de treure la conclusió que ha d’ajustar <span class="math inline">\(\alpha\)</span> en cap sentit: <span class="math inline">\(\alpha\)</span> es tria sempre a priori (abans de l’anàlisi), mai en funció de les dades (o del p-valor). Respecte al càlcul simbòlic del p-valor, en l’exemple s’ajusta a l’expressió següent:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p v &amp; =p\left(\bar{X}_{16} \geq 8.54 / H_{0}\right) \\
+&amp; =\int_{8.54}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x \\
+&amp; =1-F_{z}\left(\frac{8.54-7}{0.6}\right)=0.0513
+\end{aligned}
+\]</span></p>
+<p>En el document interactiu es poden canviar les dades dels setze atletes, fet que permet resoldre algunes de les qüestions plantejades més endavant. Alternativament al p -valor, també es pot visualitzar la potència o l’error de tipus II.</p>
+</section>
+<section id="cas-2-càlcul-del-p-valor-prova-bilateral" class="level3" data-number="18.3">
+<h3 data-number="18.3" class="anchored" data-anchor-id="cas-2-càlcul-del-p-valor-prova-bilateral"><span class="header-section-number">18.3</span> Cas 2: càlcul del p-valor (prova bilateral)</h3>
+<p>Considerem ara el càlcul del p-valor quan les hipòtesis són:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu=7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq 7
+\]</span></p>
+<p>El p-valor correspon ara a dues cues de la corba Normal: una és la mateixa que en el cas unilateral, és a dir, la situada a la dreta de <span class="math inline">\(\mathrm{T}=8.54\)</span>, la segona és la cua simètrica a l’anterior respecte a <span class="math inline">\(\mu=7\)</span>, és a dir, la cua esquerra situada en <span class="math inline">\(2 \mu-\mathrm{T}=5.46\)</span>. Com abans, en el quadre se superposa el color vermell del p-valor al verd de la zona corresponent a <span class="math inline">\(\alpha\)</span> en la part més extrema de les dues cues. En el document interactiu es poden canviar dades, el nivell de significació i el punt on es calcula la potència. <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-36.jpg?height=981&amp;width=975&amp;top_left_y=689&amp;top_left_x=543" class="img-fluid"></p>
+<p>El càlcul del p-valor es correspon,amb les dades originals, a:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p v &amp; =p\left(\bar{X}_{16} \leq 5.46 / H_{0}\right)+p\left(\bar{X}_{16} \geq 8.54 / H_{0}\right) \\
+&amp; =\int_{-\infty}^{5.46} f_{\bar{X}_{16}}(x) d x+\int_{8.54}^{\infty} f_{\bar{X}_{16}}(x) d x \\
+&amp; =2 p\left(\bar{X}_{16} \geq 8.54 / H_{0}\right)=.01027
+\end{aligned}
+\]</span></p>
+<p>Així doncs, es rebutja <span class="math inline">\(\mathbf{H}_{\mathbf{0}}\)</span>, atès que:</p>
+<p><span class="math display">\[
+\alpha=0.05&gt;\mathrm{pv}=0.01027
+\]</span></p>
+<p>En general, si la distribució de l’estadístic és contínua, com en aquest cas, es pot calcular fàcilment el p-valor de la prova bilateral a partir de la unilateral, i viceversa. Així, si designem amb <span class="math inline">\(\mathrm{p}_{\text {uni }}\)</span> i <span class="math inline">\(\mathrm{p}_{\text {bil }}\)</span>, respectivament els p -valors de la prova unilateral i bilateral, tindrem que:</p>
+<ul>
+<li><span class="math inline">\(\quad\)</span> Si <span class="math inline">\(\mathrm{p}_{\text {uni }} \leq 0.5\)</span>, aleshores <span class="math inline">\(\mathrm{p}_{\text {bil }}=2 \mathrm{p}_{\text {uni. }}\)</span>. És a dir, el p-valor és exactament el doble que el de la prova unilateral.</li>
+<li><span class="math inline">\(\quad\)</span> Si <span class="math inline">\(\mathrm{p}_{\text {uni }}&gt;0.5\)</span>, aleshores <span class="math inline">\(\mathrm{p}_{\text {bil }}=2\left(1-\mathrm{p}_{\text {uni }}\right)\)</span>. És a dir, el p -valor és exactament el doble que el complementari del p-valor de la prova unilateral.</li>
+</ul>
+</section>
+</section>
+<section id="proves-exactes-i-proves-asimptòtiques" class="level2" data-number="19">
+<h2 data-number="19" class="anchored" data-anchor-id="proves-exactes-i-proves-asimptòtiques"><span class="header-section-number">19</span> Proves exactes i proves asimptòtiques</h2>
+<p>Els dos errors ( <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(1-\beta\)</span> ) implicats en qualsevol contrast són probabilitats que es basen en hipòtesis sobre el paràmetre que volem contrastar. De manera similar als intervals de confiança (vegeu, per exemple, els intervals per a una proporció i per a la mitjana d’una Normal), es poden classificar els tests en relació amb la distribució emprada.</p>
+<p>Si es pot establir explícitament per qualsevol mida de mostra <span class="math inline">\(N\)</span> quina distribució té l’estadístic de test, i a més és factible el càlcul dels errors, s’obtindrà una fórmula vàlida per a tot <span class="math inline">\(N\)</span>. Aquest és el cas dels dos exemples seguits en aquest capítol. Un test amb aquestes característiques es denomina prova exacta. La prova <span class="math inline">\(t\)</span> de Student per a dues mostres i la prova F de comparació de variàncies en són exemples d’aplicació quotidiana en experiments reals.</p>
+<p>En altres casos, quan existeix dificultat per resoldre el càlcul dels errors amb la veritable distribució de l’estadístic, es recorre a les propietats en el límit de les distribucions. Un recurs habitual és aplicar el teorema central del límit si la distribució de l’estadístic tendeix a una Normal. En aquest segon cas, el test obtingut només serà vàlid per a valors grans de <span class="math inline">\(N\)</span>, i llavors es denomina prova asimptòtica. Els exemples més coneguts són les diferents proves de Khi-quadrat.</p>
+<section id="cas-1-test-asimptòtic" class="level3" data-number="19.1">
+<h3 data-number="19.1" class="anchored" data-anchor-id="cas-1-test-asimptòtic"><span class="header-section-number">19.1</span> Cas 1: Test asimptòtic</h3>
+<p>Fins al moment ens hem basat per resoldre els contrastos en la distribució exacta de l’estadístic <span class="math inline">\(T=\)</span> nombre de femelles en deu nius, que és una Binomial <span class="math inline">\(\mathrm{B}(\mathrm{n}, \mathrm{p}\)</span> ), amb <span class="math inline">\(n\)</span> <span class="math inline">\(=10 \mathrm{i} \mathrm{p}\)</span> desconeguda. La distribució exacta de T ens permet calcular p-valors, potències, etc. per qualsevol grandària de mostra <span class="math inline">\(n\)</span>. No obstant això, els càlculs amb la distribució Binomial es poden aproximar mitjançant la distribució Normal a partir de mides de mostra de trenta o majors. La distribució asimptòtica de <span class="math inline">\(T\)</span> és:</p>
+<p><span class="math display">\[
+T \approx N(n p, \sqrt{n p(1-p)})
+\]</span></p>
+<p>Per exemple, si es pretén contrastar:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H_{0}: p=0.5 \\
+&amp; H_{1}: p \neq 0.5
+\end{aligned}
+\]</span></p>
+<p>amb <span class="math inline">\(n=36\)</span>, sota <span class="math inline">\(\mathrm{H}_{0} T\)</span> serà aproximadament <span class="math inline">\(\operatorname{Normal} \mathrm{N}(18,3)\)</span>. En el document interactiu es presenta un quadre on podem comprovar les diferències entre el p-valor exacte i el pvalor segons la distribució asimptòtica per diferents <span class="math inline">\(n\)</span> i diferents valors de T. Per exemple, per a <span class="math inline">\(n=36\)</span> i 28 femelles les diferències són:</p>
+<p><span class="math display">\[
+\mathrm{p}_{\mathrm{v}} \text { exacte }-\mathrm{p}_{\mathrm{v}} \text { asimptòtic }=0.00119-0.00085&lt;0.004
+\]</span></p>
+<p>Quin interès té aleshores la distribució asimptòtica, si coneixem l’exacta? L’avantatge se situa en el terreny del càlcul: la distribució Normal és més fàcil de fer servir computacionalment tant si s’avalua mitjançant taules (i calculadora) com si s’avalua amb l’ordinador. En canvi, la fórmula de la densitat Binomial comporta dificultats operatives amb els factorials quan <span class="math inline">\(n&gt;30\)</span>.</p>
+</section>
+<section id="cas-2-test-exacte" class="level3" data-number="19.2">
+<h3 data-number="19.2" class="anchored" data-anchor-id="cas-2-test-exacte"><span class="header-section-number">19.2</span> Cas 2: Test exacte</h3>
+<p>Ja s’ha analitzat anteriorment amb detall la distribució de la mitjana de <span class="math inline">\(n\)</span> atletes quan la variable observada és una Normal. En resum, la densitat obtinguda és una Normal de paràmetres:</p>
+<p><span class="math display">\[
+\bar{X}_{n} \approx N(\mu, 2.4 / \sqrt{n})
+\]</span></p>
+<p>Per tant, mitjançant aquesta distribució exacta de l’estadístic per a qualsevol grandària de la mostra, es pot plantejar sense la necessitat d’aproximar a cap altra distribució el càlcul del p-valor, de la potència, etc.</p>
+</section>
+</section>
+<section id="relació-amb-els-intervals-de-confiança" class="level2" data-number="20">
+<h2 data-number="20" class="anchored" data-anchor-id="relació-amb-els-intervals-de-confiança"><span class="header-section-number">20</span> Relació amb els intervals de confiança</h2>
+<p>Els contrastos d’hipòtesis estan molt relacionats amb la teoria dels intervals de confiança. En molts casos es pot resoldre la mateixa qüestió aplicada formulant-la per qualsevol de les dues vies. Per exemple, el contrast:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta \neq \theta_{0}
+\]</span></p>
+<p>es pot resoldre plantejant l’interval de confiança per <span class="math inline">\(\theta\)</span>, amb coeficient de confiança <span class="math inline">\(1-\)</span> <span class="math inline">\(\alpha\)</span>. Suposem que l’interval obtingut és <span class="math inline">\([\mathrm{a} ; \mathrm{b}]\)</span>. Aleshores, si:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \text { si } \theta_{0} \in[\mathrm{a} ; \mathrm{b}] \text { acceptar } \mathrm{H}_{0} \\
+&amp; \text { si } \theta_{0} \notin[\mathrm{a} ; \mathrm{b}] \text { acceptar } \mathrm{H}_{1}
+\end{aligned}
+\]</span></p>
+<p>Aquest contrast tindrà com a nivell de significació <span class="math inline">\(\alpha\)</span>. És possible proporcionar fins i tot el p-valor si s’ajusta l’amplada de l’interval perquè sigui el més ample possible i al mateix temps exclogui <span class="math inline">\(\theta_{0}\)</span>.</p>
+<p>Inversament, és possible utilitzar la regió crítica d’un contrast per a proporcionar una estimació per interval del paràmetre. Els contrastos bilaterals corresponen a intervals també bilaterals centrats, mentre que els contrastos unilaterals drets corresponen a estimacions unilaterals per excés i els unilaterals esquerres, a estimacions per defecte.</p>
+<section id="cas-2-relació-amb-els-intervals-de-confiança" class="level3" data-number="20.1">
+<h3 data-number="20.1" class="anchored" data-anchor-id="cas-2-relació-amb-els-intervals-de-confiança"><span class="header-section-number">20.1</span> Cas 2: Relació amb els intervals de confiança</h3>
+<p>En el tema anterior s’ha estudiat l’interval de confiança per a la mitjana d’una distribució Normal. Continuant amb les premisses que s’han seguit fins ara en el cas de l’statdrolona, haurem de considerar l’interval per a la mesura quan la variància és coneguda.</p>
+<p><span class="math display">\[
+\bar{X}_{16}-z_{\alpha / 2} \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X}_{16}+z_{\alpha / 2} \frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p>Si prenem com a nivell de confiança <span class="math inline">\(1-\alpha=0.95\)</span>, amb les dades obtingudes resulta:</p>
+<p><span class="math display">\[
+8.54-1.959 \frac{2.4}{\sqrt{16}} \leq \mu \leq 8.54+1.959 \frac{2.4}{\sqrt{16}}
+\]</span></p>
+<p>És a dir, s’obté l’interval <span class="math inline">\([\mathbf{7 , 3 6 4 6}\)</span>; 9,7154]. Atenent que la mitjana sota la hipòtesi nul <span class="math inline">\(\cdot\)</span> la és <span class="math inline">\(\mu=7\)</span>, i que no està inclosa en l’interval anterior, es rebutja la hipòtesi nul•la: la mitjana és significativament diferent de 7. És la mateixa conclusió que la que hem obtingut en el contrast bilateral anterior. A més, atès que s’ha calculat un interval bilateral, la hipòtesi alternativa corresponent a aquest interval és també bilateral.</p>
+</section>
+</section>
+<section id="grandàries-de-mostra.-diferència-mínima-significativa" class="level2" data-number="21">
+<h2 data-number="21" class="anchored" data-anchor-id="grandàries-de-mostra.-diferència-mínima-significativa"><span class="header-section-number">21</span> Grandàries de mostra. Diferència mínima significativa</h2>
+<p>Una de les preguntes més freqüents en estadística aplicada es refereix a quina és la grandària mostral més adient. En primer lloc, si la prova és asimptòtica, <span class="math inline">\(N\)</span> ha de ser suficientment gran perquè la distribució de l’estadístic sota la hipòtesi nul•la estigui ben aproximada. En el cas de les aproximacions normals, valors <span class="math inline">\(N \geq 30\)</span> són usualment acceptats. Aquesta consideració no s’aplica si la prova és exacta.</p>
+<p>El segon aspecte que cal considerar es refereix a la potència desitjada en el contrast. Però la potència varia en funció del paràmetre en els contrastos amb alternativa composta, així que, per formular correctament el problema, l’experimentador ha de proporcionar una quantitat addicional: la diferència mínima significativa <span class="math inline">\(\Delta\)</span>.</p>
+<p>Per abreujar, es detalla ara només el contrast <span class="math inline">\(\mathrm{H}_{0}: \theta=\theta_{0}\)</span> contra <span class="math inline">\(\mathrm{H}_{0}: \theta \neq \theta_{0}\)</span>, però la base conceptual és semblant per a les alternatives unilaterals.</p>
+<p>El significat de <span class="math inline">\(\Delta\)</span> és aleshores el següent: l’experimentador considera que no és important en la pràctica equivocar-se acceptant la hipòtesi nul la (és a dir, cometre un error de tipus II) en el rang d’alternatives situades en l’interval <span class="math inline">\(\left(\theta_{0}-\Delta ; \theta_{0}+\Delta\right)\)</span>. En canvi, <span class="math inline">\(\theta_{0} \pm \Delta\)</span> són els dos primers punts, a mesura que <span class="math inline">\(\theta\)</span> s’allunya de la hipòtesi nul <span class="math inline">\(\cdot\)</span> la, que l’experimentador considera important diferenciar de <span class="math inline">\(\theta_{0}\)</span>. És justament en aquests dos punts on s’ajusta la grandària de la mostra per garantir la potència desitjada. Lògicament, la potència serà encara més alta si l’alternativa finalment certa està encara a major distància que <span class="math inline">\(\Delta\)</span>.</p>
+<p>L’elecció concreta del valor de <span class="math inline">\(\Delta\)</span> depèn de cada situació aplicada, però en qualsevol cas és una quantitat escollida per l’experimentador, no dictada per una regla estadística.</p>
+<p>Una vegada escollit <span class="math inline">\(\Delta\)</span> i la potència desitjada en aquest punt, és possible indicar quina és la grandària mínima de la mostra per resoldre adequadament el problema. En alguns casos requerirà un experiment pilot abans de procedir amb l’experiment definitiu.</p>
+<section id="cas-2-càlcul-de-la-grandària-de-la-mostra" class="level3" data-number="21.1">
+<h3 data-number="21.1" class="anchored" data-anchor-id="cas-2-càlcul-de-la-grandària-de-la-mostra"><span class="header-section-number">21.1</span> Cas 2: Càlcul de la grandària de la mostra</h3>
+<p>L’estadístic de test d’aquest cas (la mitjana dels atletes) té una distribució exacta coneguda per a tot <span class="math inline">\(n\)</span> que s’ha descrit anteriorment. Per tant aquí l’experimentador ha de triar la mínima diferència significativa ( <span class="math inline">\(\boldsymbol{\Delta}\)</span> ) i la potència ( <span class="math inline">\(\boldsymbol{\beta}\)</span> ) per determinar la grandària de la mostra adequada. Suposem que es vol fer el contrast bilateral:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu=7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq 7
+\]</span></p>
+<p>amb les condicions següents de l’experiment fixades:</p>
+<p><span class="math display">\[
+\alpha=5 \% \quad \beta=90 \% \quad \Delta=0.8 \mathrm{ng} / \mathrm{ml}
+\]</span></p>
+<p>Dit d’una altra manera, es pretén obtenir una potència del <span class="math inline">\(90 \%\)</span> en els punts:</p>
+<p><span class="math display">\[
+\mu_{0}-\Delta=6.2 \quad \mu_{0}+\Delta=7.8
+\]</span></p>
+<p>Aquests són els dos primers valors (menor i major que <span class="math inline">\(\mu_{0}=7\)</span>, respectivament) que l’experimentador no vol que es confonguin amb <span class="math inline">\(\mathrm{H}_{0}\)</span>, excepte amb un error del <span class="math inline">\(10 \%\)</span>. Per tant, s’ha d’ailllar el valor de <span class="math inline">\(n\)</span> que compleixi les condicions següents simultàniament:</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}
+p\left(\left|\bar{X}_{n}-\mu\right| \sqrt{n} / \sigma \geq z_{\alpha / 2} / \mathrm{H}_{0}\right)=\alpha \\
+p\left(\left|\bar{X}_{n}-\mu\right| \sqrt{n} / \sigma \geq z_{\alpha / 2} / \mathrm{H}_{1 \Delta}\right)=\beta
+\end{array}\right.
+\]</span></p>
+<p><span class="math inline">\(\mathrm{H}_{1 \Delta}\)</span> correspon a la hipòtesi simple <span class="math inline">\(\mu=\mu_{0}+\Delta\)</span> (7.8 en l’exemple). Atenent a la distribució de la mitjana de <span class="math inline">\(n\)</span> atletes sota cadascuna de les hipòtesis, l’única incògnita és <span class="math inline">\(n\)</span>. Les constants <span class="math inline">\(z_{\alpha / 2}\)</span> i <span class="math inline">\(z_{1-\beta}\)</span> corresponen a les cues dretes següents de la variable aleatòria Normal tipificada Z:</p>
+<p><span class="math display">\[
+p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\right)=1-\beta
+\]</span></p>
+<p>Quan es resol el sistema d’equacions anterior en resulta la fórmula que proporciona la grandària desitjada:</p>
+<p><span class="math display">\[
+n=\left\{\frac{\sigma\left(z_{1-\beta}+z_{\alpha / 2}\right)}{\Delta}\right\}^{2}
+\]</span></p>
+<p>Substituint pels valors concrets de l’exemple:</p>
+<p><span class="math display">\[
+n=\{2,4(1.645+1.960) / 0.8\}^{2}=116.964
+\]</span></p>
+<p>Arrodonint, la grandària ha de ser de 117 atletes. En el quadre següent es mostra la grandària de la mostra en funció de la diferència mínima significativa desitjada, juntament amb altres paràmetres que afecten el problema: <img src="https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-41.jpg?height=584&amp;width=838&amp;top_left_y=245&amp;top_left_x=615" class="img-fluid"></p>
+<p>Per als valors extrems de <span class="math inline">\(\alpha(0)\)</span> i de <span class="math inline">\(\beta\)</span> (1), el valor de la grandària de la mostra es fa infinit i no es pot representar en el quadre anterior.</p>
+</section>
+</section>
+<section id="esquema-dun-contrast-correctament-plantejat" class="level2" data-number="22">
+<h2 data-number="22" class="anchored" data-anchor-id="esquema-dun-contrast-correctament-plantejat"><span class="header-section-number">22</span> Esquema d’un contrast correctament plantejat</h2>
+<p>Els conceptes exposats fins aquí són essencials per entendre què és un contrast estadístic d’hipòtesis i poder aplicar correctament els diferents tests que es detallen en pròxims capítols. En la pràctica, i per la tranquil•litat de l’experimentador, normalment només s’ha de preocupar d’identificar el problema que ha de resoldre (contrast sobre una, dues o més poblacions), la família de distribució i finalment aplicar tests ja deduïts, alguns ja gairebé centenàriament. Ara bé, l’experimentador ha d’escollir les tres quantitats següents:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">1) nivell de significació <span class="math inline">\(\boldsymbol{\alpha}\)</span></th>
+<th style="text-align: left;">Si no es té un criteri definit, s’utilitzarà l’estàndard <span class="math inline">\(\alpha=\)</span> <br> 0.05.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2) diferència mínima <br> significativa <span class="math inline">\(\Delta\)</span></td>
+<td style="text-align: left;">Escollida sobre la base de l’experiència en el camp <br> concret d’aplicació.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3) potència desitjada en el <br> punt a distància <span class="math inline">\(\Delta\)</span></td>
+<td style="text-align: left;">Si no es té un criteri definit, s’ha de prendre <span class="math inline">\(\beta=0.8\)</span> per <br> a <span class="math inline">\(\alpha=0.05\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<p>Amb aquestes tres quantitats es podrà deduir usualment la grandària de mostra necessària, que completaria el disseny essencial del test. La informació final del resultat del contrast ha d’indicar aquestes tres quantitats juntament amb el p-valor obtingut. Resulta molt aconsellable acompanyar el test amb l’interval de confiança equivalent, que pot orientar sobre la significació aplicada (no estadística) del contrast.</p>
+</section>
+<section id="significació-estadística-i-significació-aplicada" class="level2" data-number="23">
+<h2 data-number="23" class="anchored" data-anchor-id="significació-estadística-i-significació-aplicada"><span class="header-section-number">23</span> Significació estadística i significació aplicada</h2>
+<p>Al final d’aquest tema resulta convenient distingir entre significació estadística i significació aplicada. Quan es resol un contrast d’hipòtesis s’indica que hi ha significació estadística (S.E.) com a sinònim d’acceptació de la hipòtesi alternativa. Al llarg d’aquest tema s’ha vist, en síntesi, que la S.E. es produeix quan les dades obtingudes en l’experiment real i la hipòtesi nul•la presenten una discrepància que no és atribuïble a l’atzar, excepte en el percentatge de casos marcat pel nivell de significació escollit.</p>
+<p>Usualment, el límit entre la S.E. i la no-significació (que tècnicament correspon a la frontera de la regió crítica) depèn de la variabilitat de l’estadístic de test utilitzat. Aquí intervé doncs de manera directa la grandària de la mostra <span class="math inline">\(N\)</span> i la variància de l’estadístic, com també s’ha vist en els dos casos presentats.</p>
+<p>En determinades situacions, la variabilitat de l’estadístic és molt petita, de manera que el contrast és molt sensible a desviacions petites de la hipòtesi nul lla. Pot succeir aleshores que, quan s’obtenen les dades, el contrast assenyali que hi ha S.E., però que la desviació respecte a la hipòtesi nul•la sigui irrellevant des del punt de vista pràctic. La conclusió és que convé analitzar aquesta significació aplicada (S.A.) quan es fa un contrast d’hipòtesis. En molts casos, la manera més senzilla és obtenir l’interval de confiança adequat i interpretar la informació del contrast juntament amb la de l’interval.</p>
+<p>En resum, quan s’aplica un contrast qualsevol no ens hem de conformar amb la simple lectura del p-valor i decidir en correspondència, sinó que:</p>
+<ul>
+<li>si s’ha detectat S.E., cal valorar la S.A., per exemple, mitjançant un interval de confiança. Pot ser que hi hagi S.E. però que no hi hagi S.A.</li>
+<li>si no s’ha detectat S.E., cal valorar si la grandària de la mostra és suficient per detectar (estadísticament) les diferències desitjades per l’experimentador. Pot ser que no hi hagi S.E. per una mida inadequada de la mostra i, per tant, no es podria concloure sobre la S.A. Si la grandària de la mostra és suficient i no hi ha S.E., aleshores tampoc no hi ha S.A.</li>
+</ul>
+<section id="cas-2-significació-estadística-i-aplicada" class="level3" data-number="23.1">
+<h3 data-number="23.1" class="anchored" data-anchor-id="cas-2-significació-estadística-i-aplicada"><span class="header-section-number">23.1</span> Cas 2: Significació estadística i aplicada</h3>
+<p>Amb les dades realment obtingudes en l’estudi, i la hipòtesi:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu=7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq 7
+\]</span></p>
+<p>ja hem vist que la conclusió, per a <span class="math inline">\(\alpha=0.05\)</span>, era indicar que hi ha significació estadística.</p>
+<p>Suposem que els fisiòlegs accepten que les diferències en el nivell d’hormona són rellevants quan hi ha més de <span class="math inline">\(0.2 \mathrm{ng} / \mathrm{ml}\)</span> de diferència en la mitjana de la població. L’interval bilateral en la mostra anterior és: i permet afirmar que també hi ha significació aplicada. Suposem que la població tingués una desviació estàndard de <span class="math inline">\(0.1 \mathrm{ng} / \mathrm{ml}\)</span> (en lloc de la 2.4 plantejada fins ara), i s’hagués obtingut una mitjana igual a 7.13. El contrast d’hipòtesis detectaria aleshores igualment que hi ha S.E., però en canvi quan s’observa l’interval de confiança:</p>
+<p>S’hauria de concloure que no hi ha S.A. En aquest segon cas, la variància tan petita permet que el contrast sigui molt sensible a petites variacions de la mitjana. La S.E. en aquest últim exemple no resulta rellevant en la pràctica.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

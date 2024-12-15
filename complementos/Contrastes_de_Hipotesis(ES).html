@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.47">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex Sanchez-Pla y Grupo Statmedia">
+<meta name="dcterms.date" content="2024-12-15">
+
+<title>Contrastes de Hipótesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Contrastes_de_Hipotesis(ES)_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Contrastes_de_Hipotesis(ES)_files/libs/quarto-html/quarto.js"></script>
+<script src="Contrastes_de_Hipotesis(ES)_files/libs/quarto-html/popper.min.js"></script>
+<script src="Contrastes_de_Hipotesis(ES)_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Contrastes_de_Hipotesis(ES)_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Contrastes_de_Hipotesis(ES)_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Contrastes_de_Hipotesis(ES)_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Contrastes_de_Hipotesis(ES)_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Contrastes_de_Hipotesis(ES)_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Contrastes_de_Hipotesis(ES)_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a>
+  <ul class="collapse">
+  <li><a href="#de-las-hipótesis-científicas-a-las-hipótesis-estadísticas" id="toc-de-las-hipótesis-científicas-a-las-hipótesis-estadísticas" class="nav-link" data-scroll-target="#de-las-hipótesis-científicas-a-las-hipótesis-estadísticas"><span class="header-section-number">1.1</span> De las hipótesis científicas a las hipótesis estadísticas</a></li>
+  <li><a href="#del-lenguaje-natural-a-la-hipótesis-estadística" id="toc-del-lenguaje-natural-a-la-hipótesis-estadística" class="nav-link" data-scroll-target="#del-lenguaje-natural-a-la-hipótesis-estadística"><span class="header-section-number">1.2</span> Del lenguaje natural a la hipótesis estadística</a></li>
+  <li><a href="#caso-1-presentación" id="toc-caso-1-presentación" class="nav-link" data-scroll-target="#caso-1-presentación"><span class="header-section-number">1.3</span> Caso 1: Presentación</a></li>
+  <li><a href="#caso-1-modelo-de-probabilidad" id="toc-caso-1-modelo-de-probabilidad" class="nav-link" data-scroll-target="#caso-1-modelo-de-probabilidad"><span class="header-section-number">1.4</span> Caso 1: Modelo de probabilidad</a></li>
+  <li><a href="#caso-2-presentación" id="toc-caso-2-presentación" class="nav-link" data-scroll-target="#caso-2-presentación"><span class="header-section-number">1.5</span> Caso 2: Presentación</a></li>
+  <li><a href="#caso-2-modelo-de-probabilidad" id="toc-caso-2-modelo-de-probabilidad" class="nav-link" data-scroll-target="#caso-2-modelo-de-probabilidad"><span class="header-section-number">1.6</span> Caso 2: Modelo de probabilidad</a></li>
+  </ul></li>
+  <li><a href="#las-hipótesis-del-contraste-de-hipótesis" id="toc-las-hipótesis-del-contraste-de-hipótesis" class="nav-link" data-scroll-target="#las-hipótesis-del-contraste-de-hipótesis"><span class="header-section-number">2</span> Las hipótesis del contraste de hipótesis</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-hipótesis-para-dirimir-la-controversia-sobre-el-número-de-hembras" id="toc-caso-1-hipótesis-para-dirimir-la-controversia-sobre-el-número-de-hembras" class="nav-link" data-scroll-target="#caso-1-hipótesis-para-dirimir-la-controversia-sobre-el-número-de-hembras"><span class="header-section-number">2.1</span> Caso 1: Hipótesis para dirimir la controversia sobre el número de hembras</a></li>
+  <li><a href="#caso-2-hipótesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona" id="toc-caso-2-hipótesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona" class="nav-link" data-scroll-target="#caso-2-hipótesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona"><span class="header-section-number">2.2</span> Caso 2: Hipótesis a contrastar en el problema de la tasa de statdrolona</a></li>
+  </ul></li>
+  <li><a href="#compatibilidad-de-resultados-e-hipótesis" id="toc-compatibilidad-de-resultados-e-hipótesis" class="nav-link" data-scroll-target="#compatibilidad-de-resultados-e-hipótesis"><span class="header-section-number">3</span> Compatibilidad de resultados e hipótesis</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-compatibilidad-de-resultados-e-hipótesis" id="toc-caso-1-compatibilidad-de-resultados-e-hipótesis" class="nav-link" data-scroll-target="#caso-1-compatibilidad-de-resultados-e-hipótesis"><span class="header-section-number">3.1</span> Caso 1: Compatibilidad de resultados e hipótesis</a></li>
+  <li><a href="#caso-2-compatibilidad-de-resultados-e-hipótesis" id="toc-caso-2-compatibilidad-de-resultados-e-hipótesis" class="nav-link" data-scroll-target="#caso-2-compatibilidad-de-resultados-e-hipótesis"><span class="header-section-number">3.2</span> Caso 2: Compatibilidad de resultados e hipótesis</a></li>
+  </ul></li>
+  <li><a href="#no-todo-es-igualmente-probable" id="toc-no-todo-es-igualmente-probable" class="nav-link" data-scroll-target="#no-todo-es-igualmente-probable"><span class="header-section-number">4</span> No todo es igualmente probable…</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-una-región-con-n.º-de-hembras-con-baja-probabilidad-bajo-mathrmh_0" id="toc-caso-1-una-región-con-n.º-de-hembras-con-baja-probabilidad-bajo-mathrmh_0" class="nav-link" data-scroll-target="#caso-1-una-región-con-n.º-de-hembras-con-baja-probabilidad-bajo-mathrmh_0"><span class="header-section-number">4.1</span> Caso 1: Una región con n.º de hembras con baja probabilidad bajo <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+  <li><a href="#caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0" id="toc-caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0" class="nav-link" data-scroll-target="#caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0"><span class="header-section-number">4.2</span> Caso 2: Medias de las tasas de statdrolona improbables si se cumple <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+  </ul></li>
+  <li><a href="#el-papel-privilegiado-de-la-hipótesis-nula-criterio-de-decisión" id="toc-el-papel-privilegiado-de-la-hipótesis-nula-criterio-de-decisión" class="nav-link" data-scroll-target="#el-papel-privilegiado-de-la-hipótesis-nula-criterio-de-decisión"><span class="header-section-number">5</span> El papel privilegiado de la hipótesis nula: criterio de decisión</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-n.º-de-nidos-propuestos-ad-hoc-como-inicio-de-región-crítica.-regla-de-decisión-resultante" id="toc-caso-1-n.º-de-nidos-propuestos-ad-hoc-como-inicio-de-región-crítica.-regla-de-decisión-resultante" class="nav-link" data-scroll-target="#caso-1-n.º-de-nidos-propuestos-ad-hoc-como-inicio-de-región-crítica.-regla-de-decisión-resultante"><span class="header-section-number">5.1</span> Caso 1: N.º de nidos propuestos ad hoc como inicio de región crítica. Regla de decisión resultante</a></li>
+  </ul></li>
+  <li><a href="#hipótesis-nula-y-nivel-de-significación" id="toc-hipótesis-nula-y-nivel-de-significación" class="nav-link" data-scroll-target="#hipótesis-nula-y-nivel-de-significación"><span class="header-section-number">6</span> Hipótesis nula y nivel de significación</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-nivel-de-significación" id="toc-caso-1-nivel-de-significación" class="nav-link" data-scroll-target="#caso-1-nivel-de-significación"><span class="header-section-number">6.1</span> Caso 1: Nivel de significación</a></li>
+  <li><a href="#caso-1-elección-de-la-región-crítica" id="toc-caso-1-elección-de-la-región-crítica" class="nav-link" data-scroll-target="#caso-1-elección-de-la-región-crítica"><span class="header-section-number">6.2</span> Caso 1: Elección de la región crítica</a></li>
+  <li><a href="#caso-2-elección-de-la-región-crítica" id="toc-caso-2-elección-de-la-región-crítica" class="nav-link" data-scroll-target="#caso-2-elección-de-la-región-crítica"><span class="header-section-number">6.3</span> Caso 2: Elección de la región crítica</a></li>
+  </ul></li>
+  <li><a href="#región-crítica-y-formalización-del-contraste" id="toc-región-crítica-y-formalización-del-contraste" class="nav-link" data-scroll-target="#región-crítica-y-formalización-del-contraste"><span class="header-section-number">7</span> Región crítica y formalización del contraste</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-resumen-de-conceptos-asociados-al-contraste.-región-crítica" id="toc-caso-1-resumen-de-conceptos-asociados-al-contraste.-región-crítica" class="nav-link" data-scroll-target="#caso-1-resumen-de-conceptos-asociados-al-contraste.-región-crítica"><span class="header-section-number">7.1</span> Caso 1: Resumen de conceptos asociados al contraste. Región crítica</a></li>
+  <li><a href="#caso-2-tabla-resumen-de-la-región-crítica-el-estadístico-de-test-y-del-criterio-de-decisión" id="toc-caso-2-tabla-resumen-de-la-región-crítica-el-estadístico-de-test-y-del-criterio-de-decisión" class="nav-link" data-scroll-target="#caso-2-tabla-resumen-de-la-región-crítica-el-estadístico-de-test-y-del-criterio-de-decisión"><span class="header-section-number">7.2</span> Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión</a></li>
+  </ul></li>
+  <li><a href="#tabla-de-decisión-del-contraste" id="toc-tabla-de-decisión-del-contraste" class="nav-link" data-scroll-target="#tabla-de-decisión-del-contraste"><span class="header-section-number">8</span> Tabla de decisión del contraste</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-evaluación-de-los-dos-errores-asociados-al-contraste" id="toc-caso-1-evaluación-de-los-dos-errores-asociados-al-contraste" class="nav-link" data-scroll-target="#caso-1-evaluación-de-los-dos-errores-asociados-al-contraste"><span class="header-section-number">8.1</span> Caso 1: Evaluación de los dos errores asociados al contraste</a></li>
+  <li><a href="#caso-2-cálculo-explícito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta" id="toc-caso-2-cálculo-explícito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta" class="nav-link" data-scroll-target="#caso-2-cálculo-explícito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><span class="header-section-number">8.2</span> Caso 2: Cálculo explícito de los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+  </ul></li>
+  <li><a href="#relación-entre-el-error-de-tipo-i-y-el-de-tipo-ii" id="toc-relación-entre-el-error-de-tipo-i-y-el-de-tipo-ii" class="nav-link" data-scroll-target="#relación-entre-el-error-de-tipo-i-y-el-de-tipo-ii"><span class="header-section-number">9</span> Relación entre el error de tipo I y el de tipo II</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-evaluación-de-alpha-y-1--beta-para-diferentes-regiones-críticas" id="toc-caso-1-evaluación-de-alpha-y-1--beta-para-diferentes-regiones-críticas" class="nav-link" data-scroll-target="#caso-1-evaluación-de-alpha-y-1--beta-para-diferentes-regiones-críticas"><span class="header-section-number">9.1</span> Caso 1: Evaluación de <span class="math inline">\(\alpha\)</span> y 1- <span class="math inline">\(\beta\)</span> para diferentes regiones críticas</a></li>
+  <li><a href="#caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta" id="toc-caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta" class="nav-link" data-scroll-target="#caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><span class="header-section-number">9.2</span> Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+  </ul></li>
+  <li><a href="#potencia-y-test-más-potente" id="toc-potencia-y-test-más-potente" class="nav-link" data-scroll-target="#potencia-y-test-más-potente"><span class="header-section-number">10</span> Potencia y test más potente</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-potencia-en-hipótesis-simple-vs-simple" id="toc-caso-1-potencia-en-hipótesis-simple-vs-simple" class="nav-link" data-scroll-target="#caso-1-potencia-en-hipótesis-simple-vs-simple"><span class="header-section-number">10.1</span> Caso 1: Potencia en hipótesis simple vs simple</a></li>
+  <li><a href="#caso-2-potencia-en-hipótesis-simple-vs-simple" id="toc-caso-2-potencia-en-hipótesis-simple-vs-simple" class="nav-link" data-scroll-target="#caso-2-potencia-en-hipótesis-simple-vs-simple"><span class="header-section-number">10.2</span> Caso 2: Potencia en hipótesis simple vs simple</a></li>
+  </ul></li>
+  <li><a href="#efecto-del-tamaño-muestral" id="toc-efecto-del-tamaño-muestral" class="nav-link" data-scroll-target="#efecto-del-tamaño-muestral"><span class="header-section-number">11</span> Efecto del tamaño muestral</a>
+  <ul class="collapse">
+  <li><a href="#caso-1" id="toc-caso-1" class="nav-link" data-scroll-target="#caso-1"><span class="header-section-number">11.1</span> Caso 1</a></li>
+  <li><a href="#caso-2" id="toc-caso-2" class="nav-link" data-scroll-target="#caso-2"><span class="header-section-number">11.2</span> Caso 2</a></li>
+  </ul></li>
+  <li><a href="#hipótesis-simples-vs.-hipótesis-compuestas" id="toc-hipótesis-simples-vs.-hipótesis-compuestas" class="nav-link" data-scroll-target="#hipótesis-simples-vs.-hipótesis-compuestas"><span class="header-section-number">12</span> Hipótesis simples vs.&nbsp;hipótesis compuestas</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-hipótesis-compuestas" id="toc-caso-1-hipótesis-compuestas" class="nav-link" data-scroll-target="#caso-1-hipótesis-compuestas"><span class="header-section-number">12.1</span> Caso 1: Hipótesis compuestas</a></li>
+  <li><a href="#caso-2-hipótesis-compuestas" id="toc-caso-2-hipótesis-compuestas" class="nav-link" data-scroll-target="#caso-2-hipótesis-compuestas"><span class="header-section-number">12.2</span> Caso 2: Hipótesis compuestas</a></li>
+  </ul></li>
+  <li><a href="#función-de-potencia" id="toc-función-de-potencia" class="nav-link" data-scroll-target="#función-de-potencia"><span class="header-section-number">13</span> Función de potencia</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-función-de-potencia" id="toc-caso-1-función-de-potencia" class="nav-link" data-scroll-target="#caso-1-función-de-potencia"><span class="header-section-number">13.1</span> Caso 1: Función de potencia</a></li>
+  <li><a href="#caso-2-función-de-potencia" id="toc-caso-2-función-de-potencia" class="nav-link" data-scroll-target="#caso-2-función-de-potencia"><span class="header-section-number">13.2</span> Caso 2: Función de potencia</a></li>
+  </ul></li>
+  <li><a href="#tests-óptimos" id="toc-tests-óptimos" class="nav-link" data-scroll-target="#tests-óptimos"><span class="header-section-number">14</span> Tests óptimos</a></li>
+  <li><a href="#pruebas-bilaterales-y-pruebas-unilaterales" id="toc-pruebas-bilaterales-y-pruebas-unilaterales" class="nav-link" data-scroll-target="#pruebas-bilaterales-y-pruebas-unilaterales"><span class="header-section-number">15</span> Pruebas bilaterales y pruebas unilaterales</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-prueba-unilateral" id="toc-caso-1-prueba-unilateral" class="nav-link" data-scroll-target="#caso-1-prueba-unilateral"><span class="header-section-number">15.1</span> Caso 1: Prueba unilateral</a></li>
+  <li><a href="#caso-2-prueba-unilateral" id="toc-caso-2-prueba-unilateral" class="nav-link" data-scroll-target="#caso-2-prueba-unilateral"><span class="header-section-number">15.2</span> Caso 2: Prueba unilateral</a></li>
+  </ul></li>
+  <li><a href="#elección-del-nivel-de-significación" id="toc-elección-del-nivel-de-significación" class="nav-link" data-scroll-target="#elección-del-nivel-de-significación"><span class="header-section-number">16</span> Elección del nivel de significación</a></li>
+  <li><a href="#el-p-valor" id="toc-el-p-valor" class="nav-link" data-scroll-target="#el-p-valor"><span class="header-section-number">17</span> El p-valor</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-cálculo-del-p-valor-prueba-unilateral" id="toc-caso-1-cálculo-del-p-valor-prueba-unilateral" class="nav-link" data-scroll-target="#caso-1-cálculo-del-p-valor-prueba-unilateral"><span class="header-section-number">17.1</span> Caso 1: Cálculo del p-valor (prueba unilateral)</a></li>
+  <li><a href="#caso-2-cálculo-del-p-valor-prueba-unilateral" id="toc-caso-2-cálculo-del-p-valor-prueba-unilateral" class="nav-link" data-scroll-target="#caso-2-cálculo-del-p-valor-prueba-unilateral"><span class="header-section-number">17.2</span> Caso 2: Cálculo del p-valor (prueba unilateral)</a></li>
+  <li><a href="#caso-2-cálculo-del-p-valor-prueba-bilateral" id="toc-caso-2-cálculo-del-p-valor-prueba-bilateral" class="nav-link" data-scroll-target="#caso-2-cálculo-del-p-valor-prueba-bilateral"><span class="header-section-number">17.3</span> Caso 2: Cálculo del p-valor (prueba bilateral)</a></li>
+  </ul></li>
+  <li><a href="#pruebas-exactas-y-pruebas-asintóticas" id="toc-pruebas-exactas-y-pruebas-asintóticas" class="nav-link" data-scroll-target="#pruebas-exactas-y-pruebas-asintóticas"><span class="header-section-number">18</span> Pruebas exactas y pruebas asintóticas</a>
+  <ul class="collapse">
+  <li><a href="#caso-1-test-asintótico" id="toc-caso-1-test-asintótico" class="nav-link" data-scroll-target="#caso-1-test-asintótico"><span class="header-section-number">18.1</span> Caso 1: Test asintótico</a></li>
+  <li><a href="#caso-2-test-exacto" id="toc-caso-2-test-exacto" class="nav-link" data-scroll-target="#caso-2-test-exacto"><span class="header-section-number">18.2</span> Caso 2: Test exacto</a></li>
+  </ul></li>
+  <li><a href="#relación-con-los-intervalos-de-confianza" id="toc-relación-con-los-intervalos-de-confianza" class="nav-link" data-scroll-target="#relación-con-los-intervalos-de-confianza"><span class="header-section-number">19</span> Relación con los intervalos de confianza</a>
+  <ul class="collapse">
+  <li><a href="#caso-2-relación-con-los-intervalos-de-confianza" id="toc-caso-2-relación-con-los-intervalos-de-confianza" class="nav-link" data-scroll-target="#caso-2-relación-con-los-intervalos-de-confianza"><span class="header-section-number">19.1</span> Caso 2: Relación con los intervalos de confianza</a></li>
+  </ul></li>
+  <li><a href="#tamaños-de-muestra.-diferencia-mínima-significativa" id="toc-tamaños-de-muestra.-diferencia-mínima-significativa" class="nav-link" data-scroll-target="#tamaños-de-muestra.-diferencia-mínima-significativa"><span class="header-section-number">20</span> Tamaños de muestra. Diferencia mínima significativa</a>
+  <ul class="collapse">
+  <li><a href="#caso-2-cálculo-del-tamaño-de-la-muestra" id="toc-caso-2-cálculo-del-tamaño-de-la-muestra" class="nav-link" data-scroll-target="#caso-2-cálculo-del-tamaño-de-la-muestra"><span class="header-section-number">20.1</span> Caso 2: Cálculo del tamaño de la muestra</a></li>
+  </ul></li>
+  <li><a href="#esquema-de-un-contraste-correctamente-planteado" id="toc-esquema-de-un-contraste-correctamente-planteado" class="nav-link" data-scroll-target="#esquema-de-un-contraste-correctamente-planteado"><span class="header-section-number">21</span> Esquema de un contraste correctamente planteado</a></li>
+  <li><a href="#significación-estadística-y-significación-aplicada" id="toc-significación-estadística-y-significación-aplicada" class="nav-link" data-scroll-target="#significación-estadística-y-significación-aplicada"><span class="header-section-number">22</span> Significación estadística y significación aplicada</a>
+  <ul class="collapse">
+  <li><a href="#caso-2-significación-estadística-y-aplicada" id="toc-caso-2-significación-estadística-y-aplicada" class="nav-link" data-scroll-target="#caso-2-significación-estadística-y-aplicada"><span class="header-section-number">22.1</span> Caso 2: Significación estadística y aplicada</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Contrastes_de_Hipotesis-ES-.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Contrastes de Hipótesis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alex Sanchez-Pla y Grupo Statmedia </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 15, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introducción" class="level2 page-columns page-full" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">1</span> Introducción</h2>
+<section id="de-las-hipótesis-científicas-a-las-hipótesis-estadísticas" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="de-las-hipótesis-científicas-a-las-hipótesis-estadísticas"><span class="header-section-number">1.1</span> De las hipótesis científicas a las hipótesis estadísticas</h3>
+<p>Antes de introducir los conceptos asociados al contraste estadístico de hipótesis, es conveniente situar este tema en el contexto más general de la <em>confirmación de hipótesis</em>, materia que la filosofía de la ciencia estudia en profundidad. Así pues, en este punto solo se plantean consideraciones generales, dejando para los siguientes apartados cómo aborda la Estadística este tema.</p>
+<p>Una cuestión esencial en cualquier rama de la ciencia -básica o aplicada- es cómo verificar hipótesis sobre un determinado fenómeno real. Muchas veces, cuando se expone este tema al estudiante durante las primeras etapas de su formación científica, el llamado método de razonamiento científico se simplifica en exceso, presentando la verificación de hipótesis en términos absolutos. En este esquema simplificado del método científico se expone cómo teorizar sobre un determinado aspecto de la realidad más o menos de la siguiente forma:</p>
+<ol type="a">
+<li>se formula una teoría (o una hipótesis, o una ley, …) sobre el fenómeno de estudio<br>
+</li>
+<li>se diseña un experimento para tratar de corroborar dicha teoría<br>
+</li>
+<li>si los resultados del experimento concuerdan con la teoría, ésta se da provisionalmente por válida<br>
+</li>
+<li>si el experimento contradice la teoría, se vuelve al apartado a), se modifica la ley o se elabora una nueva, de modo que se ajuste a la realidad experimental.<br>
+</li>
+<li>cualquier teoría relacionada con aspectos de la realidad es siempre provisional, pendiente de ser revisada al entrar en conflicto con resultados de experimentos posteriores.</li>
+</ol>
+<p>Esta forma de proceder -como veremos, excesivamente simplista- se basa en el hecho de asumir que en cualquier experimento se obtendrán resultados que serán <em>o bien totalmente contradictorios</em> con la teoría (y por tanto habrá que abandonarla inmediatamente) <em>o bien concordantes</em> con la teoría (y por tanto resulta razonable mantenerla).</p>
+<p>Antes se ha calificado este método de validación como absoluto: si obviamos el posible error experimental, la decisión que se tome no conllevará ningún error, ya que basta con verificar los resultados del experimento para aceptar o rechazar la teoría.</p>
+<p>Debe quedar claro al lector que el esquema anterior <em>no es el de un contraste estadístico</em>, y de hecho el desarrollo de este tema se encargará de revisarlo. En los próximos apartados se expondrá, para empezar, una primera idea fundamental en Estadística: cuando se introduce un modelo de probabilidad para explicar un fenómeno, emerge inevitablemente un error ya en la misma toma de decisión. En otras palabras, el esquema anterior debe revisarse en los puntos c) y d).</p>
+<p>Una vez se han expuesto estas cuestiones fundamentales en los primeros puntos del capítulo, entraremos en el núcleo de este tema que consiste en el desarrollo ya puramente técnico del contraste estadístico de hipótesis.</p>
+</section>
+<section id="del-lenguaje-natural-a-la-hipótesis-estadística" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="del-lenguaje-natural-a-la-hipótesis-estadística"><span class="header-section-number">1.2</span> Del lenguaje natural a la hipótesis estadística</h3>
+<p>Es necesario considerar, antes de afrontar la validación estadística de una hipótesis, cómo se plantea ésta en términos estadísticos, ya que su formulación exige una traducción del lenguaje natural.</p>
+<p>Conviene pues recordar que una hipótesis sobre un determinado fenómeno se formula en lenguaje natural como una <em>proposición sobre la realidad</em>. Por ejemplo, si se está estudiando determinada especie de aves, una posible hipótesis es que la proporción de machos es idéntica a la de hembras. Un segundo ejemplo nos lo proporciona el estudio del metabolismo humano en donde se propone como hipótesis que la concentración de cierta hormona se mantiene constante cuando se suministra un fármaco anabolizante.</p>
+<p>Las hipótesis planteadas en los ejemplos, similares a otras que se trataran en este capítulo se denominan genéricamente <em>hipótesis paramétricas</em> porque hacen referencia a características de la población que pueden relacionarse directamente con los parámetros de un modelo probabilístico que la describe. Por ejemplo, si utilizamos una distribución binomial para representar el número de aves hembra en un nido, la proporción de hembras se corresponde con el parámetro <span class="math inline">\(p\)</span> de dicha distribución.</p>
+<p>Así pues, el primer esfuerzo que debe realizar el experimentador es trasladar sus hipótesis, que generalmente expresa en lenguaje natural, a afirmaciones (proposiciones) sobre los parámetros de la distribución que considere más apropiada para describir el fenómeno que estudia.</p>
+<p>En ocasiones, sin embargo, la selección misma del modelo probabilístico puede ser el problema. En estos casos la hipótesis se formulará en erminos de la distribución en vez de los parámetros de la misma. Por ejemplo al hablar de la concentración de la hormona durante la metabolizacioón de un fármaco el investigador puede desear decidir si es mas adecuada una distribución normal o una distribución gamma para representar dicha concentración. En este caso hablaríamos de <em>hipótesis no paramétricas</em>, que se discutiran más adelante en el curso.</p>
+<p>En los casos prácticos siguientes, cuya solución completa se verá a lo largo del capítulo, se presentan dos situaciones diferentes.</p>
+</section>
+<section id="caso-1-presentación" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="caso-1-presentación"><span class="header-section-number">1.3</span> Caso 1: Presentación</h3>
+<p>Dos conocidos ornitólogos, especialistas en aves autóctonas del Amazonas Central, discrepan sobre la interpretación de los datos de una nueva especie de cacatúa que ha reseñado uno de ellos. La discusión la centraremos aquí en una de las variables del estudio: la proporción de hembras y machos en los nidos. Es importante precisar que estas cacatúas se caracterizan por incubar un solo huevo por nido.</p>
+<p>El Dr.&nbsp;da Souza Faria ha censado diez nidos, cuyos datos se detallarán después. Según su experiencia, esta especie tiene una gran semejanza con otra especie mejor estudiada, con una proporción idéntica de machos y hembras. Apoyado en los datos obtenidos, concluye que la nueva especie también tiene la misma proporción de individuos de cada sexo.</p>
+<p>El Dr.&nbsp;Calves discrepa de esta apreciación y sostiene que la proporción debe ser de seis hembras por cada 4 machos.</p>
+</section>
+<section id="caso-1-modelo-de-probabilidad" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="caso-1-modelo-de-probabilidad"><span class="header-section-number">1.4</span> Caso 1: Modelo de probabilidad</h3>
+<p>El Dr.&nbsp;da Souza Faria ha contado en 10 nidos el número de hembras (complementariamente, el de machos). La variable es, por tanto, discreta y su soporte es el conjunto <span class="math inline">\(\{0,1,2,3,4,5,6,7,8,9,10\}\)</span>.</p>
+<p>Si asumimos que el posible nacimiento de hembras es independiente entre nidos, y definimos:</p>
+<p><span class="math display">\[
+X=\text { número de hembras en un total de } 10 \text { nidos. }
+\]</span></p>
+<p>la distribución de <span class="math inline">\(X\)</span> es una distribución binomial, de parámetros <span class="math inline">\(n=10\)</span> y <span class="math inline">\(p\)</span> desconocida.</p>
+<p><span class="math display">\[
+f(k)=p(X=k)=\binom{10}{k} p^{k}(1-p)^{10-k}
+\]</span></p>
+<p>el único parámetro desconocido es la proporción <span class="math inline">\(\boldsymbol{p}\)</span> de hembras. Las hipótesis estadísticas se referirán solo a <span class="math inline">\(p\)</span>.</p>
+</section>
+<section id="caso-2-presentación" class="level3 page-columns page-full" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="caso-2-presentación"><span class="header-section-number">1.5</span> Caso 2: Presentación</h3>
+<p>En el mundo del deporte profesional se controlan con mucha precisión algunos metabolitos que aparecen en bajas concentraciones en condiciones normales. Este es el caso de la statdrolona<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, que en individuos normales presenta una concentración media de 7.0 nanogramos por ml de orina. Este valor se ha establecido mediante una muestra muy grande de deportistas después de años de análisis antes, durante y después de competiciones. Asimismo, se ha descrito que la desviación estándar es de <span class="math inline">\(\mathbf{2 . 4 ~ n g} / \mathbf{m l}\)</span>. Estos dos valores poblacionales sirven como justificación médica a las autoridades deportivas para declarar cuándo la tasa de statdrolona se asocia a un presunto dopaje.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;La statdrolona no es ninguna hormona, aquí se ha adaptado la información de hormonas reales.</p></div></div><p>No obstante, un estudio reciente encargado por la asociación de deportistas ADG a un prestigioso departamento universitario de fisiología sostiene que, cuando se mide la concentración de statdrolona en individuos no dopados con cierto tipo de alimentos sobreabundantes en su dieta (queso parmesano, por ejemplo), el valor de la media poblacional es del orden de <span class="math inline">\(\mathbf{1 . 5}\)</span> unidades mayor. En cambio, la desviación estándar poblacional se mantiene en el valor <span class="math inline">\(2,4 \mathrm{ng} / \mathrm{ml}\)</span>, es decir, equivalente a la normal. Si esta hipótesis fuera cierta, permitiría explicar algunos de los falsos positivos detectados en los últimos tiempos. Como prueba experimental aportan una serie de datos sobre 16 deportistas que se detallarán más adelante.</p>
+</section>
+<section id="caso-2-modelo-de-probabilidad" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="caso-2-modelo-de-probabilidad"><span class="header-section-number">1.6</span> Caso 2: Modelo de probabilidad</h3>
+<p>El análisis de la concentración de statdrolona se mide en términos de nanogramos por <span class="math inline">\(\mathrm{mil} \cdot\)</span> litro, por lo tanto, parece razonable considerarla como una variable continua. El conjunto de resultados posibles será un subconjunto de los reales.</p>
+<p>Como muchas otras variables antropométricas, la concentración se puede asociar a la distribución Normal. Se puede justificar la adopción de este modelo de acuerdo con el teorema central del límite.</p>
+<p>Según las autoridades deportivas, los valores en un deportista no dopado deben corresponder a una media de <span class="math inline">\(7.0 \mathrm{ng} / \mathrm{ml}\)</span>, mientras que para ADG la media puede ser mayor en algunas circunstancias. En cualquier caso, la variable:</p>
+<p><span class="math display">\[
+X=\text { concentración de statdrolona en un deportista. }
+\]</span></p>
+<p>se aceptará que tiene distribución Normal. Así, la discusión se centrará solo en el parámetro <span class="math inline">\(\mu\)</span> desconocido, mientras que la desviación estándar se tomará, para simplificar la explicación, como <span class="math inline">\(\sigma=2.4\)</span> (conocida), aunque se sabe que es más realista seleccionarla como desconocida (véase más adelante en el curso, o los temas anteriores de intérvalos de confianza y distribuciones en el muestreo).</p>
+<p>La fórmula de la densidad Normal:</p>
+<p><span class="math display">\[
+f_{X}(x)=\frac{1}{2.4 \sqrt{2 \pi}} \exp \left(-\frac{(x-\mu)^{2}}{2 \times 2.4^{2}}\right)
+\]</span></p>
+<p>indica para este caso que el único parámetro desconocido es la media de la población <span class="math inline">\(\boldsymbol{\mu}\)</span>, a la que se referirán las hipótesis estadísticas.</p>
+<p>Ahora bien, también resulta importante describir la densidad de la media de los dieciséis deportistas, ya que jugará un papel importante en la construcción del test. Si aceptamos la distribución <span class="math inline">\(\mathrm{N}(\mu, 2.4)\)</span> para un deportista, y <em>consideramos que el muestreo es aleatorio simple</em>, entonces:</p>
+<p><span class="math display">\[
+\bar{X}_{16}=\text { media concentración statdrolona en } 16 \text { deportistas }
+\]</span></p>
+<p>que tendrá una densidad de la forma:</p>
+<p><span class="math display">\[
+\bar{X}_{16} \approx N(\mu, 2.4 / \sqrt{16})
+\]</span></p>
+<p>Simplificando 2.4 por la raíz cuadrada de 16 resulta 0.6 , así pues:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{16}}(x)=\frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-\mu)^{2}}{2 \times 0.6^{2}}\right)
+\]</span></p>
+<p>Una expresión más general para todo <span class="math inline">\(n\)</span> sería:</p>
+<p><span class="math display">\[
+\bar{X}_{n} \approx N(\mu, 2.4 / \sqrt{n})
+\]</span></p>
+<p>La densidad para todo <span class="math inline">\(n\)</span> es:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{n}}(x)=\frac{\sqrt{n}}{2.4 \sqrt{2 \pi}} \exp \left(-\frac{n \times(x-\mu)^{2}}{2 \times 2.4^{2}}\right)
+\]</span></p>
+<p>Y una expresión para todo <span class="math inline">\(n\)</span> y cualquier varianza es:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{n}}(x)=\frac{\sqrt{n}}{\sigma \sqrt{2 \pi}} \exp \left(-\frac{n \times(x-\mu)^{2}}{2 \times \sigma^{2}}\right)
+\]</span></p>
+</section>
+</section>
+<section id="las-hipótesis-del-contraste-de-hipótesis" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="las-hipótesis-del-contraste-de-hipótesis"><span class="header-section-number">2</span> Las hipótesis del contraste de hipótesis</h2>
+<p>La teoría del contraste de hipótesis es una de las partes más discutidas de la estadística, por motivos que esperamos iran quedando claros a medida que se avanza en este tema y los siguientes.</p>
+<p>De hecho esta teoría ya nació entre la polémica porque, prácticamente desee sus comienzos hubieron dos escuelas de pensamiento enfrentadas. La escuela de Ronald A. Fisher, genético y estadístic británico y la de los matemáticos Polacos y Americanos Neymann y Pearson.</p>
+<p>Con el fin de evitar que la polémica confunda el aprendizaje, al menos en esta fae inicial, lo que se presenta a continuación se basa principalmente en las ideas de Neymann y Pearson que, con la finalidad de encontrar el mejor contraste posible para un problema dado, plantearon los contrastes de hipótesis estadísticos como una <em>decisión entre dos hipótesis</em>: la <strong>hipótesis nula</strong> y la <strong>hipótesis alternativa</strong>.</p>
+<ul>
+<li><p>La <em>hipótesis nula</em> consiste, en general, en una afirmación sobre (alguna característica de) la población de origen de la muestra. Usualmente representa algún tipo de simplificación (por ejemplo: el tratamiento administrado NO tiene efecto por lo que no hay diferencia entre antes y después de recibirlo. La hipótesis nula se designa con el símbolo <span class="math inline">\(\mathbf{H}_{\mathbf{0}}\)</span>.</p></li>
+<li><p>La <em>hipótesis alternativa</em> es igualmente una afirmación sobre la población de origen, y, amenudo, aunque no siempre, consiste simplemente en negar la afirmación de <span class="math inline">\(\mathrm{H}_{0}\)</span>. La hipótesis alternativa se designa con el símbolo <span class="math inline">\(\mathbf{H}_{1}\)</span>.</p></li>
+</ul>
+<p>En el estudio del contraste de hipótesis se suele partir del caso, que de tan sencillo resulta poco realista, en el cual las dos hipótesis hacen referencia a un único valor del parámetro. En esta situación general, las hipótesis se refieren a un parámetro <span class="math inline">\(\theta\)</span> (theta). La formulación es:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \theta=\theta_{0} \\
+&amp; \mathrm{H}_{1}: \theta=\theta_{1}
+\end{aligned}
+\]</span> De hecho, sería mucho más realista plantear que la alternativa a un valor <span class="math inline">\(\theta_0\)</span> sea que el parámetro toma valores superiores (<span class="math inline">\(\mathrm{H}_{1}: \theta \geq \theta_{0}\)</span>), inferiores (<span class="math inline">\(\mathrm{H}_{1}: \theta \leq \theta_{0}\)</span>) o distintos (<span class="math inline">\(\mathrm{H}_{1}: \theta \neq \theta_{0}\)</span>)a <span class="math inline">\(\theta_0\)</span>. En la práctica este será el planteamiento de los tests que se presentará más adelante.</p>
+<p>En la teoría del contraste de hipótesis este tipo de planteamiento se conoce como contraste de hipótesis <em>simple contra simple</em>. Así pues, una hipótesis simple postula que el parámetro <span class="math inline">\(\theta\)</span> solo puede tomar un valor, o, más técnicamente, que el conjunto de parámetros de una hipótesis simple consiste en un solo punto.</p>
+<section id="caso-1-hipótesis-para-dirimir-la-controversia-sobre-el-número-de-hembras" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="caso-1-hipótesis-para-dirimir-la-controversia-sobre-el-número-de-hembras"><span class="header-section-number">2.1</span> Caso 1: Hipótesis para dirimir la controversia sobre el número de hembras</h3>
+<p>El Dr.&nbsp;da Souza Faria postula la misma proporción para machos y hembras. En términos de la proporción de la variable <span class="math inline">\(X\)</span> (n.º de hembras en 10 nidos) esto equivale a la hipótesis de que la proporción (en la población) es <span class="math inline">\(\mathbf{0 . 5}\)</span>.</p>
+<p>En cambio, según el Dr.&nbsp;Calves la proporción es 6:4 a favor de las hembras, y por lo tanto equivale a la hipótesis de que el parámetro <span class="math inline">\(p\)</span> en la variable Binomial es 0.6.</p>
+<p>Así pues, si <span class="math inline">\(X\)</span> es el número de hembras en 10 nidos, y <span class="math inline">\(p\)</span> es la proporción de hembras, la forma final del contraste es:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mathrm{p}=0.5 \\
+&amp; \mathrm{H}_{1}: \mathrm{p}=0.6
+\end{aligned}
+\]</span></p>
+<p>Respecto a los datos obtenidos por da Souza son:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nido</th>
+<th style="text-align: left;">Polluelo</th>
+<th style="text-align: left;">Nido</th>
+<th style="text-align: left;">Polluelo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">hembra</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">macho</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">macho</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">hembra</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">hembra</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">hembra</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">hembra</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">macho</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">macho</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">hembra</td>
+</tr>
+</tbody>
+</table>
+<p>En resumen, ha observado que en <span class="math inline">\(\mathbf{6}\)</span> de los nidos hay una hembra.</p>
+</section>
+<section id="caso-2-hipótesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="caso-2-hipótesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona"><span class="header-section-number">2.2</span> Caso 2: Hipótesis a contrastar en el problema de la tasa de statdrolona</h3>
+<p>Las autoridades deportivas postulan una media de <span class="math inline">\(7.0 \mathrm{ng} / \mathrm{ml}\)</span>, mientras que ADG indica una media de <span class="math inline">\(8.5 \mathrm{ng} / \mathrm{ml}\)</span> para los individuos sometidos a este tipo de dieta. Por tanto, en síntesis el contraste consistirá en:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mu=7,0 \\
+&amp; \mathrm{H}_{1}: \mu=8,5
+\end{aligned}
+\]</span></p>
+<p>tanto para <span class="math inline">\(\mathrm{H}_{0}\)</span> como para <span class="math inline">\(\mathrm{H}_{1}\)</span> el modelo contempla <span class="math inline">\(\sigma=2,4\)</span>.<br>
+Los datos del estudio que ha obtenido la asociación ADG, y que según ellos respaldaban su tesis, han sido los siguientes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Individuo</th>
+<th style="text-align: center;">Concentración</th>
+<th style="text-align: center;">Individuo</th>
+<th style="text-align: center;">Concentración</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10.47</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">7.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5.39</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11.36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6.70</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">10.11</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">9.91</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">5.89</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5.99</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">10.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">11.67</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">10.67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">6.23</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">6.89</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6.69</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">11.27</td>
+</tr>
+</tbody>
+</table>
+<p>La media aritmética de los 16 atletas es <span class="math inline">\(\mathbf{8 . 5 4} \mathrm{ng} / \mathrm{ml}\)</span>.</p>
+</section>
+</section>
+<section id="compatibilidad-de-resultados-e-hipótesis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="compatibilidad-de-resultados-e-hipótesis"><span class="header-section-number">3</span> Compatibilidad de resultados e hipótesis</h2>
+<p>Volviendo a la cuestión fundamental de la verificación de hipótesis, un resultado incompatible con una hipótesis es aquel que no puede haberse producido de ninguna manera si dicha hipótesis es cierta.</p>
+<p>En este sentido, incompatible es sinónimo de imposible. En términos de probabilidad, un resultado incompatible es aquel que tiene probabilidad cero de producirse si la hipótesis es cierta. La lógica elemental indica que si se obtiene un resultado incompatible con una hipótesis, esta última es forzosamente falsa.</p>
+<p>Ahora bien, cuando se toma un modelo aleatorio para explicar el fenómeno observado, el carácter probabilístico del modelo habitualmente evita que se descarte cualquier hipótesis por haber obtenido datos incompatibles con ella.</p>
+<p>Al contrario, todos los resultados serán estrictamente compatibles con las dos hipótesis, o dicho de otro modo, cualquier conjunto de datos que se obtenga en el estudio se puede llegar a observar tanto bajo <span class="math inline">\(\mathrm{H}_{0}\)</span> como bajo <span class="math inline">\(\mathrm{H}_{1}\)</span>. Esto rompe el esquema excesivamente simple expuesto antes en la verificación ideal de hipótesis.</p>
+<p>En definitiva, si se modela la realidad como un fenómeno aleatorio, se debe abandonar la idea de la toma de decisiones basada solo en una inspección de resultados que descarte sin error en la toma de decisión una de las dos hipótesis.</p>
+<section id="caso-1-compatibilidad-de-resultados-e-hipótesis" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="caso-1-compatibilidad-de-resultados-e-hipótesis"><span class="header-section-number">3.1</span> Caso 1: Compatibilidad de resultados e hipótesis</h3>
+<p>El Dr.&nbsp;da Souza Faria ha obtenido una muestra de 6 hembras y 4 machos en los 10 nidos. Sin embargo, este es solo uno de los resultados posibles que se podían dar bajo la hipótesis nula. Si hubiera elegido como muestra otros nidos, podría haber encontrado otro número de hembras.</p>
+<p>Como ya hemos visto, <span class="math inline">\(X\)</span> (n.º de hembras en 10 nidos) es una <span class="math inline">\(\operatorname{Binomial}(10,0.5)\)</span>. En la tabla siguiente se detallan los resultados que podían haber sucedido bajo <span class="math inline">\(\mathrm{H}_{0}\)</span>, junto con la probabilidad de obtenerlos según la fórmula de la densidad binomial:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: right;">Prob</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0009766</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0097656</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0439453</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.1171875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.2050781</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.2460938</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.2050781</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.1171875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.0439453</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.0097656</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.0009766</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- ![](https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-08.jpg?height=521&width=849&top_left_y=1941&top_left_x=609) -->
+<p>Al igual que para <span class="math inline">\(\mathrm{H}_{0}\)</span>, la muestra obtenida por el Dr.&nbsp;da Souza Faria con 6 hembras y 4 machos es solo uno de los resultados posibles que se podían dar bajo la hipótesis alternativa. En este caso <span class="math inline">\(X\)</span> (n.º de hembras en 10 nidos) es una <span class="math inline">\(\operatorname{Binomial}(10,0.6)\)</span>.</p>
+<p>En la tabla siguiente se detallan los resultados que podrían haber acaecido bajo <span class="math inline">\(\mathrm{H}_{1}\)</span>, junto con la probabilidad de obtenerlos según la fórmula de la densidad binomial:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: right;">Prob</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0001049</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0015729</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0106168</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0424673</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.1114767</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.2006581</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.2508227</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.2149908</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.1209324</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.0403108</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.0060466</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- ![](https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-09.jpg?height=507&width=838&top_left_y=386&top_left_x=615) -->
+<p>Un sencillo código R puede calcular las probabilidades tienen los once resultados bajo otras hipótesis que se podrían formular sobre el verdadero valor de la probabilidad <span class="math inline">\(p\)</span> de la población.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>prob_p <span class="ot">&lt;-</span> p <span class="co"># p algun valor entre 0 y 1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">prob=</span>prob_p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Podemos entender estas diferentes ” <span class="math inline">\(p\)</span> ” como hipótesis distintas que se podrían haber establecido como alternativa a <span class="math inline">\(\mathrm{H}_{0}\)</span>. Excepto en los casos triviales <span class="math inline">\(p=0\)</span> o <span class="math inline">\(p=1\)</span>, no hay ningún resultado que no pueda presentarse, aunque sea con probabilidades muy pequeñas.</p>
+</section>
+<section id="caso-2-compatibilidad-de-resultados-e-hipótesis" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="caso-2-compatibilidad-de-resultados-e-hipótesis"><span class="header-section-number">3.2</span> Caso 2: Compatibilidad de resultados e hipótesis</h3>
+<p>La asociación ADG ha obtenido una muestra con media <span class="math inline">\(8.54 \mathrm{ng} / \mathrm{ml}\)</span> de statdrolona para 16 deportistas. Ya hemos visto en el modelo de probabilidad qué densidad asociamos con la variable de cada deportista y con la media de todos ellos. Hay que recordar que una variable continua tiene probabilidad cero de obtener un resultado puntual y que las probabilidades en variables continuas se calculan sobre intervalos. Así pues, el valor 8.54 debe interpretarse como un intervalo, ya que las medidas de los deportistas individualmente corresponden en realidad a cierto intervalo de precisión experimental (por ejemplo, 0.3 <span class="math inline">\(\mathrm{ng} / \mathrm{ml}\)</span>). El valor 8.54 elegido como marca de un cierto intervalo no es en absoluto incompatible con la hipótesis nula. De hecho, es posible obtener cualquier media.</p>
+<p>En la tabla izquierda se detallan las probabilidades de diferentes resultados que podían haber sucedido bajo <span class="math inline">\(\mathrm{H}_{0}\)</span> expresadas en términos de la función de distribución. La media de los 16 resultados corresponde a una Normal (7.0, 0.6). En la tabla derecha se detallan las probabilidades para intervalos de anchura <span class="math inline">\(0.3 \mathrm{ng} / \mathrm{ml}\)</span> más cercanos a la media bajo <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
+<p>En el caso de <span class="math inline">\(\mathrm{H}_{1}\)</span> tampoco es incompatible ninguna media, y por tanto en particular no lo es el valor 8.54. Ahora la densidad de la media de los 16 valores es una variable aleatoria Normal <span class="math inline">\(\mathrm{N}(8.5,0.6)\)</span>. En la tabla izquierda se detallan las probabilidades de diferentes resultados que podrían haber sucedido bajo <span class="math inline">\(\mathrm{H}_{1}\)</span> expresadas en términos de la función de distribución. En la tabla de la derecha se muestran las probabilidades para intervalos de anchura <span class="math inline">\(0.3 \mathrm{ng} / \mathrm{ml}\)</span>:</p>
+</section>
+</section>
+<section id="no-todo-es-igualmente-probable" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="no-todo-es-igualmente-probable"><span class="header-section-number">4</span> No todo es igualmente probable…</h2>
+<p>La segunda consideración fundamental en un contraste de hipótesis estadístico es que no todos los resultados son igualmente probables bajo <span class="math inline">\(\mathrm{H}_{0} \circ \mathrm{H}_{1}\)</span>. Este es el principal argumento para establecer un criterio de decisión -una regla- que permita decidir en la práctica si es aceptable <span class="math inline">\(\mathrm{H}_{0}\)</span> o bien <span class="math inline">\(\mathrm{H}_{1}\)</span>.</p>
+<p>La idea provisional que debe guiar al lector en este momento cuando inspecciona los casos prácticos es que los resultados (muy) improbables bajo cierta hipótesis muestran que ésta seguramente no es válida. Así pues, en el contraste estadístico de hipótesis no hay resultados imposibles, solo improbables, y por lo tanto en las decisiones se introduce forzosamente una probabilidad de error.</p>
+<section id="caso-1-una-región-con-n.º-de-hembras-con-baja-probabilidad-bajo-mathrmh_0" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="caso-1-una-región-con-n.º-de-hembras-con-baja-probabilidad-bajo-mathrmh_0"><span class="header-section-number">4.1</span> Caso 1: Una región con n.º de hembras con baja probabilidad bajo <span class="math inline">\(\mathrm{H}_{0}\)</span></h3>
+<p>Hemos visto antes las probabilidades de obtener cada uno de los resultados posibles para <span class="math inline">\(X\)</span>: <span class="math inline">\(0,1, \ldots\)</span>, hasta 10 hembras. El sentido común indica que si se obtienen valores de X cercanos a 0 o a 10, la hipótesis <span class="math inline">\(p=0.5\)</span> resulta poco verosímil.</p>
+<p>Es importante entender que el verdadero valor de <span class="math inline">\(p\)</span> (el valor en la población) no es, ni será nunca, conocido en la práctica, solo formulamos hipótesis sobre este valor.</p>
+<p>Veamos cuál es la probabilidad de obtener valores mayores que 8 hembras. Para abreviar, designamos la región de valores mayores o iguales a 8 con el símbolo <span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span>.</p>
+</section>
+<section id="caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0"><span class="header-section-number">4.2</span> Caso 2: Medias de las tasas de statdrolona improbables si se cumple <span class="math inline">\(\mathrm{H}_{0}\)</span></h3>
+<p>De la misma manera que se ha razonado para el caso 1, en esta ocasión con las dos hipótesis ( <span class="math inline">\(\mu=7\)</span> contra <span class="math inline">\(\mu=8.5\)</span> ) que tenemos en el caso de la detección de la statdrolona, el sentido común indica que si obtenemos una media de statdrolona en los 16 atletas alejada del valor de referencia 7, hará inverosímil la hipótesis nula.</p>
+<p>En la tabla siguiente se muestran las probabilidades de obtener valores mayores que 7 <span class="math inline">\(\mathrm{ng} / \mathrm{ml}\)</span>. Observemos particularmente la región de valores mayores que 7.9869, que se representará con el símbolo <span class="math inline">\(\mathrm{W}_{\alpha}\)</span>. Expresada como intervalo, <span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869, \infty)\)</span>.</p>
+<p>(Se muestran las probabilidades correspondientes.)</p>
+</section>
+</section>
+<section id="el-papel-privilegiado-de-la-hipótesis-nula-criterio-de-decisión" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="el-papel-privilegiado-de-la-hipótesis-nula-criterio-de-decisión"><span class="header-section-number">5</span> El papel privilegiado de la hipótesis nula: criterio de decisión</h2>
+<p>Un contraste estadístico de hipótesis consta forzosamente de un criterio de decisión. En resumen, consiste en una regla operativa que divide en dos partes disjuntas el espacio muestral. Estas partes se llaman región crítica y región de aceptación respectivamente. En cualquier test estadístico, si la muestra obtenida pertenece a la región crítica, se debe aceptar <span class="math inline">\(\mathrm{H}_{1}\)</span>. En caso contrario, si pertenece a la región de aceptación, se aceptará <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
+<p>Un primer principio básico consiste en priorizar en el criterio de decisión a <span class="math inline">\(\mathrm{H}_{0}\)</span>, en el siguiente sentido: se construye el criterio fijando a priori la probabilidad de error asociada con el hecho de rechazar -erróneamente- <span class="math inline">\(\mathrm{H}_{0}\)</span>. A fin de que el criterio de decisión sea razonable debe resultar improbable obtener una muestra que pertenezca a la región crítica cuando sea cierta <span class="math inline">\(\mathrm{H}_{0}\)</span>. En el ejemplo siguiente se propondrá una regla de decisión provisional.</p>
+<section id="caso-1-n.º-de-nidos-propuestos-ad-hoc-como-inicio-de-región-crítica.-regla-de-decisión-resultante" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="caso-1-n.º-de-nidos-propuestos-ad-hoc-como-inicio-de-región-crítica.-regla-de-decisión-resultante"><span class="header-section-number">5.1</span> Caso 1: N.º de nidos propuestos ad hoc como inicio de región crítica. Regla de decisión resultante</h3>
+<p>Definiremos la región crítica de la siguiente forma:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=\{8,9,10\}
+\]</span></p>
+<p>Por lo tanto, la región de aceptación será:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}^{\mathrm{C}}=\{0,1,2,3,4,5,6,7\}
+\]</span></p>
+<p>El criterio de decisión será por tanto:</p>
+<ul>
+<li>si el número de hembras es mayor o igual que 8, se acepta <span class="math inline">\(\mathrm{H}_{1}\)</span> (la probabilidad de hembras es 0.6)<br>
+</li>
+<li>si el número de hembras es menor o igual que 7, se acepta <span class="math inline">\(\mathrm{H}_{0}\)</span> (la probabilidad de hembras es 0.5)</li>
+</ul>
+<p>Es importante entender en este momento que se propone ad hoc la región crítica. Más adelante se justificará por qué esta propuesta es razonable.</p>
+<p>Nota: en la muestra obtenida se han observado 6 hembras, por tanto da Souza debe aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
+</section>
+</section>
+<section id="hipótesis-nula-y-nivel-de-significación" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="hipótesis-nula-y-nivel-de-significación"><span class="header-section-number">6</span> Hipótesis nula y nivel de significación</h2>
+<p>Se ha indicado anteriormente que, en los contrastes estadísticos, la hipótesis nula juega un papel privilegiado, ya que la regla de decisión se ajusta de acuerdo con la probabilidad de equivocarse al rechazar <span class="math inline">\(H_{0}\)</span> cuando ésta es cierta.</p>
+<p>Esta probabilidad se designa de forma equivalente como:</p>
+<ul>
+<li>error de tipo I (o de primera especie)<br>
+</li>
+<li>nivel de significación del contraste</li>
+</ul>
+<p>y usualmente se simboliza con la letra griega alfa.<br>
+El nivel de significación se puede definir equivalentemente de las dos maneras siguientes:<br>
+- <span class="math inline">\(\alpha=\)</span> probabilidad de rechazo de <span class="math inline">\(\mathbf{H}_{\mathbf{0}}\)</span>, cuando <span class="math inline">\(\mathrm{H}_{0}\)</span> es cierta<br>
+- <span class="math inline">\(\alpha=\)</span> probabilidad de que la muestra pertenezca a la región crítica, cuando <span class="math inline">\(\mathbf{H}_{0}\)</span> es cierta.</p>
+<section id="caso-1-nivel-de-significación" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="caso-1-nivel-de-significación"><span class="header-section-number">6.1</span> Caso 1: Nivel de significación</h3>
+<p>En el apartado 9.5.1 se ha indicado la tabla resultante de los cálculos de la cola derecha de la Binomial, cuando se verifica la hipótesis nula <span class="math inline">\((p=0.5)\)</span>. Como la definición de nivel de significación es:</p>
+<p><span class="math display">\[
+\alpha=\text { prob. muestra pertenezca a la región crítica, cuando } \mathbf{H}_{0} \text { es cierta }
+\]</span></p>
+<p>en la fila correspondiente a prob <span class="math inline">\((\mathrm{X} \geq 8)\)</span> de la tabla anterior se puede observar la probabilidad de rechazar <span class="math inline">\(\mathrm{H}_{0}\)</span> cuando ésta es cierta (véase el criterio de decisión adoptado en el apartado 9.6.1).</p>
+<p>Simbólicamente hemos calculado:</p>
+<p><span class="math display">\[
+\alpha=p\left(X \geq 8 / H_{0}\right)=\sum_{i=8}^{10} p\left(X=i / H_{0}\right)=\sum_{i=8}^{10}\binom{10}{i} 0.5^{10}
+\]</span></p>
+<p>Resulta pues: <span class="math inline">\(\quad \alpha=0.0547\)</span>.</p>
+</section>
+<section id="caso-1-elección-de-la-región-crítica" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="caso-1-elección-de-la-región-crítica"><span class="header-section-number">6.2</span> Caso 1: Elección de la región crítica</h3>
+<p>Se ha propuesto antes, de forma directa, la región crítica:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=\{8,9,10\}
+\]</span></p>
+<p>Podemos considerar ahora otra región que nos proporcionaría un nivel de significación idéntico (ver tabla de probabilidades bajo <span class="math inline">\(\mathrm{H}_{0}\)</span>):</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{W}_{\alpha}^{\prime}=\{0,1,2\} \\
+\alpha=0.0010+0.0098+0.0439=0.0547
+\end{gathered}
+\]</span></p>
+<p>Ahora bien, un criterio de decisión basado en <span class="math inline">\(\mathrm{W}^{\prime}{ }_{\alpha}=\{0,1,2\}\)</span> es absurdo, teniendo en cuenta que <span class="math inline">\(\mathrm{H}_{1}\)</span> es <span class="math inline">\(p=0.6\)</span>. Veamos por qué.</p>
+<p>El valor <span class="math inline">\(\alpha=0.0547\)</span> indica que es improbable obtener menos de 3 hembras bajo <span class="math inline">\(\mathrm{H}_{0}\)</span>. Si se elige <span class="math inline">\(\mathrm{W}^{\prime}{ }_{\alpha}\)</span> como región crítica, implica aceptar <span class="math inline">\(\mathrm{H}_{1}\)</span> cuando el número de hembras es menor que 3. Sin embargo, cuando se consulta la tabla de probabilidades bajo <span class="math inline">\(\mathrm{H}_{1}\)</span>, resulta:<br>
+prob. (número hembras <span class="math inline">\(&lt;3 / \mathrm{H}_{1}\)</span> cierta) <span class="math inline">\(=0.0001+0.0016+0.0106=0.0123\)</span><br>
+Es, por tanto, todavía más improbable obtener 3 hembras bajo <span class="math inline">\(\mathrm{H}_{1}\)</span>. En otras palabras, <span class="math inline">\(\mathrm{W}^{\prime}{ }_{\alpha}\)</span> induce un criterio absurdo, ya que llevaría a aceptar la hipótesis menos verosímil de las dos.</p>
+</section>
+<section id="caso-2-elección-de-la-región-crítica" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="caso-2-elección-de-la-región-crítica"><span class="header-section-number">6.3</span> Caso 2: Elección de la región crítica</h3>
+<p>A continuación se definen las regiones crítica y de aceptación, respectivamente, como:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=[7.9869,+\infty) \quad \mathrm{W}_{\alpha}^{\mathrm{C}}=(-\infty, 7.9869)
+\]</span></p>
+<p>El criterio de decisión será, por tanto:<br>
+si el nivel de statdrolona es mayor o igual que 7.9869, se acepta <span class="math inline">\(\mathbf{H}_{\mathbf{1}}\)</span> (el nivel es 8.5)<br>
+Al igual que en el caso 1, también se ha propuesto la región crítica de forma ad hoc. Si se consultan en la tabla del apartado 9.5.2 los valores de la cola derecha de la Normal, como la definición de nivel de significación es:</p>
+<p><span class="math display">\[
+\alpha=\text { prob. muestra pertenezca a la región crítica, cuando } \mathbf{H}_{0} \text { es cierta }
+\]</span></p>
+<p>en la fila correspondiente a prob <span class="math inline">\((\mathrm{X}&gt;=7.987)\)</span> de la tabla se puede observar la probabilidad de rechazar <span class="math inline">\(\mathrm{H}_{0}(\mu=7.0)\)</span> cuando ésta es cierta. Simbólicamente hemos calculado:</p>
+<p><span class="math display">\[
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\]</span></p>
+<p>donde <span class="math inline">\(F_{z}\)</span> es la función de distribución de la Normal tipificada <span class="math inline">\(N(0,1)\)</span>.<br>
+La región crítica <span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869,+\infty)\)</span> lleva asociado un nivel de significación <span class="math inline">\(\alpha=0.05\)</span>. Ahora bien, como el estadístico media muestral es una variable continua, concretamente Normal, se pueden encontrar infinitas regiones que satisfagan la condición:</p>
+<p><span class="math display">\[
+\operatorname{prob}\left(\operatorname{muestra} \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{0}\right)=0.05
+\]</span></p>
+</section>
+</section>
+<section id="región-crítica-y-formalización-del-contraste" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="región-crítica-y-formalización-del-contraste"><span class="header-section-number">7</span> Región crítica y formalización del contraste</h2>
+<p>La regla de decisión queda definida siempre (aunque sea implícitamente) a partir de una región crítica. A esta región crítica le corresponde un determinado nivel de significación.<br>
+La información contenida en la muestra se resume mediante un estadístico de test, así que una práctica habitual es definir la región crítica en función del estadístico de test empleado. Un estadístico de test es una variable aleatoria y, como tal, tiene asociada una ley de distribución que juega un papel capital en el contraste.</p>
+<p>Reuniendo los conceptos, en un contraste de hipótesis <span class="math inline">\(\mathrm{H}_{0}\)</span> contra <span class="math inline">\(\mathrm{H}_{1}\)</span>, tenemos:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha &amp; =\text { nivel de significación, } \\
+\mathrm{W}_{\alpha} &amp; =\text { región crítica, subconjunto del espacio muestral definido a partir de } \mathrm{T}
+\end{aligned}
+\]</span></p>
+<p>Regla de decisión:</p>
+<ul>
+<li>si la muestra pertenece a <span class="math inline">\(\mathrm{W}_{\alpha}\)</span> entonces rechazar <span class="math inline">\(\mathrm{H}_{0}\)</span><br>
+</li>
+<li>si la muestra no pertenece a <span class="math inline">\(\mathrm{W}_{\alpha}\)</span> entonces rechazar <span class="math inline">\(\mathrm{H}_{1}\)</span></li>
+</ul>
+<p>Finalmente:</p>
+<p><span class="math display">\[
+\alpha=\text { prob.(rechazar } H_{0} / H_{0} \text { cierta) = prob.(muestra pertenezca a } W_{\alpha} / H_{0} \text { cierta) }
+\]</span></p>
+<section id="caso-1-resumen-de-conceptos-asociados-al-contraste.-región-crítica" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="caso-1-resumen-de-conceptos-asociados-al-contraste.-región-crítica"><span class="header-section-number">7.1</span> Caso 1: Resumen de conceptos asociados al contraste. Región crítica</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Región crítica</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Región de aceptación</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}^{\mathrm{C}}=\{0,1,2,3,4,5,6,7\}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estadístico de test</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T}=\)</span> número de hembras totales en los 10 nidos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Criterio de decisión:</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">aceptar <span class="math inline">\(\mathrm{H}_{1}\)</span> si</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 8\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span> si</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \leq 7\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivel de significación</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.0547\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>La distribución del estadístico de test T es una Binomial B (10, p). Se puede adoptar un estadístico alternativo: la frecuencia relativa <span class="math inline">\(=\mathbf{f r}\)</span> del número de hembras en los 10 nidos.</p>
+</section>
+<section id="caso-2-tabla-resumen-de-la-región-crítica-el-estadístico-de-test-y-del-criterio-de-decisión" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="caso-2-tabla-resumen-de-la-región-crítica-el-estadístico-de-test-y-del-criterio-de-decisión"><span class="header-section-number">7.2</span> Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Región crítica</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869,+\infty)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Región de aceptación</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{W}_{\alpha}^{\mathrm{C}}=(-\infty, 7.9869)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estadístico de test</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T}=\)</span> media de statdrolona en 16 atletas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Criterio de decisión:</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">aceptar <span class="math inline">\(\mathrm{H}_{1}\)</span> si</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 7.9869\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span> si</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T}&lt;7.9869\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivel de significación</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.05\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>La distribución del estadístico de test T bajo <span class="math inline">\(\mathrm{H}_{0}\)</span> es una normal <span class="math inline">\(\mathrm{N}(7,0.6)\)</span>.</p>
+</section>
+</section>
+<section id="tabla-de-decisión-del-contraste" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="tabla-de-decisión-del-contraste"><span class="header-section-number">8</span> Tabla de decisión del contraste</h2>
+<p>Cuando se resuelve un contraste la decisión final puede ser correcta o bien conducir a un error. En esta tabla se presentan las cuatro posibles situaciones que se pueden producir:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Hipótesis verdadera</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Hipótesis aceptada</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{0}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{0}\)</span></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">error tipo II</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mathrm{H}_{1}\)</span></td>
+<td style="text-align: center;">error tipo I</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<p>Existe, por tanto, un segundo tipo de error, designado como error de tipo II o de segunda especie. Se puede definir de manera equivalente para cualquiera de las dos expresiones siguientes:</p>
+<ul>
+<li><span class="math inline">\(1-\beta=\)</span> probabilidad de rechazar <span class="math inline">\(\mathrm{H}_{1}\)</span>, cuando <span class="math inline">\(\mathrm{H}_{1}\)</span> es cierta<br>
+</li>
+<li><span class="math inline">\(1-\beta=\)</span> probabilidad de que la muestra no pertenezca a la región crítica, cuando <span class="math inline">\(\mathbf{H}_{1}\)</span> es cierta</li>
+</ul>
+<p>En realidad, solo una de las hipótesis es verdadera. Una vez se obtenga la muestra, se aceptará o se rechazará <span class="math inline">\(\mathrm{H}_{1}\)</span> según el criterio de decisión. Si se decide de manera equivocada, se producirá solo uno de los dos errores, según cuál sea la hipótesis verdadera. Es decir, a posteriori se produce, como mucho, solo uno de los errores.</p>
+<p>Ahora bien, el contraste se lleva a cabo precisamente porque se ignora cuál de las dos hipótesis es la verdadera. Como consecuencia, sin que ello contradiga el párrafo anterior, los dos errores tienen importancia a priori.</p>
+<p>Un contraste será más adecuado si son menores los dos errores asociados.</p>
+<section id="caso-1-evaluación-de-los-dos-errores-asociados-al-contraste" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="caso-1-evaluación-de-los-dos-errores-asociados-al-contraste"><span class="header-section-number">8.1</span> Caso 1: Evaluación de los dos errores asociados al contraste</h3>
+<p>El criterio de decisión que se ha adoptado para este caso consiste en:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">aceptar <span class="math inline">\(\mathrm{H}_{1}\)</span> si</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 8\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span> si</td>
+<td style="text-align: center;"><span class="math inline">\(\mathrm{T} \leq 7\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Nivel de significación</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.0547\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Supongamos que <span class="math inline">\(\mathrm{H}_{1}\)</span> es cierta, es decir, que <span class="math inline">\(p=0,6\)</span>. En la tabla siguiente podemos encontrar el valor del error de tipo II:</p>
+<p><span class="math inline">\(1-\beta=\)</span> prob. (rechazar <span class="math inline">\(H_{1}/H_{1}\)</span> cierta)= prob. <span class="math inline">\((T \leq 7/H_{1}\)</span> cierta) <span class="math inline">\(=\mathbf{0 . 8 3 2 7}\)</span><br>
+Simbólicamente corresponde a calcular:</p>
+<p><span class="math display">\[
+1-\beta=p\left(X&lt;8 / H_{1}\right)=\sum_{i=0}^{7} p\left(X=i / H_{1}\right)=\sum_{i=0}^{7}\binom{10}{i} 0.6^{i} 0.4^{10-i}
+\]</span></p>
+</section>
+<section id="caso-2-cálculo-explícito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="caso-2-cálculo-explícito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><span class="header-section-number">8.2</span> Caso 2: Cálculo explícito de los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</h3>
+<p>El criterio de decisión que se ha elegido para este caso consiste en:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">aceptar <span class="math inline">\(\mathrm{H}_{1}\)</span> si</th>
+<th style="text-align: center;"><span class="math inline">\(\mathrm{T} \geq 7.9869\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Nivel de significación</td>
+<td style="text-align: center;"><span class="math inline">\(\alpha=0.05\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Supongamos que es cierta <span class="math inline">\(\mathrm{H}_{1}\)</span>, es decir, que <span class="math inline">\(\mu=8.5\)</span>. En la tabla siguiente podemos encontrar el valor del error de tipo II:</p>
+<p><span class="math inline">\(1-\beta=\)</span> prob. (rechazar <span class="math inline">\(\mathrm{H}_{1}/\mathrm{H}_{1}\)</span> cierta)= prob. <span class="math inline">\((\mathrm{T}&lt;7.9869/\mathrm{H}_{1})=1-0.8040=0.1960\)</span><br>
+Simbólicamente, corresponde a calcular:</p>
+<p><span class="math display">\[
+1-\beta=p\left(\bar{X}_{16}&lt;7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x
+\]</span></p>
+</section>
+</section>
+<section id="relación-entre-el-error-de-tipo-i-y-el-de-tipo-ii" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="relación-entre-el-error-de-tipo-i-y-el-de-tipo-ii"><span class="header-section-number">9</span> Relación entre el error de tipo I y el de tipo II</h2>
+<p>Es importante entender que no es posible reducir simultáneamente los dos errores en un contraste de hipótesis.</p>
+<p>Supongamos que se intenta reducir a cero el nivel de significación. Esto equivale a plantear que la probabilidad de que una muestra pertenezca a la región crítica, en el caso de que sea cierta <span class="math inline">\(\mathrm{H}_{0}\)</span>, es cero. En la mayoría de situaciones aplicadas este hecho da lugar a una región crítica igual al conjunto vacío, o lo que es lo mismo, provoca que se acepte siempre <span class="math inline">\(\mathrm{H}_{0}\)</span>, independientemente del resultado obtenido en la muestra. Se llega por tanto a la situación absurda de poder prescindir de la muestra, aceptando siempre <span class="math inline">\(H_{0}\)</span>! Así, reducir <span class="math inline">\(\alpha\)</span> a cero tiene la grave contrapartida de rechazar siempre <span class="math inline">\(\mathrm{H}_{1}\)</span>, lo que implica a su vez que el error de tipo II sea uno. De manera análoga se puede razonar para un error de tipo II nulo. En conclusión, los dos errores están relacionados: disminuir <span class="math inline">\(\alpha\)</span> conlleva reducir el tamaño de la región crítica y, por lo tanto, aumentar 1- <span class="math inline">\(\beta\)</span>.</p>
+<section id="caso-1-evaluación-de-alpha-y-1--beta-para-diferentes-regiones-críticas" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="caso-1-evaluación-de-alpha-y-1--beta-para-diferentes-regiones-críticas"><span class="header-section-number">9.1</span> Caso 1: Evaluación de <span class="math inline">\(\alpha\)</span> y 1- <span class="math inline">\(\beta\)</span> para diferentes regiones críticas</h3>
+<p>Una vez se especifica la región crítica, los errores de tipo I y II quedan determinados. En los dos cuadros siguientes hay dos regiones críticas y sus errores asociados. En la versión interactiva del documento se puede cambiar dinámicamente la región crítica y se calculan automáticamente los errores:</p>
+<p>(Se muestra la figura correspondiente.)</p>
+<p>En el gráfico siguiente se representan los dos errores simultáneamente para diferentes regiones críticas. Para simplificar la comprensión del gráfico, se consideran solo regiones de la forma <span class="math inline">\(\{a, a+1, \ldots 10\}\)</span>, donde <span class="math inline">\(a\)</span> es un entero entre 0 y 10. Así, por ejemplo, el punto de abscisas 8 representa la región crítica <span class="math inline">\(\{8,9,10\}\)</span>. La hipótesis alternativa considerada es <span class="math inline">\(p_{1}=0.6\)</span>, tal y como se indica en la leyenda del gráfico.</p>
+<p>(Se muestra la figura correspondiente.)</p>
+</section>
+<section id="caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><span class="header-section-number">9.2</span> Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</h3>
+<p>La relación entre los errores de tipo I y II es más fácil de interpretar en este caso, dado que la media es un estadístico de distribución continua. En los cuadros siguientes se presentan dos regiones críticas y los errores asociados, visualizando el área que representan. En la versión interactiva se puede modificar la región crítica mediante el deslizador, y se calculan automáticamente los dos errores visualizando el área que representa cada uno.</p>
+<p>(Se muestra la figura correspondiente.)</p>
+<p>En el gráfico siguiente se representan los dos errores simultáneamente. Tomando siempre la misma alternativa:</p>
+<p><span class="math display">\[
+\mathrm{H}_{1}: \mu_{1}=8.5
+\]</span></p>
+<p>y para cada región crítica de la forma <span class="math inline">\([a,+\infty)\)</span> se calculan <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(1-\beta\)</span>. En el eje de abscisas se representa el extremo inferior (a) de las regiones críticas más relevantes, las próximas a <span class="math inline">\(\mu_{0}\)</span>.</p>
+<p>(Se muestra la figura correspondiente.)</p>
+</section>
+</section>
+<section id="potencia-y-test-más-potente" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="potencia-y-test-más-potente"><span class="header-section-number">10</span> Potencia y test más potente</h2>
+<p>La potencia de un contraste se define como:<br>
+<span class="math inline">\(\beta=\)</span> prob.(aceptar <span class="math inline">\(H_{1}/H_{1}\)</span> cierta) = prob.(muestra pertenezca a <span class="math inline">\(W_{a}/H_{1}\)</span> cierta)<br>
+es, por tanto, la probabilidad complementaria al error del tipo II.<br>
+Retomando ideas anteriores, un contraste debe pretender un compromiso razonable entre el nivel de significación (lo más bajo posible) y la potencia (lo más alta posible).</p>
+<p>En principio, si hay varios tests alternativos (basados en diferentes reglas de decisión y/o estadísticos) para resolver un mismo contraste paramétrico, el mejor test será aquel que, una vez fijados <span class="math inline">\(\mathrm{H}_{0}, \mathrm{H}_{1}\)</span> y el nivel de significación <span class="math inline">\(\alpha\)</span>, proporcione la potencia más alta entre todos ellos.</p>
+<p>Un test que tenga esta propiedad se denomina test más potente. Simbólicamente, si <span class="math inline">\(mp\)</span> designa el test más potente, deberá cumplir:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \beta_{m p}=\text { prob.(aceptar } \mathrm{H}_{1} \text { con el test } m p / \mathrm{H}_{1} \text { cierta) } \\
+&amp; \geq \beta_{t}=\text { prob.(aceptar } \mathrm{H}_{1} \text { con el test } t / \mathrm{H}_{1} \text { cierta) }
+\end{aligned}
+\]</span></p>
+<p>donde <span class="math inline">\(t\)</span> es cualquier otro test con el mismo nivel de significación que <span class="math inline">\(mp\)</span>.</p>
+<section id="caso-1-potencia-en-hipótesis-simple-vs-simple" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="caso-1-potencia-en-hipótesis-simple-vs-simple"><span class="header-section-number">10.1</span> Caso 1: Potencia en hipótesis simple vs simple</h3>
+<p>En la tabla siguiente se indica la probabilidad para cada uno de los valores del soporte. Se destaca en color diferente la región crítica.</p>
+<p>(Se muestra la figura correspondiente.)</p>
+<p>Se puede leer entonces que la potencia es:</p>
+<p><span class="math display">\[
+\beta=\operatorname{prob} .\left(\operatorname{aceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right)=\operatorname{prob} .\left(X \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{1}\right)=0.1673
+\]</span></p>
+<p>Simbólicamente hemos calculado:</p>
+<p><span class="math display">\[
+\beta=p\left(X \geq 8 / \mathrm{H}_{1}\right)=\sum_{i=8}^{10} p\left(X=i / \mathrm{H}_{1}\right)=\sum_{i=8}^{10}\binom{10}{i} 0.6^{i} 0.4^{10-i}
+\]</span></p>
+<p>Observamos que coincide con el cálculo anterior del error de tipo II para este ejemplo.</p>
+</section>
+<section id="caso-2-potencia-en-hipótesis-simple-vs-simple" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="caso-2-potencia-en-hipótesis-simple-vs-simple"><span class="header-section-number">10.2</span> Caso 2: Potencia en hipótesis simple vs simple</h3>
+<p>Hemos definido antes la región crítica para este caso. En el cuadro siguiente se pueden visualizar los dos errores (I= verde y II= naranja) y, opcionalmente, la potencia del test (región amarilla).</p>
+<p>(Se muestra la figura correspondiente.)</p>
+<p>La definición de potencia aplicada a este caso resulta:</p>
+<p><span class="math display">\[
+\beta=\operatorname{prob} .\left(\operatorname{aceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right)=\operatorname{prob} .\left(X \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{1}\right)=0.80377
+\]</span></p>
+<p>Simbólicamente hemos calculado:</p>
+<p><span class="math display">\[
+\beta=p\left(\bar{X}_{16} \geq 7.9869 / H_{1}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x
+\]</span></p>
+<p>En el documento interactivo se especifica la expresión para todo <span class="math inline">\(n\)</span>.</p>
+</section>
+</section>
+<section id="efecto-del-tamaño-muestral" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="efecto-del-tamaño-muestral"><span class="header-section-number">11</span> Efecto del tamaño muestral</h2>
+<p>Los contrastes óptimos para las situaciones aplicadas más habituales ya están completamente resueltos, de modo que usualmente el experimentador solo debe elegir el nivel de significación que desee, (ver por ejemplo el capítulo de contrastes de una población).</p>
+<p>Una vez elegido <span class="math inline">\(\alpha\)</span>, quedan fijadas tanto la región crítica como la potencia del contraste. La única manera de conseguir que un contraste mejore su potencia sin que repercuta en un aumento excesivo de <span class="math inline">\(\alpha\)</span> es incrementar el tamaño muestral <span class="math inline">\(N\)</span>.</p>
+<p>Aumentar <span class="math inline">\(N\)</span> varía la ley de distribución del estadístico de test y generalmente disminuye su varianza. La consecuencia de mantener <span class="math inline">\(\boldsymbol{\alpha}\)</span> constante y aumentar <span class="math inline">\(N\)</span> se traduce en una mejora de las propiedades del test. Una pregunta crucial -abierta, de momento- es: ¿cuánta muestra hace falta?</p>
+<section id="caso-1" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="caso-1"><span class="header-section-number">11.1</span> Caso 1</h3>
+<p>En el documento interactivo se presenta un applet donde se calcula el error de tipo II cuando aumenta N. Aquí solo se presenta el gráfico donde se representan los dos errores simultáneamente para diferentes regiones críticas de la forma <span class="math inline">\(\{a, a+1, \ldots N\}\)</span>. La hipótesis alternativa está indicada en la leyenda.</p>
+<p>(Se muestra la figura correspondiente.)</p>
+</section>
+<section id="caso-2" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="caso-2"><span class="header-section-number">11.2</span> Caso 2</h3>
+<p>Veremos aquí solo cómo afecta el tamaño de la muestra (para <span class="math inline">\(N=16\)</span> y <span class="math inline">\(N=30\)</span>) a los dos errores, manteniendo la región crítica constante. En el documento interactivo se pueden consultar otras combinaciones. Al aumentar <span class="math inline">\(N\)</span>, las distribuciones en el muestreo de la media bajo <span class="math inline">\(\mathrm{H}_{0}\)</span> y <span class="math inline">\(\mathrm{H}_{1}\)</span> presentan cada vez un menor solapamiento.</p>
+<p>(Se muestra la figura correspondiente.)</p>
+<p>En el gráfico siguiente se observa el efecto de <span class="math inline">\(N\)</span> para todo el rango de regiones críticas:</p>
+<p>(Se muestra la figura correspondiente.)</p>
+</section>
+</section>
+<section id="hipótesis-simples-vs.-hipótesis-compuestas" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="hipótesis-simples-vs.-hipótesis-compuestas"><span class="header-section-number">12</span> Hipótesis simples vs.&nbsp;hipótesis compuestas</h2>
+<p>Hasta ahora hemos tratado el caso más sencillo de contraste: dos hipótesis simples. En la práctica, las situaciones realmente interesantes conllevan -al menos- una hipótesis compuesta. Uno de los contrastes de hipótesis más habituales consiste en:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \theta=\theta_{0} \\
+&amp; \mathrm{H}_{1}: \theta \neq \theta_{0}
+\end{aligned}
+\]</span></p>
+<p>es decir, la hipótesis alternativa es la simple negación de la nula. Este contraste se conoce como el de la alternativa bilateral.</p>
+<p>Los conceptos de estadístico de test, de región crítica, de región de aceptación y de nivel de significación seguirán siendo los mismos. Ahora bien, como se verá a continuación, se debe ampliar la definición de potencia respecto al caso simple contra simple.</p>
+<section id="caso-1-hipótesis-compuestas" class="level3" data-number="12.1">
+<h3 data-number="12.1" class="anchored" data-anchor-id="caso-1-hipótesis-compuestas"><span class="header-section-number">12.1</span> Caso 1: Hipótesis compuestas</h3>
+<p>Cambiando el planteamiento inicial, supongamos que la polémica sobre la proporción de hembras en los nidos se refiere a si es equitativa o no respecto al número de machos. Las hipótesis a verificar entonces serán:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mathrm{p}=0.5 \\
+&amp; \mathrm{H}_{1}: \mathrm{p} \neq 0.5
+\end{aligned}
+\]</span></p>
+<p>Observemos primero que ya no es consistente mantener una región crítica basada solo en la cola derecha de la distribución, como en el caso simple contra simple, que en resumen consistía en:</p>
+<p>Ahora esta región ya no es adecuada. Basta con considerar el ejemplo de obtener una muestra con <span class="math inline">\(\mathrm{T}=0\)</span>. A pesar de ser sumamente improbable bajo <span class="math inline">\(\mathrm{H}_{0}\)</span>, el criterio impone aceptar la hipótesis nula, en contra de otras hipótesis más plausibles (cualquier con p &lt; 0.5).</p>
+<p>El sentido común indica que la región crítica debe abarcar ahora ambos extremos del soporte. Si tomamos por ejemplo:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}
+\]</span></p>
+<p>(Se muestra figura con valores destacados.)</p>
+<p>la suma siguiente (que corresponde a los valores destacados en la tabla):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha &amp; =p\left(X \leq 2 / H_{0}\right)+p\left(X \geq 8 / H_{0}\right)=\sum_{i=0}^{2} p\left(X=i / H_{0}\right)+\sum_{i=8}^{10} p\left(X=i / H_{0}\right) \\
+&amp; =\left[\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{8}+\binom{10}{9}+\binom{10}{10}\right] 0.5^{10}
+\end{aligned}
+\]</span></p>
+<p>nos proporciona el nivel de significación de este test bilateral.</p>
+</section>
+<section id="caso-2-hipótesis-compuestas" class="level3" data-number="12.2">
+<h3 data-number="12.2" class="anchored" data-anchor-id="caso-2-hipótesis-compuestas"><span class="header-section-number">12.2</span> Caso 2: Hipótesis compuestas</h3>
+<p>A pesar de que seguramente todavía no es el contraste de hipótesis que realmente interesa a la asociación ADG, por razones didácticas supondremos que se pretende dirimir simplemente si es aceptable la media propuesta en la bibliografía. Las hipótesis que hay que verificar entonces serán:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H_{0}: \mu=7 \\
+&amp; H_{1}: \mu \neq 7
+\end{aligned}
+\]</span></p>
+<p>Ya no es consistente mantener una región crítica basada solo en la cola derecha de la distribución, como en el planteamiento original de este caso (que contrastaba una hipótesis simple contra otra simple).</p>
+<p>Para entenderlo se puede considerar por ejemplo una muestra con una media muestral de 5. A pesar de ser sumamente improbable bajo <span class="math inline">\(\mathrm{H}_{0}\)</span>, dado que pertenece a la región de aceptación, el criterio impone aceptar la hipótesis nula, en contra de otras hipótesis más plausibles (cualquiera con <span class="math inline">\(\mu&lt;7\)</span>).</p>
+<p>Nuevamente, el sentido común indica que la región crítica debe abarcar ahora ambos extremos del soporte. Si tomamos por ejemplo:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=(-\infty, 6.0131] \mathrm{U}[7.9869,+\infty)
+\]</span></p>
+<p>Se obtiene <span class="math inline">\(\alpha=0.1\)</span>. En el cuadro siguiente se visualiza la región crítica y se evalúa el nivel de significación resultante:</p>
+<p>(Se muestra la figura correspondiente.)</p>
+<p>Simbólicamente, el nivel de significación de este test se calcula de la siguiente forma:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha &amp; =p\left(\bar{X}_{16} \leq 6.0131 / H_{0}\right)+p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right) \\
+&amp; =\int_{-\infty}^{6.0131} f_{\bar{X}_{16}}(x) d x+\int_{7.9869}^{\infty} f_{\bar{X}_{16}}(x) d x \\
+&amp; =F_{Z}\left(\frac{6.0131-7}{2.4 / \sqrt{16}}\right)+1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\end{aligned}
+\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[
+f_{\bar{X}_{16}}(x)=\frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right)
+\]</span></p>
+</section>
+</section>
+<section id="función-de-potencia" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="función-de-potencia"><span class="header-section-number">13</span> Función de potencia</h2>
+<p>Una de las diferencias conceptuales más importantes entre el caso de una hipótesis simple contra otra simple y el caso con una alternativa compuesta se encuentra en la definición de potencia. En este segundo caso ya no se presenta un único posible valor del parámetro bajo la hipótesis alternativa, sino que se contempla todo un conjunto. En la mayoría de tests habituales, será un intervalo real o una unión de intervalos reales. Por ejemplo:</p>
+<p><span class="math display">\[
+\mathrm{H}_{1}: \theta \neq \theta_{0}
+\]</span></p>
+<p>Desde el punto de vista de la estadística paramétrica clásica, una vez hecho el experimento aleatorio, <span class="math inline">\(\theta\)</span> presenta solo uno de los posibles valores dentro del subconjunto de la alternativa, aunque éste sea desconocido. Por tanto, la definición de potencia enunciada antes:</p>
+<p><span class="math display">\[
+\beta=\operatorname{prob} .\left(\operatorname{aceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right. \text { cierta) }
+\]</span></p>
+<p>no se puede calcular globalmente para toda <span class="math inline">\(\mathrm{H}_{1}\)</span>, sino que se debe distinguir cada uno de los valores posibles dentro de <span class="math inline">\(\mathrm{H}_{1}\)</span>. De ahí el interés de definir la función de potencia:</p>
+<p><span class="math display">\[
+\beta(\theta)=\operatorname{prob}\left(\operatorname{aceptar} \mathrm{H}_{1} / \theta \text { cierto }\right)
+\]</span></p>
+<p>donde <span class="math inline">\(\theta\)</span> es un valor cualquiera del parámetro, incluso valores correspondientes a <span class="math inline">\(\mathrm{H}_{0}\)</span>. Si <span class="math inline">\(\mathrm{H}_{0}\)</span> es simple (un solo parámetro <span class="math inline">\(\theta_{0}\)</span>), resultará:</p>
+<p><span class="math display">\[
+\beta\left(\theta_{0}\right)=\operatorname{prob}\left(\operatorname{aceptar} \mathrm{H}_{1} / \theta_{0} \text { cierto }\right)=\alpha
+\]</span></p>
+<section id="caso-1-función-de-potencia" class="level3" data-number="13.1">
+<h3 data-number="13.1" class="anchored" data-anchor-id="caso-1-función-de-potencia"><span class="header-section-number">13.1</span> Caso 1: Función de potencia</h3>
+<p>Ahora la potencia depende de la proporción concreta de hembras que se elija como alternativa. La expresión general es:</p>
+<p><span class="math display">\[
+1-\beta=p\left(3 \leq X \leq 7 / H_{1}\right)=\sum_{i=3}^{7} p\left(X=i / H_{1}\right)=\sum_{i=3}^{7}\binom{10}{i} p^{i}(1-p)^{10-i}
+\]</span></p>
+<p>dado que la región crítica es <span class="math inline">\(\mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}\)</span>. En los cuadros siguientes se obtiene el valor de la potencia <span class="math inline">\((\beta)\)</span> inicialmente para <span class="math inline">\(p=0.6\)</span> y para <span class="math inline">\(p=0.8\)</span> (en el documento interactivo se puede variar arbitrariamente la proporción bajo <span class="math inline">\(\mathrm{H}_{1}\)</span>):</p>
+<p>En el gráfico siguiente se representa la función de potencia para todo el rango de parámetros:</p>
+<p>(Se muestran figuras correspondientes.)</p>
+</section>
+<section id="caso-2-función-de-potencia" class="level3" data-number="13.2">
+<h3 data-number="13.2" class="anchored" data-anchor-id="caso-2-función-de-potencia"><span class="header-section-number">13.2</span> Caso 2: Función de potencia</h3>
+<p>Ahora la potencia depende de la media concreta <span class="math inline">\(\mu_{1}\)</span> que se elija como alternativa. La expresión general del error de tipo II es:</p>
+<p><span class="math display">\[
+\begin{aligned}
+1-\beta &amp; =p\left(6.0131 \leq \bar{X}_{16} \leq 7.9869 / H_{1}\right) \\
+&amp; =\int_{6.0131}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{\left(x-\mu_{1}\right)^{2}}{2 \times 0.6^{2}}\right) d x \\
+&amp; =F_{z}\left(\frac{6.0131-\mu_{1}}{2.4 / \sqrt{16}}\right)+1-F_{z}\left(\frac{7.9869-\mu_{1}}{2.4 / \sqrt{16}}\right)
+\end{aligned}
+\]</span></p>
+<p>dado que la región crítica es <span class="math inline">\(\mathrm{W}_{\alpha}=(-\infty, 6,0131] \mathrm{U}[7,9869,+\infty)\)</span>.<br>
+En el cuadro siguiente se obtiene el valor de la potencia ( <span class="math inline">\(\beta\)</span> ) inicialmente para <span class="math inline">\(\mu=8.5\)</span>. En el documento interactivo se puede cambiar este valor de la alternativa y observar los cambios en los dos errores y en la potencia:</p>
+<p>(Se muestra figura correspondiente.)</p>
+<p>En el gráfico siguiente se representan dos funciones de potencia, para <span class="math inline">\(\alpha=0.05, \sigma=\)</span> 2.4 y que respectivamente corresponden a <span class="math inline">\(n=16\)</span> (la situación de este caso 2) y a <span class="math inline">\(n=1\)</span>. En el documento interactivo se pueden variar todos aquellos parámetros que afectan a <span class="math inline">\(\beta: \alpha, \sigma y n\)</span> y compararlos con la situación original.</p>
+<p>(Se muestra figura correspondiente.)</p>
+</section>
+</section>
+<section id="tests-óptimos" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="tests-óptimos"><span class="header-section-number">14</span> Tests óptimos</h2>
+<p>En muchas situaciones aplicadas se pueden plantear diferentes reglas de decisión para resolver un mismo contraste, de modo que proporcionen un mismo error de tipo I. Es necesario entonces adoptar un criterio adicional para escoger cuál es el mejor test posible para resolver este contraste. Tal como hemos visto en el caso de hipótesis simple vs.&nbsp;simple, esto ocurre forzosamente por analizar el error de tipo II asociado a cada test. En el caso de una alternativa compuesta, esto lleva a estudiar el comportamiento de la función de potencia en todo el rango de parámetros asociados a la alternativa.</p>
+<p>El estudio de los tests que presentan propiedades óptimas desde el punto de vista de la potencia sobrepasa los objetivos marcados por este curso El lector interesado puede consultar alguna definición más en los complementos, aunque esta información no es estrictamente necesaria para seguir ni el resto de este tema ni los ulteriores. En los próximos capítulos solo se señalará, a título informativo, cuándo un test es óptimo desde el punto de vista de la potencia. En nuestro desarrollo es suficiente conocer que existen resultados generales en estadística matemática que permiten asegurar cuándo existe este tipo de test y cómo obtenerlo.</p>
+</section>
+<section id="pruebas-bilaterales-y-pruebas-unilaterales" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="pruebas-bilaterales-y-pruebas-unilaterales"><span class="header-section-number">15</span> Pruebas bilaterales y pruebas unilaterales</h2>
+<p>Un contraste bilateral adopta en general la forma:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta \neq \theta_{0}
+\]</span></p>
+<p>En determinadas ocasiones el experimentador prefiere plantear directamente un contraste de la forma:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta&gt;\theta_{0}
+\]</span></p>
+<p>conocido como contraste unilateral derecho. Obviamente, otra posibilidad es el unilateral izquierdo:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta&lt;\theta_{0}
+\]</span></p>
+<p>En estos tres casos, el contraste de hipótesis es simple contra compuesta. En la mayoría de situaciones aplicadas, en realidad se pretenden resolver contrastes unilaterales que conllevan hipótesis compuestas. El unilateral derecho es entonces:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"><span class="math inline">\(\mathrm{H}_{0}: \theta \leq \theta_{0}\)</span></th>
+<th style="text-align: left;">contra</th>
+<th style="text-align: left;"><span class="math inline">\(\mathrm{H}_{1}: \theta&gt;\theta_{0}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">el izquierdo es:</td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{H}_{0}: \theta \geq \theta_{0}\)</span></td>
+<td style="text-align: left;">contra</td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{H}_{1}: \theta&lt;\theta_{0}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Aunque esta última formulación está relacionada con los contrastes unilaterales simple contra compuesta anteriores, las dos hipótesis no son técnicamente equivalentes. A fin de simplificar la interpretación de los contrastes unilaterales, atendiendo a los casos que se tratan en este curso, se formulan los contrastes de esta última manera (compuesta contra compuesta) y se toma el nivel de significación como si fuera el del contraste simple contra compuesta.</p>
+<p>En cualquier caso, es importante entender que solo se ha resuelto uno de los tres contrastes (bilateral o unilateral) con un conjunto de datos concreto. Por ejemplo, es incorrecto desde el punto de vista metodológico comenzar contrastando bilateralmente y hacer después un test unilateral. El contraste que se debe emplear debe decidirse con base en conocimientos previos del problema, o bien siguiendo la cuestión de interés aplicado que se quiere responder.</p>
+<section id="caso-1-prueba-unilateral" class="level3" data-number="15.1">
+<h3 data-number="15.1" class="anchored" data-anchor-id="caso-1-prueba-unilateral"><span class="header-section-number">15.1</span> Caso 1: Prueba unilateral</h3>
+<p>Supongamos que la controversia entre los dos ornitólogos se hubiera planteado originalmente en los siguientes términos. Según da Souza, el número de hembras por nido es como máximo del 50%. En cambio, para Calves, hay más hembras que machos. El contraste que hay que resolver para dirimir cuál de los dos especialistas tiene razón sería, pues:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mathrm{p} \leq 0.5 \\
+&amp; \mathrm{H}_{1}: \mathrm{p}&gt;0.5
+\end{aligned}
+\]</span></p>
+<p>Respecto al caso general se sustituye el parámetro genérico <span class="math inline">\(\theta\)</span> por p, y el valor <span class="math inline">\(\theta_{0}=0.5\)</span>. Tomando la región crítica como <span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span>, en el cuadro siguiente se presenta el nivel de significación:</p>
+</section>
+<section id="caso-2-prueba-unilateral" class="level3" data-number="15.2">
+<h3 data-number="15.2" class="anchored" data-anchor-id="caso-2-prueba-unilateral"><span class="header-section-number">15.2</span> Caso 2: Prueba unilateral</h3>
+<p>El planteamiento siguiente se aproxima más a lo que realmente debería intentar aclarar la asociación de deportistas ADG. Si hacen caso a la fuerte sospecha de que la tasa de statdrolona ha aumentado, es más coherente plantear las siguientes hipótesis:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{H}_{0}: \mu \leq 7 \\
+&amp; \mathrm{H}_{1}: \mu&gt;7
+\end{aligned}
+\]</span></p>
+<p>Tal como ya se ha planteado en el caso 1, ahora se debe considerar una región crítica basada en la cola derecha de la distribución. Se deja al lector razonar por qué debe ser así. Cuando se toma, por ejemplo:</p>
+<p><span class="math display">\[
+\mathrm{W}_{\alpha}=[7,9869,+\infty)
+\]</span></p>
+<p>se obtiene <span class="math inline">\(\alpha=0.05\)</span>. En el cuadro siguiente se presenta la región crítica (en el documento interactivo se puede variar la región crítica y modificar por tanto el nivel de significación):</p>
+<p>(Se muestra figura correspondiente.)</p>
+<p>Simbólicamente, se calcula:</p>
+<p><span class="math display">\[
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\]</span></p>
+<p>que nos proporciona el nivel de significación de este test unilateral. Así pues, no hay ninguna diferencia ni en el cálculo ni en el gráfico respecto a lo ya visto en el apartado de hipótesis simple contra simple. En relación con la potencia, se trata de una función que depende de la <span class="math inline">\(\mu\)</span> concreta de la hipótesis alternativa (simple), y por esta razón resulta:</p>
+<p>(Se muestra figura correspondiente.)</p>
+<p>Una observación final referente a este caso 2. En el planteamiento actual solo queda ya la arbitrariedad consistente en asumir una <span class="math inline">\(\sigma=2.4\)</span> poblacional fija. En el tema 10, se estudiará cómo abordar este estudio sin asumir más condición que el modelo de probabilidad Normal.</p>
+</section>
+</section>
+<section id="elección-del-nivel-de-significación" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="elección-del-nivel-de-significación"><span class="header-section-number">16</span> Elección del nivel de significación</h2>
+<p>¿Qué nivel de significación se debe utilizar? En contra de cierta práctica estadística, desgraciadamente bastante extendida, en realidad no se puede responder a esta pregunta dando simplemente un valor al nivel de significación. Si se consultan publicaciones científicas aplicadas para conocer qué <span class="math inline">\(\alpha\)</span> usar, en la mayoría de estudios se obtendrá que el más utilizado es <span class="math inline">\(\alpha=0.05\)</span> (5% de error), siendo el segundo lugar ex aequo <span class="math inline">\(\alpha=0.01\)</span> (1%) y <span class="math inline">\(\alpha=0.1\)</span> (10%). Estos son los niveles aconsejados en muchos textos elementales de estadística. Veamos por qué se han aconsejado estos valores.</p>
+<p>Antes de la universalización del uso del ordenador, los cálculos estadísticos se completaban mediante diferentes tablas para encontrar las fronteras de la región crítica y decidir qué hipótesis aceptar. Los valores 5%, 1% y 10% fueron inicialmente elegidos como los más representativos en las colecciones de tablas, ya que no resultaba práctico publicar tablas para cualquier <span class="math inline">\(\alpha\)</span>. Así, estos valores se fueron convirtiendo, con el paso del tiempo, en un convencionalismo más. Se ha llegado a producir el efecto perverso, en algunos campos del conocimiento, de que algunos editores mal informados solo aceptan trabajos con un 5% de significación.</p>
+<p>No obstante, no hay ninguna razón científica que indique que estos valores son forzosamente los más adecuados. Ya hemos visto que la potencia tiene también una importancia capital cuando hay que calificar la bondad del test, sin olvidar la influencia que tiene el tamaño de la muestra sobre <span class="math inline">\(1-\beta\)</span>. La metodología más razonable es obtener el p-valor y, si es posible, definir antes de la obtención de la muestra una diferencia mínima significativa que garantice la potencia deseada (definiremos a continuación estos dos conceptos). Solo con estas tres cantidades el contraste queda satisfactoriamente planteado.</p>
+<p>Desde nuestro punto de vista, hoy en día, exponer las conclusiones de cualquier estudio solo a partir de un nivel de significación fijo para todos los contrastes es un procedimiento estadístico muy rudimentario.</p>
+</section>
+<section id="el-p-valor" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="el-p-valor"><span class="header-section-number">17</span> El p-valor</h2>
+<p>La elección del nivel de significación, tal como se ha comentado anteriormente, es en cierta manera arbitraria. Sin embargo, una vez obtenida la muestra, se puede calcular una cantidad que sí permite resumir el resultado del experimento de manera objetiva. Esta cantidad es el p-valor, que corresponde al nivel de significación más pequeño posible que se puede elegir, para el cual todavía se aceptaría la hipótesis alternativa con las observaciones actuales. Cualquier nivel de significación elegido inferior al p-valor (simbólicamente <span class="math inline">\(\mathrm{p}_{\mathrm{v}}\)</span>) conlleva aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span>. Obviamente, como es una probabilidad, se cumple que:</p>
+<p><span class="math display">\[
+0 \leq p_{v} \leq 1
+\]</span></p>
+<p>El p-valor es una medida directa de lo inverosímil que resulta obtener una muestra como la actual si es cierta <span class="math inline">\(\mathrm{H}_{0}\)</span>. Los valores pequeños indican que es muy infrecuente obtener una muestra como la actual, en cambio, los valores altos muestran que es frecuente. El p-valor se utiliza para indicar cuánto (o cuán poco) contradice la muestra actual la hipótesis alternativa.</p>
+<p>Informar sobre cuál es el p-valor tiene la ventaja de permitir que cualquiera decida qué hipótesis acepta basándose en su propio nivel de riesgo <span class="math inline">\(\boldsymbol{\alpha}\)</span>. Esto no es posible cuando se informa, como ha sido tradicional, indicando solo el resultado de la decisión, es decir, aceptando o rechazando <span class="math inline">\(\mathrm{H}_{0}\)</span> con un <span class="math inline">\(\alpha\)</span> fijo.</p>
+<p>Cuando se proporciona el p-valor obtenido con la muestra actual, la decisión se hace según la siguiente regla:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \text { si } \mathrm{p}_{\mathrm{v}} \leq \alpha, \text { aceptar } \mathrm{H}_{1} \\
+&amp; \text { si } \mathrm{p}_{\mathrm{v}}&gt;\alpha, \text { aceptar } \mathrm{H}_{0}
+\end{aligned}
+\]</span></p>
+<p>Desde el punto de vista práctico, algunos paquetes estadísticos proporcionan en sus listados el “significance level”, cuya traducción literal es “nivel de significación”, cuando en muchas ocasiones se refieren en realidad al p-valor (“p-value”).</p>
+<section id="caso-1-cálculo-del-p-valor-prueba-unilateral" class="level3" data-number="17.1">
+<h3 data-number="17.1" class="anchored" data-anchor-id="caso-1-cálculo-del-p-valor-prueba-unilateral"><span class="header-section-number">17.1</span> Caso 1: Cálculo del p-valor (prueba unilateral)</h3>
+<p>Sigamos con la hipótesis unilateral:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H_{0}: p \leq 0.5 \\
+&amp; H_{1}: p&gt;0.5
+\end{aligned}
+\]</span></p>
+<p>Supongamos que, una vez obtenida la muestra de <span class="math inline">\(n=10\)</span> nidos, resulta que en seis de ellos el polluelo corresponde a una hembra. Hay que recordar primeramente que en este caso el estadístico de test T es una variable discreta, y por lo tanto no es posible obtener cualquier <span class="math inline">\(\alpha\)</span>.</p>
+<p>El p-valor es el menor <span class="math inline">\(\alpha\)</span> que permite aceptar <span class="math inline">\(\mathrm{H}_{1}\)</span>. Con la tabla siguiente:</p>
+<p>Se obtiene el p-valor asociado a <span class="math inline">\(\mathrm{T}=6\)</span> hembras. Consideremos principalmente los siguientes casos:</p>
+<ol type="1">
+<li>Si se escogiera <span class="math inline">\(\alpha=0.1719\)</span>, la región crítica correspondiente sería <span class="math inline">\(\mathrm{W}_{\alpha}=\{7,8,9,10\}\)</span>. Como no se incluyen 6 hembras, habría que aceptar <span class="math inline">\(H_{0}\)</span>. Por tanto, <span class="math inline">\(\alpha\)</span> no cumple la definición de p-valor, ya que se debe rechazar <span class="math inline">\(\mathrm{H}_{0}\)</span>: <span class="math inline">\(\mathrm{p}_{\mathrm{v}}\)</span> debe ser forzosamente mayor.</li>
+<li>Si se eligiera <span class="math inline">\(\alpha^{\prime}=0.3770\)</span>, la región crítica correspondiente sería <span class="math inline">\(W_{\alpha^{\prime}}=\{6,7,8,9,10\}\)</span>. Con <span class="math inline">\(\alpha^{\prime}\)</span> se rechazaría <span class="math inline">\(H_{0}\)</span>.</li>
+<li>Si se seleccionara <span class="math inline">\(\alpha^{\prime\prime}=0.6230\)</span>, la región crítica correspondiente sería <span class="math inline">\(\mathrm{W}_{\alpha^{\prime\prime}}=\{5,6,7,8,9,10\}\)</span>. Con <span class="math inline">\(\alpha^{\prime\prime}\)</span> también se rechazaría <span class="math inline">\(\mathrm{H}_{0}\)</span>.</li>
+</ol>
+<p>Observamos que <span class="math inline">\(\alpha^{\prime}&lt;\alpha^{\prime\prime}\)</span>, y entre los dos valores no es posible obtener ningún otro nivel de significación con el test que hemos planteado. Por tanto, <span class="math inline">\(\alpha^{\prime}\)</span> es el nivel de significación mínimo con el que rechazaríamos <span class="math inline">\(H_{0}\)</span> con la muestra actual o, dicho de otro modo, <span class="math inline">\(\alpha^{\prime}\)</span> es el p-valor.</p>
+<p>Este es el detalle de cómo se calcula el p-valor. Usualmente, de esto se encarga software especializado (un paquete estadístico, una hoja de cálculo,…), que devuelve simplemente la información <span class="math inline">\(\mathrm{p}_{\mathrm{v}}=0.3770\)</span>. Ahora bien, lo que no resuelve el programa es qué debe decidir finalmente el experimentador, es decir, en nuestro caso, da Souza o Calves.</p>
+<p>Pues bien, en este momento, se deberá comparar <span class="math inline">\(\mathrm{p}_{\mathrm{v}}\)</span> con el nivel de significación elegido a priori (por ejemplo, <span class="math inline">\(\alpha=0.05\)</span>):</p>
+<p><span class="math display">\[
+\mathrm{p}_{\mathrm{v}}=0.3770&gt;\alpha=0.05 \text { por tanto, aceptar } \mathbf{H}_{\mathbf{0}}.
+\]</span></p>
+<p>El valor de <span class="math inline">\(p_{v}\)</span> indica que hay una frecuencia del 37.7% de obtener muestras con T <span class="math inline">\(\geq 6\)</span> hembras bajo <span class="math inline">\(\mathrm{H}_{0}\)</span> y, por tanto, que no hay indicios suficientes de discrepancia entre la muestra obtenida y la hipótesis de da Souza consistente en que <span class="math inline">\(\mathrm{p} \leq 0.5\)</span>.</p>
+<p>Una vez más, hay que insistir en que <span class="math inline">\(\mathrm{p}_{\mathrm{v}}\)</span> es un valor objetivo -cualquier experimentador dará el mismo valor una vez obtenida la muestra-, mientras que <span class="math inline">\(\alpha\)</span> es subjetivo, elegido por el experimentador según su experiencia.</p>
+</section>
+<section id="caso-2-cálculo-del-p-valor-prueba-unilateral" class="level3" data-number="17.2">
+<h3 data-number="17.2" class="anchored" data-anchor-id="caso-2-cálculo-del-p-valor-prueba-unilateral"><span class="header-section-number">17.2</span> Caso 2: Cálculo del p-valor (prueba unilateral)</h3>
+<p>Consideremos primero el cálculo del p-valor cuando las hipótesis son:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu \leq 7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu&gt;7
+\]</span></p>
+<p>En el cuadro siguiente se presentan los datos obtenidos en el experimento, su media y la desviación estándar corregida, así como el p-valor y la decisión final según el nivel de significación 0.05. Como <span class="math inline">\(\mathrm{T}=8.54\)</span>, el p-valor corresponde a la cola de la curva Normal situada a la derecha de T. En el gráfico se superpone el color rojo del p-valor al verde de la zona correspondiente a <span class="math inline">\(\alpha\)</span> en la parte más extrema de la cola.</p>
+<p>(Se muestra figura correspondiente.)</p>
+<p>Así pues, se rechaza <span class="math inline">\(\mathbf{H}_{0}\)</span>, ya que <span class="math inline">\(\alpha=0.05&gt;\mathrm{p}_{\mathrm{v}}=0.00513\)</span>. En el documento interactivo es posible elegir otros niveles de significación. Según el nivel elegido se aceptará o rechazará la hipótesis nula.</p>
+<p>El cuadro anterior ilustra la relación entre los conceptos del p-valor y del nivel de significación, ahora bien, el lector NO debe extraer la conclusión de que debe ajustar <span class="math inline">\(\alpha\)</span> en ningún sentido: <span class="math inline">\(\alpha\)</span> se elige siempre a priori (antes del análisis), nunca en función de los datos (o del p-valor). Respecto al cálculo simbólico del p-valor, en el ejemplo se ajusta a la expresión siguiente:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p v &amp; =p\left(\bar{X}_{16} \geq 8.54 / H_{0}\right) \\
+&amp; =\int_{8.54}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x \\
+&amp; =1-F_{z}\left(\frac{8.54-7}{0.6}\right)=0.0513
+\end{aligned}
+\]</span></p>
+<p>En el documento interactivo se pueden cambiar los datos de los dieciséis atletas, lo que permite resolver algunas de las cuestiones planteadas más adelante. Alternativamente al p-valor, también se puede visualizar la potencia o el error de tipo II.</p>
+</section>
+<section id="caso-2-cálculo-del-p-valor-prueba-bilateral" class="level3" data-number="17.3">
+<h3 data-number="17.3" class="anchored" data-anchor-id="caso-2-cálculo-del-p-valor-prueba-bilateral"><span class="header-section-number">17.3</span> Caso 2: Cálculo del p-valor (prueba bilateral)</h3>
+<p>Consideremos ahora el cálculo del p-valor cuando las hipótesis son:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu=7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq 7
+\]</span></p>
+<p>El p-valor corresponde ahora a dos colas de la curva Normal: una es la misma que en el caso unilateral, es decir, la situada a la derecha de <span class="math inline">\(\mathrm{T}=8.54\)</span>, la segunda es la cola simétrica a la anterior respecto a <span class="math inline">\(\mu=7\)</span>, es decir, la cola izquierda situada en <span class="math inline">\(2 \mu-\mathrm{T}=5.46\)</span>. Como antes, en el cuadro se superpone el color rojo del p-valor al verde de la zona correspondiente a <span class="math inline">\(\alpha\)</span> en la parte más extrema de las dos colas. En el documento interactivo se pueden cambiar datos, el nivel de significación y el punto donde se calcula la potencia.</p>
+<p>(Se muestra figura correspondiente.)</p>
+<p>El cálculo del p-valor se corresponde, con los datos originales, a:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p v &amp; =p\left(\bar{X}_{16} \leq 5.46 / H_{0}\right)+p\left(\bar{X}_{16} \geq 8.54 / H_{0}\right) \\
+&amp; =\int_{-\infty}^{5.46} f_{\bar{X}_{16}}(x) d x+\int_{8.54}^{\infty} f_{\bar{X}_{16}}(x) d x \\
+&amp; =2 p\left(\bar{X}_{16} \geq 8.54 / H_{0}\right)=.01027
+\end{aligned}
+\]</span></p>
+<p>Así pues, se rechaza <span class="math inline">\(\mathbf{H}_{\mathbf{0}}\)</span>, puesto que:</p>
+<p><span class="math display">\[
+\alpha=0.05&gt;\mathrm{pv}=0.01027
+\]</span></p>
+<p>En general, si la distribución del estadístico es continua, como en este caso, se puede calcular fácilmente el p-valor de la prueba bilateral a partir de la unilateral, y viceversa. Así, si designamos con <span class="math inline">\(\mathrm{p}_{uni}\)</span> y <span class="math inline">\(\mathrm{p}_{bil}\)</span>, respectivamente, los p-valores de la prueba unilateral y bilateral, tendremos que:</p>
+<ul>
+<li>Si <span class="math inline">\(\mathrm{p}_{uni} \leq 0.5\)</span>, entonces <span class="math inline">\(\mathrm{p}_{bil}=2 \mathrm{p}_{uni}\)</span>. Es decir, el p-valor es exactamente el doble que el de la prueba unilateral.</li>
+<li>Si <span class="math inline">\(\mathrm{p}_{uni}&gt;0.5\)</span>, entonces <span class="math inline">\(\mathrm{p}_{bil}=2(1-\mathrm{p}_{uni})\)</span>. Es decir, el p-valor es exactamente el doble que el complementario del p-valor de la prueba unilateral.</li>
+</ul>
+</section>
+</section>
+<section id="pruebas-exactas-y-pruebas-asintóticas" class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="pruebas-exactas-y-pruebas-asintóticas"><span class="header-section-number">18</span> Pruebas exactas y pruebas asintóticas</h2>
+<p>Los dos errores ( <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(1-\beta\)</span> ) implicados en cualquier contraste son probabilidades que se basan en hipótesis sobre el parámetro que queremos contrastar. De manera similar a los intervalos de confianza (véase, por ejemplo, los intervalos para una proporción y para la media de una Normal), se pueden clasificar los tests en relación con la distribución empleada.</p>
+<p>Si se puede establecer explícitamente para cualquier tamaño de muestra <span class="math inline">\(N\)</span> qué distribución tiene el estadístico de test, y además es factible el cálculo de los errores, se obtendrá una fórmula válida para todo <span class="math inline">\(N\)</span>. Este es el caso de los dos ejemplos seguidos en este capítulo. Un test con estas características se denomina prueba exacta. La prueba t de Student para dos muestras y la prueba F de comparación de varianzas son ejemplos de uso cotidiano en experimentos reales.</p>
+<p>En otros casos, cuando existe dificultad para resolver el cálculo de los errores con la verdadera distribución del estadístico, se recurre a las propiedades en el límite de las distribuciones. Un recurso habitual es aplicar el teorema central del límite si la distribución del estadístico tiende a una Normal. En este segundo caso, el test obtenido solo será válido para valores grandes de <span class="math inline">\(N\)</span>, y entonces se denomina prueba asintótica. Los ejemplos más conocidos son las diferentes pruebas de Ji-cuadrado.</p>
+<section id="caso-1-test-asintótico" class="level3" data-number="18.1">
+<h3 data-number="18.1" class="anchored" data-anchor-id="caso-1-test-asintótico"><span class="header-section-number">18.1</span> Caso 1: Test asintótico</h3>
+<p>Hasta el momento nos hemos basado para resolver los contrastes en la distribución exacta del estadístico <span class="math inline">\(T=\)</span> número de hembras en diez nidos, que es una Binomial <span class="math inline">\((n, p)\)</span>, con <span class="math inline">\(n=10\)</span> y <span class="math inline">\(p\)</span> desconocida. La distribución exacta de T nos permite calcular p-valores, potencias, etc. para cualquier tamaño de muestra <span class="math inline">\(n\)</span>. No obstante, los cálculos con la distribución Binomial se pueden aproximar mediante la distribución Normal a partir de tamaños de muestra de treinta o mayores. La distribución asintótica de <span class="math inline">\(T\)</span> es:</p>
+<p><span class="math display">\[
+T \approx N(n p, \sqrt{n p(1-p)})
+\]</span></p>
+<p>Por ejemplo, si se pretende contrastar:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H_{0}: p=0.5 \\
+&amp; H_{1}: p \neq 0.5
+\end{aligned}
+\]</span></p>
+<p>con <span class="math inline">\(n=36\)</span>, bajo <span class="math inline">\(\mathrm{H}_{0} T\)</span> será aproximadamente <span class="math inline">\(N(18,3)\)</span>. En el documento interactivo se presenta un cuadro donde podemos comprobar las diferencias entre el p-valor exacto y el p-valor según la distribución asintótica para diferentes <span class="math inline">\(n\)</span> y diferentes valores de T. Por ejemplo, para <span class="math inline">\(n=36\)</span> y 28 hembras las diferencias son:</p>
+<p><span class="math display">\[
+\mathrm{p}_{\mathrm{v}}\text{ exacto }-\mathrm{p}_{\mathrm{v}}\text{ asintótico }=0.00119-0.00085&lt;0.004
+\]</span></p>
+<p>¿Qué interés tiene entonces la distribución asintótica si conocemos la exacta? La ventaja se sitúa en el terreno del cálculo: la distribución Normal es más fácil de usar computacionalmente tanto si se evalúa mediante tablas (y calculadora) como si se evalúa con el ordenador. En cambio, la fórmula de la densidad Binomial conlleva dificultades operativas con los factoriales cuando <span class="math inline">\(n&gt;30\)</span>.</p>
+</section>
+<section id="caso-2-test-exacto" class="level3" data-number="18.2">
+<h3 data-number="18.2" class="anchored" data-anchor-id="caso-2-test-exacto"><span class="header-section-number">18.2</span> Caso 2: Test exacto</h3>
+<p>Ya se ha analizado anteriormente con detalle la distribución de la media de <span class="math inline">\(n\)</span> atletas cuando la variable observada es una Normal. En resumen, la densidad obtenida es una Normal de parámetros:</p>
+<p><span class="math display">\[
+\bar{X}_{n} \approx N(\mu, 2.4 / \sqrt{n})
+\]</span></p>
+<p>Por lo tanto, mediante esta distribución exacta del estadístico para cualquier tamaño de la muestra, se puede plantear sin la necesidad de aproximar a ninguna otra distribución el cálculo del p-valor, de la potencia, etc.</p>
+</section>
+</section>
+<section id="relación-con-los-intervalos-de-confianza" class="level2" data-number="19">
+<h2 data-number="19" class="anchored" data-anchor-id="relación-con-los-intervalos-de-confianza"><span class="header-section-number">19</span> Relación con los intervalos de confianza</h2>
+<p>Los contrastes de hipótesis están muy relacionados con la teoría de los intervalos de confianza. En muchos casos se puede resolver la misma cuestión aplicada formulándola por cualquiera de las dos vías. Por ejemplo, el contraste:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta \neq \theta_{0}
+\]</span></p>
+<p>se puede resolver planteando el intervalo de confianza para <span class="math inline">\(\theta\)</span>, con coeficiente de confianza <span class="math inline">\(1-\alpha\)</span>. Supongamos que el intervalo obtenido es <span class="math inline">\([a ; b]\)</span>. Entonces, si:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \text { si } \theta_{0} \in[a ; b] \text { aceptar } \mathrm{H}_{0} \\
+&amp; \text { si } \theta_{0} \notin[a ; b] \text { aceptar } \mathrm{H}_{1}
+\end{aligned}
+\]</span></p>
+<p>Este contraste tendrá como nivel de significación <span class="math inline">\(\alpha\)</span>. Es posible proporcionar incluso el p-valor si se ajusta la anchura del intervalo para que sea el más amplio posible y a la vez excluya <span class="math inline">\(\theta_{0}\)</span>.</p>
+<p>Inversamente, es posible utilizar la región crítica de un contraste para proporcionar una estimación por intervalo del parámetro. Los contrastes bilaterales corresponden a intervalos también bilaterales centrados, mientras que los contrastes unilaterales derechos corresponden a estimaciones unilaterales por exceso y los unilaterales izquierdos, a estimaciones por defecto.</p>
+<section id="caso-2-relación-con-los-intervalos-de-confianza" class="level3" data-number="19.1">
+<h3 data-number="19.1" class="anchored" data-anchor-id="caso-2-relación-con-los-intervalos-de-confianza"><span class="header-section-number">19.1</span> Caso 2: Relación con los intervalos de confianza</h3>
+<p>En el tema anterior se ha estudiado el intervalo de confianza para la media de una distribución Normal. Continuando con las premisas que se han seguido hasta ahora en el caso de la statdrolona, deberemos considerar el intervalo para la medida cuando la varianza es conocida.</p>
+<p><span class="math display">\[
+\bar{X}_{16}-z_{\alpha / 2} \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X}_{16}+z_{\alpha / 2} \frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p>Si tomamos como nivel de confianza <span class="math inline">\(1-\alpha=0.95\)</span>, con los datos obtenidos resulta:</p>
+<p><span class="math display">\[
+8.54-1.959 \frac{2.4}{\sqrt{16}} \leq \mu \leq 8.54+1.959 \frac{2.4}{\sqrt{16}}
+\]</span></p>
+<p>Es decir, se obtiene el intervalo <span class="math inline">\([\mathbf{7 , 3 6 4 6};9.7154]\)</span>. Atendiendo a que la media bajo la hipótesis nula es <span class="math inline">\(\mu=7\)</span>, y que no está incluida en el intervalo anterior, se rechaza la hipótesis nula: la media es significativamente diferente de 7. Es la misma conclusión que la que hemos obtenido en el contraste bilateral anterior. Además, dado que se ha calculado un intervalo bilateral, la hipótesis alternativa correspondiente a este intervalo es también bilateral.</p>
+</section>
+</section>
+<section id="tamaños-de-muestra.-diferencia-mínima-significativa" class="level2" data-number="20">
+<h2 data-number="20" class="anchored" data-anchor-id="tamaños-de-muestra.-diferencia-mínima-significativa"><span class="header-section-number">20</span> Tamaños de muestra. Diferencia mínima significativa</h2>
+<p>Una de las preguntas más frecuentes en estadística aplicada se refiere a cuál es el tamaño muestral más adecuado. En primer lugar, si la prueba es asintótica, <span class="math inline">\(N\)</span> debe ser suficientemente grande para que la distribución del estadístico bajo la hipótesis nula esté bien aproximada. En el caso de las aproximaciones normales, valores <span class="math inline">\(N \geq 30\)</span> son usualmente aceptados. Esta consideración no se aplica si la prueba es exacta.</p>
+<p>El segundo aspecto que hay que considerar se refiere a la potencia deseada en el contraste. Pero la potencia varía en función del parámetro en los contrastes con alternativa compuesta, así que, para formular correctamente el problema, el experimentador debe proporcionar una cantidad adicional: la diferencia mínima significativa <span class="math inline">\(\Delta\)</span>.</p>
+<p>Para abreviar, ahora se detalla solo el contraste <span class="math inline">\(\mathrm{H}_{0}: \theta=\theta_{0}\)</span> contra <span class="math inline">\(\mathrm{H}_{0}: \theta \neq \theta_{0}\)</span>, pero la base conceptual es parecida para las alternativas unilaterales.</p>
+<p>El significado de <span class="math inline">\(\Delta\)</span> es entonces el siguiente: el experimentador considera que no es importante en la práctica equivocarse aceptando la hipótesis nula (es decir, cometer un error de tipo II) en el rango de alternativas situadas en el intervalo <span class="math inline">\((\theta_{0}-\Delta ; \theta_{0}+\Delta)\)</span>. En cambio, <span class="math inline">\(\theta_{0} \pm \Delta\)</span> son los dos primeros puntos, a medida que <span class="math inline">\(\theta\)</span> se aleja de la hipótesis nula, que el experimentador considera importante diferenciar de <span class="math inline">\(\theta_{0}\)</span>. Es justamente en estos dos puntos donde se ajusta el tamaño de la muestra para garantizar la potencia deseada. Lógicamente, la potencia será todavía más alta si la alternativa finalmente cierta está aún a mayor distancia que <span class="math inline">\(\Delta\)</span>.</p>
+<p>La elección concreta del valor de <span class="math inline">\(\Delta\)</span> depende de cada situación aplicada, pero en cualquier caso es una cantidad elegida por el experimentador, no dictada por una regla estadística.</p>
+<p>Una vez elegidos <span class="math inline">\(\Delta\)</span> y la potencia deseada en ese punto, es posible indicar cuál es el tamaño mínimo de la muestra para resolver adecuadamente el problema. En algunos casos requerirá un experimento piloto antes de proceder con el experimento definitivo.</p>
+<section id="caso-2-cálculo-del-tamaño-de-la-muestra" class="level3" data-number="20.1">
+<h3 data-number="20.1" class="anchored" data-anchor-id="caso-2-cálculo-del-tamaño-de-la-muestra"><span class="header-section-number">20.1</span> Caso 2: Cálculo del tamaño de la muestra</h3>
+<p>El estadístico de test de este caso (la media de los atletas) tiene una distribución exacta conocida para todo <span class="math inline">\(n\)</span> que se ha descrito anteriormente. Por lo tanto, aquí el experimentador debe elegir la diferencia mínima significativa (<span class="math inline">\(\boldsymbol{\Delta}\)</span>) y la potencia (<span class="math inline">\(\boldsymbol{\beta}\)</span>) para determinar el tamaño de la muestra adecuado. Supongamos que se quiere hacer el contraste bilateral:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu=7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq 7
+\]</span></p>
+<p>con las condiciones siguientes del experimento fijadas:</p>
+<p><span class="math display">\[
+\alpha=5 \% \quad \beta=90 \% \quad \Delta=0.8 \mathrm{ng} / \mathrm{ml}
+\]</span></p>
+<p>Dicho de otro modo, se pretende obtener una potencia del 90% en los puntos:</p>
+<p><span class="math display">\[
+\mu_{0}-\Delta=6.2 \quad \mu_{0}+\Delta=7.8
+\]</span></p>
+<p>Estos son los dos primeros valores (menor y mayor que <span class="math inline">\(\mu_{0}=7\)</span>, respectivamente) que el experimentador no quiere que se confundan con <span class="math inline">\(\mathrm{H}_{0}\)</span>, excepto con un error del 10%. Por tanto, se debe aislar el valor de <span class="math inline">\(n\)</span> que cumpla las siguientes condiciones simultáneamente:</p>
+<p><span class="math display">\[
+\left\{\begin{array}{l}
+p\left(\left|\bar{X}_{n}-\mu\right| \sqrt{n} / \sigma \geq z_{\alpha / 2} / \mathrm{H}_{0}\right)=\alpha \\
+p\left(\left|\bar{X}_{n}-\mu\right| \sqrt{n} / \sigma \geq z_{\alpha / 2} / \mathrm{H}_{1 \Delta}\right)=\beta
+\end{array}\right.
+\]</span></p>
+<p><span class="math inline">\(\mathrm{H}_{1 \Delta}\)</span> corresponde a la hipótesis simple <span class="math inline">\(\mu=\mu_{0}+\Delta\)</span> (7.8 en el ejemplo). Atendiendo a la distribución de la media de <span class="math inline">\(n\)</span> atletas bajo cada una de las hipótesis, la única incógnita es <span class="math inline">\(n\)</span>. Las constantes <span class="math inline">\(z_{\alpha / 2}\)</span> y <span class="math inline">\(z_{1-\beta}\)</span> corresponden a las colas derechas siguientes de la variable aleatoria Normal tipificada Z:</p>
+<p><span class="math display">\[
+p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\right)=1-\beta
+\]</span></p>
+<p>Cuando se resuelve el sistema de ecuaciones anterior se obtiene la fórmula que proporciona el tamaño deseado:</p>
+<p><span class="math display">\[
+n=\left\{\frac{\sigma\left(z_{1-\beta}+z_{\alpha / 2}\right)}{\Delta}\right\}^{2}
+\]</span></p>
+<p>Sustituyendo por los valores concretos del ejemplo:</p>
+<p><span class="math display">\[
+n=\{2.4(1.645+1.960)/0.8\}^{2}=116.964
+\]</span></p>
+<p>Redondeando, el tamaño debe ser de 117 atletas. En el cuadro siguiente se muestra el tamaño de la muestra en función de la diferencia mínima significativa deseada, junto con otros parámetros que afectan el problema:</p>
+<p>(Se muestra figura correspondiente.)</p>
+<p>Para los valores extremos de <span class="math inline">\(\alpha(0)\)</span> y de <span class="math inline">\(\beta(1)\)</span>, el valor del tamaño de la muestra se hace infinito y no se puede representar en el cuadro anterior.</p>
+</section>
+</section>
+<section id="esquema-de-un-contraste-correctamente-planteado" class="level2" data-number="21">
+<h2 data-number="21" class="anchored" data-anchor-id="esquema-de-un-contraste-correctamente-planteado"><span class="header-section-number">21</span> Esquema de un contraste correctamente planteado</h2>
+<p>Los conceptos expuestos hasta aquí son esenciales para entender qué es un contraste estadístico de hipótesis y poder aplicar correctamente los diferentes tests que se detallarán en próximos capítulos. En la práctica, y para la tranquilidad del experimentador, normalmente solo hay que preocuparse de identificar el problema que hay que resolver (contraste sobre una, dos o más poblaciones), la familia de distribución y finalmente aplicar tests ya deducidos, algunos casi centenarios. Ahora bien, el experimentador debe elegir las tres cantidades siguientes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">1) nivel de significación <span class="math inline">\(\boldsymbol{\alpha}\)</span></th>
+<th style="text-align: left;">Si no se tiene un criterio definido, se utilizará el estándar <span class="math inline">\(\alpha=\)</span> <br> 0.05.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2) diferencia mínima <br> significativa <span class="math inline">\(\Delta\)</span></td>
+<td style="text-align: left;">Elegida sobre la base de la experiencia en el campo <br> concreto de aplicación.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3) potencia deseada en el <br> punto a distancia <span class="math inline">\(\Delta\)</span></td>
+<td style="text-align: left;">Si no se tiene un criterio definido, se tomará <span class="math inline">\(\beta=0.8\)</span> para <br> <span class="math inline">\(\alpha=0.05\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<p>Con estas tres cantidades se podrá deducir usualmente el tamaño de muestra necesario, que completará el diseño esencial del test. La información final del resultado del contraste debe indicar estas tres cantidades junto con el p-valor obtenido. Resulta muy aconsejable acompañar el test con el intervalo de confianza equivalente, que puede orientar sobre la significación aplicada (no estadística) del contraste.</p>
+</section>
+<section id="significación-estadística-y-significación-aplicada" class="level2" data-number="22">
+<h2 data-number="22" class="anchored" data-anchor-id="significación-estadística-y-significación-aplicada"><span class="header-section-number">22</span> Significación estadística y significación aplicada</h2>
+<p>Al final de este tema resulta conveniente distinguir entre significación estadística y significación aplicada. Cuando se resuelve un contraste de hipótesis se indica que hay significación estadística (S.E.) como sinónimo de aceptación de la hipótesis alternativa. A lo largo de este tema se ha visto, en síntesis, que la S.E. se produce cuando los datos obtenidos en el experimento real y la hipótesis nula presentan una discrepancia que no se atribuye al azar, excepto en el porcentaje de casos marcado por el nivel de significación elegido.</p>
+<p>Usualmente, el límite entre la S.E. y la no significación (que técnicamente corresponde a la frontera de la región crítica) depende de la variabilidad del estadístico de test utilizado. Aquí interviene pues de manera directa el tamaño de la muestra <span class="math inline">\(N\)</span> y la varianza del estadístico, como también se ha visto en los dos casos presentados.</p>
+<p>En determinadas situaciones, la variabilidad del estadístico es muy pequeña, de modo que el contraste es muy sensible a desviaciones pequeñas de la hipótesis nula. Puede suceder entonces que, cuando se obtienen los datos, el contraste señale que hay S.E., pero que la desviación respecto a la hipótesis nula sea irrelevante desde el punto de vista práctico. La conclusión es que conviene analizar esta significación aplicada (S.A.) cuando se hace un contraste de hipótesis. En muchos casos, la manera más sencilla es obtener el intervalo de confianza adecuado e interpretar la información del contraste junto con la del intervalo.</p>
+<p>En resumen, cuando se aplica cualquier contraste no debemos conformarnos con la simple lectura del p-valor y decidir en consecuencia, sino que:</p>
+<ul>
+<li>si se ha detectado S.E., hay que valorar la S.A., por ejemplo, mediante un intervalo de confianza. Puede haber S.E. pero que no haya S.A.<br>
+</li>
+<li>si no se ha detectado S.E., hay que valorar si el tamaño de la muestra es suficiente para detectar (estadísticamente) las diferencias deseadas por el experimentador. Puede que no haya S.E. por un tamaño de muestra inadecuado y, por tanto, no se podría concluir sobre la S.A. Si el tamaño de la muestra es suficiente y no hay S.E., entonces tampoco hay S.A.</li>
+</ul>
+<section id="caso-2-significación-estadística-y-aplicada" class="level3" data-number="22.1">
+<h3 data-number="22.1" class="anchored" data-anchor-id="caso-2-significación-estadística-y-aplicada"><span class="header-section-number">22.1</span> Caso 2: Significación estadística y aplicada</h3>
+<p>Con los datos realmente obtenidos en el estudio, y la hipótesis:</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mu=7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq 7
+\]</span></p>
+<p>ya hemos visto que la conclusión, para <span class="math inline">\(\alpha=0.05\)</span>, era indicar que hay significación estadística.</p>
+<p>Supongamos que los fisiólogos aceptan que las diferencias en el nivel de la hormona son relevantes cuando hay más de <span class="math inline">\(0.2 \mathrm{ng} / \mathrm{ml}\)</span> de diferencia en la media de la población. El intervalo bilateral en la muestra anterior es:<br>
+y permite afirmar que también hay significación aplicada.<br>
+Supongamos que la población tuviera una desviación estándar de <span class="math inline">\(0.1 \mathrm{ng} / \mathrm{ml}\)</span> (en lugar de la 2.4 planteada hasta ahora), y se hubiera obtenido una media igual a 7.13. El contraste de hipótesis detectaría entonces igualmente que hay S.E., pero en cambio cuando se observa el intervalo de confianza:</p>
+<p>Habría que concluir que no hay S.A. En este segundo caso, la varianza tan pequeña permite que el contraste sea muy sensible a pequeñas variaciones de la media. La S.E. en este último ejemplo no resulta relevante en la práctica.</p>
+</section>
+</section>
+
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
