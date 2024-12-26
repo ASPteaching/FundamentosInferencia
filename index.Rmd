@@ -36,14 +36,6 @@ Es por ello que en este curso seguiremos la indicación habitual en cursos simil
 - Está familiarizado con el cálculo diferencial en una o varias variables, aunque esta familiaridad no será imprescindible para seguir la mayoría de los contenidos del curso.
 - Conoce el lenguaje estadístico R, que en muchas ocasiones nos ofrecerá una solución directa a los problemas de cálculo.
 
-## Referencias {-}
-
-Los prerequisitos anteriores corresponden básicamente a las matemáticas del bachilerato. Algunas funetes adiconales pueden ser:
-
-- [Iniciación a las matemáticas para la ingeniería. M. Besalú y Joana Villalonga](http://cimanet.uoc.edu/cursMates0/IniciacionMatematicas/pdf/PID_00273914.pdf)
-
-  - [Colección de (100) videos de soporte a las matemáticas para la ingeniería](https://www.youtube.com/playlist?list=PLv8FweHfYYMo6Lr2zt6H4znq5KuBacq28)
-  
 # Agradecimiento y fuentes utilizadas {-}
 
 Salvo que uno desee escribir un libro sobre algo muy extraño, siempre habran otros libros o manuales similares al que se está planteando.
@@ -78,6 +70,22 @@ Dejando aparte (además) de la licencia, vaya nuestro agradecimiento explícito 
 
 - [Alex Sanchez y Francesc Carmona (2002). Apunts d'Estadística Matemàtica](https://github.com/ASPteaching/ApuntsEstadisticaMatematica) Licencia CC0 1.0 Universal
 
+## Materiales complementarios
+
+Los documentos que se citan a continuación contienen materiales similares a los que aquí se presentan, para cursos parecidos al que ha generado los presentes.
+
+Aunque todavía no se han utilizado para mejorar la versión actual, contamos en incorporar algunas de sus ideas y/o enfoques en versiones futuras.
+
+- [Berrendero, José. Fundamentos de Estadística](https://verso.mat.uam.es/~joser.berrendero/libro-est/)
+
 - [Molina Peralta, I. and García-Portugués, E. (2024). _A First Course on Statistical Inference_. Version 2.4.1. ISBN 978-84-09-29680-4](https://bookdown.org/egarpor/inference/). Licencia CC BY-NC-ND 4.0
 
 - [Peter K. Dunn (2024) _The theory of distributions_. ](https://bookdown.org/pkaldunn/DistTheory) Licencia CC BY-NC-ND 4.0
+
+### Complementos matemáticos {-}
+
+Los prerequisitos para este curso corresponden básicamente a una matemáticas -bien aprendidas- del bachilerato. Algunas fuentes adiconales pueden ser:
+
+- [Iniciación a las matemáticas para la ingeniería. M. Besalú y Joana Villalonga](http://cimanet.uoc.edu/cursMates0/IniciacionMatematicas/pdf/PID_00273914.pdf)
+
+  - [Colección de (100) videos de soporte a las matemáticas para la ingeniería](https://www.youtube.com/playlist?list=PLv8FweHfYYMo6Lr2zt6H4znq5KuBacq28)
