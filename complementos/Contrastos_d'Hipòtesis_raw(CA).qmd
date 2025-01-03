@@ -633,7 +633,7 @@ Simbòlicament, correspon a calcular:
 
 $$
 \begin{aligned}
-1-\beta & =p\left(\bar{X}_{16}<7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x \\
+1-\beta & =p\left(\bar{X}_{16}<7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x =\\
 & =F_{Z}\left(\frac{7.9869-8.5}{2.4 / \sqrt{16}}\right)
 \end{aligned}
 $$

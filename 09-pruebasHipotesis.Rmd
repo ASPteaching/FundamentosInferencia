@@ -4,21 +4,21 @@
 
 ### De las hipótesis científicas a las hipótesis estadísticas
 
-Antes de introducir los conceptos asociados al contraste estadístico de hipótesis, es conveniente situar este tema en el contexto más general de la _confirmación de hipótesis_, materia que la filosofía de la ciencia estudia en profundidad. Así pues, en este punto solo se plantean consideraciones generales, dejando para los siguientes apartados cómo aborda la Estadística este tema.
+Antes de introducir los conceptos asociados al contraste estadístico de hipótesis, es conveniente situar este tema en el contexto más general de la *confirmación de hipótesis*, materia que la filosofía de la ciencia estudia en profundidad. Así pues, en este punto solo se plantean consideraciones generales, dejando para los siguientes apartados cómo aborda la Estadística este tema.
 
 Una cuestión esencial en cualquier rama de la ciencia -básica o aplicada- es cómo verificar hipótesis sobre un determinado fenómeno real. Muchas veces, cuando se expone este tema al estudiante durante las primeras etapas de su formación científica, el llamado método de razonamiento científico se simplifica en exceso, presentando la verificación de hipótesis en términos absolutos. En este esquema simplificado del método científico se expone cómo teorizar sobre un determinado aspecto de la realidad más o menos de la siguiente forma:
 
-a) se formula una teoría (o una hipótesis, o una ley, ...) sobre el fenómeno de estudio  
-b) se diseña un experimento para tratar de corroborar dicha teoría  
-c) si los resultados del experimento concuerdan con la teoría, ésta se da provisionalmente por válida  
-d) si el experimento contradice la teoría, se vuelve al apartado a), se modifica la ley o se elabora una nueva, de modo que se ajuste a la realidad experimental.  
-e) cualquier teoría relacionada con aspectos de la realidad es siempre provisional, pendiente de ser revisada al entrar en conflicto con resultados de experimentos posteriores.
+a)  se formula una teoría (o una hipótesis, o una ley, ...) sobre el fenómeno de estudio\
+b)  se diseña un experimento para tratar de corroborar dicha teoría\
+c)  si los resultados del experimento concuerdan con la teoría, ésta se da provisionalmente por válida\
+d)  si el experimento contradice la teoría, se vuelve al apartado a), se modifica la ley o se elabora una nueva, de modo que se ajuste a la realidad experimental.\
+e)  cualquier teoría relacionada con aspectos de la realidad es siempre provisional, pendiente de ser revisada al entrar en conflicto con resultados de experimentos posteriores.
 
-Esta forma de proceder -como veremos, excesivamente simplista- se basa en el hecho de asumir que en cualquier experimento se obtendrán resultados que serán _o bien totalmente contradictorios_ con la teoría (y por tanto habrá que abandonarla inmediatamente) _o bien concordantes_ con la teoría (y por tanto resulta razonable mantenerla).
+Esta forma de proceder -como veremos, excesivamente simplista- se basa en el hecho de asumir que en cualquier experimento se obtendrán resultados que serán *o bien totalmente contradictorios* con la teoría (y por tanto habrá que abandonarla inmediatamente) *o bien concordantes* con la teoría (y por tanto resulta razonable mantenerla).
 
 Antes se ha calificado este método de validación como absoluto: si obviamos el posible error experimental, la decisión que se tome no conllevará ningún error, ya que basta con verificar los resultados del experimento para aceptar o rechazar la teoría.
 
-Debe quedar claro al lector que el esquema anterior _no es el de un contraste estadístico_, y de hecho el desarrollo de este tema se encargará de revisarlo. En los próximos apartados se expondrá, para empezar, una primera idea fundamental en Estadística: cuando se introduce un modelo de probabilidad para explicar un fenómeno, emerge inevitablemente un error ya en la misma toma de decisión. En otras palabras, el esquema anterior debe revisarse en los puntos c) y d).
+Debe quedar claro al lector que el esquema anterior *no es el de un contraste estadístico*, y de hecho el desarrollo de este tema se encargará de revisarlo. En los próximos apartados se expondrá, para empezar, una primera idea fundamental en Estadística: cuando se introduce un modelo de probabilidad para explicar un fenómeno, emerge inevitablemente un error ya en la misma toma de decisión. En otras palabras, el esquema anterior debe revisarse en los puntos c) y d).
 
 Una vez se han expuesto estas cuestiones fundamentales en los primeros puntos del capítulo, entraremos en el núcleo de este tema que consiste en el desarrollo ya puramente técnico del contraste estadístico de hipótesis.
 
@@ -26,13 +26,13 @@ Una vez se han expuesto estas cuestiones fundamentales en los primeros puntos de
 
 Es necesario considerar, antes de afrontar la validación estadística de una hipótesis, cómo se plantea ésta en términos estadísticos, ya que su formulación exige una traducción del lenguaje natural.
 
-Conviene pues recordar que una hipótesis sobre un determinado fenómeno se formula en lenguaje natural como una _proposición sobre la realidad_. Por ejemplo, si se está estudiando determinada especie de aves, una posible hipótesis es que la proporción de machos es idéntica a la de hembras. Un segundo ejemplo nos lo proporciona el estudio del metabolismo humano en donde se propone como hipótesis que la concentración de cierta hormona se mantiene constante cuando se suministra un fármaco anabolizante.
+Conviene pues recordar que una hipótesis sobre un determinado fenómeno se formula en lenguaje natural como una *proposición sobre la realidad*. Por ejemplo, si se está estudiando determinada especie de aves, una posible hipótesis es que la proporción de machos es idéntica a la de hembras. Un segundo ejemplo nos lo proporciona el estudio del metabolismo humano en donde se propone como hipótesis que la concentración de cierta hormona se mantiene constante cuando se suministra un fármaco anabolizante.
 
-Las hipótesis planteadas en los ejemplos, similares a otras que se trataran en este capítulo se denominan genéricamente _hipótesis paramétricas_ porque hacen referencia a características de la población que pueden relacionarse directamente con los parámetros de un modelo probabilístico que la describe. Por ejemplo, si utilizamos una distribución binomial para representar el número de aves hembra en un nido, la proporción de hembras se corresponde con el parámetro $p$ de dicha distribución.
+Las hipótesis planteadas en los ejemplos, similares a otras que se trataran en este capítulo se denominan genéricamente *hipótesis paramétricas* porque hacen referencia a características de la población que pueden relacionarse directamente con los parámetros de un modelo probabilístico que la describe. Por ejemplo, si utilizamos una distribución binomial para representar el número de aves hembra en un nido, la proporción de hembras se corresponde con el parámetro $p$ de dicha distribución.
 
 Así pues, el primer esfuerzo que debe realizar el experimentador es trasladar sus hipótesis, que generalmente expresa en lenguaje natural, a afirmaciones (proposiciones) sobre los parámetros de la distribución que considere más apropiada para describir el fenómeno que estudia.
 
-En ocasiones, sin embargo, la selección misma del modelo probabilístico puede ser el problema. En estos casos la hipótesis se formulará en erminos de la distribución en vez de los parámetros de la misma. Por ejemplo al hablar de la concentración de la hormona durante la metabolizacioón de un fármaco el investigador puede desear decidir si es mas adecuada una distribución normal o una distribución gamma para representar dicha concentración. En este caso hablaríamos de _hipótesis no paramétricas_, que se discutiran más adelante en el curso.
+En ocasiones, sin embargo, la selección misma del modelo probabilístico puede ser el problema. En estos casos la hipótesis se formulará en erminos de la distribución en vez de los parámetros de la misma. Por ejemplo al hablar de la concentración de la hormona durante la metabolizacioón de un fármaco el investigador puede desear decidir si es mas adecuada una distribución normal o una distribución gamma para representar dicha concentración. En este caso hablaríamos de *hipótesis no paramétricas*, que se discutiran más adelante en el curso.
 
 En los casos prácticos siguientes, cuya solución completa se verá a lo largo del capítulo, se presentan dos situaciones diferentes.
 
@@ -64,11 +64,11 @@ el único parámetro desconocido es la proporción $\boldsymbol{p}$ de hembras. 
 
 ### Caso 2: Presentación
 
-En el mundo del deporte profesional se controlan con mucha precisión algunos metabolitos que aparecen en bajas concentraciones en condiciones normales. Este es el caso de la statdrolona[^1], que en individuos normales presenta una concentración media de 7.0 nanogramos por ml de orina. Este valor se ha establecido mediante una muestra muy grande de deportistas después de años de análisis antes, durante y después de competiciones. Asimismo, se ha descrito que la desviación estándar es de $\mathbf{2 . 4 ~ n g} / \mathbf{m l}$. Estos dos valores poblacionales sirven como justificación médica a las autoridades deportivas para declarar cuándo la tasa de statdrolona se asocia a un presunto dopaje.
+En el mundo del deporte profesional se controlan con mucha precisión algunos metabolitos que aparecen en bajas concentraciones en condiciones normales. Este es el caso de la statdrolona[^09-pruebashipotesis-1], que en individuos normales presenta una concentración media de 7.0 nanogramos por ml de orina. Este valor se ha establecido mediante una muestra muy grande de deportistas después de años de análisis antes, durante y después de competiciones. Asimismo, se ha descrito que la desviación estándar es de $\mathbf{2 . 4 ~ n g} / \mathbf{m l}$. Estos dos valores poblacionales sirven como justificación médica a las autoridades deportivas para declarar cuándo la tasa de statdrolona se asocia a un presunto dopaje.
+
+[^09-pruebashipotesis-1]: La statdrolona no es ninguna hormona, aquí se ha adaptado la información de hormonas reales.
 
 No obstante, un estudio reciente encargado por la asociación de deportistas ADG a un prestigioso departamento universitario de fisiología sostiene que, cuando se mide la concentración de statdrolona en individuos no dopados con cierto tipo de alimentos sobreabundantes en su dieta (queso parmesano, por ejemplo), el valor de la media poblacional es del orden de $\mathbf{1 . 5}$ unidades mayor. En cambio, la desviación estándar poblacional se mantiene en el valor $2,4 \mathrm{ng} / \mathrm{ml}$, es decir, equivalente a la normal. Si esta hipótesis fuera cierta, permitiría explicar algunos de los falsos positivos detectados en los últimos tiempos. Como prueba experimental aportan una serie de datos sobre 16 deportistas que se detallarán más adelante.
-
-[^1]: La statdrolona no es ninguna hormona, aquí se ha adaptado la información de hormonas reales.
 
 ### Caso 2: Modelo de probabilidad
 
@@ -92,7 +92,7 @@ $$
 
 indica para este caso que el único parámetro desconocido es la media de la población $\boldsymbol{\mu}$, a la que se referirán las hipótesis estadísticas.
 
-Ahora bien, también resulta importante describir la densidad de la media de los dieciséis deportistas, ya que jugará un papel importante en la construcción del test. Si aceptamos la distribución $\mathrm{N}(\mu, 2.4)$ para un deportista, y _consideramos que el muestreo es aleatorio simple_, entonces:
+Ahora bien, también resulta importante describir la densidad de la media de los dieciséis deportistas, ya que jugará un papel importante en la construcción del test. Si aceptamos la distribución $\mathrm{N}(\mu, 2.4)$ para un deportista, y *consideramos que el muestreo es aleatorio simple*, entonces:
 
 $$
 \bar{X}_{16}=\text { media concentración statdrolona en } 16 \text { deportistas }
@@ -134,11 +134,11 @@ La teoría del contraste de hipótesis es una de las partes más discutidas de l
 
 De hecho esta teoría ya nació entre la polémica porque, prácticamente desee sus comienzos hubieron dos escuelas de pensamiento enfrentadas. La escuela de Ronald A. Fisher, genético y estadístic británico y la de los matemáticos Polacos y Americanos Neymann y Pearson.
 
-Con el fin de evitar que la polémica confunda el aprendizaje, al menos en esta fae inicial, lo que se presenta a continuación se basa principalmente en las ideas de Neymann y Pearson que, con la finalidad de encontrar el mejor contraste posible para un problema dado, plantearon los contrastes de hipótesis estadísticos como una _decisión entre dos hipótesis_: la **hipótesis nula** y la **hipótesis alternativa**.
+Con el fin de evitar que la polémica confunda el aprendizaje, al menos en esta fae inicial, lo que se presenta a continuación se basa principalmente en las ideas de Neymann y Pearson que, con la finalidad de encontrar el mejor contraste posible para un problema dado, plantearon los contrastes de hipótesis estadísticos como una *decisión entre dos hipótesis*: la **hipótesis nula** y la **hipótesis alternativa**.
 
-- La _hipótesis nula_ consiste, en general, en una afirmación sobre (alguna característica de) la población de origen de la muestra. Usualmente representa algún tipo de simplificación (por ejemplo: el tratamiento administrado NO tiene efecto por lo que no hay diferencia entre antes y después de recibirlo. La hipótesis nula se designa con el símbolo $\mathbf{H}_{\mathbf{0}}$.
+-   La *hipótesis nula* consiste, en general, en una afirmación sobre (alguna característica de) la población de origen de la muestra. Usualmente representa algún tipo de simplificación (por ejemplo: el tratamiento administrado NO tiene efecto por lo que no hay diferencia entre antes y después de recibirlo. La hipótesis nula se designa con el símbolo $\mathbf{H}_{\mathbf{0}}$.
 
-- La _hipótesis alternativa_ es igualmente una afirmación sobre la población de origen, y, amenudo, aunque no siempre, consiste simplemente en negar la afirmación de $\mathrm{H}_{0}$. La hipótesis alternativa se designa con el símbolo $\mathbf{H}_{1}$.
+-   La *hipótesis alternativa* es igualmente una afirmación sobre la población de origen, y, amenudo, aunque no siempre, consiste simplemente en negar la afirmación de $\mathrm{H}_{0}$. La hipótesis alternativa se designa con el símbolo $\mathbf{H}_{1}$.
 
 En el estudio del contraste de hipótesis se suele partir del caso, que de tan sencillo resulta poco realista, en el cual las dos hipótesis hacen referencia a un único valor del parámetro. En esta situación general, las hipótesis se refieren a un parámetro $\theta$ (theta). La formulación es:
 
@@ -147,10 +147,9 @@ $$
 & \mathrm{H}_{0}: \theta=\theta_{0} \\
 & \mathrm{H}_{1}: \theta=\theta_{1}
 \end{aligned}
-$$
-De hecho, sería mucho más realista plantear que la alternativa a un valor $\theta_0$ sea que el parámetro toma valores superiores  ($\mathrm{H}_{1}: \theta \geq \theta_{0}$), inferiores ($\mathrm{H}_{1}: \theta \leq \theta_{0}$) o distintos ($\mathrm{H}_{1}: \theta \neq \theta_{0}$)a $\theta_0$. En la práctica este será el planteamiento de los tests que se presentará más adelante.
+$$ De hecho, sería mucho más realista plantear que la alternativa a un valor $\theta_0$ sea que el parámetro toma valores superiores ($\mathrm{H}_{1}: \theta \geq \theta_{0}$), inferiores ($\mathrm{H}_{1}: \theta \leq \theta_{0}$) o distintos ($\mathrm{H}_{1}: \theta \neq \theta_{0}$)a $\theta_0$. En la práctica este será el planteamiento de los tests que se presentará más adelante.
 
-En la teoría del contraste de hipótesis este tipo de planteamiento se conoce como contraste de hipótesis _simple contra simple_. Así pues, una hipótesis simple postula que el parámetro $\theta$ solo puede tomar un valor, o, más técnicamente, que el conjunto de parámetros de una hipótesis simple consiste en un solo punto.
+En la teoría del contraste de hipótesis este tipo de planteamiento se conoce como contraste de hipótesis *simple contra simple*. Así pues, una hipótesis simple postula que el parámetro $\theta$ solo puede tomar un valor, o, más técnicamente, que el conjunto de parámetros de una hipótesis simple consiste en un solo punto.
 
 ### Caso 1: Hipótesis para dirimir la controversia sobre el número de hembras
 
@@ -170,12 +169,12 @@ $$
 Respecto a los datos obtenidos por da Souza son:
 
 | Nido | Polluelo | Nido | Polluelo |
-| :--- | :--- | :--- | :--- |
-| 1 | hembra | 6 | macho |
-| 2 | macho | 7 | hembra |
-| 3 | hembra | 8 | hembra |
-| 4 | hembra | 9 | macho |
-| 5 | macho | 10 | hembra |
+|:-----|:---------|:-----|:---------|
+| 1    | hembra   | 6    | macho    |
+| 2    | macho    | 7    | hembra   |
+| 3    | hembra   | 8    | hembra   |
+| 4    | hembra   | 9    | macho    |
+| 5    | macho    | 10   | hembra   |
 
 En resumen, ha observado que en $\mathbf{6}$ de los nidos hay una hembra.
 
@@ -190,19 +189,19 @@ $$
 \end{aligned}
 $$
 
-tanto para $\mathrm{H}_{0}$ como para $\mathrm{H}_{1}$ el modelo contempla $\sigma=2,4$.  
+tanto para $\mathrm{H}_{0}$ como para $\mathrm{H}_{1}$ el modelo contempla $\sigma=2,4$.\
 Los datos del estudio que ha obtenido la asociación ADG, y que según ellos respaldaban su tesis, han sido los siguientes:
 
 | Individuo | Concentración | Individuo | Concentración |
-| :---: | :---: | :---: | :---: |
-| 1 | 10.47 | 9 | 7.01 |
-| 2 | 5.39 | 10 | 11.36 |
-| 3 | 6.70 | 11 | 10.11 |
-| 4 | 9.91 | 12 | 5.89 |
-| 5 | 5.99 | 13 | 10.39 |
-| 6 | 11.67 | 14 | 10.67 |
-| 7 | 6.23 | 15 | 6.89 |
-| 8 | 6.69 | 16 | 11.27 |
+|:---------:|:-------------:|:---------:|:-------------:|
+|     1     |     10.47     |     9     |     7.01      |
+|     2     |     5.39      |    10     |     11.36     |
+|     3     |     6.70      |    11     |     10.11     |
+|     4     |     9.91      |    12     |     5.89      |
+|     5     |     5.99      |    13     |     10.39     |
+|     6     |     11.67     |    14     |     10.67     |
+|     7     |     6.23      |    15     |     6.89      |
+|     8     |     6.69      |    16     |     11.27     |
 
 La media aritmética de los 16 atletas es $\mathbf{8 . 5 4} \mathrm{ng} / \mathrm{ml}$.
 
@@ -230,13 +229,11 @@ res<- data.frame(X=0:10,Prob=probs)
 kableExtra::kable(res)
 ```
 
-
 <!-- ![](https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-08.jpg?height=521&width=849&top_left_y=1941&top_left_x=609) -->
 
 Al igual que para $\mathrm{H}_{0}$, la muestra obtenida por el Dr. da Souza Faria con 6 hembras y 4 machos es solo uno de los resultados posibles que se podían dar bajo la hipótesis alternativa. En este caso $X$ (n.º de hembras en 10 nidos) es una $\operatorname{Binomial}(10,0.6)$.
 
 En la tabla siguiente se detallan los resultados que podrían haber acaecido bajo $\mathrm{H}_{1}$, junto con la probabilidad de obtenerlos según la fórmula de la densidad binomial:
-
 
 ```{r echo=FALSE}
 probs<- dbinom(x=0:10, size=10, prob=0.6)
@@ -246,7 +243,7 @@ kableExtra::kable(res)
 
 <!-- ![](https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-09.jpg?height=507&width=838&top_left_y=386&top_left_x=615) -->
 
-Un sencillo código R puede calcular las probabilidades tienen los once resultados bajo otras hipótesis que se podrían formular sobre el verdadero valor de la probabilidad $p$ de la población. 
+Un sencillo código R puede calcular las probabilidades tienen los once resultados bajo otras hipótesis que se podrían formular sobre el verdadero valor de la probabilidad $p$ de la población.
 
 ```{r, eval=FALSE}
 prob_p <- p # p algun valor entre 0 y 1
@@ -266,7 +263,6 @@ En la tabla izquierda se detallan las probabilidades de diferentes resultados qu
 knitr::include_graphics("images/cap9-comparaProbs.png")
 
 ```
-
 
 En el caso de $\mathrm{H}_{1}$ tampoco es incompatible ninguna media, y por tanto en particular no lo es el valor 8.54. Ahora la densidad de la media de los 16 valores es una variable aleatoria Normal $\mathrm{N}(8.5,0.6)$. En la tabla izquierda se detallan las probabilidades de diferentes resultados que podrían haber sucedido bajo $\mathrm{H}_{1}$ expresadas en términos de la función de distribución. En la tabla de la derecha se muestran las probabilidades para intervalos de anchura $0.3 \mathrm{ng} / \mathrm{ml}$:
 
@@ -289,11 +285,27 @@ Es importante entender que el verdadero valor de $p$ (el valor en la población)
 
 Veamos cuál es la probabilidad de obtener valores mayores que 8 hembras. Para abreviar, designamos la región de valores mayores o iguales a 8 con el símbolo $\mathrm{W}_{\alpha}=\{8,9,10\}$.
 
-```{r echo=FALSE, out.width="90%", fig.align='center'}
+<!-- ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
 
-knitr::include_graphics("images/cap9-ProbsH0.png")
+<!-- knitr::include_graphics("images/cap9-ProbsH0.png") -->
 
-```
+<!-- ``` -->
+
+
+| Valor de $X$ | Prob. $X>=X$ |
+| :---: | :---: |
+| 0 | 1.0000 |
+| 1 | 0.9990 |
+| 2 | 0.9893 |
+| 3 | 0.9453 |
+| 4 | 0.8281 |
+| 5 | 0.6230 |
+| 6 | 0.3770 |
+| 7 | 0.1719 |
+| 8 | 0.0547 |
+| 9 | 0.0107 |
+| 10 | 0.0010 |
+
 
 ### Caso 2: Medias de las tasas de statdrolona improbables si se cumple $\mathrm{H}_{0}$
 
@@ -301,11 +313,27 @@ De la misma manera que se ha razonado para el caso 1, en esta ocasión con las d
 
 En la tabla siguiente se muestran las probabilidades de obtener valores mayores que 7 $\mathrm{ng} / \mathrm{ml}$. Observemos particularmente la región de valores mayores que 7.9869, que se representará con el símbolo $\mathrm{W}_{\alpha}$. Expresada como intervalo, $\mathrm{W}_{\alpha}=[7.9869, \infty)$.
 
-```{r echo=FALSE, out.width="90%", fig.align='center'}
+<!-- ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
 
-knitr::include_graphics("images/cap9-ProbsH1.png")
+<!-- knitr::include_graphics("images/cap9-ProbsH1.png") -->
 
-```
+<!-- ``` -->
+
+
+| Miljana $(x)$ | Prob. $X=x$ |
+| :---: | :---: |
+| 6,506 | 0.7946 |
+| 6,671 | 0.7083 |
+| 6,835 | 0.6080 |
+| 7 | 0.5000 |
+| 7,165 | 0.3920 |
+| 7,329 | 0.2917 |
+| 7,494 | 0.2054 |
+| 7,658 | 0.1364 |
+| 7,823 | 0.0852 |
+| 7,987 | 0.0500 |
+| 8,152 | 0.0275 |
+
 
 ## El papel privilegiado de la hipótesis nula: criterio de decisión
 
@@ -329,8 +357,8 @@ $$
 
 El criterio de decisión será por tanto:
 
-- si el número de hembras es mayor o igual que 8, se acepta $\mathrm{H}_{1}$ (la probabilidad de hembras es 0.6)  
-- si el número de hembras es menor o igual que 7, se acepta $\mathrm{H}_{0}$ (la probabilidad de hembras es 0.5)
+-   si el número de hembras es mayor o igual que 8, se acepta $\mathrm{H}_{1}$ (la probabilidad de hembras es 0.6)\
+-   si el número de hembras es menor o igual que 7, se acepta $\mathrm{H}_{0}$ (la probabilidad de hembras es 0.5)
 
 Es importante entender en este momento que se propone ad hoc la región crítica. Más adelante se justificará por qué esta propuesta es razonable.
 
@@ -342,12 +370,12 @@ Se ha indicado anteriormente que, en los contrastes estadísticos, la hipótesis
 
 Esta probabilidad se designa de forma equivalente como:
 
-- error de tipo I (o de primera especie)  
-- nivel de significación del contraste
+-   error de tipo I (o de primera especie)\
+-   nivel de significación del contraste
 
-y usualmente se simboliza con la letra griega alfa.  
-El nivel de significación se puede definir equivalentemente de las dos maneras siguientes:  
-- $\alpha=$ probabilidad de rechazo de $\mathbf{H}_{\mathbf{0}}$, cuando $\mathrm{H}_{0}$ es cierta  
+y usualmente se simboliza con la letra griega alfa.\
+El nivel de significación se puede definir equivalentemente de las dos maneras siguientes:\
+- $\alpha=$ probabilidad de rechazo de $\mathbf{H}_{\mathbf{0}}$, cuando $\mathrm{H}_{0}$ es cierta\
 - $\alpha=$ probabilidad de que la muestra pertenezca a la región crítica, cuando $\mathbf{H}_{0}$ es cierta.
 
 ### Caso 1: Nivel de significación
@@ -387,8 +415,8 @@ $$
 
 Ahora bien, un criterio de decisión basado en $\mathrm{W}^{\prime}{ }_{\alpha}=\{0,1,2\}$ es absurdo, teniendo en cuenta que $\mathrm{H}_{1}$ es $p=0.6$. Veamos por qué.
 
-El valor $\alpha=0.0547$ indica que es improbable obtener menos de 3 hembras bajo $\mathrm{H}_{0}$. Si se elige $\mathrm{W}^{\prime}{ }_{\alpha}$ como región crítica, implica aceptar $\mathrm{H}_{1}$ cuando el número de hembras es menor que 3. Sin embargo, cuando se consulta la tabla de probabilidades bajo $\mathrm{H}_{1}$, resulta:  
-prob. (número hembras $<3 / \mathrm{H}_{1}$ cierta) $=0.0001+0.0016+0.0106=0.0123$  
+El valor $\alpha=0.0547$ indica que es improbable obtener menos de 3 hembras bajo $\mathrm{H}_{0}$. Si se elige $\mathrm{W}^{\prime}{ }_{\alpha}$ como región crítica, implica aceptar $\mathrm{H}_{1}$ cuando el número de hembras es menor que 3. Sin embargo, cuando se consulta la tabla de probabilidades bajo $\mathrm{H}_{1}$, resulta:\
+prob. (número hembras $<3 / \mathrm{H}_{1}$ cierta) $=0.0001+0.0016+0.0106=0.0123$\
 Es, por tanto, todavía más improbable obtener 3 hembras bajo $\mathrm{H}_{1}$. En otras palabras, $\mathrm{W}^{\prime}{ }_{\alpha}$ induce un criterio absurdo, ya que llevaría a aceptar la hipótesis menos verosímil de las dos.
 
 ### Caso 2: Elección de la región crítica
@@ -399,8 +427,8 @@ $$
 \mathrm{W}_{\alpha}=[7.9869,+\infty) \quad \mathrm{W}_{\alpha}^{\mathrm{C}}=(-\infty, 7.9869)
 $$
 
-El criterio de decisión será, por tanto:  
-si el nivel de statdrolona es mayor o igual que 7.9869, se acepta $\mathbf{H}_{\mathbf{1}}$ (el nivel es 8.5)  
+El criterio de decisión será, por tanto:\
+si el nivel de statdrolona es mayor o igual que 7.9869, se acepta $\mathbf{H}_{\mathbf{1}}$ (el nivel es 8.5)\
 Al igual que en el caso 1, también se ha propuesto la región crítica de forma ad hoc. Si se consultan en la tabla del apartado 9.5.2 los valores de la cola derecha de la Normal, como la definición de nivel de significación es:
 
 $$
@@ -410,10 +438,10 @@ $$
 en la fila correspondiente a prob $(\mathrm{X}>=7.987)$ de la tabla se puede observar la probabilidad de rechazar $\mathrm{H}_{0}(\mu=7.0)$ cuando ésta es cierta. Simbólicamente hemos calculado:
 
 $$
-\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left\{-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right\} d x=\\ = 1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
 $$
 
-donde $F_{z}$ es la función de distribución de la Normal tipificada $N(0,1)$.  
+donde $F_{z}$ es la función de distribución de la Normal tipificada $N(0,1)$.\
 La región crítica $\mathrm{W}_{\alpha}=[7.9869,+\infty)$ lleva asociado un nivel de significación $\alpha=0.05$. Ahora bien, como el estadístico media muestral es una variable continua, concretamente Normal, se pueden encontrar infinitas regiones que satisfagan la condición:
 
 $$
@@ -422,7 +450,7 @@ $$
 
 ## Región crítica y formalización del contraste
 
-La regla de decisión queda definida siempre (aunque sea implícitamente) a partir de una región crítica. A esta región crítica le corresponde un determinado nivel de significación.  
+La regla de decisión queda definida siempre (aunque sea implícitamente) a partir de una región crítica. A esta región crítica le corresponde un determinado nivel de significación.\
 La información contenida en la muestra se resume mediante un estadístico de test, así que una práctica habitual es definir la región crítica en función del estadístico de test empleado. Un estadístico de test es una variable aleatoria y, como tal, tiene asociada una ley de distribución que juega un papel capital en el contraste.
 
 Reuniendo los conceptos, en un contraste de hipótesis $\mathrm{H}_{0}$ contra $\mathrm{H}_{1}$, tenemos:
@@ -436,8 +464,8 @@ $$
 
 Regla de decisión:
 
-- si la muestra pertenece a $\mathrm{W}_{\alpha}$ entonces rechazar $\mathrm{H}_{0}$  
-- si la muestra no pertenece a $\mathrm{W}_{\alpha}$ entonces rechazar $\mathrm{H}_{1}$
+-   si la muestra pertenece a $\mathrm{W}_{\alpha}$ entonces rechazar $\mathrm{H}_{0}$\
+-   si la muestra no pertenece a $\mathrm{W}_{\alpha}$ entonces rechazar $\mathrm{H}_{1}$
 
 Finalmente:
 
@@ -448,7 +476,7 @@ $$
 ### Caso 1: Resumen de conceptos asociados al contraste. Región crítica
 
 | Región crítica | $\mathrm{W}_{\alpha}=\{8,9,10\}$ |
-| :--- | :---: |
+|:---|:--:|
 | Región de aceptación | $\mathrm{W}_{\alpha}^{\mathrm{C}}=\{0,1,2,3,4,5,6,7\}$ |
 | Estadístico de test | $\mathrm{T}=$ número de hembras totales en los 10 nidos |
 | Criterio de decisión: |  |
@@ -461,7 +489,7 @@ La distribución del estadístico de test T es una Binomial B (10, p). Se puede 
 ### Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión
 
 | Región crítica | $\mathrm{W}_{\alpha}=[7.9869,+\infty)$ |
-| :--- | :---: |
+|:---|:--:|
 | Región de aceptación | $\mathrm{W}_{\alpha}^{\mathrm{C}}=(-\infty, 7.9869)$ |
 | Estadístico de test | $\mathrm{T}=$ media de statdrolona en 16 atletas |
 | Criterio de decisión: |  |
@@ -475,16 +503,16 @@ La distribución del estadístico de test T bajo $\mathrm{H}_{0}$ es una normal 
 
 Cuando se resuelve un contraste la decisión final puede ser correcta o bien conducir a un error. En esta tabla se presentan las cuatro posibles situaciones que se pueden producir:
 
-|  | Hipótesis verdadera |  |
-| :---: | :---: | :---: |
-| Hipótesis aceptada | $\mathrm{H}_{0}$ | $\mathrm{H}_{1}$ |
-| $\mathrm{H}_{0}$ | - | error tipo II |
-| $\mathrm{H}_{1}$ | error tipo I | - |
+|                    | Hipótesis verdadera |                  |
+|:------------------:|:-------------------:|:----------------:|
+| Hipótesis aceptada |  $\mathrm{H}_{0}$   | $\mathrm{H}_{1}$ |
+|  $\mathrm{H}_{0}$  |         \-          |  error tipo II   |
+|  $\mathrm{H}_{1}$  |    error tipo I     |        \-        |
 
 Existe, por tanto, un segundo tipo de error, designado como error de tipo II o de segunda especie. Se puede definir de manera equivalente para cualquiera de las dos expresiones siguientes:
 
-- $1-\beta=$ probabilidad de rechazar $\mathrm{H}_{1}$, cuando $\mathrm{H}_{1}$ es cierta  
-- $1-\beta=$ probabilidad de que la muestra no pertenezca a la región crítica, cuando $\mathbf{H}_{1}$ es cierta
+-   $1-\beta=$ probabilidad de rechazar $\mathrm{H}_{1}$, cuando $\mathrm{H}_{1}$ es cierta\
+-   $1-\beta=$ probabilidad de que la muestra no pertenezca a la región crítica, cuando $\mathbf{H}_{1}$ es cierta
 
 En realidad, solo una de las hipótesis es verdadera. Una vez se obtenga la muestra, se aceptará o se rechazará $\mathrm{H}_{1}$ según el criterio de decisión. Si se decide de manera equivocada, se producirá solo uno de los dos errores, según cuál sea la hipótesis verdadera. Es decir, a posteriori se produce, como mucho, solo uno de los errores.
 
@@ -497,19 +525,34 @@ Un contraste será más adecuado si son menores los dos errores asociados.
 El criterio de decisión que se ha adoptado para este caso consiste en:
 
 | aceptar $\mathrm{H}_{1}$ si | $\mathrm{T} \geq 8$ |
-| :---: | :---: |
+|:---------------------------:|:-------------------:|
 | aceptar $\mathrm{H}_{0}$ si | $\mathrm{T} \leq 7$ |
-| Nivel de significación | $\alpha=0.0547$ |
+|   Nivel de significación    |   $\alpha=0.0547$   |
 
 Supongamos que $\mathrm{H}_{1}$ es cierta, es decir, que $p=0,6$. En la tabla siguiente podemos encontrar el valor del error de tipo II:
 
-```{r echo=FALSE, out.width="90%", fig.align='center'}
+<!-- ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
 
-knitr::include_graphics("images/cap9-ProbsErrTipo2.png")
+<!-- knitr::include_graphics("images/cap9-ProbsErrTipo2.png") -->
 
-```
+<!-- ``` -->
 
-$1-\beta=$ prob. (rechazar $H_{1}/H_{1}$ cierta)= prob. $(T \leq 7/H_{1}$ cierta) $=\mathbf{0 . 8 3 2 7}$  
+
+| Valor de $X$ | Prob. $X<=\mathrm{X}$ |
+| :---: | :---: |
+| 0 | 0.0001 |
+| 1 | 0.0017 |
+| 2 | 0.0123 |
+| 3 | 0.0548 |
+| 4 | 0.1662 |
+| 5 | 0.3669 |
+| 6 | 0.6177 |
+| 7 | 0.8327 |
+| 8 | 0.9536 |
+| 9 | 0.9940 |
+| 10 | 1.0000 |
+
+$1-\beta=$ prob. (rechazar $H_{1}/H_{1}$ cierta)= prob. $(T \leq 7/H_{1}$ cierta) $=\mathbf{0 . 8 3 2 7}$\
 Simbólicamente corresponde a calcular:
 
 $$
@@ -521,23 +564,44 @@ $$
 El criterio de decisión que se ha elegido para este caso consiste en:
 
 | aceptar $\mathrm{H}_{1}$ si | $\mathrm{T} \geq 7.9869$ |
-| :---: | :---: |
-| Nivel de significación | $\alpha=0.05$ |
+|:---------------------------:|:------------------------:|
+|   Nivel de significación    |      $\alpha=0.05$       |
 
 Supongamos que es cierta $\mathrm{H}_{1}$, es decir, que $\mu=8.5$. En la tabla siguiente podemos encontrar el valor del error de tipo II:
 
-```{r echo=FALSE, out.width="90%", fig.align='center'}
+<!--  ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
+<!--   -->
+<!--  knitr::include_graphics("images/cap9-ProbsErrTipo2c.png") -->
+<!--   -->
+<!--  ``` -->
 
-knitr::include_graphics("images/cap9-ProbsErrTipo2c.png")
 
-```
+| Mitiana $(x)$ | Prob. $X==x$ |
+| :---: | :---: |
+| 5,933 | 1.0000 |
+| 6,189 | 0.9999 |
+| 6,446 | 0.9997 |
+| 6,703 | 0.9986 |
+| 6,96 | 0.9949 |
+| 7,216 | 0.9838 |
+| 7,473 | 0.9565 |
+| 7,73 | 0.9004 |
+| 7,987 | 0.8040 |
+| 8,243 | 0.6656 |
+| 8,5 | 0.5000 |
 
-$1-\beta=$ prob. (rechazar $\mathrm{H}_{1}/\mathrm{H}_{1}$ cierta)= prob. $(\mathrm{T}<7.9869/\mathrm{H}_{1})=1-0.8040=0.1960$  
+$1-\beta=$ prob. (rechazar $\mathrm{H}_{1}/\mathrm{H}_{1}$ cierta)= prob. $(\mathrm{T}<7.9869/\mathrm{H}_{1})=1-0.8040=0.1960$\
 Simbólicamente, corresponde a calcular:
 
+
 $$
-1-\beta=p\left(\bar{X}_{16}<7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x
+\begin{aligned}
+1-\beta & =p\left(\bar{X}_{16}<7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x =\\
+& =F_{Z}\left(\frac{7.9869-8.5}{2.4 / \sqrt{16}}\right)
+\end{aligned}
 $$
+
+
 
 ## Relación entre el error de tipo I y el de tipo II
 
@@ -547,7 +611,7 @@ Supongamos que se intenta reducir a cero el nivel de significación. Esto equiva
 
 ### Caso 1: Evaluación de $\alpha$ y 1- $\beta$ para diferentes regiones críticas
 
-Una vez se especifica la región crítica, los errores de tipo I y II quedan determinados. En los dos cuadros siguientes hay dos regiones críticas y sus errores asociados. En la versión interactiva ( _no disponible_) de Statmedia se podía cambiar dinámicamente la región crítica y se calculaban automáticamente los errores:
+Una vez se especifica la región crítica, los errores de tipo I y II quedan determinados. En los dos cuadros siguientes hay dos regiones críticas y sus errores asociados. En la versión interactiva ( *no disponible*) de Statmedia se podía cambiar dinámicamente la región crítica y se calculaban automáticamente los errores:
 
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
 
@@ -562,6 +626,7 @@ En el gráfico siguiente se representan los dos errores simultáneamente para di
 knitr::include_graphics("images/cap9-PlotProbsErrTipo2b.png")
 
 ```
+
 ### Caso 2: Relación entre los errores de primera ( $\alpha$ ) y segunda especie (1- $\beta$ )
 
 La relación entre los errores de tipo I y II es más fácil de interpretar en este caso, dado que la media es un estadístico de distribución continua. En los cuadros siguientes se presentan dos regiones críticas y los errores asociados, visualizando el área que representan. En la versión interactiva se puede modificar la región crítica mediante el deslizador, y se calculan automáticamente los dos errores visualizando el área que representa cada uno.
@@ -586,12 +651,11 @@ knitr::include_graphics("images/cap9-PlotProbsErrTipo_1_y_2b.png")
 
 ```
 
-
 ## Potencia y test más potente
 
-La potencia de un contraste se define como:  
-$\beta=$ prob.(aceptar $H_{1}/H_{1}$ cierta) = prob.(muestra pertenezca a $W_{a}/H_{1}$ cierta)  
-es, por tanto, la probabilidad complementaria al error del tipo II.  
+La potencia de un contraste se define como:\
+$\beta=$ prob.(aceptar $H_{1}/H_{1}$ cierta) = prob.(muestra pertenezca a $W_{a}/H_{1}$ cierta)\
+es, por tanto, la probabilidad complementaria al error del tipo II.\
 Retomando ideas anteriores, un contraste debe pretender un compromiso razonable entre el nivel de significación (lo más bajo posible) y la potencia (lo más alta posible).
 
 En principio, si hay varios tests alternativos (basados en diferentes reglas de decisión y/o estadísticos) para resolver un mismo contraste paramétrico, el mejor test será aquel que, una vez fijados $\mathrm{H}_{0}, \mathrm{H}_{1}$ y el nivel de significación $\alpha$, proporcione la potencia más alta entre todos ellos.
@@ -612,8 +676,7 @@ donde $t$ es cualquier otro test con el mismo nivel de significación que $mp$.
 En la tabla siguiente se indica la probabilidad para cada uno de los valores del soporte. Se destaca en color diferente la región crítica.
 
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
-
-knitr::include_graphics("images/cap9-PlotProbsTestOptim.png")
+knitr::include_graphics("images/cap9-ProbsTestOptim.png")
 
 ```
 
@@ -635,7 +698,11 @@ Observamos que coincide con el cálculo anterior del error de tipo II para este 
 
 Hemos definido antes la región crítica para este caso. En el cuadro siguiente se pueden visualizar los dos errores (I= verde y II= naranja) y, opcionalmente, la potencia del test (región amarilla).
 
-(Se muestra la figura correspondiente.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-PlotProbsTestOptim.png")
+
+```
+
 
 La definición de potencia aplicada a este caso resulta:
 
@@ -663,17 +730,27 @@ Aumentar $N$ varía la ley de distribución del estadístico de test y generalme
 
 En el documento interactivo se presenta un applet donde se calcula el error de tipo II cuando aumenta N. Aquí solo se presenta el gráfico donde se representan los dos errores simultáneamente para diferentes regiones críticas de la forma $\{a, a+1, \ldots N\}$. La hipótesis alternativa está indicada en la leyenda.
 
-(Se muestra la figura correspondiente.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-SampleSizeEffect-1.png")
+
+```
+
 
 ### Caso 2
 
 Veremos aquí solo cómo afecta el tamaño de la muestra (para $N=16$ y $N=30$) a los dos errores, manteniendo la región crítica constante. En el documento interactivo se pueden consultar otras combinaciones. Al aumentar $N$, las distribuciones en el muestreo de la media bajo $\mathrm{H}_{0}$ y $\mathrm{H}_{1}$ presentan cada vez un menor solapamiento.
 
-(Se muestra la figura correspondiente.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-SampleSizeEffect-2.png")
+
+```
 
 En el gráfico siguiente se observa el efecto de $N$ para todo el rango de regiones críticas:
 
-(Se muestra la figura correspondiente.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-SampleSizeEffect-3.png")
+
+```
 
 ## Hipótesis simples vs. hipótesis compuestas
 
@@ -703,13 +780,13 @@ $$
 
 Observemos primero que ya no es consistente mantener una región crítica basada solo en la cola derecha de la distribución, como en el caso simple contra simple, que en resumen consistía en:
 
-```{r echo=FALSE, out.width="90%", fig.align='center'}
 
-knitr::include_graphics("images/cap9-comparaProbs.png")
+| Regió crítica | $\mathrm{W}_{\alpha}=\{8,9,10\}$ |
+| :--- | :---: |
+| Estadístic de test | $\mathrm{T}=$ nombre de femelles totals en els 10 nius |
+| Nivell de significació | $\alpha=0.0547$ |
 
-```
-
-Ahora esta región ya no es adecuada. Basta con considerar el ejemplo de obtener una muestra con $\mathrm{T}=0$. A pesar de ser sumamente improbable bajo $\mathrm{H}_{0}$, el criterio impone aceptar la hipótesis nula, en contra de otras hipótesis más plausibles (cualquier con p < 0.5).
+Ahora esta región ya no es adecuada. Basta con considerar el ejemplo de obtener una muestra con $\mathrm{T}=0$. A pesar de ser sumamente improbable bajo $\mathrm{H}_{0}$, el criterio impone aceptar la hipótesis nula, en contra de otras hipótesis más plausibles (cualquier con p \< 0.5).
 
 El sentido común indica que la región crítica debe abarcar ahora ambos extremos del soporte. Si tomamos por ejemplo:
 
@@ -717,7 +794,11 @@ $$
 \mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}
 $$
 
-(Se muestra figura con valores destacados.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-RCSimpleVsComposta.png")
+
+```
+
 
 la suma siguiente (que corresponde a los valores destacados en la tabla):
 
@@ -753,7 +834,10 @@ $$
 
 Se obtiene $\alpha=0.1$. En el cuadro siguiente se visualiza la región crítica y se evalúa el nivel de significación resultante:
 
-(Se muestra la figura correspondiente.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-RCHipotesisComposta.png")
+
+```
 
 Simbólicamente, el nivel de significación de este test se calcula de la siguiente forma:
 
@@ -808,14 +892,14 @@ $$
 dado que la región crítica es $\mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}$. En los cuadros siguientes se obtiene el valor de la potencia $(\beta)$ inicialmente para $p=0.6$ y para $p=0.8$ (en el documento interactivo se puede variar arbitrariamente la proporción bajo $\mathrm{H}_{1}$):
 
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
-
 knitr::include_graphics("images/cap9-comparaProbs.png")
-
 ```
 
 En el gráfico siguiente se representa la función de potencia para todo el rango de parámetros:
 
-(Se muestran figuras correspondientes.)
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/cap9-FuncPotencia1.png")
+```
 
 ### Caso 2: Función de potencia
 
@@ -829,14 +913,21 @@ $$
 \end{aligned}
 $$
 
-dado que la región crítica es $\mathrm{W}_{\alpha}=(-\infty, 6,0131] \mathrm{U}[7,9869,+\infty)$.  
-En el cuadro siguiente se obtiene el valor de la potencia ( $\beta$ ) inicialmente para $\mu=8.5$. En el documento interactivo se puede cambiar este valor de la alternativa y observar los cambios en los dos errores y en la potencia:
+dado que la región crítica es $\mathrm{W}_{\alpha}=(-\infty, 6,0131] \mathrm{U}[7,9869,+\infty)$.\
+En el cuadro siguiente se obtiene el valor de la potencia ( $\beta$ ) inicialmente para $\mu=8.5$. 
 
-(Se muestra figura correspondiente.)
+En el documento interactivo representado en la imagen puede cambiar el valor de la alternativa y observar los cambios en los dos errores y en la potencia:
 
-En el gráfico siguiente se representan dos funciones de potencia, para $\alpha=0.05, \sigma=$ 2.4 y que respectivamente corresponden a $n=16$ (la situación de este caso 2) y a $n=1$. En el documento interactivo se pueden variar todos aquellos parámetros que afectan a $\beta: \alpha, \sigma y n$ y compararlos con la situación original.
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/cap9-FuncPotencia2.png")
+```
 
-(Se muestra figura correspondiente.)
+En el gráfico siguiente se representan dos funciones de potencia, para $\alpha=0.05, \sigma=$ 2.4 y que respectivamente corresponden a $n=16$ (la situación de este caso 2) y a $n=1$. 
+En el documento interactivo representado en la imagen se pueden variar todos aquellos parámetros que afectan a $\beta: \alpha, \sigma y n$ y compararlos con la situación original.
+
+```{r echo=FALSE, out.width="60%", fig.align='center'}
+knitr::include_graphics("images/cap9-FuncPotencia3.png")
+```
 
 ## Tests óptimos
 
@@ -866,8 +957,8 @@ $$
 
 En estos tres casos, el contraste de hipótesis es simple contra compuesta. En la mayoría de situaciones aplicadas, en realidad se pretenden resolver contrastes unilaterales que conllevan hipótesis compuestas. El unilateral derecho es entonces:
 
-|  | $\mathrm{H}_{0}: \theta \leq \theta_{0}$ | contra | $\mathrm{H}_{1}: \theta>\theta_{0}$ |
-| :--- | :--- | :--- | :--- |
+|   | $\mathrm{H}_{0}: \theta \leq \theta_{0}$ | contra | $\mathrm{H}_{1}: \theta>\theta_{0}$ |
+|:---|:---|:---|:---|
 | el izquierdo es: | $\mathrm{H}_{0}: \theta \geq \theta_{0}$ | contra | $\mathrm{H}_{1}: \theta<\theta_{0}$ |
 
 Aunque esta última formulación está relacionada con los contrastes unilaterales simple contra compuesta anteriores, las dos hipótesis no son técnicamente equivalentes. A fin de simplificar la interpretación de los contrastes unilaterales, atendiendo a los casos que se tratan en este curso, se formulan los contrastes de esta última manera (compuesta contra compuesta) y se toma el nivel de significación como si fuera el del contraste simple contra compuesta.
@@ -888,11 +979,8 @@ $$
 Respecto al caso general se sustituye el parámetro genérico $\theta$ por p, y el valor $\theta_{0}=0.5$. Tomando la región crítica como $\mathrm{W}_{\alpha}=\{8,9,10\}$, en el cuadro siguiente se presenta el nivel de significación:
 
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
-
 knitr::include_graphics("images/cap9-comparaProbs.png")
-
 ```
-
 
 ### Caso 2: Prueba unilateral
 
@@ -913,19 +1001,24 @@ $$
 
 se obtiene $\alpha=0.05$. En el cuadro siguiente se presenta la región crítica (en el documento interactivo se puede variar la región crítica y modificar por tanto el nivel de significación):
 
-(Se muestra figura correspondiente.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-RCHipotesisComposta2.png")
+```
 
 Simbólicamente, se calcula:
 
 $$
-\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=\\ = 1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
 $$
 
 que nos proporciona el nivel de significación de este test unilateral. Así pues, no hay ninguna diferencia ni en el cálculo ni en el gráfico respecto a lo ya visto en el apartado de hipótesis simple contra simple. En relación con la potencia, se trata de una función que depende de la $\mu$ concreta de la hipótesis alternativa (simple), y por esta razón resulta:
 
-(Se muestra figura correspondiente.)
 
-Una observación final referente a este caso 2. En el planteamiento actual solo queda ya la arbitrariedad consistente en asumir una $\sigma=2.4$ poblacional fija. En el tema 10, se estudiará cómo abordar este estudio sin asumir más condición que el modelo de probabilidad Normal.
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-PotenciaHipotesisComposta.png")
+```
+
+Una observación final referente a este caso 2. En el planteamiento actual solo queda ya la arbitrariedad consistente en asumir una $\sigma=2.4$ poblacional fija. En el tema $10$, se estudiará cómo abordar este estudio sin asumir más condición que el modelo de probabilidad Normal.
 
 ## Elección del nivel de significación
 
@@ -983,9 +1076,9 @@ knitr::include_graphics("images/cap9-comparaProbs.png")
 
 Se obtiene el p-valor asociado a $\mathrm{T}=6$ hembras. Consideremos principalmente los siguientes casos:
 
-1. Si se escogiera $\alpha=0.1719$, la región crítica correspondiente sería $\mathrm{W}_{\alpha}=\{7,8,9,10\}$. Como no se incluyen 6 hembras, habría que aceptar $H_{0}$. Por tanto, $\alpha$ no cumple la definición de p-valor, ya que se debe rechazar $\mathrm{H}_{0}$: $\mathrm{p}_{\mathrm{v}}$ debe ser forzosamente mayor.
-2. Si se eligiera $\alpha^{\prime}=0.3770$, la región crítica correspondiente sería $W_{\alpha^{\prime}}=\{6,7,8,9,10\}$. Con $\alpha^{\prime}$ se rechazaría $H_{0}$.
-3. Si se seleccionara $\alpha^{\prime\prime}=0.6230$, la región crítica correspondiente sería $\mathrm{W}_{\alpha^{\prime\prime}}=\{5,6,7,8,9,10\}$. Con $\alpha^{\prime\prime}$ también se rechazaría $\mathrm{H}_{0}$.
+1.  Si se escogiera $\alpha=0.1719$, la región crítica correspondiente sería $\mathrm{W}_{\alpha}=\{7,8,9,10\}$. Como no se incluyen 6 hembras, habría que aceptar $H_{0}$. Por tanto, $\alpha$ no cumple la definición de p-valor, ya que se debe rechazar $\mathrm{H}_{0}$: $\mathrm{p}_{\mathrm{v}}$ debe ser forzosamente mayor.
+2.  Si se eligiera $\alpha^{\prime}=0.3770$, la región crítica correspondiente sería $W_{\alpha^{\prime}}=\{6,7,8,9,10\}$. Con $\alpha^{\prime}$ se rechazaría $H_{0}$.
+3.  Si se seleccionara $\alpha^{\prime\prime}=0.6230$, la región crítica correspondiente sería $\mathrm{W}_{\alpha^{\prime\prime}}=\{5,6,7,8,9,10\}$. Con $\alpha^{\prime\prime}$ también se rechazaría $\mathrm{H}_{0}$.
 
 Observamos que $\alpha^{\prime}<\alpha^{\prime\prime}$, y entre los dos valores no es posible obtener ningún otro nivel de significación con el test que hemos planteado. Por tanto, $\alpha^{\prime}$ es el nivel de significación mínimo con el que rechazaríamos $H_{0}$ con la muestra actual o, dicho de otro modo, $\alpha^{\prime}$ es el p-valor.
 
@@ -1011,7 +1104,10 @@ $$
 
 En el cuadro siguiente se presentan los datos obtenidos en el experimento, su media y la desviación estándar corregida, así como el p-valor y la decisión final según el nivel de significación 0.05. Como $\mathrm{T}=8.54$, el p-valor corresponde a la cola de la curva Normal situada a la derecha de T. En el gráfico se superpone el color rojo del p-valor al verde de la zona correspondiente a $\alpha$ en la parte más extrema de la cola.
 
-(Se muestra figura correspondiente.)
+
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-CalculPvalorUnilateral.png")
+```
 
 Así pues, se rechaza $\mathbf{H}_{0}$, ya que $\alpha=0.05>\mathrm{p}_{\mathrm{v}}=0.00513$. En el documento interactivo es posible elegir otros niveles de significación. Según el nivel elegido se aceptará o rechazará la hipótesis nula.
 
@@ -1037,7 +1133,9 @@ $$
 
 El p-valor corresponde ahora a dos colas de la curva Normal: una es la misma que en el caso unilateral, es decir, la situada a la derecha de $\mathrm{T}=8.54$, la segunda es la cola simétrica a la anterior respecto a $\mu=7$, es decir, la cola izquierda situada en $2 \mu-\mathrm{T}=5.46$. Como antes, en el cuadro se superpone el color rojo del p-valor al verde de la zona correspondiente a $\alpha$ en la parte más extrema de las dos colas. En el documento interactivo se pueden cambiar datos, el nivel de significación y el punto donde se calcula la potencia.
 
-(Se muestra figura correspondiente.)
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-CalculPvalorBilateral.png")
+```
 
 El cálculo del p-valor se corresponde, con los datos originales, a:
 
@@ -1057,8 +1155,8 @@ $$
 
 En general, si la distribución del estadístico es continua, como en este caso, se puede calcular fácilmente el p-valor de la prueba bilateral a partir de la unilateral, y viceversa. Así, si designamos con $\mathrm{p}_{uni}$ y $\mathrm{p}_{bil}$, respectivamente, los p-valores de la prueba unilateral y bilateral, tendremos que:
 
-- Si $\mathrm{p}_{uni} \leq 0.5$, entonces $\mathrm{p}_{bil}=2 \mathrm{p}_{uni}$. Es decir, el p-valor es exactamente el doble que el de la prueba unilateral.
-- Si $\mathrm{p}_{uni}>0.5$, entonces $\mathrm{p}_{bil}=2(1-\mathrm{p}_{uni})$. Es decir, el p-valor es exactamente el doble que el complementario del p-valor de la prueba unilateral.
+-   Si $\mathrm{p}_{uni} \leq 0.5$, entonces $\mathrm{p}_{bil}=2 \mathrm{p}_{uni}$. Es decir, el p-valor es exactamente el doble que el de la prueba unilateral.
+-   Si $\mathrm{p}_{uni}>0.5$, entonces $\mathrm{p}_{bil}=2(1-\mathrm{p}_{uni})$. Es decir, el p-valor es exactamente el doble que el complementario del p-valor de la prueba unilateral.
 
 ## Pruebas exactas y pruebas asintóticas
 
@@ -1203,7 +1301,11 @@ $$
 
 Redondeando, el tamaño debe ser de 117 atletas. En el cuadro siguiente se muestra el tamaño de la muestra en función de la diferencia mínima significativa deseada, junto con otros parámetros que afectan el problema:
 
-(Se muestra figura correspondiente.)
+
+```{r echo=FALSE, out.width="90%", fig.align='center'}
+knitr::include_graphics("images/cap9-SampleSize_i_MDS.png")
+```
+
 
 Para los valores extremos de $\alpha(0)$ y de $\beta(1)$, el valor del tamaño de la muestra se hace infinito y no se puede representar en el cuadro anterior.
 
@@ -1212,7 +1314,7 @@ Para los valores extremos de $\alpha(0)$ y de $\beta(1)$, el valor del tamaño d
 Los conceptos expuestos hasta aquí son esenciales para entender qué es un contraste estadístico de hipótesis y poder aplicar correctamente los diferentes tests que se detallarán en próximos capítulos. En la práctica, y para la tranquilidad del experimentador, normalmente solo hay que preocuparse de identificar el problema que hay que resolver (contraste sobre una, dos o más poblaciones), la familia de distribución y finalmente aplicar tests ya deducidos, algunos casi centenarios. Ahora bien, el experimentador debe elegir las tres cantidades siguientes:
 
 | 1) nivel de significación $\boldsymbol{\alpha}$ | Si no se tiene un criterio definido, se utilizará el estándar $\alpha=$ <br> 0.05. |
-| :--- | :--- |
+|:---|:---|
 | 2) diferencia mínima <br> significativa $\Delta$ | Elegida sobre la base de la experiencia en el campo <br> concreto de aplicación. |
 | 3) potencia deseada en el <br> punto a distancia $\Delta$ | Si no se tiene un criterio definido, se tomará $\beta=0.8$ para <br> $\alpha=0.05$. |
 
@@ -1228,8 +1330,8 @@ En determinadas situaciones, la variabilidad del estadístico es muy pequeña, d
 
 En resumen, cuando se aplica cualquier contraste no debemos conformarnos con la simple lectura del p-valor y decidir en consecuencia, sino que:
 
-- si se ha detectado S.E., hay que valorar la S.A., por ejemplo, mediante un intervalo de confianza. Puede haber S.E. pero que no haya S.A.  
-- si no se ha detectado S.E., hay que valorar si el tamaño de la muestra es suficiente para detectar (estadísticamente) las diferencias deseadas por el experimentador. Puede que no haya S.E. por un tamaño de muestra inadecuado y, por tanto, no se podría concluir sobre la S.A. Si el tamaño de la muestra es suficiente y no hay S.E., entonces tampoco hay S.A.
+-   si se ha detectado S.E., hay que valorar la S.A., por ejemplo, mediante un intervalo de confianza. Puede haber S.E. pero que no haya S.A.\
+-   si no se ha detectado S.E., hay que valorar si el tamaño de la muestra es suficiente para detectar (estadísticamente) las diferencias deseadas por el experimentador. Puede que no haya S.E. por un tamaño de muestra inadecuado y, por tanto, no se podría concluir sobre la S.A. Si el tamaño de la muestra es suficiente y no hay S.E., entonces tampoco hay S.A.
 
 ### Caso 2: Significación estadística y aplicada
 
@@ -1241,9 +1343,8 @@ $$
 
 ya hemos visto que la conclusión, para $\alpha=0.05$, era indicar que hay significación estadística.
 
-Supongamos que los fisiólogos aceptan que las diferencias en el nivel de la hormona son relevantes cuando hay más de $0.2 \mathrm{ng} / \mathrm{ml}$ de diferencia en la media de la población. El intervalo bilateral en la muestra anterior es:  
-y permite afirmar que también hay significación aplicada.  
+Supongamos que los fisiólogos aceptan que las diferencias en el nivel de la hormona son relevantes cuando hay más de $0.2 \mathrm{ng} / \mathrm{ml}$ de diferencia en la media de la población. El intervalo bilateral en la muestra anterior es:\
+y permite afirmar que también hay significación aplicada.\
 Supongamos que la población tuviera una desviación estándar de $0.1 \mathrm{ng} / \mathrm{ml}$ (en lugar de la 2.4 planteada hasta ahora), y se hubiera obtenido una media igual a 7.13. El contraste de hipótesis detectaría entonces igualmente que hay S.E., pero en cambio cuando se observa el intervalo de confianza:
 
 Habría que concluir que no hay S.A. En este segundo caso, la varianza tan pequeña permite que el contraste sea muy sensible a pequeñas variaciones de la media. La S.E. en este último ejemplo no resulta relevante en la práctica.
-

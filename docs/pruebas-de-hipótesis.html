@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2024-12-26" />
+<meta name="date" content="2025-01-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -537,6 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#relación-entre-el-error-de-tipo-i-y-el-de-tipo-ii"><i class="fa fa-check"></i><b>9.9</b> Relación entre el error de tipo I y el de tipo II</a>
 <ul>
 <li class="chapter" data-level="9.9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-evaluación-de-alpha-y-1--beta-para-diferentes-regiones-críticas"><i class="fa fa-check"></i><b>9.9.1</b> Caso 1: Evaluación de <span class="math inline">\(\alpha\)</span> y 1- <span class="math inline">\(\beta\)</span> para diferentes regiones críticas</a></li>
+<li class="chapter" data-level="9.9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><i class="fa fa-check"></i><b>9.9.2</b> Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
 </ul></li>
 <li class="chapter" data-level="9.10" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#potencia-y-test-más-potente"><i class="fa fa-check"></i><b>9.10</b> Potencia y test más potente</a>
 <ul>
@@ -679,7 +680,7 @@ f(k)=p(X=k)=\binom{10}{k} p^{k}(1-p)^{10-k}
 </div>
 <div id="caso-2-presentación" class="section level3 hasAnchor" number="9.1.5">
 <h3><span class="header-section-number">9.1.5</span> Caso 2: Presentación<a href="pruebas-de-hipótesis.html#caso-2-presentación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En el mundo del deporte profesional se controlan con mucha precisión algunos metabolitos que aparecen en bajas concentraciones en condiciones normales. Este es el caso de la statdrolona<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, que en individuos normales presenta una concentración media de 7.0 nanogramos por ml de orina. Este valor se ha establecido mediante una muestra muy grande de deportistas después de años de análisis antes, durante y después de competiciones. Asimismo, se ha descrito que la desviación estándar es de <span class="math inline">\(\mathbf{2 . 4 ~ n g} / \mathbf{m l}\)</span>. Estos dos valores poblacionales sirven como justificación médica a las autoridades deportivas para declarar cuándo la tasa de statdrolona se asocia a un presunto dopaje.</p>
+<p>En el mundo del deporte profesional se controlan con mucha precisión algunos metabolitos que aparecen en bajas concentraciones en condiciones normales. Este es el caso de la statdrolona<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, que en individuos normales presenta una concentración media de 7.0 nanogramos por ml de orina. Este valor se ha establecido mediante una muestra muy grande de deportistas después de años de análisis antes, durante y después de competiciones. Asimismo, se ha descrito que la desviación estándar es de <span class="math inline">\(\mathbf{2 . 4 ~ n g} / \mathbf{m l}\)</span>. Estos dos valores poblacionales sirven como justificación médica a las autoridades deportivas para declarar cuándo la tasa de statdrolona se asocia a un presunto dopaje.</p>
 <p>No obstante, un estudio reciente encargado por la asociación de deportistas ADG a un prestigioso departamento universitario de fisiología sostiene que, cuando se mide la concentración de statdrolona en individuos no dopados con cierto tipo de alimentos sobreabundantes en su dieta (queso parmesano, por ejemplo), el valor de la media poblacional es del orden de <span class="math inline">\(\mathbf{1 . 5}\)</span> unidades mayor. En cambio, la desviación estándar poblacional se mantiene en el valor <span class="math inline">\(2,4 \mathrm{ng} / \mathrm{ml}\)</span>, es decir, equivalente a la normal. Si esta hipótesis fuera cierta, permitiría explicar algunos de los falsos positivos detectados en los últimos tiempos. Como prueba experimental aportan una serie de datos sobre 16 deportistas que se detallarán más adelante.</p>
 </div>
 <div id="caso-2-modelo-de-probabilidad" class="section level3 hasAnchor" number="9.1.6">
@@ -737,8 +738,7 @@ f_{\bar{X}_{n}}(x)=\frac{\sqrt{n}}{\sigma \sqrt{2 \pi}} \exp \left(-\frac{n \tim
 &amp; \mathrm{H}_{0}: \theta=\theta_{0} \\
 &amp; \mathrm{H}_{1}: \theta=\theta_{1}
 \end{aligned}
-\]</span>
-De hecho, sería mucho más realista plantear que la alternativa a un valor <span class="math inline">\(\theta_0\)</span> sea que el parámetro toma valores superiores (<span class="math inline">\(\mathrm{H}_{1}: \theta \geq \theta_{0}\)</span>), inferiores (<span class="math inline">\(\mathrm{H}_{1}: \theta \leq \theta_{0}\)</span>) o distintos (<span class="math inline">\(\mathrm{H}_{1}: \theta \neq \theta_{0}\)</span>)a <span class="math inline">\(\theta_0\)</span>. En la práctica este será el planteamiento de los tests que se presentará más adelante.</p>
+\]</span> De hecho, sería mucho más realista plantear que la alternativa a un valor <span class="math inline">\(\theta_0\)</span> sea que el parámetro toma valores superiores (<span class="math inline">\(\mathrm{H}_{1}: \theta \geq \theta_{0}\)</span>), inferiores (<span class="math inline">\(\mathrm{H}_{1}: \theta \leq \theta_{0}\)</span>) o distintos (<span class="math inline">\(\mathrm{H}_{1}: \theta \neq \theta_{0}\)</span>)a <span class="math inline">\(\theta_0\)</span>. En la práctica este será el planteamiento de los tests que se presentará más adelante.</p>
 <p>En la teoría del contraste de hipótesis este tipo de planteamiento se conoce como contraste de hipótesis <em>simple contra simple</em>. Así pues, una hipótesis simple postula que el parámetro <span class="math inline">\(\theta\)</span> solo puede tomar un valor, o, más técnicamente, que el conjunto de parámetros de una hipótesis simple consiste en un solo punto.</p>
 <div id="caso-1-hipótesis-para-dirimir-la-controversia-sobre-el-número-de-hembras" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Caso 1: Hipótesis para dirimir la controversia sobre el número de hembras<a href="pruebas-de-hipótesis.html#caso-1-hipótesis-para-dirimir-la-controversia-sobre-el-número-de-hembras" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1016,13 +1016,125 @@ Los datos del estudio que ha obtenido la asociación ADG, y que según ellos res
 <p>Hemos visto antes las probabilidades de obtener cada uno de los resultados posibles para <span class="math inline">\(X\)</span>: <span class="math inline">\(0,1, \ldots\)</span>, hasta 10 hembras. El sentido común indica que si se obtienen valores de X cercanos a 0 o a 10, la hipótesis <span class="math inline">\(p=0.5\)</span> resulta poco verosímil.</p>
 <p>Es importante entender que el verdadero valor de <span class="math inline">\(p\)</span> (el valor en la población) no es, ni será nunca, conocido en la práctica, solo formulamos hipótesis sobre este valor.</p>
 <p>Veamos cuál es la probabilidad de obtener valores mayores que 8 hembras. Para abreviar, designamos la región de valores mayores o iguales a 8 con el símbolo <span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span>.</p>
-<p><img src="images/cap9-ProbsH0.png" width="90%" style="display: block; margin: auto;" /></p>
+<!-- ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
+<!-- knitr::include_graphics("images/cap9-ProbsH0.png") -->
+<!-- ``` -->
+<table>
+<thead>
+<tr class="header">
+<th align="center">Valor de <span class="math inline">\(X\)</span></th>
+<th align="center">Prob. <span class="math inline">\(X&gt;=X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1.0000</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0.9990</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">0.9893</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">0.9453</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">0.8281</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">0.6230</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="center">0.3770</td>
+</tr>
+<tr class="even">
+<td align="center">7</td>
+<td align="center">0.1719</td>
+</tr>
+<tr class="odd">
+<td align="center">8</td>
+<td align="center">0.0547</td>
+</tr>
+<tr class="even">
+<td align="center">9</td>
+<td align="center">0.0107</td>
+</tr>
+<tr class="odd">
+<td align="center">10</td>
+<td align="center">0.0010</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0" class="section level3 hasAnchor" number="9.4.2">
 <h3><span class="header-section-number">9.4.2</span> Caso 2: Medias de las tasas de statdrolona improbables si se cumple <span class="math inline">\(\mathrm{H}_{0}\)</span><a href="pruebas-de-hipótesis.html#caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>De la misma manera que se ha razonado para el caso 1, en esta ocasión con las dos hipótesis ( <span class="math inline">\(\mu=7\)</span> contra <span class="math inline">\(\mu=8.5\)</span> ) que tenemos en el caso de la detección de la statdrolona, el sentido común indica que si obtenemos una media de statdrolona en los 16 atletas alejada del valor de referencia 7, hará inverosímil la hipótesis nula.</p>
 <p>En la tabla siguiente se muestran las probabilidades de obtener valores mayores que 7 <span class="math inline">\(\mathrm{ng} / \mathrm{ml}\)</span>. Observemos particularmente la región de valores mayores que 7.9869, que se representará con el símbolo <span class="math inline">\(\mathrm{W}_{\alpha}\)</span>. Expresada como intervalo, <span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869, \infty)\)</span>.</p>
-<p><img src="images/cap9-ProbsH1.png" width="90%" style="display: block; margin: auto;" /></p>
+<!-- ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
+<!-- knitr::include_graphics("images/cap9-ProbsH1.png") -->
+<!-- ``` -->
+<table>
+<thead>
+<tr class="header">
+<th align="center">Miljana <span class="math inline">\((x)\)</span></th>
+<th align="center">Prob. <span class="math inline">\(X=x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">6,506</td>
+<td align="center">0.7946</td>
+</tr>
+<tr class="even">
+<td align="center">6,671</td>
+<td align="center">0.7083</td>
+</tr>
+<tr class="odd">
+<td align="center">6,835</td>
+<td align="center">0.6080</td>
+</tr>
+<tr class="even">
+<td align="center">7</td>
+<td align="center">0.5000</td>
+</tr>
+<tr class="odd">
+<td align="center">7,165</td>
+<td align="center">0.3920</td>
+</tr>
+<tr class="even">
+<td align="center">7,329</td>
+<td align="center">0.2917</td>
+</tr>
+<tr class="odd">
+<td align="center">7,494</td>
+<td align="center">0.2054</td>
+</tr>
+<tr class="even">
+<td align="center">7,658</td>
+<td align="center">0.1364</td>
+</tr>
+<tr class="odd">
+<td align="center">7,823</td>
+<td align="center">0.0852</td>
+</tr>
+<tr class="even">
+<td align="center">7,987</td>
+<td align="center">0.0500</td>
+</tr>
+<tr class="odd">
+<td align="center">8,152</td>
+<td align="center">0.0275</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="el-papel-privilegiado-de-la-hipótesis-nula-criterio-de-decisión" class="section level2 hasAnchor" number="9.5">
@@ -1107,7 +1219,7 @@ Al igual que en el caso 1, también se ha propuesto la región crítica de forma
 \]</span></p>
 <p>en la fila correspondiente a prob <span class="math inline">\((\mathrm{X}&gt;=7.987)\)</span> de la tabla se puede observar la probabilidad de rechazar <span class="math inline">\(\mathrm{H}_{0}(\mu=7.0)\)</span> cuando ésta es cierta. Simbólicamente hemos calculado:</p>
 <p><span class="math display">\[
-\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left\{-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right\} d x=\\ = 1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
 \]</span></p>
 <p>donde <span class="math inline">\(F_{z}\)</span> es la función de distribución de la Normal tipificada <span class="math inline">\(N(0,1)\)</span>.<br />
 La región crítica <span class="math inline">\(\mathrm{W}_{\alpha}=[7.9869,+\infty)\)</span> lleva asociado un nivel de significación <span class="math inline">\(\alpha=0.05\)</span>. Ahora bien, como el estadístico media muestral es una variable continua, concretamente Normal, se pueden encontrar infinitas regiones que satisfagan la condición:</p>
@@ -1141,8 +1253,8 @@ La información contenida en la muestra se resume mediante un estadístico de te
 <h3><span class="header-section-number">9.7.1</span> Caso 1: Resumen de conceptos asociados al contraste. Región crítica<a href="pruebas-de-hipótesis.html#caso-1-resumen-de-conceptos-asociados-al-contraste.-región-crítica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
-<col width="44%" />
-<col width="55%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1183,8 +1295,8 @@ La información contenida en la muestra se resume mediante un estadístico de te
 <h3><span class="header-section-number">9.7.2</span> Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión<a href="pruebas-de-hipótesis.html#caso-2-tabla-resumen-de-la-región-crítica-el-estadístico-de-test-y-del-criterio-de-decisión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
-<col width="44%" />
-<col width="55%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1282,7 +1394,63 @@ La información contenida en la muestra se resume mediante un estadístico de te
 </tbody>
 </table>
 <p>Supongamos que <span class="math inline">\(\mathrm{H}_{1}\)</span> es cierta, es decir, que <span class="math inline">\(p=0,6\)</span>. En la tabla siguiente podemos encontrar el valor del error de tipo II:</p>
-<p><img src="images/cap9-ProbsErrTipo2.png" width="90%" style="display: block; margin: auto;" /></p>
+<!-- ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
+<!-- knitr::include_graphics("images/cap9-ProbsErrTipo2.png") -->
+<!-- ``` -->
+<table>
+<thead>
+<tr class="header">
+<th align="center">Valor de <span class="math inline">\(X\)</span></th>
+<th align="center">Prob. <span class="math inline">\(X&lt;=\mathrm{X}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">0.0001</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0.0017</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">0.0123</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">0.0548</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">0.1662</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">0.3669</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="center">0.6177</td>
+</tr>
+<tr class="even">
+<td align="center">7</td>
+<td align="center">0.8327</td>
+</tr>
+<tr class="odd">
+<td align="center">8</td>
+<td align="center">0.9536</td>
+</tr>
+<tr class="even">
+<td align="center">9</td>
+<td align="center">0.9940</td>
+</tr>
+<tr class="odd">
+<td align="center">10</td>
+<td align="center">1.0000</td>
+</tr>
+</tbody>
+</table>
 <p><span class="math inline">\(1-\beta=\)</span> prob. (rechazar <span class="math inline">\(H_{1}/H_{1}\)</span> cierta)= prob. <span class="math inline">\((T \leq 7/H_{1}\)</span> cierta) <span class="math inline">\(=\mathbf{0 . 8 3 2 7}\)</span><br />
 Simbólicamente corresponde a calcular:</p>
 <p><span class="math display">\[
@@ -1307,11 +1475,72 @@ Simbólicamente corresponde a calcular:</p>
 </tbody>
 </table>
 <p>Supongamos que es cierta <span class="math inline">\(\mathrm{H}_{1}\)</span>, es decir, que <span class="math inline">\(\mu=8.5\)</span>. En la tabla siguiente podemos encontrar el valor del error de tipo II:</p>
-<p><img src="images/cap9-ProbsErrTipo2c.png" width="90%" style="display: block; margin: auto;" /></p>
+<!--  ```{r echo=FALSE, out.width="90%", fig.align='center'} -->
+<!--   -->
+<!--  knitr::include_graphics("images/cap9-ProbsErrTipo2c.png") -->
+<!--   -->
+<!--  ``` -->
+<table>
+<thead>
+<tr class="header">
+<th align="center">Mitiana <span class="math inline">\((x)\)</span></th>
+<th align="center">Prob. <span class="math inline">\(X==x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">5,933</td>
+<td align="center">1.0000</td>
+</tr>
+<tr class="even">
+<td align="center">6,189</td>
+<td align="center">0.9999</td>
+</tr>
+<tr class="odd">
+<td align="center">6,446</td>
+<td align="center">0.9997</td>
+</tr>
+<tr class="even">
+<td align="center">6,703</td>
+<td align="center">0.9986</td>
+</tr>
+<tr class="odd">
+<td align="center">6,96</td>
+<td align="center">0.9949</td>
+</tr>
+<tr class="even">
+<td align="center">7,216</td>
+<td align="center">0.9838</td>
+</tr>
+<tr class="odd">
+<td align="center">7,473</td>
+<td align="center">0.9565</td>
+</tr>
+<tr class="even">
+<td align="center">7,73</td>
+<td align="center">0.9004</td>
+</tr>
+<tr class="odd">
+<td align="center">7,987</td>
+<td align="center">0.8040</td>
+</tr>
+<tr class="even">
+<td align="center">8,243</td>
+<td align="center">0.6656</td>
+</tr>
+<tr class="odd">
+<td align="center">8,5</td>
+<td align="center">0.5000</td>
+</tr>
+</tbody>
+</table>
 <p><span class="math inline">\(1-\beta=\)</span> prob. (rechazar <span class="math inline">\(\mathrm{H}_{1}/\mathrm{H}_{1}\)</span> cierta)= prob. <span class="math inline">\((\mathrm{T}&lt;7.9869/\mathrm{H}_{1})=1-0.8040=0.1960\)</span><br />
 Simbólicamente, corresponde a calcular:</p>
 <p><span class="math display">\[
-1-\beta=p\left(\bar{X}_{16}&lt;7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x
+\begin{aligned}
+1-\beta &amp; =p\left(\bar{X}_{16}&lt;7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x =\\
+&amp; =F_{Z}\left(\frac{7.9869-8.5}{2.4 / \sqrt{16}}\right)
+\end{aligned}
 \]</span></p>
 </div>
 </div>
@@ -1324,8 +1553,10 @@ Simbólicamente, corresponde a calcular:</p>
 <p>Una vez se especifica la región crítica, los errores de tipo I y II quedan determinados. En los dos cuadros siguientes hay dos regiones críticas y sus errores asociados. En la versión interactiva ( <em>no disponible</em>) de Statmedia se podía cambiar dinámicamente la región crítica y se calculaban automáticamente los errores:</p>
 <p><img src="images/cap9-ProbsErrTipo2b.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>En el gráfico siguiente se representan los dos errores simultáneamente para diferentes regiones críticas. Para simplificar la comprensión del gráfico, se consideran solo regiones de la forma <span class="math inline">\(\{a, a+1, \ldots 10\}\)</span>, donde <span class="math inline">\(a\)</span> es un entero entre 0 y 10. Así, por ejemplo, el punto de abscisas 8 representa la región crítica <span class="math inline">\(\{8,9,10\}\)</span>. La hipótesis alternativa considerada es <span class="math inline">\(p_{1}=0.6\)</span>, tal y como se indica en la leyenda del gráfico.</p>
-<p><img src="images/cap9-PlotProbsErrTipo2b.png" width="90%" style="display: block; margin: auto;" />
-### Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</p>
+<p><img src="images/cap9-PlotProbsErrTipo2b.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta" class="section level3 hasAnchor" number="9.9.2">
+<h3><span class="header-section-number">9.9.2</span> Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )<a href="pruebas-de-hipótesis.html#caso-2-relación-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La relación entre los errores de tipo I y II es más fácil de interpretar en este caso, dado que la media es un estadístico de distribución continua. En los cuadros siguientes se presentan dos regiones críticas y los errores asociados, visualizando el área que representan. En la versión interactiva se puede modificar la región crítica mediante el deslizador, y se calculan automáticamente los dos errores visualizando el área que representa cada uno.</p>
 <p><img src="images/cap9-PlotProbsErrTipo_1_y_2.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>En el gráfico siguiente se representan los dos errores simultáneamente. Tomando siempre la misma alternativa:</p>
@@ -1354,7 +1585,7 @@ Retomando ideas anteriores, un contraste debe pretender un compromiso razonable 
 <div id="caso-1-potencia-en-hipótesis-simple-vs-simple" class="section level3 hasAnchor" number="9.10.1">
 <h3><span class="header-section-number">9.10.1</span> Caso 1: Potencia en hipótesis simple vs simple<a href="pruebas-de-hipótesis.html#caso-1-potencia-en-hipótesis-simple-vs-simple" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En la tabla siguiente se indica la probabilidad para cada uno de los valores del soporte. Se destaca en color diferente la región crítica.</p>
-<p><img src="images/cap9-PlotProbsTestOptim.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="images/cap9-ProbsTestOptim.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Se puede leer entonces que la potencia es:</p>
 <p><span class="math display">\[
 \beta=\operatorname{prob} .\left(\operatorname{aceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right)=\operatorname{prob} .\left(X \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{1}\right)=0.1673
@@ -1368,7 +1599,7 @@ Retomando ideas anteriores, un contraste debe pretender un compromiso razonable 
 <div id="caso-2-potencia-en-hipótesis-simple-vs-simple" class="section level3 hasAnchor" number="9.10.2">
 <h3><span class="header-section-number">9.10.2</span> Caso 2: Potencia en hipótesis simple vs simple<a href="pruebas-de-hipótesis.html#caso-2-potencia-en-hipótesis-simple-vs-simple" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hemos definido antes la región crítica para este caso. En el cuadro siguiente se pueden visualizar los dos errores (I= verde y II= naranja) y, opcionalmente, la potencia del test (región amarilla).</p>
-<p>(Se muestra la figura correspondiente.)</p>
+<p><img src="images/cap9-PlotProbsTestOptim.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>La definición de potencia aplicada a este caso resulta:</p>
 <p><span class="math display">\[
 \beta=\operatorname{prob} .\left(\operatorname{aceptar} \mathrm{H}_{1} / \mathrm{H}_{1}\right)=\operatorname{prob} .\left(X \text { en } \mathrm{W}_{\alpha} / \mathrm{H}_{1}\right)=0.80377
@@ -1388,14 +1619,14 @@ Retomando ideas anteriores, un contraste debe pretender un compromiso razonable 
 <div id="caso-1" class="section level3 hasAnchor" number="9.11.1">
 <h3><span class="header-section-number">9.11.1</span> Caso 1<a href="pruebas-de-hipótesis.html#caso-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En el documento interactivo se presenta un applet donde se calcula el error de tipo II cuando aumenta N. Aquí solo se presenta el gráfico donde se representan los dos errores simultáneamente para diferentes regiones críticas de la forma <span class="math inline">\(\{a, a+1, \ldots N\}\)</span>. La hipótesis alternativa está indicada en la leyenda.</p>
-<p>(Se muestra la figura correspondiente.)</p>
+<p><img src="images/cap9-SampleSizeEffect-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="caso-2" class="section level3 hasAnchor" number="9.11.2">
 <h3><span class="header-section-number">9.11.2</span> Caso 2<a href="pruebas-de-hipótesis.html#caso-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veremos aquí solo cómo afecta el tamaño de la muestra (para <span class="math inline">\(N=16\)</span> y <span class="math inline">\(N=30\)</span>) a los dos errores, manteniendo la región crítica constante. En el documento interactivo se pueden consultar otras combinaciones. Al aumentar <span class="math inline">\(N\)</span>, las distribuciones en el muestreo de la media bajo <span class="math inline">\(\mathrm{H}_{0}\)</span> y <span class="math inline">\(\mathrm{H}_{1}\)</span> presentan cada vez un menor solapamiento.</p>
-<p>(Se muestra la figura correspondiente.)</p>
+<p><img src="images/cap9-SampleSizeEffect-2.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>En el gráfico siguiente se observa el efecto de <span class="math inline">\(N\)</span> para todo el rango de regiones críticas:</p>
-<p>(Se muestra la figura correspondiente.)</p>
+<p><img src="images/cap9-SampleSizeEffect-3.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="hipótesis-simples-vs.-hipótesis-compuestas" class="section level2 hasAnchor" number="9.12">
@@ -1419,13 +1650,34 @@ Retomando ideas anteriores, un contraste debe pretender un compromiso razonable 
 \end{aligned}
 \]</span></p>
 <p>Observemos primero que ya no es consistente mantener una región crítica basada solo en la cola derecha de la distribución, como en el caso simple contra simple, que en resumen consistía en:</p>
-<p><img src="images/cap9-comparaProbs.png" width="90%" style="display: block; margin: auto;" /></p>
+<table>
+<colgroup>
+<col width="44%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Regió crítica</th>
+<th align="center"><span class="math inline">\(\mathrm{W}_{\alpha}=\{8,9,10\}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Estadístic de test</td>
+<td align="center"><span class="math inline">\(\mathrm{T}=\)</span> nombre de femelles totals en els 10 nius</td>
+</tr>
+<tr class="even">
+<td align="left">Nivell de significació</td>
+<td align="center"><span class="math inline">\(\alpha=0.0547\)</span></td>
+</tr>
+</tbody>
+</table>
 <p>Ahora esta región ya no es adecuada. Basta con considerar el ejemplo de obtener una muestra con <span class="math inline">\(\mathrm{T}=0\)</span>. A pesar de ser sumamente improbable bajo <span class="math inline">\(\mathrm{H}_{0}\)</span>, el criterio impone aceptar la hipótesis nula, en contra de otras hipótesis más plausibles (cualquier con p &lt; 0.5).</p>
 <p>El sentido común indica que la región crítica debe abarcar ahora ambos extremos del soporte. Si tomamos por ejemplo:</p>
 <p><span class="math display">\[
 \mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}
 \]</span></p>
-<p>(Se muestra figura con valores destacados.)</p>
+<p><img src="images/cap9-RCSimpleVsComposta.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>la suma siguiente (que corresponde a los valores destacados en la tabla):</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1451,7 +1703,7 @@ Retomando ideas anteriores, un contraste debe pretender un compromiso razonable 
 \mathrm{W}_{\alpha}=(-\infty, 6.0131] \mathrm{U}[7.9869,+\infty)
 \]</span></p>
 <p>Se obtiene <span class="math inline">\(\alpha=0.1\)</span>. En el cuadro siguiente se visualiza la región crítica y se evalúa el nivel de significación resultante:</p>
-<p>(Se muestra la figura correspondiente.)</p>
+<p><img src="images/cap9-RCHipotesisComposta.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Simbólicamente, el nivel de significación de este test se calcula de la siguiente forma:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1493,7 +1745,7 @@ f_{\bar{X}_{16}}(x)=\frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \t
 <p>dado que la región crítica es <span class="math inline">\(\mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}\)</span>. En los cuadros siguientes se obtiene el valor de la potencia <span class="math inline">\((\beta)\)</span> inicialmente para <span class="math inline">\(p=0.6\)</span> y para <span class="math inline">\(p=0.8\)</span> (en el documento interactivo se puede variar arbitrariamente la proporción bajo <span class="math inline">\(\mathrm{H}_{1}\)</span>):</p>
 <p><img src="images/cap9-comparaProbs.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>En el gráfico siguiente se representa la función de potencia para todo el rango de parámetros:</p>
-<p>(Se muestran figuras correspondientes.)</p>
+<p><img src="images/cap9-FuncPotencia1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="caso-2-función-de-potencia" class="section level3 hasAnchor" number="9.13.2">
 <h3><span class="header-section-number">9.13.2</span> Caso 2: Función de potencia<a href="pruebas-de-hipótesis.html#caso-2-función-de-potencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1506,10 +1758,12 @@ f_{\bar{X}_{16}}(x)=\frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \t
 \end{aligned}
 \]</span></p>
 <p>dado que la región crítica es <span class="math inline">\(\mathrm{W}_{\alpha}=(-\infty, 6,0131] \mathrm{U}[7,9869,+\infty)\)</span>.<br />
-En el cuadro siguiente se obtiene el valor de la potencia ( <span class="math inline">\(\beta\)</span> ) inicialmente para <span class="math inline">\(\mu=8.5\)</span>. En el documento interactivo se puede cambiar este valor de la alternativa y observar los cambios en los dos errores y en la potencia:</p>
-<p>(Se muestra figura correspondiente.)</p>
-<p>En el gráfico siguiente se representan dos funciones de potencia, para <span class="math inline">\(\alpha=0.05, \sigma=\)</span> 2.4 y que respectivamente corresponden a <span class="math inline">\(n=16\)</span> (la situación de este caso 2) y a <span class="math inline">\(n=1\)</span>. En el documento interactivo se pueden variar todos aquellos parámetros que afectan a <span class="math inline">\(\beta: \alpha, \sigma y n\)</span> y compararlos con la situación original.</p>
-<p>(Se muestra figura correspondiente.)</p>
+En el cuadro siguiente se obtiene el valor de la potencia ( <span class="math inline">\(\beta\)</span> ) inicialmente para <span class="math inline">\(\mu=8.5\)</span>.</p>
+<p>En el documento interactivo representado en la imagen puede cambiar el valor de la alternativa y observar los cambios en los dos errores y en la potencia:</p>
+<p><img src="images/cap9-FuncPotencia2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>En el gráfico siguiente se representan dos funciones de potencia, para <span class="math inline">\(\alpha=0.05, \sigma=\)</span> 2.4 y que respectivamente corresponden a <span class="math inline">\(n=16\)</span> (la situación de este caso 2) y a <span class="math inline">\(n=1\)</span>.
+En el documento interactivo representado en la imagen se pueden variar todos aquellos parámetros que afectan a <span class="math inline">\(\beta: \alpha, \sigma y n\)</span> y compararlos con la situación original.</p>
+<p><img src="images/cap9-FuncPotencia3.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="tests-óptimos" class="section level2 hasAnchor" number="9.14">
@@ -1584,14 +1838,14 @@ En el cuadro siguiente se obtiene el valor de la potencia ( <span class="math in
 \mathrm{W}_{\alpha}=[7,9869,+\infty)
 \]</span></p>
 <p>se obtiene <span class="math inline">\(\alpha=0.05\)</span>. En el cuadro siguiente se presenta la región crítica (en el documento interactivo se puede variar la región crítica y modificar por tanto el nivel de significación):</p>
-<p>(Se muestra figura correspondiente.)</p>
+<p><img src="images/cap9-RCHipotesisComposta2.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Simbólicamente, se calcula:</p>
 <p><span class="math display">\[
-\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=\\ = 1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
 \]</span></p>
 <p>que nos proporciona el nivel de significación de este test unilateral. Así pues, no hay ninguna diferencia ni en el cálculo ni en el gráfico respecto a lo ya visto en el apartado de hipótesis simple contra simple. En relación con la potencia, se trata de una función que depende de la <span class="math inline">\(\mu\)</span> concreta de la hipótesis alternativa (simple), y por esta razón resulta:</p>
-<p>(Se muestra figura correspondiente.)</p>
-<p>Una observación final referente a este caso 2. En el planteamiento actual solo queda ya la arbitrariedad consistente en asumir una <span class="math inline">\(\sigma=2.4\)</span> poblacional fija. En el tema 10, se estudiará cómo abordar este estudio sin asumir más condición que el modelo de probabilidad Normal.</p>
+<p><img src="images/cap9-PotenciaHipotesisComposta.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Una observación final referente a este caso 2. En el planteamiento actual solo queda ya la arbitrariedad consistente en asumir una <span class="math inline">\(\sigma=2.4\)</span> poblacional fija. En el tema <span class="math inline">\(10\)</span>, se estudiará cómo abordar este estudio sin asumir más condición que el modelo de probabilidad Normal.</p>
 </div>
 </div>
 <div id="elección-del-nivel-de-significación" class="section level2 hasAnchor" number="9.16">
@@ -1651,7 +1905,7 @@ En el cuadro siguiente se obtiene el valor de la potencia ( <span class="math in
 \mathrm{H}_{0}: \mu \leq 7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu&gt;7
 \]</span></p>
 <p>En el cuadro siguiente se presentan los datos obtenidos en el experimento, su media y la desviación estándar corregida, así como el p-valor y la decisión final según el nivel de significación 0.05. Como <span class="math inline">\(\mathrm{T}=8.54\)</span>, el p-valor corresponde a la cola de la curva Normal situada a la derecha de T. En el gráfico se superpone el color rojo del p-valor al verde de la zona correspondiente a <span class="math inline">\(\alpha\)</span> en la parte más extrema de la cola.</p>
-<p>(Se muestra figura correspondiente.)</p>
+<p><img src="images/cap9-CalculPvalorUnilateral.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Así pues, se rechaza <span class="math inline">\(\mathbf{H}_{0}\)</span>, ya que <span class="math inline">\(\alpha=0.05&gt;\mathrm{p}_{\mathrm{v}}=0.00513\)</span>. En el documento interactivo es posible elegir otros niveles de significación. Según el nivel elegido se aceptará o rechazará la hipótesis nula.</p>
 <p>El cuadro anterior ilustra la relación entre los conceptos del p-valor y del nivel de significación, ahora bien, el lector NO debe extraer la conclusión de que debe ajustar <span class="math inline">\(\alpha\)</span> en ningún sentido: <span class="math inline">\(\alpha\)</span> se elige siempre a priori (antes del análisis), nunca en función de los datos (o del p-valor). Respecto al cálculo simbólico del p-valor, en el ejemplo se ajusta a la expresión siguiente:</p>
 <p><span class="math display">\[
@@ -1670,7 +1924,7 @@ p v &amp; =p\left(\bar{X}_{16} \geq 8.54 / H_{0}\right) \\
 \mathrm{H}_{0}: \mu=7 \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq 7
 \]</span></p>
 <p>El p-valor corresponde ahora a dos colas de la curva Normal: una es la misma que en el caso unilateral, es decir, la situada a la derecha de <span class="math inline">\(\mathrm{T}=8.54\)</span>, la segunda es la cola simétrica a la anterior respecto a <span class="math inline">\(\mu=7\)</span>, es decir, la cola izquierda situada en <span class="math inline">\(2 \mu-\mathrm{T}=5.46\)</span>. Como antes, en el cuadro se superpone el color rojo del p-valor al verde de la zona correspondiente a <span class="math inline">\(\alpha\)</span> en la parte más extrema de las dos colas. En el documento interactivo se pueden cambiar datos, el nivel de significación y el punto donde se calcula la potencia.</p>
-<p>(Se muestra figura correspondiente.)</p>
+<p><img src="images/cap9-CalculPvalorBilateral.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>El cálculo del p-valor se corresponde, con los datos originales, a:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1793,7 +2047,7 @@ n=\left\{\frac{\sigma\left(z_{1-\beta}+z_{\alpha / 2}\right)}{\Delta}\right\}^{2
 n=\{2.4(1.645+1.960)/0.8\}^{2}=116.964
 \]</span></p>
 <p>Redondeando, el tamaño debe ser de 117 atletas. En el cuadro siguiente se muestra el tamaño de la muestra en función de la diferencia mínima significativa deseada, junto con otros parámetros que afectan el problema:</p>
-<p>(Se muestra figura correspondiente.)</p>
+<p><img src="images/cap9-SampleSize_i_MDS.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Para los valores extremos de <span class="math inline">\(\alpha(0)\)</span> y de <span class="math inline">\(\beta(1)\)</span>, el valor del tamaño de la muestra se hace infinito y no se puede representar en el cuadro anterior.</p>
 </div>
 </div>
@@ -1852,8 +2106,8 @@ Supongamos que la población tuviera una desviación estándar de <span class="m
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
-<li id="fn2"><p>La statdrolona no es ninguna hormona, aquí se ha adaptado la información de hormonas reales.<a href="pruebas-de-hipótesis.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>La statdrolona no es ninguna hormona, aquí se ha adaptado la información de hormonas reales.<a href="pruebas-de-hipótesis.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
