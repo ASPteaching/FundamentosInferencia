@@ -1,10 +1,12 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-%
 \documentclass[
 ]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -35,8 +37,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -89,15 +89,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
 \ifLuaTeX
@@ -109,7 +111,6 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -124,9 +125,6 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -138,7 +136,7 @@
 
 \title{Fundamentos de Inferencia Estadistica}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2024-12-26}
+\date{2025-09-29}
 
 \begin{document}
 \maketitle
@@ -232,7 +230,9 @@ Para estos apuntes hemos recuperado, y en ocasiones adaptado o modificado, algun
 
 Los gadgets originales ya no son funcionales pero muchos de ellos han sido re-escritos en R como aplicaciones Shiny (disponibles en: \url{https://grbio.upc.edu/en/software/teaching_apps}) y se enlazaran desde los puntos necesarios del texto.
 
-Dejando aparte (además) de la licencia, vaya nuestro agradecimiento explícito al equipo de profesores del Departamento de Estadística de la Universidad de Barcelona, redactor de la versión inicial del proyecto, que es la que hemos utilizado: Antonio Arcas Pons, Miquel calvo Llorca, Antonio Miñarro Alonso, Sergi Civit Vives y Angel Vilarroya del Campo.
+Dejando aparte (además) de la licencia, vaya nuestro agradecimiento explícito al equipo de profesores del Departamento de Estadística de la Universidad de Barcelona, redactor de la versión inicial del proyecto, que es la que hemos utilizado: Antonio Arcas Pons, Miquel Calvo Llorca, Antonio Miñarro Alonso, Sergi Civit Vives y Angel Vilarroya del Campo.
+
+Dos de los autores nos han dejado prematuramente, Angel Vilarroya a una temprana edad, hace casi 20 años y Miguel Calvo, próximo a su jubilación, muy recientemente. Vaya desde aquí nuestro más sincero recuerdo. \emph{Sin vosotros, nada de esto existiría, y aunque esto perdure os echaremos siempre en falta}.
 
 \href{https://www.emis.de/journals/BEIO/files/BEIOv25n1_HE_A.Arcas+A.Minarro+M.Calvo.pdf}{Antoni Arcas, Antonio Miñarro and Miguel Calvo (2008) Statmedia projects in Statistical Education}
 
@@ -245,7 +245,8 @@ Dejando aparte (además) de la licencia, vaya nuestro agradecimiento explícito 
   \href{https://github.com/ASPteaching/ApuntsEstadisticaMatematica}{Alex Sanchez y Francesc Carmona (2002). Apunts d'Estadística Matemàtica} Licencia CC0 1.0 Universal
 \end{itemize}
 
-\subsection{Materiales complementarios}\label{materiales-complementarios}
+\subsection*{Materiales complementarios}\label{materiales-complementarios}
+\addcontentsline{toc}{subsection}{Materiales complementarios}
 
 Los documentos que se citan a continuación contienen materiales similares a los que aquí se presentan, para cursos parecidos al que ha generado los presentes.
 
@@ -1537,9 +1538,9 @@ Por ejemplo, para una variable indicadora de un suceso \(A\), tenemos la
 relación siguiente:
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Valor de \(\boldsymbol{x}\)
@@ -2070,7 +2071,7 @@ obtenido.
 El conjunto de resultados posibles forma el espacio muestral \(\Omega\) asociado a dicho experimento. Sus elementos serán como los que se
 muestran a continuación:
 
-\includegraphics{images/clipboard-1434716414.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-1434716414.png}}
 
 En total, el espacio muestral estaría formado por 36 resultados posibles
 que, en principio y suponiendo los dados regulares, son todos ellos
@@ -2108,7 +2109,7 @@ Una posible regla sería, por ejemplo, asignar a cada resultado la suma
 de puntos de las caras. Este enunciado nos define una variable que
 representa cada suceso elemental por un valor numérico.
 
-\includegraphics{images/clipboard-2572516778.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-2572516778.png}}
 
 Los 36 posibles resultados del experimento se transforman en 11 posibles
 valores numéricos para la variable: \(2,3,4,5,6,7,8,9,10,11\) y 12 .
@@ -2130,7 +2131,7 @@ a partir del enunciado o regla de asignación asignar a cada resultado el
 menor de los puntos de las dos caras. Tenemos una nueva variable sobre
 el mismo espacio anterior.
 
-\includegraphics{images/clipboard-3898377838.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-3898377838.png}}
 
 El recorrido, en este caso, está formado por los valores: \(1,2,3,4,5\) y
 6 . Las dos variables estudiadas y otras muchas que se podrían definir
@@ -2145,7 +2146,7 @@ En el ejemplo de los dados vamos a centrarnos en la variable aleatoria
 X=\text { Suma de puntos de las caras }
 \]
 
-\includegraphics{images/clipboard-1018442669.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-1018442669.png}}
 
 El recorrido de la variable está formado por los números
 \(\{2,3,4,5,6,7,8,9,10,11\) i 12\(\}\). Vamos a calcular algunas
@@ -2173,7 +2174,7 @@ probabilidades: (a) \(P(X \leq 6)\) (b) \(P(X \leq 8,2)\); (c)
 Para calcular la función de distribución de la variable X \(=\) Suma de
 puntos de las caras :
 
-\includegraphics{images/clipboard-2353777197.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-2353777197.png}}
 
 necesitamos conocer el recorrido de la variable, que es:
 \(\{2,3,4,5,6,7,8,9,10,11, 12\}\) y, utilizando este recorrido como pauta,
@@ -2228,7 +2229,7 @@ Para calcular la función de densidad de la variable
 X=\text { suma de puntos de las caras }
 \]
 
-\includegraphics{images/clipboard-2707476680.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/clipboard-2707476680.png}}
 
 necesitamos conocer el recorrido de la variable, es decir:
 \(\{2,3,4,5,6,7,8,9,10,11, 12\}\) y, a partir del recorrido, determinar
@@ -2610,10 +2611,10 @@ ya que la moneda es regular y, por tanto, \(P[\) cara \(]=P[\) cruz \(]=1 / 2\).
 La \(P[X=3]\) corresponde al suceso de que salgan tres caras ( \(c\) en adelante) y una cruz ( + en adelante). Sin embargo, en este caso tenemos hasta cuatro posibles maneras de obtener dicho resultado, según el orden en que aparezcan las tres caras y la cruz:
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
-  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
-  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
-  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 +ccc
@@ -3085,11 +3086,11 @@ f(0)=p^{r} \quad \text { y } \quad f(k+1)=\frac{(1-p)(k+r)}{k+1} f(k)
 \subsubsection{Tabla resumen de las distribuciones discretas principales}\label{tabla-resumen-de-las-distribuciones-discretas-principales}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Distribución
@@ -3416,11 +3417,11 @@ donde \(\Gamma(x)\) representa la función Gamma de Euler definida anteriormente
 \subsubsection{Tabla resumen de las principales distribuciones continuas}\label{tabla-resumen-de-las-principales-distribuciones-continuas}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Distribución
@@ -3718,9 +3719,9 @@ Supongamos que estamos observando dos características de células en un experim
 La siguiente tabla muestra la probabilidad conjunta de observar cada combinación de infección y activación en una célula:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2973}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3649}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3378}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2973}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3649}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3378}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \(X \backslash Y\)
@@ -4160,15 +4161,15 @@ f_Y(y) = f_2(y) = \sum_i f(x_i, y)
 \subsubsection{Trinomial M(5; 0.6, 0.2): Distribuciones marginales}\label{trinomial-m5-0.6-0.2-distribuciones-marginales}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}
-  >{\centering\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1111}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1111}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 \(X_1 \backslash X_2\)
@@ -4978,7 +4979,7 @@ El teorema anterior tiene dos importantes corolarios:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-14-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-14-1.pdf}}
 
 \paragraph{Normalidad asintótica de la suma de puntuaciones de un dado}\label{normalidad-asintuxf3tica-de-la-suma-de-puntuaciones-de-un-dado}
 
@@ -5014,7 +5015,7 @@ El teorema anterior tiene dos importantes corolarios:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf}}
 
 \subsubsection{Casos particulares más notables}\label{casos-particulares-muxe1s-notables}
 
@@ -5433,13 +5434,13 @@ Ejemplo 1.6.1 Extraemos una muestra y obtenemos:
 Una vez ordenada queda:
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 \(x_{(1)}\)
@@ -5474,7 +5475,7 @@ y si hacemos la representación gráfica:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-18-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-18-1.pdf}}
 
 Figura 1.1: Función de distribución empírica con los datos del ejemplo
 
@@ -6153,7 +6154,7 @@ E\left(M_{n}\right) & =E\left(\sum_{i=1}^{n} a_{i} X_{i}\right)=\sum_{i=1}^{n} E
 \end{aligned}
 \]
 
-\footnote{La statdrolona no es ninguna hormona, aquí se ha adaptado la información de hormonas reales.}Calculemos la varianza
+{[}\^{}1{]}Calculemos la varianza
 
 \[
 \begin{aligned}
@@ -7421,9 +7422,9 @@ Hemos de tener en cuenta que los valores \(a\) y \(b\) que verifican \eqref{eq:p
 \subsection{Algunos estadísticos pivote}\label{algunos-estaduxedsticos-pivote}
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Estadistico pivote
@@ -8209,9 +8210,9 @@ donde los valores de \(z_{\alpha / 2}\) se calculan a partir de la distribución
 Es decir, se utiliza como estadístico pivote
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
-  >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 Estadístico pivote
@@ -8480,8 +8481,7 @@ En el estudio del contraste de hipótesis se suele partir del caso, que de tan s
 & \mathrm{H}_{0}: \theta=\theta_{0} \\
 & \mathrm{H}_{1}: \theta=\theta_{1}
 \end{aligned}
-\]
-De hecho, sería mucho más realista plantear que la alternativa a un valor \(\theta_0\) sea que el parámetro toma valores superiores (\(\mathrm{H}_{1}: \theta \geq \theta_{0}\)), inferiores (\(\mathrm{H}_{1}: \theta \leq \theta_{0}\)) o distintos (\(\mathrm{H}_{1}: \theta \neq \theta_{0}\))a \(\theta_0\). En la práctica este será el planteamiento de los tests que se presentará más adelante.
+\] De hecho, sería mucho más realista plantear que la alternativa a un valor \(\theta_0\) sea que el parámetro toma valores superiores (\(\mathrm{H}_{1}: \theta \geq \theta_{0}\)), inferiores (\(\mathrm{H}_{1}: \theta \leq \theta_{0}\)) o distintos (\(\mathrm{H}_{1}: \theta \neq \theta_{0}\))a \(\theta_0\). En la práctica este será el planteamiento de los tests que se presentará más adelante.
 
 En la teoría del contraste de hipótesis este tipo de planteamiento se conoce como contraste de hipótesis \emph{simple contra simple}. Así pues, una hipótesis simple postula que el parámetro \(\theta\) solo puede tomar un valor, o, más técnicamente, que el conjunto de parámetros de una hipótesis simple consiste en un solo punto.
 
@@ -8666,7 +8666,25 @@ Es importante entender que el verdadero valor de \(p\) (el valor en la població
 
 Veamos cuál es la probabilidad de obtener valores mayores que 8 hembras. Para abreviar, designamos la región de valores mayores o iguales a 8 con el símbolo \(\mathrm{W}_{\alpha}=\{8,9,10\}\).
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-ProbsH0} \end{center}
+\begin{longtable}[]{@{}cc@{}}
+\toprule\noalign{}
+Valor de \(X\) & Prob. \(X>=X\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 1.0000 \\
+1 & 0.9990 \\
+2 & 0.9893 \\
+3 & 0.9453 \\
+4 & 0.8281 \\
+5 & 0.6230 \\
+6 & 0.3770 \\
+7 & 0.1719 \\
+8 & 0.0547 \\
+9 & 0.0107 \\
+10 & 0.0010 \\
+\end{longtable}
 
 \subsubsection{\texorpdfstring{Caso 2: Medias de las tasas de statdrolona improbables si se cumple \(\mathrm{H}_{0}\)}{Caso 2: Medias de las tasas de statdrolona improbables si se cumple \textbackslash mathrm\{H\}\_\{0\}}}\label{caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0}
 
@@ -8674,7 +8692,25 @@ De la misma manera que se ha razonado para el caso 1, en esta ocasión con las d
 
 En la tabla siguiente se muestran las probabilidades de obtener valores mayores que 7 \(\mathrm{ng} / \mathrm{ml}\). Observemos particularmente la región de valores mayores que 7.9869, que se representará con el símbolo \(\mathrm{W}_{\alpha}\). Expresada como intervalo, \(\mathrm{W}_{\alpha}=[7.9869, \infty)\).
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-ProbsH1} \end{center}
+\begin{longtable}[]{@{}cc@{}}
+\toprule\noalign{}
+Miljana \((x)\) & Prob. \(X=x\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+6,506 & 0.7946 \\
+6,671 & 0.7083 \\
+6,835 & 0.6080 \\
+7 & 0.5000 \\
+7,165 & 0.3920 \\
+7,329 & 0.2917 \\
+7,494 & 0.2054 \\
+7,658 & 0.1364 \\
+7,823 & 0.0852 \\
+7,987 & 0.0500 \\
+8,152 & 0.0275 \\
+\end{longtable}
 
 \subsection{El papel privilegiado de la hipótesis nula: criterio de decisión}\label{el-papel-privilegiado-de-la-hipuxf3tesis-nula-criterio-de-decisiuxf3n}
 
@@ -8789,7 +8825,7 @@ Al igual que en el caso 1, también se ha propuesto la región crítica de forma
 en la fila correspondiente a prob \((\mathrm{X}>=7.987)\) de la tabla se puede observar la probabilidad de rechazar \(\mathrm{H}_{0}(\mu=7.0)\) cuando ésta es cierta. Simbólicamente hemos calculado:
 
 \[
-\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left\{-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right\} d x=\\ = 1-F_{Z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
 \]
 
 donde \(F_{z}\) es la función de distribución de la Normal tipificada \(N(0,1)\).\\
@@ -8832,8 +8868,8 @@ Finalmente:
 \subsubsection{Caso 1: Resumen de conceptos asociados al contraste. Región crítica}\label{caso-1-resumen-de-conceptos-asociados-al-contraste.-regiuxf3n-cruxedtica}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Región crítica
@@ -8857,8 +8893,8 @@ La distribución del estadístico de test T es una Binomial B (10, p). Se puede 
 \subsubsection{Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión}\label{caso-2-tabla-resumen-de-la-regiuxf3n-cruxedtica-el-estaduxedstico-de-test-y-del-criterio-de-decisiuxf3n}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
-  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Región crítica
@@ -8928,7 +8964,25 @@ Nivel de significación & \(\alpha=0.0547\) \\
 
 Supongamos que \(\mathrm{H}_{1}\) es cierta, es decir, que \(p=0,6\). En la tabla siguiente podemos encontrar el valor del error de tipo II:
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-ProbsErrTipo2} \end{center}
+\begin{longtable}[]{@{}cc@{}}
+\toprule\noalign{}
+Valor de \(X\) & Prob. \(X<=\mathrm{X}\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0.0001 \\
+1 & 0.0017 \\
+2 & 0.0123 \\
+3 & 0.0548 \\
+4 & 0.1662 \\
+5 & 0.3669 \\
+6 & 0.6177 \\
+7 & 0.8327 \\
+8 & 0.9536 \\
+9 & 0.9940 \\
+10 & 1.0000 \\
+\end{longtable}
 
 \(1-\beta=\) prob. (rechazar \(H_{1}/H_{1}\) cierta)= prob. \((T \leq 7/H_{1}\) cierta) \(=\mathbf{0 . 8 3 2 7}\)\\
 Simbólicamente corresponde a calcular:
@@ -8953,13 +9007,34 @@ Nivel de significación & \(\alpha=0.05\) \\
 
 Supongamos que es cierta \(\mathrm{H}_{1}\), es decir, que \(\mu=8.5\). En la tabla siguiente podemos encontrar el valor del error de tipo II:
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-ProbsErrTipo2c} \end{center}
+\begin{longtable}[]{@{}cc@{}}
+\toprule\noalign{}
+Mitiana \((x)\) & Prob. \(X==x\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+5,933 & 1.0000 \\
+6,189 & 0.9999 \\
+6,446 & 0.9997 \\
+6,703 & 0.9986 \\
+6,96 & 0.9949 \\
+7,216 & 0.9838 \\
+7,473 & 0.9565 \\
+7,73 & 0.9004 \\
+7,987 & 0.8040 \\
+8,243 & 0.6656 \\
+8,5 & 0.5000 \\
+\end{longtable}
 
 \(1-\beta=\) prob. (rechazar \(\mathrm{H}_{1}/\mathrm{H}_{1}\) cierta)= prob. \((\mathrm{T}<7.9869/\mathrm{H}_{1})=1-0.8040=0.1960\)\\
 Simbólicamente, corresponde a calcular:
 
 \[
-1-\beta=p\left(\bar{X}_{16}<7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x
+\begin{aligned}
+1-\beta & =p\left(\bar{X}_{16}<7.9869 / H_{1}\right)=\int_{-\infty}^{7.9869} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-8.5)^{2}}{2 \times 0.6^{2}}\right) d x =\\
+& =F_{Z}\left(\frac{7.9869-8.5}{2.4 / \sqrt{16}}\right)
+\end{aligned}
 \]
 
 \subsection{Relación entre el error de tipo I y el de tipo II}\label{relaciuxf3n-entre-el-error-de-tipo-i-y-el-de-tipo-ii}
@@ -9018,7 +9093,7 @@ donde \(t\) es cualquier otro test con el mismo nivel de significación que \(mp
 
 En la tabla siguiente se indica la probabilidad para cada uno de los valores del soporte. Se destaca en color diferente la región crítica.
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-PlotProbsTestOptim} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-ProbsTestOptim} \end{center}
 
 Se puede leer entonces que la potencia es:
 
@@ -9038,7 +9113,7 @@ Observamos que coincide con el cálculo anterior del error de tipo II para este 
 
 Hemos definido antes la región crítica para este caso. En el cuadro siguiente se pueden visualizar los dos errores (I= verde y II= naranja) y, opcionalmente, la potencia del test (región amarilla).
 
-(Se muestra la figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-PlotProbsTestOptim} \end{center}
 
 La definición de potencia aplicada a este caso resulta:
 
@@ -9066,17 +9141,17 @@ Aumentar \(N\) varía la ley de distribución del estadístico de test y general
 
 En el documento interactivo se presenta un applet donde se calcula el error de tipo II cuando aumenta N. Aquí solo se presenta el gráfico donde se representan los dos errores simultáneamente para diferentes regiones críticas de la forma \(\{a, a+1, \ldots N\}\). La hipótesis alternativa está indicada en la leyenda.
 
-(Se muestra la figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-SampleSizeEffect-1} \end{center}
 
 \subsubsection{Caso 2}\label{caso-2}
 
 Veremos aquí solo cómo afecta el tamaño de la muestra (para \(N=16\) y \(N=30\)) a los dos errores, manteniendo la región crítica constante. En el documento interactivo se pueden consultar otras combinaciones. Al aumentar \(N\), las distribuciones en el muestreo de la media bajo \(\mathrm{H}_{0}\) y \(\mathrm{H}_{1}\) presentan cada vez un menor solapamiento.
 
-(Se muestra la figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-SampleSizeEffect-2} \end{center}
 
 En el gráfico siguiente se observa el efecto de \(N\) para todo el rango de regiones críticas:
 
-(Se muestra la figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-SampleSizeEffect-3} \end{center}
 
 \subsection{Hipótesis simples vs.~hipótesis compuestas}\label{hipuxf3tesis-simples-vs.-hipuxf3tesis-compuestas}
 
@@ -9106,7 +9181,22 @@ Cambiando el planteamiento inicial, supongamos que la polémica sobre la proporc
 
 Observemos primero que ya no es consistente mantener una región crítica basada solo en la cola derecha de la distribución, como en el caso simple contra simple, que en resumen consistía en:
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-comparaProbs} \end{center}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4444}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5556}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Regió crítica
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\mathrm{W}_{\alpha}=\{8,9,10\}\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Estadístic de test & \(\mathrm{T}=\) nombre de femelles totals en els 10 nius \\
+Nivell de significació & \(\alpha=0.0547\) \\
+\end{longtable}
 
 Ahora esta región ya no es adecuada. Basta con considerar el ejemplo de obtener una muestra con \(\mathrm{T}=0\). A pesar de ser sumamente improbable bajo \(\mathrm{H}_{0}\), el criterio impone aceptar la hipótesis nula, en contra de otras hipótesis más plausibles (cualquier con p \textless{} 0.5).
 
@@ -9116,7 +9206,7 @@ El sentido común indica que la región crítica debe abarcar ahora ambos extrem
 \mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}
 \]
 
-(Se muestra figura con valores destacados.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-RCSimpleVsComposta} \end{center}
 
 la suma siguiente (que corresponde a los valores destacados en la tabla):
 
@@ -9152,7 +9242,7 @@ Nuevamente, el sentido común indica que la región crítica debe abarcar ahora 
 
 Se obtiene \(\alpha=0.1\). En el cuadro siguiente se visualiza la región crítica y se evalúa el nivel de significación resultante:
 
-(Se muestra la figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-RCHipotesisComposta} \end{center}
 
 Simbólicamente, el nivel de significación de este test se calcula de la siguiente forma:
 
@@ -9210,7 +9300,7 @@ dado que la región crítica es \(\mathrm{W}_{\alpha}=\{0,1,2,8,9,10\}\). En los
 
 En el gráfico siguiente se representa la función de potencia para todo el rango de parámetros:
 
-(Se muestran figuras correspondientes.)
+\begin{center}\includegraphics[width=0.6\linewidth]{images/cap9-FuncPotencia1} \end{center}
 
 \subsubsection{Caso 2: Función de potencia}\label{caso-2-funciuxf3n-de-potencia}
 
@@ -9225,13 +9315,16 @@ Ahora la potencia depende de la media concreta \(\mu_{1}\) que se elija como alt
 \]
 
 dado que la región crítica es \(\mathrm{W}_{\alpha}=(-\infty, 6,0131] \mathrm{U}[7,9869,+\infty)\).\\
-En el cuadro siguiente se obtiene el valor de la potencia ( \(\beta\) ) inicialmente para \(\mu=8.5\). En el documento interactivo se puede cambiar este valor de la alternativa y observar los cambios en los dos errores y en la potencia:
+En el cuadro siguiente se obtiene el valor de la potencia ( \(\beta\) ) inicialmente para \(\mu=8.5\).
 
-(Se muestra figura correspondiente.)
+En el documento interactivo representado en la imagen puede cambiar el valor de la alternativa y observar los cambios en los dos errores y en la potencia:
 
-En el gráfico siguiente se representan dos funciones de potencia, para \(\alpha=0.05, \sigma=\) 2.4 y que respectivamente corresponden a \(n=16\) (la situación de este caso 2) y a \(n=1\). En el documento interactivo se pueden variar todos aquellos parámetros que afectan a \(\beta: \alpha, \sigma y n\) y compararlos con la situación original.
+\begin{center}\includegraphics[width=0.6\linewidth]{images/cap9-FuncPotencia2} \end{center}
 
-(Se muestra figura correspondiente.)
+En el gráfico siguiente se representan dos funciones de potencia, para \(\alpha=0.05, \sigma=\) 2.4 y que respectivamente corresponden a \(n=16\) (la situación de este caso 2) y a \(n=1\).
+En el documento interactivo representado en la imagen se pueden variar todos aquellos parámetros que afectan a \(\beta: \alpha, \sigma y n\) y compararlos con la situación original.
+
+\begin{center}\includegraphics[width=0.6\linewidth]{images/cap9-FuncPotencia3} \end{center}
 
 \subsection{Tests óptimos}\label{tests-uxf3ptimos}
 
@@ -9262,10 +9355,10 @@ conocido como contraste unilateral derecho. Obviamente, otra posibilidad es el u
 En estos tres casos, el contraste de hipótesis es simple contra compuesta. En la mayoría de situaciones aplicadas, en realidad se pretenden resolver contrastes unilaterales que conllevan hipótesis compuestas. El unilateral derecho es entonces:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -9320,19 +9413,19 @@ Tal como ya se ha planteado en el caso 1, ahora se debe considerar una región c
 
 se obtiene \(\alpha=0.05\). En el cuadro siguiente se presenta la región crítica (en el documento interactivo se puede variar la región crítica y modificar por tanto el nivel de significación):
 
-(Se muestra figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-RCHipotesisComposta2} \end{center}
 
 Simbólicamente, se calcula:
 
 \[
-\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
+\alpha=p\left(\bar{X}_{16} \geq 7.9869 / H_{0}\right)=\int_{7.9869}^{\infty} \frac{1}{0.6 \sqrt{2 \pi}} \exp \left(-\frac{(x-7)^{2}}{2 \times 0.6^{2}}\right) d x=\\ = 1-F_{z}\left(\frac{7.9869-7}{2.4 / \sqrt{16}}\right)
 \]
 
 que nos proporciona el nivel de significación de este test unilateral. Así pues, no hay ninguna diferencia ni en el cálculo ni en el gráfico respecto a lo ya visto en el apartado de hipótesis simple contra simple. En relación con la potencia, se trata de una función que depende de la \(\mu\) concreta de la hipótesis alternativa (simple), y por esta razón resulta:
 
-(Se muestra figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-PotenciaHipotesisComposta} \end{center}
 
-Una observación final referente a este caso 2. En el planteamiento actual solo queda ya la arbitrariedad consistente en asumir una \(\sigma=2.4\) poblacional fija. En el tema 10, se estudiará cómo abordar este estudio sin asumir más condición que el modelo de probabilidad Normal.
+Una observación final referente a este caso 2. En el planteamiento actual solo queda ya la arbitrariedad consistente en asumir una \(\sigma=2.4\) poblacional fija. En el tema \(10\), se estudiará cómo abordar este estudio sin asumir más condición que el modelo de probabilidad Normal.
 
 \subsection{Elección del nivel de significación}\label{elecciuxf3n-del-nivel-de-significaciuxf3n}
 
@@ -9421,7 +9514,7 @@ Consideremos primero el cálculo del p-valor cuando las hipótesis son:
 
 En el cuadro siguiente se presentan los datos obtenidos en el experimento, su media y la desviación estándar corregida, así como el p-valor y la decisión final según el nivel de significación 0.05. Como \(\mathrm{T}=8.54\), el p-valor corresponde a la cola de la curva Normal situada a la derecha de T. En el gráfico se superpone el color rojo del p-valor al verde de la zona correspondiente a \(\alpha\) en la parte más extrema de la cola.
 
-(Se muestra figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-CalculPvalorUnilateral} \end{center}
 
 Así pues, se rechaza \(\mathbf{H}_{0}\), ya que \(\alpha=0.05>\mathrm{p}_{\mathrm{v}}=0.00513\). En el documento interactivo es posible elegir otros niveles de significación. Según el nivel elegido se aceptará o rechazará la hipótesis nula.
 
@@ -9447,7 +9540,7 @@ Consideremos ahora el cálculo del p-valor cuando las hipótesis son:
 
 El p-valor corresponde ahora a dos colas de la curva Normal: una es la misma que en el caso unilateral, es decir, la situada a la derecha de \(\mathrm{T}=8.54\), la segunda es la cola simétrica a la anterior respecto a \(\mu=7\), es decir, la cola izquierda situada en \(2 \mu-\mathrm{T}=5.46\). Como antes, en el cuadro se superpone el color rojo del p-valor al verde de la zona correspondiente a \(\alpha\) en la parte más extrema de las dos colas. En el documento interactivo se pueden cambiar datos, el nivel de significación y el punto donde se calcula la potencia.
 
-(Se muestra figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-CalculPvalorBilateral} \end{center}
 
 El cálculo del p-valor se corresponde, con los datos originales, a:
 
@@ -9618,7 +9711,7 @@ n=\{2.4(1.645+1.960)/0.8\}^{2}=116.964
 
 Redondeando, el tamaño debe ser de 117 atletas. En el cuadro siguiente se muestra el tamaño de la muestra en función de la diferencia mínima significativa deseada, junto con otros parámetros que afectan el problema:
 
-(Se muestra figura correspondiente.)
+\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-SampleSize_i_MDS} \end{center}
 
 Para los valores extremos de \(\alpha(0)\) y de \(\beta(1)\), el valor del tamaño de la muestra se hace infinito y no se puede representar en el cuadro anterior.
 
@@ -9627,8 +9720,8 @@ Para los valores extremos de \(\alpha(0)\) y de \(\beta(1)\), el valor del tama�
 Los conceptos expuestos hasta aquí son esenciales para entender qué es un contraste estadístico de hipótesis y poder aplicar correctamente los diferentes tests que se detallarán en próximos capítulos. En la práctica, y para la tranquilidad del experimentador, normalmente solo hay que preocuparse de identificar el problema que hay que resolver (contraste sobre una, dos o más poblaciones), la familia de distribución y finalmente aplicar tests ya deducidos, algunos casi centenarios. Ahora bien, el experimentador debe elegir las tres cantidades siguientes:
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 1) nivel de significación \(\boldsymbol{\alpha}\)
