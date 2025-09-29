@@ -1301,11 +1301,9 @@ $$
 
 Redondeando, el tamaño debe ser de 117 atletas. En el cuadro siguiente se muestra el tamaño de la muestra en función de la diferencia mínima significativa deseada, junto con otros parámetros que afectan el problema:
 
-
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
 knitr::include_graphics("images/cap9-SampleSize_i_MDS.png")
 ```
-
 
 Para los valores extremos de $\alpha(0)$ y de $\beta(1)$, el valor del tamaño de la muestra se hace infinito y no se puede representar en el cuadro anterior.
 

@@ -362,3 +362,4 @@ tests-de-permutaciones-qué-cuándo-cómo
 el-bootstrap-en-contraste-de-hipótesis
 el-problema-de-las-comparaciones-múltiples
 métodos-de-control-de-error-fwer-y-fdr
+ilustración-por-simulación
