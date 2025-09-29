@@ -91,3 +91,4 @@ Los prerequisitos para este curso corresponden básicamente a una matemáticas -
 - [Iniciación a las matemáticas para la ingeniería. M. Besalú y Joana Villalonga](http://cimanet.uoc.edu/cursMates0/IniciacionMatematicas/pdf/PID_00273914.pdf)
 
   - [Colección de (100) videos de soporte a las matemáticas para la ingeniería](https://www.youtube.com/playlist?list=PLv8FweHfYYMo6Lr2zt6H4znq5KuBacq28)
+  
