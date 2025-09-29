@@ -652,12 +652,12 @@ directamente la regla de Laplace resulta claro que el suceso
 $\mathrm{A}=$ obtener cara tiene probabilidad:
 
 $$
-\mathrm{p}(\mathrm{A})=1 / 2=0,5
+\mathrm{p}(\mathrm{A})=1 / 2=0,5.
 $$
 
 ### Ilustración por simulación
 
-En el enlace siguiente se accede a una simulación por ordenador de la _ley de los grandes números_ en la que se basa precisamente la idea de asimilar "a la larga" (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.
+Mediante el enlace siguiente se accede a una simulación por ordenador de la _ley de los grandes números_ en la que se basa precisamente la idea de asimilar "a la larga" (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.
 
 :::: {.calloutBox .link}
 [Enlace a la simulación](https://www.grbio.eu/statmedia/Statmedia_1/)
@@ -674,6 +674,7 @@ Como podréis comprobar, sea cual sea la probabilidad (una moneda justa es un 0.
 Eso sí, observad lo que sucede si fijais probabilidades cercanas a 0.5 o muy alejadas de ell.
 
 ¿La idea de lo que sucede a la larga es la misma? ¿En que encontráis diferencias? 
+
 Aunque no deje de llamar la atención el carácter errático del comportamiento de $\mathrm{f}_{\mathrm{r}}$ entre los valores 0 y 1, estaréis seguramente de acuerdo que  a mayor
     número de lanzamientos $n$, más improbable es que $f_{r}$ se aleje
     mucho de $p(A)$.
