@@ -654,6 +654,7 @@ $\mathrm{A}=$ obtener cara tiene probabilidad:
 $$
 \mathrm{p}(\mathrm{A})=1 / 2=0,5
 $$
+
 ### Ilustración por simulación
 
 En el enlace siguiente se accede a una simulación por ordenador de la _ley de los grandes números_ en la que se basa precisamente la idea de asimilar "a la larga" (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.
