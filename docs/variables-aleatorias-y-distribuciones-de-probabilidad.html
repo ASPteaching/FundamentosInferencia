@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 2 Variables aleatorias y Distribuciones de probabilidad | Fundamentos de Inferencia Estadistica</title>
   <meta name="description" content="Capítulo 2 Variables aleatorias y Distribuciones de probabilidad | Fundamentos de Inferencia Estadistica" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 2 Variables aleatorias y Distribuciones de probabilidad | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2025-09-29" />
+<meta name="date" content="2025-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -181,8 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>1.6</b> Espacios de probabilidad</a></li>
 <li class="chapter" data-level="1.7" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>1.7</b> Probabilidad condicionada</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.1</b> Sucesos dependientes y sucesos independientes</a></li>
-<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.2</b> Incompatibilidad e independencia</a></li>
+<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#la-probabilidad-condicionada-es-una-medida-de-probabilidad"><i class="fa fa-check"></i><b>1.7.1</b> La probabilidad condicionada es una medida de probabilidad</a></li>
+<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.2</b> Sucesos dependientes y sucesos independientes</a></li>
+<li class="chapter" data-level="1.7.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.3</b> Incompatibilidad e independencia</a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#dos-teoremas-importantes"><i class="fa fa-check"></i><b>1.8</b> Dos Teoremas importantes</a>
 <ul>
@@ -198,7 +199,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinaciones"><i class="fa fa-check"></i><b>1.10.4</b> Combinaciones</a></li>
 <li class="chapter" data-level="1.10.5" data-path="02-variablesAleatorias.html"><a href="#permutaciones-con-repetici%C3%B3n"><i class="fa fa-check"></i><b>1.10.5</b> Permutaciones con repetición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a></li>
+<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.11.1" data-path="02-variablesAleatorias.html"><a href="#ilustraci%C3%B3n-por-simulaci%C3%B3n"><i class="fa fa-check"></i><b>1.11.1</b> Ilustración por simulación</a></li>
+</ul></li>
 <li class="chapter" data-level="1.12" data-path="02-variablesAleatorias.html"><a href="#caso-de-estudio-eficacia-de-una-prueba-diagn%C3%B3stica"><i class="fa fa-check"></i><b>1.12</b> Caso de Estudio: Eficacia de una prueba diagnóstica</a>
 <ul>
 <li class="chapter" data-level="1.12.1" data-path="02-variablesAleatorias.html"><a href="#aplicaci%C3%B3n-del-teorema-de-bayes"><i class="fa fa-check"></i><b>1.12.1</b> Aplicación del Teorema de Bayes</a></li>
@@ -1824,43 +1828,43 @@ caras es la suma de las varianzas de las puntuaciones de cada dado por separado.
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/02-variablesAleatorias.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/02-variablesAleatorias.Rmd",
-"text": null
-},
-"download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/02-variablesAleatorias.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/02-variablesAleatorias.Rmd",
+    "text": null
+  },
+  "download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

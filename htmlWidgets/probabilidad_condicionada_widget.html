@@ -1,0 +1,85 @@
+<div id="prob-cond-container" style="border:1px solid #ccc; padding:1em; border-radius:10px; background:#fafafa; max-width:600px;">
+
+  <h4>Probabilidad condicionada – simulador interactivo 🎲</h4>
+
+  <p>Elige los sucesos A y B para el experimento de lanzar un dado.  
+  <b>A</b>: número mayor o igual que  
+  <b>B</b>: número par entre un mínimo y un máximo.</p>
+
+  <label>Suceso A (≥): <span id="a-val">4</span></label><br>
+  <input type="range" id="a-slider" min="1" max="6" value="4" step="1">
+
+  <br><br>
+  <label>Mínimo par (B): <span id="bmin-val">2</span></label><br>
+  <input type="range" id="bmin-slider" min="2" max="6" value="2" step="2">
+
+  <br><br>
+  <label>Máximo par (B): <span id="bmax-val">6</span></label><br>
+  <input type="range" id="bmax-slider" min="2" max="6" value="6" step="2">
+
+  <br><br>
+  <div id="dice-plot" style="display:flex; justify-content:space-around; margin:1em 0;"></div>
+
+  <div id="results" style="font-family:monospace; background:white; padding:0.5em; border-radius:5px; border:1px solid #ddd;"></div>
+</div>
+
+<script>
+(function() {
+  const dicePlot = document.getElementById("dice-plot");
+  const results = document.getElementById("results");
+
+  const aSlider = document.getElementById("a-slider");
+  const bminSlider = document.getElementById("bmin-slider");
+  const bmaxSlider = document.getElementById("bmax-slider");
+
+  const aVal = document.getElementById("a-val");
+  const bminVal = document.getElementById("bmin-val");
+  const bmaxVal = document.getElementById("bmax-val");
+
+  function update() {
+    const A_min = parseInt(aSlider.value);
+    const B_min = parseInt(bminSlider.value);
+    const B_max = parseInt(bmaxSlider.value);
+
+    aVal.textContent = A_min;
+    bminVal.textContent = B_min;
+    bmaxVal.textContent = B_max;
+
+    const A = Array.from({length:6}, (_,i)=>i+1 >= A_min);
+    const B = Array.from({length:6}, (_,i)=>((i+1)%2===0) && (i+1>=B_min) && (i+1<=B_max));
+    const AB = A.map((a,i)=>a && B[i]);
+
+    const pA = A.filter(x=>x).length / 6;
+    const pB = B.filter(x=>x).length / 6;
+    const pAB = AB.filter(x=>x).length / 6;
+    const pAcondB = pB > 0 ? (pAB / pB) : NaN;
+
+    dicePlot.innerHTML = "";
+    for (let i=1; i<=6; i++) {
+      const div = document.createElement("div");
+      div.textContent = i;
+      div.style.width = "40px";
+      div.style.height = "40px";
+      div.style.lineHeight = "40px";
+      div.style.textAlign = "center";
+      div.style.borderRadius = "8px";
+      div.style.fontWeight = "bold";
+      div.style.color = "black";
+      div.style.border = "1px solid #555";
+      div.style.background = AB[i-1] ? "#ffb347" : (B[i-1] ? "#a7c7e7" : (A[i-1] ? "#b6e7a7" : "white"));
+      dicePlot.appendChild(div);
+    }
+
+    results.innerHTML = 
+      `P(A) = ${pA.toFixed(2)} | ` +
+      `P(B) = ${pB.toFixed(2)} | ` +
+      `P(A∩B) = ${pAB.toFixed(2)} | ` +
+      `P(A|B) = ${isNaN(pAcondB)? "—" : pAcondB.toFixed(2)}`;
+  }
+
+  aSlider.addEventListener("input", update);
+  bminSlider.addEventListener("input", update);
+  bmaxSlider.addEventListener("input", update);
+  update();
+})();
+</script>

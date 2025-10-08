@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 8 Estimación por intérvalos | Fundamentos de Inferencia Estadistica</title>
   <meta name="description" content="Capítulo 8 Estimación por intérvalos | Fundamentos de Inferencia Estadistica" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 8 Estimación por intérvalos | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2025-09-29" />
+<meta name="date" content="2025-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -181,8 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>1.6</b> Espacios de probabilidad</a></li>
 <li class="chapter" data-level="1.7" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>1.7</b> Probabilidad condicionada</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.1</b> Sucesos dependientes y sucesos independientes</a></li>
-<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.2</b> Incompatibilidad e independencia</a></li>
+<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#la-probabilidad-condicionada-es-una-medida-de-probabilidad"><i class="fa fa-check"></i><b>1.7.1</b> La probabilidad condicionada es una medida de probabilidad</a></li>
+<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.2</b> Sucesos dependientes y sucesos independientes</a></li>
+<li class="chapter" data-level="1.7.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.3</b> Incompatibilidad e independencia</a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#dos-teoremas-importantes"><i class="fa fa-check"></i><b>1.8</b> Dos Teoremas importantes</a>
 <ul>
@@ -198,7 +199,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinaciones"><i class="fa fa-check"></i><b>1.10.4</b> Combinaciones</a></li>
 <li class="chapter" data-level="1.10.5" data-path="08-estimacionIntervalos.html"><a href="#permutaciones-con-repetici%C3%B3n"><i class="fa fa-check"></i><b>1.10.5</b> Permutaciones con repetición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a></li>
+<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.11.1" data-path="08-estimacionIntervalos.html"><a href="#ilustraci%C3%B3n-por-simulaci%C3%B3n"><i class="fa fa-check"></i><b>1.11.1</b> Ilustración por simulación</a></li>
+</ul></li>
 <li class="chapter" data-level="1.12" data-path="08-estimacionIntervalos.html"><a href="#caso-de-estudio-eficacia-de-una-prueba-diagn%C3%B3stica"><i class="fa fa-check"></i><b>1.12</b> Caso de Estudio: Eficacia de una prueba diagnóstica</a>
 <ul>
 <li class="chapter" data-level="1.12.1" data-path="08-estimacionIntervalos.html"><a href="#aplicaci%C3%B3n-del-teorema-de-bayes"><i class="fa fa-check"></i><b>1.12.1</b> Aplicación del Teorema de Bayes</a></li>
@@ -913,8 +917,9 @@ t=\frac{\bar{X}-\mu}{\hat{S} / \sqrt{n}}
 <h4><span class="header-section-number">8.8.3.3</span> Uso del paquete <code>DesctTols</code><a href="estimación-por-intérvalos.html#uso-del-paquete-descttols" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El paquete <code>Desctools</code> simplifica el cálculo e interpretación de intervalos de confianza.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="estimación-por-intérvalos.html#cb40-1" tabindex="-1"></a><span class="co"># Usar DescTools para intervalos de confianza</span></span>
-<span id="cb40-2"><a href="estimación-por-intérvalos.html#cb40-2" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb40-3"><a href="estimación-por-intérvalos.html#cb40-3" tabindex="-1"></a><span class="fu">MeanCI</span>(muestra, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<span id="cb40-2"><a href="estimación-por-intérvalos.html#cb40-2" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code></pre></div>
+<pre><code>## Warning: package &#39;DescTools&#39; was built under R version 4.4.3</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="estimación-por-intérvalos.html#cb42-1" tabindex="-1"></a><span class="fu">MeanCI</span>(muestra, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##     mean   lwr.ci   upr.ci 
 ## 49.52896 45.86573 53.19219</code></pre>
 <p>Como puede verse los tres métodos proporcionan el mismo resultado por lo que, en aras de la simplificación, siempre que se disponga de una función incorporada en un paquete utilizaremos ésta.</p>
@@ -955,20 +960,20 @@ n=\frac{z_{\alpha / 2}^{2}}{K^{2}}
 <h4><span class="header-section-number">8.8.4.1</span> Calculo del tamaño muestral usando R<a href="#calculo-del-tama%C3%B1o-muestral-usando-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Como en el caso anterior es posible implementar las fórmulas directamente con R o usar algún paquete específico <code>samplesize</code>o el mismo <code>DescTools</code> que incorpora la función <code>MeanCIn</code> que, a partir del intérvalo de confianza centrado en la media y la desviación retorna el tamaño necesario para alcanzar una precisión determinada.</p>
 <p>Por ejemplo si en el ejemplo anterior, con una media de 49.53 y una desviación de 9,81 se desa una precisión (anchura del intérvalo entre dos) de 3 con confianza del 90%:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="estimación-por-intérvalos.html#cb42-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb42-2"><a href="estimación-por-intérvalos.html#cb42-2" tabindex="-1"></a>prec<span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb42-3"><a href="estimación-por-intérvalos.html#cb42-3" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fl">49.53</span></span>
-<span id="cb42-4"><a href="estimación-por-intérvalos.html#cb42-4" tabindex="-1"></a>conf <span class="ot">=</span><span class="fl">0.9</span></span>
-<span id="cb42-5"><a href="estimación-por-intérvalos.html#cb42-5" tabindex="-1"></a><span class="fu">MeanCIn</span>(<span class="at">ci=</span><span class="fu">c</span>(m<span class="sc">-</span>prec, m<span class="sc">+</span>prec), <span class="at">sd=</span><span class="fl">9.8</span>, <span class="at">conf.level=</span>conf) </span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estimación-por-intérvalos.html#cb44-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb44-2"><a href="estimación-por-intérvalos.html#cb44-2" tabindex="-1"></a>prec<span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb44-3"><a href="estimación-por-intérvalos.html#cb44-3" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fl">49.53</span></span>
+<span id="cb44-4"><a href="estimación-por-intérvalos.html#cb44-4" tabindex="-1"></a>conf <span class="ot">=</span><span class="fl">0.9</span></span>
+<span id="cb44-5"><a href="estimación-por-intérvalos.html#cb44-5" tabindex="-1"></a><span class="fu">MeanCIn</span>(<span class="at">ci=</span><span class="fu">c</span>(m<span class="sc">-</span>prec, m<span class="sc">+</span>prec), <span class="at">sd=</span><span class="fl">9.8</span>, <span class="at">conf.level=</span>conf) </span></code></pre></div>
 <pre><code>## [1] 30.75626</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="estimación-por-intérvalos.html#cb44-1" tabindex="-1"></a>conf <span class="ot">=</span><span class="fl">0.95</span></span>
-<span id="cb44-2"><a href="estimación-por-intérvalos.html#cb44-2" tabindex="-1"></a><span class="fu">MeanCIn</span>(<span class="at">ci=</span><span class="fu">c</span>(m<span class="sc">-</span>prec, m<span class="sc">+</span>prec), <span class="at">sd=</span><span class="fl">9.8</span>, <span class="at">conf.level=</span>conf) </span></code></pre></div>
-<pre><code>## [1] 43.43345</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="estimación-por-intérvalos.html#cb46-1" tabindex="-1"></a>conf <span class="ot">=</span><span class="fl">0.99</span></span>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="estimación-por-intérvalos.html#cb46-1" tabindex="-1"></a>conf <span class="ot">=</span><span class="fl">0.95</span></span>
 <span id="cb46-2"><a href="estimación-por-intérvalos.html#cb46-2" tabindex="-1"></a><span class="fu">MeanCIn</span>(<span class="at">ci=</span><span class="fu">c</span>(m<span class="sc">-</span>prec, m<span class="sc">+</span>prec), <span class="at">sd=</span><span class="fl">9.8</span>, <span class="at">conf.level=</span>conf) </span></code></pre></div>
-<pre><code>## [1] 74.61462</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="estimación-por-intérvalos.html#cb48-1" tabindex="-1"></a>prec <span class="ot">&lt;-</span> <span class="dv">2</span>; conf <span class="ot">&lt;-</span> <span class="fl">0.95</span></span>
+<pre><code>## [1] 43.43345</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="estimación-por-intérvalos.html#cb48-1" tabindex="-1"></a>conf <span class="ot">=</span><span class="fl">0.99</span></span>
 <span id="cb48-2"><a href="estimación-por-intérvalos.html#cb48-2" tabindex="-1"></a><span class="fu">MeanCIn</span>(<span class="at">ci=</span><span class="fu">c</span>(m<span class="sc">-</span>prec, m<span class="sc">+</span>prec), <span class="at">sd=</span><span class="fl">9.8</span>, <span class="at">conf.level=</span>conf) </span></code></pre></div>
+<pre><code>## [1] 74.61462</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="estimación-por-intérvalos.html#cb50-1" tabindex="-1"></a>prec <span class="ot">&lt;-</span> <span class="dv">2</span>; conf <span class="ot">&lt;-</span> <span class="fl">0.95</span></span>
+<span id="cb50-2"><a href="estimación-por-intérvalos.html#cb50-2" tabindex="-1"></a><span class="fu">MeanCIn</span>(<span class="at">ci=</span><span class="fu">c</span>(m<span class="sc">-</span>prec, m<span class="sc">+</span>prec), <span class="at">sd=</span><span class="fl">9.8</span>, <span class="at">conf.level=</span>conf) </span></code></pre></div>
 <pre><code>## [1] 94.66357</code></pre>
 </div>
 </div>
@@ -1049,8 +1054,8 @@ p_{1}=\frac{X}{(n-X+1) F_{\alpha(2,2(n-X+1), 2 X}+X} ; p_{2}=\frac{(X+1) F_{\alp
 <h4><span class="header-section-number">8.10.2.1</span> Cálculo con R<a href="#c%C3%A1lculo-con-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>En general los paquetes de R implementan múltiples métodos exactos. Este es el caso de <code>DescTools</code>que implementa más de una docena de métodos (podéis hacer <code>? DescTools::BinomCI</code> para aprender cuales son).</p>
 <p>Por ejemplo si hemos obtenido un valor de 37 con un tamaño muestral de 43 (es decir una estimación puntual de 37/43 = ``0.8604651) el intervalo de confianza se calculará como:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="estimación-por-intérvalos.html#cb50-1" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">37</span>, <span class="at">n=</span><span class="dv">43</span>, </span>
-<span id="cb50-2"><a href="estimación-por-intérvalos.html#cb50-2" tabindex="-1"></a>        <span class="at">method=</span><span class="fu">eval</span>(<span class="fu">formals</span>(BinomCI)<span class="sc">$</span>method))   <span class="co"># return all methods</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="estimación-por-intérvalos.html#cb52-1" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">37</span>, <span class="at">n=</span><span class="dv">43</span>, </span>
+<span id="cb52-2"><a href="estimación-por-intérvalos.html#cb52-2" tabindex="-1"></a>        <span class="at">method=</span><span class="fu">eval</span>(<span class="fu">formals</span>(BinomCI)<span class="sc">$</span>method))   <span class="co"># return all methods</span></span></code></pre></div>
 <pre><code>##                         est    lwr.ci    upr.ci
 ## wilson            0.8604651 0.7273641 0.9344428
 ## wald              0.8604651 0.7568980 0.9640322
@@ -1069,7 +1074,7 @@ p_{1}=\frac{X}{(n-X+1) F_{\alpha(2,2(n-X+1), 2 X}+X} ; p_{2}=\frac{(X+1) F_{\alp
 ## lik               0.8604651 0.7372546 0.9420472
 ## blaker            0.8604651 0.7255152 0.9374534</code></pre>
 <p>Ante la duda de que método usar lo mejor es usar el métod por defecto (el primero de la lista anterior).</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="estimación-por-intérvalos.html#cb52-1" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">37</span>, <span class="at">n=</span><span class="dv">43</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="estimación-por-intérvalos.html#cb54-1" tabindex="-1"></a><span class="fu">BinomCI</span>(<span class="at">x=</span><span class="dv">37</span>, <span class="at">n=</span><span class="dv">43</span>) </span></code></pre></div>
 <pre><code>##            est    lwr.ci    upr.ci
 ## [1,] 0.8604651 0.7273641 0.9344428</code></pre>
 </div>
@@ -1386,43 +1391,43 @@ h^{2}=\frac{\operatorname{Var}(X)}{1-\text { Probabilidad deseada del intervalo 
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/08-estimacionIntervalos.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/08-estimacionIntervalos.Rmd",
-"text": null
-},
-"download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/08-estimacionIntervalos.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/08-estimacionIntervalos.Rmd",
+    "text": null
+  },
+  "download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

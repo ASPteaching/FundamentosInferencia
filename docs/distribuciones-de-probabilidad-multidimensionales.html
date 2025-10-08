@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 4 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica</title>
   <meta name="description" content="Capítulo 4 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 4 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2025-09-29" />
+<meta name="date" content="2025-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -181,8 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>1.6</b> Espacios de probabilidad</a></li>
 <li class="chapter" data-level="1.7" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>1.7</b> Probabilidad condicionada</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.1</b> Sucesos dependientes y sucesos independientes</a></li>
-<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.2</b> Incompatibilidad e independencia</a></li>
+<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#la-probabilidad-condicionada-es-una-medida-de-probabilidad"><i class="fa fa-check"></i><b>1.7.1</b> La probabilidad condicionada es una medida de probabilidad</a></li>
+<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.2</b> Sucesos dependientes y sucesos independientes</a></li>
+<li class="chapter" data-level="1.7.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.3</b> Incompatibilidad e independencia</a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#dos-teoremas-importantes"><i class="fa fa-check"></i><b>1.8</b> Dos Teoremas importantes</a>
 <ul>
@@ -198,7 +199,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinaciones"><i class="fa fa-check"></i><b>1.10.4</b> Combinaciones</a></li>
 <li class="chapter" data-level="1.10.5" data-path="04-vectoresAleatorios.html"><a href="#permutaciones-con-repetici%C3%B3n"><i class="fa fa-check"></i><b>1.10.5</b> Permutaciones con repetición</a></li>
 </ul></li>
-<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a></li>
+<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.11.1" data-path="04-vectoresAleatorios.html"><a href="#ilustraci%C3%B3n-por-simulaci%C3%B3n"><i class="fa fa-check"></i><b>1.11.1</b> Ilustración por simulación</a></li>
+</ul></li>
 <li class="chapter" data-level="1.12" data-path="04-vectoresAleatorios.html"><a href="#caso-de-estudio-eficacia-de-una-prueba-diagn%C3%B3stica"><i class="fa fa-check"></i><b>1.12</b> Caso de Estudio: Eficacia de una prueba diagnóstica</a>
 <ul>
 <li class="chapter" data-level="1.12.1" data-path="04-vectoresAleatorios.html"><a href="#aplicaci%C3%B3n-del-teorema-de-bayes"><i class="fa fa-check"></i><b>1.12.1</b> Aplicación del Teorema de Bayes</a></li>
@@ -740,23 +744,24 @@ P(X = 1, Y = 0) = 0.1
 <h3><span class="header-section-number">4.1.4</span> Implementación en R<a href="#implementaci%C3%B3n-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Podemos visualizar esta distribución conjunta con un gráfico en R.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-3" tabindex="-1"></a><span class="co"># Crear los datos de la distribución conjunta</span></span>
-<span id="cb1-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb1-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-5" tabindex="-1"></a>data<span class="sc">$</span>Prob <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>)</span>
-<span id="cb1-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-7" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
-<span id="cb1-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-8" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(X, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No infectada&quot;</span>, <span class="st">&quot;Infectada&quot;</span>)),</span>
-<span id="cb1-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-9" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">factor</span>(Y, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No activada&quot;</span>, <span class="st">&quot;Activada&quot;</span>)))) <span class="sc">+</span></span>
-<span id="cb1-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-10" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prob), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-11" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;white&quot;</span>, <span class="at">high =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-12" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Prob, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-13" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Estado de infección (X)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Estado de activación (Y)&quot;</span>, </span>
-<span id="cb1-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-14" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribución Conjunta de Infección y Activación Celular&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-15" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb1-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-16" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-17" tabindex="-1"></a><span class="co"># Guardar el gráfico en el subdirectorio imagenes</span></span>
-<span id="cb1-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-18" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
+<span id="cb1-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-2" tabindex="-1"></a><span class="do">## Warning: package &#39;ggplot2&#39; was built under R version 4.4.3</span></span>
+<span id="cb1-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-4" tabindex="-1"></a><span class="co"># Crear los datos de la distribución conjunta</span></span>
+<span id="cb1-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-6" tabindex="-1"></a>data<span class="sc">$</span>Prob <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb1-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-8" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
+<span id="cb1-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-9" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(X, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No infectada&quot;</span>, <span class="st">&quot;Infectada&quot;</span>)),</span>
+<span id="cb1-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-10" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">factor</span>(Y, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No activada&quot;</span>, <span class="st">&quot;Activada&quot;</span>)))) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-11" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prob), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-12" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;white&quot;</span>, <span class="at">high =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-13" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Prob, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Estado de infección (X)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Estado de activación (Y)&quot;</span>, </span>
+<span id="cb1-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-15" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribución Conjunta de Infección y Activación Celular&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-16" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-18" tabindex="-1"></a><span class="co"># Guardar el gráfico en el subdirectorio imagenes</span></span>
+<span id="cb1-19"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-19" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>)</span></code></pre></div>
 <p><img src="images/distribucion_conjunta.png" width="80%" /></p>
 </div>
@@ -1774,43 +1779,43 @@ Aunque la <strong>independencia</strong> implica que las variables son incorrela
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/04-vectoresAleatorios.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/04-vectoresAleatorios.Rmd",
-"text": null
-},
-"download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/04-vectoresAleatorios.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/04-vectoresAleatorios.Rmd",
+    "text": null
+  },
+  "download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

@@ -324,21 +324,33 @@ $$
 P(A / B)=\frac{P(A \cap B)}{P(B)}
 $$
 
-Podemos ahora visualizar de una manera práctica y divertida el ejemplo
-anterior. Siguiendo con la notación utilizada, el suceso A será lo que
+El explorador interactivo que se encuentra a continuación (disponible en la versión en HTML del docuemnto) permite visualizar de una manera práctica el ejemplo
+anterior. 
+
+Siguiendo con la notación utilizada, el suceso A será lo que
 denominamos suceso de obtención, mientras que el suceso B será lo que
-denominamos suceso condicionado. La pantalla nos proporcionará los casos
+denominamos suceso *condicionante*. La pantalla nos proporcionará los casos
 posibles para el condicionante elegido y los casos favorables,
 calculando mediante la regla de Laplace la probabilidad del suceso.
 
-1)  Elegid suceso a estudiar. Desplazad, si procede, las barras de
-    puntos.
-2)  Elegir suceso condicionante. Desplazad, si procede, las barras de
-    puntos.
-3)  Comprobad los sucesos posibles y los favorables.
+1)  Elegid suceso a estudiar. Desplazad, si procede, las barras de selección.
+2)  Elegir suceso condicionante. Desplazad, si procede, las barras de selección..
+3)  Comprobad los sucesos posibles y los favorables y las probabilidades resultantes.
 
-La probabilidad condicionada se comporta, entonces, como una función de
-probabilidad. Es decir, verifica los tres axiomas siguientes:
+
+```{r, results='asis', echo=FALSE}
+if (knitr::is_html_output()) {
+  cat(readLines("htmlWidgets/probabilidad_condicionada_widget.html"), sep = "\n")
+} else {
+  cat("> *Simulador interactivo disponible solo en la versión HTML del libro.*")
+}
+
+```
+
+
+### La probabilidad condicionada es una medida de probabilidad
+
+Ejemplos como el anterior nos muestran que, efectivamente, la probabilidad condicionada se comporta como una función de probabilidad. Esto equivale, como ya hemos visto, a afirma que verifica los tres axiomas por los que se define la probabilidad:
 
 Axioma 1:
 
