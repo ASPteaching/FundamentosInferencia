@@ -9,7 +9,7 @@ site: bookdown::bookdown_site
 
 ## Objetivo {-}
 
-El objetivo de estas notas es presentar un material de soporte para la asignatura de "Inferencia Estadística" del [Máster interuniversitario de Bioiestadística y Bioinformática](https://www.uoc.edu/es/estudios/masters/master-universitario-bioinformatica-bioestadistica) impartido conjuntamente por la [Universitat Oberta de Catalunya (UOC)](https://www.uoc.edu) y la [Universidad de Barcelona (UB)](https://www.ub.edu).
+El objetivo de estas notas es presentar un material que sirva de soporte para la asignatura de "Inferencia Estadística" del [Máster interuniversitario de Bioiestadística y Bioinformática](https://www.uoc.edu/es/estudios/masters/master-universitario-bioinformatica-bioestadistica) impartido conjuntamente por la [Universitat Oberta de Catalunya (UOC)](https://www.uoc.edu) y la [Universidad de Barcelona (UB)](https://www.ub.edu).
 
 Esta asignatura adolece de las características habituales de las asignaturas de posgrado, y especialmente de un posgrado de estadística (y bioinformática), que muestran algunas de las cosas que no debe de ser esta asignatura:
 
