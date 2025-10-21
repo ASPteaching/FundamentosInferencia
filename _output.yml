@@ -5,11 +5,12 @@ bookdown::gitbook:
       collapse: section
       scroll_highlight: true
       before: |
-        <li class="download-link">
-          <a href="FundamentosInferenciaEstadistica.pdf" target="_blank" title="Descargar versión en PDF">
-            <img src="./images/aPDF.png" alt="PDF" style="width:14px;height:18px;vertical-align:middle;margin-right:5px;">
-            Versión en PDF
+        <div style="margin:0 0 10px 15px;">
+          <a href="FundamentosInferenciaEstadistica.pdf" target="_blank" title="Descargar PDF"
+             style="display:flex;align-items:center;gap:6px;text-decoration:none;">
+            <img src="images/aPDF.png" alt="PDF" width="16" height="20">
+            <span style="font-weight:bold;">Descargar versión PDF</span>
           </a>
-        </li>
+        </div>
 bookdown::pdf_book:
   keep_tex: yes
