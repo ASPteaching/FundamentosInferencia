@@ -136,7 +136,7 @@
 
 \title{Fundamentos de Inferencia Estadistica}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2025-09-29}
+\date{2025-10-21}
 
 \begin{document}
 \maketitle
@@ -600,10 +600,12 @@ probabilidad condicionada, y lo hacemos como:
 P(A / B)=\frac{P(A \cap B)}{P(B)}
 \]
 
-Podemos ahora visualizar de una manera práctica y divertida el ejemplo
-anterior. Siguiendo con la notación utilizada, el suceso A será lo que
+El explorador interactivo que se encuentra a continuación (disponible en la versión en HTML del docuemnto) permite visualizar de una manera práctica el ejemplo
+anterior.
+
+Siguiendo con la notación utilizada, el suceso A será lo que
 denominamos suceso de obtención, mientras que el suceso B será lo que
-denominamos suceso condicionado. La pantalla nos proporcionará los casos
+denominamos suceso \emph{condicionante}. La pantalla nos proporcionará los casos
 posibles para el condicionante elegido y los casos favorables,
 calculando mediante la regla de Laplace la probabilidad del suceso.
 
@@ -611,17 +613,20 @@ calculando mediante la regla de Laplace la probabilidad del suceso.
 \def\labelenumi{\arabic{enumi})}
 \tightlist
 \item
-  Elegid suceso a estudiar. Desplazad, si procede, las barras de
-  puntos.
+  Elegid suceso a estudiar. Desplazad, si procede, las barras de selección.
 \item
-  Elegir suceso condicionante. Desplazad, si procede, las barras de
-  puntos.
+  Elegir suceso condicionante. Desplazad, si procede, las barras de selección..
 \item
-  Comprobad los sucesos posibles y los favorables.
+  Comprobad los sucesos posibles y los favorables y las probabilidades resultantes.
 \end{enumerate}
 
-La probabilidad condicionada se comporta, entonces, como una función de
-probabilidad. Es decir, verifica los tres axiomas siguientes:
+\begin{quote}
+\emph{Simulador interactivo disponible solo en la versión HTML del libro.}
+\end{quote}
+
+\subsubsection{La probabilidad condicionada es una medida de probabilidad}\label{la-probabilidad-condicionada-es-una-medida-de-probabilidad}
+
+Ejemplos como el anterior nos muestran que, efectivamente, la probabilidad condicionada se comporta como una función de probabilidad. Esto equivale, como ya hemos visto, a afirma que verifica los tres axiomas por los que se define la probabilidad:
 
 Axioma 1:
 
@@ -948,11 +953,12 @@ directamente la regla de Laplace resulta claro que el suceso
 \(\mathrm{A}=\) obtener cara tiene probabilidad:
 
 \[
-\mathrm{p}(\mathrm{A})=1 / 2=0,5
+\mathrm{p}(\mathrm{A})=1 / 2=0,5.
 \]
-\#\#\# Ilustración por simulación
 
-En el enlace siguiente se accede a una simulación por ordenador de la \emph{ley de los grandes números} en la que se basa precisamente la idea de asimilar ``a la larga'' (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.
+\subsubsection{Ilustración por simulación}\label{ilustraciuxf3n-por-simulaciuxf3n}
+
+Mediante el enlace siguiente se accede a una simulación por ordenador de la \emph{ley de los grandes números} en la que se basa precisamente la idea de asimilar ``a la larga'' (es decir a medida que crece el número de repeticiones) frecuencia relativa y probabilidad.
 
 \href{https://www.grbio.eu/statmedia/Statmedia_1/}{Enlace a la simulación}
 
@@ -971,6 +977,7 @@ Como podréis comprobar, sea cual sea la probabilidad (una moneda justa es un 0.
 Eso sí, observad lo que sucede si fijais probabilidades cercanas a 0.5 o muy alejadas de ell.
 
 ¿La idea de lo que sucede a la larga es la misma? ¿En que encontráis diferencias?
+
 Aunque no deje de llamar la atención el carácter errático del comportamiento de \(\mathrm{f}_{\mathrm{r}}\) entre los valores 0 y 1, estaréis seguramente de acuerdo que a mayor
 número de lanzamientos \(n\), más improbable es que \(f_{r}\) se aleje
 mucho de \(p(A)\).
@@ -3775,6 +3782,7 @@ Podemos visualizar esta distribución conjunta con un gráfico en R.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(ggplot2)}
+\DocumentationTok{\#\# Warning: package \textquotesingle{}ggplot2\textquotesingle{} was built under R version 4.4.3}
 
 \CommentTok{\# Crear los datos de la distribución conjunta}
 \NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{X =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{Y =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
@@ -4979,7 +4987,7 @@ El teorema anterior tiene dos importantes corolarios:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-14-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf}}
 
 \paragraph{Normalidad asintótica de la suma de puntuaciones de un dado}\label{normalidad-asintuxf3tica-de-la-suma-de-puntuaciones-de-un-dado}
 
@@ -5015,7 +5023,7 @@ El teorema anterior tiene dos importantes corolarios:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.pdf}}
 
 \subsubsection{Casos particulares más notables}\label{casos-particulares-muxe1s-notables}
 
@@ -5475,7 +5483,7 @@ y si hacemos la representación gráfica:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-18-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.pdf}}
 
 Figura 1.1: Función de distribución empírica con los datos del ejemplo
 
@@ -7666,6 +7674,15 @@ El paquete \texttt{Desctools} simplifica el cálculo e interpretación de interv
 \begin{Highlighting}[]
 \CommentTok{\# Usar DescTools para intervalos de confianza}
 \FunctionTok{library}\NormalTok{(DescTools)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'DescTools' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{MeanCI}\NormalTok{(muestra, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
