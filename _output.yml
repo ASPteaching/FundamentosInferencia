@@ -4,12 +4,13 @@ bookdown::gitbook:
     toc:
       collapse: section
       scroll_highlight: true
-      before: |
-        <li><a href="https://aspteaching.github.io/FundamentosInferencia-Bookdown/FundamentosInferenciaEstadistica.pdf" 
-               title="Versión en PDF" target="_blank">
-               <img alt="Versión en pdf" src="./images/aPDF.png" width="12" height="15" /> PDF</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: ["FundamentosInferenciaEstadistica.pdf"]
+    download:
+      - FundamentosInferenciaEstadistica.pdf
+    before: |
+      <li><a href="FundamentosInferenciaEstadistica.pdf" title="Versión en PDF" target="_blank">
+      <img alt="Versión en pdf" src="./images/aPDF.png" width="12" height="15" /> PDF</a></li>
+    after: |
+      <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 bookdown::pdf_book:
   keep_tex: yes

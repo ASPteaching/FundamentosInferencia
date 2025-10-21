@@ -138,11 +138,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://aspteaching.github.io/FundamentosInferencia-Bookdown/FundamentosInferenciaEstadistica.pdf" 
-       title="Versión en PDF" target="_blank">
-       <img alt="Versión en pdf" src="./images/aPDF.png" width="12" height="15" /> PDF</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i>Objetivo</a></li>
@@ -612,9 +607,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.3" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#el-problema-de-las-comparaciones-m%C3%BAltiples"><i class="fa fa-check"></i><b>11.3</b> El problema de las comparaciones múltiples</a></li>
 <li class="chapter" data-level="11.4" data-path="computación-intensiva-y-multiple-testing.html"><a href="computación-intensiva-y-multiple-testing.html#m%C3%A9todos-de-control-de-error-fwer-y-fdr"><i class="fa fa-check"></i><b>11.4</b> Métodos de control de error: FWER y FDR</a></li>
 </ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -1000,8 +992,8 @@ Los datos del estudio que ha obtenido la asociación ADG, y que según ellos res
 </table>
 <!-- ![](https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-09.jpg?height=507&width=838&top_left_y=386&top_left_x=615) -->
 <p>Un sencillo código R puede calcular las probabilidades tienen los once resultados bajo otras hipótesis que se podrían formular sobre el verdadero valor de la probabilidad <span class="math inline">\(p\)</span> de la población.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="pruebas-de-hipótesis.html#cb56-1" tabindex="-1"></a>prob_p <span class="ot">&lt;-</span> p <span class="co"># p algun valor entre 0 y 1</span></span>
-<span id="cb56-2"><a href="pruebas-de-hipótesis.html#cb56-2" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">prob=</span>prob_p)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="pruebas-de-hipótesis.html#cb54-1" tabindex="-1"></a>prob_p <span class="ot">&lt;-</span> p <span class="co"># p algun valor entre 0 y 1</span></span>
+<span id="cb54-2"><a href="pruebas-de-hipótesis.html#cb54-2" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">prob=</span>prob_p)</span></code></pre></div>
 <p>Podemos entender estas diferentes ” <span class="math inline">\(p\)</span> ” como hipótesis distintas que se podrían haber establecido como alternativa a <span class="math inline">\(\mathrm{H}_{0}\)</span>. Excepto en los casos triviales <span class="math inline">\(p=0\)</span> o <span class="math inline">\(p=1\)</span>, no hay ningún resultado que no pueda presentarse, aunque sea con probabilidades muy pequeñas.</p>
 </div>
 <div id="caso-2-compatibilidad-de-resultados-e-hipótesis" class="section level3 hasAnchor" number="9.3.2">
@@ -2172,7 +2164,9 @@ gitbook.start({
   "toc": {
     "collapse": "section",
     "scroll_highlight": true
-  }
+  },
+  "before": "<li><a href="FundamentosInferenciaEstadistica.pdf" title="Versión en PDF" target="_blank">n<img alt="Versión en pdf" src="./images/aPDF.png" width="12" height="15" /> PDF</a></li>n",
+  "after": "<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>n"
 });
 });
 </script>
