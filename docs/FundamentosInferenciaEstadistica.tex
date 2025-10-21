@@ -111,20 +111,6 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
-\usepackage{xcolor}
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -3782,7 +3768,6 @@ Podemos visualizar esta distribución conjunta con un gráfico en R.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(ggplot2)}
-\DocumentationTok{\#\# Warning: package \textquotesingle{}ggplot2\textquotesingle{} was built under R version 4.4.3}
 
 \CommentTok{\# Crear los datos de la distribución conjunta}
 \NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{X =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{Y =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
@@ -7674,15 +7659,6 @@ El paquete \texttt{Desctools} simplifica el cálculo e interpretación de interv
 \begin{Highlighting}[]
 \CommentTok{\# Usar DescTools para intervalos de confianza}
 \FunctionTok{library}\NormalTok{(DescTools)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'DescTools' was built under R version 4.4.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{MeanCI}\NormalTok{(muestra, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
