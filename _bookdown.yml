@@ -1,8 +1,6 @@
 book_filename: "FundamentosInferenciaEstadistica"
 output_dir: docs
 delete_merged_file: true
-# (recomendado) evita rutas “raras” en figuras:
-# fig_path: "docs/imagenes/"   <-- quítalo mejor; deja el default
 edit: https://github.com/ASPteaching/FundamentosInferencia-Bookdown/edit/main/%s
 view: https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/%s
 language:
