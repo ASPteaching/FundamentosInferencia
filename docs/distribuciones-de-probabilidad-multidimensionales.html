@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2025-10-21" />
+<meta name="date" content="2025-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -746,23 +746,25 @@ P(X = 1, Y = 0) = 0.1
 <h3><span class="header-section-number">4.1.4</span> Implementación en R<a href="distribuciones-de-probabilidad-multidimensionales.html#implementaci%C3%B3n-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Podemos visualizar esta distribución conjunta con un gráfico en R.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-3" tabindex="-1"></a><span class="co"># Crear los datos de la distribución conjunta</span></span>
-<span id="cb1-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-4" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb1-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-5" tabindex="-1"></a>data<span class="sc">$</span>Prob <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>)</span>
-<span id="cb1-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-7" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
-<span id="cb1-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-8" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(X, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No infectada&quot;</span>, <span class="st">&quot;Infectada&quot;</span>)),</span>
-<span id="cb1-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-9" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">factor</span>(Y, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No activada&quot;</span>, <span class="st">&quot;Activada&quot;</span>)))) <span class="sc">+</span></span>
-<span id="cb1-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-10" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prob), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-11" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;white&quot;</span>, <span class="at">high =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-12" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Prob, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-13" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Estado de infección (X)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Estado de activación (Y)&quot;</span>, </span>
-<span id="cb1-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-14" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribución Conjunta de Infección y Activación Celular&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-15" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb1-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-16" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-17" tabindex="-1"></a><span class="co"># Guardar el gráfico en el subdirectorio imagenes</span></span>
-<span id="cb1-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-18" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
+<span id="cb1-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-2" tabindex="-1"></a><span class="do">## Warning: package &#39;ggplot2&#39; was built under R version 4.4.3</span></span>
+<span id="cb1-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-3" tabindex="-1"></a><span class="do">## Need help getting started? Try the R Graphics Cookbook: https://r-graphics.org</span></span>
+<span id="cb1-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-5" tabindex="-1"></a><span class="co"># Crear los datos de la distribución conjunta</span></span>
+<span id="cb1-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-7" tabindex="-1"></a>data<span class="sc">$</span>Prob <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb1-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-9" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
+<span id="cb1-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-10" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(X, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No infectada&quot;</span>, <span class="st">&quot;Infectada&quot;</span>)),</span>
+<span id="cb1-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-11" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">factor</span>(Y, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No activada&quot;</span>, <span class="st">&quot;Activada&quot;</span>)))) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-12" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prob), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-13" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;white&quot;</span>, <span class="at">high =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-14" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Prob, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-15" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Estado de infección (X)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Estado de activación (Y)&quot;</span>, </span>
+<span id="cb1-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-16" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribución Conjunta de Infección y Activación Celular&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-17" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-18" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-19" tabindex="-1"></a><span class="co"># Guardar el gráfico en el subdirectorio imagenes</span></span>
+<span id="cb1-20"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-20" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>)</span></code></pre></div>
 <p><img src="images/distribucion_conjunta.png" width="80%" /></p>
 </div>
@@ -1808,7 +1810,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["FundamentosInferenciaEstadistica.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

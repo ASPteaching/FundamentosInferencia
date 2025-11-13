@@ -9,8 +9,8 @@ El conocimiento de la distribución de la variable aleatoria permite:
 1. Análisis deductivo de situaciones. Por ejemplo: si asumimos que el peso de los recién nacidos se distribuye según una distribución $N(\mu=$ $3 \mathrm{~kg}, \sigma=0.25 \mathrm{~kg}$ ), nos puede interesar calcular la probabilidad de que un recién nacido pese entre 2.9 y 3.1 kg , o encontrar unos valores centrados en la media entre los cuales esperemos que se encuentren el $10 \%(25 \%, 50 \%, 95 \%, \ldots)$ de los recién nacidos.
 2. Modelización de situaciones aleatorias. Por ejemplo: si asumimos que el tiempo, en años, hasta que se estropea un componente de un ordenador se distribuye según una distribución exponencial $T \sim \xi(\lambda=$ $0.3)$, nos puede interesar calcular la probabilidad de que un componente dado dure más de 4 años.
 
-En los casos anteriores nos encontramos en una situación muy común, donde ya disponemos de un modelo sobre el cual efectuamos los cálculos, pero del cual desconocemos la procedencia. Parece razonable, y de hecho es precisamente así, que si queremos adaptar un modelo a una situación debamos basarnos únicamente en las observaciones del fenómeno.
-Si queremos saber cómo se distribuyen los pesos de los recién nacidos tomaremos unos cuantos, los pesaremos y después observaremos la distribución de estos. Puede que no sea necesario pesar a todos los recién nacidos (jde hecho, no es posible!), pero tampoco es posible deducir la ley por consideraciones puramente teóricas.
+En los casos anteriores nos encontramos en una situación muy común, donde ya disponemos de un modelo sobre el cual efectuamos los cálculos, pero del cual desconocemos la procedencia. Parece razonable, y de hecho es precisamente así, que *si queremos adaptar un modelo a una situación debamos basarnos únicamente en las observaciones del fenómeno*.
+Si queremos saber cómo se distribuyen los pesos de los recién nacidos tomaremos unos cuantos, los pesaremos y después observaremos la distribución de éstos. Puede que no sea necesario pesar a todos los recién nacidos (jde hecho, no es posible!), pero tampoco es posible deducir la ley por consideraciones puramente teóricas.
 Ahora, en lugar de partir de un espacio de probabilidades, partiremos de unas observaciones $\left(x_{1}, \ldots, x_{n}\right)$ y el objetivo que perseguiremos será obtener información sobre la distribución de probabilidades de un fenómeno a partir de una observación no exhaustiva del mismo.
 
 ## Problemas de inferencia estadística
@@ -18,12 +18,12 @@ Ahora, en lugar de partir de un espacio de probabilidades, partiremos de unas ob
 Hemos presentado como objetivo de la inferencia estadística inducir propiedades del modelo probabilístico que representa la población a partir de un conjunto de observaciones.
 Según el tipo de conclusión que queramos extraer, diferenciaremos diferentes tipos de problemas:
 
-1. Si queremos utilizar la información proporcionada por la muestra para obtener un pronóstico numérico único (es decir, una única aproximación numérica) de una o más características de la población, tenemos un problema de estimación puntual.
-2. Si queremos obtener información sobre un rango de valores dentro del cual podamos afirmar, con un cierto grado de confianza, que podemos capturar un parámetro desconocido de la distribución, hablamos de estimación por intervalo.
-3. Si lo que queremos hacer es decidir si podemos aceptar o debemos rechazar una afirmación sobre la distribución de probabilidad del fenómeno estudiado, hablamos de contraste de hipótesis. Este contraste puede ser:
+1. Si queremos utilizar la información proporcionada por la muestra para obtener un pronóstico numérico único (es decir, una única aproximación numérica) de una o más características de la población, tenemos un problema de **estimación puntual**.
+2. Si queremos obtener información sobre un rango de valores dentro del cual podamos afirmar, con un cierto grado de confianza, que podemos capturar un parámetro desconocido de la distribución, hablamos de **estimación por intervalo**.
+3. Si lo que queremos hacer es decidir si podemos aceptar o debemos rechazar una afirmación sobre la distribución de probabilidad del fenómeno estudiado, hablamos de **contraste de hipótesis**. Este contraste puede ser:
 
-- Paramétrico: si la afirmación (la hipótesis) se refiere a los parámetros de la distribución.
-- No paramétrico: si la afirmación es sobre la forma de la distribución.
+- **Paramétrico**: si la afirmación (la hipótesis) se refiere a los parámetros de la distribución.
+- **No paramétrico**: si la afirmación es sobre la forma de la distribución.
 
 
 ## Distribución de la población

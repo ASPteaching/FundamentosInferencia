@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2025-10-21" />
+<meta name="date" content="2025-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1001,8 +1001,8 @@ Los datos del estudio que ha obtenido la asociación ADG, y que según ellos res
 </table>
 <!-- ![](https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-09.jpg?height=507&width=838&top_left_y=386&top_left_x=615) -->
 <p>Un sencillo código R puede calcular las probabilidades tienen los once resultados bajo otras hipótesis que se podrían formular sobre el verdadero valor de la probabilidad <span class="math inline">\(p\)</span> de la población.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="pruebas-de-hipótesis.html#cb54-1" tabindex="-1"></a>prob_p <span class="ot">&lt;-</span> p <span class="co"># p algun valor entre 0 y 1</span></span>
-<span id="cb54-2"><a href="pruebas-de-hipótesis.html#cb54-2" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">prob=</span>prob_p)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="pruebas-de-hipótesis.html#cb56-1" tabindex="-1"></a>prob_p <span class="ot">&lt;-</span> p <span class="co"># p algun valor entre 0 y 1</span></span>
+<span id="cb56-2"><a href="pruebas-de-hipótesis.html#cb56-2" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">prob=</span>prob_p)</span></code></pre></div>
 <p>Podemos entender estas diferentes ” <span class="math inline">\(p\)</span> ” como hipótesis distintas que se podrían haber establecido como alternativa a <span class="math inline">\(\mathrm{H}_{0}\)</span>. Excepto en los casos triviales <span class="math inline">\(p=0\)</span> o <span class="math inline">\(p=1\)</span>, no hay ningún resultado que no pueda presentarse, aunque sea con probabilidades muy pequeñas.</p>
 </div>
 <div id="caso-2-compatibilidad-de-resultados-e-hipótesis" class="section level3 hasAnchor" number="9.3.2">
@@ -2165,7 +2165,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["FundamentosInferenciaEstadistica.pdf"],
   "search": {
     "engine": "fuse",
     "options": null
