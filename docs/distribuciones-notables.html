@@ -1367,11 +1367,15 @@ f(x)=\left\{\begin{array}{lll}
 0 &amp; \text { si } &amp; x \leq 0
 \end{array}\right\}
 \]</span></p>
-<p>Como vemos, este modelo depende de dos parámetros positivos: <span class="math inline">\(\alpha\)</span> y p. La función <span class="math inline">\(\Gamma(p)\)</span> es la denominada función Gamma de Euler que representa la siguiente integral:</p>
+<p>Como vemos, este modelo depende de dos parámetros positivos: <span class="math inline">\(\alpha\)</span> y p. </p>
+<p>La función <span class="math inline">\(\Gamma(p)\)</span> es la denominada función Gamma de Euler que representa la siguiente integral:</p>
 <p><span class="math display">\[
 \Gamma(p)=\int_{0}^{\infty} x^{p-1} e^{-x} d x
 \]</span></p>
-<p>que verifica <span class="math inline">\(\Gamma(p+1)=p \Gamma(p)\)</span>, con lo que, si <span class="math inline">\(p\)</span> es un número entero positivo, <span class="math inline">\(\Gamma(p+1)=p\)</span>.</p>
+<p>que verifica <span class="math inline">\(\Gamma(p+1)=p \Gamma(p)\)</span>, con lo que, si <span class="math inline">\(p\)</span> es un número entero positivo, <span class="math inline">\(\Gamma(p+1)=p!\)</span>. Es decir, si evaluamos la función gamma en números positivos se obtiene el factorial del valor anterior en el que se ha realizado la evaluación. Por ejemplo:
+<span class="math display">\[
+\Gamma(5) = 4! =4\times\3\times 2 =24
+\]</span></p>
 <!-- El siguiente programa permite visualizar la forma de la función de densidad de este modelo (para simplificar, se ha restringido al caso en que $p$ es un número entero). -->
 <div id="propiedades-de-la-distribución-gamma" class="section level4 hasAnchor" number="3.2.4.1">
 <h4><span class="header-section-number">3.2.4.1</span> Propiedades de la distribución Gamma<a href="distribuciones-notables.html#propiedades-de-la-distribuci%C3%B3n-gamma" class="anchor-section" aria-label="Anchor link to header"></a></h4>

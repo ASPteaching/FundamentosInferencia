@@ -683,13 +683,18 @@ f(x)=\left\{\begin{array}{lll}
 \end{array}\right\}
 $$
 
-Como vemos, este modelo depende de dos parámetros positivos: $\alpha$ y p. La función $\Gamma(p)$ es la denominada función Gamma de Euler que representa la siguiente integral:
+Como vemos, este modelo depende de dos parámetros positivos: $\alpha$ y p. 
+
+La función $\Gamma(p)$ es la denominada función Gamma de Euler que representa la siguiente integral:
 
 $$
 \Gamma(p)=\int_{0}^{\infty} x^{p-1} e^{-x} d x
 $$
 
-que verifica $\Gamma(p+1)=p \Gamma(p)$, con lo que, si $p$ es un número entero positivo, $\Gamma(p+1)=p$.
+que verifica $\Gamma(p+1)=p \Gamma(p)$, con lo que, si $p$ es un número entero positivo, $\Gamma(p+1)=p!$. Es decir, si evaluamos la función gamma en números positivos se obtiene el factorial del valor anterior en el que se ha realizado la evaluación. Por ejemplo:
+$$
+\Gamma(5) = 4! =4\times\3\times 2 =24
+$$
 
 <!-- El siguiente programa permite visualizar la forma de la función de densidad de este modelo (para simplificar, se ha restringido al caso en que $p$ es un número entero). -->
 
