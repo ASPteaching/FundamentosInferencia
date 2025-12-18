@@ -1,0 +1,310 @@
+---
+title: "Animaciones y simulaciones — Introducción a la Inferencia"
+output: html_document
+---
+
+# Animaciones y simulaciones — Introducción a la Inferencia
+
+Este documento reúne algunas simulaciones sencillas en R que complementan el
+capítulo de *Introducción a la inferencia estadística*, con especial énfasis en
+las **distribuciones muestrales**. La idea es que sean ejemplos:
+
+- fáciles de ejecutar,
+- rápidos,
+- sin dependencias complicadas,
+- y directamente reutilizables en clase o en las soluciones.
+
+Antes de empezar, cargamos los paquetes que utilizaremos (solo `ggplot2`
+además de R base):
+
+```{r setup, message=FALSE}
+library(ggplot2)
+set.seed(123)
+```
+
+---
+
+## 1. Variabilidad entre muestras (misma población, muestras distintas)
+
+Este ejemplo ilustra que:
+
+- aunque la población sea la misma (aquí \(N(10, 2^2)\)),
+- **cada muestra es distinta**,
+- pero todas siguen aproximadamente la misma forma.
+
+```{r muestras_hist}
+par(mfrow = c(1, 3))
+
+for (i in 1:3) {
+  x <- rnorm(30, mean = 10, sd = 2)
+  hist(x, main = paste("Muestra", i), xlab = "Valor")
+}
+
+par(mfrow = c(1, 1))
+```
+
+> Probad de re-ejecutar el código con otros tamaños muestrales (por ejemplo \(n=10\), \(n=100\)) y comentad las diferencias que se observan
+
+---
+
+## 2. Distribución empírica frente a distribución poblacional
+
+Aquí comparamos:
+
+- la **distribución empírica** (ECDF) de una muestra,
+- con la **distribución teórica** de la población.
+
+Ejemplo con \(X \sim N(0,1)\).
+
+```{r ecdf_vs_teorica}
+set.seed(1)
+x <- rnorm(50, mean = 0, sd = 1)
+
+plot(ecdf(x),
+     main = "Distribución empírica vs Normal(0,1)",
+     xlab = "x", ylab = "F(x)")
+
+curve(pnorm(x), add = TRUE, lwd = 2)
+legend("topleft",
+       legend = c("Empírica", "Normal(0,1)"),
+       lty = c(1, 1),
+       bty = "n")
+```
+
+Este ejemplo complementa la sección de **distribución empírica** del capítulo.
+
+---
+
+## 3. Distribución muestral de la media (ejemplo con Exponencial)
+
+Queremos ilustrar que la **media muestral**:
+
+- es aleatoria,
+- tiene su propia distribución,
+- y para tamaños moderados de muestra se aproxima a una normal.
+
+Usamos \(X \sim 	ext{Exponencial}(\lambda=1)\) y \(n=40\).
+
+```{r dist_media_exponencial}
+set.seed(3)
+
+n <- 40
+B <- 4000
+
+medias <- replicate(B, mean(rexp(n, rate = 1)))
+
+df_medias <- data.frame(medias = medias)
+
+ggplot(df_medias, aes(x = medias)) +
+  geom_histogram(bins = 30) +
+  labs(title = "Distribución muestral de la media (Exponencial, n = 40)",
+       x = "Media muestral", y = "Frecuencia")
+```
+
+> Probad a repetir el experimento con otros otros tamaños
+> muestrales (por ejemplo \(n=5\), \(n=10\), \(n=100\)) 
+> Compare las formas de los gráficos resultantes.
+
+---
+
+## 4. Cómo cambia la distribución muestral de la media con n
+
+Este ejemplo muestra, para varios tamaños muestrales \(n\), cómo cambia la
+variabilidad de la media muestral. La población sigue siendo exponencial
+\(	ext{Exp}(1)\).
+
+```{r medias_por_n}
+set.seed(10)
+
+ns <- c(5, 10, 30, 100)
+B  <- 2000
+
+lista <- lapply(ns, function(n) {
+  data.frame(
+    n     = n,
+    media = replicate(B, mean(rexp(n, rate = 1)))
+  )
+})
+
+df_ns <- do.call(rbind, lista)
+
+ggplot(df_ns, aes(x = media)) +
+  geom_histogram(bins = 30) +
+  facet_wrap(~ n, scales = "free") +
+  labs(title = "Distribución muestral de la media para distintos tamaños n",
+       x = "Media muestral", y = "Frecuencia")
+```
+
+> Este gráfico ilustra visualmente el **Teorema Central del Límite** y la idea
+> de que la variabilidad de la media muestral decrece con \(n\).
+
+---
+
+## 5. Momentos muestrales: ejemplo simple con el primer momento
+
+En el capítulo se introducen los **momentos muestrales** \(a_k\). Aquí
+mostramos la distribución muestral del primer momento \(a_1 = ar X\) para la
+misma población exponencial.
+
+```{r momentos_muestrales}
+set.seed(20)
+
+n <- 50
+B <- 3000
+
+m1 <- replicate(B, mean(rexp(n, rate = 1)))
+
+df_m1 <- data.frame(m1 = m1)
+
+ggplot(df_m1, aes(x = m1)) +
+  geom_histogram(bins = 30) +
+  labs(title = "Distribución muestral del primer momento (a1 = media)",
+       x = "a1", y = "Frecuencia")
+```
+
+> Extensión posible: repetir el experimento con otra distribución (por ejemplo,
+> uniforme o normal) y comparar.
+
+---
+
+## 6. Aproximación normal de la media muestral (superponiendo la curva teórica)
+
+En esta simulación, además de la distribución empírica de las medias, añadimos
+la densidad normal teórica:
+
+- \(E(ar X) = \mu\),
+- \(	ext{Var}(ar X) = \sigma^2 / n\).
+
+Con \(X \sim 	ext{Exp}(1)\), tenemos \(\mu = 1\) y \(\sigma^2 = 1\).
+
+```{r tcl_superpuesto}
+set.seed(30)
+
+n <- 40
+B <- 4000
+
+medias <- replicate(B, mean(rexp(n, rate = 1)))
+df_medias <- data.frame(medias = medias)
+
+ggplot(df_medias, aes(x = medias)) +
+  geom_histogram(aes(y = ..density..), bins = 30) +
+  stat_function(fun = dnorm,
+                args = list(mean = 1, sd = 1 / sqrt(n))) +
+  labs(title = "Distribución muestral de la media y aproximación normal",
+       x = "Media muestral", y = "Densidad")
+```
+
+Este ejemplo encaja con las secciones sobre **distribución muestral** y
+**propiedades asintóticas**.
+
+---
+
+## 7. Relación entre varianza muestral y chi-cuadrado (simulación)
+
+En el capítulo se presenta el resultado:
+
+\[
+rac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}
+\]
+
+para \(X \sim N(\mu,\sigma)\). Aquí verificamos numéricamente esta relación.
+
+```{r var_chicuadrado}
+set.seed(40)
+
+n     <- 15
+sigma <- 2
+B     <- 5000
+
+S2 <- replicate(B, var(rnorm(n, mean = 0, sd = sigma)))
+W  <- (n - 1) * S2 / sigma^2
+
+df_W <- data.frame(W = W)
+
+ggplot(df_W, aes(x = W)) +
+  geom_histogram(aes(y = ..density..), bins = 40) +
+  stat_function(fun = dchisq,
+                args = list(df = n - 1)) +
+  labs(title = "Distribución de (n-1) S² / σ² y chi-cuadrado teórica",
+       x = "w", y = "Densidad")
+```
+
+> Este código sirve como complemento directo a la parte del capítulo donde se
+> introduce la distribución chi-cuadrado a partir de la varianza muestral.
+
+---
+
+## 8. Estadístico t: sustituyendo σ por s
+
+La distribución t de Student aparece cuando sustituimos \(\sigma\) por la
+desviación típica muestral \(s\) al estandarizar la media. Para comprobarlo,
+simulamos muchas veces el estadístico:
+
+\[
+T = rac{ar X - \mu}{S / \sqrt{n}}.
+\]
+
+```{r estadistico_t}
+set.seed(50)
+
+n    <- 20
+mu   <- 5
+sig  <- 3
+B    <- 5000
+
+Tvals <- replicate(B, {
+  x  <- rnorm(n, mean = mu, sd = sig)
+  (mean(x) - mu) / (sd(x) / sqrt(n))
+})
+
+df_T <- data.frame(T = Tvals)
+
+ggplot(df_T, aes(x = T)) +
+  geom_histogram(aes(y = ..density..), bins = 40) +
+  stat_function(fun = dt,
+                args = list(df = n - 1)) +
+  labs(title = "Distribución empírica del estadístico t y densidad teórica",
+       x = "t", y = "Densidad")
+```
+
+---
+
+## 9. Cociente de varianzas y distribución F de Fisher
+
+Por último, complementamos la introducción a la distribución F simulando el
+cociente de varianzas muestrales de dos muestras normales independientes:
+
+\[
+F = rac{S_1^2/(n_1-1)}{S_2^2/(n_2-1)}.
+\]
+
+```{r estadistico_F}
+set.seed(60)
+
+n1 <- 15
+n2 <- 20
+B  <- 5000
+
+Fvals <- replicate(B, {
+  x <- rnorm(n1, mean = 0, sd = 3)
+  y <- rnorm(n2, mean = 0, sd = 3)
+  var(x) / var(y)
+})
+
+df_F <- data.frame(F = Fvals)
+
+ggplot(df_F, aes(x = F)) +
+  geom_histogram(aes(y = ..density..), bins = 40) +
+  stat_function(fun = df,
+                args = list(df1 = n1 - 1, df2 = n2 - 1)) +
+  labs(title = "Cociente de varianzas y distribución F teórica",
+       x = "F", y = "Densidad")
+```
+
+<!-- Este documento puede vincularse desde el capítulo principal con un enlace del -->
+<!-- tipo: -->
+
+<!-- ```markdown -->
+<!-- Para más detalles, véase el documento complementario: -->
+<!-- [Animaciones y simulaciones — Introducción a la Inferencia](06-introInferencia-animaciones.html) -->
+<!-- ``` -->

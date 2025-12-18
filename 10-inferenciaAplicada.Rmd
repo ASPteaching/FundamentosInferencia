@@ -4,19 +4,19 @@
 
 Este capítulo está pendiente de ser introducida en los apuntes.
 
-La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).
+La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2025-26-S1).
 
 ::::
 
-Se muestra como deducir y aplicar algunos de los tests mas populares.
+En este capítulo se muestra como deducir y aplicar distintos tipos de contraste de hipótesis.
 
-## Pruebas de normalidad.Pruebas gráficas.  El test de Shapiro-Wilks
+## Pruebas de normalidad. Pruebas gráficas.  El test de Shapiro-Wilks
 
-## Pruebas de hipótesis para constrastar variables cuantitativas: pruebas paramètricas t-test y Anova
+## Pruebas de hipótesis para constrastar variables cuantitativas: pruebas paramètricas, t-test y Anova
 
 ## Pruebas de hipótesis para constrastar variables cuantitativas: pruebas de hipótesis no paramétricas de Wilcoxon y Kruskal-Wallis
 
 ## Contrastes para datos categóricos. Pruebas binomiales, ji cuadrado y test de Fisher.
 
-## Riesgo relativo y razón de «odds» 
+## Riesgo relativo y razón de "odds" 
 

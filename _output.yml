@@ -6,11 +6,13 @@ bookdown::gitbook:
       scroll_highlight: true
       before: |
         <div style="margin:0 0 10px 15px;">
-          <a href="FundamentosInferenciaEstadistica.pdf" target="_blank" title="Descargar PDF"
+          <a href="FundamentosInferenciaEstadistica.pdf" target="_blank"
+             title="Descargar PDF"
              style="display:flex;align-items:center;gap:6px;text-decoration:none;">
             <img src="images/aPDF.png" alt="PDF" width="16" height="20">
             <span style="font-weight:bold;">Descargar versión PDF</span>
           </a>
         </div>
+
 bookdown::pdf_book:
   keep_tex: yes
