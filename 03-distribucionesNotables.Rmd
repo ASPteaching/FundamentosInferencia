@@ -693,7 +693,7 @@ $$
 
 que verifica $\Gamma(p+1)=p \Gamma(p)$, con lo que, si $p$ es un número entero positivo, $\Gamma(p+1)=p!$. Es decir, si evaluamos la función gamma en números positivos se obtiene el factorial del valor anterior en el que se ha realizado la evaluación. Por ejemplo:
 $$
-\Gamma(5) = 4! =4\times\3\times 2 =24
+\Gamma(5) = 4! =4\times 3 \times 2 =24
 $$
 
 <!-- El siguiente programa permite visualizar la forma de la función de densidad de este modelo (para simplificar, se ha restringido al caso en que $p$ es un número entero). -->
