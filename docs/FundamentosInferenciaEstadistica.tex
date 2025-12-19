@@ -9030,6 +9030,28 @@ Nivel de significación & \(\alpha=0.05\) \\
 
 La distribución del estadístico de test T bajo \(\mathrm{H}_{0}\) es una normal \(\mathrm{N}(7,0.6)\).
 
+\subsubsection{Región crítica frente a Estadístico de Test}\label{regiuxf3n-cruxedtica-frente-a-estaduxedstico-de-test}
+
+En los párrafos anteriores se han introducido y utilizado los conceptos de estadístico de test y región crítica dandose a entender que la región crítica esta definida por \emph{aquellos valores del estadístico de test que llevan a rechazar la hipótesis nula}.
+
+Aunque esta aproximación es habitual, también lo es el presentarlos ambos como dos formas equivalentes de definir una región de rechazo. Es decir, la decisión de rechazar \(H_0\) puede llevarse a cabo:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Mediante una \textbf{región crítica} \(\mathcal{R}\), entendida como un subconjunto del espacio muestral, de modo que se rechaza \(H_0\) cuando la muestra observada pertenece a \(\mathcal{R}\).
+\item
+  Mediante un \textbf{estadístico de contraste} \(T=T(X)\) y una condición sobre los valores que puede tomar dicho estadístico. En este caso, se rechaza \(H_0\) cuando \(T(X)\in C\), donde \(C\) es un subconjunto del espacio de valores de \(T\).
+\end{enumerate}
+
+En esta segunda formulación, la región crítica en el espacio muestral viene dada implícitamente por
+
+\[
+\mathcal{R}=\{x:T(x)\in C\}.
+\]
+
+Aunque la primera formulación es conceptualmente más general, en la práctica se trabaja casi siempre con el estadístico de contraste por ser más operativo. En este capítulo utilizaremos ambas formulaciones, dando preferencia a la segunda.
+
 \subsection{Tabla de decisión del contraste}\label{tabla-de-decisiuxf3n-del-contraste}
 
 Cuando se resuelve un contraste la decisión final puede ser correcta o bien conducir a un error. En esta tabla se presentan las cuatro posibles situaciones que se pueden producir:

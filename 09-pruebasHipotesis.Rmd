@@ -499,6 +499,27 @@ La distribución del estadístico de test T es una Binomial B (10, p). Se puede 
 
 La distribución del estadístico de test T bajo $\mathrm{H}_{0}$ es una normal $\mathrm{N}(7,0.6)$.
 
+
+### Región crítica frente a Estadístico de Test
+
+En los párrafos anteriores se han introducido y utilizado los conceptos de estadístico de test y región crítica dandose a entender que la región crítica esta definida por *aquellos valores del estadístico de test que llevan a rechazar la hipótesis nula*.
+
+Aunque esta aproximación es habitual, también lo es el presentarlos ambos como dos formas equivalentes de definir una región de rechazo. Es decir, la decisión de rechazar $H_0$ puede llevarse a cabo:
+
+
+1. Mediante una **región crítica** $\mathcal{R}$, entendida como un subconjunto del espacio muestral, de modo que se rechaza $H_0$ cuando la muestra observada pertenece a $\mathcal{R}$.
+
+2. Mediante un **estadístico de contraste** $T=T(X)$ y una condición sobre los valores que puede tomar dicho estadístico. En este caso, se rechaza $H_0$ cuando $T(X)\in C$, donde $C$ es un subconjunto del espacio de valores de $T$.
+
+En esta segunda formulación, la región crítica en el espacio muestral viene dada implícitamente por
+
+$$
+\mathcal{R}=\{x:T(x)\in C\}.
+$$
+
+Aunque la primera formulación es conceptualmente más general, en la práctica se trabaja casi siempre con el estadístico de contraste por ser más operativo. En este capítulo utilizaremos ambas formulaciones, dando preferencia a la segunda.
+
+
 ## Tabla de decisión del contraste
 
 Cuando se resuelve un contraste la decisión final puede ser correcta o bien conducir a un error. En esta tabla se presentan las cuatro posibles situaciones que se pueden producir:
@@ -650,6 +671,7 @@ y para cada región crítica de la forma $[a,+\infty)$ se calculan $\alpha$ y $1
 knitr::include_graphics("images/cap9-PlotProbsErrTipo_1_y_2b.png")
 
 ```
+
 
 ## Potencia y test más potente
 
