@@ -5,6 +5,19 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+
+library(kableExtra)
+
+source("Rcode/utils_tables.R")
+
+```
+
 # Presentación {-}
 
 ## Objetivo {-}

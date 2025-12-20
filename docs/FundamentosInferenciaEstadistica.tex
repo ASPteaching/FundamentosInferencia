@@ -136,7 +136,7 @@
 
 \title{Introducción a la inferencia estadística}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2025-12-19}
+\date{2025-12-20}
 
 \begin{document}
 \maketitle
@@ -3787,7 +3787,6 @@ Podemos visualizar esta distribución conjunta con un gráfico en R.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(ggplot2)}
-\DocumentationTok{\#\# Warning: package \textquotesingle{}ggplot2\textquotesingle{} was built under R version 4.4.3}
 
 \CommentTok{\# Crear los datos de la distribución conjunta}
 \NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{X =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{Y =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
@@ -7772,15 +7771,6 @@ El paquete \texttt{Desctools} simplifica el cálculo e interpretación de interv
 \begin{Highlighting}[]
 \CommentTok{\# Usar DescTools para intervalos de confianza}
 \FunctionTok{library}\NormalTok{(DescTools)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'DescTools' was built under R version 4.4.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{MeanCI}\NormalTok{(muestra, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -8688,33 +8678,33 @@ Como ya hemos visto, \(X\) (n.º de hembras en 10 nidos) es una \(\operatorname{
 \hline
 X & Prob\\
 \hline
-0 & 0.0009766\\
+0 & 0.0010\\
 \hline
-1 & 0.0097656\\
+1 & 0.0098\\
 \hline
-2 & 0.0439453\\
+2 & 0.0439\\
 \hline
-3 & 0.1171875\\
+3 & 0.1172\\
 \hline
-4 & 0.2050781\\
+4 & 0.2051\\
 \hline
-5 & 0.2460938\\
+5 & 0.2461\\
 \hline
-6 & 0.2050781\\
+6 & 0.2051\\
 \hline
-7 & 0.1171875\\
+7 & 0.1172\\
 \hline
-8 & 0.0439453\\
+8 & 0.0439\\
 \hline
-9 & 0.0097656\\
+9 & 0.0098\\
 \hline
-10 & 0.0009766\\
+10 & 0.0010\\
 \hline
 \end{tabular}
 
 Al igual que para \(\mathrm{H}_{0}\), la muestra obtenida por el Dr.~da Souza Faria con 6 hembras y 4 machos es solo uno de los resultados posibles que se podían dar bajo la hipótesis alternativa. En este caso \(X\) (n.º de hembras en 10 nidos) es una \(\operatorname{Binomial}(10,0.6)\).
 
-En la tabla siguiente se detallan los resultados que podrían haber acaecido bajo \(\mathrm{H}_{1}\), junto con la probabilidad de obtenerlos según la fórmula de la densidad binomial:
+En la tabla siguiente se detallan los resultados que podrían haberse observado bajo \(\mathrm{H}_{1}\), junto con la probabilidad de obtenerlos según la fórmula de la densidad binomial:
 
 \begin{tabular}{r|r}
 \hline
@@ -8757,23 +8747,79 @@ Podemos entender estas diferentes '' \(p\) '' como hipótesis distintas que se p
 
 \subsubsection{Caso 2: Compatibilidad de resultados e hipótesis}\label{caso-2-compatibilidad-de-resultados-e-hipuxf3tesis}
 
-La asociación ADG ha obtenido una muestra con media \(8.54 \mathrm{ng} / \mathrm{ml}\) de statdrolona para 16 deportistas. Ya hemos visto en el modelo de probabilidad qué densidad asociamos con la variable de cada deportista y con la media de todos ellos. Hay que recordar que una variable continua tiene probabilidad cero de obtener un resultado puntual y que las probabilidades en variables continuas se calculan sobre intervalos. Así pues, el valor 8.54 debe interpretarse como un intervalo, ya que las medidas de los deportistas individualmente corresponden en realidad a cierto intervalo de precisión experimental (por ejemplo, 0.3 \(\mathrm{ng} / \mathrm{ml}\)). El valor 8.54 elegido como marca de un cierto intervalo no es en absoluto incompatible con la hipótesis nula. De hecho, es posible obtener cualquier media.
+La asociación ADG ha obtenido una muestra con media \(8.54 \mathrm{ng} / \mathrm{ml}\) de statdrolona para 16 deportistas. Ya hemos visto en el modelo de probabilidad qué densidad asociamos con la variable de cada deportista y con la media de todos ellos. Hay que recordar que una variable continua tiene probabilidad cero de obtener un resultado puntual y que las probabilidades en variables continuas se calculan sobre intervalos. Así pues, el valor 8.54 debe interpretarse como un intervalo \((8.54-\epsilon, 8.54+\epsilon)\), ya que las medidas de los deportistas individualmente corresponden en realidad a cierto intervalo de precisión experimental (por ejemplo, 0.3 \(\mathrm{ng} / \mathrm{ml}\)). El valor 8.54 elegido como marca de un cierto intervalo no es en absoluto incompatible con la hipótesis nula. De hecho, es posible obtener cualquier media.
 
-En la tabla izquierda se detallan las probabilidades de diferentes resultados que podían haber sucedido bajo \(\mathrm{H}_{0}\) expresadas en términos de la función de distribución. La media de los 16 resultados corresponde a una Normal (7.0, 0.6). En la tabla derecha se detallan las probabilidades para intervalos de anchura \(0.3 \mathrm{ng} / \mathrm{ml}\) más cercanos a la media bajo \(\mathrm{H}_{0}\).
+En la parte izquierda de la tabla que se presenta a continuación se detallan las probabilidades de diferentes resultados que podían haber sucedido bajo \(H_0\) expresadas en términos de la función de distribución. La media de los 11 resultados corresponde a una Normal (8.5, 0.6).
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-comparaProbs} \end{center}
+En la parte derecha de la tabla se detallan las probabilidades para intervalos de anchura \(0.3 ml\) más cercanos a la media bajo \(H_0\).
 
-En el caso de \(\mathrm{H}_{1}\) tampoco es incompatible ninguna media, y por tanto en particular no lo es el valor 8.54. Ahora la densidad de la media de los 16 valores es una variable aleatoria Normal \(\mathrm{N}(8.5,0.6)\). En la tabla izquierda se detallan las probabilidades de diferentes resultados que podrían haber sucedido bajo \(\mathrm{H}_{1}\) expresadas en términos de la función de distribución. En la tabla de la derecha se muestran las probabilidades para intervalos de anchura \(0.3 \mathrm{ng} / \mathrm{ml}\):
+\begin{tabular}{c|c|c|c|c}
+\hline
+$X$ & $P(X\leq x)$ & $X-\epsilon$ & $X+\epsilon$ & $P(X)$\\
+\hline
+6.7 & 0.3085 & -Inf & 6.7 & 0.3085\\
+\hline
+7.0 & 0.5000 & 6.7 & 7.0 & 0.1915\\
+\hline
+7.3 & 0.6915 & 7.0 & 7.3 & 0.1915\\
+\hline
+7.6 & 0.8413 & 7.3 & 7.6 & 0.1499\\
+\hline
+7.9 & 0.9332 & 7.6 & 7.9 & 0.0918\\
+\hline
+8.2 & 0.9772 & 7.9 & 8.2 & 0.0441\\
+\hline
+8.5 & 0.9938 & 8.2 & 8.5 & 0.0165\\
+\hline
+8.8 & 0.9987 & 8.5 & 8.8 & 0.0049\\
+\hline
+9.1 & 0.9998 & 8.8 & 9.1 & 0.0011\\
+\hline
+9.4 & 1.0000 & 9.1 & 9.4 & 0.0002\\
+\hline
+9.7 & 1.0000 & 9.4 & 9.7 & 0.0000\\
+\hline
+\end{tabular}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-comparaProbs} \end{center}
+En el caso de \(\mathrm{H}_{1}\) tampoco es incompatible ninguna media, y por tanto en particular no lo es el valor 8.54. Ahora la densidad de la media de los 16 valores es una variable aleatoria Normal \(\mathrm{N}(8.5,0.6)\).
+
+En la parte izquierda de la tabla se detallan las probabilidades de diferentes resultados que podrían haber sucedido bajo \(\mathrm{H}_{1}\) expresadas en términos de la función de distribución. En la parte de la derecha se muestran las probabilidades para intervalos de anchura \(0.3 ml\)
+
+\begin{tabular}{c|c|c|c|c}
+\hline
+$X$ & $P(X\leq x)$ & $X-\epsilon$ & $X+\epsilon$ & $P(X)$\\
+\hline
+6.7 & 0.0013 & -Inf & 6.7 & 0.0013\\
+\hline
+7.0 & 0.0062 & 6.7 & 7.0 & 0.0049\\
+\hline
+7.3 & 0.0228 & 7.0 & 7.3 & 0.0165\\
+\hline
+7.6 & 0.0668 & 7.3 & 7.6 & 0.0441\\
+\hline
+7.9 & 0.1587 & 7.6 & 7.9 & 0.0918\\
+\hline
+8.2 & 0.3085 & 7.9 & 8.2 & 0.1499\\
+\hline
+8.5 & 0.5000 & 8.2 & 8.5 & 0.1915\\
+\hline
+8.8 & 0.6915 & 8.5 & 8.8 & 0.1915\\
+\hline
+9.1 & 0.8413 & 8.8 & 9.1 & 0.1499\\
+\hline
+9.4 & 0.9332 & 9.1 & 9.4 & 0.0918\\
+\hline
+9.7 & 0.9772 & 9.4 & 9.7 & 0.0441\\
+\hline
+\end{tabular}
 
 \subsection{No todo es igualmente probable\ldots{}}\label{no-todo-es-igualmente-probable}
 
 La segunda consideración fundamental en un contraste de hipótesis estadístico es que no todos los resultados son igualmente probables bajo \(\mathrm{H}_{0} \circ \mathrm{H}_{1}\). Este es el principal argumento para establecer un criterio de decisión -una regla- que permita decidir en la práctica si es aceptable \(\mathrm{H}_{0}\) o bien \(\mathrm{H}_{1}\).
 
-La idea provisional que debe guiar al lector en este momento cuando inspecciona los casos prácticos es que los resultados (muy) improbables bajo cierta hipótesis muestran que ésta seguramente no es válida. Así pues, en el contraste estadístico de hipótesis no hay resultados imposibles, solo improbables, y por lo tanto en las decisiones se introduce forzosamente una probabilidad de error.
+La idea provisional que debe guiar al lector en este momento, cuando inspecciona los casos prácticos, es que \emph{los resultados (muy) improbables bajo cierta hipótesis sugieren que ésta seguramente no es válida}. Así pues, en el contraste estadístico de hipótesis no hay resultados imposibles, solo improbables, y por lo tanto en las decisiones se introduce forzosamente una probabilidad de error.
 
-\subsubsection{\texorpdfstring{Caso 1: Una región con n.º de hembras con baja probabilidad bajo \(\mathrm{H}_{0}\)}{Caso 1: Una región con n.º de hembras con baja probabilidad bajo \textbackslash mathrm\{H\}\_\{0\}}}\label{caso-1-una-regiuxf3n-con-n.uxba-de-hembras-con-baja-probabilidad-bajo-mathrmh_0}
+\subsubsection{\texorpdfstring{Caso 1: Una región con número de hembras con baja probabilidad bajo \(\mathrm{H}_{0}\)}{Caso 1: Una región con número de hembras con baja probabilidad bajo \textbackslash mathrm\{H\}\_\{0\}}}\label{caso-1-una-regiuxf3n-con-nuxfamero-de-hembras-con-baja-probabilidad-bajo-mathrmh_0}
 
 Hemos visto antes las probabilidades de obtener cada uno de los resultados posibles para \(X\): \(0,1, \ldots\), hasta 10 hembras. El sentido común indica que si se obtienen valores de X cercanos a 0 o a 10, la hipótesis \(p=0.5\) resulta poco verosímil.
 
@@ -9192,9 +9238,18 @@ En el gráfico siguiente se representan los dos errores simultáneamente para di
 
 \subsubsection{\texorpdfstring{Caso 2: Relación entre los errores de primera ( \(\alpha\) ) y segunda especie (1- \(\beta\) )}{Caso 2: Relación entre los errores de primera ( \textbackslash alpha ) y segunda especie (1- \textbackslash beta )}}\label{caso-2-relaciuxf3n-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta}
 
-La relación entre los errores de tipo I y II es más fácil de interpretar en este caso, dado que la media es un estadístico de distribución continua. En los cuadros siguientes se presentan dos regiones críticas y los errores asociados, visualizando el área que representan. En la versión interactiva se puede modificar la región crítica mediante el deslizador, y se calculan automáticamente los dos errores visualizando el área que representa cada uno.
+La relación entre los errores de tipo I y II es más fácil de interpretar en este caso, dado que la media es un estadístico de distribución continua. En los cuadros siguientes se presentan dos regiones críticas y los errores asociados, visualizando el área que representan.
 
 \begin{center}\includegraphics[width=0.9\linewidth]{images/cap9-PlotProbsErrTipo_1_y_2} \end{center}
+
+Aunque esta aplicación ya no está disponible en los siguientes enlaces encontraréis una versión actualizada de la misma, que permite investigar de forma interactiva la relación entre los errores de tipo I, tipo II y la potencia.
+
+\begin{itemize}
+\item
+  \href{https://www.grbio.eu/statmedia/Statmedia_3/}{Error de tipo I, de tipo II y potencia en un Z-test (1 muestra normal, varianza conocida)}
+\item
+  \href{https://www.grbio.eu/statmedia/Statmedia_4/}{Errores de tipo I, II, potencia y p-valor en el test normal de una muestra, varianza conocida}
+\end{itemize}
 
 En el gráfico siguiente se representan los dos errores simultáneamente. Tomando siempre la misma alternativa:
 
