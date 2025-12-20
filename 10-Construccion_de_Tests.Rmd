@@ -1,0 +1,779 @@
+--- 
+title: "Construccion de tests"
+---
+
+# Construcción de contrastes de hipótesis
+
+## ¿Qué significa “construir” un contraste de hipótesis?
+
+En el capítulo 9 se han presentado los contrastes de hipótesis como procedimientos operativos basados en un **estadístico de contraste** y una **región crítica** asociada a dicho estadístico. En esta sección adoptamos ese mismo punto de vista y lo llevamos un paso más allá: no nos preguntamos cómo aplicar un contraste concreto, sino **cómo se construye un contraste en general** y qué criterios permiten decidir cuándo un contraste es preferible a otro.
+
+### El contraste como regla de decisión
+
+Sea $X=(X_1,\dots,X_n)$ una muestra aleatoria con espacio muestral $\mathcal{X}$ y distribución dependiente de un parámetro desconocido $\theta\in\Theta$. Consideramos el contraste
+
+$$
+H_0:\theta\in\Theta_0
+\qquad \text{frente a} \qquad
+H_1:\theta\in\Theta_1,
+$$
+
+con $\Theta_0\cap\Theta_1=\varnothing$.
+
+Siguiendo la convención del capítulo 9, un contraste de hipótesis se construye especificando:
+
+- un **estadístico de contraste** $T=T(X)$,
+- una **región crítica para el estadístico** $C\subset\mathbb{R}$,
+
+de modo que se decide **rechazar $H_0$** cuando
+
+$$
+T(X)\in C.
+$$
+
+Este criterio define implícitamente una región crítica en el espacio muestral,
+
+$$
+\mathcal{R}=\{x\in\mathcal{X}:T(x)\in C\},
+$$
+
+pero en la práctica se trabaja casi siempre con $T$ y $C$, ya que simplifican la construcción y el análisis del contraste.
+
+Desde este punto de vista, **construir un contraste equivale a elegir el estadístico $T$ y la región $C$**.
+
+### Nivel de significación como restricción básica
+
+El primer requisito que debe cumplir un contraste es el control del **error de tipo I**, es decir, la probabilidad de rechazar $H_0$ cuando esta es verdadera.
+
+El **nivel de significación** del contraste se define como
+
+$$
+\alpha
+=
+\sup_{\theta\in\Theta_0}
+\mathbb{P}_\theta\bigl(T(X)\in C\bigr).
+$$
+
+Un contraste es de nivel $\alpha$ si esta probabilidad no supera el valor prefijado $\alpha$.
+
+Fijar el nivel impone una restricción clara sobre la elección de $C$, pero **no determina un contraste único**. Incluso fijando el modelo probabilístico, las hipótesis $H_0$ y $H_1$ y el nivel $\alpha$, siguen existiendo múltiples elecciones posibles del estadístico $T$ y de la región crítica $C$.
+
+### Primer ejemplo: distintos contrastes con el mismo nivel
+
+Supongamos que $X_1,\dots,X_n$ es una muestra de una distribución $N(\mu,1)$ y consideramos el contraste
+
+$$
+H_0:\mu=0
+\qquad \text{frente a} \qquad
+H_1:\mu>0.
+$$
+
+Un estadístico natural es la media muestral $\bar X$. Bajo $H_0$ se tiene
+
+$$
+\bar X\sim N\!\left(0,\frac{1}{n}\right).
+$$
+
+Un contraste habitual consiste en rechazar $H_0$ si
+
+$$
+\bar X>c,
+$$
+
+donde $c$ se elige de modo que
+
+$$
+\mathbb{P}_{H_0}(\bar X>c)=\alpha.
+$$
+
+Sin embargo, este no es el único contraste posible de nivel $\alpha$. Por ejemplo, también podríamos definir:
+
+- Rechazar $H_0$ si $X_1>k$,
+- Rechazar $H_0$ si $0.8\,\bar X+0.2\,X_1>d$,
+
+eligiendo $k$ o $d$ de forma que
+
+$$
+\mathbb{P}_{H_0}\bigl(T(X)\in C\bigr)=\alpha.
+$$
+
+Todos estos contrastes controlan el error de tipo I, pero **no utilizan la información de la muestra de la misma forma**. El control del nivel, por sí solo, no permite decidir qué contraste es preferible.
+
+### Potencia como criterio de comparación
+
+Para comparar contrastes de igual nivel se introduce la **potencia**.
+
+Dado un contraste definido por $(T,C)$, su **función de potencia** es
+
+$$
+\beta(\theta)
+=
+\mathbb{P}_\theta\bigl(T(X)\in C\bigr),
+\qquad \theta\in\Theta.
+$$
+
+Para $\theta\in\Theta_0$, $\beta(\theta)$ coincide con la probabilidad de error de tipo I. Para $\theta\in\Theta_1$, $\beta(\theta)$ es la probabilidad de rechazar correctamente $H_0$.
+
+Un contraste será tanto mejor cuanto mayor sea su potencia bajo la alternativa. En general, no existe un contraste que maximice simultáneamente la potencia para todos los valores de $\theta\in\Theta_1$, lo que introduce un compromiso inevitable.
+
+### Segundo ejemplo: misma alpha, distinta potencia
+
+En el ejemplo anterior, consideremos dos contrastes de nivel $\alpha$:
+
+1. **Contraste A**: rechazar $H_0$ si $\bar X>c$.
+2. **Contraste B**: rechazar $H_0$ si $X_1>k$.
+
+Ambos controlan el error de tipo I al nivel $\alpha$. Sin embargo, para $\mu>0$ se tiene, en general,
+
+$$
+\mathbb{P}_\mu(\bar X>c)
+>
+\mathbb{P}_\mu(X_1>k),
+$$
+
+ya que $\bar X$ utiliza toda la información de la muestra, mientras que $X_1$ solo utiliza una observación.
+
+Desde el punto de vista inferencial, el contraste A es preferible: **tiene mayor potencia y discrimina mejor entre $H_0$ y $H_1$**.
+
+### De contrastes razonables a contrastes óptimos
+
+El análisis anterior conduce naturalmente a distinguir entre:
+
+- **Contrastes razonables**, que controlan el nivel y presentan un buen comportamiento práctico.
+- **Contrastes óptimos**, que maximizan la potencia según un criterio bien definido.
+
+La noción de optimalidad es conceptualmente potente, pero muy restrictiva y solo se alcanza en situaciones ideales. La mayoría de los contrastes utilizados en la práctica no son óptimos en sentido estricto, sino soluciones que sacrifican optimalidad a cambio de generalidad o simplicidad.
+
+Las secciones siguientes se centran en estos criterios de optimalidad y en las estrategias que se utilizan cuando no es posible alcanzarlos.
+
+## Evidencia y decisión: dos enfoques clásicos
+
+La necesidad de comparar contrastes con el mismo nivel conduce de forma natural a preguntarse **qué criterio debe utilizarse para decidir cuándo un contraste es preferible a otro**. Históricamente, esta cuestión dio lugar a dos enfoques distintos para la inferencia por contrastes, asociados a :contentReference[oaicite:0]{index=0} por un lado, y a :contentReference[oaicite:1]{index=1} y :contentReference[oaicite:2]{index=2} por otro.
+
+Aunque ambos enfoques conviven hoy en la práctica estadística, sus objetivos y su interpretación del contraste de hipótesis son conceptualmente diferentes.
+
+### El enfoque de Fisher: tests de significación
+
+En el enfoque de Fisher, el contraste se concibe como un **procedimiento para medir la evidencia de los datos contra la hipótesis nula**.
+
+El punto de partida es:
+
+- una hipótesis nula $H_0$,
+- un estadístico de contraste $T(X)$ cuya distribución bajo $H_0$ es conocida o aproximable.
+
+A partir del valor observado $T(x)$, se define el **p-valor** como
+
+$$
+p=\mathbb{P}_{H_0}\bigl(T(X)\ge T(x)\bigr),
+$$
+
+o, más generalmente, como la probabilidad bajo $H_0$ de obtener un valor del estadístico tan extremo o más que el observado.
+
+En este enfoque:
+
+- no se formula explícitamente una hipótesis alternativa,
+- no se habla de errores de tipo II ni de potencia,
+- el p-valor se interpreta como una **medida graduada de evidencia** contra $H_0$.
+
+La decisión de rechazar o no rechazar $H_0$ es secundaria y, en cierto sentido, convencional.
+
+### El enfoque de Neyman–Pearson: contraste como regla de decisión
+
+En el enfoque de Neyman–Pearson, el contraste se plantea explícitamente como un **problema de decisión bajo incertidumbre**.
+
+Se consideran dos hipótesis:
+
+$$
+H_0:\theta\in\Theta_0
+\qquad \text{frente a} \qquad
+H_1:\theta\in\Theta_1,
+$$
+
+y se construye un contraste que:
+
+- controla el error de tipo I a un nivel prefijado $\alpha$,
+- tiene la mayor potencia posible bajo la alternativa.
+
+En este marco:
+
+- el contraste se define por un estadístico $T(X)$ y una región crítica $C$,
+- el nivel $\alpha$ es un requisito fundamental,
+- la **potencia** $\beta(\theta)$ es el criterio de calidad del contraste.
+
+El objetivo no es medir evidencia, sino **tomar una decisión con garantías probabilísticas bien definidas**.
+
+### Diferencias conceptuales clave
+
+Aunque en la práctica ambos enfoques suelen mezclarse, conviene tener presentes sus diferencias fundamentales:
+
+- Fisher se centra en la **compatibilidad de los datos con $H_0$**.
+- Neyman–Pearson se centra en el **comportamiento a largo plazo del procedimiento de decisión**.
+- El p-valor es central en Fisher, pero secundario en Neyman–Pearson.
+- La potencia es central en Neyman–Pearson, pero no aparece en Fisher.
+
+Estas diferencias no son meramente filosóficas: influyen directamente en **cómo se construyen los contrastes** y en qué criterios se consideran relevantes.
+
+### Convivencia de ambos enfoques en la práctica
+
+En la práctica estadística actual es habitual encontrar procedimientos que combinan elementos de ambos enfoques:
+
+- se calcula un p-valor,
+- se compara con un nivel $\alpha$ prefijado,
+- se habla de potencia y tamaño muestral.
+
+Esta convivencia no es contradictoria, pero sí puede resultar confusa si no se distinguen claramente los objetivos de cada marco teórico.
+
+En las secciones siguientes adoptaremos principalmente el punto de vista de Neyman–Pearson, ya que permite **formular de manera precisa el problema de la construcción de contrastes óptimos**, sin perder de vista las limitaciones prácticas de dicho enfoque.
+
+
+
+## Tests óptimos: el lema de Neyman–Pearson
+
+En las secciones anteriores hemos visto que, una vez fijado el nivel de significación, existen múltiples contrastes posibles para un mismo problema, y que la potencia proporciona un criterio natural para compararlos. Surge entonces una pregunta fundamental:
+
+¿es posible construir un contraste que sea óptimo en el sentido de maximizar la potencia?
+
+El resultado central que responde a esta cuestión es el **lema de Neyman–Pearson**, que establece la forma del contraste más potente cuando ambas hipótesis son simples.
+
+### Hipótesis simples y razón de verosimilitudes
+
+Consideremos un modelo probabilístico dependiente de un parámetro $\theta$ y el contraste entre dos hipótesis simples
+
+$$
+H_0:\theta=\theta_0
+\qquad \text{frente a} \qquad
+H_1:\theta=\theta_1,
+$$
+
+con $\theta_0\neq\theta_1$.
+
+Denotemos por $f_0(x)$ y $f_1(x)$ la función de densidad (o de probabilidad) de la muestra bajo $H_0$ y $H_1$, respectivamente. Se define la **razón de verosimilitudes** a favor de la alternativa como
+
+$$
+\Lambda(x)=\frac{f_1(x)}{f_0(x)}.
+$$
+
+Valores grandes de $\Lambda(x)$ indican mayor compatibilidad de los datos con $H_1$ que con $H_0$.
+
+### Enunciado del lema de Neyman–Pearson
+
+Entre todos los contrastes de nivel $\alpha$ para contrastar $H_0$ frente a $H_1$, el contraste que rechaza $H_0$ cuando
+
+$$
+\Lambda(X)\ge c
+$$
+
+para una constante $c$ elegida de modo que
+
+$$
+\mathbb{P}_{H_0}\bigl(\Lambda(X)\ge c\bigr)=\alpha
+$$
+
+es el contraste **más potente**, es decir, el que maximiza la potencia
+
+$$
+\beta(\theta_1)=\mathbb{P}_{\theta_1}\bigl(\Lambda(X)\ge c\bigr)
+$$
+
+entre todos los contrastes de nivel $\alpha$.
+
+Este contraste se denomina **contraste de razón de verosimilitudes** y proporciona una solución óptima en el caso de hipótesis simples.
+
+---
+
+### Ejemplo: modelo normal con varianza conocida
+
+Sea $X_1,\dots,X_n$ una muestra de una distribución $N(\mu,\sigma^2)$, con $\sigma^2$ conocida. Consideremos el contraste
+
+$$
+H_0:\mu=\mu_0
+\qquad \text{frente a} \qquad
+H_1:\mu=\mu_1,
+$$
+
+con $\mu_1>\mu_0$.
+
+La razón de verosimilitudes viene dada por
+
+$$
+\Lambda(x)
+=\exp\!\left(
+\frac{\mu_1-\mu_0}{\sigma^2}\sum_{j=1}^n x_j
+-\frac{n(\mu_1^2-\mu_0^2)}{2\sigma^2}
+\right).
+$$
+
+Dado que esta expresión es una función monótonamente creciente de $\sum X_j$, el contraste más potente rechaza $H_0$ cuando
+
+$$
+\sum_{j=1}^n X_j \ge c
+\quad \Longleftrightarrow \quad
+\bar X \ge c',
+$$
+
+donde la constante $c'$ se elige de modo que
+
+$$
+\mathbb{P}_{H_0}(\bar X\ge c')=\alpha.
+$$
+
+Este procedimiento conduce exactamente al contraste Z unilateral habitual. El lema de Neyman–Pearson permite, en este caso, justificar su optimalidad para hipótesis simples.
+
+---
+
+### Ejemplo: modelo de Poisson
+
+Sea $X_1,\dots,X_n$ una muestra de una distribución Poisson con parámetro $\lambda$. Consideremos el contraste
+
+$$
+H_0:\lambda=\lambda_0
+\qquad \text{frente a} \qquad
+H_1:\lambda=\lambda_1,
+$$
+
+con $\lambda_1>\lambda_0$.
+
+La razón de verosimilitudes es
+
+$$
+\Lambda(x)
+=\left(\frac{\lambda_1}{\lambda_0}\right)^{\sum x_j}
+\exp\!\left(-n(\lambda_1-\lambda_0)\right).
+$$
+
+Esta expresión es monótonamente creciente en $\sum X_j$. Por tanto, el contraste más potente rechaza $H_0$ cuando
+
+$$
+\sum_{j=1}^n X_j \ge c,
+$$
+
+donde $c$ se elige de modo que
+
+$$
+\mathbb{P}_{H_0}\!\left(\sum_{j=1}^n X_j \ge c\right)=\alpha.
+$$
+
+Este ejemplo muestra que el lema de Neyman–Pearson no se limita al modelo normal y se aplica de forma natural a modelos discretos.
+
+---
+
+### Extensiones del lema de Neyman–Pearson
+
+El lema de Neyman–Pearson garantiza la existencia de un contraste óptimo únicamente en el caso de hipótesis simples. Sin embargo, en determinadas situaciones puede extenderse a hipótesis compuestas.
+
+Consideremos un contraste unilateral
+
+$$
+H_0:\theta=\theta_0
+\qquad \text{frente a} \qquad
+H_1:\theta>\theta_0,
+$$
+
+dentro de una familia exponencial de una dimensión, con densidad de la forma
+
+$$
+f(x|\theta)=\exp\!\left\{\eta(\theta)T(x)-A(\theta)+B(x)\right\}.
+$$
+
+Si la razón de verosimilitudes entre $\theta_1>\theta_0$ y $\theta_0$ es monótona creciente en $T(x)$, la región crítica obtenida mediante el lema de Neyman–Pearson **no depende del valor concreto de $\theta_1$**.
+
+En este caso existe un contraste **uniformemente más potente** (UMP) para la alternativa unilateral, que rechaza $H_0$ cuando
+
+$$
+T(X)\ge c,
+$$
+
+con $c$ elegido de modo que el nivel sea $\alpha$.
+
+Este resultado explica la existencia de contrastes unilaterales simples y bien definidos en modelos como el normal, el Poisson o el binomial.
+
+---
+
+### Límites del enfoque
+
+Cuando:
+
+- la familia no es exponencial,
+- la alternativa es bilateral,
+- o la región crítica depende del parámetro bajo $H_1$,
+
+no existe, en general, un contraste óptimo en el sentido de Neyman–Pearson.
+
+En estas situaciones es necesario recurrir a procedimientos más generales, como los **contrastes de razón de verosimilitudes generalizados** o a aproximaciones asintóticas, que se estudiarán en la siguiente sección.
+
+## Contrastes de razón de verosimilitudes generalizados
+
+En la sección anterior hemos visto que el lema de Neyman–Pearson permite construir contrastes óptimos en el caso de hipótesis simples, y que en algunas situaciones particulares puede extenderse a hipótesis compuestas unilaterales. Sin embargo, en muchos problemas de interés práctico estas condiciones no se cumplen.
+
+Cuando no existe un contraste uniformemente más potente, una estrategia natural consiste en comparar **qué tan bien explican los datos las hipótesis nula y alternativa** mediante sus respectivas verosimilitudes. Esta idea conduce a los **contrastes de razón de verosimilitudes generalizados**.
+
+
+### Definición del estadístico de razón de verosimilitudes
+
+Sea $L(\theta)$ la función de verosimilitud del modelo y consideremos el contraste
+
+$$
+H_0:\theta\in\Theta_0
+\qquad \text{frente a} \qquad
+H_1:\theta\in\Theta\setminus\Theta_0.
+$$
+
+Se define el **estadístico de razón de verosimilitudes** como
+
+$$
+\Lambda(X)
+=
+\frac{\sup_{\theta\in\Theta_0} L(\theta)}
+{\sup_{\theta\in\Theta} L(\theta)}.
+$$
+
+Este cociente compara el mejor ajuste del modelo bajo la restricción impuesta por $H_0$ con el mejor ajuste posible sin restricciones.
+
+Por construcción, $0\le\Lambda(X)\le 1$. Valores cercanos a uno indican que la restricción impuesta por $H_0$ apenas reduce la verosimilitud, mientras que valores pequeños indican que el ajuste bajo $H_0$ es sustancialmente peor que el del modelo completo.
+
+En consecuencia, valores pequeños de $\Lambda(X)$ proporcionan evidencia contra la hipótesis nula.
+
+
+### Regla de decisión y aproximación asintótica
+
+Bajo condiciones de regularidad bastante generales, y cuando el tamaño muestral es grande, se tiene que
+
+$$
+-2\log\Lambda(X)
+\;\xrightarrow{d}\;
+\chi^2_{\,\nu},
+$$
+
+donde $\nu=\dim(\Theta_1)-\dim(\Theta_0)$ es el número de restricciones impuestas por $H_0$.
+
+Esto permite construir contrastes aproximados de nivel $\alpha$ rechazando $H_0$ cuando
+
+$$
+-2\log\Lambda(X)\ge \chi^2_{\nu,1-\alpha}.
+$$
+
+---
+
+### Ejemplo: comparación de parámetros en un modelo de Poisson
+
+Sea $X_1,\dots,X_n$ una muestra de una distribución Poisson con parámetro $\lambda$. Consideremos el contraste
+
+$$
+H_0:\lambda=\lambda_0
+\qquad \text{frente a} \qquad
+H_1:\lambda\neq\lambda_0.
+$$
+
+La función de verosimilitud es
+
+$$
+L(\lambda)=\prod_{j=1}^n \frac{e^{-\lambda}\lambda^{x_j}}{x_j!}.
+$$
+
+El estimador de máxima verosimilitud bajo $H_1$ es
+
+$$
+\hat\lambda=\bar X.
+$$
+
+Bajo $H_0$, la verosimilitud se evalúa en $\lambda_0$. Por tanto, el estadístico de razón de verosimilitudes es
+
+$$
+\Lambda(X)
+=
+\frac{L(\lambda_0)}{L(\hat\lambda)}.
+$$
+
+Un cálculo directo conduce a
+
+$$
+-2\log\Lambda(X)
+=
+2n\left[
+\bar X\log\frac{\bar X}{\lambda_0}
+-(\bar X-\lambda_0)
+\right].
+$$
+
+Bajo $H_0$, y para tamaños muestrales grandes, este estadístico sigue aproximadamente una distribución $\chi^2_1$, lo que permite construir un contraste bilateral para $\lambda$.
+
+Este ejemplo muestra cómo el contraste de razón de verosimilitudes proporciona un procedimiento sistemático incluso cuando no existe un contraste óptimo en sentido de Neyman–Pearson.
+
+---
+
+### Ejemplo: contraste en un modelo exponencial
+
+Sea $X_1,\dots,X_n$ una muestra de una distribución exponencial con parámetro $\lambda$. Consideremos el contraste
+
+$$
+H_0:\lambda=\lambda_0
+\qquad \text{frente a} \qquad
+H_1:\lambda\neq\lambda_0.
+$$
+
+La función de verosimilitud viene dada por
+
+$$
+L(\lambda)=\lambda^n\exp\!\left(-\lambda\sum_{j=1}^n X_j\right).
+$$
+
+El estimador de máxima verosimilitud bajo $H_1$ es
+
+$$
+\hat\lambda=\frac{1}{\bar X}.
+$$
+
+El estadístico de razón de verosimilitudes es
+
+$$
+-2\log\Lambda(X)
+=
+2n\left[
+\frac{\lambda_0}{\hat\lambda}
+-\log\frac{\lambda_0}{\hat\lambda}
+-1
+\right].
+$$
+
+De nuevo, bajo $H_0$ y para tamaños muestrales grandes, este estadístico se distribuye aproximadamente como una $\chi^2_1$.
+
+---
+
+### Ejemplo: contraste en un modelo trinomial
+
+Sea $(N_1,N_2,N_3)$ un vector de frecuencias con distribución multinomial (trinomial) con tamaño muestral $n$ y probabilidades $(p_1,p_2,p_3)$, con $p_1+p_2+p_3=1$.
+
+Consideremos el contraste
+
+$$
+H_0:(p_1,p_2,p_3)=(p_{10},p_{20},p_{30})
+\qquad \text{frente a} \qquad
+H_1:(p_1,p_2,p_3)\neq(p_{10},p_{20},p_{30}).
+$$
+
+La verosimilitud es
+
+$$
+L(p_1,p_2,p_3)
+=
+\frac{n!}{N_1!N_2!N_3!}
+\prod_{i=1}^3 p_i^{N_i}.
+$$
+
+Bajo $H_1$, los estimadores de máxima verosimilitud son
+
+$$
+\hat p_i=\frac{N_i}{n},
+\qquad i=1,2,3.
+$$
+
+El estadístico de razón de verosimilitudes toma la forma
+
+$$
+-2\log\Lambda
+=
+2\sum_{i=1}^3 N_i\log\frac{N_i}{n p_{i0}}.
+$$
+
+Bajo $H_0$, y para tamaños muestrales grandes, este estadístico sigue aproximadamente una distribución $\chi^2_2$, ya que hay dos grados de libertad independientes.
+
+Este contraste constituye la base teórica de los **tests de ji-cuadrado de bondad de ajuste**, que se estudiarán con más detalle en secciones posteriores.
+
+### Del contraste de razón de verosimilitudes al test ji-cuadrado
+
+Una de las razones por las que el contraste de razón de verosimilitudes es tan importante es que, en modelos multinomiales, conduce directamente al test ji-cuadrado de bondad de ajuste.
+
+Consideremos el caso trinomial. Sea $(N_1,N_2,N_3)$ un vector de frecuencias con distribución multinomial con tamaño muestral $n$ y probabilidades $(p_1,p_2,p_3)$, con $p_1+p_2+p_3=1$. Planteamos el contraste
+
+$$
+H_0:(p_1,p_2,p_3)=(p_{10},p_{20},p_{30})
+\qquad \text{frente a} \qquad
+H_1:(p_1,p_2,p_3)\neq(p_{10},p_{20},p_{30}).
+$$
+
+La verosimilitud es
+
+$$
+L(p_1,p_2,p_3)
+=
+\frac{n!}{N_1!N_2!N_3!}
+\prod_{i=1}^3 p_i^{N_i}.
+$$
+
+Bajo $H_1$, los estimadores de máxima verosimilitud son
+
+$$
+\hat p_i=\frac{N_i}{n},\qquad i=1,2,3.
+$$
+
+El estadístico de razón de verosimilitudes generalizado es
+
+$$
+\Lambda
+=
+\frac{L(p_{10},p_{20},p_{30})}{L(\hat p_1,\hat p_2,\hat p_3)}.
+$$
+
+Sustituyendo y simplificando, se obtiene el estadístico (a veces llamado *G-test*)
+
+$$
+-2\log\Lambda
+=
+2\sum_{i=1}^3 N_i\log\frac{N_i}{n p_{i0}}.
+$$
+
+Bajo condiciones generales (teorema de Wilks) y para tamaños muestrales grandes,
+
+$$
+-2\log\Lambda \;\xrightarrow{d}\; \chi^2_2,
+$$
+
+ya que en el modelo completo hay $3$ probabilidades con una restricción ($p_1+p_2+p_3=1$), es decir, $\dim(\Theta)=2$, mientras que bajo $H_0$ no hay parámetros libres.
+
+Para conectar con la estadística clásica, definimos las frecuencias esperadas bajo $H_0$:
+
+$$
+E_i=n p_{i0},\qquad i=1,2,3.
+$$
+
+El test ji-cuadrado de Pearson utiliza el estadístico
+
+$$
+X^2=\sum_{i=1}^3 \frac{(N_i-E_i)^2}{E_i}.
+$$
+
+Cuando las frecuencias esperadas $E_i$ son suficientemente grandes, se cumple que
+
+$$
+-2\log\Lambda \approx X^2,
+$$
+
+y ambos estadísticos tienen aproximadamente distribución $\chi^2_2$ bajo $H_0$. En particular, en este contexto los dos contrastes suelen dar conclusiones muy similares, aunque el contraste de razón de verosimilitudes es el que surge de manera natural a partir del principio de máxima verosimilitud.
+
+Este razonamiento se extiende sin cambios esenciales al caso multinomial general con $k$ categorías, donde el número de grados de libertad es $k-1$.
+
+## Tests de permutaciones
+
+En esta sección presentamos los **tests de permutaciones** como una alternativa general para la construcción de contrastes de hipótesis. A diferencia de los contrastes paramétricos clásicos, estos métodos no requieren especificar una distribución probabilística para los datos ni recurrir a aproximaciones asintóticas.
+
+La validez de los tests de permutaciones se basa en una idea simple: **bajo la hipótesis nula, ciertas transformaciones de los datos no alteran su distribución**. En particular, si bajo $H_0$ las observaciones son intercambiables, todas las permutaciones posibles de los datos son igualmente probables.
+
+### Idea básica
+
+El esquema general de un test de permutaciones es el siguiente:
+
+1. Elegir un **estadístico de contraste** $T(X)$ que mida la discrepancia entre los datos observados y lo esperado bajo $H_0$.
+2. Calcular el valor observado $T(x)$.
+3. Generar la distribución de $T$ bajo $H_0$ considerando todas (o muchas) permutaciones de los datos.
+4. Calcular el **p-valor** como la proporción de permutaciones para las que el estadístico toma un valor tan extremo o más que el observado.
+
+Este procedimiento define un contraste exacto condicionado a los datos observados.
+
+### Ejemplo 1: test de permutaciones con enumeración completa
+
+Consideremos un ejemplo muy simple en el que podemos enumerar todas las permutaciones posibles.
+
+Observamos dos grupos con una variable cuantitativa:
+
+- Grupo A: $x_A=(2,4)$  
+- Grupo B: $x_B=(6,8)$  
+
+Queremos contrastar
+
+$$
+H_0:\text{ambos grupos provienen de la misma distribución}
+$$
+
+frente a la alternativa unilateral de que los valores del grupo B tienden a ser mayores.
+
+Como estadístico de contraste utilizamos la diferencia de medias
+
+$$
+T(X)=\bar X_A-\bar X_B.
+$$
+
+### Valor observado del estadístico
+
+Podemos evaluar el estadístico de test como:
+
+```{r}
+xA <- c(2, 4)
+xB <- c(6, 8)
+
+T_obs <- mean(xA) - mean(xB)
+T_obs
+```
+
+
+### Distribución exacta por permutaciones
+
+Bajo $H_0$, cualquier asignación de dos observaciones al grupo A es igualmente probable. Existen exactamente $\binom{4}{2}=6$ permutaciones posibles.
+
+```{r}
+x <- c(xA, xB)
+
+idx <- combn(1:4, 2)
+
+T_perm <- apply(idx, 2, function(i) {
+  mean(x[i]) - mean(x[-i])
+})
+
+T_perm
+```
+
+#### Cálculo del p-valor
+
+Para la alternativa unilateral considerada, el p-valor se calcula como
+
+```{r}
+mean(T_perm <= T_obs)
+```
+
+Este test es **exacto**, no depende de ninguna aproximación y es válido incluso con tamaños muestrales muy pequeños.
+
+### Ejemplo 2: test de permutaciones mediante simulación
+
+En problemas más realistas, el número de permutaciones posibles es demasiado grande como para enumerarlas todas. En estos casos se utiliza una aproximación por simulación.
+
+Consideremos dos grupos con tamaños moderados:
+
+```{r}
+set.seed(123)
+
+xA <- rnorm(20, mean = 0, sd = 1)
+xB <- rnorm(20, mean = 0.7, sd = 1)
+```
+
+Queremos contrastar nuevamente la igualdad de distribuciones utilizando un test de permutaciones basado en la diferencia de medias.
+
+#### Implementación con el paquete `coin`
+
+```{r}
+library(coin)
+
+group <- factor(rep(c("A", "B"), each = 20))
+x <- c(xA, xB)
+
+perm_test <- oneway_test(
+  x ~ group,
+  distribution = approximate(B = 10000)
+)
+
+perm_test
+```
+
+#### Comparación con el test t clásico
+
+```{r}
+t.test(xA, xB, var.equal = TRUE)
+```
+
+### Comentario final
+
+Los tests de permutaciones ilustran una forma alternativa de construir contrastes de hipótesis:
+
+- el nivel se controla sin recurrir a distribuciones teóricas,
+- la región crítica se define a partir de la distribución inducida por las permutaciones,
+- y la validez del contraste descansa en una hipótesis de intercambio, no en un modelo paramétrico.
+
+Estos métodos cierran de forma natural el recorrido de este capítulo, mostrando que la construcción de contrastes puede basarse en principios distintos pero complementarios.

@@ -17,6 +17,7 @@ rmd_files:
   - 07-estimacionPuntual.Rmd
   - 08-estimacionIntervalos.Rmd
   - 09-pruebasHipotesis.Rmd
-  - 10-inferenciaAplicada.Rmd
-  - 11-computerIntensive.Rmd
+  - 10-Construccion_de_Tests.Rmd
+  - 11-inferenciaAplicada.Rmd
+  
 
