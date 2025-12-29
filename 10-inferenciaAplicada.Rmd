@@ -1,0 +1,22 @@
+# Inferencia Aplicada
+
+:::: {.calloutBox .important}
+
+Este capítulo está pendiente de ser introducida en los apuntes.
+
+La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1).
+
+::::
+
+Se muestra como deducir y aplicar algunos de los tests mas populares.
+
+## Pruebas de normalidad.Pruebas gráficas.  El test de Shapiro-Wilks
+
+## Pruebas de hipótesis para constrastar variables cuantitativas: pruebas paramètricas t-test y Anova
+
+## Pruebas de hipótesis para constrastar variables cuantitativas: pruebas de hipótesis no paramétricas de Wilcoxon y Kruskal-Wallis
+
+## Contrastes para datos categóricos. Pruebas binomiales, ji cuadrado y test de Fisher.
+
+## Riesgo relativo y razón de «odds» 
+

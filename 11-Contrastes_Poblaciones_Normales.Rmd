@@ -1,0 +1,1337 @@
+---
+title: "Contrastes en poblaciones normales"
+---
+
+# Pruebas de una muestra
+
+## Introducción a los contrastes de una muestra.
+
+Este tema y el siguiente pueden ser considerados una plasmación práctica de los conceptos teóricos vistos en el capítulo anterior aplicados a los modelos probabilísticos más frecuentemente utilizados en la práctica estadística: el modelo normal y el modelo binomial. Presentamos en este capítulo algunos de los contrastes paramétricos más habituales que se utilizan para verificar si el valor poblacional supuesto a determinado parámetro de la distribución de probabilidad de una variable aleatoria es compatible con la información suministrada por una muestra aleatoria simple de dicha variable. En el siguiente capítulo trataremos el tema de la comparación de los valores de los parámetros entre dos poblaciones.
+
+El término paramétrico aplicado a los contrastes hace referencia a la suposición previa de una distribución paramétrica de referencia para la variable aleatoria, distribución que viene caracterizada por el valor de sus parámetros, objeto de verificación a través de los contrastes propuestos.
+
+Es evidente la relación existente entre la verificación a través de un contraste de hipótesis de la aceptación de un valor poblacional con los métodos de estimación de parámetros vistos en los capítulos 7 y 8 . Sobre todo existe una relación estrecha entre los contrastes de hipótesis paramétricos y la estimación por intervalos de confianza, tal y como se ha comentado en un apartado anterior.
+
+### Esquema de los contrastes presentados
+
+El tema se distribuye en dos grandes bloques:
+
+- Contrastes sobre los parámetros de una distribución Normal
+- Contrastes sobre una proporción
+
+
+### Contrastes sobre los parámetros de una distribución Normal
+
+En este apartado se estudian los contrastes sobre la media y la varianza de una distribución Normal.
+
+- Premisas: en estos contrastes se supone que la variable aleatoria objeto de estudio sigue una distribución Normal. En el primer contraste presentado también se supone conocida la varianza de la distribución.
+- Contrastes presentados:
+- Sobre la media supuesta conocida la varianza
+- Sobre la media con la varianza desconocida
+- Sobre la varianza de la distribución
+
+
+### Contrastes sobre una proporción
+
+- Premisas: se supone una distribución Binomial para la variable aleatoria. El parámetro p es desconocido y es sobre el que se efectúa la inferencia. Presentamos la resolución aproximada basada en la aproximación a la distribución Normal, por tanto se deben verificar las condiciones que hacen válida dicha aproximación:
+
+$$
+n \geq 30 \quad n p_{0} \geq 5 \quad n\left(1-p_{0}\right) \geq 5
+$$
+
+- Contraste presentado:
+- Contraste para la proporción
+
+
+### Esquema general de los contrastes presentados
+
+Para la mayoría de contrastes presentados el esquema seguido en su presentación es idéntico
+
+- Presentación del contraste con una introducción y las premisas necesarias para el mismo.
+- Resolución del contraste con las 3 etapas principales: Formulación de las hipótesis nula y alternativa, cálculo del estadístico experimental, criterio de decisión.
+- Resolución del contraste a través de intervalos de confianza.
+- Cálculo del tamaño muestral necesario para realizar el contraste bajo los requerimientos deseados de potencia y nivel de significación.
+
+### Contrastes paramétricos frente a no paramétricos
+
+Un término importante a considerar en la metodología estadística es el de robustez. Una técnica estadística es robusta si se comporta bien cuando las suposiciones bajo las que se ha construido son vulneradas de alguna forma. Por ejemplo cuando una variable aleatoria es no Normal, pero el tamaño de la muestra es suficientemente grande, el Teorema Central del Límite garantiza que la media aritmética se distribuye aproximadamente como una Normal y el contraste sobre la media que presentamos, el T-test, es aproximadamente válido en el sentido de que el nivel de significación nominal es aproximadamente el mismo que el nivel de significación real bajo la hipótesis nula.
+
+En caso de infringirse de modo más drástico las suposiciones del modelo, es necesario utilizar contrastes que superen dichas vulneraciones recurriendo a los contrastes no paramétricos o contrastes de libre distribución que quedan fuera del contenido del presente texto. Hay que destacar sin embargo, que la utilización de contrastes no paramétricos debe ser mesurada y restringida a casos estrictamente necesarios porque generalmente el comportamiento de dichos contrastes en términos de potencia estadística es peor que la de los contrastes paramétricos si se cumplen las condiciones requeridas por éstos.
+
+## Contraste de hipótesis para la media de una distribución Normal con varianza conocida: $Z$-test.
+
+### Introducción
+
+Este primer contraste estadístico tiene más interés académico que práctico, ya que es poco frecuente en experimentación conocer uno de los parámetros poblacionales del modelo.
+
+Información previa (premisas)
+La situación es la siguiente: se observa una variable $X$ sobre una población de estudio y se asume que la distribución de $X$ es
+
+$$
+X \approx N(\mu, \sigma)
+$$
+
+donde $\boldsymbol{\sigma}$ es conocida. Se desea comparar la media de la población $\mu$ (desconocida) con cierto valor $\mu_{0}$, fijado previamente, mediante la obtención de una muestra de tamaño $n$.
+
+### Resolución del contraste para la media de una distribución Normal con varianza conocida.
+
+Los pasos a seguir para resolver el contraste son:
+
+1) Establecer la hipótesis nula $\left(H_{0}\right)$ y la alternativa $\left(H_{1}\right)$, de acuerdo con una de las tres posibilidades siguientes:
+a) Contraste bilateral o de dos colas: corresponde a plantear en la alternativa que la media es diferente a un cierto valor prefijado $\mu_{0}$, sin concretar si es mayor o menor.
+
+$$
+\mathrm{H}_{0}: \mu=\mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq \mu_{0}
+$$
+
+b) Contraste unilateral izquierdo: corresponde a plantear en la alternativa que la media es inferior a un cierto valor prefijado $\mu_{0}$.
+
+$$
+\mathrm{H}_{0}: \mu \geq \mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu<\mu_{0}
+$$
+
+c) Contraste unilateral derecho: corresponde a plantear en la alternativa que la media es mayor que un cierto valor prefijado $\mu_{0}$.
+
+$$
+\mathrm{H}_{0}: \mu \leq \mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu>\mu_{0}
+$$
+
+2) Cálculo del estadístico experimental
+
+En el caso que nos ocupa, no ha de sorprender que el estadístico que corresponde al test óptimo esté relacionado con la media muestral. Bajo $\mathrm{H}_{0}$, la variable observada y su promedio siguen la distribución siguiente:
+
+$$
+\mathrm{H}_{0} \text { cierta } \Rightarrow X \approx N\left(\mu_{0}, \sigma\right) \Rightarrow \bar{X} \approx N\left(\mu_{0}, \frac{\sigma}{\sqrt{n}}\right)
+$$
+
+Si es cierta la hipótesis nula, el estadístico experimental $z_{\text {exp }}$ que debe utilizarse sigue la distribución siguiente:
+
+$$
+Z_{\exp }=\frac{\bar{X}-\mu_{0}}{\sigma / \sqrt{n}} \approx \mathrm{~N}(0,1)
+$$
+
+3) Criterio de decisión
+a) Contraste bilateral o de dos colas: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+\left|Z_{\exp }\right| \geq z_{\alpha / 2}
+$$
+
+b) Contraste unilateral a la izquierda: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+Z_{\exp } \leq-z_{\alpha}
+$$
+
+c) Contraste unilateral a la derecha: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+Z_{\exp } \geq z_{\alpha}
+$$
+
+Nota: $z_{\alpha / 2}$ y $z_{\alpha}$ son los valores críticos asociados a la $\operatorname{Normal}(0,1)$ tales que:
+
+$$
+\operatorname{prob}\left(Z>z_{\alpha / 2}\right)=\alpha / 2
+$$
+
+$$
+\operatorname{prob}\left(Z>z_{\alpha}\right)=\alpha
+$$
+
+### Intervalo de confianza para la media de una distribución Normal con varianza conocida.
+
+Los límites para el intervalo de confianza para la media (para más detalles, véase el tema 8) son los que ya hemos presentado anteriormente:
+
+$$
+\bar{X}-z_{\alpha / 2} \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X}+z_{\alpha / 2} \frac{\sigma}{\sqrt{n}}
+$$
+
+donde el símbolo $z_{\alpha / 2}$ es el valor crítico tal que:
+
+$$
+\operatorname{prob}\left(Z>z_{\alpha / 2}\right)=\alpha / 2
+$$
+
+y que corresponde a un intervalo de confianza $1-\alpha \%$. Este intervalo puede utilizarse de manera alternativa al contraste de hipótesis con nivel de significación $\alpha \%$. Se decide aceptar $\mathrm{H}_{0}$ si el valor que asume la hipótesis nula queda incluido en el intervalo.
+
+Aún realizando el contraste en primer lugar, es aconsejable obtener el intervalo de confianza, puesto que ayuda a interpretar si existe significación aplicada además de la estadística.
+
+Si se dispone de alguna información previa que sugiera el cálculo de sólo alguno de los dos intervalos unilaterales, bastará sustituir $\mathrm{z}_{\alpha / 2}$ por $\mathrm{z}_{\alpha}$ y descartar el límite superior o inferior del intervalo según el caso.
+
+La decisión tomada en relación con estos intervalos es totalmente equivalente a las decisiones tomadas en relación con el contraste $Z$-test en sus respectivas alternativas unilaterales.
+
+### Cálculo del tamaño muestral para la media de una distribución Normal con varianza conocida. 
+
+Supongamos que se desea realizar el contraste bilateral:
+
+$$
+\mathrm{H}_{0}: \mu=\mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq \mu_{0}
+$$
+
+Una vez el experimentador ha elegido el nivel de significación ( $\alpha$ ) y la mínima diferencia significativa $(\Delta)$ asociada al punto de interés $\mu_{0} \pm \Delta$, donde se desea que la potencia sea igual a $\beta$, puede ya determinarse el tamaño de muestra adecuado que es:
+
+$$
+\mathbf{n}=\left[\frac{\mathrm{z}_{\alpha / 2}+\mathrm{z}_{1-\beta}}{\Delta}\right]^{2} \sigma^{2}
+$$
+
+Las constantes $z_{\alpha / 2}$ y $z_{1-\beta}$ corresponden a las siguientes colas derechas de una distribución Normal $\mathrm{N}(0$, 1):
+
+$$
+p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\right)=1-\beta
+$$
+
+Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra $z_{\alpha / 2}$ por $z_{\alpha}$.
+
+## Contraste de hipótesis para la media de una distribución Normal con varianza desconocida: $T$-test.
+
+### Introducción
+
+Este contraste es mucho más utilizado en experimentación que el anterior, ya que en la práctica rara vez se conoce alguno de los parámetros poblacionales del modelo.
+
+Información previa (premisas)
+Ahora se observa una variable $X$ sobre una población de estudio y se asume que la distribución de $X$ es:
+
+$$
+X \approx N(\mu, \sigma)
+$$
+
+donde $\boldsymbol{\sigma}$ es desconocida, es decir, no se conoce ningún parámetro de la distribución. Se desea comparar la media de la población $\mu$ (desconocida) con cierto valor $\mu_{0}$ fijado previamente, mediante la obtención de una muestra de tamaño $n$.
+
+### Resolución del contraste para la media de una distribución Normal con varianza desconocida.
+
+Los pasos a seguir para resolver el contraste son:
+
+1) Establecer la Hipótesis nula $\left(H_{0}\right)$ y la alternativa $\left(H_{1}\right)$, de acuerdo a una de las tres posibilidades siguientes:
+
+$$
+\mathrm{H}_{0}: \mu=\mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq \mu_{0}
+$$
+
+o bien
+
+$$
+\mathrm{H}_{0}: \mu \geq \mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu<\mu_{0}
+$$
+
+o bien
+
+$$
+\mathrm{H}_{0}: \mu \leq \mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu>\mu_{0}
+$$
+
+2) Cálculo del estadístico experimental
+
+Bajo $\mathrm{H}_{0}$, el estadístico de test sigue una distribución $t$ de Student con $n-1$ grados de libertad
+
+$$
+\mathrm{T}_{\text {exp }}=\frac{\bar{X}-\mu_{0}}{\hat{S} / \sqrt{n}} \approx t_{n-1}
+$$
+
+3) Criterio de decisión
+a) Contraste bilateral o de dos colas: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+\left|T_{\exp }\right| \geq t_{\alpha / 2}
+$$
+
+b) Contraste unilateral a la izquierda: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+T_{\exp } \leq-t_{\alpha}
+$$
+
+c) Contraste unilateral a la derecha: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+T_{\mathrm{exp}} \geq t_{\alpha}
+$$
+
+Nota: $t_{\alpha / 2}$ y $t_{\alpha}$ son los valores críticos asociados a una variable $T$ con distribución $t$ de Student con $\boldsymbol{n}-\mathbf{1}$ grados de libertad tales que:
+
+$$
+\operatorname{prob}\left(T>t_{\alpha / 2}\right)=\alpha / 2 \quad \operatorname{prob}\left(T>t_{\alpha}\right)=\alpha
+$$
+
+### Intervalo de confianza para la media de una distribución Normal con varianza desconocida.
+
+El intervalo de confianza para la media con varianza desconocida ya ha sido presentado (véase el tema 8). Si $t_{\alpha / 2}$ indica el valor crítico tal que prob $\left(T>\mathrm{t}_{\alpha / 2}\right)=\alpha / 2$, donde $T$ es una variable con distribución $t$ de Student con $n-1$ grados de libertad, el intervalo con coeficiente de confianza $1-\alpha \%$ es:
+
+$$
+\bar{X}-t_{\alpha / 2} \frac{\hat{S}}{\sqrt{n}} \leq \mu \leq \bar{X}+t_{\alpha / 2} \frac{\hat{S}}{\sqrt{n}}
+$$
+
+Este intervalo puede utilizarse de manera alternativa al contraste de hipótesis con nivel de significación $\alpha \%$. Se decide aceptar $\mathrm{H}_{0}$ si el valor que asume la hipótesis nula queda incluido en el intervalo.
+
+Ya se ha recordado antes que es aconsejable obtener el intervalo de confianza para interpretar si existe significación aplicada.
+
+Si se dispone de alguna información previa que sugiera el cálculo de uno de los dos intervalos unilaterales, bastará sustituir $t_{\alpha / 2}$ por $t_{\alpha} \mathrm{y}$ descartar el límite superior o inferior del intervalo según el caso.
+
+La decisión tomada en relación con estos intervalos es totalmente equivalente a las decisiones tomadas con el contraste $t$ de Student en sus alternativas unilaterales respectivas.
+
+### Cálculo del tamaño muestral para la media de una distribución Normal con varianza desconocida. 
+
+Supongamos que se desea hacer el contraste bilateral:
+
+$$
+\mathrm{H}_{0}: \mu=\mu_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu \neq \mu_{0}
+$$
+
+Una vez el experimentador ha elegido el nivel de significación ( $\alpha$ ), la mínima diferencia significativa $(\Delta)$ y la potencia $(\beta)$, debe obtenerse una prueba piloto donde se estima la varianza. Luego puede ya determinarse el tamaño muestral adecuado, que es:
+
+$$
+\mathbf{n}=\left[\frac{\mathbf{t}_{\alpha / 2}+\mathbf{t}_{1-\beta}}{\Delta}\right]^{2} \hat{\mathrm{~S}}^{2}
+$$
+
+Las constantes $t_{\alpha / 2}$ y $t_{1-\beta}$ corresponden a los valores siguientes asociados con una distribución $t$ de Student con grados de libertad igual al tamaño de la muestra piloto menos 1 :
+
+$$
+p\left(T \geq t_{\alpha / 2}\right)=\alpha / 2 \quad p\left(T \geq t_{1-\beta}\right)=1-\beta
+$$
+
+Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra $t_{\alpha / 2}$ por $t_{\alpha}$.
+Si el tamaño muestral obtenido es mayor que el de la muestra piloto, es necesario obtener una segunda muestra. Si al volver a calcular el contraste con la segunda muestra se sigue aceptando $\mathrm{H}_{0}$, debe evaluarse nuevamente el tamaño de muestra con la varianza muestral resultante de la segunda muestra.
+
+## Contraste de hipótesis para la varianza de una distribución Normal.
+
+### Introducción
+
+Este test permite contrastar hipótesis acerca de la varianza poblacional, es decir, del parámetro del modelo que mide la variabilidad en la población.
+
+Cabe destacar que la distribución de referencia en este contraste es la distribución Ji-cuadrado ( $\chi^{2}$ ).
+
+### Información previa (premisas)
+
+Así pues, se observa una variable $X$ sobre una población de estudio, y se asume que la distribución de $X$ es:
+
+$$
+X \approx N(\mu, \sigma)
+$$
+
+donde no se conoce ningún parámetro de la distribución. Se desea comparar $\sigma$ con cierto valor $\sigma_{0}$ fijado previamente.
+
+### Resolución del contraste para la varianza de una distribución Normal.
+
+Los pasos a seguir para resolver el contraste son:
+
+1) Establecer la hipótesis nula ( $H_{0}$ ) y la alternativa ( $H_{1}$ ), de acuerdo a una de las tres posibilidades siguientes:
+
+$$
+\mathrm{H}_{0}: \sigma=\sigma_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma \neq \sigma_{0}
+$$
+
+o bien
+
+$$
+\mathrm{H}_{0}: \sigma \geq \sigma_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma<\sigma_{0}
+$$
+
+o bien
+
+$$
+\mathrm{H}_{0}: \sigma \leq \sigma_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma>\sigma_{0}
+$$
+
+2) Calcular el estadístico experimental
+
+El estadístico de test está basado en el estimador insesgado de la varianza. $\mathrm{Si}_{0}$ es cierta se verifica:
+
+$$
+\mathrm{H}_{0} \text { cierta } \Rightarrow \chi_{\exp }^{2}=(\mathbf{n}-1) \frac{\hat{\mathrm{S}}^{2}}{\sigma_{0}^{2}} \approx \chi_{\mathrm{n}-1}^{2}
+$$
+
+3) Criterio de decisión
+a) Contraste bilateral o de 2 colas: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+\chi^{2} \exp \leq \chi_{1-\alpha / 2}^{2} \text { o bien } \chi_{\exp }^{2} \geq \chi_{\alpha / 2}^{2}
+$$
+
+b) Contraste unilateral a la izquierda: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+\chi^{2} \exp \leq \chi^{2}{ }_{1-\alpha}
+$$
+
+c) Contraste unilateral a la derecha: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+\chi^{2} \exp \geq \chi^{2}{ }_{\alpha}
+$$
+
+Nota: $\chi^{2}{ }_{\alpha / 2}$ y $\chi^{2}{ }_{1-\alpha / 2}$ son los valores críticos asociados a una variable $\chi^{2}$ con distribución Ji al cuadrado $\operatorname{con} n-1$ grados de libertad tales que:
+
+$$
+\operatorname{prob}\left(\chi^{2}>\chi_{\alpha / 2}^{2}\right)=\alpha / 2
+$$
+
+$$
+\operatorname{prob}\left(\chi^{2}<\chi^{2}{ }_{1-\alpha / 2}\right)=\alpha / 2
+$$
+
+### Intervalo de confianza para la varianza de una distribución Normal.
+
+Los límites para el intervalo de confianza para la varianza ya se han presentado en el tema 8 y la distribución de referencia es la distribución de Ji al cuadrado.
+
+Si $\chi^{2}{ }_{\alpha / 2}$ es el valor crítico correspondiente a una distribución de Ji al cuadrado con $n-1$ grados de libertad que deja a su derecha una probabilidad igual a $\alpha / 2, \chi^{2}{ }_{1-\alpha / 2}$ y el valor crítico para la misma distribución de Ji al cuadrado que deja a su izquierda una probabilidad $\alpha / 2$, el intervalo es:
+
+$$
+\frac{(n-1) \hat{S}^{2}}{\chi_{\alpha / 2}^{2}} \leq \sigma^{2} \leq \frac{(n-1) \hat{S}^{2}}{\chi_{1-\alpha / 2}^{2}}
+$$
+
+Este intervalo puede utilizarse de manera alternativa al contraste de hipótesis (con nivel de significación $\alpha \%)$. Se decide aceptar $\mathrm{H}_{0}$ si el valor que asume la hipótesis nula queda incluido en el intervalo.
+
+Si se dispone de alguna información previa que sugiera el cálculo de sólo uno de los intervalos unilaterales, bastará sustituir $\chi^{2}{ }_{\alpha / 2}$ o $\chi^{2}{ }_{1-\alpha / 2}$ por $\chi^{2}{ }_{\alpha}$ o $\chi^{2}{ }_{1-\alpha}$ y descartar el límite superior o inferior del intervalo según el caso.
+
+La decisión tomada en relación con estos intervalos es totalmente equivalente a las decisiones tomadas en relación con el contraste de Ji al cuadrado en las alternativas unilaterales respectivas.
+
+## Contraste de hipótesis para la proporción.
+
+### Introducción:
+
+Este contraste estadístico se emplea en los estudios en los que la variable observada en cada individuo de la población es dicotómica, es decir, identifica sólo dos tipos de sucesos: éxito (motivo de estudio) y fracaso.
+
+### Información previa (premisas)
+
+Supongamos que se dispone de $n$ observaciones independientes, cada una de las cuales sigue una distribución de Bernoulli de parámetro $p$ :
+
+$$
+\mathrm{X}_{1}, \ldots \mathrm{X}_{\mathrm{n}} \quad \mathrm{X}_{\mathrm{i}} \approx \operatorname{Bernoulli}(\mathrm{p})
+$$
+
+La variable de estudio $X$ es la suma de las $n$ observaciones, definida también como el número de éxitos obtenidos en una muestra de tamaño $n$.
+$X$ es una variable aleatoria de distribución Binomial:
+
+$$
+\mathrm{X}=\sum_{\mathrm{i}=1}^{\mathrm{n}} \mathrm{X}_{\mathrm{i}} \approx \mathrm{~B}(\mathrm{n}, \mathrm{p})
+$$
+
+y se quiere comparar el parámetro $\boldsymbol{p}$ (desconocido) con valor $p_{0}$ fijado a priori.
+La frecuencia relativa (estimador del verdadero parámetro $p$ a partir de la muestra) es
+
+$$
+\hat{\mathrm{P}}=\frac{\mathrm{X}}{\mathrm{n}}
+$$
+
+### Resolución del contraste para la proporción.
+
+La resolución del contraste sigue los pasos siguientes:
+
+1) Establecer la hipótesis nula ( $H_{0}$ ) y la alternativa ( $H_{1}$ ), como ya es habitual tenemos las tres posibilidades siguientes:
+
+$$
+\mathrm{H}_{0}: p=p_{0} \quad \text { contra } \quad \mathrm{H}_{1}: p \neq p_{0}
+$$
+
+o bien
+
+$$
+\mathrm{H}_{0}: p \geq p_{0} \quad \text { contra } \quad \mathrm{H}_{1}: p<p_{0}
+$$
+
+o bien
+
+$$
+\mathrm{H}_{0}: p \leq p_{0} \quad \text { contra } \quad \mathrm{H}_{1}: p>p_{0}
+$$
+
+2) Cálculo del estadístico experimental
+
+El teorema central del límite permite aproximar una variable binomial para valores de tamaño $n$ y para sucesos con probabilidad no extrema (menor que 0,1 o mayor que 0,9 ).
+
+De ahí que si se supone cierta la hipótesis $\mathrm{H}_{0}$ y se cumplen estas tres condiciones:
+
+$$
+n \geq 30 \quad n p_{0} \geq 5 \quad n\left(1-p_{0}\right) \geq 5
+$$
+
+entonces el estadístico siguiente sigue una distribución asintóticamente Normal
+
+$$
+Z_{\exp }=\frac{\hat{p}-p_{0}}{\sqrt{\frac{p_{0}\left(1-p_{0}\right)}{n}}} \approx N(0,1)
+$$
+
+3) Criterio de decisión
+a) Contraste bilateral o de dos colas: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+\left|Z_{\exp }\right| \geq z_{\alpha / 2}
+$$
+
+b) Contraste unilateral a la izquierda: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+Z_{\exp } \leq-z_{\alpha}
+$$
+
+c) Contraste unilateral a la derecha: rechazamos la hipótesis nula $\mathbf{H}_{\mathbf{0}}$ si:
+
+$$
+Z_{\exp } \geq z_{\alpha}
+$$
+
+Nota: $z_{\alpha / 2}$ y $z_{\alpha}$ son los valores críticos asociados con la distribución Normal $(0,1)$ tales que:
+
+$$
+\operatorname{prob}\left(Z>z_{\alpha / 2}\right)=\alpha / 2 \quad \operatorname{prob}\left(Z>z_{\alpha}\right)=\alpha
+$$
+
+### Intervalo de confianza para la proporción.
+
+El intervalo de confianza para la proporción que hemos considerado es parecido al del capítulo 8, pero sin la corrección de continuidad.
+
+El intervalo de confianza $1-\alpha \%$ para $p$ queda definido por:
+
+$$
+\hat{p} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+$$
+
+y , como es habitual, $z_{\alpha / 2}$ es el valor crítico asociado con una $\operatorname{Normal}(0,1)$ tal que:
+
+$$
+\operatorname{prob}\left(Z>z_{\alpha / 2}\right)=\alpha / 2
+$$
+
+Este intervalo puede utilizarse de manera alternativa al contraste de hipótesis con nivel de significación $\alpha \%$. Se decide aceptar $\mathrm{H}_{0}$ si el valor que asume en la hipótesis nula queda incluido en el intervalo.
+
+Si sólo se desea calcular alguno de los dos intervalos unilaterales, bastará sustituir $z_{\alpha / 2}$ por $z_{\alpha}$ y descartar el límite superior o inferior del intervalo según el caso.
+
+### Cálculo del tamaño muestral para la proporción.
+
+Supongamos que se quiere calcular el contraste bilateral:
+
+$$
+\mathrm{H}_{0}: \mathrm{p}=\mathrm{p}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p} \neq \mathrm{p}_{0}
+$$
+
+Una vez el experimentador ha elegido el nivel de significación ( $\alpha$ ), la mínima diferencia significativa $(\Delta)$ y la potencia ( $\beta$ ), puede ya determinarse el tamaño muestral adecuado, sin necesidad de obtener una prueba piloto, con la fórmula siguiente:
+
+$$
+\mathbf{n}=\left[\frac{z_{\alpha / 2} \sqrt{p_{0}\left(1-p_{0}\right)}+z_{1-\beta} \sqrt{p_{1}\left(1-p_{1}\right)}}{\Delta}\right]^{2}
+$$
+
+La proporción $p_{1}$ corresponde a
+
+$$
+\text { si } p_{0} \leq 0,5 \text { entonces } p_{1}=p_{0}+\Delta \quad \text { si } p_{0}>0,5 \text { entonces } p_{1}=p_{0}-\Delta
+$$
+
+Las constantes $z_{\alpha / 2}$ y $z_{1-\beta}$ corresponden a las siguientes colas derechas de la variable aleatoria Normal $(0,1)$ :
+
+$$
+p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\right)=1-\beta
+$$
+
+Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra $z_{\alpha / 2}$ por $z_{\alpha}$, y la proporción $p_{1}$ es entonces:
+
+$$
+\text { unilateral derecho: } \mathrm{p}_{1}=\mathrm{p}_{0}+\Delta \quad \text { unilateral izquierdo: } \mathrm{p}_{1}=\mathrm{p}_{0}-\Delta
+$$
+
+## Tabla resumen para una muestra.
+
+Los contrastes que hemos visto en este tema se resumen en:
+
+| Premisas | $\mathrm{H}_{0}$ | Estadístico | Distribución | $\mathrm{H}_{1}$ | Rechazar $\mathrm{H}_{0}$ si: |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| $X$ Normal $\sigma$ conocida | $\mu=\mu 0$ | $Z=\frac{\bar{X}-\mu_{0}}{\sigma / \sqrt{\mathbf{n}}}$ | Normal $(0,1)$ | $\mu \neq \mu_{0}$ | $\|Z\| \geq z_{\alpha} / 2$ |
+|  |  |  |  | $\mu>\mu_{0}$ | $Z \geq z_{\alpha}$ |
+|  |  |  |  | $\mu<\mu_{0}$ | $Z \leq-z_{\alpha}$ |
+| $X$ Normal $\sigma$ desconocida | $\mu=\mu_{0}$ | $\mathrm{T}=\frac{\overline{\mathrm{X}}-\mu_{0}}{\hat{\mathrm{~S}} / \sqrt{\mathrm{n}}}$ | $t$ de Student ( $n-1$ ) | $\mu \neq \mu_{0}$ | $\|T\| \geq t_{\alpha / 2}$ |
+|  |  |  |  | $\mu>\mu_{0}$ | $T \geq t_{\alpha}$ |
+|  |  |  |  | $\mu<\mu_{0}$ | $T \leq-t_{\alpha}$ |
+| $X$ Normal $\sigma$ desconocida | $\sigma^{2}=\sigma_{0}{ }^{2}$ | $\chi^{2}=(\mathbf{n}-\mathbf{1}) \frac{\hat{\mathbf{S}}^{2}}{\sigma_{0}^{2}}$ | Ji al cuadrado ( $n-1$ ) |  |  |
+|  |  |  |  | $\sigma^{2} \neq \sigma_{0}^{2}$ | $\begin{gathered} \chi^{2} \geq \chi_{\alpha / 2}^{2} \\ 0 \\ \chi^{2} \leq \chi^{2} 1-\alpha / 2 \end{gathered}$ |
+|  |  |  |  | $\sigma^{2}>\sigma_{0}{ }^{2}$ | $\chi^{2} \geq \chi^{2}{ }_{\alpha}$ |
+|  |  |  |  | $\sigma^{2}<\sigma_{0}{ }^{2}$ | $\chi^{2} \leq \chi^{2}{ }_{1-\alpha}$ |
+| X Bernoulli $\begin{gathered} n \geq 30, n p_{0} \geq 5 \\ n q_{0} \geq 5 \\ \left(q_{0}=1-p_{0}\right) \end{gathered}$ | $p=p_{0}$ | $Z=\frac{\hat{\mathbf{p}}-\mathbf{p}_{0}}{\sqrt{\frac{\mathbf{p}_{0} \mathbf{q}_{0}}{\mathbf{n}}}}$ | Normal $(0,1)$ | $p \neq p_{0}$ | $\|Z\| \geq z_{\alpha / 2}$ |
+|  |  |  |  | $p>p_{0}$ | $Z \geq z_{\alpha}$ |
+|  |  |  |  | $p<p_{0}$ | $Z \leq-z_{\alpha}$ |
+
+Notación:
+$\overline{\mathrm{X}}, \hat{\mathrm{S}}_{1}^{2}$ promedio y varianza muestral corregida
+$\hat{\mathbf{p}}$ frecuencia relativa del suceso en la muestra
+$\chi^{2}$ sigue la distribución de Ji al cuadrado, entonces $\chi^{2} \alpha / 2, \chi^{2}{ }_{1-\alpha / 2}, \chi^{2} \alpha$ y $\chi^{2}{ }_{1-\alpha}$ son:
+
+$$
+\begin{array}{cc}
+\operatorname{prob}\left(\chi^{2}>\chi^{2} \alpha / 2\right)=\alpha / 2 & \operatorname{prob}\left(\chi^{2}<\chi^{2} 1-\alpha / 2\right)=\alpha / 2 \\
+\operatorname{prob}\left(\chi^{2}>\chi^{2} \alpha\right)=\alpha & \operatorname{prob}\left(\chi^{2}<\chi^{2} \alpha\right)=1-\alpha
+\end{array}
+$$
+
+si $T$ es la variable aleatoria $t$ de Student, $\operatorname{prob}\left(T>t_{\alpha / 2}\right)=\alpha / 2$ y $\operatorname{prob}\left(T>t_{\alpha}\right)=\alpha$
+si $Z$ es la variable normal tipificada, $\operatorname{prob}\left(Z>z_{\alpha / 2}\right)=\alpha / 2$ y $\operatorname{prob}\left(Z>z_{\alpha}\right)=\alpha$
+
+## La importancia de elegir correctamente la hipótesis nula.
+
+En un fármaco, fabricado en serie, el contenido en $m g$ de un producto de cierta toxicidad no debe alcanzar la cifra de 0,25 . Un aparato detector del contenido de producto mide con una desviación típica de 0,09. Para disminuir en lo posible los riesgos consiguientes a la salida al mercado del fármaco con un exceso en el contenido del referido producto, ¿de qué modo debería actuarse?
+
+El investigador debe previamente comprobar los factores que puedan alterar la cadena de producción. De existir alteraciones debe estratificar la muestra para que sea representativa de todos los factores implicados. Si existe la posibilidad de obtener un tamaño muestral grande ha de ser aprovechada para aumentar la potencia del test. Si es preciso estratificar, pueden determinarse los estratos y dividir homogéneamente entre ellos la extracción de la muestra completa.
+
+Es indeseable evidentemente suministrar al mercado un producto tóxico, de modo que el error que ha de estar muy bien controlado es el asociado a rechazar la hipótesis de toxicidad si esta es cierta. Cometer este error pondría en el mercado una partida de fármacos tóxica, de consecuencias graves desde el punto de vista de la salud pública.
+
+En cambio, si se rechaza incorrectamente la hipótesis de no toxicidad y se invalida sin necesidad la partida, este segundo tipo de error es menos importante, ya que sólo tiene consecuencias económicas.
+
+Desde este punto de vista, si se plantea el contraste siguiente con un nivel de significación $\alpha=0,01$
+
+$$
+\begin{aligned}
+& \mathrm{H}_{0}: \mu \geq \mu_{0}=0.25 \\
+& \mathrm{H}_{1}: \mu<0.25
+\end{aligned}
+$$
+
+se tiene controlado el error de tipo I (se rechaza $\mathrm{H}_{0}$ cuando ésta es cierta), que más arriba se ha justificado como el único con riesgo médico.
+
+Si se rechaza la hipótesis nula, la partida de fármacos puede ser comercializada, ya que de darse esta circunstancia se encontrarían evidencias muy significativas $(\alpha=0,01)$ contra la hipótesis de que la partida sea tóxica.
+
+Nótese que, si es cierta $\mathrm{H}_{0}$, la probabilidad de encontrar una muestra que induzca a error sería 1/100.
+En resumen, al plantear las hipótesis de esta manera se acepta que la hipótesis nula está asociada a rechazar partidas por su posible toxicidad. El posible error de tipo II, más complicado de estudiar, sólo tiene consecuencias económicas, mientras que el nivel de significación controla directamente el riesgo de intoxicación.
+
+## Relación con los intervalos de confianza
+
+Los contrastes de hipótesis están muy relacionados con la teoría de los intervalos de confianza. En muchos casos se puede resolver la misma cuestión aplicada formulándola por cualquiera de las dos vías. Por ejemplo, el contraste:
+
+$$
+\mathrm{H}_{0}: \theta=\theta_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \theta \neq \theta_{0}
+$$
+
+puede resolverse planteando el intervalo de confianza para $\theta$, con coeficiente de confianza $1-\alpha$. Supongamos que el intervalo obtenido es $[\mathrm{a} ; \mathrm{b}]$. Entonces, si:
+
+$$
+\begin{aligned}
+& \operatorname{si} \theta_{0} \in[\mathrm{a} ; \mathrm{b}] \text { aceptar } \mathrm{H}_{0} \\
+& \operatorname{si} \theta_{0} \notin[\mathrm{a} ; \mathrm{b}] \text { aceptar } \mathrm{H}_{1}
+\end{aligned}
+$$
+
+Este contraste tendrá como nivel de significación $\alpha$. Es posible proporcionar incluso el $p$-valor si se ajusta la anchura del intervalo para que sea lo más ancho posible y al mismo tiempo excluya $\theta_{0}$.
+
+Inversamente, es posible utilizar la región crítica de un contraste para proporcionar una estimación por intervalo del parámetro. Los contrastes bilaterales corresponden a intervalos también bilaterales centrados, mientras que los contrastes unilaterales derechos corresponden a estimaciones unilaterales por exceso y los unilaterales izquierdos, a estimaciones por defecto.
+
+## Relación entre el intervalo y el contraste
+
+### Intervalo de confianza para la varianza de una distribución Normal
+
+Dada una variable aleatoria con distribución Normal $\mathrm{N}(\mu ; \sigma)$, el objetivo es la construcción de un intervalo de confianza para el parámetro $\sigma$, basado en una muestra de tamaño $n$ de la variable.
+
+A partir del estadístico
+
+$$
+\mathrm{X}^{2}=\frac{(n-1) \hat{S}^{2}}{\sigma^{2}}
+$$
+
+la fórmula para el intervalo de confianza, con nivel de confianza $1-\alpha$ es la siguiente
+
+$$
+\frac{(n-1) \hat{S}^{2}}{\chi_{a / 2}^{2}} \leq \sigma^{2} \leq \frac{(n-1) \hat{S}^{2}}{\chi_{1-\alpha / 2}^{2}}
+$$
+
+Donde $\chi^{2}{ }_{\alpha / 2}$ es el valor de una distribución Ji al cuadrado con $n-1$ grados de libertad que deja a su derecha una probabilidad de $\alpha / 2$.
+
+Por ejemplo, dados los datos siguientes:
+
+- Distribución poblacional: Normal
+- Tamaño de muestra: 10
+- Confianza deseada para el intervalo: $95 \%$
+- Varianza muestral corregida: 38,5
+
+Un intervalo de confianza al $95 \%$ para la varianza de la distribución viene dado por:
+
+$$
+\frac{9 \cdot 38,5}{19,031} \leq \sigma^{2} \leq \frac{9 \cdot 38,5}{2,699}
+$$
+
+que resulta, finalmente
+
+$$
+\sigma^{2} \in(18.207 ; 128,381)
+$$
+
+
+# Contrastes con dos muestras
+
+## Introducción
+
+Un problema muy frecuente en las ciencias experimentales es la comprobación de la homogeneidad de dos grupos, esto es, la decisión de si existen diferencias entre ellos, en determinada característica.
+
+La estadística paramétrica resuelve esta cuestión comparando los parámetros que caracterizan los dos grupos, que son considerados dos poblaciones a priori diferentes. El proceso consiste en obtener una muestra de cada grupo, y a partir de ellas contrastar la igualdad de los parámetros de la distribución de referencia. Por ejemplo, si la distribución de referencia es una normal, se contrasta si la media (poblacional) de los dos grupos es idéntica. De aquí que a veces se nombra este tema como comparaciones de dos muestras, aunque realmente las muestras sirven para inferir si hay diferencias significativas en las poblaciones de las cuales se han extraído.
+
+Desde el punto de vista aplicado es importante distinguir los estudios experimentales y los estudios observacionales. En los primeros, el experimentador puede asignar los individuos al azar en cada grupo. Por ejemplo, al comparar la eficacia de dos fármacos en el tratamiento de una enfermedad, se puede muchas veces asignar los enfermos al azar a uno de los dos tratamientos. En cambio, si el estudio compara una variable biométrica en dos especies diferentes, los individuos están indefectiblemente asociados a su especie y no se pueden asignar al azar: el estudio es observacional.
+
+Este tema trata de las comparaciones de dos grupos en las situaciones paramétricas más habituales y básicas: en primer lugar trata el caso en el que la variable sea normal comparando las medias y las varianzas, en segundo lugar, el caso en que la variable sea binomial, comparando entonces las proporciones.
+
+## Premisas: independencia vs datos apareados
+
+En el desarrollo de este tema destaca la importancia que tienen las premisas (requisitos) que deben cumplir los datos para la correcta aplicación de cada una de las técnicas de comparación.
+
+La primera premisa se refiere a la independencia de los datos. En el tema de muestreo (ver aquí) se ha estudiado la definición y obtención de muestras aleatorias simples, que exige, entre otras condiciones, la independencia de los datos. En este sentido, las comparaciones de dos grupos que abordamos aquí siempre se basan en muestra aleatorias simples dentro de cada grupo.
+
+Ahora bien, según el tipo de estudio, pueden presentarse situaciones de dependencia entre los datos de los dos grupos. La dependencia o independencia a la que se refieren los tests de este capítulo ha de entenderse siempre referida a la de los datos entre los dos grupos, sobreentendiendo la independencia exigida dentro del grupo.
+
+### Ejemplo: Datos independientes vs apareados
+
+Como primer ejemplo supongamos un experimento cuyo objetivo es comparar la eficacia de dos fármacos adelgazantes. Se toman 20 individuos y se asignan al azar 10 de ellos a cada uno de los dos tratamientos. Al cabo de dos meses se mide la diferencia de peso antes y después del tratamiento. Aquí los dos grupos (poblaciones) son respectivamente todos los participantes en el estudio, tratados con los 2 fármaco. Hay dos muestras de 10 individuos y los datos pueden considerarse con este diseño experimental independientes. Este ejemplo corresponde a una situación muy frecuente en análisis de datos conocida como comparación de 2 muestras independientes.
+
+Supongamos en cambio que el experimento consiste en escoger a 10 individuos al azar, medir su peso, suministrarles durante dos meses el mismo tratamiento y medir finalmente de nuevo el peso. Hay también aquí 2 muestras de 10 individuos: los 10 valores antes del tratamiento y los 10 de después. Sin embargo, ahora los datos de las dos muestras presentan una probable dependencia que corresponde a este esquema:
+
+| Antes tratamiento | posible relación con datos de | Después tratamiento |
+| :---: | :---: | :---: |
+| individuo 1 | $==>$ | individuo 1 |
+| $\ldots$ | $\ldots$ | $\ldots$ |
+| individuo 10 | $==>$ | individuo 10 |
+
+Debido a esta situación experimental tan específica los datos aparecen de forma natural emparejados si nos atenemos a su posible dependencia. Este es una segunda situación muy frecuente en experimentación: la comparación de muestras apareadas.
+
+## Premisas e hipótesis en comparaciones de medias de datos normales independientes.
+
+Abordaremos primero cómo comparar las medias de dos grupos asociados a una variable normal cuando el muestreo se ha realizado de forma independiente entre los dos grupos.
+
+Las premisas para aplicar el test que se describe a continuación son:
+
+- las dos muestras son estocásticamente independientes entre sí
+- las muestras de cada grupo son muestras aleatorias simples
+- la variable observada en cada grupo es una variable normal
+- la varianza (poblacional) es idéntica en los dos grupos pero desconocida
+
+La comprobación de esta última premisa se realiza con un test previo sobre las varianzas. Sin embargo, por motivos pedagógicos, se exponen después sus detalles. Es importante destacar que deberá estimarse la varianza a partir de la muestra, que es la situación real de muchos experimentos. En muchos textos de estadística se menciona otra situación parecida en la que se asume la varianza común (poblacional) conocida. Aquí no trataremos sus detalles, ya que su interés es más académico que aplicado.
+
+Muchos autores han descrito la prueba sobre las medias de dos grupos con varianza desconocida como el diseño más habitual en experimentación: el objetivo es corroborar o descartar que dos grupos son homogéneos en promedio. De acuerdo a las premisas la variable observada sigue en la primera población una $\operatorname{Normal}\left(\mu_{1}, \sigma\right)$ y en la segunda una $\operatorname{Normal}\left(\mu_{2}, \sigma\right)$. Contrastar la homogeneidad de medias corresponde pues a:
+
+$$
+\mathrm{H}_{0}: \mu_{1}=\mu_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1} \neq \mu_{2}
+$$
+
+La prueba que se describe a continuación resuelve hipótesis algo más generales que el de la igualdad de las medias, ya que el experimento puede consistir en comparar la diferencia de medias respecto a alguna cantidad $\mathrm{d}_{0}$ escogida previamente:
+
+$$
+\mathrm{H}_{0}: \mu_{1}-\mu_{2}=\mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2} \neq \mathrm{d}_{0}
+$$
+
+donde la hipótesis de igualdad corresponde a escoger $\mathrm{d}_{0}=0$. Como es ya habitual, pueden plantearse otro tipo de alternativas:
+
+$$
+\mathrm{H}_{0}: \mu_{1}-\mu_{2} \leq \mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2}>\mathrm{d}_{0}
+$$
+
+o bien:
+
+$$
+\mathrm{H}_{0}: \mu_{1}-\mu_{2} \geq \mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2}<\mathrm{d}_{0}
+$$
+
+## Comparación de medias de datos normales independientes.
+
+### Estadístico de test y valores críticos
+
+En el resto de esta sección asumiremos muestras de tamaño $n_{1}$ y $n_{2}$ respectivamente para las dos poblaciones. Los estadísticos se indican mediante:
+
+$$
+\begin{aligned}
+& \bar{X}_{1}, \widetilde{S}_{1}^{2} \text { promedio y varianza muestral corregida de la } 1^{\mathrm{a}} \text { población } \\
+& \bar{X}_{2}, \widetilde{S}_{2}^{2} \text { promedio y varianza muestral corregida de la } 2^{\mathrm{a}} \text { población }
+\end{aligned}
+$$
+
+Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:
+
+$$
+\mathrm{T}_{\exp }=\frac{\bar{X}_{1}-\bar{X}_{2}-d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}
+$$
+
+conocido como contraste T para dos muestras independientes cuya distribución es la t de Student con $\left(\mathrm{n}_{1}+\mathrm{n}_{2}-2\right)$ grados de libertad. Según el tipo de alternativa los valores críticos son:
+
+| $\mathrm{H}_{1}$ | rechazar $\mathrm{H}_{0} \mathrm{si}$ |
+| :---: | :---: |
+| $\mu_{1}-\mu_{2} \neq \mathrm{d}_{0}$ | $\left\|\mathrm{~T}_{\exp }\right\| \geq \mathrm{t}_{\alpha / 2}$ |
+| $\mu_{1}-\mu_{2}>\mathrm{d}_{0}$ | $\mathrm{~T}_{\exp } \geq \mathrm{t}_{\alpha}$ |
+| $\mu_{1}-\mu_{2}<\mathrm{d}_{0}$ | $\mathrm{~T}_{\exp } \leq-\mathrm{t}_{\alpha}$ |
+
+si T es la variable aleatoria t -Student $\left(\mathrm{n}_{1}+\mathrm{n}_{2}-2\right)$ los valores $\mathrm{t}_{\alpha / 2}$ y $\mathrm{t}_{\alpha}$ son:
+
+$$
+\begin{gathered}
+\operatorname{prob}\left(\mathrm{T}>\mathrm{t}_{\alpha / 2}\right)=\alpha / 2 \\
+\operatorname{prob}\left(\mathrm{~T}>\mathrm{t}_{\alpha}\right)=\alpha
+\end{gathered}
+$$
+
+en otras palabras, $\mathrm{t}_{\alpha / 2}$ es el valor crítico bilateral de la T asociada a una probabilidad $\alpha$ mientras que $\mathrm{t}_{\alpha}$ es el valor crítico unilateral derecho de la misma v.a.
+
+### Intervalo de confianza para la diferencia de medias.
+
+Los límites para el intervalo de una diferencia de medias correspondientes a dos muestras independientes son:
+
+$$
+\bar{X}_{1}-\bar{X}_{2} \pm t_{\alpha / 2} \sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}
+$$
+
+el símbolo $\mathrm{t}_{\alpha / 2}$ es el mismo valor crítico que antes: $\operatorname{prob}\left(\mathrm{T}>\mathrm{t}_{\alpha / 2}\right)=\alpha / 2$ y corresponde a un intervalo de confianza $1-\alpha \%$.
+
+Este intervalo puede utilizarse de forma alternativa al contraste de hipótesis para decidir (con nivel de significación $\alpha$ \%) si hay igualdad de los dos grupos. Se decidirá por la igualdad de los grupos si el valor 0 queda incluido en cualquier posición en el intervalo, es decir, el número 0 no ha de estar forzosamente en el centro del intervalo para aceptar $\mathrm{H}_{0}$.
+
+Si se ha planteado el contraste más general $\mathrm{H}_{0}: \mu_{1}-\mu_{2}=\mathrm{d}_{0}$ bastará que el valor $\mathrm{d}_{0}$ quede incluido en el intervalo.
+
+Aún si se realiza el contraste T de dos muestras en primer lugar, es aconsejable obtener el I.C. de la diferencia de medias si éste ha resultado significativo, puesto que ayudará a interpretar si existe significación aplicada además de la estadística.
+
+Si se dispone de alguna información previa y quiere calcularse sólo alguno de los dos intervalos unilaterales, bastará sustituir $\mathrm{t}_{\alpha / 2}$ por $\mathrm{t}_{\alpha} \mathrm{y}$ descartar el límite superior o inferior del intervalo según el caso. Por ejemplo, el intervalo unilateral derecho corresponde a:
+
+$$
+\left(-\infty, \bar{X}_{1}-\bar{X}_{2}+t_{\alpha} \sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}\right)
+$$
+
+La decisión tomada con este intervalo es totalmente equivalente a la decisión tomada con el contraste t Student de 2 muestras independientes con alternativa unilateral derecha.
+
+### Cálculo del tamaño de muestra
+
+Supongamos que se desea realizar el contraste bilateral:
+
+$$
+\mathrm{H}_{0}: \mu_{1}-\mu_{2}=\mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2} \neq \mathrm{d}_{0}
+$$
+
+Una vez el experimentador ha elegido el nivel de significación ( $\alpha$ ) la mínima diferencia significativa $(\Delta)$ y la potencia $(\beta)$ debe obtenerse una prueba piloto, donde se estima la varianza supuesta común. Luego puede ya determinarse el tamaño de muestra adecuado (se asumen las varianzas de las 2 poblaciones homogéneas) que es:
+
+$$
+n=2\left\{\frac{t_{1-\beta}+t_{\alpha / 2}}{\Delta}\right\}^{2} \frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}
+$$
+
+Las constantes $t_{\alpha / 2}$ y $t_{1-\beta}$ corresponden a las siguientes colas derechas de la v.a. t-Student con $\left(\mathrm{n}_{1}+\mathrm{n}_{2}-2\right)$ g.d.l.:
+
+$$
+p\left(T \geq t_{\alpha / 2}\right)=\alpha / 2 \quad p\left(T \geq t_{1-\beta}\right)=1-\beta
+$$
+
+Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra $t_{\alpha / 2}$ por $t_{\alpha}$.
+
+## Comparación de varianzas de datos normales independientes.
+
+### Premisas e hipótesis en 
+
+Aquí se detalla cómo comparar las varianzas de dos grupos asociados a una variable normal cuando el muestreo se ha realizado de forma independiente entre los dos grupos.
+
+Las premisas para aplicar el test que se describe a continuación son:
+
+- las dos muestras son estocásticamente independientes entre sí
+- las muestras de cada grupo son muestras aleatorias simples
+- la variable observada en cada grupo es una variable normal
+
+Es conveniente recordar que el test que aquí se describe debe efectuarse previamente al test t -Student de 2 muestras para comprobar la última de sus premisas (ver aquí para más detalles).
+
+De acuerdo a las premisas la variable observada sigue en la primera población una Normal $\left(\mu_{1}, \sigma_{1}\right)$ y en la segunda una Normal $\left(\mu_{2}, \sigma_{2}\right)$. Contrastar la homogeneidad de varianzas corresponde pues a:
+
+$$
+\mathrm{H}_{0}: \sigma_{1}=\sigma_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma_{1} \neq \sigma_{2}
+$$
+
+Como es ya habitual, pueden plantearse otro tipo de alternativas, aunque son menos utilizadas en experimentación:
+
+$$
+\mathrm{H}_{0}: \sigma_{1} \leq \sigma_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma_{1}>\sigma_{2}
+$$
+
+o bien:
+
+$$
+\mathrm{H}_{0}: \sigma_{1} \geq \sigma_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma_{1}<\sigma_{2}
+$$
+
+### Estadístico de test y valores críticos
+
+Hemos asumido antes que las muestras eran de tamaño $n_{1}$ y $n_{2}$ respectivamente para las dos poblaciones y que los estadísticos se indican mediante:
+
+$$
+\begin{aligned}
+& \bar{X}_{1}, \widetilde{S}_{1}^{2} \text { promedio y varianza muestral corregida de la } 1^{\mathrm{a}} \text { población } \\
+& \bar{X}_{2}, \widetilde{S}_{2}^{2} \text { promedio y varianza muestral corregida de la } 2^{\mathrm{a}} \text { población }
+\end{aligned}
+$$
+
+Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:
+
+$$
+\mathrm{F}_{\exp }=\frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}
+$$
+
+conocido como contraste F de varianzas para dos muestras independientes. La distribución del estadístico es la F de Fisher con $\left(\mathrm{n}_{1}-1, \mathrm{n}_{2}-1\right)$ grados de libertad. Según el tipo de alternativa los valores críticos son:
+
+| $\mathrm{H}_{1}$ | rechazar $\mathrm{H}_{0} \mathrm{si}$ |
+| :---: | :---: |
+| $\sigma_{1} \neq \sigma_{2}$ | $\mathrm{~F}_{\exp } \geq \mathrm{f}_{\alpha / 2} \circ \mathrm{~F}_{\exp } \leq \mathrm{f}_{1-\alpha / 2}$ |
+| $\sigma_{1}>\sigma_{2}$ | $\mathrm{~F}_{\exp } \geq \mathrm{f}_{\alpha}$ |
+| $\sigma_{1}<\sigma_{2}$ | $\mathrm{~F}_{\exp } \leq \mathrm{f}_{1-\alpha}$ |
+
+si $F$ es la variable aleatoria con distribución F de ( $\mathrm{n}_{1}-1, \mathrm{n}_{2}-1$ ) grados de libertad los valores $\mathrm{f}_{\alpha / 2}, \mathrm{f}_{1-\alpha / 2}$, $\mathrm{f}_{\alpha}$ y $\mathrm{f}_{1-\alpha}$ son:
+
+| $\operatorname{prob}\left(F>\mathrm{f}_{\alpha / 2}\right)=\alpha / 2$ | $\operatorname{prob}\left(F<\mathrm{f}_{1-\alpha / 2}\right)=\alpha / 2$ |
+| :---: | :---: |
+| $\operatorname{prob}\left(F>\mathrm{f}_{\alpha}\right)=\alpha$ | $\operatorname{prob}\left(F<\mathrm{f}_{\alpha}\right)=1-\alpha$ |
+
+en otras palabras, $\mathrm{f}_{\alpha / 2}$ y $\mathrm{f}_{\alpha}$ son valores críticos unilaterales derechos de la $F$ (asociados respectivamente a una probabilidad $\alpha / 2$ y $\alpha$ ) mientras que $f_{1-\alpha / 2}$ y $f_{1-\alpha}$ son unilaterales izquierdos de la misma variable aleatoria.
+
+### Intervalo de confianza para la razón de varianzas
+
+Los límites de un intervalo de confianza $1-\alpha \%$ para el cociente de varianzas correspondientes a dos muestras independientes son:
+
+$$
+\left(f_{1-\alpha / 2} \frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}, f_{\alpha / 2} \frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}\right)
+$$
+
+los símbolos $\mathrm{f}_{\alpha / 2}$ y $\mathrm{f}_{1-\alpha / 2}$ son los mismos valores críticos que antes: prob ( $F>\mathrm{f}_{\alpha / 2}$ ) $=\alpha / 2$ y prob ( $F< f_{1-\alpha / 2}=\alpha / 2$.
+
+Este intervalo puede utilizarse de forma alternativa al contraste de hipótesis para decidir (con nivel de significación $\alpha$ \%) si hay igualdad de varianzas de los dos grupos. Se decidirá que no hay diferencias significativas si el valor 1 queda incluido en cualquier posición en el intervalo. El número 1 no ha de estar forzosamente en el centro del intervalo para aceptar $\mathrm{H}_{0}$.
+
+## Comparaciones de medias de datos normales apareados
+
+### Premisas e hipótesis
+
+Las premisas para aplicar el test que se describe a continuación son:
+
+- las muestras corresponden a datos apareados
+- la muestra (agrupada por parejas) es aleatoria simple
+- la variable observada en cada grupo es una variable normal
+
+El objetivo es muy parecido al descrito anteriormente: verificar si los dos grupos son homogéneos en promedio, sólo cambian las premisas y tipo de muestreo. La variable $\mathrm{X}_{1}$ observada en la primera población sigue una $\operatorname{Normal}\left(\mu_{1}, \sigma_{1}\right)$ y la variable $\mathrm{X}_{2}$ en la segunda población una $\operatorname{Normal}\left(\mu_{2}, \sigma_{2}\right)$. Así pues, contrastar la homogeneidad de medias corresponde igualmente a:
+
+$$
+\mathrm{H}_{0}: \mu_{1}=\mu_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1} \neq \mu_{2}
+$$
+
+Ahora bien, este contraste se resuelve ahora calculando la variable diferencia entre $\mathrm{X}_{1}$ y $\mathrm{X}_{2}$. Si designamos con
+
+$$
+X_{d}=X_{1}-X_{2}
+$$
+
+a esta diferencia, entonces $\mathrm{X}_{\mathrm{d}}$ es una $\operatorname{Normal}\left(\mu_{\mathrm{d}}, \sigma_{\mathrm{d}}\right)$. La hipótesis de homogeneidad de las medias de las muestras apareadas se traduce en una prueba de una muestra normal, es decir:
+
+$$
+\mathrm{H}_{0}: \mu_{\mathrm{d}}=0 \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{\mathrm{d}} \neq 0
+$$
+
+Como es ya habitual, pueden plantearse otro tipo de alternativas:
+
+$$
+\mathrm{H}_{0}: \mu_{\mathrm{d}} \leq 0 \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{\mathrm{d}}>0
+$$
+
+o bien:
+
+$$
+\mathrm{H}_{0}: \mu_{\mathrm{d}} \geq 0 \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}<0
+$$
+
+### Relación entre el contraste de datos apareados y el de una media (datos normales).
+
+Se dispone de una muestra de datos apareados de tamaño n (es decir, n parejas). Los estadísticos se indican mediante:
+
+$$\bar{X}_{d}, \quad \widetilde{S}_{d}^{2},$$ 
+promedio y varianza muestral corregida de la resta de las 2 muestras
+
+Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:
+
+$$
+\mathrm{T}_{\exp }=\frac{\bar{X}_{d}}{\widetilde{S}_{d}} \sqrt{n}
+$$
+
+que **no es más que el contraste T para una muestra calculado con cuya distribución es la t de Student con (n-1) grados de libertad**. 
+
+Según el tipo de alternativa los valores críticos son:
+
+| $\mathrm{H}_{1}$ | rechazar $\mathrm{H}_{0} \mathrm{si}$ |
+| :---: | :---: |
+| $\mu_{\mathrm{d}} \neq 0$ | $\left\|\mathrm{~T}_{\exp }\right\| \geq \mathrm{t}_{\alpha / 2}$ |
+| $\mu_{\mathrm{d}}>0$ | $\mathrm{~T}_{\exp } \geq \mathrm{t}_{\alpha}$ |
+| $\mu_{\mathrm{d}}<0$ | $\mathrm{~T}_{\exp } \leq-\mathrm{t}_{\alpha}$ |
+
+si T es la variable aleatoria t -Student $(\mathrm{n}-1)$ los valores $\mathrm{t}_{\alpha / 2}$ y $\mathrm{t}_{\alpha}$ son:
+
+$$
+\operatorname{prob}\left(\mathrm{T}>\mathrm{t}_{\alpha / 2}\right)=\alpha / 2 \quad \operatorname{prob}\left(\mathrm{~T}>\mathrm{t}_{\alpha}\right)=\alpha
+$$
+
+en otras palabras, $\mathrm{t}_{\alpha / 2}$ es el valor crítico bilateral de la T asociada a una probabilidad $\alpha$ mientras que $\mathrm{t}_{\alpha}$ es el valor crítico unilateral derecho de la misma v.a.
+
+### Intérvalos de confianza para la diferencia
+
+El intervalo de confianza para la media de la variable diferencia es el mismo que el de la media de una muestra normal, es decir:
+
+$$
+\bar{X}_{d} \pm t_{\alpha / 2} \frac{\widetilde{S}_{d}}{\sqrt{n}}
+$$
+
+
+### Tamaño muestral
+
+Finalmente, el tamaño de muestra también corresponde al mismo caso:
+
+$$
+n=\left(\frac{t_{\alpha / 2}+t_{1-\beta}}{\Delta}\right)^{2} \widetilde{S}_{d}^{2}
+$$
+
+### Ejemplo: efecto de una intervención sobre el colesterol HDL
+
+Se estudia el efecto de una intervención destinada a aumentar el colesterol HDL en un grupo de $n = 10$ pacientes.
+En cada paciente se mide el nivel de HDL (en mg/dL) antes y después de la intervención.
+
+```{r}
+set.seed(123)
+
+HDL_antes   <- round(rnorm(10, mean = 35, sd = 4), 1)
+HDL_despues <- round(rnorm(10, mean = 45, sd = 4), 1)
+
+HDL_antes
+HDL_despues
+```
+
+#### Definición de la variable diferencia
+
+```{r}
+D <- HDL_despues - HDL_antes
+D
+```
+
+#### Planteamiento de las hipótesis
+
+Las hipótesis del contraste son
+
+$$
+H_0: \mu_D = 0
+\quad \text{frente a} \quad
+H_1: \mu_D \neq 0.
+$$
+
+#### Cálculo del estadístico de contraste
+
+```{r}
+mean(D)
+sd(D)
+
+T <- mean(D) / (sd(D) / sqrt(length(D)))
+T
+```
+
+Bajo la hipótesis nula, este estadístico sigue una distribución $t$ de Student con $n-1 = 9$ grados de libertad.
+
+#### Decisión mediante el p-valor
+
+```{r}
+2 * (1 - pt(abs(T), df = length(D) - 1))
+```
+
+**Uso de `t.test` sobre la variable diferencia**
+
+```{r}
+t.test(D)
+```
+
+**Uso de `t.test` con la opción `paired = TRUE`**
+
+```{r}
+t.test(HDL_despues, HDL_antes, paired = TRUE)
+```
+
+
+Ambos procedimientos producen exactamente el mismo resultado, ya que en ambos casos el contraste
+se basa en la variable diferencia.
+
+La opción `paired = TRUE` no define un contraste distinto, sino que indica a R que debe construir
+internamente la variable $D = \text{HDL}_{\text{después}} - \text{HDL}_{\text{antes}}$
+y aplicar sobre ella un contraste de una muestra.
+
+### Resumen: Datos independientes frente a datos apareados
+
+La distinción entre datos independientes y datos apareados no depende del contraste estadístico,
+sino del diseño del estudio y del modo en que se han obtenido los datos.
+
+- Datos independientes: Dos muestras son independientes cuando las observaciones de una muestra no guardan ninguna relación directa con las observaciones de la otra.
+
+- Datos apareados: En los datos apareados, cada observación de una muestra está emparejada con una observación concreta de la otra. El análisis no se centra en comparar dos poblaciones distintas, sino en estudiar la distribución de las diferencias.
+
+Así pues es importante recordar que **no existen contrastes específicos para datos apareados.**
+
+El apareamiento se incorpora al análisis transformando los datos originales en una muestra de diferencias, y aplicando posteriormente un contraste de una sola muestra sobre dicha variable.
+
+
+
+
+
+## Comparaciones de 2 proporciones (datos independientes)
+
+### Premisas e hipótesis 
+
+Otra de las pruebas estadísticas más básicas consiste en comprobar si la proporción de veces que ocurre un suceso es la misma en dos grupos diferentes. Se basa en la obtención de dos muestras donde en cada una de ellas se contabiliza el número de veces que ocurre el suceso estudiado.
+
+Las premisas para aplicar el test que se describe a continuación son:
+
+- las dos muestras son estocásticamente independientes entre sí
+- las muestras de cada grupo son dos muestras aleatorias simples de tamaños respectivos $\mathrm{n}_{1}$ y $\mathrm{n}_{2}$
+- la variable observada en cada grupo corresponde a una variable binomial
+
+El objetivo es corroborar o descartar que dos grupos son homogéneos en la proporción del suceso que se contabiliza. De acuerdo a las premisas la variable observada sigue en la primera población una Binomial $\left(\mathrm{n}_{1}, \mathrm{p}_{1}\right)$ y en la segunda una Binomial $\left(\mathrm{n}_{2}, \mathrm{p}_{2}\right)$. Contrastar la homogeneidad de proporciones corresponde pues a:
+
+$$
+\mathrm{H}_{0}: \mathrm{p}_{1}=\mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1} \neq \mathrm{p}_{2}
+$$
+
+Pueden plantearse otro tipo de alternativas:
+
+$$
+\mathrm{H}_{0}: \mathrm{p}_{1} \leq \mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1}>\mathrm{p}_{2}
+$$
+
+o bien:
+
+$$
+\mathrm{H}_{0}: \mathrm{p}_{1} \geq \mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1}<\mathrm{p}_{2}
+$$
+
+### Estadístico de test y valores críticos
+
+Los estadísticos necesarios para el test se indican mediante:
+$\hat{p}_{1}$ proporción del suceso en la $1^{\mathrm{a}}$ muestra
+$\hat{p}_{2}$ proporción del suceso en la $2^{\mathrm{a}}$ muestra
+
+$$
+\hat{p}=\frac{\mathrm{n}_{1} \hat{p}_{1}+\mathrm{n}_{2} \hat{p}_{2}}{\mathrm{n}_{1}+\mathrm{n}_{2}} \quad \hat{q}=1-\hat{p}
+$$
+
+Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:
+
+$$
+\mathrm{Z}_{\exp }=\frac{\hat{p}_{1}-\hat{p}_{2}}{\sqrt{\frac{\hat{p} \hat{q}}{n_{1}}+\frac{\hat{p} \hat{q}}{n_{2}}}}
+$$
+
+cuya distribución asintótica (ver condiciones aquí) es la Normal ( 0,1 ). Según el tipo de alternativa los valores críticos son:
+
+| $\mathrm{H}_{1}$ | rechazar $\mathrm{H}_{0} \mathrm{si}$ |
+| :---: | :---: |
+| $\mathrm{p}_{1} \neq \mathrm{p}_{2}$ | $\left\|\mathrm{Z}_{\exp }\right\| \geq \mathrm{z}_{\alpha / 2}$ |
+| $\mathrm{p}_{1}>\mathrm{p}_{2}$ | $\mathrm{Z}_{\exp } \geq \mathrm{z}_{\alpha}$ |
+| $\mathrm{p}_{1}<\mathrm{p}_{2}$ | $\mathrm{Z}_{\exp } \leq-\mathrm{z}_{\alpha}$ |
+
+si $Z$ es la variable aleatoria normal tipificada, los valores $\mathrm{z}_{\alpha / 2}$ y $\mathrm{z}_{\alpha}$ son:
+
+$$
+\begin{gathered}
+\operatorname{prob}\left(Z>\mathrm{z}_{\alpha / 2}\right)=\alpha / 2 \\
+\operatorname{prob}\left(Z>\mathrm{z}_{\alpha}\right)=\alpha
+\end{gathered}
+$$
+
+en otras palabras, $z_{\alpha / 2}$ es el valor crítico bilateral de la $\operatorname{Normal}(0,1)$ asociada a una probabilidad $\alpha$ mientras que $\mathrm{z}_{\alpha}$ es el valor crítico unilateral derecho de la misma variable aleatoria.
+
+### Condiciones de aplicación del test
+
+Esta prueba tiene carácter asintótico, para que la aproximación a la $\operatorname{Normal}(0,1)$ sea adecuada se requiere que:
+
+$$
+\begin{array}{cc}
+\mathrm{n}_{1} \geq 30 & \mathrm{n}_{2} \geq 30 \\
+\mathrm{n}_{1} \hat{p}_{1} \geq 5 & \mathrm{n}_{2} \hat{p}_{2} \geq 5
+\end{array}
+$$
+
+### Intervalo de confianza para la diferencia de proporciones (datos independientes).
+
+Los límites para el intervalo de una diferencia de proporciones correspondientes a dos muestras independientes son:
+
+$$
+\hat{p}_{1}-\hat{p}_{2} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}_{1}\left(1-\hat{p}_{1}\right)}{n_{1}}+\frac{\hat{p}_{2}\left(1-\hat{p}_{2}\right)}{n_{2}}}
+$$
+
+el símbolo $\mathrm{z}_{\alpha / 2}$ es el mismo valor crítico que antes: $\operatorname{prob}\left(Z>\mathrm{z}_{\alpha / 2}\right)=\alpha / 2$.y corresponde a un intervalo de confianza $1-\alpha \%$.
+
+Este intervalo puede utilizarse de forma alternativa al contraste de hipótesis para decidir (con nivel de significación $\alpha$ \%) si hay igualdad de los dos grupos. Se decidirá por la igualdad de los grupos si el valor 0 queda incluido en cualquier posición en el intervalo.
+
+Aún si se realiza el contraste de dos proporciones en primer lugar, es aconsejable obtener el I.C. de la diferencia de medias si éste ha resultado significativo, puesto que ayudará a interpretar si existe significación aplicada además de la estadística.
+
+Si se dispone de alguna información previa y quiere calcularse sólo alguno de los dos intervalos unilaterales, bastará sustituir $\mathrm{z}_{\alpha / 2}$ por $\mathrm{z}_{\alpha} \mathrm{y}$ descartar el límite superior o inferior del intervalo según el caso. Por ejemplo, el intervalo unilateral derecho corresponde a:
+
+$$
+\left(-\infty, \hat{p}_{1}-\hat{p}_{2} \pm z_{\alpha} \sqrt{\frac{\hat{p}_{1}\left(1-\hat{p}_{1}\right)}{n_{1}}+\frac{\hat{p}_{2}\left(1-\hat{p}_{2}\right)}{n_{2}}}\right)
+$$
+
+### Cálculo del tamaño de muestra en el contraste de proporciones de datos independientes.
+
+Supongamos que se desea realizar el contraste bilateral:
+
+$$
+\mathrm{H}_{0}: \mathrm{p}_{1}=\mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1} \neq \mathrm{p}_{2}
+$$
+
+Una vez el experimentador ha elegido el nivel de significación ( $\alpha$ ) la mínima diferencia significativa $(\Delta)$ y la potencia $(\beta)$ debe obtenerse una prueba piloto donde se estiman las proporciones del suceso tanto en las 2 poblaciones por separado como en la población conjunta. Luego puede ya determinarse el tamaño de muestra adecuado:
+
+$$
+n=\left(\frac{z_{\alpha / 2} \sqrt{2 \hat{p} \hat{q}}+z_{\beta} \sqrt{\hat{p}_{1}\left(1-\hat{p}_{1}\right)+\hat{p}_{2}\left(1-\hat{p}_{2}\right)}}{\Delta}\right)^{2}
+$$
+
+Las constantes $z_{\alpha / 2}$ y $z_{1-\beta}$ corresponden a las siguientes colas derechas de la v.a. $\operatorname{Normal}(0,1)$
+
+$$
+p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\right)=1-\beta
+$$
+
+Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra $z_{\alpha / 2}$ por $z_{\alpha}$.
+
+## Comparaciones de dos muestras: Tabla resumen
+
+Los contrastes vistos en este tema se resumen en:
+
+| Premisas | $\mathrm{H}_{0}$ | Estadístico | Distribución | $\mathrm{H}_{1}$ | Rechazar $\mathrm{H}_{0} \mathrm{si}$ : |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 2 muestras normales datos independientes varianzas iguales | $\mu_{1}-\mu_{2}=\mathrm{d}_{0}$ | $\mathrm{T}_{\text {exp }}=\frac{\bar{X}_{1}-\bar{X}_{2}-d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}$ | t-Student ( $\mathrm{n}_{1}+\mathrm{n}_{2}-2$ ) | $\mu_{1}-\mu_{2} \neq \mathrm{d}_{0}$ | $\left\|\mathrm{T}_{\exp }\right\| \geq \mathrm{t}_{\alpha / 2}$ |
+|  |  |  |  | $\mu_{1}-\mu_{2}>\mathrm{d}_{0}$ | $\mathrm{T}_{\text {exp }} \geq \mathrm{t}_{\alpha}$ |
+|  |  |  |  | $\mu_{1}-\mu_{2}<\mathrm{d}_{0}$ | $\mathrm{T}_{\text {exp }} \leq-\mathrm{t}_{\alpha}$ |
+| 2 muestras normales datos independientes | $\sigma_{1}=\sigma_{2}$ | $\mathrm{F}_{\text {exp }}=\frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}$ | Fisher ( $\mathrm{n}_{1}-1, \mathrm{n}_{2}-1$ ) | $\sigma_{1} \neq \sigma_{2}$ | $\mathrm{F}_{\text {exp }} \geq \mathrm{f}_{\alpha / 2}$ o $\mathrm{F}_{\exp } \leq \mathrm{f}_{1-\alpha / 2}$ |
+|  |  |  |  | $\sigma_{1}>\sigma_{2}$ | $\mathrm{F}_{\text {exp }} \geq \mathrm{f}_{\alpha}$ |
+|  |  |  |  | $\sigma_{1}<\sigma_{2}$ | $\mathrm{F}_{\text {exp }} \leq \mathrm{f}_{1-\alpha}$ |
+| 2 muestras normales datos apareados | $\mu_{\mathrm{d}}=0$ | $\mathrm{T}_{\text {exp }}=\frac{\bar{X}_{d}}{\widetilde{S}_{d}} \sqrt{n}$ | t-Student (n-1) | $\mu_{\mathrm{d}} \neq 0$ | $\left\|\mathrm{T}_{\text {exp }}\right\| \geq \mathrm{t}_{\alpha / 2}$ |
+|  |  |  |  | $\mu_{\mathrm{d}}>0$ | $\mathrm{T}_{\exp } \geq \mathrm{t}_{\alpha}$ |
+|  |  |  |  | $\mu_{\mathrm{d}}<0$ | $\mathrm{T}_{\text {exp }} \leq-\mathrm{t}_{\alpha}$ |
+| $\mathrm{n}_{1}$ y $\mathrm{n}_{2} \geq 30 \mathrm{n}_{1} \overline{\mathrm{p}}_{1} \geq 5 \mathrm{n}_{2} \overline{\mathrm{p}}_{2} \geq 5$ | $\mathrm{p}_{1}=\mathrm{p}_{2}$ | $\mathrm{Z}_{\exp }=\frac{\hat{p}_{1}-\hat{p}_{2}}{\sqrt{\frac{\hat{p} \hat{q}}{n_{1}}+\frac{\hat{p} \hat{q}}{n_{2}}}}$ | Normal $(0,1)$ | $\mathrm{p}_{1} \neq \mathrm{p}_{2}$ | $\left\|\mathrm{Z}_{\text {exp }}\right\| \geq \mathrm{z}_{\alpha / 2}$ |
+|  |  |  |  | $\mathrm{p}_{1}>\mathrm{p}_{2}$ | $\mathrm{Z}_{\text {exp }} \geq \mathrm{z}_{\alpha}$ |
+|  |  |  |  | $\mathrm{p}_{1}<\mathrm{p}_{2}$ | $\mathrm{Z}_{\text {exp }} \leq-\mathrm{z}_{\alpha}$ |
+
+Notación.:
+$\bar{X}_{1}, \widetilde{S}_{1}^{2}$ promedio y varianza muestral corregida de la $1{ }^{\text {a }}$ población
+$\bar{X}_{2}, \widetilde{S}_{2}^{2}$ promedio y varianza muestral corregida de la $2^{\mathrm{a}}$ población
+$\bar{X}_{d}, \widetilde{S}_{d}^{2}$ promedio y varianza muestral corregida de la resta de las 2 muestras
+$\hat{p}_{1}$ proporción del suceso en la $1^{\mathrm{a}}$ muestra
+$\hat{p}_{2}$ proporción del suceso en la $2^{\mathrm{a}}$ muestra
+$\hat{p}=\frac{\mathbf{n}_{1} \hat{p}_{1}+\mathbf{n}_{2} \hat{p}_{2}}{\mathbf{n}_{1}+\mathbf{n}_{2}} \quad \hat{q}=\mathbf{1}-\hat{p}$
+$F$ sigue la distribución F de Fisher, entonces $\mathrm{f}_{\alpha / 2}, \mathrm{f}_{1-\alpha / 2}, \mathrm{f}_{\alpha}$ y $\mathrm{f}_{1-\alpha}$ son:
+
+$$
+\begin{aligned}
+\operatorname{prob}\left(F>\mathrm{f}_{\alpha / 2}\right) & =\alpha / 2 \\
+\operatorname{prob}\left(F>\mathrm{f}_{\alpha}\right) & =\alpha
+\end{aligned}
+$$
+
+$$
+\begin{gathered}
+\operatorname{prob}\left(F<\mathrm{f}_{1-\alpha / 2}\right)=\alpha / 2 \\
+\operatorname{prob}\left(f<\mathrm{f}_{\alpha}\right)=1-\alpha
+\end{gathered}
+$$
+
+si $T$ es la variable aleatoria t -Student, $\operatorname{prob}\left(T>\mathrm{t}_{\alpha / 2}\right)=\alpha / 2$ y $\operatorname{prob}\left(T>\mathrm{t}_{\alpha}\right)=\alpha$
+si Z es la variable normal tipificada, $\operatorname{prob}\left(Z>\mathrm{z}_{\alpha / 2}\right)=\alpha / 2$ y prob $\left(Z>\mathrm{z}_{\alpha}\right)=\alpha$
+
+## Complementos: efecto de las transformaciones de los datos en el test t 
+
+Para acabar de comprender el funcionamiento del test T es interesante considerar el efecto que tiene sobre dicho contrastes dos típicas operaciones sobre un conjunto de datos:
+
+- cambio de posición: esto es, sumar una constante a todos los datos.
+- cambio de escala: esto es, multiplicar por una constante todos los datos.
+
+### Efecto del cambi de posición
+
+Veamos primero el efecto del primer tipo de cambio desde un punto de vista empírico, tomando dos grupos de datos independientes (para más detalles, corresponden a los datos del casol de este mismo tema). Los datos originales (en breve, diferencia de peso de unos pacientes en kilos) y el resultado del test T se detallan a continuación para poder comparar con en el cuadro más abajo donde se modificarán:
+
+Supongamos que se ha detectado un error en la balanza que medía el peso, sistemático para todos los datos, lo cual implica sumar 2 kilos a todos los datos del estudio. Si se modifican adecuadamente los datos (sumar 2 a todos ellos):
+se ha de observar que:
+
+- las medias de los dos grupos se han incrementado en dos unidades
+- las desviaciones de los dos grupos se mantienen constantes
+- toda la inferencia de comparación de medias se mantiene constante (Estadístico T, p-valor, intervalo, etc).
+
+Para entender este resultado empírico, y razonando ahora en general, si a todos los datos originales ( $\mathrm{x}_{1}$, $\left.\mathrm{x}_{2}, \ldots \mathrm{x}_{\mathrm{n}}\right)$ se les añade la constante $k$
+
+$$
+\mathrm{y}_{1}=\mathrm{x}_{1}+k, \mathrm{y}_{2}=\mathrm{x}_{2}+k, \ldots, \mathrm{y}_{\mathrm{n}}=\mathrm{x}_{\mathrm{n}}+k
+$$
+
+la media y la varianza de la nueva variable Y van a ser:
+
+$$
+\bar{Y}=\bar{X}+k \quad \widetilde{S}_{Y}^{2}=\widetilde{S}_{X}^{2}
+$$
+
+así pues, en el caso de tener dos grupos de datos, la varianza de cada grupo -y por tanto también la ponderada- se mantienen constantes. El estadístico de test va a ser:
+
+$$
+T_{Y}=\frac{\left(\bar{X}_{1}+k\right)-\left(\bar{X}_{2}+k\right)-d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}=T_{K}
+$$
+
+La conclusión es que el test t no se ve alterado por un cambio de posición en todos los datos.
+
+### Efecto de un cambio de escala
+
+Veamos ahora el efecto del segundo tipo de cambio desde un punto de vista empírico. Con los datos originales (corresponden a los datos del casol de este mismo tema), el resultado del test T es:
+
+Supongamos que se decide cambiar de unidad, pasando a decigramos en lugar de kilogramos. Equivale a multiplicar por cien todos los datos del estudio. Modificando adecuadamente los datos siguientes:
+se ha de observar que:
+
+- las medias de los dos grupos se han multiplicado por cien
+- las desviaciones de los dos grupos se han multiplicado por cien
+- el Estadístico T y el p-valor se mantienen constantes (el I.C. es 100 veces mayor).
+
+Para entender este resultado, razonando de nuevo en general, si todos los datos originales ( $\mathrm{x}_{1}, \mathrm{x}_{2}, \ldots \mathrm{x}_{\mathrm{n}}$ ) se multiplican por $k$
+
+$$
+\mathrm{y}_{1}=k \mathrm{x}_{1}, \mathrm{y}_{2}=k \mathrm{x}_{2}, \ldots, \mathrm{y}_{\mathrm{n}}=k \mathrm{x}_{\mathrm{n}}
+$$
+
+la media y la varianza de la nueva variable Y van a ser:
+
+$$
+\bar{Y}=k \bar{X} \quad \widetilde{S}_{Y}^{2}=k^{2} \widetilde{S}_{X}^{2}
+$$
+
+así pues, en el caso de tener dos grupos de datos, la varianza de cada grupo -y por tanto también la ponderada- se multiplica por $k^{2}$. El estadístico de test va a ser:
+
+$$
+T_{Y}=\frac{k \bar{X}_{1}-k \bar{X}_{2}-k d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) k^{2} \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) k^{2} \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}=T_{X}
+$$
+
+y se cancelan la constante $k$ en el numerador y el denominador. La conclusión es que el test t no se ve alterado por un cambio de escala todos los datos.
+
+##Muestreo aleatorio simple
+
+Los valores de la muestra son elegidos de modo que las observaciones son independientes dos a dos y todas siguen la misma distribución probabilística.
+
+Una propiedad matemática importante es que la función de densidad de la muestra, entendida como vector aleatorio, es el producto de las funciones de densidad de sus variables. Igualmente ocurre con la función de distribución.
+
+En poblaciones finitas, una posibilidad de asegurar la aleatoriedad de los datos consiste en la utilización de números aleatorios.
+
+En R es muy sencillo obtener números aleatorios enteros. Por ejemplo para generar diez aleatorios entre 1 y 25 haríamos simplemente:
+
+- Si queremos que los números se puedan repetir
+
+```{r}
+sample(1:25, 10, replace=TRUE)
+```
+
+- Si queremos que sean aleatorios pero no puedan aparecer dos veces:
+
+```{r}
+sample(1:25, 10, replace=FALSE)
+```
+
+## Presentación del caso 1
+
+Una empresa farmacéutica está probando un nuevo fármaco para adelgazar denominado Prim. En esta fase del ensayo clínico se pretende comparar el efecto de Prim con un fármaco de la competencia conocido como Nofat. Se considerará relevante la diferencia si es de al menos 2 kilogramos en promedio entre los dos fármacos.
+
+En la prueba piloto se desea experimentar sobre 20 personas voluntarias sometidas a una misma dieta, pero medicadas 10 de ellas con Prim y otras 10 con Nofat. La variable observada será la diferencia de peso en kilogramos entre el inicio y el final del estudio. Los datos iniciales son:
+
+| Individuo | Peso | Individuo | Peso |
+| :--- | :--- | :--- | :--- |
+| 1 | 127.5 | 11 | 117.5 |
+| 2 | 101.0 | 12 | 115.0 |
+| 3 | 99.5 | 13 | 139.5 |
+| 4 | 110.5 | 14 | 130.5 |
+| 5 | 115.5 | 15 | 125.5 |
+| 6 | 95.5 | 16 | 135.5 |
+| 7 | 105.5 | 17 | 115.5 |
+| 8 | 110.5 | 18 | 120.5 |
+| 9 | 98.5 | 19 | 118.5 |
+| 10 | 106.0 | 20 | 116.0 |
+
+
+
+
+
+
