@@ -18,6 +18,6 @@ rmd_files:
   - 08-estimacionIntervalos.Rmd
   - 09-pruebasHipotesis.Rmd
   - 10-Construccion_de_Tests.Rmd
-  - 11-inferenciaAplicada.Rmd
+  - 11-Contrastes_Poblaciones_Normales.Rmd
   
 
