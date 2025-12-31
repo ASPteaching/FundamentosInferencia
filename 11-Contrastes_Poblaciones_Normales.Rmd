@@ -1,7 +1,3 @@
----
-title: "Contrastes en poblaciones normales"
----
-
 # Pruebas de una muestra
 
 ## Introducción a los contrastes de una muestra.

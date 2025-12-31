@@ -1,7 +1,3 @@
----
-title: "Pruebas ji-cuadrado"
----
-
 # Pruebas $\mathrm{X}^{2}$
 
 1. El modelo multinomial
