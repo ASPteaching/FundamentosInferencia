@@ -19,5 +19,6 @@ rmd_files:
   - 09-pruebasHipotesis.Rmd
   - 10-Construccion_de_Tests.Rmd
   - 11-Contrastes_Poblaciones_Normales.Rmd
+  - 12-Pruebas_Ji-cuadrado.Rmd
   
 

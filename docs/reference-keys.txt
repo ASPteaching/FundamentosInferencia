@@ -469,3 +469,14 @@ complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t
 efecto-del-cambi-de-posición
 efecto-de-un-cambio-de-escala
 presentación-del-caso-1
+pruebas-mathrmx2
+el-modelo-multinomial.
+aplicaciones-del-modelo-multinomial.
+formalización-del-contraste.
+condiciones-de-validez.
+análisis-de-tablas-de-contingencia.
+pruebas-de-independencia.
+violación-de-las-condiciones-del-contraste.
+pruebas-de-homogeneidad.
+la-distribución-multinomial-1
+la-distribución-binomial-1

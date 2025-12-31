@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 10 Construcción de contrastes de hipótesis | Pruebas ji-cuadrado</title>
-  <meta name="description" content="Capítulo 10 Construcción de contrastes de hipótesis | Pruebas ji-cuadrado" />
+  <title>Capítulo 13 Pruebas \(\mathrm{X}^{2}\) | Pruebas ji-cuadrado</title>
+  <meta name="description" content="Capítulo 13 Pruebas \(\mathrm{X}^{2}\) | Pruebas ji-cuadrado" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 10 Construcción de contrastes de hipótesis | Pruebas ji-cuadrado" />
+  <meta property="og:title" content="Capítulo 13 Pruebas \(\mathrm{X}^{2}\) | Pruebas ji-cuadrado" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 10 Construcción de contrastes de hipótesis | Pruebas ji-cuadrado" />
+  <meta name="twitter:title" content="Capítulo 13 Pruebas \(\mathrm{X}^{2}\) | Pruebas ji-cuadrado" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pruebas-de-hipótesis.html"/>
-<link rel="next" href="pruebas-de-una-muestra.html"/>
+<link rel="prev" href="contrastes-con-dos-muestras.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -786,633 +786,436 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="construcción-de-contrastes-de-hipótesis" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Capítulo 10</span> Construcción de contrastes de hipótesis<a href="construcción-de-contrastes-de-hipótesis.html#construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="qué-significa-construir-un-contraste-de-hipótesis" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> ¿Qué significa “construir” un contraste de hipótesis?<a href="construcción-de-contrastes-de-hipótesis.html#qu%C3%A9-significa-construir-un-contraste-de-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En el capítulo 9 se han presentado los contrastes de hipótesis como procedimientos operativos basados en un <strong>estadístico de contraste</strong> y una <strong>región crítica</strong> asociada a dicho estadístico. En esta sección adoptamos ese mismo punto de vista y lo llevamos un paso más allá: no nos preguntamos cómo aplicar un contraste concreto, sino <strong>cómo se construye un contraste en general</strong> y qué criterios permiten decidir cuándo un contraste es preferible a otro.</p>
-<div id="el-contraste-como-regla-de-decisión" class="section level3 hasAnchor" number="10.1.1">
-<h3><span class="header-section-number">10.1.1</span> El contraste como regla de decisión<a href="construcción-de-contrastes-de-hipótesis.html#el-contraste-como-regla-de-decisi%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Sea <span class="math inline">\(X=(X_1,\dots,X_n)\)</span> una muestra aleatoria con espacio muestral <span class="math inline">\(\mathcal{X}\)</span> y distribución dependiente de un parámetro desconocido <span class="math inline">\(\theta\in\Theta\)</span>. Consideramos el contraste</p>
-<p><span class="math display">\[
-H_0:\theta\in\Theta_0
-\qquad \text{frente a} \qquad
-H_1:\theta\in\Theta_1,
-\]</span></p>
-<p>con <span class="math inline">\(\Theta_0\cap\Theta_1=\varnothing\)</span>.</p>
-<p>Siguiendo la convención del capítulo 9, un contraste de hipótesis se construye especificando:</p>
-<ul>
-<li>un <strong>estadístico de contraste</strong> <span class="math inline">\(T=T(X)\)</span>,</li>
-<li>una <strong>región crítica para el estadístico</strong> <span class="math inline">\(C\subset\mathbb{R}\)</span>,</li>
-</ul>
-<p>de modo que se decide <strong>rechazar <span class="math inline">\(H_0\)</span></strong> cuando</p>
-<p><span class="math display">\[
-T(X)\in C.
-\]</span></p>
-<p>Este criterio define implícitamente una región crítica en el espacio muestral,</p>
-<p><span class="math display">\[
-\mathcal{R}=\{x\in\mathcal{X}:T(x)\in C\},
-\]</span></p>
-<p>pero en la práctica se trabaja casi siempre con <span class="math inline">\(T\)</span> y <span class="math inline">\(C\)</span>, ya que simplifican la construcción y el análisis del contraste.</p>
-<p>Desde este punto de vista, <strong>construir un contraste equivale a elegir el estadístico <span class="math inline">\(T\)</span> y la región <span class="math inline">\(C\)</span></strong>.</p>
-</div>
-<div id="nivel-de-significación-como-restricción-básica" class="section level3 hasAnchor" number="10.1.2">
-<h3><span class="header-section-number">10.1.2</span> Nivel de significación como restricción básica<a href="construcción-de-contrastes-de-hipótesis.html#nivel-de-significaci%C3%B3n-como-restricci%C3%B3n-b%C3%A1sica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El primer requisito que debe cumplir un contraste es el control del <strong>error de tipo I</strong>, es decir, la probabilidad de rechazar <span class="math inline">\(H_0\)</span> cuando esta es verdadera.</p>
-<p>El <strong>nivel de significación</strong> del contraste se define como</p>
-<p><span class="math display">\[
-\alpha
-=
-\sup_{\theta\in\Theta_0}
-\mathbb{P}_\theta\bigl(T(X)\in C\bigr).
-\]</span></p>
-<p>Un contraste es de nivel <span class="math inline">\(\alpha\)</span> si esta probabilidad no supera el valor prefijado <span class="math inline">\(\alpha\)</span>.</p>
-<p>Fijar el nivel impone una restricción clara sobre la elección de <span class="math inline">\(C\)</span>, pero <strong>no determina un contraste único</strong>. Incluso fijando el modelo probabilístico, las hipótesis <span class="math inline">\(H_0\)</span> y <span class="math inline">\(H_1\)</span> y el nivel <span class="math inline">\(\alpha\)</span>, siguen existiendo múltiples elecciones posibles del estadístico <span class="math inline">\(T\)</span> y de la región crítica <span class="math inline">\(C\)</span>.</p>
-</div>
-<div id="primer-ejemplo-distintos-contrastes-con-el-mismo-nivel" class="section level3 hasAnchor" number="10.1.3">
-<h3><span class="header-section-number">10.1.3</span> Primer ejemplo: distintos contrastes con el mismo nivel<a href="construcción-de-contrastes-de-hipótesis.html#primer-ejemplo-distintos-contrastes-con-el-mismo-nivel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Supongamos que <span class="math inline">\(X_1,\dots,X_n\)</span> es una muestra de una distribución <span class="math inline">\(N(\mu,1)\)</span> y consideramos el contraste</p>
-<p><span class="math display">\[
-H_0:\mu=0
-\qquad \text{frente a} \qquad
-H_1:\mu&gt;0.
-\]</span></p>
-<p>Un estadístico natural es la media muestral <span class="math inline">\(\bar X\)</span>. Bajo <span class="math inline">\(H_0\)</span> se tiene</p>
-<p><span class="math display">\[
-\bar X\sim N\!\left(0,\frac{1}{n}\right).
-\]</span></p>
-<p>Un contraste habitual consiste en rechazar <span class="math inline">\(H_0\)</span> si</p>
-<p><span class="math display">\[
-\bar X&gt;c,
-\]</span></p>
-<p>donde <span class="math inline">\(c\)</span> se elige de modo que</p>
-<p><span class="math display">\[
-\mathbb{P}_{H_0}(\bar X&gt;c)=\alpha.
-\]</span></p>
-<p>Sin embargo, este no es el único contraste posible de nivel <span class="math inline">\(\alpha\)</span>. Por ejemplo, también podríamos definir:</p>
-<ul>
-<li>Rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(X_1&gt;k\)</span>,</li>
-<li>Rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(0.8\,\bar X+0.2\,X_1&gt;d\)</span>,</li>
-</ul>
-<p>eligiendo <span class="math inline">\(k\)</span> o <span class="math inline">\(d\)</span> de forma que</p>
-<p><span class="math display">\[
-\mathbb{P}_{H_0}\bigl(T(X)\in C\bigr)=\alpha.
-\]</span></p>
-<p>Todos estos contrastes controlan el error de tipo I, pero <strong>no utilizan la información de la muestra de la misma forma</strong>. El control del nivel, por sí solo, no permite decidir qué contraste es preferible.</p>
-</div>
-<div id="potencia-como-criterio-de-comparación" class="section level3 hasAnchor" number="10.1.4">
-<h3><span class="header-section-number">10.1.4</span> Potencia como criterio de comparación<a href="construcción-de-contrastes-de-hipótesis.html#potencia-como-criterio-de-comparaci%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Para comparar contrastes de igual nivel se introduce la <strong>potencia</strong>.</p>
-<p>Dado un contraste definido por <span class="math inline">\((T,C)\)</span>, su <strong>función de potencia</strong> es</p>
-<p><span class="math display">\[
-\beta(\theta)
-=
-\mathbb{P}_\theta\bigl(T(X)\in C\bigr),
-\qquad \theta\in\Theta.
-\]</span></p>
-<p>Para <span class="math inline">\(\theta\in\Theta_0\)</span>, <span class="math inline">\(\beta(\theta)\)</span> coincide con la probabilidad de error de tipo I. Para <span class="math inline">\(\theta\in\Theta_1\)</span>, <span class="math inline">\(\beta(\theta)\)</span> es la probabilidad de rechazar correctamente <span class="math inline">\(H_0\)</span>.</p>
-<p>Un contraste será tanto mejor cuanto mayor sea su potencia bajo la alternativa. En general, no existe un contraste que maximice simultáneamente la potencia para todos los valores de <span class="math inline">\(\theta\in\Theta_1\)</span>, lo que introduce un compromiso inevitable.</p>
-</div>
-<div id="segundo-ejemplo-misma-alpha-distinta-potencia" class="section level3 hasAnchor" number="10.1.5">
-<h3><span class="header-section-number">10.1.5</span> Segundo ejemplo: misma alpha, distinta potencia<a href="construcción-de-contrastes-de-hipótesis.html#segundo-ejemplo-misma-alpha-distinta-potencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En el ejemplo anterior, consideremos dos contrastes de nivel <span class="math inline">\(\alpha\)</span>:</p>
+<div id="pruebas-mathrmx2" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Capítulo 13</span> Pruebas <span class="math inline">\(\mathrm{X}^{2}\)</span><a href="pruebas-mathrmx2.html#pruebas-mathrmx2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ol style="list-style-type: decimal">
-<li><strong>Contraste A</strong>: rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\bar X&gt;c\)</span>.</li>
-<li><strong>Contraste B</strong>: rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(X_1&gt;k\)</span>.</li>
+<li>El modelo multinomial</li>
+<li>Aplicaciones del modelo multinomial</li>
+<li>Formalización del contraste</li>
+<li>Condiciones de validez</li>
+<li>Análisis de Tablas de contingencia</li>
+<li>Pruebas de independencia</li>
+<li>Violación de las condiciones del contraste</li>
+<li>Pruebas de homogeneidad</li>
 </ol>
-<p>Ambos controlan el error de tipo I al nivel <span class="math inline">\(\alpha\)</span>. Sin embargo, para <span class="math inline">\(\mu&gt;0\)</span> se tiene, en general,</p>
+<div id="el-modelo-multinomial." class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> El modelo multinomial.<a href="pruebas-mathrmx2.html#el-modelo-multinomial." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es un modelo discreto multivariante. Puede verse como una generalización del modelo binomial que permite más de dos posibles resultados. Ya hemos hablado de él en el capítulo dedicado a las distribuciones discretas.</p>
+<p>Una situación típica es el número de veces que se dan cada uno de los posibles resultados <span class="math inline">\(\mathrm{A}_{1}, \ldots\)</span>, <span class="math inline">\(\mathrm{A}_{\mathrm{k}}\)</span> en N extracciones independientes manteniéndose constante la probabilidad de cada resultado. Los parámetros del modelo se corresponden con las diferentes probabilidades: <span class="math inline">\(\mathrm{p}_{1}=\mathrm{P}\left(\mathrm{A}_{1}\right), \cdots \cdots, \mathrm{p}_{\mathrm{k}}=\mathrm{P}\left(\mathrm{A}_{\mathrm{k}}\right)\)</span> y con el valor N .</p>
+<p>Por ejemplo:
+Para saber si un dado es regular realizamos 120 lanzamientos y anotamos los resultados obtenidos:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Resultado</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Frecuencia</td>
+<td align="center">15</td>
+<td align="center">22</td>
+<td align="center">18</td>
+<td align="center">14</td>
+<td align="center">25</td>
+<td align="center">26</td>
+</tr>
+</tbody>
+</table>
+<p>El modelo teórico sugiere que la probabilidad de cada cara es la misma</p>
 <p><span class="math display">\[
-\mathbb{P}_\mu(\bar X&gt;c)
-&gt;
-\mathbb{P}_\mu(X_1&gt;k),
+\mathrm{P}(1)=\mathrm{P}(2)=\mathrm{P}(3)=\mathrm{P}(4)=\mathrm{P}(5)=\mathrm{P}(6)=1 / 6 \text {, es decir } \mathrm{p}_{\mathrm{i}}=1 / 6 \quad \mathrm{i}=1, \ldots, 6
 \]</span></p>
-<p>ya que <span class="math inline">\(\bar X\)</span> utiliza toda la información de la muestra, mientras que <span class="math inline">\(X_1\)</span> solo utiliza una observación.</p>
-<p>Desde el punto de vista inferencial, el contraste A es preferible: <strong>tiene mayor potencia y discrimina mejor entre <span class="math inline">\(H_0\)</span> y <span class="math inline">\(H_1\)</span></strong>.</p>
-</div>
-<div id="de-contrastes-razonables-a-contrastes-óptimos" class="section level3 hasAnchor" number="10.1.6">
-<h3><span class="header-section-number">10.1.6</span> De contrastes razonables a contrastes óptimos<a href="construcción-de-contrastes-de-hipótesis.html#de-contrastes-razonables-a-contrastes-%C3%B3ptimos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El análisis anterior conduce naturalmente a distinguir entre:</p>
+<p>Los valores realmente observados son: <span class="math inline">\(O_{1}=15, \ldots, O_{6}=26\)</span>.</p>
+<div id="aplicaciones-del-modelo-multinomial." class="section level3 hasAnchor" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Aplicaciones del modelo multinomial.<a href="pruebas-mathrmx2.html#aplicaciones-del-modelo-multinomial." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Generalmente la inferencia basada en el modelo multinomial está enfocada a comprobar si dado un modelo teórico los resultados muestrales obtenidos son compatibles con el modelo.</p>
+<p>Posibles aplicaciones:</p>
 <ul>
-<li><strong>Contrastes razonables</strong>, que controlan el nivel y presentan un buen comportamiento práctico.</li>
-<li><strong>Contrastes óptimos</strong>, que maximizan la potencia según un criterio bien definido.</li>
+<li>Bondad de ajuste a distribuciones teóricas.</li>
+<li>Pruebas de independencia en Tablas de contingencia.</li>
+<li>Pruebas de homogeneidad para variables cualitativas.</li>
 </ul>
-<p>La noción de optimalidad es conceptualmente potente, pero muy restrictiva y solo se alcanza en situaciones ideales. La mayoría de los contrastes utilizados en la práctica no son óptimos en sentido estricto, sino soluciones que sacrifican optimalidad a cambio de generalidad o simplicidad.</p>
-<p>Las secciones siguientes se centran en estos criterios de optimalidad y en las estrategias que se utilizan cuando no es posible alcanzarlos.</p>
 </div>
-</div>
-<div id="evidencia-y-decisión-dos-enfoques-clásicos" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Evidencia y decisión: dos enfoques clásicos<a href="construcción-de-contrastes-de-hipótesis.html#evidencia-y-decisi%C3%B3n-dos-enfoques-cl%C3%A1sicos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>La necesidad de comparar contrastes con el mismo nivel conduce de forma natural a preguntarse <strong>qué criterio debe utilizarse para decidir cuándo un contraste es preferible a otro</strong>. Históricamente, esta cuestión dio lugar a dos enfoques distintos para la inferencia por contrastes, asociados a :contentReference<span index="0">oaicite:0</span> por un lado, y a :contentReference<span index="1">oaicite:1</span> y :contentReference<span index="2">oaicite:2</span> por otro.</p>
-<p>Aunque ambos enfoques conviven hoy en la práctica estadística, sus objetivos y su interpretación del contraste de hipótesis son conceptualmente diferentes.</p>
-<div id="el-enfoque-de-fisher-tests-de-significación" class="section level3 hasAnchor" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> El enfoque de Fisher: tests de significación<a href="construcción-de-contrastes-de-hipótesis.html#el-enfoque-de-fisher-tests-de-significaci%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En el enfoque de Fisher, el contraste se concibe como un <strong>procedimiento para medir la evidencia de los datos contra la hipótesis nula</strong>.</p>
-<p>El punto de partida es:</p>
+<div id="formalización-del-contraste." class="section level3 hasAnchor" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Formalización del contraste.<a href="pruebas-mathrmx2.html#formalizaci%C3%B3n-del-contraste." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La hipótesis nula del contraste es que el modelo multinomial teórico es correcto :</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{H}_{0}: \mathrm{P}\left(\mathrm{~A}_{1}\right)=\mathrm{p}_{1}, \mathrm{P}\left(\mathrm{~A}_{2}\right)=\mathrm{p}_{2}, \ldots, \mathrm{P}\left(\mathrm{~A}_{\mathrm{K}}\right)=\mathrm{p}_{\mathrm{k}} \\
+\mathrm{H}_{1}: \text { Para alguna i } \mathrm{P}\left(\mathrm{~A}_{\mathrm{i}}\right) \neq \mathrm{p}_{\mathrm{i}}
+\end{gathered}
+\]</span></p>
+<p>Obtención de las probabilidades <span class="math inline">\(\mathrm{p}_{\mathrm{i}}\)</span> :</p>
 <ul>
-<li>una hipótesis nula <span class="math inline">\(H_0\)</span>,</li>
-<li>un estadístico de contraste <span class="math inline">\(T(X)\)</span> cuya distribución bajo <span class="math inline">\(H_0\)</span> es conocida o aproximable.</li>
+<li>Las que directamente indique <span class="math inline">\(\mathrm{H}_{0}\)</span> si es el caso.</li>
+<li><span class="math inline">\(\mathrm{Si}_{0}\)</span> indica la distribución de la variable, estimar los parámetros y a través de ellos las probabilidades.</li>
+<li>En el caso de pruebas de independencia y homogeneidad en tablas de contingencia se verá más adelante.</li>
 </ul>
-<p>A partir del valor observado <span class="math inline">\(T(x)\)</span>, se define el <strong>p-valor</strong> como</p>
+<p>Los valores esperados para cada clase bajo <span class="math inline">\(\mathrm{H}_{0}\)</span> son <span class="math inline">\(e_{i}=\mathrm{N} \cdot \mathrm{p}_{\mathrm{i}}\)</span>., donde N es la suma de los valores observados para cada clase ( <span class="math inline">\(\mathrm{N}=o_{1}+o_{2}+\ldots+o_{k}\)</span> )</p>
+<p>El estadístico para contrastar la hipótesis es el siguiente:</p>
 <p><span class="math display">\[
-p=\mathbb{P}_{H_0}\bigl(T(X)\ge T(x)\bigr),
+\chi_{\exp }^{2}=\sum_{i=1}^{k} \frac{\left(o_{i}-e_{i}\right)^{2}}{e_{i}}
 \]</span></p>
-<p>o, más generalmente, como la probabilidad bajo <span class="math inline">\(H_0\)</span> de obtener un valor del estadístico tan extremo o más que el observado.</p>
-<p>En este enfoque:</p>
+<p>La distribución asintótica del estadístico anterior bajo la hipótesis nula es una <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\(\mathrm{k}-\mathrm{s}-\mathrm{r}\)</span> grados de libertad, donde s es el número de parámetros que ha sido necesario estimar a partir de la muestra para determinar las probabilidades teóricas, y r es el número de restricciones impuestas a los valores esperados. Este último valor es generalmente 1 debido a la restricción <span class="math inline">\(e_{1}+e_{2}+\ldots+e_{k}=N\)</span>.</p>
+<p>Rechazamos la hipótesis nula si</p>
+<p><span class="math display">\[
+\chi_{\exp }^{2} \geq \chi_{\alpha}^{2}
+\]</span></p>
+<p>donde el último término es el valor crítico asociado a una distribución <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\(\mathrm{k}-\mathrm{s}-\mathrm{r}\)</span> grados de libertad tal que deja a su derecha una probabilidad igual a <span class="math inline">\(\alpha\)</span>.</p>
+<p>Si <span class="math inline">\(\mathrm{k}=2\)</span> es equivalente al contraste para una proporción.
+Puede aplicarse a variables continuas definiendo las clases a través de intervalos.</p>
+<!-- | ![](https://cdn.mathpix.com/cropped/8fb6aebc-d028-4d10-9d17-acf468c1b322-05.jpg?height=764&width=315&top_left_y=94&top_left_x=486) |  -->
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Se puede comprobar el comprobar el funcionamiento funcionamiento de la prueba Jide la prueba Jicuadrado para para verificar la de bondad de entre ajuste entre unas frecuencias observadas y unas y proporciones teóricas. toricas.</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<div id="condiciones-de-validez." class="section level3 hasAnchor" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Condiciones de validez.<a href="pruebas-mathrmx2.html#condiciones-de-validez." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es un contraste asintótico que requiere para su validez que las frecuencias esperadas ( <span class="math inline">\(\mathrm{N} \cdot \mathrm{p}_{\mathrm{i}}\)</span> ) sean suficientemente grandes, en general se pide que sean superiores a <span class="math inline">\(\mathbf{5}\)</span>. Caso de no verificarse esta premisa será necesario ampliar la muestra para incrementar las frecuencias esperadas, o en su defecto agrupar clases para lograr el mismo objetivo.</p>
+<p>El siguiente Applet nos permite verificar la correcta aproximación del contraste a través de unas simulaciones de lanzamientos de un dado con frecuencias teóricas de cada cara seleccionadas por nosotros. La simulación se realiza según la frecuencia teórica, por tanto el resultado correcto del contraste debe ser aceptar la hipótesis nula (la distribución de frecuencias teóricas). Los posibles errores deberían corresponder con los previstos según el nivel de significación.</p>
+</div>
+</div>
+<div id="análisis-de-tablas-de-contingencia." class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Análisis de Tablas de contingencia.<a href="pruebas-mathrmx2.html#an%C3%A1lisis-de-tablas-de-contingencia." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una tabla de contingencia bidimensional es una clasificación de observaciones muestrales según dos características cualitativas, cada una de ellas con un número determinado de posibles resultados. Una de las características determina las filas de la tabla y la otra las columnas.</p>
+<p>Característica B
+| Característica A | | <span class="math inline">\(\mathrm{B}_{1}\)</span> | <span class="math inline">\(\mathrm{B}_{2}\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(\mathrm{B}_{m}\)</span> | Total |
+| :— | :— | :— | :— | :— | :— | :— |
+| | <span class="math inline">\(\mathrm{A}_{1}\)</span> | <span class="math inline">\(n_{11}\)</span> | <span class="math inline">\(n_{12}\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(n_{1 m}\)</span> | <span class="math inline">\(n_{1}\)</span>. |
+| | <span class="math inline">\(\mathrm{A}_{2}\)</span> | <span class="math inline">\(n_{21}\)</span> | <span class="math inline">\(n_{22}\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(n_{2 m}\)</span> | <span class="math inline">\(n_{2}\)</span>. |
+| | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(\dots\)</span> |
+| | <span class="math inline">\(\mathrm{A}_{k}\)</span> | <span class="math inline">\(n_{k 1}\)</span> | <span class="math inline">\(n_{k 2}\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(n_{k m}\)</span> | <span class="math inline">\(n_{k}\)</span>. |
+| | Total | <span class="math inline">\(n \cdot 1\)</span> | <span class="math inline">\(n \cdot 2\)</span> | <span class="math inline">\(\dots\)</span> | <span class="math inline">\(n_{\cdot m}\)</span> | <span class="math inline">\(N\)</span> |</p>
+<p>Si la muestra corresponde a una única población y los individuos se clasifican según dos variables cualitativas medidas sobre cada uno de ellos con k y m posibles resultados para cada variable, el objetivo del análisis de la tabla será determinar si existe relación entre las variables, se tratará de una prueba de Independencia.</p>
+<p>Si por el contrario, cada fila corresponde a una muestra de una población diferente y sobre cada individuo se mide una variable cualitativa, el objetivo será determinar si las diferentes poblaciones son homogéneas respecto la característica estudiada, se trata de una prueba de Homogeneidad entre las poblaciones.</p>
+<p>La diferencia fundamental entre ambos enfoques es que en la tabla para la prueba de homogeneidad los totales de las filas no son aleatorios sino que son valores fijos.</p>
+<div id="pruebas-de-independencia." class="section level3 hasAnchor" number="13.2.1">
+<h3><span class="header-section-number">13.2.1</span> Pruebas de independencia.<a href="pruebas-mathrmx2.html#pruebas-de-independencia." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El objetivo es verificar si existe una dependencia entre las variables cualitativas que definen filas y columnas, es decir si para todo <span class="math inline">\(\mathrm{i}=1, \ldots, \mathrm{k}\)</span> y <span class="math inline">\(\mathrm{j}=1, . ., \mathrm{m}\)</span> se verifica que la probabilidad del resultado correspondiente a la combinación <span class="math inline">\(\mathrm{A}_{\mathrm{i}} \cap \mathrm{B}_{\mathrm{j}}\)</span> es el producto de las probabilidades marginales correspondientes. <span class="math inline">\(\mathrm{P}\left(\mathrm{A}_{\mathrm{i}}\right)\)</span> es la probabilidad del resultado i para la variable fila y <span class="math inline">\(\mathrm{P}\left(\mathrm{B}_{\mathrm{j}}\right)\)</span> la del resultado j para la variable columna.</p>
+<p><span class="math display">\[
+\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}} \cap \mathrm{~B}_{\mathrm{j}}\right)=\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right)
+\]</span></p>
+<p>Utilizaremos generalmente la notación más simplificada:</p>
+<p><span class="math display">\[
+\begin{gathered}
+\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}} \cap \mathrm{~B}_{\mathrm{j}}\right)=\mathrm{p}_{\mathrm{ij}} \\
+\mathrm{P}\left(\mathrm{~A}_{\mathrm{j}}\right)=\mathrm{p}_{\mathrm{i}} \cdot \\
+\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right)=\mathrm{p} \cdot \mathrm{j}
+\end{gathered}
+\]</span></p>
+<p>Los valores de <span class="math inline">\(\mathrm{p}_{\mathrm{i}} \cdot \mathrm{y} \mathrm{p} \cdot \mathrm{j}\)</span> serán estimados, a partir de los valores observados en la tabla de contingencia, por
+<span class="math inline">\(n_{i} \cdot / N\)</span> y <span class="math inline">\(n_{\cdot j} / N\)</span> respectivamente.
+Hipótesis nula de independencia: para toda combinación de resultados de las variables fila y columna (i,j)</p>
+<p><span class="math display">\[
+\mathrm{H}_{0}: \mathrm{p}_{\mathrm{ij}}=\mathrm{p}_{\mathrm{i}} \cdot \mathrm{p} \cdot \mathrm{j} \quad \text { para todo } \quad \mathrm{i}=1, \ldots, \mathrm{k} \quad \mathrm{j}=1, . ., \mathrm{m}
+\]</span></p>
+<p>La hipótesis alternativa, que implica dependencia, se puede formular diciendo que alguna de las igualdades de la hipótesis nula es falsa.</p>
+<p>Los valores observados son <span class="math inline">\(n_{i j}\)</span>. Los valores esperados bajo la hipótesis nula de independencia se calculan de la manera siguiente</p>
+<p><span class="math display">\[
+e_{i j}=N \cdot \mathrm{p}_{\mathrm{ij}}=N \cdot \mathrm{p}_{\mathrm{i} \cdot} \cdot \mathrm{p}_{\cdot \mathrm{j}}=N \cdot\left(n_{i \cdot} / N\right) \cdot\left(n_{\cdot j} / N\right)=\left(n_{i \cdot} \cdot n_{\cdot j}\right) / N
+\]</span></p>
+<p>El estadístico de contraste se calcula de la forma habitual</p>
+<p><span class="math display">\[
+\chi_{\exp }^{2}=\sum_{i=1}^{k} \sum_{j=1}^{m} \frac{\left(n_{i j}-e_{i j}\right)^{2}}{e_{i j}}
+\]</span></p>
+<p>La distribución asintótica bajo la hipótesis nula es una <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\((\mathrm{k}-1) \cdot(\mathrm{m}-1)\)</span> grados de libertad. Los grados de libertad pueden entenderse de forma intuitiva entendiendo que el número de parámetros que se estiman son (k-1) y (m-1) al quedar fijada la probabilidad de la última clase de cada característica una vez estimadas las restantes. Por tanto aplicando la fórmula para los grados de libertad se obtiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \text { grados de libertad }=\text { número de clases }- \text { número de parámetros estimados }-1 \\
+&amp; \qquad \operatorname{grados~de~libertad~}=k \cdot m-(k-1)-(m-1)-1=(k-1) \cdot(m-1)
+\end{aligned}
+\]</span></p>
+<p>El criterio de decisión es el mismo que en el caso general:
+Rechazamos la hipótesis nula si</p>
+<p><span class="math display">\[
+\chi_{\exp }^{2} \geq \chi_{\alpha}^{2}
+\]</span></p>
+<p>donde el último término es el valor crítico asociado a una distribución <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\((\mathrm{k}-1) \cdot(\mathrm{m}-1)\)</span> grados de libertad tal que deja a su derecha una probabilidad igual a <span class="math inline">\(\alpha\)</span>.</p>
+<p>La condición de validez es que las frecuencias esperadas <span class="math inline">\(e_{i j}\)</span> sean mayores que 5 .</p>
+</div>
+<div id="violación-de-las-condiciones-del-contraste." class="section level3 hasAnchor" number="13.2.2">
+<h3><span class="header-section-number">13.2.2</span> Violación de las condiciones del contraste.<a href="pruebas-mathrmx2.html#violaci%C3%B3n-de-las-condiciones-del-contraste." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>no se formula explícitamente una hipótesis alternativa,</li>
-<li>no se habla de errores de tipo II ni de potencia,</li>
-<li>el p-valor se interpreta como una <strong>medida graduada de evidencia</strong> contra <span class="math inline">\(H_0\)</span>.</li>
+<li>Solución óptima: ampliar la muestra.</li>
+<li>Solución alternativa: agrupar filas o columnas.</li>
+<li>Sin embargo, agrupar filas o columnas significa perder algún resultado experimental que puede ser justamente el importante para la significación del contraste y se reducen los grados de libertad.</li>
 </ul>
-<p>La decisión de rechazar o no rechazar <span class="math inline">\(H_0\)</span> es secundaria y, en cierto sentido, convencional.</p>
-</div>
-<div id="el-enfoque-de-neymanpearson-contraste-como-regla-de-decisión" class="section level3 hasAnchor" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> El enfoque de Neyman–Pearson: contraste como regla de decisión<a href="construcción-de-contrastes-de-hipótesis.html#el-enfoque-de-neymanpearson-contraste-como-regla-de-decisi%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En el enfoque de Neyman–Pearson, el contraste se plantea explícitamente como un <strong>problema de decisión bajo incertidumbre</strong>.</p>
-<p>Se consideran dos hipótesis:</p>
+<p>En tablas <span class="math inline">\(2 \times 2\)</span> existe una corrección por continuidad (Corrección de Yates).</p>
 <p><span class="math display">\[
-H_0:\theta\in\Theta_0
-\qquad \text{frente a} \qquad
-H_1:\theta\in\Theta_1,
+\chi_{\exp }^{2}=N \frac{\left(\left|n_{11} n_{22}-n_{12} n_{21}\right|-\frac{N}{2}\right)^{2}}{n_{1} \cdot n_{2} \cdot n_{1} n_{2}}
 \]</span></p>
-<p>y se construye un contraste que:</p>
-<ul>
-<li>controla el error de tipo I a un nivel prefijado <span class="math inline">\(\alpha\)</span>,</li>
-<li>tiene la mayor potencia posible bajo la alternativa.</li>
-</ul>
-<p>En este marco:</p>
-<ul>
-<li>el contraste se define por un estadístico <span class="math inline">\(T(X)\)</span> y una región crítica <span class="math inline">\(C\)</span>,</li>
-<li>el nivel <span class="math inline">\(\alpha\)</span> es un requisito fundamental,</li>
-<li>la <strong>potencia</strong> <span class="math inline">\(\beta(\theta)\)</span> es el criterio de calidad del contraste.</li>
-</ul>
-<p>El objetivo no es medir evidencia, sino <strong>tomar una decisión con garantías probabilísticas bien definidas</strong>.</p>
-</div>
-<div id="diferencias-conceptuales-clave" class="section level3 hasAnchor" number="10.2.3">
-<h3><span class="header-section-number">10.2.3</span> Diferencias conceptuales clave<a href="construcción-de-contrastes-de-hipótesis.html#diferencias-conceptuales-clave" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Aunque en la práctica ambos enfoques suelen mezclarse, conviene tener presentes sus diferencias fundamentales:</p>
-<ul>
-<li>Fisher se centra en la <strong>compatibilidad de los datos con <span class="math inline">\(H_0\)</span></strong>.</li>
-<li>Neyman–Pearson se centra en el <strong>comportamiento a largo plazo del procedimiento de decisión</strong>.</li>
-<li>El p-valor es central en Fisher, pero secundario en Neyman–Pearson.</li>
-<li>La potencia es central en Neyman–Pearson, pero no aparece en Fisher.</li>
-</ul>
-<p>Estas diferencias no son meramente filosóficas: influyen directamente en <strong>cómo se construyen los contrastes</strong> y en qué criterios se consideran relevantes.</p>
-</div>
-<div id="convivencia-de-ambos-enfoques-en-la-práctica" class="section level3 hasAnchor" number="10.2.4">
-<h3><span class="header-section-number">10.2.4</span> Convivencia de ambos enfoques en la práctica<a href="construcción-de-contrastes-de-hipótesis.html#convivencia-de-ambos-enfoques-en-la-pr%C3%A1ctica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En la práctica estadística actual es habitual encontrar procedimientos que combinan elementos de ambos enfoques:</p>
-<ul>
-<li>se calcula un p-valor,</li>
-<li>se compara con un nivel <span class="math inline">\(\alpha\)</span> prefijado,</li>
-<li>se habla de potencia y tamaño muestral.</li>
-</ul>
-<p>Esta convivencia no es contradictoria, pero sí puede resultar confusa si no se distinguen claramente los objetivos de cada marco teórico.</p>
-<p>En las secciones siguientes adoptaremos principalmente el punto de vista de Neyman–Pearson, ya que permite <strong>formular de manera precisa el problema de la construcción de contrastes óptimos</strong>, sin perder de vista las limitaciones prácticas de dicho enfoque.</p>
+<p>Si las frecuencias esperadas son demasiado pequeñas, también es posible utilizar el test exacto de Fisher al ser equivalente a la comparación de dos proporciones.</p>
 </div>
 </div>
-<div id="tests-óptimos-el-lema-de-neymanpearson" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> Tests óptimos: el lema de Neyman–Pearson<a href="construcción-de-contrastes-de-hipótesis.html#tests-%C3%B3ptimos-el-lema-de-neymanpearson" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En las secciones anteriores hemos visto que, una vez fijado el nivel de significación, existen múltiples contrastes posibles para un mismo problema, y que la potencia proporciona un criterio natural para compararlos. Surge entonces una pregunta fundamental:</p>
-<p>¿es posible construir un contraste que sea óptimo en el sentido de maximizar la potencia?</p>
-<p>El resultado central que responde a esta cuestión es el <strong>lema de Neyman–Pearson</strong>, que establece la forma del contraste más potente cuando ambas hipótesis son simples.</p>
-<div id="hipótesis-simples-y-razón-de-verosimilitudes" class="section level3 hasAnchor" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> Hipótesis simples y razón de verosimilitudes<a href="construcción-de-contrastes-de-hipótesis.html#hip%C3%B3tesis-simples-y-raz%C3%B3n-de-verosimilitudes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consideremos un modelo probabilístico dependiente de un parámetro <span class="math inline">\(\theta\)</span> y el contraste entre dos hipótesis simples</p>
+<div id="pruebas-de-homogeneidad." class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Pruebas de homogeneidad.<a href="pruebas-mathrmx2.html#pruebas-de-homogeneidad." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El objetivo es comprobar si en k poblaciones <span class="math inline">\(\left(\mathrm{A}_{1}, \ldots, \mathrm{~A}_{\mathrm{k}}\right)\)</span>, es idéntica la distribución de probabilidad de una variable cualitativa con m posibles resultados <span class="math inline">\(\left(\mathrm{B}_{1}, \ldots, \mathrm{~B}_{\mathrm{m}}\right)\)</span>. Es decir si se verifica</p>
 <p><span class="math display">\[
-H_0:\theta=\theta_0
-\qquad \text{frente a} \qquad
-H_1:\theta=\theta_1,
+\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{1}\right)=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{2}\right)=\cdots=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{\mathrm{k}}\right)=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right) \quad \text { para todo } \mathrm{j}=1, \ldots, \mathrm{~m}
 \]</span></p>
-<p>con <span class="math inline">\(\theta_0\neq\theta_1\)</span>.</p>
-<p>Denotemos por <span class="math inline">\(f_0(x)\)</span> y <span class="math inline">\(f_1(x)\)</span> la función de densidad (o de probabilidad) de la muestra bajo <span class="math inline">\(H_0\)</span> y <span class="math inline">\(H_1\)</span>, respectivamente. Se define la <strong>razón de verosimilitudes</strong> a favor de la alternativa como</p>
+<p>La diferencia con el caso de independencia es que los totales de las filas <span class="math inline">\(n_{i}\)</span>. son valores fijos y no aleatorios, y corresponden al número de individuos seleccionados en la muestra pertenecientes a la población i. La estimación de los valores <span class="math inline">\(\mathrm{P}\left(\mathrm{B}_{\mathrm{j}}\right)\)</span> bajo la hipótesis de homogeneidad se obtiene a partir de la tabla de contingencia a través de <span class="math inline">\(n_{\cdot j} / N\)</span>.</p>
+<p>Hipótesis nula de homogeneidad: dadas dos poblaciones cualesquiera i y i’ se verifica</p>
 <p><span class="math display">\[
-\Lambda(x)=\frac{f_1(x)}{f_0(x)}.
+\mathrm{H}_{0}: \mathrm{p}_{\mathrm{ij}}=\mathrm{p}_{\mathrm{i}}{ }^{\prime} \mathrm{j} \quad \text { para todo } \mathrm{j}=1, \ldots, \mathrm{~m}
 \]</span></p>
-<p>Valores grandes de <span class="math inline">\(\Lambda(x)\)</span> indican mayor compatibilidad de los datos con <span class="math inline">\(H_1\)</span> que con <span class="math inline">\(H_0\)</span>.</p>
+<p>donde <span class="math inline">\(\mathrm{p}_{\mathrm{ij}}\)</span> es la probabilidad del resultado j en la población i.
+La hipótesis alternativa (alguna igualdad no es cierta) implica no homogeneidad de las poblaciones.
+Los valores observados son <span class="math inline">\(n_{i j}\)</span>. Los valores esperados bajo la hipótesis nula de homogeneidad se calculan de la manera siguiente</p>
+<p><span class="math display">\[
+e_{i j}=n_{i} \cdot P\left(\mathrm{~B}_{\mathrm{j}}\right)=n_{i \cdot}\left(n_{\cdot j} / N\right)=\left(n_{i \cdot} \cdot n_{\cdot j}\right) / N
+\]</span></p>
+<p>Resultado idéntico al obtenido en el caso del contraste de independencia.
+El estadístico de contraste se calcula de forma análoga</p>
+<p><span class="math display">\[
+\chi_{\exp }^{2}=\sum_{i=1}^{k} \sum_{j=1}^{m} \frac{\left(n_{i j}-e_{i j}\right)^{2}}{e_{i j}}
+\]</span></p>
+<p>La distribución asintótica bajo la hipótesis nula es una <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\((\mathrm{k}-1) \cdot(\mathrm{m}-1)\)</span> grados de libertad. Los grados de libertad pueden entenderse de forma intuitiva entendiendo que el número de parámetros que se estiman son (m-1) al quedar fijada la probabilidad de la última clase <span class="math inline">\(\mathrm{B}_{\mathrm{j}}\)</span> una vez estimadas las restantes, y al considerar que existen k restricciones a los valores esperados debido a que tenemos fijados los totales de cada población. Por tanto aplicando la fórmula para los grados de libertad se obtiene
+grados de libertad <span class="math inline">\(=\)</span> número de clases - número de parámetros estimados - número de restricciones</p>
+<p><span class="math display">\[
+\operatorname{grados~de~libertad~}=(\mathrm{k} \cdot \mathrm{~m})-(\mathrm{m}-1)-\mathrm{k}=(\mathrm{k}-1) \cdot(\mathrm{m}-1)
+\]</span></p>
+<p>El criterio de decisión es el mismo que en el contraste de independencia.</p>
+<p>La condición de validez es que las frecuencias esperadas <span class="math inline">\(e_{i j}\)</span> sean mayores que 5 .</p>
 </div>
-<div id="enunciado-del-lema-de-neymanpearson" class="section level3 hasAnchor" number="10.3.2">
-<h3><span class="header-section-number">10.3.2</span> Enunciado del lema de Neyman–Pearson<a href="construcción-de-contrastes-de-hipótesis.html#enunciado-del-lema-de-neymanpearson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Entre todos los contrastes de nivel <span class="math inline">\(\alpha\)</span> para contrastar <span class="math inline">\(H_0\)</span> frente a <span class="math inline">\(H_1\)</span>, el contraste que rechaza <span class="math inline">\(H_0\)</span> cuando</p>
+<div id="la-distribución-multinomial-1" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> La distribución Multinomial<a href="pruebas-mathrmx2.html#la-distribuci%C3%B3n-multinomial-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este modelo se puede ver como una generalización del Binomial en el que, en lugar de tener dos posibles resultados, tenemos <span class="math inline">\(r\)</span> resultados posibles.</p>
+<p>Supongamos que el resultado de una determinada experiencia puede ser <span class="math inline">\(r\)</span> valores distintos: <span class="math inline">\(A_{1}, A_{2}, \ldots\)</span>, <span class="math inline">\(A_{r}\)</span> cada uno de ellos con probabilidad <span class="math inline">\(p_{1}, p_{2}, \ldots, p_{r}\)</span>, respectivamente.</p>
 <p><span class="math display">\[
-\Lambda(X)\ge c
+P\left(A_{1}\right)=p_{1} ; \quad P\left(A_{2}\right)=p_{2} ; \quad \ldots . \quad P\left(A_{r}\right)=p_{r} ; \quad \text { con } \sum_{i=1}^{r} P\left(A_{i}\right)=1 ;
 \]</span></p>
-<p>para una constante <span class="math inline">\(c\)</span> elegida de modo que</p>
+<p>Si repetimos la experiencia <span class="math inline">\(n\)</span> veces en condiciones independientes, podemos preguntarnos la probabilidad de que el suceso <span class="math inline">\(A_{1}\)</span> aparezca <span class="math inline">\(k_{1}\)</span> veces, el suceso <span class="math inline">\(A_{2}, k_{2}\)</span> veces y así sucesivamente:</p>
 <p><span class="math display">\[
-\mathbb{P}_{H_0}\bigl(\Lambda(X)\ge c\bigr)=\alpha
+P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]
 \]</span></p>
-<p>es el contraste <strong>más potente</strong>, es decir, el que maximiza la potencia</p>
+<p>Al modelo estadístico que nos da dicha probabilidad se le denomina Multinomial, y su función de densidad viene dada por:</p>
 <p><span class="math display">\[
-\beta(\theta_1)=\mathbb{P}_{\theta_1}\bigl(\Lambda(X)\ge c\bigr)
+\begin{gathered}
+f\left(k_{1}, k_{2}, \ldots, k_{r}\right)=P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]=\frac{n!}{k_{1}!k!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}} \\
+\operatorname{con} \sum_{i=1}^{r} P\left(A_{i}\right)=1 \quad \mathbf{y} \quad \sum_{i=1}^{r} k_{i}=n ;
+\end{gathered}
 \]</span></p>
-<p>entre todos los contrastes de nivel <span class="math inline">\(\alpha\)</span>.</p>
-<p>Este contraste se denomina <strong>contraste de razón de verosimilitudes</strong> y proporciona una solución óptima en el caso de hipótesis simples.</p>
-<hr />
+<p>como se ve, el modelo Multinomial queda definido por los parámetros <span class="math inline">\(\left(n, p_{1}, p_{2}, \ldots, p_{r}\right)\)</span>. La fórmula anterior puede deducirse de forma análoga al caso Binomial. En realidad, si tomamos <span class="math inline">\(r=2\)</span> tenemos exactamente el modelo Binomial.</p>
+<p>Se debe destacar que este modelo es un ejemplo de distribución multivariante, es decir, de distribución conjunta de varias ( <span class="math inline">\(r\)</span> ) variables aleatorias. En efecto, si definimos la variable aleatoria <span class="math inline">\(X_{1}\)</span> como número de veces que se produce el suceso <span class="math inline">\(A_{1}\)</span> de un total de n experiencias, y así sucesivamente, tenemos un conjunto de <span class="math inline">\(r\)</span> variables aleatorias discretas cuya función de densidad conjunta (valorada a la vez) viene definida por la anterior fórmula. Nótese que si consideramos cada una de estas variables <span class="math inline">\(X_{i}(i=1,2, \ldots, r)\)</span> por separado, su distribución es la Binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p_{i}\)</span>.</p>
 </div>
-<div id="ejemplo-modelo-normal-con-varianza-conocida" class="section level3 hasAnchor" number="10.3.3">
-<h3><span class="header-section-number">10.3.3</span> Ejemplo: modelo normal con varianza conocida<a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-modelo-normal-con-varianza-conocida" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Sea <span class="math inline">\(X_1,\dots,X_n\)</span> una muestra de una distribución <span class="math inline">\(N(\mu,\sigma^2)\)</span>, con <span class="math inline">\(\sigma^2\)</span> conocida. Consideremos el contraste</p>
+<div id="la-distribución-binomial-1" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> La distribución Binomial<a href="pruebas-mathrmx2.html#la-distribuci%C3%B3n-binomial-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Al igual que el modelo de Bernouilli, hace referencia a experiencias con resultados dicotómicos (el resultado sólo puede ser <span class="math inline">\(A\)</span> o <span class="math inline">\(A^{c}\)</span> ). Sin embargo en este modelo estamos interesados en la repetición de <span class="math inline">\(n\)</span> veces una experiencia de este tipo en condiciones independientes.</p>
+<p>Tomemos el ejemplo del contaje del número de caras en el lanzamiento <span class="math inline">\(n\)</span> veces de una moneda regular.
+Para concretar, vamos a suponer que disponemos de una moneda regular ( <span class="math inline">\(P[\)</span> cara <span class="math inline">\(]=P[\)</span> cruz <span class="math inline">\(]=1 / 2\)</span> ) que lanzamos cuatro veces. Es evidente que, en estas condiciones, la variable <span class="math inline">\(X\)</span> : número de caras en cuatro lanzamientos independientes de una moneda regular es una variable aleatoria discreta que sólo puede tomar cinco posibles valores:</p>
 <p><span class="math display">\[
-H_0:\mu=\mu_0
-\qquad \text{frente a} \qquad
-H_1:\mu=\mu_1,
+x=0,1,2,3,4
 \]</span></p>
-<p>con <span class="math inline">\(\mu_1&gt;\mu_0\)</span>.</p>
-<p>La razón de verosimilitudes viene dada por</p>
+<p>Pasemos ahora a calcular la probabilidad de cada valor (en terminología estadística, vamos a calcular la función de densidad de la variable <span class="math inline">\(X\)</span> ).</p>
+<p>Es evidente que la <span class="math inline">\(P[X=0]\)</span> es igual a la probabilidad de salgan cuatro cruces seguidas:</p>
 <p><span class="math display">\[
-\Lambda(x)
-=\exp\!\left(
-\frac{\mu_1-\mu_0}{\sigma^2}\sum_{j=1}^n x_j
--\frac{n(\mu_1^2-\mu_0^2)}{2\sigma^2}
-\right).
+P[X=0]=P[c r u z, c r u z, c r u z, c r u z]=\mathrm{P}[c r u z]^{4}=(1 / 2)^{4}=0,0625
 \]</span></p>
-<p>Dado que esta expresión es una función monótonamente creciente de <span class="math inline">\(\sum X_j\)</span>, el contraste más potente rechaza <span class="math inline">\(H_0\)</span> cuando</p>
+<p>ya que la moneda es regular y, por tanto, <span class="math inline">\(P[\)</span> cara <span class="math inline">\(]=P[\)</span> cruz <span class="math inline">\(]=1 / 2\)</span>.
+La <span class="math inline">\(P[X=3]\)</span> corresponde al suceso de que salgan tres caras ( <span class="math inline">\(c\)</span> en adelante) y una cruz ( + en adelante). Sin embargo, en este caso tenemos hasta cuatro posibles maneras de obtener dicho resultado, según el orden en que aparezcan las tres caras y la cruz:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">+ccc</th>
+<th align="left"><span class="math inline">\(\mathrm{c}+\mathrm{cc}\)</span></th>
+<th align="left"><span class="math inline">\(\mathrm{cc}+\mathrm{c}\)</span></th>
+<th align="left"><span class="math inline">\(\mathrm{ccc}+\)</span></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>También debería resultar evidente que la probabilidad de cada uno de estos sucesos es la misma:</p>
 <p><span class="math display">\[
-\sum_{j=1}^n X_j \ge c
-\quad \Longleftrightarrow \quad
-\bar X \ge c&#39;,
+P[+c c c]=P[c+c c]=P[c c+c]=P[c c c+]=(1 / 2)^{4}=(1 / 2)^{4}=0,0625,
 \]</span></p>
-<p>donde la constante <span class="math inline">\(c&#39;\)</span> se elige de modo que</p>
+<p>de manera que, finalmente, la probabilidad de que salgan tres caras y una cruz es la suma de las probabilidades de los 4 casos anteriores:</p>
 <p><span class="math display">\[
-\mathbb{P}_{H_0}(\bar X\ge c&#39;)=\alpha.
+P[X=3]=4(1 / 2)^{4}=0,25
 \]</span></p>
-<p>Este procedimiento conduce exactamente al contraste Z unilateral habitual. El lema de Neyman–Pearson permite, en este caso, justificar su optimalidad para hipótesis simples.</p>
-<hr />
-</div>
-<div id="ejemplo-modelo-de-poisson" class="section level3 hasAnchor" number="10.3.4">
-<h3><span class="header-section-number">10.3.4</span> Ejemplo: modelo de Poisson<a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-modelo-de-poisson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Sea <span class="math inline">\(X_1,\dots,X_n\)</span> una muestra de una distribución Poisson con parámetro <span class="math inline">\(\lambda\)</span>. Consideremos el contraste</p>
+<p>Y así podríamos ir calculando el resto de casos. Podemos ver que, en este ejemplo, todos los casos tienen la misma probabilidad <span class="math inline">\((0,0625)\)</span> y que el número total de casos posibles es 16 . En términos de combinatoria dicho número se obtendría como variaciones con repetición de dos valores (cara o cruz) tomados de cuatro en cuatro (el número de lanzamientos de la moneda):</p>
 <p><span class="math display">\[
-H_0:\lambda=\lambda_0
-\qquad \text{frente a} \qquad
-H_1:\lambda=\lambda_1,
+V R_{2}^{4}=2^{4}=16
 \]</span></p>
-<p>con <span class="math inline">\(\lambda_1&gt;\lambda_0\)</span>.</p>
-<p>La razón de verosimilitudes es</p>
+<p>En la siguiente tabla se muestran los dieciséis posibles resultados:</p>
+<!-- ![](https://cdn.mathpix.com/cropped/8fb6aebc-d028-4d10-9d17-acf468c1b322-14.jpg?height=62&width=746&top_left_y=2741&top_left_x=657) -->
+<table>
+<thead>
+<tr class="header">
+<th align="left">k = número de caras</th>
+<th align="left">Casos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">++++</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">+++C</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">++C+</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">+C++</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">C+++</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">++CC</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"><span class="math inline">\(+\mathrm{c}+\mathrm{c}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">+CC+</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">C++C</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">C+C+</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC++</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="left">CCC+</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">CC+C</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">C+CC</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">+CCC</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">CCCC</td>
+</tr>
+</tbody>
+</table>
+<p>Si hacemos uso de nuestros conocimientos de combinatoria, comprobamos que el número de casos para cada posible valor <span class="math inline">\(k(k=0,1,2,3,4)\)</span> puede calcularse como permutaciones con repetición de cuatro elementos tomado de <span class="math inline">\(k\)</span> y <span class="math inline">\(4-k\)</span> :</p>
 <p><span class="math display">\[
-\Lambda(x)
-=\left(\frac{\lambda_1}{\lambda_0}\right)^{\sum x_j}
-\exp\!\left(-n(\lambda_1-\lambda_0)\right).
+R P_{4}^{k, 4-k}=\frac{4!}{k!(4-k)!}=\binom{4}{k}
 \]</span></p>
-<p>Esta expresión es monótonamente creciente en <span class="math inline">\(\sum X_j\)</span>. Por tanto, el contraste más potente rechaza <span class="math inline">\(H_0\)</span> cuando</p>
+<p>y obtenemos finalmente el número combinatorio 4 sobre <span class="math inline">\(k\)</span>. En efecto, para el caso <span class="math inline">\(k=3\)</span>, tendríamos:</p>
 <p><span class="math display">\[
-\sum_{j=1}^n X_j \ge c,
+\binom{4}{3}=\frac{4!}{3!1!}=4
 \]</span></p>
-<p>donde <span class="math inline">\(c\)</span> se elige de modo que</p>
-<p><span class="math display">\[
-\mathbb{P}_{H_0}\!\left(\sum_{j=1}^n X_j \ge c\right)=\alpha.
-\]</span></p>
-<p>Este ejemplo muestra que el lema de Neyman–Pearson no se limita al modelo normal y se aplica de forma natural a modelos discretos.</p>
-<hr />
-</div>
-<div id="extensiones-del-lema-de-neymanpearson" class="section level3 hasAnchor" number="10.3.5">
-<h3><span class="header-section-number">10.3.5</span> Extensiones del lema de Neyman–Pearson<a href="construcción-de-contrastes-de-hipótesis.html#extensiones-del-lema-de-neymanpearson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El lema de Neyman–Pearson garantiza la existencia de un contraste óptimo únicamente en el caso de hipótesis simples. Sin embargo, en determinadas situaciones puede extenderse a hipótesis compuestas.</p>
-<p>Consideremos un contraste unilateral</p>
-<p><span class="math display">\[
-H_0:\theta=\theta_0
-\qquad \text{frente a} \qquad
-H_1:\theta&gt;\theta_0,
-\]</span></p>
-<p>dentro de una familia exponencial de una dimensión, con densidad de la forma</p>
-<p><span class="math display">\[
-f(x|\theta)=\exp\!\left\{\eta(\theta)T(x)-A(\theta)+B(x)\right\}.
-\]</span></p>
-<p>Si la razón de verosimilitudes entre <span class="math inline">\(\theta_1&gt;\theta_0\)</span> y <span class="math inline">\(\theta_0\)</span> es monótona creciente en <span class="math inline">\(T(x)\)</span>, la región crítica obtenida mediante el lema de Neyman–Pearson <strong>no depende del valor concreto de <span class="math inline">\(\theta_1\)</span></strong>.</p>
-<p>En este caso existe un contraste <strong>uniformemente más potente</strong> (UMP) para la alternativa unilateral, que rechaza <span class="math inline">\(H_0\)</span> cuando</p>
-<p><span class="math display">\[
-T(X)\ge c,
-\]</span></p>
-<p>con <span class="math inline">\(c\)</span> elegido de modo que el nivel sea <span class="math inline">\(\alpha\)</span>.</p>
-<p>Este resultado explica la existencia de contrastes unilaterales simples y bien definidos en modelos como el normal, el Poisson o el binomial.</p>
-<hr />
-</div>
-<div id="límites-del-enfoque" class="section level3 hasAnchor" number="10.3.6">
-<h3><span class="header-section-number">10.3.6</span> Límites del enfoque<a href="construcción-de-contrastes-de-hipótesis.html#l%C3%ADmites-del-enfoque" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Cuando:</p>
-<ul>
-<li>la familia no es exponencial,</li>
-<li>la alternativa es bilateral,</li>
-<li>o la región crítica depende del parámetro bajo <span class="math inline">\(H_1\)</span>,</li>
-</ul>
-<p>no existe, en general, un contraste óptimo en el sentido de Neyman–Pearson.</p>
-<p>En estas situaciones es necesario recurrir a procedimientos más generales, como los <strong>contrastes de razón de verosimilitudes generalizados</strong> o a aproximaciones asintóticas, que se estudiarán en la siguiente sección.</p>
-</div>
-</div>
-<div id="contrastes-de-razón-de-verosimilitudes-generalizados" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Contrastes de razón de verosimilitudes generalizados<a href="construcción-de-contrastes-de-hipótesis.html#contrastes-de-raz%C3%B3n-de-verosimilitudes-generalizados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En la sección anterior hemos visto que el lema de Neyman–Pearson permite construir contrastes óptimos en el caso de hipótesis simples, y que en algunas situaciones particulares puede extenderse a hipótesis compuestas unilaterales. Sin embargo, en muchos problemas de interés práctico estas condiciones no se cumplen.</p>
-<p>Cuando no existe un contraste uniformemente más potente, una estrategia natural consiste en comparar <strong>qué tan bien explican los datos las hipótesis nula y alternativa</strong> mediante sus respectivas verosimilitudes. Esta idea conduce a los <strong>contrastes de razón de verosimilitudes generalizados</strong>.</p>
-<div id="definición-del-estadístico-de-razón-de-verosimilitudes" class="section level3 hasAnchor" number="10.4.1">
-<h3><span class="header-section-number">10.4.1</span> Definición del estadístico de razón de verosimilitudes<a href="construcción-de-contrastes-de-hipótesis.html#definici%C3%B3n-del-estad%C3%ADstico-de-raz%C3%B3n-de-verosimilitudes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Sea <span class="math inline">\(L(\theta)\)</span> la función de verosimilitud del modelo y consideremos el contraste</p>
-<p><span class="math display">\[
-H_0:\theta\in\Theta_0
-\qquad \text{frente a} \qquad
-H_1:\theta\in\Theta\setminus\Theta_0.
-\]</span></p>
-<p>Se define el <strong>estadístico de razón de verosimilitudes</strong> como</p>
-<p><span class="math display">\[
-\Lambda(X)
-=
-\frac{\sup_{\theta\in\Theta_0} L(\theta)}
-{\sup_{\theta\in\Theta} L(\theta)}.
-\]</span></p>
-<p>Este cociente compara el mejor ajuste del modelo bajo la restricción impuesta por <span class="math inline">\(H_0\)</span> con el mejor ajuste posible sin restricciones.</p>
-<p>Por construcción, <span class="math inline">\(0\le\Lambda(X)\le 1\)</span>. Valores cercanos a uno indican que la restricción impuesta por <span class="math inline">\(H_0\)</span> apenas reduce la verosimilitud, mientras que valores pequeños indican que el ajuste bajo <span class="math inline">\(H_0\)</span> es sustancialmente peor que el del modelo completo.</p>
-<p>En consecuencia, valores pequeños de <span class="math inline">\(\Lambda(X)\)</span> proporcionan evidencia contra la hipótesis nula.</p>
-</div>
-<div id="regla-de-decisión-y-aproximación-asintótica" class="section level3 hasAnchor" number="10.4.2">
-<h3><span class="header-section-number">10.4.2</span> Regla de decisión y aproximación asintótica<a href="construcción-de-contrastes-de-hipótesis.html#regla-de-decisi%C3%B3n-y-aproximaci%C3%B3n-asint%C3%B3tica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Bajo condiciones de regularidad bastante generales, y cuando el tamaño muestral es grande, se tiene que</p>
-<p><span class="math display">\[
--2\log\Lambda(X)
-\;\xrightarrow{d}\;
-\chi^2_{\,\nu},
-\]</span></p>
-<p>donde <span class="math inline">\(\nu=\dim(\Theta_1)-\dim(\Theta_0)\)</span> es el número de restricciones impuestas por <span class="math inline">\(H_0\)</span>.</p>
-<p>Esto permite construir contrastes aproximados de nivel <span class="math inline">\(\alpha\)</span> rechazando <span class="math inline">\(H_0\)</span> cuando</p>
-<p><span class="math display">\[
--2\log\Lambda(X)\ge \chi^2_{\nu,1-\alpha}.
-\]</span></p>
-<hr />
-</div>
-<div id="ejemplo-comparación-de-parámetros-en-un-modelo-de-poisson" class="section level3 hasAnchor" number="10.4.3">
-<h3><span class="header-section-number">10.4.3</span> Ejemplo: comparación de parámetros en un modelo de Poisson<a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-comparaci%C3%B3n-de-par%C3%A1metros-en-un-modelo-de-poisson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Sea <span class="math inline">\(X_1,\dots,X_n\)</span> una muestra de una distribución Poisson con parámetro <span class="math inline">\(\lambda\)</span>. Consideremos el contraste</p>
-<p><span class="math display">\[
-H_0:\lambda=\lambda_0
-\qquad \text{frente a} \qquad
-H_1:\lambda\neq\lambda_0.
-\]</span></p>
-<p>La función de verosimilitud es</p>
-<p><span class="math display">\[
-L(\lambda)=\prod_{j=1}^n \frac{e^{-\lambda}\lambda^{x_j}}{x_j!}.
-\]</span></p>
-<p>El estimador de máxima verosimilitud bajo <span class="math inline">\(H_1\)</span> es</p>
-<p><span class="math display">\[
-\hat\lambda=\bar X.
-\]</span></p>
-<p>Bajo <span class="math inline">\(H_0\)</span>, la verosimilitud se evalúa en <span class="math inline">\(\lambda_0\)</span>. Por tanto, el estadístico de razón de verosimilitudes es</p>
-<p><span class="math display">\[
-\Lambda(X)
-=
-\frac{L(\lambda_0)}{L(\hat\lambda)}.
-\]</span></p>
-<p>Un cálculo directo conduce a</p>
-<p><span class="math display">\[
--2\log\Lambda(X)
-=
-2n\left[
-\bar X\log\frac{\bar X}{\lambda_0}
--(\bar X-\lambda_0)
-\right].
-\]</span></p>
-<p>Bajo <span class="math inline">\(H_0\)</span>, y para tamaños muestrales grandes, este estadístico sigue aproximadamente una distribución <span class="math inline">\(\chi^2_1\)</span>, lo que permite construir un contraste bilateral para <span class="math inline">\(\lambda\)</span>.</p>
-<p>Este ejemplo muestra cómo el contraste de razón de verosimilitudes proporciona un procedimiento sistemático incluso cuando no existe un contraste óptimo en sentido de Neyman–Pearson.</p>
-<hr />
-</div>
-<div id="ejemplo-contraste-en-un-modelo-exponencial" class="section level3 hasAnchor" number="10.4.4">
-<h3><span class="header-section-number">10.4.4</span> Ejemplo: contraste en un modelo exponencial<a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-contraste-en-un-modelo-exponencial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Sea <span class="math inline">\(X_1,\dots,X_n\)</span> una muestra de una distribución exponencial con parámetro <span class="math inline">\(\lambda\)</span>. Consideremos el contraste</p>
-<p><span class="math display">\[
-H_0:\lambda=\lambda_0
-\qquad \text{frente a} \qquad
-H_1:\lambda\neq\lambda_0.
-\]</span></p>
-<p>La función de verosimilitud viene dada por</p>
-<p><span class="math display">\[
-L(\lambda)=\lambda^n\exp\!\left(-\lambda\sum_{j=1}^n X_j\right).
-\]</span></p>
-<p>El estimador de máxima verosimilitud bajo <span class="math inline">\(H_1\)</span> es</p>
-<p><span class="math display">\[
-\hat\lambda=\frac{1}{\bar X}.
-\]</span></p>
-<p>El estadístico de razón de verosimilitudes es</p>
-<p><span class="math display">\[
--2\log\Lambda(X)
-=
-2n\left[
-\frac{\lambda_0}{\hat\lambda}
--\log\frac{\lambda_0}{\hat\lambda}
--1
-\right].
-\]</span></p>
-<p>De nuevo, bajo <span class="math inline">\(H_0\)</span> y para tamaños muestrales grandes, este estadístico se distribuye aproximadamente como una <span class="math inline">\(\chi^2_1\)</span>.</p>
-<hr />
-</div>
-<div id="ejemplo-contraste-en-un-modelo-trinomial" class="section level3 hasAnchor" number="10.4.5">
-<h3><span class="header-section-number">10.4.5</span> Ejemplo: contraste en un modelo trinomial<a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-contraste-en-un-modelo-trinomial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Sea <span class="math inline">\((N_1,N_2,N_3)\)</span> un vector de frecuencias con distribución multinomial (trinomial) con tamaño muestral <span class="math inline">\(n\)</span> y probabilidades <span class="math inline">\((p_1,p_2,p_3)\)</span>, con <span class="math inline">\(p_1+p_2+p_3=1\)</span>.</p>
-<p>Consideremos el contraste</p>
-<p><span class="math display">\[
-H_0:(p_1,p_2,p_3)=(p_{10},p_{20},p_{30})
-\qquad \text{frente a} \qquad
-H_1:(p_1,p_2,p_3)\neq(p_{10},p_{20},p_{30}).
-\]</span></p>
-<p>La verosimilitud es</p>
-<p><span class="math display">\[
-L(p_1,p_2,p_3)
-=
-\frac{n!}{N_1!N_2!N_3!}
-\prod_{i=1}^3 p_i^{N_i}.
-\]</span></p>
-<p>Bajo <span class="math inline">\(H_1\)</span>, los estimadores de máxima verosimilitud son</p>
-<p><span class="math display">\[
-\hat p_i=\frac{N_i}{n},
-\qquad i=1,2,3.
-\]</span></p>
-<p>El estadístico de razón de verosimilitudes toma la forma</p>
-<p><span class="math display">\[
--2\log\Lambda
-=
-2\sum_{i=1}^3 N_i\log\frac{N_i}{n p_{i0}}.
-\]</span></p>
-<p>Bajo <span class="math inline">\(H_0\)</span>, y para tamaños muestrales grandes, este estadístico sigue aproximadamente una distribución <span class="math inline">\(\chi^2_2\)</span>, ya que hay dos grados de libertad independientes.</p>
-<p>Este contraste constituye la base teórica de los <strong>tests de ji-cuadrado de bondad de ajuste</strong>, que se estudiarán con más detalle en secciones posteriores.</p>
-</div>
-<div id="del-contraste-de-razón-de-verosimilitudes-al-test-ji-cuadrado" class="section level3 hasAnchor" number="10.4.6">
-<h3><span class="header-section-number">10.4.6</span> Del contraste de razón de verosimilitudes al test ji-cuadrado<a href="construcción-de-contrastes-de-hipótesis.html#del-contraste-de-raz%C3%B3n-de-verosimilitudes-al-test-ji-cuadrado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Una de las razones por las que el contraste de razón de verosimilitudes es tan importante es que, en modelos multinomiales, conduce directamente al test ji-cuadrado de bondad de ajuste.</p>
-<p>Consideremos el caso trinomial. Sea <span class="math inline">\((N_1,N_2,N_3)\)</span> un vector de frecuencias con distribución multinomial con tamaño muestral <span class="math inline">\(n\)</span> y probabilidades <span class="math inline">\((p_1,p_2,p_3)\)</span>, con <span class="math inline">\(p_1+p_2+p_3=1\)</span>. Planteamos el contraste</p>
-<p><span class="math display">\[
-H_0:(p_1,p_2,p_3)=(p_{10},p_{20},p_{30})
-\qquad \text{frente a} \qquad
-H_1:(p_1,p_2,p_3)\neq(p_{10},p_{20},p_{30}).
-\]</span></p>
-<p>La verosimilitud es</p>
-<p><span class="math display">\[
-L(p_1,p_2,p_3)
-=
-\frac{n!}{N_1!N_2!N_3!}
-\prod_{i=1}^3 p_i^{N_i}.
-\]</span></p>
-<p>Bajo <span class="math inline">\(H_1\)</span>, los estimadores de máxima verosimilitud son</p>
-<p><span class="math display">\[
-\hat p_i=\frac{N_i}{n},\qquad i=1,2,3.
-\]</span></p>
-<p>El estadístico de razón de verosimilitudes generalizado es</p>
-<p><span class="math display">\[
-\Lambda
-=
-\frac{L(p_{10},p_{20},p_{30})}{L(\hat p_1,\hat p_2,\hat p_3)}.
-\]</span></p>
-<p>Sustituyendo y simplificando, se obtiene el estadístico (a veces llamado <em>G-test</em>)</p>
-<p><span class="math display">\[
--2\log\Lambda
-=
-2\sum_{i=1}^3 N_i\log\frac{N_i}{n p_{i0}}.
-\]</span></p>
-<p>Bajo condiciones generales (teorema de Wilks) y para tamaños muestrales grandes,</p>
-<p><span class="math display">\[
--2\log\Lambda \;\xrightarrow{d}\; \chi^2_2,
-\]</span></p>
-<p>ya que en el modelo completo hay <span class="math inline">\(3\)</span> probabilidades con una restricción (<span class="math inline">\(p_1+p_2+p_3=1\)</span>), es decir, <span class="math inline">\(\dim(\Theta)=2\)</span>, mientras que bajo <span class="math inline">\(H_0\)</span> no hay parámetros libres.</p>
-<p>Para conectar con la estadística clásica, definimos las frecuencias esperadas bajo <span class="math inline">\(H_0\)</span>:</p>
-<p><span class="math display">\[
-E_i=n p_{i0},\qquad i=1,2,3.
-\]</span></p>
-<p>El test ji-cuadrado de Pearson utiliza el estadístico</p>
-<p><span class="math display">\[
-X^2=\sum_{i=1}^3 \frac{(N_i-E_i)^2}{E_i}.
-\]</span></p>
-<p>Cuando las frecuencias esperadas <span class="math inline">\(E_i\)</span> son suficientemente grandes, se cumple que</p>
-<p><span class="math display">\[
--2\log\Lambda \approx X^2,
-\]</span></p>
-<p>y ambos estadísticos tienen aproximadamente distribución <span class="math inline">\(\chi^2_2\)</span> bajo <span class="math inline">\(H_0\)</span>. En particular, en este contexto los dos contrastes suelen dar conclusiones muy similares, aunque el contraste de razón de verosimilitudes es el que surge de manera natural a partir del principio de máxima verosimilitud.</p>
-<p>Este razonamiento se extiende sin cambios esenciales al caso multinomial general con <span class="math inline">\(k\)</span> categorías, donde el número de grados de libertad es <span class="math inline">\(k-1\)</span>.</p>
-</div>
-</div>
-<div id="tests-de-permutaciones" class="section level2 hasAnchor" number="10.5">
-<h2><span class="header-section-number">10.5</span> Tests de permutaciones<a href="construcción-de-contrastes-de-hipótesis.html#tests-de-permutaciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En esta sección presentamos los <strong>tests de permutaciones</strong> como una alternativa general para la construcción de contrastes de hipótesis. A diferencia de los contrastes paramétricos clásicos, estos métodos no requieren especificar una distribución probabilística para los datos ni recurrir a aproximaciones asintóticas.</p>
-<p>La validez de los tests de permutaciones se basa en una idea simple: <strong>bajo la hipótesis nula, ciertas transformaciones de los datos no alteran su distribución</strong>. En particular, si bajo <span class="math inline">\(H_0\)</span> las observaciones son intercambiables, todas las permutaciones posibles de los datos son igualmente probables.</p>
-<div id="idea-básica" class="section level3 hasAnchor" number="10.5.1">
-<h3><span class="header-section-number">10.5.1</span> Idea básica<a href="construcción-de-contrastes-de-hipótesis.html#idea-b%C3%A1sica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El esquema general de un test de permutaciones es el siguiente:</p>
-<ol style="list-style-type: decimal">
-<li>Elegir un <strong>estadístico de contraste</strong> <span class="math inline">\(T(X)\)</span> que mida la discrepancia entre los datos observados y lo esperado bajo <span class="math inline">\(H_0\)</span>.</li>
-<li>Calcular el valor observado <span class="math inline">\(T(x)\)</span>.</li>
-<li>Generar la distribución de <span class="math inline">\(T\)</span> bajo <span class="math inline">\(H_0\)</span> considerando todas (o muchas) permutaciones de los datos.</li>
-<li>Calcular el <strong>p-valor</strong> como la proporción de permutaciones para las que el estadístico toma un valor tan extremo o más que el observado.</li>
-</ol>
-<p>Este procedimiento define un contraste exacto condicionado a los datos observados.</p>
-</div>
-<div id="ejemplo-1-test-de-permutaciones-con-enumeración-completa" class="section level3 hasAnchor" number="10.5.2">
-<h3><span class="header-section-number">10.5.2</span> Ejemplo 1: test de permutaciones con enumeración completa<a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-1-test-de-permutaciones-con-enumeraci%C3%B3n-completa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consideremos un ejemplo muy simple en el que podemos enumerar todas las permutaciones posibles.</p>
-<p>Observamos dos grupos con una variable cuantitativa:</p>
-<ul>
-<li>Grupo A: <span class="math inline">\(x_A=(2,4)\)</span><br />
-</li>
-<li>Grupo B: <span class="math inline">\(x_B=(6,8)\)</span></li>
-</ul>
-<p>Queremos contrastar</p>
-<p><span class="math display">\[
-H_0:\text{ambos grupos provienen de la misma distribución}
-\]</span></p>
-<p>frente a la alternativa unilateral de que los valores del grupo B tienden a ser mayores.</p>
-<p>Como estadístico de contraste utilizamos la diferencia de medias</p>
-<p><span class="math display">\[
-T(X)=\bar X_A-\bar X_B.
-\]</span></p>
-</div>
-<div id="valor-observado-del-estadístico" class="section level3 hasAnchor" number="10.5.3">
-<h3><span class="header-section-number">10.5.3</span> Valor observado del estadístico<a href="construcción-de-contrastes-de-hipótesis.html#valor-observado-del-estad%C3%ADstico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Podemos evaluar el estadístico de test como:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="construcción-de-contrastes-de-hipótesis.html#cb59-1" tabindex="-1"></a>xA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
-<span id="cb59-2"><a href="construcción-de-contrastes-de-hipótesis.html#cb59-2" tabindex="-1"></a>xB <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">8</span>)</span>
-<span id="cb59-3"><a href="construcción-de-contrastes-de-hipótesis.html#cb59-3" tabindex="-1"></a></span>
-<span id="cb59-4"><a href="construcción-de-contrastes-de-hipótesis.html#cb59-4" tabindex="-1"></a>T_obs <span class="ot">&lt;-</span> <span class="fu">mean</span>(xA) <span class="sc">-</span> <span class="fu">mean</span>(xB)</span>
-<span id="cb59-5"><a href="construcción-de-contrastes-de-hipótesis.html#cb59-5" tabindex="-1"></a>T_obs</span></code></pre></div>
-<pre><code>## [1] -4</code></pre>
-</div>
-<div id="distribución-exacta-por-permutaciones" class="section level3 hasAnchor" number="10.5.4">
-<h3><span class="header-section-number">10.5.4</span> Distribución exacta por permutaciones<a href="construcción-de-contrastes-de-hipótesis.html#distribuci%C3%B3n-exacta-por-permutaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Bajo <span class="math inline">\(H_0\)</span>, cualquier asignación de dos observaciones al grupo A es igualmente probable. Existen exactamente <span class="math inline">\(\binom{4}{2}=6\)</span> permutaciones posibles.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(xA, xB)</span>
-<span id="cb61-2"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-2" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-3" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">2</span>)</span>
-<span id="cb61-4"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-4" tabindex="-1"></a></span>
-<span id="cb61-5"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-5" tabindex="-1"></a>T_perm <span class="ot">&lt;-</span> <span class="fu">apply</span>(idx, <span class="dv">2</span>, <span class="cf">function</span>(i) {</span>
-<span id="cb61-6"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-6" tabindex="-1"></a>  <span class="fu">mean</span>(x[i]) <span class="sc">-</span> <span class="fu">mean</span>(x[<span class="sc">-</span>i])</span>
-<span id="cb61-7"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-7" tabindex="-1"></a>})</span>
-<span id="cb61-8"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-8" tabindex="-1"></a></span>
-<span id="cb61-9"><a href="construcción-de-contrastes-de-hipótesis.html#cb61-9" tabindex="-1"></a>T_perm</span></code></pre></div>
-<pre><code>## [1] -4 -2  0  0  2  4</code></pre>
-<div id="cálculo-del-p-valor" class="section level4 hasAnchor" number="10.5.4.1">
-<h4><span class="header-section-number">10.5.4.1</span> Cálculo del p-valor<a href="construcción-de-contrastes-de-hipótesis.html#c%C3%A1lculo-del-p-valor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Para la alternativa unilateral considerada, el p-valor se calcula como</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="construcción-de-contrastes-de-hipótesis.html#cb63-1" tabindex="-1"></a><span class="fu">mean</span>(T_perm <span class="sc">&lt;=</span> T_obs)</span></code></pre></div>
-<pre><code>## [1] 0.1666667</code></pre>
-<p>Este test es <strong>exacto</strong>, no depende de ninguna aproximación y es válido incluso con tamaños muestrales muy pequeños.</p>
-</div>
-</div>
-<div id="ejemplo-2-test-de-permutaciones-mediante-simulación" class="section level3 hasAnchor" number="10.5.5">
-<h3><span class="header-section-number">10.5.5</span> Ejemplo 2: test de permutaciones mediante simulación<a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-2-test-de-permutaciones-mediante-simulaci%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En problemas más realistas, el número de permutaciones posibles es demasiado grande como para enumerarlas todas. En estos casos se utiliza una aproximación por simulación.</p>
-<p>Consideremos dos grupos con tamaños moderados:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="construcción-de-contrastes-de-hipótesis.html#cb65-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb65-2"><a href="construcción-de-contrastes-de-hipótesis.html#cb65-2" tabindex="-1"></a></span>
-<span id="cb65-3"><a href="construcción-de-contrastes-de-hipótesis.html#cb65-3" tabindex="-1"></a>xA <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb65-4"><a href="construcción-de-contrastes-de-hipótesis.html#cb65-4" tabindex="-1"></a>xB <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean =</span> <span class="fl">0.7</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p>Queremos contrastar nuevamente la igualdad de distribuciones utilizando un test de permutaciones basado en la diferencia de medias.</p>
-<div id="implementación-con-el-paquete-coin" class="section level4 hasAnchor" number="10.5.5.1">
-<h4><span class="header-section-number">10.5.5.1</span> Implementación con el paquete <code>coin</code><a href="construcción-de-contrastes-de-hipótesis.html#implementaci%C3%B3n-con-el-paquete-coin" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-1" tabindex="-1"></a><span class="fu">library</span>(coin)</span>
-<span id="cb66-2"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-2" tabindex="-1"></a></span>
-<span id="cb66-3"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-3" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">20</span>))</span>
-<span id="cb66-4"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(xA, xB)</span>
-<span id="cb66-5"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-5" tabindex="-1"></a></span>
-<span id="cb66-6"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-6" tabindex="-1"></a>perm_test <span class="ot">&lt;-</span> <span class="fu">oneway_test</span>(</span>
-<span id="cb66-7"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-7" tabindex="-1"></a>  x <span class="sc">~</span> group,</span>
-<span id="cb66-8"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-8" tabindex="-1"></a>  <span class="at">distribution =</span> <span class="fu">approximate</span>(<span class="at">B =</span> <span class="dv">10000</span>)</span>
-<span id="cb66-9"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-9" tabindex="-1"></a>)</span>
-<span id="cb66-10"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-10" tabindex="-1"></a></span>
-<span id="cb66-11"><a href="construcción-de-contrastes-de-hipótesis.html#cb66-11" tabindex="-1"></a>perm_test</span></code></pre></div>
-<pre><code>## 
-##  Approximative Two-Sample Fisher-Pitman Permutation Test
-## 
-## data:  x by group (A, B)
-## Z = -1.7268, p-value = 0.0795
-## alternative hypothesis: true mu is not equal to 0</code></pre>
-</div>
-<div id="comparación-con-el-test-t-clásico" class="section level4 hasAnchor" number="10.5.5.2">
-<h4><span class="header-section-number">10.5.5.2</span> Comparación con el test t clásico<a href="construcción-de-contrastes-de-hipótesis.html#comparaci%C3%B3n-con-el-test-t-cl%C3%A1sico" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="construcción-de-contrastes-de-hipótesis.html#cb68-1" tabindex="-1"></a><span class="fu">t.test</span>(xA, xB, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## 
-##  Two Sample t-test
-## 
-## data:  xA and xB
-## t = -1.7737, df = 38, p-value = 0.08413
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -1.08591100  0.07167293
-## sample estimates:
-## mean of x mean of y 
-## 0.1416238 0.6487428</code></pre>
-</div>
-</div>
-<div id="comentario-final" class="section level3 hasAnchor" number="10.5.6">
-<h3><span class="header-section-number">10.5.6</span> Comentario final<a href="construcción-de-contrastes-de-hipótesis.html#comentario-final" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los tests de permutaciones ilustran una forma alternativa de construir contrastes de hipótesis:</p>
-<ul>
-<li>el nivel se controla sin recurrir a distribuciones teóricas,</li>
-<li>la región crítica se define a partir de la distribución inducida por las permutaciones,</li>
-<li>y la validez del contraste descansa en una hipótesis de intercambio, no en un modelo paramétrico.</li>
-</ul>
-<p>Estos métodos cierran de forma natural el recorrido de este capítulo, mostrando que la construcción de contrastes puede basarse en principios distintos pero complementarios.</p>
+<p>que son los cuatro posibles casos que nos dan tres caras y una cruz.
+Finalmente, recordando que todos los casos tienen la misma probabilidad, se construye la siguiente tabla:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(k=\)</span> número de caras</th>
+<th align="center">Número de casos</th>
+<th align="center"><span class="math inline">\(P[X=k]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0,0625</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">0,2500</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>La distribución Binomial</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">2</th>
+<th align="center">6</th>
+<th align="center">0,3750</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">0,2500</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center">0,0625</td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">16</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
-</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="pruebas-de-hipótesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pruebas-de-una-muestra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="contrastes-con-dos-muestras.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
