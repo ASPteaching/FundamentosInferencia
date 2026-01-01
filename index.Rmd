@@ -83,6 +83,8 @@ Dos de los autores nos han dejado prematuramente, Angel Vilarroya a una temprana
 
 ## Otros materiales utilizados {-}
 
+Entremezclado con el uso de los materiales del proyecto Statmedia se encuentran materiales tomados del curso de Introducción a la Estadística Matemàtica, creados originalmente para una asignatura de Inferencia Estadística, impartida en la diplomatura de Estadística de la Universidad de Barcelona en el periodo anterior al proyecto Bolonia. Algo más formales que los del proyecto Statmedia, ambos se complementan bien para crear unos materiales a nivel de Máster de bioestadística, como se pretende hacer aquí.
+
 - [Alex Sanchez y Francesc Carmona (2002). Apunts d'Estadística Matemàtica](https://github.com/ASPteaching/ApuntsEstadisticaMatematica) Licencia CC0 1.0 Universal
 
 ## Materiales complementarios {-}
