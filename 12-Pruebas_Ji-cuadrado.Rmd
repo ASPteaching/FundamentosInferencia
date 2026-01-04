@@ -1,135 +1,97 @@
-# CONTRASTES DE LA JI-CUADRADO
+# CONTRASTES DE CHI-CUADRADO
 
 ## Introducción
 
-Con el nombre de pruebas ji-cuadrado se conoce una variedad de tests estadísticos que hacen referencia a problemas distintos pero que tienen los siguientes rasgos en común:
+Con el nombre de **pruebas de chi-cuadrado** se conoce una variedad de contrastes estadísticos que hacen referencia a problemas distintos pero que presentan los siguientes rasgos en común:
 
-- Las muestras corresponden a datos categóricos, directamente o por categorización de una variable numérica; es decir, se mide si un individuo pertenece a un elemento de una partición $A_{1}, A_{2}, \ldots, A_{k}$ del espacio muestral.
-- El estadístico de test tiene una estructura común:
+- Las muestras corresponden a **datos categóricos**, directamente o por categorización de una variable numérica; es decir, se observa si un individuo pertenece a un elemento de una partición $A_{1}, A_{2}, \ldots, A_{k}$ del espacio muestral.
+- El estadístico del contraste tiene una estructura común:
 
 $$
-\sum_{i} \frac{\left(O_{i}-E_{i}\right)^{2}}{E_{i}}
+\sum_{i} \frac{(O_i - E_i)^2}{E_i}
 $$
 
-siendo
+donde
 
-- $O_{i}$ el número de valores observados en una determinada categoría, y
-- $E_{i}$ el número de valores esperados en dicha categoría en el caso de que la hipótesis nula fuese cierta.
-- El estadístico de test sigue una distribución $\chi^{2}$.
+- $O_i$ es el número de observaciones en la categoría $i$,
+- $E_i$ es el número de observaciones esperadas en dicha categoría bajo la hipótesis nula.
+
+En todos los casos, el estadístico del contraste tiene **distribución asintótica** $\chi^2$.
 
 Consideramos tres grandes grupos de pruebas:
 
-1. Pruebas de bondad de ajuste (*goodness of fit*) de unos datos a una distribución  
-   (a) Todos los parámetros de la distribución son conocidos  
-   (b) Algunos parámetros de la distribución son desconocidos  
-2. Pruebas de independencia  
-3. Pruebas de homogeneidad
+1. Pruebas de bondad de ajuste (*goodness of fit*):  
+   (a) todos los parámetros de la distribución son conocidos;  
+   (b) algunos parámetros de la distribución son desconocidos.
+2. Pruebas de independencia.
+3. Pruebas de homogeneidad.
 
-## Pruebas $\chi^{2}$ de bondad de ajuste
+## Pruebas $\chi^2$ de bondad de ajuste
 
 ### Hipótesis simples
 
-Dada una m.a.s. $X_{1}, X_{2}, \ldots, X_{n}$ de una variable $X$ queremos contrastar la hipótesis de que la variable se distribuye según una cierta distribución completamente especificada $F_{\theta_{0}}$.
+Sea $X_1, X_2, \ldots, X_n$ una **muestra aleatoria simple (m.a.s.)** de una variable aleatoria $X$. Queremos contrastar la hipótesis de que $X$ sigue una distribución completamente especificada $F_{\theta_0}$:
 
 $$
 \begin{aligned}
-& H_{0}: X \sim F_{\theta_{0}} \\
-& H_{1}: X \nsim F_{\theta_{0}} .
+H_0 &: X \sim F_{\theta_0},\\
+H_1 &: X \nsim F_{\theta_0}.
 \end{aligned}
 $$
 
-Sea $R$ el recorrido de la distribución poblacional. Consideremos una partición de $R$ en $k$ subconjuntos disjuntos $R_{1}, R_{2}, \ldots, R_{k}$. Esto genera una partición en $k$ sucesos $A_{1}, A_{2}, \ldots, A_{k}$
+Sea $R$ el **soporte** (recorrido) de la distribución poblacional y consideremos una partición de $R$ en $k$ subconjuntos disjuntos $R_1, R_2, \ldots, R_k$. Esto induce una partición del espacio muestral en los sucesos
 
 $$
-A_{i}=X \in R_{i}, \quad i=1, \ldots, k
+A_i = \{X \in R_i\}, \quad i=1,\ldots,k.
 $$
 
-de forma que la variable $k$-dimensional $\left(n_{1}, \ldots, n_{k}\right)$ que cuenta el número de observaciones de la muestra en cada uno de los subconjuntos $R_{1}, R_{2}, \ldots, R_{k}$ tiene distribución multinomial
+Si $n_i$ denota el número de observaciones muestrales que caen en $R_i$, el vector de recuentos $(n_1, \ldots, n_k)$ sigue una distribución multinomial
 
 $$
-Y \sim M\left(n ; p_{1}, \ldots, p_{k}\right) .
+(n_1, \ldots, n_k) \sim M\bigl(n; p_1, \ldots, p_k\bigr),
 $$
 
-Este planteamiento transforma el contraste inicial referido a la distribución de $X$ en un contraste sobre las probabilidades $p_{1}, \ldots, p_{k}$
+donde $p_i = P(A_i)$.
+
+Este planteamiento transforma el contraste sobre la distribución de $X$ en un contraste sobre las probabilidades $(p_1, \ldots, p_k)$:
 
 $$
 \begin{aligned}
-& H_{0}: P\left(A_{i}\right)=p_{i}^{0}, \quad\left(=\int_{R_{i}} d F_{\theta_{0}}(x)\right) \\
-& H_{1}: P\left(A_{i}\right)=p_{i} \neq p_{i}^{0}
+H_0 &: P(A_i) = p_i^0 = \int_{R_i} dF_{\theta_0}(x),\\
+H_1 &: P(A_i) \neq p_i^0.
 \end{aligned}
 $$
 
-Obsérvese que no se contrasta el hecho de que $Y$ tenga distribución multinomial, sino si las probabilidades vienen determinadas o no por la distribución propuesta por la hipótesis nula.
+Obsérvese que **no se contrasta** que el vector de recuentos tenga distribución multinomial (esto viene dado por el muestreo), sino si las probabilidades $p_i$ coinciden con las impuestas por la hipótesis nula.
 
-### Estadístico de test para las pruebas $\chi^{2}$ de ajuste
+### Estadístico de Pearson
 
-A comienzos de siglo el estadístico Karl Pearson propuso utilizar, para este test, el estadístico siguiente. Considerando la partición anterior, sea $n_{i}$, $i=1, \ldots, k$, el número de individuos observados en la partición $A_{i}$. Si la hipótesis nula fuese cierta, esperaríamos que el número de individuos en $A_{i}$ fuese: $E_{i}=n \cdot P_{H_{0}}\left(A_{i}\right)=n p_{i}^{0}$. Una medida razonable de la discrepancia entre lo observado y lo que postula la hipótesis nula viene dada por:
-
-$$
-D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} .
-$$
-
-El interés especial que tiene este estadístico es que, a diferencia de otros que podríamos concebir, se conoce su distribución asintótica bajo la hipótesis nula, de forma que es posible utilizarlo para construir una región crítica para las hipótesis
+A comienzos del siglo XX, **Karl Pearson** propuso como estadístico de contraste la cantidad
 
 $$
-H_{0}: P\left(A_{i}\right)=p_{i}^{0}, \quad H_{1}: P\left(A_{i}\right) \neq p_{i}^{0} .
+D^2 = \sum_{i=1}^k \frac{(n_i - n p_i^0)^2}{n p_i^0}.
 $$
 
-El resultado principal de esta sección, que permite construir el test, es el teorema siguiente, debido a K. Pearson:
+Este estadístico mide la discrepancia entre las frecuencias observadas y las esperadas bajo $H_0$. Su interés fundamental radica en que se conoce su distribución asintótica bajo la hipótesis nula.
 
-**Teorema 1** *Bajo las condiciones descritas más arriba, si las probabilidades $p_{1}^{0}, \ldots, p_{k}^{0}$ son números conocidos, entonces el estadístico:*
+#### Teorema (Pearson)
 
-$$
-D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} .
-$$
-
-*tiene distribución asintótica $\chi^{2}$ con $k-1$ grados de libertad*
+Si las probabilidades $p_1^0, \ldots, p_k^0$ son conocidas, entonces
 
 $$
-D^{2} \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1}^{2}
+D^2 \xrightarrow[n\to\infty]{\mathcal{L}} \chi^2_{k-1}.
 $$
 
-Podéis ver la demostración de este teorema en Martínez y col. ([8]).  
-En base al teorema anterior podemos establecer el siguiente test.
-
-**Definición 1:** Test de bondad de ajuste
-
-Sea $X \sim F_{\theta}$, $\left(\theta \in \Theta \subset \mathbb{R}^{m}\right)$ y sean $R: \operatorname{Rec}(X)=\biguplus_{i=1}^{k} R_{i}$ y $A_{i}=\left\{X \in R_{i}\right\}$, $P\left(A_{i}\right)=p_{i}$. Sea $Y=\left(n_{1}, \ldots, n_{k}\right)$, $n_{i}=\# A_{i}$, que verifica $Y \sim M\left(n ; \mathbf{p}=\left(p_{1}, \ldots, p_{k}\right)\right)$.
-
-Entonces, para contrastar las hipótesis:
+Este resultado permite construir un contraste asintótico de nivel $\alpha$ que rechaza $H_0$ cuando
 
 $$
-\begin{aligned}
-H_{0}: & X \sim F_{\theta_{0}}^{0} \Leftrightarrow \mathbf{p}=\left(p_{1}^{0}, \ldots, p_{k}^{0}\right) \\
-H_{1}: & \mathbf{p} \neq\left(p_{1}^{0}, \ldots, p_{k}^{0}\right),
-\end{aligned}
+D^2 \ge \chi^2_{k-1,1-\alpha}.
 $$
 
-el test consiste en rechazar $H_{0}$ si $D^{2} \geq \chi_{k-1,1-\alpha}^{2}$, donde
+### Observaciones prácticas
 
-$$
-\begin{aligned}
-& D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} \\
-& D^{2} \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1}^{2}
-\end{aligned}
-$$
-
-es un test asintótico de nivel $\alpha$.
-
-Este resultado establece que una región crítica para el test tendrá la forma:
-
-$$
-W=\left\{D^{2} \geq \chi_{k-1,1-\alpha}^{2}\right\},
-$$
-
-donde $\chi_{k-1,1-\alpha}^{2}$ es el cuantil $1-\alpha$ de una distribución $\chi^{2}$ con $k-1$ grados de libertad.
-
-### Observaciones
-
-Hay algunos puntos que hay que tener en cuenta para que las conclusiones derivadas de este test sean fiables.
-
-- Se trata de un test asintótico y, por tanto, es válido para muestras de tamaño grande. En la práctica se suele requerir que $n p_{i}^{0} \geq 5,\quad \forall i=1,2, \ldots, k$.
-- El test no discrimina entre distribuciones que asignan la misma probabilidad a los conjuntos $A_{i}$. Por ejemplo, como caso extremo, si tomáramos $k=2$ y $A_{1}=[X \leq E(X)]$, $A_{2}=[X \geq E(X)]$, todas las distribuciones simétricas asignarían la misma probabilidad a cada categoría. En consecuencia conviene tomar $k \geq 5$ siempre que se pueda. Como esto implicará necesariamente alguna $p_{i}^{0} \leq 1 / 5$, significa que como mínimo se necesita $n \geq 25$.
+- El contraste es **asintótico**, por lo que se requiere un tamaño muestral suficientemente grande. En la práctica se exige que todas las frecuencias esperadas cumplan $n p_i^0 \ge 5$.
+- El contraste depende de la partición elegida. Conviene tomar $k \ge 5$ siempre que sea posible para evitar situaciones poco discriminantes.
 
 ### Ejemplo
 
@@ -249,7 +211,9 @@ $$
 
 donde $\chi_{k-1,1-\alpha}^{2}$ es el cuantil $1-\alpha$ de una distribución $\chi^{2}$ con $k-1-\operatorname{dim}(\Theta)$ grados de libertad.
 
-**Ejemplo 7.2.3** En el ejemplo (7.2.2), cuando hemos ajustado unos datos a unas proporciones del tipo "1:2:1" o "9:3:3:1" estábamos suponiendo dos cosas:
+### Ejemplo
+
+En el ejemplo anterior, cuando hemos ajustado unos datos a unas proporciones del tipo "1:2:1" o "9:3:3:1" estábamos suponiendo dos cosas:
 
 - Un modelo genético (que no tenemos por qué conocer)
 - Unas probabilidades fijadas.
@@ -305,7 +269,9 @@ de donde la tabla con los valores observados y esperados para hacer el test de a
 
 El valor crítico es el percentil de una distribución ji-cuadrado con dos menos un grados de libertad, $\chi_{1,0.95}^{2}=3.841$, de donde, dado que $0.0311<\chi_{1,0.95}^{2}$, vemos que no podemos rechazar $H_{0}$.
 
-**Ejemplo 7.2.4** En un estudio sobre bilingüismo se aplicó una prueba a una muestra de 211 alumnos y se obtuvieron 211 puntuaciones que, una vez tabuladas, eran las siguientes:
+### Ejemplo 
+
+En un estudio sobre bilingüismo se aplicó una prueba a una muestra de 211 alumnos y se obtuvieron 211 puntuaciones que, una vez tabuladas, eran las siguientes:
 
 | Puntuación | $(\leq 55]$ | $(55-60]$ | $(60-65]$ | $(65-70]$ | $(70-75]$ | $(75-80]$ | $(80-85]$ |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -546,4 +512,3 @@ En un estudio antropológico se analiza la distribución de los grupos sanguíne
 | Total |  | Recuento | 102 | 31 | 33 | 17 | 183 |
 |  |  | Frecuencia esperada | 102.0 | 31.0 | 33.0 | 17.0 | 183.0 |
 
-Figura 7.1: Diagrama de barras múltiples que muestra cómo se distribuyen los grupos sanguíneos en cada raza.
