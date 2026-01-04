@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica</title>
-  <meta name="description" content="Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
+  <title>Capítulo 14 Estadística no paramétrica | Fundamentos de Inferencia Estadistica</title>
+  <meta name="description" content="Capítulo 14 Estadística no paramétrica | Fundamentos de Inferencia Estadistica" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
+  <meta property="og:title" content="Capítulo 14 Estadística no paramétrica | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
+  <meta name="twitter:title" content="Capítulo 14 Estadística no paramétrica | Fundamentos de Inferencia Estadistica" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pruebas-de-una-muestra.html"/>
-<link rel="next" href="contrastes-de-chi-cuadrado.html"/>
+<link rel="prev" href="contrastes-de-chi-cuadrado.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -838,24 +838,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="contrastes-con-dos-muestras" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Capítulo 12</span> Contrastes con dos muestras<a href="contrastes-con-dos-muestras.html#contrastes-con-dos-muestras" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introducción-7" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> Introducción<a href="contrastes-con-dos-muestras.html#introducci%C3%B3n-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Un problema muy frecuente en las ciencias experimentales es la comprobación de la homogeneidad de dos grupos, esto es, la decisión de si existen diferencias entre ellos, en determinada característica.</p>
-<p>La estadística paramétrica resuelve esta cuestión comparando los parámetros que caracterizan los dos grupos, que son considerados dos poblaciones a priori diferentes. El proceso consiste en obtener una muestra de cada grupo, y a partir de ellas contrastar la igualdad de los parámetros de la distribución de referencia. Por ejemplo, si la distribución de referencia es una normal, se contrasta si la media (poblacional) de los dos grupos es idéntica. De aquí que a veces se nombra este tema como comparaciones de dos muestras, aunque realmente las muestras sirven para inferir si hay diferencias significativas en las poblaciones de las cuales se han extraído.</p>
-<p>Desde el punto de vista aplicado es importante distinguir los estudios experimentales y los estudios observacionales. En los primeros, el experimentador puede asignar los individuos al azar en cada grupo. Por ejemplo, al comparar la eficacia de dos fármacos en el tratamiento de una enfermedad, se puede muchas veces asignar los enfermos al azar a uno de los dos tratamientos. En cambio, si el estudio compara una variable biométrica en dos especies diferentes, los individuos están indefectiblemente asociados a su especie y no se pueden asignar al azar: el estudio es observacional.</p>
-<p>Este tema trata de las comparaciones de dos grupos en las situaciones paramétricas más habituales y básicas: en primer lugar trata el caso en el que la variable sea normal comparando las medias y las varianzas, en segundo lugar, el caso en que la variable sea binomial, comparando entonces las proporciones.</p>
-</div>
-<div id="premisas-independencia-vs-datos-apareados" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> Premisas: independencia vs datos apareados<a href="contrastes-con-dos-muestras.html#premisas-independencia-vs-datos-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En el desarrollo de este tema destaca la importancia que tienen las premisas (requisitos) que deben cumplir los datos para la correcta aplicación de cada una de las técnicas de comparación.</p>
-<p>La primera premisa se refiere a la independencia de los datos. En el tema de muestreo (ver aquí) se ha estudiado la definición y obtención de muestras aleatorias simples, que exige, entre otras condiciones, la independencia de los datos. En este sentido, las comparaciones de dos grupos que abordamos aquí siempre se basan en muestra aleatorias simples dentro de cada grupo.</p>
-<p>Ahora bien, según el tipo de estudio, pueden presentarse situaciones de dependencia entre los datos de los dos grupos. La dependencia o independencia a la que se refieren los tests de este capítulo ha de entenderse siempre referida a la de los datos entre los dos grupos, sobreentendiendo la independencia exigida dentro del grupo.</p>
-<div id="ejemplo-datos-independientes-vs-apareados" class="section level3 hasAnchor" number="12.2.1">
-<h3><span class="header-section-number">12.2.1</span> Ejemplo: Datos independientes vs apareados<a href="contrastes-con-dos-muestras.html#ejemplo-datos-independientes-vs-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Como primer ejemplo supongamos un experimento cuyo objetivo es comparar la eficacia de dos fármacos adelgazantes. Se toman 20 individuos y se asignan al azar 10 de ellos a cada uno de los dos tratamientos. Al cabo de dos meses se mide la diferencia de peso antes y después del tratamiento. Aquí los dos grupos (poblaciones) son respectivamente todos los participantes en el estudio, tratados con los 2 fármaco. Hay dos muestras de 10 individuos y los datos pueden considerarse con este diseño experimental independientes. Este ejemplo corresponde a una situación muy frecuente en análisis de datos conocida como comparación de 2 muestras independientes.</p>
-<p>Supongamos en cambio que el experimento consiste en escoger a 10 individuos al azar, medir su peso, suministrarles durante dos meses el mismo tratamiento y medir finalmente de nuevo el peso. Hay también aquí 2 muestras de 10 individuos: los 10 valores antes del tratamiento y los 10 de después. Sin embargo, ahora los datos de las dos muestras presentan una probable dependencia que corresponde a este esquema:</p>
+<div id="estadística-no-paramétrica" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Capítulo 14</span> Estadística no paramétrica<a href="estadística-no-paramétrica.html#estad%C3%ADstica-no-param%C3%A9trica" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducción-9" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Introducción<a href="estadística-no-paramétrica.html#introducci%C3%B3n-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En este capítulo presentaremos de forma breve algunos tests no paramétricos para problemas de una, dos o varias muestras. El objetivo de estos tests es disponer de alternativas a las pruebas de hipótesis de comparación clásicas cuando no se conoce la forma de la distribución de los datos o la ley de las variables. En particular, serán alternativas a los tests sobre la media o comparación de medias cuando no se verifica la suposición de normalidad de los datos. Nos referimos a los tests basados en poblaciones normales como contrastes paramétricos, ya que se basan en comparar medias o parámetros de la ley normal. En contraposición, los que consideramos aquí y que denominaremos contrastes no paramétricos pueden comparar medianas, cuantiles o incluso toda la distribución en bloque. Observemos, pues, que “no paramétrico” no significa que estos tests no comparen algún parámetro como la mediana; más bien significa que no queremos hacer determinadas suposiciones sobre la función de distribución de las variables.</p>
+<p>Desde un punto de vista práctico, que es también el que adoptan muchos programas informáticos de análisis estadístico, distinguiremos entre:</p>
+<ul>
+<li>Problemas de una muestra</li>
+<li>Problemas de dos muestras con datos apareados</li>
+<li>Problemas de dos muestras independientes</li>
+<li>Problemas de <span class="math inline">\(k\)</span> muestras independientes.</li>
+</ul>
+<p>Esta distinción nos permite clasificar las técnicas que estudiamos y compararlas con las correspondientes pruebas paramétricas:</p>
 <table>
 <colgroup>
 <col width="33%" />
@@ -864,830 +859,1251 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th align="center">Antes tratamiento</th>
-<th align="center">posible relación con datos de</th>
-<th align="center">Después tratamiento</th>
+<th align="left">Problema</th>
+<th align="left">Test paramétrico</th>
+<th align="left">Test no paramétrico</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">individuo 1</td>
-<td align="center"><span class="math inline">\(==&gt;\)</span></td>
-<td align="center">individuo 1</td>
+<td align="left">Una muestra</td>
+<td align="left">Test <span class="math inline">\(t\)</span> de una muestra</td>
+<td align="left">Test de los signos <br> Test de los rangos con signo</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\ldots\)</span></td>
-<td align="center"><span class="math inline">\(\ldots\)</span></td>
-<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="left">Datos apareados</td>
+<td align="left">Test <span class="math inline">\(t\)</span> de datos <br> apareados</td>
+<td align="left">Test de los signos <br> Test de los rangos con signo</td>
 </tr>
 <tr class="odd">
-<td align="center">individuo 10</td>
-<td align="center"><span class="math inline">\(==&gt;\)</span></td>
-<td align="center">individuo 10</td>
+<td align="left">Dos muestras ind.</td>
+<td align="left">Test <span class="math inline">\(t\)</span> para dos <br> muestras ind. (con <br> test <span class="math inline">\(F\)</span> previo)</td>
+<td align="left">Test <span class="math inline">\(U\)</span> de Mann-Whitney</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(k\)</span> muestras ind.</td>
+<td align="left">ANOVA de un factor</td>
+<td align="left">Test de Kruskal-Wallis</td>
 </tr>
 </tbody>
 </table>
-<p>Debido a esta situación experimental tan específica los datos aparecen de forma natural emparejados si nos atenemos a su posible dependencia. Este es una segunda situación muy frecuente en experimentación: la comparación de muestras apareadas.</p>
+<p>Además, algunos tests no paramétricos tienen otras utilidades, como los tests de aleatoriedad, los tests de rachas, etc.</p>
 </div>
-</div>
-<div id="premisas-e-hipótesis-en-comparaciones-de-medias-de-datos-normales-independientes." class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">12.3</span> Premisas e hipótesis en comparaciones de medias de datos normales independientes.<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en-comparaciones-de-medias-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Abordaremos primero cómo comparar las medias de dos grupos asociados a una variable normal cuando el muestreo se ha realizado de forma independiente entre los dos grupos.</p>
-<p>Las premisas para aplicar el test que se describe a continuación son:</p>
-<ul>
-<li>las dos muestras son estocásticamente independientes entre sí</li>
-<li>las muestras de cada grupo son muestras aleatorias simples</li>
-<li>la variable observada en cada grupo es una variable normal</li>
-<li>la varianza (poblacional) es idéntica en los dos grupos pero desconocida</li>
-</ul>
-<p>La comprobación de esta última premisa se realiza con un test previo sobre las varianzas. Sin embargo, por motivos pedagógicos, se exponen después sus detalles. Es importante destacar que deberá estimarse la varianza a partir de la muestra, que es la situación real de muchos experimentos. En muchos textos de estadística se menciona otra situación parecida en la que se asume la varianza común (poblacional) conocida. Aquí no trataremos sus detalles, ya que su interés es más académico que aplicado.</p>
-<p>Muchos autores han descrito la prueba sobre las medias de dos grupos con varianza desconocida como el diseño más habitual en experimentación: el objetivo es corroborar o descartar que dos grupos son homogéneos en promedio. De acuerdo a las premisas la variable observada sigue en la primera población una <span class="math inline">\(\operatorname{Normal}\left(\mu_{1}, \sigma\right)\)</span> y en la segunda una <span class="math inline">\(\operatorname{Normal}\left(\mu_{2}, \sigma\right)\)</span>. Contrastar la homogeneidad de medias corresponde pues a:</p>
+<div id="test-de-los-signos" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Test de los signos<a href="estadística-no-paramétrica.html#test-de-los-signos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="test-para-la-mediana" class="section level3 hasAnchor" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> Test para la mediana<a href="estadística-no-paramétrica.html#test-para-la-mediana" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(X\)</span> una variable aleatoria con distribución continua <span class="math inline">\(F_{X}\)</span> desconocida y <span class="math inline">\(M=Q_{50}\)</span> su mediana o cuantil del <span class="math inline">\(50\%\)</span>, es decir, el valor tal que</p>
 <p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{1}=\mu_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1} \neq \mu_{2}
+P(X \leq M)=0.5
 \]</span></p>
-<p>La prueba que se describe a continuación resuelve hipótesis algo más generales que el de la igualdad de las medias, ya que el experimento puede consistir en comparar la diferencia de medias respecto a alguna cantidad <span class="math inline">\(\mathrm{d}_{0}\)</span> escogida previamente:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{1}-\mu_{2}=\mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2} \neq \mathrm{d}_{0}
-\]</span></p>
-<p>donde la hipótesis de igualdad corresponde a escoger <span class="math inline">\(\mathrm{d}_{0}=0\)</span>. Como es ya habitual, pueden plantearse otro tipo de alternativas:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{1}-\mu_{2} \leq \mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2}&gt;\mathrm{d}_{0}
-\]</span></p>
-<p>o bien:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{1}-\mu_{2} \geq \mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2}&lt;\mathrm{d}_{0}
-\]</span></p>
-</div>
-<div id="comparación-de-medias-de-datos-normales-independientes." class="section level2 hasAnchor" number="12.4">
-<h2><span class="header-section-number">12.4</span> Comparación de medias de datos normales independientes.<a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-medias-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="estadístico-de-test-y-valores-críticos" class="section level3 hasAnchor" number="12.4.1">
-<h3><span class="header-section-number">12.4.1</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>En el resto de esta sección asumiremos muestras de tamaño <span class="math inline">\(n_{1}\)</span> y <span class="math inline">\(n_{2}\)</span> respectivamente para las dos poblaciones. Los estadísticos se indican mediante:</p>
+<p>Supongamos que queremos contrastar las hipótesis</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp; \bar{X}_{1}, \widetilde{S}_{1}^{2} \text { promedio y varianza muestral corregida de la } 1^{\mathrm{a}} \text { población } \\
-&amp; \bar{X}_{2}, \widetilde{S}_{2}^{2} \text { promedio y varianza muestral corregida de la } 2^{\mathrm{a}} \text { población }
+&amp; H_{0}: M=m_{0} \\
+&amp; H_{1}: M \neq m_{0}
 \end{aligned}
 \]</span></p>
-<p>Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:</p>
+<p>Dada una muestra <span class="math inline">\(x_{1}, x_{2}, \ldots, x_{n}\)</span>, consideremos el “signo” de cada valor muestral por comparación con la mediana propuesta por la hipótesis <span class="math inline">\(H_{0}\)</span>, es decir,</p>
 <p><span class="math display">\[
-\mathrm{T}_{\exp }=\frac{\bar{X}_{1}-\bar{X}_{2}-d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}
+\operatorname{signe}\left(x_{i}\right)= \begin{cases}+ &amp; \text { si } x_{i}&gt;m_{0} \\ - &amp; \text { si } x_{i}&lt;m_{0}\end{cases}
 \]</span></p>
-<p>conocido como contraste T para dos muestras independientes cuya distribución es la t de Student con <span class="math inline">\(\left(\mathrm{n}_{1}+\mathrm{n}_{2}-2\right)\)</span> grados de libertad. Según el tipo de alternativa los valores críticos son:</p>
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(\mathrm{H}_{1}\)</span></th>
-<th align="center">rechazar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\mu_{1}-\mu_{2} \neq \mathrm{d}_{0}\)</span></td>
-<td align="center"><span class="math inline">\(\left\|\mathrm{~T}_{\exp }\right\| \geq \mathrm{t}_{\alpha / 2}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\mu_{1}-\mu_{2}&gt;\mathrm{d}_{0}\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{~T}_{\exp } \geq \mathrm{t}_{\alpha}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\mu_{1}-\mu_{2}&lt;\mathrm{d}_{0}\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{~T}_{\exp } \leq-\mathrm{t}_{\alpha}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>si T es la variable aleatoria t -Student <span class="math inline">\(\left(\mathrm{n}_{1}+\mathrm{n}_{2}-2\right)\)</span> los valores <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> y <span class="math inline">\(\mathrm{t}_{\alpha}\)</span> son:</p>
+<p>El estadístico <span class="math inline">\(B=\)</span> “Número de signos positivos” es:</p>
 <p><span class="math display">\[
-\begin{gathered}
-\operatorname{prob}\left(\mathrm{T}&gt;\mathrm{t}_{\alpha / 2}\right)=\alpha / 2 \\
-\operatorname{prob}\left(\mathrm{~T}&gt;\mathrm{t}_{\alpha}\right)=\alpha
-\end{gathered}
+B\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\sum_{i=1}^{n} I_{x_{i}&gt;m_{0}}
 \]</span></p>
-<p>en otras palabras, <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> es el valor crítico bilateral de la T asociada a una probabilidad <span class="math inline">\(\alpha\)</span> mientras que <span class="math inline">\(\mathrm{t}_{\alpha}\)</span> es el valor crítico unilateral derecho de la misma v.a.</p>
-</div>
-<div id="intervalo-de-confianza-para-la-diferencia-de-medias." class="section level3 hasAnchor" number="12.4.2">
-<h3><span class="header-section-number">12.4.2</span> Intervalo de confianza para la diferencia de medias.<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-medias." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los límites para el intervalo de una diferencia de medias correspondientes a dos muestras independientes son:</p>
+<p>donde</p>
 <p><span class="math display">\[
-\bar{X}_{1}-\bar{X}_{2} \pm t_{\alpha / 2} \sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}
+I_{x_{i}&gt;m_{0}}=\left\{\begin{array}{cc}
+1 &amp; \text { si } x_{i}&gt;m_{0}\left(\operatorname{signe}\left(x_{i}\right)=+\right) \\
+0 &amp; \text { si } x_{i}&lt;m_{0}\left(\operatorname{signe}\left(x_{i}\right)=-\right)
+\end{array}\right.
 \]</span></p>
-<p>el símbolo <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> es el mismo valor crítico que antes: <span class="math inline">\(\operatorname{prob}\left(\mathrm{T}&gt;\mathrm{t}_{\alpha / 2}\right)=\alpha / 2\)</span> y corresponde a un intervalo de confianza <span class="math inline">\(1-\alpha \%\)</span>.</p>
-<p>Este intervalo puede utilizarse de forma alternativa al contraste de hipótesis para decidir (con nivel de significación <span class="math inline">\(\alpha\)</span> %) si hay igualdad de los dos grupos. Se decidirá por la igualdad de los grupos si el valor 0 queda incluido en cualquier posición en el intervalo, es decir, el número 0 no ha de estar forzosamente en el centro del intervalo para aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
-<p>Si se ha planteado el contraste más general <span class="math inline">\(\mathrm{H}_{0}: \mu_{1}-\mu_{2}=\mathrm{d}_{0}\)</span> bastará que el valor <span class="math inline">\(\mathrm{d}_{0}\)</span> quede incluido en el intervalo.</p>
-<p>Aún si se realiza el contraste T de dos muestras en primer lugar, es aconsejable obtener el I.C. de la diferencia de medias si éste ha resultado significativo, puesto que ayudará a interpretar si existe significación aplicada además de la estadística.</p>
-<p>Si se dispone de alguna información previa y quiere calcularse sólo alguno de los dos intervalos unilaterales, bastará sustituir <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> por <span class="math inline">\(\mathrm{t}_{\alpha} \mathrm{y}\)</span> descartar el límite superior o inferior del intervalo según el caso. Por ejemplo, el intervalo unilateral derecho corresponde a:</p>
+<p>Si la hipótesis nula es cierta, la distribución del estadístico <span class="math inline">\(B\)</span> será una binomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(1/2\)</span>, y es razonable esperar que <span class="math inline">\(B\)</span> tome valores próximos a <span class="math inline">\(n/2\)</span>; mientras que cuando sea falsa es de esperar que tome valores en las colas de la distribución. Así pues, una región crítica para el test será aquella en la que el número de signos positivos sea demasiado alto o demasiado bajo como para ser coherente con la hipótesis nula, que implica que hay tantos positivos como negativos. Podemos tomar como región crítica:</p>
 <p><span class="math display">\[
-\left(-\infty, \bar{X}_{1}-\bar{X}_{2}+t_{\alpha} \sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}\right)
+W=\left\{B(\mathbf{x}) \leq b_{\alpha / 2}\right\} \cup\left\{B(\mathbf{x}) \geq b_{1-\alpha / 2}\right\}
 \]</span></p>
-<p>La decisión tomada con este intervalo es totalmente equivalente a la decisión tomada con el contraste t Student de 2 muestras independientes con alternativa unilateral derecha.</p>
-</div>
-<div id="cálculo-del-tamaño-de-muestra" class="section level3 hasAnchor" number="12.4.3">
-<h3><span class="header-section-number">12.4.3</span> Cálculo del tamaño de muestra<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Supongamos que se desea realizar el contraste bilateral:</p>
+<p>donde <span class="math inline">\(b_{\alpha / 2}\)</span> y <span class="math inline">\(b_{1-\alpha / 2}\)</span> se determinan de forma que la probabilidad de las dos colas de una distribución <span class="math inline">\(B\left(n, \frac{1}{2}\right)\)</span> sea igual al nivel de significación <span class="math inline">\(\alpha\)</span> (o algo menor que <span class="math inline">\(\alpha\)</span>), es decir,</p>
 <p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{1}-\mu_{2}=\mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2} \neq \mathrm{d}_{0}
+\sum_{i=0}^{b_{\alpha / 2}}\binom{n}{i}\left(\frac{1}{2}\right)^{i}\left(\frac{1}{2}\right)^{n-i}+\sum_{i=b_{1-\alpha / 2}}^{n}\binom{n}{i}\left(\frac{1}{2}\right)^{i}\left(\frac{1}{2}\right)^{n-i} \leq \alpha
 \]</span></p>
-<p>Una vez el experimentador ha elegido el nivel de significación ( <span class="math inline">\(\alpha\)</span> ) la mínima diferencia significativa <span class="math inline">\((\Delta)\)</span> y la potencia <span class="math inline">\((\beta)\)</span> debe obtenerse una prueba piloto, donde se estima la varianza supuesta común. Luego puede ya determinarse el tamaño de muestra adecuado (se asumen las varianzas de las 2 poblaciones homogéneas) que es:</p>
-<p><span class="math display">\[
-n=2\left\{\frac{t_{1-\beta}+t_{\alpha / 2}}{\Delta}\right\}^{2} \frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}
-\]</span></p>
-<p>Las constantes <span class="math inline">\(t_{\alpha / 2}\)</span> y <span class="math inline">\(t_{1-\beta}\)</span> corresponden a las siguientes colas derechas de la v.a. t-Student con <span class="math inline">\(\left(\mathrm{n}_{1}+\mathrm{n}_{2}-2\right)\)</span> g.d.l.:</p>
-<p><span class="math display">\[
-p\left(T \geq t_{\alpha / 2}\right)=\alpha / 2 \quad p\left(T \geq t_{1-\beta}\right)=1-\beta
-\]</span></p>
-<p>Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra <span class="math inline">\(t_{\alpha / 2}\)</span> por <span class="math inline">\(t_{\alpha}\)</span>.</p>
-</div>
-</div>
-<div id="comparación-de-varianzas-de-datos-normales-independientes." class="section level2 hasAnchor" number="12.5">
-<h2><span class="header-section-number">12.5</span> Comparación de varianzas de datos normales independientes.<a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-varianzas-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="premisas-e-hipótesis-en" class="section level3 hasAnchor" number="12.5.1">
-<h3><span class="header-section-number">12.5.1</span> Premisas e hipótesis en<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Aquí se detalla cómo comparar las varianzas de dos grupos asociados a una variable normal cuando el muestreo se ha realizado de forma independiente entre los dos grupos.</p>
-<p>Las premisas para aplicar el test que se describe a continuación son:</p>
+<div id="observaciones-2" class="section level4 hasAnchor" number="14.2.1.1">
+<h4><span class="header-section-number">14.2.1.1</span> Observaciones<a href="estadística-no-paramétrica.html#observaciones-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
-<li>las dos muestras son estocásticamente independientes entre sí</li>
-<li>las muestras de cada grupo son muestras aleatorias simples</li>
-<li>la variable observada en cada grupo es una variable normal</li>
+<li>Aunque con probabilidad teórica cero, porque la variable considerada tiene función de distribución continua, puede darse el caso <span class="math inline">\(x_{i}=m_{0}\)</span>, de signo indefinido. Si no es posible aumentar la precisión, se aconseja eliminar este valor muestral y descontarlo en consecuencia del tamaño de la muestra.</li>
+<li>Si la hipótesis alternativa es <span class="math inline">\(M&lt;m_{0}\)</span> o bien <span class="math inline">\(M&gt;m_{0}\)</span>, la región crítica se adapta a esta hipótesis de forma razonable, es decir:</li>
 </ul>
-<p>Es conveniente recordar que el test que aquí se describe debe efectuarse previamente al test t -Student de 2 muestras para comprobar la última de sus premisas (ver aquí para más detalles).</p>
-<p>De acuerdo a las premisas la variable observada sigue en la primera población una Normal <span class="math inline">\(\left(\mu_{1}, \sigma_{1}\right)\)</span> y en la segunda una Normal <span class="math inline">\(\left(\mu_{2}, \sigma_{2}\right)\)</span>. Contrastar la homogeneidad de varianzas corresponde pues a:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \sigma_{1}=\sigma_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma_{1} \neq \sigma_{2}
-\]</span></p>
-<p>Como es ya habitual, pueden plantearse otro tipo de alternativas, aunque son menos utilizadas en experimentación:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \sigma_{1} \leq \sigma_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma_{1}&gt;\sigma_{2}
-\]</span></p>
-<p>o bien:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \sigma_{1} \geq \sigma_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma_{1}&lt;\sigma_{2}
-\]</span></p>
-</div>
-<div id="estadístico-de-test-y-valores-críticos-1" class="section level3 hasAnchor" number="12.5.2">
-<h3><span class="header-section-number">12.5.2</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Hemos asumido antes que las muestras eran de tamaño <span class="math inline">\(n_{1}\)</span> y <span class="math inline">\(n_{2}\)</span> respectivamente para las dos poblaciones y que los estadísticos se indican mediante:</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp; \bar{X}_{1}, \widetilde{S}_{1}^{2} \text { promedio y varianza muestral corregida de la } 1^{\mathrm{a}} \text { población } \\
-&amp; \bar{X}_{2}, \widetilde{S}_{2}^{2} \text { promedio y varianza muestral corregida de la } 2^{\mathrm{a}} \text { población }
+&amp; H_{1}: M&lt;m_{0} \quad \Rightarrow \quad W=\left\{B(\mathbf{x}) \leq b_{\alpha}\right\} \\
+&amp; H_{1}: M&gt;m_{0} \quad \Rightarrow \quad W=\left\{B(\mathbf{x}) \geq b_{1-\alpha / 2}\right\}
 \end{aligned}
 \]</span></p>
-<p>Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:</p>
-<p><span class="math display">\[
-\mathrm{F}_{\exp }=\frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}
-\]</span></p>
-<p>conocido como contraste F de varianzas para dos muestras independientes. La distribución del estadístico es la F de Fisher con <span class="math inline">\(\left(\mathrm{n}_{1}-1, \mathrm{n}_{2}-1\right)\)</span> grados de libertad. Según el tipo de alternativa los valores críticos son:</p>
+<ul>
+<li>Algunos libros incluyen tablas de la distribución binomial que podemos usar para encontrar los valores críticos. Para <span class="math inline">\(n \geq 20\)</span> podemos aproximar la binomial por una normal.</li>
+</ul>
+</div>
+<div id="ejemplo-1-1" class="section level4 hasAnchor" number="14.2.1.2">
+<h4><span class="header-section-number">14.2.1.2</span> Ejemplo 1<a href="estadística-no-paramétrica.html#ejemplo-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La siguiente tabla recoge una muestra de 40 notas en un examen. Contraste, con un nivel de significación 0.05, la hipótesis de que el valor central (mediana) de las notas es 66.</p>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th align="center"><span class="math inline">\(\mathrm{H}_{1}\)</span></th>
-<th align="center">rechazar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span></th>
+<th align="center">71</th>
+<th align="center">67</th>
+<th align="center">55</th>
+<th align="center">64</th>
+<th align="center">82</th>
+<th align="center">66</th>
+<th align="center">74</th>
+<th align="center">58</th>
+<th align="center">79</th>
+<th align="center">61</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\sigma_{1} \neq \sigma_{2}\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{~F}_{\exp } \geq \mathrm{f}_{\alpha / 2} \circ \mathrm{~F}_{\exp } \leq \mathrm{f}_{1-\alpha / 2}\)</span></td>
+<td align="center">78</td>
+<td align="center">46</td>
+<td align="center">84</td>
+<td align="center">93</td>
+<td align="center">72</td>
+<td align="center">54</td>
+<td align="center">78</td>
+<td align="center">86</td>
+<td align="center">48</td>
+<td align="center">52</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\sigma_{1}&gt;\sigma_{2}\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{~F}_{\exp } \geq \mathrm{f}_{\alpha}\)</span></td>
+<td align="center">67</td>
+<td align="center">95</td>
+<td align="center">70</td>
+<td align="center">43</td>
+<td align="center">70</td>
+<td align="center">73</td>
+<td align="center">57</td>
+<td align="center">64</td>
+<td align="center">60</td>
+<td align="center">83</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\sigma_{1}&lt;\sigma_{2}\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{~F}_{\exp } \leq \mathrm{f}_{1-\alpha}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>si <span class="math inline">\(F\)</span> es la variable aleatoria con distribución F de ( <span class="math inline">\(\mathrm{n}_{1}-1, \mathrm{n}_{2}-1\)</span> ) grados de libertad los valores <span class="math inline">\(\mathrm{f}_{\alpha / 2}, \mathrm{f}_{1-\alpha / 2}\)</span>, <span class="math inline">\(\mathrm{f}_{\alpha}\)</span> y <span class="math inline">\(\mathrm{f}_{1-\alpha}\)</span> son:</p>
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(\operatorname{prob}\left(F&gt;\mathrm{f}_{\alpha / 2}\right)=\alpha / 2\)</span></th>
-<th align="center"><span class="math inline">\(\operatorname{prob}\left(F&lt;\mathrm{f}_{1-\alpha / 2}\right)=\alpha / 2\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\operatorname{prob}\left(F&gt;\mathrm{f}_{\alpha}\right)=\alpha\)</span></td>
-<td align="center"><span class="math inline">\(\operatorname{prob}\left(F&lt;\mathrm{f}_{\alpha}\right)=1-\alpha\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>en otras palabras, <span class="math inline">\(\mathrm{f}_{\alpha / 2}\)</span> y <span class="math inline">\(\mathrm{f}_{\alpha}\)</span> son valores críticos unilaterales derechos de la <span class="math inline">\(F\)</span> (asociados respectivamente a una probabilidad <span class="math inline">\(\alpha / 2\)</span> y <span class="math inline">\(\alpha\)</span> ) mientras que <span class="math inline">\(f_{1-\alpha / 2}\)</span> y <span class="math inline">\(f_{1-\alpha}\)</span> son unilaterales izquierdos de la misma variable aleatoria.</p>
-</div>
-<div id="intervalo-de-confianza-para-la-razón-de-varianzas" class="section level3 hasAnchor" number="12.5.3">
-<h3><span class="header-section-number">12.5.3</span> Intervalo de confianza para la razón de varianzas<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-raz%C3%B3n-de-varianzas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los límites de un intervalo de confianza <span class="math inline">\(1-\alpha \%\)</span> para el cociente de varianzas correspondientes a dos muestras independientes son:</p>
-<p><span class="math display">\[
-\left(f_{1-\alpha / 2} \frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}, f_{\alpha / 2} \frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}\right)
-\]</span></p>
-<p>los símbolos <span class="math inline">\(\mathrm{f}_{\alpha / 2}\)</span> y <span class="math inline">\(\mathrm{f}_{1-\alpha / 2}\)</span> son los mismos valores críticos que antes: prob ( <span class="math inline">\(F&gt;\mathrm{f}_{\alpha / 2}\)</span> ) <span class="math inline">\(=\alpha / 2\)</span> y prob ( <span class="math inline">\(F&lt; f_{1-\alpha / 2}=\alpha / 2\)</span>.</p>
-<p>Este intervalo puede utilizarse de forma alternativa al contraste de hipótesis para decidir (con nivel de significación <span class="math inline">\(\alpha\)</span> %) si hay igualdad de varianzas de los dos grupos. Se decidirá que no hay diferencias significativas si el valor 1 queda incluido en cualquier posición en el intervalo. El número 1 no ha de estar forzosamente en el centro del intervalo para aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
-</div>
-</div>
-<div id="comparaciones-de-medias-de-datos-normales-apareados" class="section level2 hasAnchor" number="12.6">
-<h2><span class="header-section-number">12.6</span> Comparaciones de medias de datos normales apareados<a href="contrastes-con-dos-muestras.html#comparaciones-de-medias-de-datos-normales-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="premisas-e-hipótesis" class="section level3 hasAnchor" number="12.6.1">
-<h3><span class="header-section-number">12.6.1</span> Premisas e hipótesis<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Las premisas para aplicar el test que se describe a continuación son:</p>
-<ul>
-<li>las muestras corresponden a datos apareados</li>
-<li>la muestra (agrupada por parejas) es aleatoria simple</li>
-<li>la variable observada en cada grupo es una variable normal</li>
-</ul>
-<p>El objetivo es muy parecido al descrito anteriormente: verificar si los dos grupos son homogéneos en promedio, sólo cambian las premisas y tipo de muestreo. La variable <span class="math inline">\(\mathrm{X}_{1}\)</span> observada en la primera población sigue una <span class="math inline">\(\operatorname{Normal}\left(\mu_{1}, \sigma_{1}\right)\)</span> y la variable <span class="math inline">\(\mathrm{X}_{2}\)</span> en la segunda población una <span class="math inline">\(\operatorname{Normal}\left(\mu_{2}, \sigma_{2}\right)\)</span>. Así pues, contrastar la homogeneidad de medias corresponde igualmente a:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{1}=\mu_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1} \neq \mu_{2}
-\]</span></p>
-<p>Ahora bien, este contraste se resuelve ahora calculando la variable diferencia entre <span class="math inline">\(\mathrm{X}_{1}\)</span> y <span class="math inline">\(\mathrm{X}_{2}\)</span>. Si designamos con</p>
-<p><span class="math display">\[
-X_{d}=X_{1}-X_{2}
-\]</span></p>
-<p>a esta diferencia, entonces <span class="math inline">\(\mathrm{X}_{\mathrm{d}}\)</span> es una <span class="math inline">\(\operatorname{Normal}\left(\mu_{\mathrm{d}}, \sigma_{\mathrm{d}}\right)\)</span>. La hipótesis de homogeneidad de las medias de las muestras apareadas se traduce en una prueba de una muestra normal, es decir:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{\mathrm{d}}=0 \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{\mathrm{d}} \neq 0
-\]</span></p>
-<p>Como es ya habitual, pueden plantearse otro tipo de alternativas:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{\mathrm{d}} \leq 0 \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{\mathrm{d}}&gt;0
-\]</span></p>
-<p>o bien:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mu_{\mathrm{d}} \geq 0 \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}&lt;0
-\]</span></p>
-</div>
-<div id="relación-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales." class="section level3 hasAnchor" number="12.6.2">
-<h3><span class="header-section-number">12.6.2</span> Relación entre el contraste de datos apareados y el de una media (datos normales).<a href="contrastes-con-dos-muestras.html#relaci%C3%B3n-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Se dispone de una muestra de datos apareados de tamaño n (es decir, n parejas). Los estadísticos se indican mediante:</p>
-<p><span class="math display">\[\bar{X}_{d}, \quad \widetilde{S}_{d}^{2},\]</span>
-promedio y varianza muestral corregida de la resta de las 2 muestras</p>
-<p>Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:</p>
-<p><span class="math display">\[
-\mathrm{T}_{\exp }=\frac{\bar{X}_{d}}{\widetilde{S}_{d}} \sqrt{n}
-\]</span></p>
-<p>que <strong>no es más que el contraste T para una muestra calculado con cuya distribución es la t de Student con (n-1) grados de libertad</strong>.</p>
-<p>Según el tipo de alternativa los valores críticos son:</p>
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(\mathrm{H}_{1}\)</span></th>
-<th align="center">rechazar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\mu_{\mathrm{d}} \neq 0\)</span></td>
-<td align="center"><span class="math inline">\(\left\|\mathrm{~T}_{\exp }\right\| \geq \mathrm{t}_{\alpha / 2}\)</span></td>
+<td align="center">73</td>
+<td align="center">40</td>
+<td align="center">78</td>
+<td align="center">70</td>
+<td align="center">64</td>
+<td align="center">86</td>
+<td align="center">76</td>
+<td align="center">62</td>
+<td align="center">95</td>
+<td align="center">66</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\mu_{\mathrm{d}}&gt;0\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{~T}_{\exp } \geq \mathrm{t}_{\alpha}\)</span></td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">0</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">-</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\mu_{\mathrm{d}}&lt;0\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{~T}_{\exp } \leq-\mathrm{t}_{\alpha}\)</span></td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">+</td>
+</tr>
+<tr class="odd">
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">+</td>
+<td align="center">-</td>
+<td align="center">+</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table>
-<p>si T es la variable aleatoria t -Student <span class="math inline">\((\mathrm{n}-1)\)</span> los valores <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> y <span class="math inline">\(\mathrm{t}_{\alpha}\)</span> son:</p>
+<p>Si restamos 66 de las notas observadas y retenemos solo los signos de las diferencias, se obtienen 23 signos +, 15 signos - y 2 ceros. Descartados los ceros, <span class="math inline">\(B=23\)</span> sobre un total de 38. Si hacemos un contraste bilateral con la aproximación normal, la región de aceptación es <span class="math inline">\(\{-1.96 \leq z \leq 1.96\}\)</span>.
+Dado que</p>
 <p><span class="math display">\[
-\operatorname{prob}\left(\mathrm{T}&gt;\mathrm{t}_{\alpha / 2}\right)=\alpha / 2 \quad \operatorname{prob}\left(\mathrm{~T}&gt;\mathrm{t}_{\alpha}\right)=\alpha
+z=\frac{(23-0.5)-38 \cdot 0.5}{\sqrt{38 \cdot 0.5 \cdot 0.5}}=1.14
 \]</span></p>
-<p>en otras palabras, <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> es el valor crítico bilateral de la T asociada a una probabilidad <span class="math inline">\(\alpha\)</span> mientras que <span class="math inline">\(\mathrm{t}_{\alpha}\)</span> es el valor crítico unilateral derecho de la misma v.a.</p>
+<p>aceptamos la hipótesis de que la mediana es 66, al nivel 0.05.</p>
+<p>Podemos hacer lo mismo con R:</p>
+<p>Primero introducimos las notas y calculamos cuántos valores son superiores a 66, es decir, el número de signos positivos.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="estadística-no-paramétrica.html#cb92-1" tabindex="-1"></a>notes<span class="ot">&lt;-</span><span class="fu">c</span> (<span class="dv">71</span>,<span class="dv">67</span>,<span class="dv">55</span>,<span class="dv">64</span>,<span class="dv">82</span>,<span class="dv">66</span>,<span class="dv">74</span>,<span class="dv">58</span>,<span class="dv">79</span>,<span class="dv">61</span>,<span class="dv">78</span>,<span class="dv">46</span>,<span class="dv">84</span>,<span class="dv">93</span>,<span class="dv">72</span>,<span class="dv">54</span>,<span class="dv">78</span>,<span class="dv">86</span>,<span class="dv">48</span>,<span class="dv">52</span>,<span class="dv">67</span>,<span class="dv">95</span>,<span class="dv">70</span>,<span class="dv">43</span>,<span class="dv">70</span>,<span class="dv">73</span>,<span class="dv">57</span>,<span class="dv">64</span>,<span class="dv">60</span>,<span class="dv">83</span>,<span class="dv">73</span>,<span class="dv">40</span>,<span class="dv">78</span>,<span class="dv">70</span>,<span class="dv">64</span>,<span class="dv">86</span>,<span class="dv">76</span>,<span class="dv">62</span>,<span class="dv">95</span>,<span class="dv">66</span>)</span>
+<span id="cb92-2"><a href="estadística-no-paramétrica.html#cb92-2" tabindex="-1"></a>notes[notes<span class="sc">&gt;</span><span class="dv">66</span>]</span></code></pre></div>
+<pre><code>##  [1] 71 67 82 74 79 78 84 93 72 78 86 67 95 70 70 73 83 73 78 70 86 76 95</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="estadística-no-paramétrica.html#cb94-1" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">length</span>(notes[notes<span class="sc">&gt;</span><span class="dv">66</span>])</span>
+<span id="cb94-2"><a href="estadística-no-paramétrica.html#cb94-2" tabindex="-1"></a>B</span></code></pre></div>
+<pre><code>## [1] 23</code></pre>
+<p>Y finalmente calculamos la aproximación normal del estadístico y su p-valor. Aplicaremos una <em>corrección por continuidad</em>, habitual en esta aproximación, restando 0.5 al estadístico B</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="estadística-no-paramétrica.html#cb96-1" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">length</span>(notes)<span class="sc">-</span><span class="fu">length</span>(notes[notes<span class="sc">==</span><span class="dv">66</span>])</span>
+<span id="cb96-2"><a href="estadística-no-paramétrica.html#cb96-2" tabindex="-1"></a>n</span></code></pre></div>
+<pre><code>## [1] 38</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="estadística-no-paramétrica.html#cb98-1" tabindex="-1"></a>z<span class="ot">&lt;-</span>(B<span class="fl">-0.5</span><span class="sc">-</span>n<span class="sc">*</span><span class="fl">0.5</span>)<span class="sc">/</span><span class="fu">sqrt</span>(n<span class="sc">*</span><span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.5</span>)</span>
+<span id="cb98-2"><a href="estadística-no-paramétrica.html#cb98-2" tabindex="-1"></a><span class="fu">round</span>(z,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1.14</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="estadística-no-paramétrica.html#cb100-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(z))</span></code></pre></div>
+<pre><code>## [1] 0.256145</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="estadística-no-paramétrica.html#cb102-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(B<span class="fl">-0.5</span>,<span class="at">mean=</span>n<span class="sc">*</span><span class="fl">0.5</span>,<span class="at">sd=</span><span class="fu">sqrt</span>(n<span class="sc">*</span><span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.5</span>)))</span></code></pre></div>
+<pre><code>## [1] 0.256145</code></pre>
+<p>El p-valor, superior al nivel de significación, hace que aceptemos la hipótesis nula <span class="math inline">\(H_{0}: M=66\)</span>.</p>
 </div>
-<div id="intérvalos-de-confianza-para-la-diferencia" class="section level3 hasAnchor" number="12.6.3">
-<h3><span class="header-section-number">12.6.3</span> Intérvalos de confianza para la diferencia<a href="contrastes-con-dos-muestras.html#int%C3%A9rvalos-de-confianza-para-la-diferencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El intervalo de confianza para la media de la variable diferencia es el mismo que el de la media de una muestra normal, es decir:</p>
+</div>
+<div id="test-de-los-signos-para-datos-apareados" class="section level3 hasAnchor" number="14.2.2">
+<h3><span class="header-section-number">14.2.2</span> Test de los signos para datos apareados<a href="estadística-no-paramétrica.html#test-de-los-signos-para-datos-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El test de los signos puede servir también en el caso de datos apareados.
+Consideremos una muestra de dos variables <span class="math inline">\(X, Y\)</span></p>
 <p><span class="math display">\[
-\bar{X}_{d} \pm t_{\alpha / 2} \frac{\widetilde{S}_{d}}{\sqrt{n}}
+\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{n}, y_{n}\right)
 \]</span></p>
-</div>
-<div id="tamaño-muestral" class="section level3 hasAnchor" number="12.6.4">
-<h3><span class="header-section-number">12.6.4</span> Tamaño muestral<a href="contrastes-con-dos-muestras.html#tama%C3%B1o-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Finalmente, el tamaño de muestra también corresponde al mismo caso:</p>
+<p>con <span class="math inline">\(n\)</span> observaciones en dos situaciones lo más homogéneas posible.
+Supongamos que las distribuciones de las dos variables son similares, excepto quizá en un parámetro de localización como la mediana. Es decir, las dos situaciones consideradas solo pueden desplazar la distribución y no modifican su forma.</p>
+<p>Ahora queremos contrastar la hipótesis de que no hay diferencia entre las dos situaciones: las diferencias observadas entre los valores <span class="math inline">\(x_{i}\)</span> y <span class="math inline">\(y_{i}\)</span> se deben al azar; es decir, las dos muestras <span class="math inline">\(x_{1}, \ldots, x_{n}\)</span> e <span class="math inline">\(y_{1}, \ldots, y_{n}\)</span> proceden de la misma población. Esto puede expresarse estadísticamente con la hipótesis <span class="math inline">\(H_{0}\)</span> de igualdad de las distribuciones de probabilidad, que con las suposiciones asumidas es equivalente a la igualdad de medianas.
+Si la hipótesis <span class="math inline">\(H_{0}\)</span> es cierta, y la distribución de la variable diferencia <span class="math inline">\(D=X-Y\)</span> es simétrica respecto del origen, se verificará</p>
 <p><span class="math display">\[
-n=\left(\frac{t_{\alpha / 2}+t_{1-\beta}}{\Delta}\right)^{2} \widetilde{S}_{d}^{2}
+P(X&gt;Y)=P(X-Y&gt;0)=\frac{1}{2}
 \]</span></p>
-</div>
-<div id="ejemplo-efecto-de-una-intervención-sobre-el-colesterol-hdl" class="section level3 hasAnchor" number="12.6.5">
-<h3><span class="header-section-number">12.6.5</span> Ejemplo: efecto de una intervención sobre el colesterol HDL<a href="contrastes-con-dos-muestras.html#ejemplo-efecto-de-una-intervenci%C3%B3n-sobre-el-colesterol-hdl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Se estudia el efecto de una intervención destinada a aumentar el colesterol HDL en un grupo de <span class="math inline">\(n = 10\)</span> pacientes.
-En cada paciente se mide el nivel de HDL (en mg/dL) antes y después de la intervención.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="contrastes-con-dos-muestras.html#cb70-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb70-2"><a href="contrastes-con-dos-muestras.html#cb70-2" tabindex="-1"></a></span>
-<span id="cb70-3"><a href="contrastes-con-dos-muestras.html#cb70-3" tabindex="-1"></a>HDL_antes   <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">35</span>, <span class="at">sd =</span> <span class="dv">4</span>), <span class="dv">1</span>)</span>
-<span id="cb70-4"><a href="contrastes-con-dos-muestras.html#cb70-4" tabindex="-1"></a>HDL_despues <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">45</span>, <span class="at">sd =</span> <span class="dv">4</span>), <span class="dv">1</span>)</span>
-<span id="cb70-5"><a href="contrastes-con-dos-muestras.html#cb70-5" tabindex="-1"></a></span>
-<span id="cb70-6"><a href="contrastes-con-dos-muestras.html#cb70-6" tabindex="-1"></a>HDL_antes</span></code></pre></div>
-<pre><code>##  [1] 32.8 34.1 41.2 35.3 35.5 41.9 36.8 29.9 32.3 33.2</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="contrastes-con-dos-muestras.html#cb72-1" tabindex="-1"></a>HDL_despues</span></code></pre></div>
-<pre><code>##  [1] 49.9 46.4 46.6 45.4 42.8 52.1 47.0 37.1 47.8 43.1</code></pre>
-<div id="definición-de-la-variable-diferencia" class="section level4 hasAnchor" number="12.6.5.1">
-<h4><span class="header-section-number">12.6.5.1</span> Definición de la variable diferencia<a href="contrastes-con-dos-muestras.html#definici%C3%B3n-de-la-variable-diferencia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="contrastes-con-dos-muestras.html#cb74-1" tabindex="-1"></a>D <span class="ot">&lt;-</span> HDL_despues <span class="sc">-</span> HDL_antes</span>
-<span id="cb74-2"><a href="contrastes-con-dos-muestras.html#cb74-2" tabindex="-1"></a>D</span></code></pre></div>
-<pre><code>##  [1] 17.1 12.3  5.4 10.1  7.3 10.2 10.2  7.2 15.5  9.9</code></pre>
-</div>
-<div id="planteamiento-de-las-hipótesis" class="section level4 hasAnchor" number="12.6.5.2">
-<h4><span class="header-section-number">12.6.5.2</span> Planteamiento de las hipótesis<a href="contrastes-con-dos-muestras.html#planteamiento-de-las-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Las hipótesis del contraste son</p>
-<p><span class="math display">\[
-H_0: \mu_D = 0
-\quad \text{frente a} \quad
-H_1: \mu_D \neq 0.
-\]</span></p>
-</div>
-<div id="cálculo-del-estadístico-de-contraste" class="section level4 hasAnchor" number="12.6.5.3">
-<h4><span class="header-section-number">12.6.5.3</span> Cálculo del estadístico de contraste<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-estad%C3%ADstico-de-contraste" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="contrastes-con-dos-muestras.html#cb76-1" tabindex="-1"></a><span class="fu">mean</span>(D)</span></code></pre></div>
-<pre><code>## [1] 10.52</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="contrastes-con-dos-muestras.html#cb78-1" tabindex="-1"></a><span class="fu">sd</span>(D)</span></code></pre></div>
-<pre><code>## [1] 3.645941</code></pre>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="contrastes-con-dos-muestras.html#cb80-1" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="fu">mean</span>(D) <span class="sc">/</span> (<span class="fu">sd</span>(D) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(D)))</span>
-<span id="cb80-2"><a href="contrastes-con-dos-muestras.html#cb80-2" tabindex="-1"></a>T</span></code></pre></div>
-<pre><code>## [1] 9.124436</code></pre>
-<p>Bajo la hipótesis nula, este estadístico sigue una distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(n-1 = 9\)</span> grados de libertad.</p>
-</div>
-<div id="decisión-mediante-el-p-valor" class="section level4 hasAnchor" number="12.6.5.4">
-<h4><span class="header-section-number">12.6.5.4</span> Decisión mediante el p-valor<a href="contrastes-con-dos-muestras.html#decisi%C3%B3n-mediante-el-p-valor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="contrastes-con-dos-muestras.html#cb82-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="fu">abs</span>(T), <span class="at">df =</span> <span class="fu">length</span>(D) <span class="sc">-</span> <span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## [1] 7.629805e-06</code></pre>
-<p><strong>Uso de <code>t.test</code> sobre la variable diferencia</strong></p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="contrastes-con-dos-muestras.html#cb84-1" tabindex="-1"></a><span class="fu">t.test</span>(D)</span></code></pre></div>
-<pre><code>## 
-##  One Sample t-test
-## 
-## data:  D
-## t = 9.1244, df = 9, p-value = 7.63e-06
-## alternative hypothesis: true mean is not equal to 0
-## 95 percent confidence interval:
-##   7.911851 13.128149
-## sample estimates:
-## mean of x 
-##     10.52</code></pre>
-<p><strong>Uso de <code>t.test</code> con la opción <code>paired = TRUE</code></strong></p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="contrastes-con-dos-muestras.html#cb86-1" tabindex="-1"></a><span class="fu">t.test</span>(HDL_despues, HDL_antes, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## 
-##  Paired t-test
-## 
-## data:  HDL_despues and HDL_antes
-## t = 9.1244, df = 9, p-value = 7.63e-06
-## alternative hypothesis: true mean difference is not equal to 0
-## 95 percent confidence interval:
-##   7.911851 13.128149
-## sample estimates:
-## mean difference 
-##           10.52</code></pre>
-<p>Ambos procedimientos producen exactamente el mismo resultado, ya que en ambos casos el contraste
-se basa en la variable diferencia.</p>
-<p>La opción <code>paired = TRUE</code> no define un contraste distinto, sino que indica a R que debe construir
-internamente la variable <span class="math inline">\(D = \text{HDL}_{\text{después}} - \text{HDL}_{\text{antes}}\)</span>
-y aplicar sobre ella un contraste de una muestra.</p>
-</div>
-</div>
-<div id="resumen-datos-independientes-frente-a-datos-apareados" class="section level3 hasAnchor" number="12.6.6">
-<h3><span class="header-section-number">12.6.6</span> Resumen: Datos independientes frente a datos apareados<a href="contrastes-con-dos-muestras.html#resumen-datos-independientes-frente-a-datos-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La distinción entre datos independientes y datos apareados no depende del contraste estadístico,
-sino del diseño del estudio y del modo en que se han obtenido los datos.</p>
-<ul>
-<li><p>Datos independientes: Dos muestras son independientes cuando las observaciones de una muestra no guardan ninguna relación directa con las observaciones de la otra.</p></li>
-<li><p>Datos apareados: En los datos apareados, cada observación de una muestra está emparejada con una observación concreta de la otra. El análisis no se centra en comparar dos poblaciones distintas, sino en estudiar la distribución de las diferencias.</p></li>
-</ul>
-<p>Así pues es importante recordar que <strong>no existen contrastes específicos para datos apareados.</strong></p>
-<p>El apareamiento se incorpora al análisis transformando los datos originales en una muestra de diferencias, y aplicando posteriormente un contraste de una sola muestra sobre dicha variable.</p>
-</div>
-</div>
-<div id="comparaciones-de-2-proporciones-datos-independientes" class="section level2 hasAnchor" number="12.7">
-<h2><span class="header-section-number">12.7</span> Comparaciones de 2 proporciones (datos independientes)<a href="contrastes-con-dos-muestras.html#comparaciones-de-2-proporciones-datos-independientes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="premisas-e-hipótesis-1" class="section level3 hasAnchor" number="12.7.1">
-<h3><span class="header-section-number">12.7.1</span> Premisas e hipótesis<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Otra de las pruebas estadísticas más básicas consiste en comprobar si la proporción de veces que ocurre un suceso es la misma en dos grupos diferentes. Se basa en la obtención de dos muestras donde en cada una de ellas se contabiliza el número de veces que ocurre el suceso estudiado.</p>
-<p>Las premisas para aplicar el test que se describe a continuación son:</p>
-<ul>
-<li>las dos muestras son estocásticamente independientes entre sí</li>
-<li>las muestras de cada grupo son dos muestras aleatorias simples de tamaños respectivos <span class="math inline">\(\mathrm{n}_{1}\)</span> y <span class="math inline">\(\mathrm{n}_{2}\)</span></li>
-<li>la variable observada en cada grupo corresponde a una variable binomial</li>
-</ul>
-<p>El objetivo es corroborar o descartar que dos grupos son homogéneos en la proporción del suceso que se contabiliza. De acuerdo a las premisas la variable observada sigue en la primera población una Binomial <span class="math inline">\(\left(\mathrm{n}_{1}, \mathrm{p}_{1}\right)\)</span> y en la segunda una Binomial <span class="math inline">\(\left(\mathrm{n}_{2}, \mathrm{p}_{2}\right)\)</span>. Contrastar la homogeneidad de proporciones corresponde pues a:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mathrm{p}_{1}=\mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1} \neq \mathrm{p}_{2}
-\]</span></p>
-<p>Pueden plantearse otro tipo de alternativas:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mathrm{p}_{1} \leq \mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1}&gt;\mathrm{p}_{2}
-\]</span></p>
-<p>o bien:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mathrm{p}_{1} \geq \mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1}&lt;\mathrm{p}_{2}
-\]</span></p>
-</div>
-<div id="estadístico-de-test-y-valores-críticos-2" class="section level3 hasAnchor" number="12.7.2">
-<h3><span class="header-section-number">12.7.2</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los estadísticos necesarios para el test se indican mediante:
-<span class="math inline">\(\hat{p}_{1}\)</span> proporción del suceso en la <span class="math inline">\(1^{\mathrm{a}}\)</span> muestra
-<span class="math inline">\(\hat{p}_{2}\)</span> proporción del suceso en la <span class="math inline">\(2^{\mathrm{a}}\)</span> muestra</p>
-<p><span class="math display">\[
-\hat{p}=\frac{\mathrm{n}_{1} \hat{p}_{1}+\mathrm{n}_{2} \hat{p}_{2}}{\mathrm{n}_{1}+\mathrm{n}_{2}} \quad \hat{q}=1-\hat{p}
-\]</span></p>
-<p>Para resolver el contraste descrito antes se dispone de un test óptimo basado en el siguiente estadístico de test:</p>
-<p><span class="math display">\[
-\mathrm{Z}_{\exp }=\frac{\hat{p}_{1}-\hat{p}_{2}}{\sqrt{\frac{\hat{p} \hat{q}}{n_{1}}+\frac{\hat{p} \hat{q}}{n_{2}}}}
-\]</span></p>
-<p>cuya distribución asintótica (ver condiciones aquí) es la Normal ( 0,1 ). Según el tipo de alternativa los valores críticos son:</p>
+<p>Así pues, podemos aplicar el test de los signos a la variable diferencia <span class="math inline">\(D=X-Y\)</span>. En general, aunque no necesariamente siempre, se tomará como valor de <span class="math inline">\(m_{0}\)</span> el 0.</p>
+<div id="ejemplo-2-1" class="section level4 hasAnchor" number="14.2.2.1">
+<h4><span class="header-section-number">14.2.2.1</span> Ejemplo 2<a href="estadística-no-paramétrica.html#ejemplo-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Se quiere comparar el número de piezas defectuosas producidas por dos máquinas diferentes. Se observa la producción durante 10 días, con la misma producción diaria para ambas máquinas, aunque diferente cada día. Los resultados son:</p>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th align="center"><span class="math inline">\(\mathrm{H}_{1}\)</span></th>
-<th align="center">rechazar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span></th>
+<th align="left">Día</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><span class="math inline">\(\mathrm{p}_{1} \neq \mathrm{p}_{2}\)</span></td>
-<td align="center"><span class="math inline">\(\left\|\mathrm{Z}_{\exp }\right\| \geq \mathrm{z}_{\alpha / 2}\)</span></td>
+<td align="left">Máquina 1</td>
+<td align="center">46</td>
+<td align="center">110</td>
+<td align="center">70</td>
+<td align="center">54</td>
+<td align="center">60</td>
+<td align="center">120</td>
+<td align="center">82</td>
+<td align="center">76</td>
+<td align="center">37</td>
+<td align="center">28</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(\mathrm{p}_{1}&gt;\mathrm{p}_{2}\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{Z}_{\exp } \geq \mathrm{z}_{\alpha}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\mathrm{p}_{1}&lt;\mathrm{p}_{2}\)</span></td>
-<td align="center"><span class="math inline">\(\mathrm{Z}_{\exp } \leq-\mathrm{z}_{\alpha}\)</span></td>
+<td align="left">Máquina 2</td>
+<td align="center">42</td>
+<td align="center">87</td>
+<td align="center">75</td>
+<td align="center">50</td>
+<td align="center">48</td>
+<td align="center">108</td>
+<td align="center">80</td>
+<td align="center">67</td>
+<td align="center">40</td>
+<td align="center">25</td>
 </tr>
 </tbody>
 </table>
-<p>si <span class="math inline">\(Z\)</span> es la variable aleatoria normal tipificada, los valores <span class="math inline">\(\mathrm{z}_{\alpha / 2}\)</span> y <span class="math inline">\(\mathrm{z}_{\alpha}\)</span> son:</p>
+<p>Con un nivel de significación <span class="math inline">\(\alpha=0.06\)</span>, ¿podemos aceptar que la primera máquina produce más piezas defectuosas?</p>
+<p><strong>Solución</strong>:</p>
+<p>El hecho de que la producción total diaria de ambas máquinas sea la misma permite considerar los datos como apareados. Que la producción diaria sea diferente cada día aconseja utilizar un test no paramétrico.
+Observemos los signos de las diferencias</p>
 <p><span class="math display">\[
-\begin{gathered}
-\operatorname{prob}\left(Z&gt;\mathrm{z}_{\alpha / 2}\right)=\alpha / 2 \\
-\operatorname{prob}\left(Z&gt;\mathrm{z}_{\alpha}\right)=\alpha
-\end{gathered}
-\]</span></p>
-<p>en otras palabras, <span class="math inline">\(z_{\alpha / 2}\)</span> es el valor crítico bilateral de la <span class="math inline">\(\operatorname{Normal}(0,1)\)</span> asociada a una probabilidad <span class="math inline">\(\alpha\)</span> mientras que <span class="math inline">\(\mathrm{z}_{\alpha}\)</span> es el valor crítico unilateral derecho de la misma variable aleatoria.</p>
-</div>
-<div id="condiciones-de-aplicación-del-test" class="section level3 hasAnchor" number="12.7.3">
-<h3><span class="header-section-number">12.7.3</span> Condiciones de aplicación del test<a href="contrastes-con-dos-muestras.html#condiciones-de-aplicaci%C3%B3n-del-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Esta prueba tiene carácter asintótico, para que la aproximación a la <span class="math inline">\(\operatorname{Normal}(0,1)\)</span> sea adecuada se requiere que:</p>
-<p><span class="math display">\[
-\begin{array}{cc}
-\mathrm{n}_{1} \geq 30 &amp; \mathrm{n}_{2} \geq 30 \\
-\mathrm{n}_{1} \hat{p}_{1} \geq 5 &amp; \mathrm{n}_{2} \hat{p}_{2} \geq 5
+\begin{array}{lcccccccccc}
+\text { Día: } &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\
+\text { Signo: } &amp; + &amp; + &amp; - &amp; + &amp; + &amp; + &amp; + &amp; + &amp; - &amp; +
 \end{array}
 \]</span></p>
-</div>
-<div id="intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes." class="section level3 hasAnchor" number="12.7.4">
-<h3><span class="header-section-number">12.7.4</span> Intervalo de confianza para la diferencia de proporciones (datos independientes).<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Los límites para el intervalo de una diferencia de proporciones correspondientes a dos muestras independientes son:</p>
+<p>De modo que <span class="math inline">\(B=8\)</span> sobre <span class="math inline">\(n=10\)</span>. En este contraste, la región crítica es unilateral y concretamente es <span class="math inline">\(W=\{8,9,10\}\)</span>, ya que</p>
 <p><span class="math display">\[
-\hat{p}_{1}-\hat{p}_{2} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}_{1}\left(1-\hat{p}_{1}\right)}{n_{1}}+\frac{\hat{p}_{2}\left(1-\hat{p}_{2}\right)}{n_{2}}}
+P(B \geq 8)=\sum_{i=8}^{10}\binom{10}{i} 0.5^{10}=0.0547&lt;\alpha=0.06
 \]</span></p>
-<p>el símbolo <span class="math inline">\(\mathrm{z}_{\alpha / 2}\)</span> es el mismo valor crítico que antes: <span class="math inline">\(\operatorname{prob}\left(Z&gt;\mathrm{z}_{\alpha / 2}\right)=\alpha / 2\)</span>.y corresponde a un intervalo de confianza <span class="math inline">\(1-\alpha \%\)</span>.</p>
-<p>Este intervalo puede utilizarse de forma alternativa al contraste de hipótesis para decidir (con nivel de significación <span class="math inline">\(\alpha\)</span> %) si hay igualdad de los dos grupos. Se decidirá por la igualdad de los grupos si el valor 0 queda incluido en cualquier posición en el intervalo.</p>
-<p>Aún si se realiza el contraste de dos proporciones en primer lugar, es aconsejable obtener el I.C. de la diferencia de medias si éste ha resultado significativo, puesto que ayudará a interpretar si existe significación aplicada además de la estadística.</p>
-<p>Si se dispone de alguna información previa y quiere calcularse sólo alguno de los dos intervalos unilaterales, bastará sustituir <span class="math inline">\(\mathrm{z}_{\alpha / 2}\)</span> por <span class="math inline">\(\mathrm{z}_{\alpha} \mathrm{y}\)</span> descartar el límite superior o inferior del intervalo según el caso. Por ejemplo, el intervalo unilateral derecho corresponde a:</p>
-<p><span class="math display">\[
-\left(-\infty, \hat{p}_{1}-\hat{p}_{2} \pm z_{\alpha} \sqrt{\frac{\hat{p}_{1}\left(1-\hat{p}_{1}\right)}{n_{1}}+\frac{\hat{p}_{2}\left(1-\hat{p}_{2}\right)}{n_{2}}}\right)
-\]</span></p>
-</div>
-<div id="cálculo-del-tamaño-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes." class="section level3 hasAnchor" number="12.7.5">
-<h3><span class="header-section-number">12.7.5</span> Cálculo del tamaño de muestra en el contraste de proporciones de datos independientes.<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Supongamos que se desea realizar el contraste bilateral:</p>
-<p><span class="math display">\[
-\mathrm{H}_{0}: \mathrm{p}_{1}=\mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1} \neq \mathrm{p}_{2}
-\]</span></p>
-<p>Una vez el experimentador ha elegido el nivel de significación ( <span class="math inline">\(\alpha\)</span> ) la mínima diferencia significativa <span class="math inline">\((\Delta)\)</span> y la potencia <span class="math inline">\((\beta)\)</span> debe obtenerse una prueba piloto donde se estiman las proporciones del suceso tanto en las 2 poblaciones por separado como en la población conjunta. Luego puede ya determinarse el tamaño de muestra adecuado:</p>
-<p><span class="math display">\[
-n=\left(\frac{z_{\alpha / 2} \sqrt{2 \hat{p} \hat{q}}+z_{\beta} \sqrt{\hat{p}_{1}\left(1-\hat{p}_{1}\right)+\hat{p}_{2}\left(1-\hat{p}_{2}\right)}}{\Delta}\right)^{2}
-\]</span></p>
-<p>Las constantes <span class="math inline">\(z_{\alpha / 2}\)</span> y <span class="math inline">\(z_{1-\beta}\)</span> corresponden a las siguientes colas derechas de la v.a. <span class="math inline">\(\operatorname{Normal}(0,1)\)</span></p>
-<p><span class="math display">\[
-p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\right)=1-\beta
-\]</span></p>
-<p>Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra <span class="math inline">\(z_{\alpha / 2}\)</span> por <span class="math inline">\(z_{\alpha}\)</span>.</p>
+<p>Dado que la frecuencia observada es 8 y pertenece a la región crítica, rechazamos la igualdad y podemos aceptar que la máquina 1 produce más piezas defectuosas.</p>
+<p>Para hacerlo con R introducimos los datos en dos vectores de la misma longitud. Calculamos la diferencia y el número de valores positivos. A partir de este número calculamos la probabilidad de la cola derecha de una binomial, ya que la hipótesis alternativa así lo requiere.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="estadística-no-paramétrica.html#cb104-1" tabindex="-1"></a>maq1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">46</span>,<span class="dv">110</span>,<span class="dv">70</span>,<span class="dv">54</span>,<span class="dv">60</span>,<span class="dv">120</span>,<span class="dv">82</span>,<span class="dv">76</span>,<span class="dv">37</span>,<span class="dv">28</span>)</span>
+<span id="cb104-2"><a href="estadística-no-paramétrica.html#cb104-2" tabindex="-1"></a>maq2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">42</span>,<span class="dv">87</span>,<span class="dv">75</span>,<span class="dv">50</span>,<span class="dv">48</span>,<span class="dv">108</span>,<span class="dv">80</span>,<span class="dv">67</span>,<span class="dv">40</span>,<span class="dv">25</span>)</span>
+<span id="cb104-3"><a href="estadística-no-paramétrica.html#cb104-3" tabindex="-1"></a>dif<span class="ot">&lt;-</span>maq1<span class="sc">-</span>maq2</span>
+<span id="cb104-4"><a href="estadística-no-paramétrica.html#cb104-4" tabindex="-1"></a>dif</span></code></pre></div>
+<pre><code>##  [1]  4 23 -5  4 12 12  2  9 -3  3</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="estadística-no-paramétrica.html#cb106-1" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">length</span>(dif[dif<span class="sc">&gt;</span><span class="dv">0</span>]);B</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="estadística-no-paramétrica.html#cb108-1" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">8</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)<span class="sc">+</span><span class="fu">dbinom</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)<span class="sc">+</span><span class="fu">dbinom</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## [1] 0.0546875</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="estadística-no-paramétrica.html#cb110-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pbinom</span>(B<span class="dv">-1</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## [1] 0.0546875</code></pre>
+<p>El p-valor es inferior al nivel de significación 0.06 y, por tanto, rechazamos la hipótesis nula y aceptamos que la máquina 1 produce más piezas defectuosas.</p>
 </div>
 </div>
-<div id="comparaciones-de-dos-muestras-tabla-resumen" class="section level2 hasAnchor" number="12.8">
-<h2><span class="header-section-number">12.8</span> Comparaciones de dos muestras: Tabla resumen<a href="contrastes-con-dos-muestras.html#comparaciones-de-dos-muestras-tabla-resumen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Los contrastes vistos en este tema se resumen en:</p>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Premisas</th>
-<th align="left"><span class="math inline">\(\mathrm{H}_{0}\)</span></th>
-<th align="left">Estadístico</th>
-<th align="left">Distribución</th>
-<th align="left"><span class="math inline">\(\mathrm{H}_{1}\)</span></th>
-<th align="left">Rechazar <span class="math inline">\(\mathrm{H}_{0} \mathrm{si}\)</span> :</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">2 muestras normales datos independientes varianzas iguales</td>
-<td align="left"><span class="math inline">\(\mu_{1}-\mu_{2}=\mathrm{d}_{0}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{T}_{\text {exp }}=\frac{\bar{X}_{1}-\bar{X}_{2}-d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}\)</span></td>
-<td align="left">t-Student ( <span class="math inline">\(\mathrm{n}_{1}+\mathrm{n}_{2}-2\)</span> )</td>
-<td align="left"><span class="math inline">\(\mu_{1}-\mu_{2} \neq \mathrm{d}_{0}\)</span></td>
-<td align="left"><span class="math inline">\(\left\|\mathrm{T}_{\exp }\right\| \geq \mathrm{t}_{\alpha / 2}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\mu_{1}-\mu_{2}&gt;\mathrm{d}_{0}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{T}_{\text {exp }} \geq \mathrm{t}_{\alpha}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\mu_{1}-\mu_{2}&lt;\mathrm{d}_{0}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{T}_{\text {exp }} \leq-\mathrm{t}_{\alpha}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">2 muestras normales datos independientes</td>
-<td align="left"><span class="math inline">\(\sigma_{1}=\sigma_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{F}_{\text {exp }}=\frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}\)</span></td>
-<td align="left">Fisher ( <span class="math inline">\(\mathrm{n}_{1}-1, \mathrm{n}_{2}-1\)</span> )</td>
-<td align="left"><span class="math inline">\(\sigma_{1} \neq \sigma_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{F}_{\text {exp }} \geq \mathrm{f}_{\alpha / 2}\)</span> o <span class="math inline">\(\mathrm{F}_{\exp } \leq \mathrm{f}_{1-\alpha / 2}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\sigma_{1}&gt;\sigma_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{F}_{\text {exp }} \geq \mathrm{f}_{\alpha}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\sigma_{1}&lt;\sigma_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{F}_{\text {exp }} \leq \mathrm{f}_{1-\alpha}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">2 muestras normales datos apareados</td>
-<td align="left"><span class="math inline">\(\mu_{\mathrm{d}}=0\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{T}_{\text {exp }}=\frac{\bar{X}_{d}}{\widetilde{S}_{d}} \sqrt{n}\)</span></td>
-<td align="left">t-Student (n-1)</td>
-<td align="left"><span class="math inline">\(\mu_{\mathrm{d}} \neq 0\)</span></td>
-<td align="left"><span class="math inline">\(\left\|\mathrm{T}_{\text {exp }}\right\| \geq \mathrm{t}_{\alpha / 2}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\mu_{\mathrm{d}}&gt;0\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{T}_{\exp } \geq \mathrm{t}_{\alpha}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\mu_{\mathrm{d}}&lt;0\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{T}_{\text {exp }} \leq-\mathrm{t}_{\alpha}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math inline">\(\mathrm{n}_{1}\)</span> y <span class="math inline">\(\mathrm{n}_{2} \geq 30 \mathrm{n}_{1} \overline{\mathrm{p}}_{1} \geq 5 \mathrm{n}_{2} \overline{\mathrm{p}}_{2} \geq 5\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{p}_{1}=\mathrm{p}_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{Z}_{\exp }=\frac{\hat{p}_{1}-\hat{p}_{2}}{\sqrt{\frac{\hat{p} \hat{q}}{n_{1}}+\frac{\hat{p} \hat{q}}{n_{2}}}}\)</span></td>
-<td align="left">Normal <span class="math inline">\((0,1)\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{p}_{1} \neq \mathrm{p}_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\left\|\mathrm{Z}_{\text {exp }}\right\| \geq \mathrm{z}_{\alpha / 2}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\mathrm{p}_{1}&gt;\mathrm{p}_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{Z}_{\text {exp }} \geq \mathrm{z}_{\alpha}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><span class="math inline">\(\mathrm{p}_{1}&lt;\mathrm{p}_{2}\)</span></td>
-<td align="left"><span class="math inline">\(\mathrm{Z}_{\text {exp }} \leq-\mathrm{z}_{\alpha}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Notación.:
-<span class="math inline">\(\bar{X}_{1}, \widetilde{S}_{1}^{2}\)</span> promedio y varianza muestral corregida de la <span class="math inline">\(1{ }^{\text {a }}\)</span> población
-<span class="math inline">\(\bar{X}_{2}, \widetilde{S}_{2}^{2}\)</span> promedio y varianza muestral corregida de la <span class="math inline">\(2^{\mathrm{a}}\)</span> población
-<span class="math inline">\(\bar{X}_{d}, \widetilde{S}_{d}^{2}\)</span> promedio y varianza muestral corregida de la resta de las 2 muestras
-<span class="math inline">\(\hat{p}_{1}\)</span> proporción del suceso en la <span class="math inline">\(1^{\mathrm{a}}\)</span> muestra
-<span class="math inline">\(\hat{p}_{2}\)</span> proporción del suceso en la <span class="math inline">\(2^{\mathrm{a}}\)</span> muestra
-<span class="math inline">\(\hat{p}=\frac{\mathbf{n}_{1} \hat{p}_{1}+\mathbf{n}_{2} \hat{p}_{2}}{\mathbf{n}_{1}+\mathbf{n}_{2}} \quad \hat{q}=\mathbf{1}-\hat{p}\)</span>
-<span class="math inline">\(F\)</span> sigue la distribución F de Fisher, entonces <span class="math inline">\(\mathrm{f}_{\alpha / 2}, \mathrm{f}_{1-\alpha / 2}, \mathrm{f}_{\alpha}\)</span> y <span class="math inline">\(\mathrm{f}_{1-\alpha}\)</span> son:</p>
+<div id="test-para-datos-binarios" class="section level3 hasAnchor" number="14.2.3">
+<h3><span class="header-section-number">14.2.3</span> Test para datos binarios<a href="estadística-no-paramétrica.html#test-para-datos-binarios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En el caso de una muestra de valores de una variable dicotómica, por ejemplo</p>
 <p><span class="math display">\[
-\begin{aligned}
-\operatorname{prob}\left(F&gt;\mathrm{f}_{\alpha / 2}\right) &amp; =\alpha / 2 \\
-\operatorname{prob}\left(F&gt;\mathrm{f}_{\alpha}\right) &amp; =\alpha
-\end{aligned}
+a, a, b, b, b, a, a, b, a, \ldots, b
 \]</span></p>
+<p>podemos aplicar el test de los signos para contrastar el equilibrio de las probabilidades de ambos valores.</p>
+<div id="ejemplo-3-1" class="section level4 hasAnchor" number="14.2.3.1">
+<h4><span class="header-section-number">14.2.3.1</span> Ejemplo 3<a href="estadística-no-paramétrica.html#ejemplo-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Ante un cambio en un servicio público se realiza una encuesta a 300 personas, a las cuales se les pregunta si el servicio ha mejorado o empeorado, sin posibilidad de ser indiferente. Ha resultado que 197 personas han dicho que el servicio ha mejorado y queremos contrastar este hecho con un nivel de significación del 0.01.</p>
+<p>Bajo la hipótesis nula de equilibrio, el número <span class="math inline">\(B\)</span> de personas que afirman que el servicio ha mejorado sigue una distribución binomial <span class="math inline">\(B(300,0.5)\)</span>, de forma que</p>
 <p><span class="math display">\[
-\begin{gathered}
-\operatorname{prob}\left(F&lt;\mathrm{f}_{1-\alpha / 2}\right)=\alpha / 2 \\
-\operatorname{prob}\left(f&lt;\mathrm{f}_{\alpha}\right)=1-\alpha
-\end{gathered}
+z=\frac{(197-0.5)-150}{\sqrt{300 \cdot 0.5 \cdot 0.5}}=5.37
 \]</span></p>
-<p>si <span class="math inline">\(T\)</span> es la variable aleatoria t -Student, <span class="math inline">\(\operatorname{prob}\left(T&gt;\mathrm{t}_{\alpha / 2}\right)=\alpha / 2\)</span> y <span class="math inline">\(\operatorname{prob}\left(T&gt;\mathrm{t}_{\alpha}\right)=\alpha\)</span>
-si Z es la variable normal tipificada, <span class="math inline">\(\operatorname{prob}\left(Z&gt;\mathrm{z}_{\alpha / 2}\right)=\alpha / 2\)</span> y prob <span class="math inline">\(\left(Z&gt;\mathrm{z}_{\alpha}\right)=\alpha\)</span></p>
-</div>
-<div id="complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t" class="section level2 hasAnchor" number="12.9">
-<h2><span class="header-section-number">12.9</span> Complementos: efecto de las transformaciones de los datos en el test t<a href="contrastes-con-dos-muestras.html#complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para acabar de comprender el funcionamiento del test T es interesante considerar el efecto que tiene sobre dicho contrastes dos típicas operaciones sobre un conjunto de datos:</p>
-<ul>
-<li>cambio de posición: esto es, sumar una constante a todos los datos.</li>
-<li>cambio de escala: esto es, multiplicar por una constante todos los datos.</li>
-</ul>
-<div id="efecto-del-cambi-de-posición" class="section level3 hasAnchor" number="12.9.1">
-<h3><span class="header-section-number">12.9.1</span> Efecto del cambi de posición<a href="contrastes-con-dos-muestras.html#efecto-del-cambi-de-posici%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Veamos primero el efecto del primer tipo de cambio desde un punto de vista empírico, tomando dos grupos de datos independientes (para más detalles, corresponden a los datos del casol de este mismo tema). Los datos originales (en breve, diferencia de peso de unos pacientes en kilos) y el resultado del test T se detallan a continuación para poder comparar con en el cuadro más abajo donde se modificarán:</p>
-<p>Supongamos que se ha detectado un error en la balanza que medía el peso, sistemático para todos los datos, lo cual implica sumar 2 kilos a todos los datos del estudio. Si se modifican adecuadamente los datos (sumar 2 a todos ellos):
-se ha de observar que:</p>
-<ul>
-<li>las medias de los dos grupos se han incrementado en dos unidades</li>
-<li>las desviaciones de los dos grupos se mantienen constantes</li>
-<li>toda la inferencia de comparación de medias se mantiene constante (Estadístico T, p-valor, intervalo, etc).</li>
-</ul>
-<p>Para entender este resultado empírico, y razonando ahora en general, si a todos los datos originales ( <span class="math inline">\(\mathrm{x}_{1}\)</span>, <span class="math inline">\(\left.\mathrm{x}_{2}, \ldots \mathrm{x}_{\mathrm{n}}\right)\)</span> se les añade la constante <span class="math inline">\(k\)</span></p>
-<p><span class="math display">\[
-\mathrm{y}_{1}=\mathrm{x}_{1}+k, \mathrm{y}_{2}=\mathrm{x}_{2}+k, \ldots, \mathrm{y}_{\mathrm{n}}=\mathrm{x}_{\mathrm{n}}+k
-\]</span></p>
-<p>la media y la varianza de la nueva variable Y van a ser:</p>
-<p><span class="math display">\[
-\bar{Y}=\bar{X}+k \quad \widetilde{S}_{Y}^{2}=\widetilde{S}_{X}^{2}
-\]</span></p>
-<p>así pues, en el caso de tener dos grupos de datos, la varianza de cada grupo -y por tanto también la ponderada- se mantienen constantes. El estadístico de test va a ser:</p>
-<p><span class="math display">\[
-T_{Y}=\frac{\left(\bar{X}_{1}+k\right)-\left(\bar{X}_{2}+k\right)-d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}=T_{K}
-\]</span></p>
-<p>La conclusión es que el test t no se ve alterado por un cambio de posición en todos los datos.</p>
-</div>
-<div id="efecto-de-un-cambio-de-escala" class="section level3 hasAnchor" number="12.9.2">
-<h3><span class="header-section-number">12.9.2</span> Efecto de un cambio de escala<a href="contrastes-con-dos-muestras.html#efecto-de-un-cambio-de-escala" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Veamos ahora el efecto del segundo tipo de cambio desde un punto de vista empírico. Con los datos originales (corresponden a los datos del casol de este mismo tema), el resultado del test T es:</p>
-<p>Supongamos que se decide cambiar de unidad, pasando a decigramos en lugar de kilogramos. Equivale a multiplicar por cien todos los datos del estudio. Modificando adecuadamente los datos siguientes:
-se ha de observar que:</p>
-<ul>
-<li>las medias de los dos grupos se han multiplicado por cien</li>
-<li>las desviaciones de los dos grupos se han multiplicado por cien</li>
-<li>el Estadístico T y el p-valor se mantienen constantes (el I.C. es 100 veces mayor).</li>
-</ul>
-<p>Para entender este resultado, razonando de nuevo en general, si todos los datos originales ( <span class="math inline">\(\mathrm{x}_{1}, \mathrm{x}_{2}, \ldots \mathrm{x}_{\mathrm{n}}\)</span> ) se multiplican por <span class="math inline">\(k\)</span></p>
-<p><span class="math display">\[
-\mathrm{y}_{1}=k \mathrm{x}_{1}, \mathrm{y}_{2}=k \mathrm{x}_{2}, \ldots, \mathrm{y}_{\mathrm{n}}=k \mathrm{x}_{\mathrm{n}}
-\]</span></p>
-<p>la media y la varianza de la nueva variable Y van a ser:</p>
-<p><span class="math display">\[
-\bar{Y}=k \bar{X} \quad \widetilde{S}_{Y}^{2}=k^{2} \widetilde{S}_{X}^{2}
-\]</span></p>
-<p>así pues, en el caso de tener dos grupos de datos, la varianza de cada grupo -y por tanto también la ponderada- se multiplica por <span class="math inline">\(k^{2}\)</span>. El estadístico de test va a ser:</p>
-<p><span class="math display">\[
-T_{Y}=\frac{k \bar{X}_{1}-k \bar{X}_{2}-k d_{0}}{\sqrt{\frac{\left(n_{1}-1\right) k^{2} \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) k^{2} \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}}=T_{X}
-\]</span></p>
-<p>y se cancelan la constante <span class="math inline">\(k\)</span> en el numerador y el denominador. La conclusión es que el test t no se ve alterado por un cambio de escala todos los datos.</p>
-<p>##Muestreo aleatorio simple</p>
-<p>Los valores de la muestra son elegidos de modo que las observaciones son independientes dos a dos y todas siguen la misma distribución probabilística.</p>
-<p>Una propiedad matemática importante es que la función de densidad de la muestra, entendida como vector aleatorio, es el producto de las funciones de densidad de sus variables. Igualmente ocurre con la función de distribución.</p>
-<p>En poblaciones finitas, una posibilidad de asegurar la aleatoriedad de los datos consiste en la utilización de números aleatorios.</p>
-<p>En R es muy sencillo obtener números aleatorios enteros. Por ejemplo para generar diez aleatorios entre 1 y 25 haríamos simplemente:</p>
-<ul>
-<li>Si queremos que los números se puedan repetir</li>
-</ul>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="contrastes-con-dos-muestras.html#cb88-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="dv">10</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>##  [1] 15 10 13  7  9  9 10 23 21  7</code></pre>
-<ul>
-<li>Si queremos que sean aleatorios pero no puedan aparecer dos veces:</li>
-</ul>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="contrastes-con-dos-muestras.html#cb90-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>, <span class="dv">10</span>, <span class="at">replace=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>##  [1] 21  6  2  5  8 12 13 18  1  9</code></pre>
+<p>La región crítica de una cola es <span class="math inline">\(W=\{z&gt;2.33\}\)</span> para <span class="math inline">\(\alpha=0.01\)</span>, de manera que aceptamos la opinión de que el servicio ha mejorado.</p>
 </div>
 </div>
-<div id="presentación-del-caso-1" class="section level2 hasAnchor" number="12.10">
-<h2><span class="header-section-number">12.10</span> Presentación del caso 1<a href="contrastes-con-dos-muestras.html#presentaci%C3%B3n-del-caso-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una empresa farmacéutica está probando un nuevo fármaco para adelgazar denominado Prim. En esta fase del ensayo clínico se pretende comparar el efecto de Prim con un fármaco de la competencia conocido como Nofat. Se considerará relevante la diferencia si es de al menos 2 kilogramos en promedio entre los dos fármacos.</p>
-<p>En la prueba piloto se desea experimentar sobre 20 personas voluntarias sometidas a una misma dieta, pero medicadas 10 de ellas con Prim y otras 10 con Nofat. La variable observada será la diferencia de peso en kilogramos entre el inicio y el final del estudio. Los datos iniciales son:</p>
+</div>
+<div id="test-de-mcnemar" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Test de McNemar<a href="estadística-no-paramétrica.html#test-de-mcnemar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es una variante del test de los signos. Supongamos que un conjunto de individuos se clasifica en dos categorías opuestas, que podemos indicar con los signos <span class="math inline">\(+\mathrm{i}-\)</span>.
+Después de algún estímulo, es posible que algunos individuos cambien de categoría, de forma que se obtiene la tabla de frecuencias</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Individuo</th>
-<th align="left">Peso</th>
-<th align="left">Individuo</th>
-<th align="left">Peso</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">Después</th>
+<th align="center"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
-<td align="left">127.5</td>
-<td align="left">11</td>
-<td align="left">117.5</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center">+</td>
 </tr>
 <tr class="even">
-<td align="left">2</td>
-<td align="left">101.0</td>
-<td align="left">12</td>
-<td align="left">115.0</td>
+<td align="center">Antes</td>
+<td align="center">+</td>
+<td align="center"><span class="math inline">\(a\)</span></td>
+<td align="center"><span class="math inline">\(b\)</span></td>
 </tr>
 <tr class="odd">
-<td align="left">3</td>
-<td align="left">99.5</td>
-<td align="left">13</td>
-<td align="left">139.5</td>
-</tr>
-<tr class="even">
-<td align="left">4</td>
-<td align="left">110.5</td>
-<td align="left">14</td>
-<td align="left">130.5</td>
-</tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="left">115.5</td>
-<td align="left">15</td>
-<td align="left">125.5</td>
-</tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="left">95.5</td>
-<td align="left">16</td>
-<td align="left">135.5</td>
-</tr>
-<tr class="odd">
-<td align="left">7</td>
-<td align="left">105.5</td>
-<td align="left">17</td>
-<td align="left">115.5</td>
-</tr>
-<tr class="even">
-<td align="left">8</td>
-<td align="left">110.5</td>
-<td align="left">18</td>
-<td align="left">120.5</td>
-</tr>
-<tr class="odd">
-<td align="left">9</td>
-<td align="left">98.5</td>
-<td align="left">19</td>
-<td align="left">118.5</td>
-</tr>
-<tr class="even">
-<td align="left">10</td>
-<td align="left">106.0</td>
-<td align="left">20</td>
-<td align="left">116.0</td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center"><span class="math inline">\(c\)</span></td>
+<td align="center"><span class="math inline">\(d\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>Solo <span class="math inline">\(a+d\)</span> individuos han cambiado. Bajo la hipótesis nula de que las proporciones no cambian, las probabilidades son</p>
+<p><span class="math display">\[
+P(+\rightarrow-)=P(-\rightarrow+)=1 / 2
+\]</span></p>
+<p>de manera que la frecuencia esperada en estos dos casos es <span class="math inline">\((a+d) / 2\)</span>. Podemos aplicar el test ji-cuadrado</p>
+<p><span class="math display">\[
+\chi^{2}=\frac{(a-(a+d) / 2)^{2}}{(a+d) / 2}+\frac{(d-(a+d) / 2)^{2}}{(a+d) / 2}=\frac{(a-d)^{2}}{a+d} \quad \text { con } 1 \text { g.l. }
+\]</span></p>
+<p>Rechazaremos la hipótesis de equilibrio si <span class="math inline">\(\chi&gt;\chi_{\alpha}^{2}\)</span>, donde <span class="math inline">\(\alpha\)</span> es el nivel de significación. Si las frecuencias son pequeñas es conveniente utilizar la corrección de Yates</p>
+<p><span class="math display">\[
+\chi=\frac{(|a-d|-1)^{2}}{a+d}
+\]</span></p>
+</div>
+<div id="test-de-los-rangos-con-signo-de-wilcoxon" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Test de los rangos con signo de Wilcoxon<a href="estadística-no-paramétrica.html#test-de-los-rangos-con-signo-de-wilcoxon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Visto como una extensión del test de los signos anterior, la idea de este test es utilizar, además del signo, la magnitud de las diferencias.</p>
+<p>El <strong>rango</strong> de una observación es <em>la posición que ocupa en la muestra ordenada</em>. Por ejemplo, si consideramos la muestra</p>
+<p><span class="math display">\[
+x_{1}=3 \quad x_{2}=0 \quad x_{3}=5 \quad x_{4}=1.9
+\]</span>
+la muestra ordenada es</p>
+<p><span class="math display">\[
+x_{(1)}=0 \quad x_{(2)}=1.9 \quad x_{(3)}=3 \quad x_{(4)}=5
+\]</span></p>
+<p>de modo que los rangos son:</p>
+<p><span class="math display">\[
+r(0)=1 \quad r(1.9)=2 \quad r(3)=3 \quad r(5)=4
+\]</span></p>
+<p>Una parte importante de la estadística no paramétrica ha surgido de la sustitución de los valores cuantitativos de las muestras por sus rangos y de la obtención de estadísticos de contraste análogos a los utilizados con datos cuantitativos.</p>
+<p>Podemos encontrar así, por ejemplo, un test equivalente al test <span class="math inline">\(t\)</span> de Student pero basado en rangos, o un coeficiente de correlación, denominado de Spearman, con la misma fórmula que el de Pearson pero utilizando rangos.</p>
+<p>Ahora nos centramos en la comparación de medianas, basada en rangos, y no en los coeficientes de correlación.</p>
+<p>Supongamos que la hipótesis nula es la misma que en el test de la mediana, es decir:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; H_{0}: M=m_{0} \\
+&amp; H_{1}: M \neq m_{0}
+\end{aligned}
+\]</span></p>
+<p>donde <span class="math inline">\(M\)</span> representa la mediana de una variable o, con frecuencia, de la diferencia entre dos variables apareadas.</p>
+<p>Wilcoxon propuso considerar los estadísticos:<br />
+<span class="math inline">\(T^{+}=\)</span> Suma de los rangos de las observaciones con signo +<br />
+<span class="math inline">\(T^{-}=\)</span> Suma de los rangos de las observaciones con signo -</p>
+<p><span class="math display">\[
+T^{+}=\sum_{i=1}^{n} r\left(\left|x_{i}-m_{0}\right|\right) I_{x_{i}&gt;m_{0}}
+\]</span></p>
+<p>Si <span class="math inline">\(H_{0}\)</span> es cierta, entonces es de esperar que <span class="math inline">\(T^{+}=T^{-}\)</span>.
+El estadístico <span class="math inline">\(T^{+}\)</span> se conoce con el nombre de estadístico de Wilcoxon y está tabulado, de forma que pueden encontrarse valores <span class="math inline">\(t_{\alpha / 2}\)</span> y <span class="math inline">\(t_{1-\alpha / 2}\)</span> tales que</p>
+<p><span class="math display">\[
+P\left[T^{+}&lt;t_{\alpha / 2} \mid H_{0}\right]+P\left[T^{+}&gt;t_{1-\alpha / 2} \mid H_{0}\right] \leq \alpha
+\]</span></p>
+<p>y definir la región crítica como</p>
+<p><span class="math display">\[
+W=\left\{T^{+}&lt;t_{\alpha / 2}\right\} \cup\left\{T^{+}&gt;t_{1-\alpha / 2}\right\}
+\]</span></p>
+<div id="observaciones-3" class="section level3 hasAnchor" number="14.4.1">
+<h3><span class="header-section-number">14.4.1</span> Observaciones<a href="estadística-no-paramétrica.html#observaciones-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Para valores grandes de <span class="math inline">\(n\)</span> puede utilizarse el hecho de que, bajo <span class="math inline">\(H_{0}\)</span>, el estadístico <span class="math inline">\(T^{+}\)</span> es asintóticamente normal:</li>
+</ul>
+<p><span class="math display">\[
+T^{+} \sim A N\left(\mu_{T^{+}}, \sigma_{T^{+}}\right), \quad \mu_{T^{+}}=\frac{n(n+1)}{4}, \quad \sigma_{T^{+}}^{2}=\frac{n(n+1)(2 n+1)}{24}
+\]</span></p>
+<p>y, por tanto, para muestras grandes podemos basarnos en el estadístico</p>
+<p><span class="math display">\[
+Z=\frac{T^{+}-n(n+1) / 4}{\sqrt{n(n+1)(2 n+1) / 24}} \sim N(0,1)
+\]</span></p>
+<ul>
+<li>Una alternativa al estadístico de contraste anterior consiste en considerar el estadístico</li>
+</ul>
+<p><span class="math display">\[
+T=\min \left(T^{+}, T^{-}\right) .
+\]</span></p>
+<p>Si <span class="math inline">\(H_{0}\)</span> es cierta, entonces <span class="math inline">\(T^{+}=T^{-}\)</span>. Si no lo es, se tendrá <span class="math inline">\(T^{+}&gt;T^{-}\)</span> o bien <span class="math inline">\(T^{+}&lt;T^{-}\)</span>, de modo que el mínimo será un valor “pequeño”. El test basado en este estadístico rechazará la hipótesis nula si <span class="math inline">\(T\)</span> es menor que <span class="math inline">\(T_{\alpha}\)</span>, donde este valor crítico se obtiene a partir de una tabla diferente de la tabla de valores críticos para <span class="math inline">\(T^{+}\)</span>.</p>
+</div>
+<div id="ejemplo-4-1" class="section level3 hasAnchor" number="14.4.2">
+<h3><span class="header-section-number">14.4.2</span> Ejemplo 4<a href="estadística-no-paramétrica.html#ejemplo-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dado que en el ejemplo 1 las notas son numéricas, podemos utilizar el test de los rangos con signo para contrastar <span class="math inline">\(H_{0}: M=66\)</span> frente a <span class="math inline">\(H_{1}: M \neq 66\)</span>, con un nivel de significación del 0.05.</p>
+<p><strong>Solución</strong>:</p>
+<p>Para calcular el estadístico <span class="math inline">\(T^{+}\)</span> debemos asignar los rangos correspondientes a los valores positivos de las diferencias entre las observaciones y el valor 66 propuesto en la hipótesis nula.</p>
+<p>En este ejemplo utilizaremos la función <code>wilcox.test</code> con el vector <code>notes</code> del ejemplo:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="estadística-no-paramétrica.html#cb112-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(notes,<span class="at">mu=</span><span class="dv">66</span>,<span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>,<span class="at">exact=</span>F)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  notes
+## V = 465, p-value = 0.1726
+## alternative hypothesis: true location is not equal to 66</code></pre>
+<p>O bien, mediante una aproximación normal directa:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="estadística-no-paramétrica.html#cb114-1" tabindex="-1"></a>z<span class="ot">&lt;-</span>(<span class="dv">465</span><span class="fl">-0.5</span><span class="dv">-38</span><span class="sc">*</span><span class="dv">39</span><span class="sc">/</span><span class="dv">4</span>)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">38</span><span class="sc">*</span><span class="dv">39</span><span class="sc">*</span><span class="dv">77</span><span class="sc">/</span><span class="dv">24</span>);z</span></code></pre></div>
+<pre><code>## [1] 1.363214</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="estadística-no-paramétrica.html#cb116-1" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(z)),<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.17</code></pre>
+<p>Esta función calcula el estadístico <span class="math inline">\(T^{+}=465\)</span> y su p-valor con corrección por continuidad.</p>
+<p>En este problema existen, además de dos ceros, un número considerable de empates o <em>ligaduras</em> (del inglés “ties”), de modo que la función <code>wilcox.test</code> no puede calcular el p-valor exacto y por ello se le ha indicado <code>exact=F</code>.</p>
+<p>El estadístico <span class="math inline">\(z\)</span> que hemos calculado de forma directa y su p-valor, sin tener en cuenta las ligaduras, son bastante similares a los que calcula el algoritmo. Si no se indica nada sobre este parámetro, aparecen dos mensajes de advertencia relativos a este hecho.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="estadística-no-paramétrica.html#cb118-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(notes,<span class="at">mu=</span><span class="dv">66</span>,<span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  notes
+## V = 465, p-value = 0.1726
+## alternative hypothesis: true location is not equal to 66</code></pre>
+</div>
+<div id="ejemplo-5-1" class="section level3 hasAnchor" number="14.4.3">
+<h3><span class="header-section-number">14.4.3</span> Ejemplo 5<a href="estadística-no-paramétrica.html#ejemplo-5-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dado que en el ejemplo 2 las observaciones son numéricas y apareadas, podemos utilizar los valores de las diferencias con el test de los rangos con signo para contrastar si existen diferencias entre las dos máquinas.</p>
+<p><strong>Solución</strong>:</p>
+<p>En este ejemplo se utiliza también la función <code>wilcox.test</code> con los dos vectores de datos del ejemplo y la opción <code>paired=TRUE</code>.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="estadística-no-paramétrica.html#cb120-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(maq1,maq2,<span class="at">mu=</span><span class="dv">0</span>,<span class="at">paired=</span>T,<span class="at">alternative=</span><span class="st">&quot;greater&quot;</span>,<span class="at">exact=</span>F)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  maq1 and maq2
+## V = 46.5, p-value = 0.02942
+## alternative hypothesis: true location shift is greater than 0</code></pre>
+<p>Observamos que en este caso hemos utilizado la opción <code>paired=T</code> para indicar que los datos son apareados. También hemos identificado correctamente la alternativa con <code>alternative="greater"</code>. Además, como en el ejemplo anterior, las ligaduras no permiten calcular el p-valor exacto. El p-valor aproximado 0.029 indica el rechazo de la hipótesis nula.</p>
+</div>
+</div>
+<div id="el-test-u-de-mann-whitney" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> El test <span class="math inline">\(U\)</span> de Mann-Whitney<a href="estadística-no-paramétrica.html#el-test-u-de-mann-whitney" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este test permite comparar dos poblaciones con muestras independientes:
+<span class="math display">\[
+\left(x_{1}, \ldots, x_{n_{1}}\right),\left(y_{1}, \ldots, y_{n_{2}}\right)
+\]</span></p>
+<p>procedentes de dos poblaciones <span class="math inline">\(X, Y\)</span> con funciones de distribución <span class="math inline">\(F_{X}, F_{Y}\)</span> respectivamente. Queremos contrastar la hipótesis <span class="math inline">\(H_{0}: F_{X}=F_{Y}\)</span> frente a alguna de las alternativas</p>
+<p><span class="math display">\[
+H_{1}: F_{X} \neq F_{Y} \quad H_{1}: F_{X}&lt;F_{Y} \quad H_{1}: F_{X}&gt;F_{Y}
+\]</span></p>
+<p>Si la hipótesis nula es cierta, entonces <span class="math inline">\(P(X&lt;Y)=\frac{1}{2}\)</span>. Además, dado que existen <span class="math inline">\(n_{1} \cdot n_{2}\)</span> pares posibles, el número de pares de observaciones <span class="math inline">\(\left(x_{i}, y_{j}\right)\)</span> que se espera que verifiquen <span class="math inline">\(x_{i}&lt;y_{j}\)</span> estará alrededor de <span class="math inline">\(\frac{n_{1} \cdot n_{2}}{2}\)</span>.
+Un estadístico de contraste razonable para decidir si aceptamos o rechazamos la hipótesis nula es el número de pares que verifican <span class="math inline">\(x_{i}&lt;y_{j}\)</span>, que definimos como:</p>
+<p><span class="math display">\[
+U=\sum_{i=1}^{n_{1}} \sum_{j=1}^{n_{2}} I_{x_{i}&lt;y_{j}}
+\]</span></p>
+<p>Una desviación significativa de <span class="math inline">\(U\)</span> respecto al valor esperado <span class="math inline">\(\frac{n_{1} \cdot n_{2}}{2}\)</span> conducirá al rechazo de la hipótesis nula. Para decidir si <span class="math inline">\(U\)</span> es significativo se consulta la tabla de Mann-Whitney-Wilcoxon, que permite decidir el rechazo de <span class="math inline">\(H_{0}\)</span> en función del nivel de significación elegido y de los tamaños muestrales <span class="math inline">\(n_{1}\)</span> y <span class="math inline">\(n_{2}\)</span>.</p>
+<div id="observaciones-4" class="section level3 hasAnchor" number="14.5.1">
+<h3><span class="header-section-number">14.5.1</span> Observaciones<a href="estadística-no-paramétrica.html#observaciones-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Un procedimiento alternativo para calcular <span class="math inline">\(U\)</span>, y a menudo más cómodo, consiste en formar la muestra conjunta reuniendo las dos muestras individuales y asignar los rangos <span class="math inline">\(1,2, \ldots, n_{1}+n_{2}\)</span> a cada uno de los valores de la muestra ordenada. Puede calcularse <span class="math inline">\(U\)</span> a partir de la relación:</li>
+</ul>
+<p><span class="math display">\[
+U=W-\frac{n_{2}\left(n_{2}+1\right)}{2}
+\]</span></p>
+<p>donde <span class="math inline">\(W\)</span> es la suma de los rangos de las observaciones <span class="math inline">\(y_{j}\)</span></p>
+<p><span class="math display">\[
+W=\sum_{j=1}^{n_{2}} r\left(y_{j}\right)
+\]</span></p>
+<p>Este estadístico <span class="math inline">\(W\)</span> para comparar dos poblaciones fue propuesto por Wilcoxon pero, por la relación anterior, es equivalente al estadístico <span class="math inline">\(U\)</span> de Mann-Whitney.</p>
+<ul>
+<li>Si no existen ligaduras o empates, la relación entre el estadístico de Wilcoxon <span class="math inline">\(W\)</span> (suma de rangos correspondientes a las observaciones <span class="math inline">\(Y\)</span>) y el estadístico <span class="math inline">\(U\)</span> de Mann-Whitney (número de veces que <span class="math inline">\(x_{i}&lt;y_{j}\)</span> en la muestra conjunta ordenada) es</li>
+</ul>
+<p><span class="math display">\[
+W=\frac{n_{2}\left(n_{2}+1\right)}{2}+U
+\]</span></p>
+<p>Si <span class="math inline">\(W^{\prime}\)</span> es la suma de los rangos correspondientes a las observaciones <span class="math inline">\(X\)</span>, entonces</p>
+<p><span class="math display">\[
+W+W^{\prime}=\frac{\left(n_{1}+n_{2}\right)\left(n_{1}+n_{2}+1\right)}{2}
+\]</span></p>
+<p>De modo que, si <span class="math inline">\(U^{\prime}\)</span> es el número de veces que <span class="math inline">\(y_{j}&lt;x_{i}\)</span>, se obtiene</p>
+<p><span class="math display">\[
+U+U^{\prime}=n_{1} n_{2} \quad W^{\prime}=\frac{n_{1}\left(n_{1}+1\right)}{2}+U^{\prime}
+\]</span></p>
+<ul>
+<li>Para muestras “grandes” puede utilizarse el hecho de que, bajo <span class="math inline">\(H_{0}\)</span>, el estadístico <span class="math inline">\(U\)</span> es asintóticamente normal:</li>
+</ul>
+<p><span class="math display">\[
+U \sim A N\left(\mu_{U}, \sigma_{U}\right), \quad \mu_{U}=\frac{n_{1} n_{2}}{2}, \quad \sigma_{U}^{2}=\frac{n_{1} n_{2}\left(n_{1}+n_{2}+1\right)}{12}
+\]</span></p>
+<p>y, por tanto, para <span class="math inline">\(n_{1}&gt;10\)</span> o <span class="math inline">\(n_{2}&gt;10\)</span> podemos basarnos en el estadístico de contraste</p>
+<p><span class="math display">\[
+Z=\frac{U-n_{1} n_{2} / 2}{\sqrt{n_{1} n_{2}\left(n_{1}+n_{2}+1\right) / 12}} \sim N(0,1)
+\]</span></p>
+</div>
+<div id="ejemplo-6-1" class="section level3 hasAnchor" number="14.5.2">
+<h3><span class="header-section-number">14.5.2</span> Ejemplo 6<a href="estadística-no-paramétrica.html#ejemplo-6-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para comparar la resistencia en <span class="math inline">\(\mathrm{kg} / \mathrm{cm}^{2}\)</span> de un material suministrado por dos proveedores se midieron dos muestras de varios elementos:</p>
+<p>Proveedor A 202, 229, 215, 220, 223, 233, 208, 228, 209<br />
+Proveedor B 221, 207, 185, 203, 187, 190, 195, 204, 212</p>
+<p>Con un nivel de significación del 0.05, indique si existen diferencias entre los materiales suministrados por los dos proveedores.</p>
+<p><strong>Solución</strong>:</p>
+<p>Ahora utilizaremos la función <code>wilcox.test</code> con los dos vectores de datos, teniendo en cuenta que son independientes, que es la opción por defecto.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="estadística-no-paramétrica.html#cb122-1" tabindex="-1"></a>pro.A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">202</span>,<span class="dv">229</span>,<span class="dv">215</span>,<span class="dv">220</span>,<span class="dv">223</span>,<span class="dv">233</span>,<span class="dv">208</span>,<span class="dv">228</span>,<span class="dv">209</span>)</span>
+<span id="cb122-2"><a href="estadística-no-paramétrica.html#cb122-2" tabindex="-1"></a>pro.B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">221</span>,<span class="dv">207</span>,<span class="dv">185</span>,<span class="dv">203</span>,<span class="dv">187</span>,<span class="dv">190</span>,<span class="dv">195</span>,<span class="dv">204</span>,<span class="dv">212</span>)</span>
+<span id="cb122-3"><a href="estadística-no-paramétrica.html#cb122-3" tabindex="-1"></a><span class="fu">wilcox.test</span>(pro.A,pro.B,<span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum exact test
+## 
+## data:  pro.A and pro.B
+## W = 70, p-value = 0.007775
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>No debemos dejarnos confundir por la notación.</p>
+<p>El estadístico calculado es el que hemos denominado <span class="math inline">\(U^{\prime}=70&gt;n_{1} n_{2} / 2=40.5\)</span>. En cualquier caso, el p-valor es muy explícito e implica el rechazo de la hipótesis nula de equivalencia.</p>
+</div>
+</div>
+<div id="comparación-de-medianas" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> Comparación de medianas<a href="estadística-no-paramétrica.html#comparaci%C3%B3n-de-medianas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consideremos una situación en la que se desea comparar dos poblaciones continuas con distribuciones de igual forma y tratar de detectar desplazamientos entre ambas distribuciones.
+Sean <span class="math inline">\(x_{1}, \ldots, x_{n_{1}} \mathrm{i} y_{1}, \ldots, y_{n_{2}}\)</span> dos muestras aleatorias correspondientes a cada población e independientes entre sí. Si se ordenan conjuntamente ambas muestras en orden creciente y se considera la mediana <span class="math inline">\(M\)</span> de la muestra combinada, podemos calcular el estadístico</p>
+<p><span class="math display">\[
+T=\sum_{i=1}^{n_{1}} I_{x_{i}&lt;M}
+\]</span></p>
+<p>que sirve para contrastar la hipótesis <span class="math inline">\(H_{0}: M_{X}=M_{Y}\)</span>.
+Si ambas poblaciones tienen la misma distribución, es de esperar que <span class="math inline">\(T\)</span> sea próximo a <span class="math inline">\(n_{1} / 2\)</span>. En cambio, si <span class="math inline">\(T\)</span> resulta mucho mayor que <span class="math inline">\(n_{1} / 2\)</span>, es razonable suponer que la mediana <span class="math inline">\(M_{X}\)</span> de la primera población es inferior a la de la segunda <span class="math inline">\(M_{Y}\)</span>; mientras que si <span class="math inline">\(T\)</span> es mucho menor que <span class="math inline">\(n_{1} / 2\)</span>, ello parece indicar que <span class="math inline">\(M_{X}\)</span> es superior a <span class="math inline">\(M_{Y}\)</span>. Las regiones críticas son:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Alternativa</th>
+<th align="left">Región crítica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(M_{X}&lt;M_{Y}\)</span></td>
+<td align="left"><span class="math inline">\(\{T \geq k\}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(M_{X}&gt;M_{Y}\)</span></td>
+<td align="left"><span class="math inline">\(\left\{T \leq k^{\prime}\right\}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(M_{X} \neq M_{Y}\)</span></td>
+<td align="left"><span class="math inline">\(\left\{T \leq k_{1}\right\} \cup\left\{T \geq k_{2}\right\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Si la distribución de ambas poblaciones es la misma, la distribución de <span class="math inline">\(T\)</span> puede obtenerse con facilidad. Dado que las <span class="math inline">\(n_{1}+n_{2}\)</span> observaciones son independientes
+e idénticamente distribuidas, las <span class="math inline">\(\binom{n_{1}+n_{2}}{n_{1}}\)</span> formas de asignar <span class="math inline">\(n_{1}\)</span> a la primera muestra (y las restantes <span class="math inline">\(n_{2}\)</span> a la segunda) son equiprobables. Si <span class="math inline">\(p\)</span> es la parte entera de <span class="math inline">\(\left(n_{1}+n_{2}\right) / 2\)</span>, existen <span class="math inline">\(p\)</span> de las <span class="math inline">\(n_{1}+n_{2}\)</span> observaciones inferiores a <span class="math inline">\(M\)</span> y se tendrá <span class="math inline">\(T=t\)</span> en todas aquellas asignaciones en las que resulten <span class="math inline">\(t\)</span> observaciones de la primera muestra de entre las <span class="math inline">\(p\)</span> primeras y <span class="math inline">\(n_{1}-t\)</span> entre las <span class="math inline">\(n_{1}+n_{2}-p\)</span> últimas. Así</p>
+<p><span class="math display">\[
+P(T=t)=\frac{\binom{p}{t}\binom{n_{1}+n_{2}-p}{n_{1}-t}}{\binom{n_{1}+n_{2}}{n_{1}}}
+\]</span></p>
+<p>donde <span class="math inline">\(t\)</span> puede variar entre <span class="math inline">\(\max \left\{0, p-n_{2}\right\}\)</span> y <span class="math inline">\(\min \left\{n_{1}, p\right\}\)</span>. Se trata, por tanto, de una distribución hipergeométrica que puede aproximarse, si <span class="math inline">\(n_{1}\)</span> y <span class="math inline">\(n_{2}\)</span> son grandes, por una <span class="math inline">\(N\left(n_{1} / 2, \sqrt{n_{1} n_{2} / 4\left(n_{1}+n_{2}\right)}\right)\)</span>.</p>
+<div id="ejemplo-7-1" class="section level3 hasAnchor" number="14.6.1">
+<h3><span class="header-section-number">14.6.1</span> Ejemplo 7<a href="estadística-no-paramétrica.html#ejemplo-7-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Con los datos del ejemplo anterior, calcule el estadístico <span class="math inline">\(\chi^{2}\)</span> y compare las medianas de las dos muestras.</p>
+<p><strong>Solución</strong>:</p>
+<p>Como ya sabemos, la mediana común de las dos muestras es <span class="math inline">\(M=208.5\)</span>. Entonces la tabla para el test de homogeneidad es</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Pro. A</th>
+<th align="center">Pro. B</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">valores inferiores</td>
+<td align="center">2</td>
+<td align="center">7</td>
+<td align="center">9</td>
+</tr>
+<tr class="even">
+<td align="left">valores superiores</td>
+<td align="center">7</td>
+<td align="center">2</td>
+<td align="center">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Así, debemos calcular el estadístico ji-cuadrado con la corrección de Yates</p>
+<p><span class="math display">\[
+\chi^{2}=\frac{(|2 \cdot 2-7 \cdot 7|-18 / 2)^{2}}{9 \cdot 9 \cdot 9 \cdot 9} 18=3.556
+\]</span></p>
+<p>Con un grado de libertad y para un nivel de significación del 0.05 , la región crítica comienza en <span class="math inline">\(\chi_{0.05}^{2}=3.841\)</span>, de modo que podemos aceptar la hipótesis nula.</p>
+<p>Con tamaños muestrales grandes, el test ji-cuadrado es preferible si no se tiene constancia de que la forma de ambas distribuciones sea la misma, ya que el test <span class="math inline">\(T\)</span> anterior tiende a aceptar la homogeneidad si <span class="math inline">\(M_{X}=M_{Y}\)</span> aunque la forma de las distribuciones sea diferente.
+Por la misma razón, es preferible el test de Kolmogorov-Smirnov que se explica en la sección siguiente.</p>
+<p>Observemos el cálculo de la mediana conjunta con <code>median(c(pro.A,pro.B))</code>.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="estadística-no-paramétrica.html#cb124-1" tabindex="-1"></a>T<span class="ot">&lt;-</span><span class="fu">length</span>(pro.A[pro.A<span class="sc">&lt;</span><span class="fu">median</span>(<span class="fu">c</span>(pro.A,pro.B))])</span>
+<span id="cb124-2"><a href="estadística-no-paramétrica.html#cb124-2" tabindex="-1"></a>T</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="estadística-no-paramétrica.html#cb126-1" tabindex="-1"></a><span class="fu">phyper</span>(T,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>)</span></code></pre></div>
+<pre><code>## [1] 0.02834225</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="estadística-no-paramétrica.html#cb128-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">phyper</span>(<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">9</span>)</span></code></pre></div>
+<pre><code>## [1] 0.02834225</code></pre>
+<p>La distribución hipergeométrica permite encontrar los límites de la región crítica.</p>
+<p>Si queremos hacerlo mediante el test ji-cuadrado, en primer lugar debemos introducir las frecuencias de la tabla.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="estadística-no-paramétrica.html#cb130-1" tabindex="-1"></a>numero<span class="ot">&lt;-</span><span class="fu">cbind</span>(<span class="fu">expand.grid</span>(<span class="at">M=</span><span class="fu">c</span>(<span class="st">&quot;inferior a M&quot;</span>,<span class="st">&quot;superior a M&quot;</span>),</span>
+<span id="cb130-2"><a href="estadística-no-paramétrica.html#cb130-2" tabindex="-1"></a><span class="at">grup=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>)))</span>
+<span id="cb130-3"><a href="estadística-no-paramétrica.html#cb130-3" tabindex="-1"></a>fr<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">2</span>)</span>
+<span id="cb130-4"><a href="estadística-no-paramétrica.html#cb130-4" tabindex="-1"></a><span class="fu">attach</span>(numero)</span>
+<span id="cb130-5"><a href="estadística-no-paramétrica.html#cb130-5" tabindex="-1"></a>taula<span class="ot">&lt;-</span><span class="fu">table</span>(M,grup)<span class="sc">*</span>fr</span>
+<span id="cb130-6"><a href="estadística-no-paramétrica.html#cb130-6" tabindex="-1"></a>taula</span></code></pre></div>
+<pre><code>##               grup
+## M              A B
+##   inferior a M 2 7
+##   superior a M 7 2</code></pre>
+<p>Y con esta tabla calculamos el test de homogeneidad.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="estadística-no-paramétrica.html#cb132-1" tabindex="-1"></a><span class="fu">chisq.test</span>(taula)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  taula
+## X-squared = 3.5556, df = 1, p-value = 0.05935</code></pre>
+<p>El resultado es la aceptación de la igualdad de medianas. La discrepancia con el ejemplo anterior es posible debido al reducido número de observaciones.</p>
+</div>
+</div>
+<div id="test-de-kolmogorov-smirnov-para-la-homogeneidad" class="section level2 hasAnchor" number="14.7">
+<h2><span class="header-section-number">14.7</span> Test de Kolmogorov-Smirnov para la homogeneidad<a href="estadística-no-paramétrica.html#test-de-kolmogorov-smirnov-para-la-homogeneidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cuando disponemos de dos muestras independientes <span class="math inline">\(x_{1}, x_{2}, \ldots, x_{n_{1}}\)</span> e <span class="math inline">\(y_{1}, y_{2}, \ldots, y_{n_{2}}\)</span> procedentes de dos poblaciones con distribuciones desconocidas <span class="math inline">\(F_{X}\)</span> y <span class="math inline">\(F_{Y}\)</span> respectivamente, y queremos contrastar su coincidencia, es decir, la hipótesis <span class="math inline">\(H_{0}: F_{X}=F_{Y}\)</span>, podemos comparar las distribuciones empíricas asociadas a cada muestra. Esto es posible si conocemos los valores exactos de las observaciones y, en este aspecto, esta comparación es preferible al test ji-cuadrado de homogeneidad, que utiliza frecuencias y necesita muchos datos de cada población.</p>
+<p>Las distribuciones empíricas son:</p>
+<p><span class="math display">\[
+F_{n_{1}}(z)=\frac{1}{n_{1}} \sum_{i=1}^{n_{1}} I_{x_{i}&lt;z} \quad
+G_{n_{2}}(z)=\frac{1}{n_{2}} \sum_{i=1}^{n_{2}} I_{y_{i}&lt;z}
+\]</span></p>
+<p>y el estadístico de Kolmogorov-Smirnov es</p>
+<p><span class="math display">\[
+\Delta_{n_{1}, n_{2}}=\sup _{z \in \mathbb{R}}\left|F_{n_{1}}(z)-G_{n_{2}}(z)\right|
+\]</span></p>
+<p>Si la hipótesis <span class="math inline">\(H_{0}\)</span> es cierta, las dos distribuciones empíricas deben estar muy próximas y la medida global de discrepancia <span class="math inline">\(\Delta_{n_{1}, n_{2}}\)</span> será pequeña. Por el contrario, cuando <span class="math inline">\(F_{X} \neq F_{Y}\)</span>, el valor de <span class="math inline">\(\Delta_{n_{1}, n_{2}}\)</span> será mayor, de modo que la región crítica que debemos considerar es de la forma</p>
+<p><span class="math display">\[
+\left\{\Delta_{n_{1}, n_{2}}&gt;a\right\}
+\]</span></p>
+<p>El test se basa en el Teorema de Smirnov, que afirma lo siguiente:</p>
+<p><em>Si las distribuciones continuas de las dos poblaciones coinciden <span class="math inline">\(F_{X}=F_{Y}\)</span> y <span class="math inline">\(n_{1} \rightarrow \infty, n_{2} \rightarrow \infty\)</span>, entonces para cada <span class="math inline">\(\lambda\)</span></em></p>
+<p><span class="math display">\[
+P\left(\sqrt{\frac{n_{1} n_{2}}{n_{1}+n_{2}}} \Delta_{n_{1}, n_{2}} \leq \lambda\right)
+\rightarrow
+Q(\lambda)=\sum_{i=-\infty}^{\infty}(-1)^{i} e^{-2 i^{2} \lambda^{2}}
+\]</span></p>
+<p><em>donde <span class="math inline">\(Q(\lambda)\)</span> es la distribución asintótica de Kolmogorov-Smirnov.</em></p>
+<div id="ejemplo-8-1" class="section level3 hasAnchor" number="14.7.1">
+<h3><span class="header-section-number">14.7.1</span> Ejemplo 8<a href="estadística-no-paramétrica.html#ejemplo-8-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Con los datos del ejemplo 6, calcule el estadístico de Kolmogorov-Smirnov y compare las distribuciones de las dos muestras.</p>
+<p><strong>Solución</strong>:</p>
+<p>Los datos han sido introducidos en los vectores <code>pro.A</code> y <code>pro.B</code>, y el test se calcula mediante la función <code>ks.test</code>.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="estadística-no-paramétrica.html#cb134-1" tabindex="-1"></a><span class="fu">ks.test</span>(pro.A,pro.B,<span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Exact two-sample Kolmogorov-Smirnov test
+## 
+## data:  pro.A and pro.B
+## D = 0.66667, p-value = 0.03357
+## alternative hypothesis: two-sided</code></pre>
+<p>En este caso, el p-valor indica el rechazo de la hipótesis nula.</p>
+</div>
+</div>
+<div id="test-h-de-kruskal-wallis" class="section level2 hasAnchor" number="14.8">
+<h2><span class="header-section-number">14.8</span> Test <span class="math inline">\(H\)</span> de Kruskal-Wallis<a href="estadística-no-paramétrica.html#test-h-de-kruskal-wallis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El test <span class="math inline">\(U\)</span> es un test no paramétrico para decidir si dos muestras independientes proceden o no de la misma población. El test <span class="math inline">\(H\)</span> de Kruskal-Wallis es una generalización para <span class="math inline">\(k\)</span> muestras tomadas de <span class="math inline">\(k\)</span> poblaciones. Así pues, <em>es una versión no paramétrica de un ANOVA de un factor</em>.</p>
+<p>Consideremos <span class="math inline">\(k\)</span> muestras de tamaños <span class="math inline">\(n_{1}, n_{2}, \ldots, n_{k}\)</span> recogidas en las <span class="math inline">\(k\)</span> poblaciones, tales que <span class="math inline">\(n_{1}+n_{2}+\cdots+n_{k}=n\)</span>. Supongamos que ordenamos todas las observaciones de forma conjunta y calculamos las sumas de rangos para las <span class="math inline">\(k\)</span> muestras <span class="math inline">\(R_{1}, R_{2}, \ldots, R_{k}\)</span>, respectivamente. Si definimos el estadístico</p>
+<p><span class="math display">\[
+H=\left(\frac{12}{n(n+1)} \sum_{i=1}^{k} \frac{R_{i}^{2}}{n_{i}}\right)-3(n+1)
+\]</span></p>
+<p>se demuestra que, si existe homogeneidad entre las distribuciones de los <span class="math inline">\(k\)</span> grupos, su distribución muestral está muy próxima a una ji-cuadrado con <span class="math inline">\(k-1\)</span> grados de libertad cuando los tamaños muestrales <span class="math inline">\(n_{i}\)</span> son grandes.</p>
+<p>Así, exigiremos siempre que <span class="math inline">\(n_{1}, n_{2}, \ldots, n_{k}\)</span> sean todos ellos superiores a 5. Para valores pequeños es necesario consultar tablas especiales.</p>
+<div id="observaciones-5" class="section level3 hasAnchor" number="14.8.1">
+<h3><span class="header-section-number">14.8.1</span> Observaciones<a href="estadística-no-paramétrica.html#observaciones-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>El estadístico de Kruskal-Wallis puede escribirse en la forma</li>
+</ul>
+<p><span class="math display">\[
+H=\frac{12}{n(n+1)} \sum_{i=1}^{k} n_{i}\left(R_{\bullet i}-R_{\bullet \bullet}\right)^{2}
+\]</span></p>
+<p>donde <span class="math inline">\(R_{\bullet i}=R_{i} / n_{i}\)</span> y <span class="math inline">\(R_{\bullet \bullet}=(n+1) / 2\)</span>. De esta forma, el test basado en <span class="math inline">\(H\)</span> se asemeja mucho al test <span class="math inline">\(F\)</span> en un diseño de un factor con réplicas.</p>
+<ul>
+<li>Si existen observaciones repetidas, el estadístico <span class="math inline">\(H\)</span> se corrige mediante un factor, de forma que el nuevo estadístico es</li>
+</ul>
+<p><span class="math display">\[
+H^{\prime}=\frac{H}{1-\frac{\sum_{j=1}^{r}\left(t_{j}^{3}-t_{j}\right)}{n^{3}-n}}
+\]</span></p>
+<p>donde <span class="math inline">\(t_{j}\)</span> es el número de observaciones repetidas para un rango dado en la muestra combinada y <span class="math inline">\(r\)</span> es el número de repeticiones. Esta corrección tiene poco efecto sobre el valor de <span class="math inline">\(H\)</span>, incluso en presencia de muchas observaciones repetidas.</p>
+</div>
+<div id="ejemplo-9-1" class="section level3 hasAnchor" number="14.8.2">
+<h3><span class="header-section-number">14.8.2</span> Ejemplo 9<a href="estadística-no-paramétrica.html#ejemplo-9-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se desea comparar el peso en gramos de un producto envasado por tres fabricantes, con muestras de tamaño 6 en los tres casos.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Fabr. <span class="math inline">\(A\)</span></th>
+<th align="left">251</th>
+<th align="left">250</th>
+<th align="left">249</th>
+<th align="left">255</th>
+<th align="left">258</th>
+<th align="left">258</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Fabr. <span class="math inline">\(B\)</span></td>
+<td align="left">247</td>
+<td align="left">246</td>
+<td align="left">250</td>
+<td align="left">241</td>
+<td align="left">240</td>
+<td align="left">242</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Fabr. <span class="math inline">\(C\)</span></td>
+<td align="left">228</td>
+<td align="left">236</td>
+<td align="left">240</td>
+<td align="left">225</td>
+<td align="left">236</td>
+<td align="left">230</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>Estudie si existen diferencias entre los tres fabricantes utilizando el test de Kruskal-Wallis.</p>
+<p><strong>Solución</strong>:</p>
+<p>Para realizar el test de Kruskal-Wallis utilizamos la función <code>kruskal.test</code>, que proporciona el estadístico <span class="math inline">\(H\)</span> o, si es necesario, como en este caso, el estadístico corregido <span class="math inline">\(H^{\prime}\)</span>.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="estadística-no-paramétrica.html#cb136-1" tabindex="-1"></a>pes<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">251</span>,<span class="dv">250</span>,<span class="dv">249</span>,<span class="dv">255</span>,<span class="dv">258</span>,<span class="dv">258</span>,<span class="dv">247</span>,<span class="dv">246</span>,<span class="dv">250</span>,<span class="dv">241</span>,<span class="dv">240</span>,<span class="dv">242</span>,</span>
+<span id="cb136-2"><a href="estadística-no-paramétrica.html#cb136-2" tabindex="-1"></a><span class="dv">228</span>,<span class="dv">236</span>,<span class="dv">240</span>,<span class="dv">225</span>,<span class="dv">236</span>,<span class="dv">230</span>)</span>
+<span id="cb136-3"><a href="estadística-no-paramétrica.html#cb136-3" tabindex="-1"></a>fabr<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">6</span>),<span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">6</span>))</span>
+<span id="cb136-4"><a href="estadística-no-paramétrica.html#cb136-4" tabindex="-1"></a><span class="fu">kruskal.test</span>(pes,fabr)</span></code></pre></div>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  pes and fabr
+## Kruskal-Wallis chi-squared = 14.396, df = 2, p-value = 0.0007482</code></pre>
+<p>El p-valor es suficientemente significativo como para rechazar la hipótesis nula.</p>
+</div>
+</div>
+<div id="test-de-friedman" class="section level2 hasAnchor" number="14.9">
+<h2><span class="header-section-number">14.9</span> Test de Friedman<a href="estadística-no-paramétrica.html#test-de-friedman" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este test está pensado para comprobar si existen diferencias significativas entre <span class="math inline">\(k\)</span> tratamientos o condiciones experimentales aplicados a <span class="math inline">\(n\)</span> individuos.</p>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Tratamiento</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Individuo</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(j\)</span></td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(k\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(x_{11}\)</span></td>
+<td align="center"><span class="math inline">\(x_{12}\)</span></td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(x_{1 j}\)</span></td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(x_{1 k}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(x_{21}\)</span></td>
+<td align="center"><span class="math inline">\(x_{22}\)</span></td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(x_{2 j}\)</span></td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(x_{2 k}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(n\)</span></td>
+<td align="center"><span class="math inline">\(x_{n 1}\)</span></td>
+<td align="center"><span class="math inline">\(x_{n 2}\)</span></td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(x_{n j}\)</span></td>
+<td align="center"><span class="math inline">\(\ldots\)</span></td>
+<td align="center"><span class="math inline">\(x_{n k}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Los individuos deben escogerse al azar y de forma independiente, de modo que las filas son independientes entre sí. Sin embargo, como los individuos son los mismos, las columnas son dependientes.</p>
+<p>El test de Friedman sirve para comprobar si existen diferencias entre los <span class="math inline">\(k\)</span> tratamientos (efecto columna), en presencia de efectos individuales (efecto fila). <em>Es una versión no paramétrica del diseño de dos factores sin interacción</em>.</p>
+<p>La hipótesis nula es la igualdad de respuesta o de efecto de los diferentes tratamientos, mientras que la alternativa es que existen, al menos, dos tratamientos con respuesta diferente.</p>
+<p>Para calcular el estadístico no paramétrico, para cada fila por separado se asignan los rangos correspondientes a los valores observados. Una vez convertida la tabla original en rangos, se calculan las sumas de rangos <span class="math inline">\(R_{j}\)</span> para cada columna o tratamiento <span class="math inline">\(j=1, \ldots, k\)</span>. El estadístico es</p>
+<p><span class="math display">\[
+S=\frac{12}{n k(k+1)} \sum_{j=1}^{k} R_{j}^{2}-3 n(k+1)
+\]</span></p>
+<p>La distribución aproximada de <span class="math inline">\(S\)</span> para valores grandes de <span class="math inline">\(n\)</span> es una ji-cuadrado con <span class="math inline">\(k-1\)</span> grados de libertad. Para valores muy pequeños de <span class="math inline">\(n\)</span> (<span class="math inline">\(n&lt;10\)</span>) es necesario consultar tablas especiales. La región crítica es de la forma <span class="math inline">\(\{S \geq c\}\)</span>.</p>
+<p>Cuando existen ligaduras en una fila, deben promediarse los rangos de los valores repetidos y calcular el estadístico de Friedman modificado mediante un factor de corrección</p>
+<p><span class="math display">\[
+S^{\prime}=\frac{12 \sum_{j=1}^{k} R_{j}^{2}-3 n^{2} k(k+1)^{2}}{n k(k+1)-\frac{1}{k-1} \sum_{i=1}^{n}\left\{\sum_{j=1}^{g_{i}} t_{i j}^{3}-k\right\}}
+\]</span></p>
+<p>donde <span class="math inline">\(g_{i}\)</span> es el número de grupos de observaciones ligadas en la fila <span class="math inline">\(i\)</span> y <span class="math inline">\(t_{i j}\)</span> es el número de observaciones ligadas en el grupo <span class="math inline">\(j\)</span> de la fila <span class="math inline">\(i\)</span>. Cuando no hay ligaduras se considera, por convenio, que <span class="math inline">\(g_{i}=k\)</span> y <span class="math inline">\(t_{i j}=1\)</span>, y entonces el término de corrección para el individuo <span class="math inline">\(i\)</span> es <span class="math inline">\(k-k=0\)</span>. Si esto ocurre en todas las filas, entonces <span class="math inline">\(S^{\prime}=S\)</span>.</p>
+<div id="ejemplo-10-1" class="section level3 hasAnchor" number="14.9.1">
+<h3><span class="header-section-number">14.9.1</span> Ejemplo 10<a href="estadística-no-paramétrica.html#ejemplo-10-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se ha consultado a un grupo de 12 personas para que opinen sobre cinco marcas de champú. En concreto, sus clasificaciones se recogen en la siguiente tabla.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Champú</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Ind.</td>
+<td align="center"><span class="math inline">\(A\)</span></td>
+<td align="center"><span class="math inline">\(B\)</span></td>
+<td align="center"><span class="math inline">\(C\)</span></td>
+<td align="center"><span class="math inline">\(D\)</span></td>
+<td align="center"><span class="math inline">\(E\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">4</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">7</td>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">8</td>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">9</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">10</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">11</td>
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">12</td>
+<td align="center">5</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Determine si existen diferencias significativas entre las puntuaciones otorgadas a los champús.</p>
+<p><strong>Solución</strong>:</p>
+<p>El test de Friedman se aplica mediante la función <code>friedman.test</code>.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="estadística-no-paramétrica.html#cb138-1" tabindex="-1"></a>nota<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,</span>
+<span id="cb138-2"><a href="estadística-no-paramétrica.html#cb138-2" tabindex="-1"></a><span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,</span>
+<span id="cb138-3"><a href="estadística-no-paramétrica.html#cb138-3" tabindex="-1"></a><span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>,</span>
+<span id="cb138-4"><a href="estadística-no-paramétrica.html#cb138-4" tabindex="-1"></a><span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb138-5"><a href="estadística-no-paramétrica.html#cb138-5" tabindex="-1"></a>individu<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">5</span>),</span>
+<span id="cb138-6"><a href="estadística-no-paramétrica.html#cb138-6" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">4</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">5</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">6</span>,<span class="dv">5</span>),</span>
+<span id="cb138-7"><a href="estadística-no-paramétrica.html#cb138-7" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">7</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">8</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">9</span>,<span class="dv">5</span>),</span>
+<span id="cb138-8"><a href="estadística-no-paramétrica.html#cb138-8" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">10</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">11</span>,<span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">12</span>,<span class="dv">5</span>))</span>
+<span id="cb138-9"><a href="estadística-no-paramétrica.html#cb138-9" tabindex="-1"></a>xampu<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">1</span>),<span class="dv">12</span>))</span>
+<span id="cb138-10"><a href="estadística-no-paramétrica.html#cb138-10" tabindex="-1"></a><span class="fu">friedman.test</span>(nota,xampu,individu)</span></code></pre></div>
+<pre><code>## 
+##  Friedman rank sum test
+## 
+## data:  nota, xampu and individu
+## Friedman chi-squared = 25.533, df = 4, p-value = 3.929e-05</code></pre>
+<p>El p-valor indica claramente la significación de las diferencias.</p>
+</div>
+<div id="observaciones-6" class="section level3 hasAnchor" number="14.9.2">
+<h3><span class="header-section-number">14.9.2</span> Observaciones<a href="estadística-no-paramétrica.html#observaciones-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Puede verse que</li>
+</ul>
+<p><span class="math display">\[
+S=\frac{12 n}{k(k+1)} \sum_{j=1}^{k}\left(R_{\bullet j}-R_{\bullet \bullet}\right)^{2}
+\]</span></p>
+<p>donde <span class="math inline">\(R_{\bullet j}=R_{j} / n\)</span> y <span class="math inline">\(R_{\bullet \bullet}=(k+1) / 2\)</span>. Esto pone de manifiesto la relación de este test con el test <span class="math inline">\(F\)</span> para detectar el efecto columna en el diseño de dos factores sin interacción.</p>
+</div>
+</div>
+<div id="coeficientes-de-correlación-no-paramétricos" class="section level2 hasAnchor" number="14.10">
+<h2><span class="header-section-number">14.10</span> Coeficientes de correlación no paramétricos<a href="estadística-no-paramétrica.html#coeficientes-de-correlaci%C3%B3n-no-param%C3%A9tricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En esta sección presentamos dos coeficientes no paramétricos que permiten medir la dependencia estocástica de dos muestras apareadas en poblaciones continuas.</p>
+<p>También estamos interesados en los contrastes de independencia que pueden formularse a partir de estos coeficientes.</p>
+<div id="coeficiente-tau-de-kendall" class="section level3 hasAnchor" number="14.10.1">
+<h3><span class="header-section-number">14.10.1</span> Coeficiente <span class="math inline">\(\tau\)</span> de Kendall<a href="estadística-no-paramétrica.html#coeficiente-tau-de-kendall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consideremos una muestra aleatoria simple <span class="math inline">\((x_{1}, y_{1}), \ldots, (x_{n}, y_{n})\)</span> procedente de una distribución bidimensional. Sabemos que la frecuencia relativa de los pares tales que <span class="math inline">\((x_{i}-x_{j})(y_{i}-y_{j})&gt;0\)</span> es un estimador del parámetro</p>
+<p><span class="math display">\[
+\pi_{+}=P\left\{(X-X^{\prime})(Y-Y^{\prime})&gt;0\right\}
+\]</span></p>
+<p>donde <span class="math inline">\((X, Y)\)</span> y <span class="math inline">\((X^{\prime}, Y^{\prime})\)</span> son independientes y tienen la misma distribución conjunta poblacional.
+La continuidad de las distribuciones implica que</p>
+<p><span class="math display">\[
+P\left\{(X-X^{\prime})(Y-Y^{\prime})=0\right\}=0
+\]</span></p>
+<p>de modo que</p>
+<p><span class="math display">\[
+\pi_{-}=P\left\{(X-X^{\prime})(Y-Y^{\prime})&lt;0\right\}=1-\pi_{+}
+\]</span></p>
+<p>Entonces,</p>
+<p><span class="math display">\[
+\tau=\pi_{+}-\pi_{-}=2\pi_{+}-1
+\]</span></p>
+<p>es el llamado <strong>coeficiente de asociación de Kendall</strong>, y mide, en cierto modo, la dependencia entre las variables. De hecho, si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\pi_{+} &amp; =P(X&lt;X^{\prime})P(Y&lt;Y^{\prime})+P(X&gt;X^{\prime})P(Y&gt;Y^{\prime}) \\
+&amp; =P(X&gt;X^{\prime})P(Y&lt;Y^{\prime})+P(X&lt;X^{\prime})P(Y&gt;Y^{\prime})=\pi_{-}
+\end{aligned}
+\]</span></p>
+<p>de forma que <span class="math inline">\(\tau=0\)</span>. El recíproco no es cierto: puede ocurrir que <span class="math inline">\(\tau=0\)</span> sin que necesariamente las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> sean independientes.</p>
+<p>Si <span class="math inline">\(P\)</span> y <span class="math inline">\(N\)</span> representan el número de pares tales que <span class="math inline">\((x_{i}-x_{j})(y_{i}-y_{j})&gt;0\)</span> y <span class="math inline">\((x_{i}-x_{j})(y_{i}-y_{j})&lt;0\)</span>, respectivamente, entre las <span class="math inline">\(\binom{n}{2}\)</span> posibles, el estimador natural de <span class="math inline">\(\tau\)</span> es</p>
+<p><span class="math display">\[
+T=\frac{P}{\binom{n}{2}}-\frac{N}{\binom{n}{2}}=\frac{2}{n(n-1)}(P-N)
+\]</span></p>
+<p>Además, dado que <span class="math inline">\(P+N=\binom{n}{2}\)</span>, se obtiene</p>
+<p><span class="math display">\[
+T=\frac{4P}{n(n-1)}-1
+\]</span></p>
+<p>Para una muestra concreta, <span class="math inline">\(P\)</span> se calcula fácilmente ordenando la muestra según la primera componente: es el número de pares con <span class="math inline">\(i&lt;j\)</span> tales que <span class="math inline">\(y_{i}&lt;y_{j}\)</span>.</p>
+<p>El estadístico <span class="math inline">\(T\)</span> toma valores entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(1\)</span>, y un valor alejado de cero indica que <span class="math inline">\(\tau \neq 0\)</span> y, por tanto, que las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> no son independientes.</p>
+<p>La distribución exacta de <span class="math inline">\(T\)</span> puede calcularse para valores moderados de <span class="math inline">\(n\)</span>. Para <span class="math inline">\(n \leq 10\)</span> existen tablas de valores críticos tales que <span class="math inline">\(P(|T|&gt;k_{\alpha}) \leq \alpha\)</span>. Para <span class="math inline">\(n&gt;10\)</span> puede considerarse la aproximación</p>
+<p><span class="math display">\[
+T \sim N\left(0, \sigma_K^2\right),
+\]</span>
+dond <span class="math inline">\(\displaystyle{\sigma_K^2 =\frac{2(2n+5)}{9n(n-1)}}\)</span> es la varianza asintótica del estadístico <span class="math inline">\(T\)</span>.</p>
+<div id="ejemplo-14-1" class="section level5 hasAnchor" number="14.10.1.0.1">
+<h5><span class="header-section-number">14.10.1.0.1</span> Ejemplo 14<a href="estadística-no-paramétrica.html#ejemplo-14-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>La longitud y la anchura de una muestra de 11 hojas de una determinada planta son:</p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Hoja</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+<th align="right">7</th>
+<th align="right">8</th>
+<th align="right">9</th>
+<th align="right">10</th>
+<th align="right">11</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Long.</td>
+<td align="right">6.60</td>
+<td align="right">7.11</td>
+<td align="right">9.80</td>
+<td align="right">6.62</td>
+<td align="right">7.10</td>
+<td align="right">6.83</td>
+<td align="right">6.54</td>
+<td align="right">7.14</td>
+<td align="right">7.13</td>
+<td align="right">12.52</td>
+<td align="right">10.41</td>
+</tr>
+<tr class="even">
+<td align="left">Anch.</td>
+<td align="right">4.24</td>
+<td align="right">5.41</td>
+<td align="right">5.26</td>
+<td align="right">5.53</td>
+<td align="right">3.25</td>
+<td align="right">4.22</td>
+<td align="right">3.98</td>
+<td align="right">3.29</td>
+<td align="right">3.43</td>
+<td align="right">5.57</td>
+<td align="right">6.01</td>
+</tr>
+</tbody>
+</table>
+<p>Calcule el coeficiente de correlación de Kendall y estudie si es significativo.</p>
+<p><strong>Solución</strong>:</p>
+<p>Para el cálculo de los coeficientes de correlación se utiliza la función <code>cor.test</code> con el parámetro <code>method</code> y el valor <code>"pearson"</code>, <code>"kendall"</code> o <code>"spearman"</code>, según si deseamos el coeficiente clásico de Pearson, la <span class="math inline">\(\tau\)</span> de Kendall o el coeficiente por rangos de Spearman.</p>
+<p>Observemos, no obstante, que estrictamente esta función no sirve para calcular los coeficientes, sino para contrastar la hipótesis de que el coeficiente correspondiente es cero. Sin embargo, como el primer paso que realiza la función es el cálculo del coeficiente, se obtiene este como un efecto colateral.</p>
+<p>Otra cuestión <strong>muy importante</strong>, y que muchos usuarios suelen olvidar, es que si estos tests resultan significativos, únicamente indican que la correlación, del tipo que sea, no es cero; en ningún caso garantizan que sea suficientemente alta como para hablar de una “buena correlación”.</p>
+<p>Volviendo a los datos del ejemplo:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="estadística-no-paramétrica.html#cb140-1" tabindex="-1"></a>long<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">6.60</span>,<span class="fl">7.11</span>,<span class="fl">9.80</span>,<span class="fl">6.62</span>,<span class="fl">7.10</span>,<span class="fl">6.83</span>,<span class="fl">6.54</span>,<span class="fl">7.14</span>,<span class="fl">7.13</span>,<span class="fl">12.52</span>,<span class="fl">10.41</span>)</span>
+<span id="cb140-2"><a href="estadística-no-paramétrica.html#cb140-2" tabindex="-1"></a>ampl<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">4.24</span>,<span class="fl">5.41</span>,<span class="fl">5.26</span>,<span class="fl">5.53</span>,<span class="fl">3.25</span>,<span class="fl">4.22</span>,<span class="fl">3.98</span>,<span class="fl">3.29</span>,<span class="fl">3.43</span>,<span class="fl">5.57</span>,<span class="fl">6.01</span>)</span>
+<span id="cb140-3"><a href="estadística-no-paramétrica.html#cb140-3" tabindex="-1"></a><span class="fu">cor.test</span>(long, ampl, <span class="at">method=</span><span class="st">&#39;kendall&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Kendall&#39;s rank correlation tau
+## 
+## data:  long and ampl
+## T = 34, p-value = 0.3587
+## alternative hypothesis: true tau is not equal to 0
+## sample estimates:
+##       tau 
+## 0.2363636</code></pre>
+<p>Observemos que el número de pares positivos es 34, estadístico que hemos denominado <span class="math inline">\(P\)</span>.
+El procedimiento calcula el p-valor exacto para <span class="math inline">\(n&lt;50\)</span>. En este caso, el p-valor indica que el estadístico no es significativo.</p>
+</div>
+</div>
+<div id="coeficiente-de-correlación-por-rangos-de-spearman" class="section level3 hasAnchor" number="14.10.2">
+<h3><span class="header-section-number">14.10.2</span> Coeficiente de correlación por rangos de Spearman<a href="estadística-no-paramétrica.html#coeficiente-de-correlaci%C3%B3n-por-rangos-de-spearman" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El coeficiente de correlación de Spearman es el coeficiente de correlación ordinario (coeficiente de Pearson) aplicado a los rangos de las observaciones.</p>
+<p>El resultado es</p>
+<p><span class="math display">\[
+r_{S}=1-\frac{6 \sum_{i=1}^{n} d_{i}^{2}}{n(n^{2}-1)}
+\]</span></p>
+<p>donde <span class="math inline">\(d_{i}=r(x_{i})-r(y_{i})\)</span>, <span class="math inline">\(i=1, \ldots, n\)</span>, son las diferencias entre los rangos.</p>
+<p>Este coeficiente se utiliza cuando las variables están medidas en una escala ordinal y el orden muestral es la información más relevante.</p>
+<div id="cálculo-del-coeficiente" class="section level4 hasAnchor" number="14.10.2.1">
+<h4><span class="header-section-number">14.10.2.1</span> Cálculo del coeficiente<a href="estadística-no-paramétrica.html#c%C3%A1lculo-del-coeficiente" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El coeficiente de correlación <span class="math inline">\(r_{S}\)</span> de Spearman se obtiene sustituyendo los valores <span class="math inline">\((x_{i},y_{i})\)</span> por sus rangos <span class="math inline">\((a_{i},b_{i})\)</span>, donde <span class="math inline">\(a_{i}=r(x_{i})\)</span> y <span class="math inline">\(b_{i}=r(y_{i})\)</span>.</p>
+<p>Así,</p>
+<p><span class="math display">\[
+r_{S}=\frac{\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b)}{\sqrt{\sum_{i=1}^{n}(a_{i}-\bar a)^{2}\sum_{i=1}^{n}(b_{i}-\bar b)^{2}}}
+\]</span></p>
+<p>donde <span class="math inline">\(\bar a=\bar b=(n+1)/2\)</span> y</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n}(a_{i}-\bar a)^{2}=\sum_{i=1}^{n}(b_{i}-\bar b)^{2}=\frac{n(n^{2}-1)}{12}
+\]</span></p>
+<p>de modo que</p>
+<p><span class="math display">\[
+r_{S}=\frac{12}{n(n^{2}-1)}\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b)
+\]</span></p>
+<p>Por otro lado,</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} d_{i}^{2}=\frac{n(n^{2}-1)}{6}(1-r_{S})
+\]</span></p>
+<p>lo que conduce a la expresión inicial de <span class="math inline">\(r_{S}\)</span>.</p>
+<p>Bajo la hipótesis de independencia, puede obtenerse la distribución muestral de <span class="math inline">\(r_{S}\)</span> y, por tanto, los puntos críticos del contraste para <span class="math inline">\(n\leq10\)</span>. Para <span class="math inline">\(n&gt;10\)</span>, <span class="math inline">\(r_{S}\)</span> es aproximadamente <span class="math inline">\(N(0,1/\sqrt{n-1})\)</span>.</p>
+<div id="ejemplo-16" class="section level5 hasAnchor" number="14.10.2.1.1">
+<h5><span class="header-section-number">14.10.2.1.1</span> Ejemplo<a href="estadística-no-paramétrica.html#ejemplo-16" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Calcule el coeficiente de correlación por rangos de Spearman para los datos del ejemplo 14 y estudie si es significativo.</p>
+<p><strong>Solución</strong>:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="estadística-no-paramétrica.html#cb142-1" tabindex="-1"></a><span class="fu">cor.test</span>(long,ampl,<span class="at">method=</span><span class="st">&#39;spearman&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  long and ampl
+## S = 140, p-value = 0.2732
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## 0.3636364</code></pre>
+</div>
+</div>
+</div>
+<div id="el-parámetro-poblacional-asociado-a-los-coeficientes-de-correlación-no-paramétricos" class="section level3 hasAnchor" number="14.10.3">
+<h3><span class="header-section-number">14.10.3</span> El parámetro poblacional asociado a los coeficientes de correlación no paramétricos<a href="estadística-no-paramétrica.html#el-par%C3%A1metro-poblacional-asociado-a-los-coeficientes-de-correlaci%C3%B3n-no-param%C3%A9tricos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si la distribución conjunta de <span class="math inline">\((X,Y)\)</span> es <span class="math inline">\(F(x,y)\)</span> y las distribuciones marginales son <span class="math inline">\(F_X(x)\)</span> y <span class="math inline">\(F_Y(y)\)</span>, entonces <span class="math inline">\(\rho_S\)</span> es el coeficiente de correlación ordinario entre las variables <span class="math inline">\(V_1=F_X(X)\)</span> y <span class="math inline">\(V_2=F_Y(Y)\)</span>, ambas con distribución uniforme.</p>
+<p>En consecuencia, puede demostrarse que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\rho_S &amp;=12\iint_{\mathbb R^2}(F(x,y)-F_X(x)F_Y(y))\,dF_X(x)dF_Y(y)\\
+&amp;=12\iint_{\mathbb R^2}F(x,y)\,dF_X(x)dF_Y(y)-3
+\end{aligned}
+\]</span></p>
+<p>La versión probabilística de la correlación <span class="math inline">\(\tau\)</span> de Kendall es</p>
+<p><span class="math display">\[
+\tau=4\int_{\mathbb R^2}(F(x,y)-F_X(x)F_Y(y))\,dF(x,y)
+\]</span></p>
+<p>y se verifica la relación</p>
+<p><span class="math display">\[
+-1\leq 3\tau-2\rho_S\leq1
+\]</span></p>
+<p>Observemos que <span class="math inline">\(\rho_S=\tau=0\)</span> si <span class="math inline">\(F(x,y)=F_X(x)F_Y(y)\)</span>, es decir, si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son estocásticamente independientes.</p>
+<p>Para contrastar la hipótesis nula <span class="math inline">\(H_0:\rho_S=0\)</span>, puede calcularse el estadístico</p>
+<p><span class="math display">\[
+t=\sqrt{n-2}\frac{r_S}{\sqrt{1-r_S^2}}
+\]</span></p>
+<p>que tiene aproximadamente una distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(n-2\)</span> grados de libertad, siempre que <span class="math inline">\(n\geq10\)</span>.</p>
 
 </div>
 </div>
+</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="pruebas-de-una-muestra.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="contrastes-de-chi-cuadrado.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="contrastes-de-chi-cuadrado.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
