@@ -1,352 +1,549 @@
-# Pruebas $\mathrm{X}^{2}$
+# CONTRASTES DE LA JI-CUADRADO
 
-1. El modelo multinomial
-2. Aplicaciones del modelo multinomial
-3. Formalización del contraste
-4. Condiciones de validez
-5. Análisis de Tablas de contingencia
-6. Pruebas de independencia
-7. Violación de las condiciones del contraste
-8. Pruebas de homogeneidad
+## Introducción
 
-## El modelo multinomial.
+Con el nombre de pruebas ji-cuadrado se conoce una variedad de tests estadísticos que hacen referencia a problemas distintos pero que tienen los siguientes rasgos en común:
 
-Es un modelo discreto multivariante. Puede verse como una generalización del modelo binomial que permite más de dos posibles resultados. Ya hemos hablado de él en el capítulo dedicado a las distribuciones discretas.
-
-Una situación típica es el número de veces que se dan cada uno de los posibles resultados $\mathrm{A}_{1}, \ldots$, $\mathrm{A}_{\mathrm{k}}$ en N extracciones independientes manteniéndose constante la probabilidad de cada resultado. Los parámetros del modelo se corresponden con las diferentes probabilidades: $\mathrm{p}_{1}=\mathrm{P}\left(\mathrm{A}_{1}\right), \cdots \cdots, \mathrm{p}_{\mathrm{k}}=\mathrm{P}\left(\mathrm{A}_{\mathrm{k}}\right)$ y con el valor N .
-
-Por ejemplo:
-Para saber si un dado es regular realizamos 120 lanzamientos y anotamos los resultados obtenidos:
-
-| Resultado | 1 | 2 | 3 | 4 | 5 | 6 |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Frecuencia | 15 | 22 | 18 | 14 | 25 | 26 |
-
-El modelo teórico sugiere que la probabilidad de cada cara es la misma
+- Las muestras corresponden a datos categóricos, directamente o por categorización de una variable numérica; es decir, se mide si un individuo pertenece a un elemento de una partición $A_{1}, A_{2}, \ldots, A_{k}$ del espacio muestral.
+- El estadístico de test tiene una estructura común:
 
 $$
-\mathrm{P}(1)=\mathrm{P}(2)=\mathrm{P}(3)=\mathrm{P}(4)=\mathrm{P}(5)=\mathrm{P}(6)=1 / 6 \text {, es decir } \mathrm{p}_{\mathrm{i}}=1 / 6 \quad \mathrm{i}=1, \ldots, 6
+\sum_{i} \frac{\left(O_{i}-E_{i}\right)^{2}}{E_{i}}
 $$
 
-Los valores realmente observados son: $O_{1}=15, \ldots, O_{6}=26$.
+siendo
 
-### Aplicaciones del modelo multinomial.
+- $O_{i}$ el número de valores observados en una determinada categoría, y
+- $E_{i}$ el número de valores esperados en dicha categoría en el caso de que la hipótesis nula fuese cierta.
+- El estadístico de test sigue una distribución $\chi^{2}$.
 
-Generalmente la inferencia basada en el modelo multinomial está enfocada a comprobar si dado un modelo teórico los resultados muestrales obtenidos son compatibles con el modelo.
+Consideramos tres grandes grupos de pruebas:
 
-Posibles aplicaciones:
+1. Pruebas de bondad de ajuste (*goodness of fit*) de unos datos a una distribución  
+   (a) Todos los parámetros de la distribución son conocidos  
+   (b) Algunos parámetros de la distribución son desconocidos  
+2. Pruebas de independencia  
+3. Pruebas de homogeneidad
 
-- Bondad de ajuste a distribuciones teóricas.
-- Pruebas de independencia en Tablas de contingencia.
-- Pruebas de homogeneidad para variables cualitativas.
+## Pruebas $\chi^{2}$ de bondad de ajuste
 
+### Hipótesis simples
 
-### Formalización del contraste.
-
-La hipótesis nula del contraste es que el modelo multinomial teórico es correcto :
-
-$$
-\begin{gathered}
-\mathrm{H}_{0}: \mathrm{P}\left(\mathrm{~A}_{1}\right)=\mathrm{p}_{1}, \mathrm{P}\left(\mathrm{~A}_{2}\right)=\mathrm{p}_{2}, \ldots, \mathrm{P}\left(\mathrm{~A}_{\mathrm{K}}\right)=\mathrm{p}_{\mathrm{k}} \\
-\mathrm{H}_{1}: \text { Para alguna i } \mathrm{P}\left(\mathrm{~A}_{\mathrm{i}}\right) \neq \mathrm{p}_{\mathrm{i}}
-\end{gathered}
-$$
-
-Obtención de las probabilidades $\mathrm{p}_{\mathrm{i}}$ :
-
-- Las que directamente indique $\mathrm{H}_{0}$ si es el caso.
-- $\mathrm{Si}_{0}$ indica la distribución de la variable, estimar los parámetros y a través de ellos las probabilidades.
-- En el caso de pruebas de independencia y homogeneidad en tablas de contingencia se verá más adelante.
-
-Los valores esperados para cada clase bajo $\mathrm{H}_{0}$ son $e_{i}=\mathrm{N} \cdot \mathrm{p}_{\mathrm{i}}$., donde N es la suma de los valores observados para cada clase ( $\mathrm{N}=o_{1}+o_{2}+\ldots+o_{k}$ )
-
-El estadístico para contrastar la hipótesis es el siguiente:
-
-$$
-\chi_{\exp }^{2}=\sum_{i=1}^{k} \frac{\left(o_{i}-e_{i}\right)^{2}}{e_{i}}
-$$
-
-La distribución asintótica del estadístico anterior bajo la hipótesis nula es una $\chi^{2}$ con $\mathrm{k}-\mathrm{s}-\mathrm{r}$ grados de libertad, donde s es el número de parámetros que ha sido necesario estimar a partir de la muestra para determinar las probabilidades teóricas, y r es el número de restricciones impuestas a los valores esperados. Este último valor es generalmente 1 debido a la restricción $e_{1}+e_{2}+\ldots+e_{k}=N$.
-
-Rechazamos la hipótesis nula si
-
-$$
-\chi_{\exp }^{2} \geq \chi_{\alpha}^{2}
-$$
-
-donde el último término es el valor crítico asociado a una distribución $\chi^{2}$ con $\mathrm{k}-\mathrm{s}-\mathrm{r}$ grados de libertad tal que deja a su derecha una probabilidad igual a $\alpha$.
-
-Si $\mathrm{k}=2$ es equivalente al contraste para una proporción.
-Puede aplicarse a variables continuas definiendo las clases a través de intervalos.
-
-<!-- | ![](https://cdn.mathpix.com/cropped/8fb6aebc-d028-4d10-9d17-acf468c1b322-05.jpg?height=764&width=315&top_left_y=94&top_left_x=486) |  -->
-
-Se puede comprobar el comprobar el funcionamiento funcionamiento de la prueba Jide la prueba Jicuadrado para para verificar la de bondad de entre ajuste entre unas frecuencias observadas y unas y proporciones teóricas. toricas. |
-| :--- | :--- |
-
-### Condiciones de validez.
-
-Es un contraste asintótico que requiere para su validez que las frecuencias esperadas ( $\mathrm{N} \cdot \mathrm{p}_{\mathrm{i}}$ ) sean suficientemente grandes, en general se pide que sean superiores a $\mathbf{5}$. Caso de no verificarse esta premisa será necesario ampliar la muestra para incrementar las frecuencias esperadas, o en su defecto agrupar clases para lograr el mismo objetivo.
-
-El siguiente Applet nos permite verificar la correcta aproximación del contraste a través de unas simulaciones de lanzamientos de un dado con frecuencias teóricas de cada cara seleccionadas por nosotros. La simulación se realiza según la frecuencia teórica, por tanto el resultado correcto del contraste debe ser aceptar la hipótesis nula (la distribución de frecuencias teóricas). Los posibles errores deberían corresponder con los previstos según el nivel de significación.
-
-## Análisis de Tablas de contingencia.
-
-Una tabla de contingencia bidimensional es una clasificación de observaciones muestrales según dos características cualitativas, cada una de ellas con un número determinado de posibles resultados. Una de las características determina las filas de la tabla y la otra las columnas.
-
-Característica B
-| Característica A |  | $\mathrm{B}_{1}$ | $\mathrm{B}_{2}$ | $\dots$ | $\mathrm{B}_{m}$ | Total |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-|  | $\mathrm{A}_{1}$ | $n_{11}$ | $n_{12}$ | $\dots$ | $n_{1 m}$ | $n_{1}$. |
-|  | $\mathrm{A}_{2}$ | $n_{21}$ | $n_{22}$ | $\dots$ | $n_{2 m}$ | $n_{2}$. |
-|  | $\dots$ | $\dots$ | $\dots$ | $\dots$ | $\dots$ | $\dots$ |
-|  | $\mathrm{A}_{k}$ | $n_{k 1}$ | $n_{k 2}$ | $\dots$ | $n_{k m}$ | $n_{k}$. |
-|  | Total | $n \cdot 1$ | $n \cdot 2$ | $\dots$ | $n_{\cdot m}$ | $N$ |
-
-
-Si la muestra corresponde a una única población y los individuos se clasifican según dos variables cualitativas medidas sobre cada uno de ellos con k y m posibles resultados para cada variable, el objetivo del análisis de la tabla será determinar si existe relación entre las variables, se tratará de una prueba de Independencia.
-
-Si por el contrario, cada fila corresponde a una muestra de una población diferente y sobre cada individuo se mide una variable cualitativa, el objetivo será determinar si las diferentes poblaciones son homogéneas respecto la característica estudiada, se trata de una prueba de Homogeneidad entre las poblaciones.
-
-La diferencia fundamental entre ambos enfoques es que en la tabla para la prueba de homogeneidad los totales de las filas no son aleatorios sino que son valores fijos.
-
-### Pruebas de independencia.
-
-El objetivo es verificar si existe una dependencia entre las variables cualitativas que definen filas y columnas, es decir si para todo $\mathrm{i}=1, \ldots, \mathrm{k}$ y $\mathrm{j}=1, . ., \mathrm{m}$ se verifica que la probabilidad del resultado correspondiente a la combinación $\mathrm{A}_{\mathrm{i}} \cap \mathrm{B}_{\mathrm{j}}$ es el producto de las probabilidades marginales correspondientes. $\mathrm{P}\left(\mathrm{A}_{\mathrm{i}}\right)$ es la probabilidad del resultado i para la variable fila y $\mathrm{P}\left(\mathrm{B}_{\mathrm{j}}\right)$ la del resultado j para la variable columna.
-
-$$
-\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}} \cap \mathrm{~B}_{\mathrm{j}}\right)=\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right)
-$$
-
-Utilizaremos generalmente la notación más simplificada:
-
-$$
-\begin{gathered}
-\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}} \cap \mathrm{~B}_{\mathrm{j}}\right)=\mathrm{p}_{\mathrm{ij}} \\
-\mathrm{P}\left(\mathrm{~A}_{\mathrm{j}}\right)=\mathrm{p}_{\mathrm{i}} \cdot \\
-\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right)=\mathrm{p} \cdot \mathrm{j}
-\end{gathered}
-$$
-
-Los valores de $\mathrm{p}_{\mathrm{i}} \cdot \mathrm{y} \mathrm{p} \cdot \mathrm{j}$ serán estimados, a partir de los valores observados en la tabla de contingencia, por
-$n_{i} \cdot / N$ y $n_{\cdot j} / N$ respectivamente.
-Hipótesis nula de independencia: para toda combinación de resultados de las variables fila y columna (i,j)
-
-$$
-\mathrm{H}_{0}: \mathrm{p}_{\mathrm{ij}}=\mathrm{p}_{\mathrm{i}} \cdot \mathrm{p} \cdot \mathrm{j} \quad \text { para todo } \quad \mathrm{i}=1, \ldots, \mathrm{k} \quad \mathrm{j}=1, . ., \mathrm{m}
-$$
-
-La hipótesis alternativa, que implica dependencia, se puede formular diciendo que alguna de las igualdades de la hipótesis nula es falsa.
-
-Los valores observados son $n_{i j}$. Los valores esperados bajo la hipótesis nula de independencia se calculan de la manera siguiente
-
-$$
-e_{i j}=N \cdot \mathrm{p}_{\mathrm{ij}}=N \cdot \mathrm{p}_{\mathrm{i} \cdot} \cdot \mathrm{p}_{\cdot \mathrm{j}}=N \cdot\left(n_{i \cdot} / N\right) \cdot\left(n_{\cdot j} / N\right)=\left(n_{i \cdot} \cdot n_{\cdot j}\right) / N
-$$
-
-El estadístico de contraste se calcula de la forma habitual
-
-$$
-\chi_{\exp }^{2}=\sum_{i=1}^{k} \sum_{j=1}^{m} \frac{\left(n_{i j}-e_{i j}\right)^{2}}{e_{i j}}
-$$
-
-La distribución asintótica bajo la hipótesis nula es una $\chi^{2}$ con $(\mathrm{k}-1) \cdot(\mathrm{m}-1)$ grados de libertad. Los grados de libertad pueden entenderse de forma intuitiva entendiendo que el número de parámetros que se estiman son (k-1) y (m-1) al quedar fijada la probabilidad de la última clase de cada característica una vez estimadas las restantes. Por tanto aplicando la fórmula para los grados de libertad se obtiene
+Dada una m.a.s. $X_{1}, X_{2}, \ldots, X_{n}$ de una variable $X$ queremos contrastar la hipótesis de que la variable se distribuye según una cierta distribución completamente especificada $F_{\theta_{0}}$.
 
 $$
 \begin{aligned}
-& \text { grados de libertad }=\text { número de clases }- \text { número de parámetros estimados }-1 \\
-& \qquad \operatorname{grados~de~libertad~}=k \cdot m-(k-1)-(m-1)-1=(k-1) \cdot(m-1)
+& H_{0}: X \sim F_{\theta_{0}} \\
+& H_{1}: X \nsim F_{\theta_{0}} .
 \end{aligned}
 $$
 
-El criterio de decisión es el mismo que en el caso general:
-Rechazamos la hipótesis nula si
+Sea $R$ el recorrido de la distribución poblacional. Consideremos una partición de $R$ en $k$ subconjuntos disjuntos $R_{1}, R_{2}, \ldots, R_{k}$. Esto genera una partición en $k$ sucesos $A_{1}, A_{2}, \ldots, A_{k}$
 
 $$
-\chi_{\exp }^{2} \geq \chi_{\alpha}^{2}
+A_{i}=X \in R_{i}, \quad i=1, \ldots, k
 $$
 
-donde el último término es el valor crítico asociado a una distribución $\chi^{2}$ con $(\mathrm{k}-1) \cdot(\mathrm{m}-1)$ grados de libertad tal que deja a su derecha una probabilidad igual a $\alpha$.
-
-La condición de validez es que las frecuencias esperadas $e_{i j}$ sean mayores que 5 .
-
-### Violación de las condiciones del contraste.
-
-- Solución óptima: ampliar la muestra.
-- Solución alternativa: agrupar filas o columnas.
-- Sin embargo, agrupar filas o columnas significa perder algún resultado experimental que puede ser justamente el importante para la significación del contraste y se reducen los grados de libertad.
-
-En tablas $2 \times 2$ existe una corrección por continuidad (Corrección de Yates).
+de forma que la variable $k$-dimensional $\left(n_{1}, \ldots, n_{k}\right)$ que cuenta el número de observaciones de la muestra en cada uno de los subconjuntos $R_{1}, R_{2}, \ldots, R_{k}$ tiene distribución multinomial
 
 $$
-\chi_{\exp }^{2}=N \frac{\left(\left|n_{11} n_{22}-n_{12} n_{21}\right|-\frac{N}{2}\right)^{2}}{n_{1} \cdot n_{2} \cdot n_{1} n_{2}}
+Y \sim M\left(n ; p_{1}, \ldots, p_{k}\right) .
 $$
 
-Si las frecuencias esperadas son demasiado pequeñas, también es posible utilizar el test exacto de Fisher al ser equivalente a la comparación de dos proporciones.
-
-## Pruebas de homogeneidad.
-
-El objetivo es comprobar si en k poblaciones $\left(\mathrm{A}_{1}, \ldots, \mathrm{~A}_{\mathrm{k}}\right)$, es idéntica la distribución de probabilidad de una variable cualitativa con m posibles resultados $\left(\mathrm{B}_{1}, \ldots, \mathrm{~B}_{\mathrm{m}}\right)$. Es decir si se verifica
+Este planteamiento transforma el contraste inicial referido a la distribución de $X$ en un contraste sobre las probabilidades $p_{1}, \ldots, p_{k}$
 
 $$
-\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{1}\right)=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{2}\right)=\cdots=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{\mathrm{k}}\right)=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right) \quad \text { para todo } \mathrm{j}=1, \ldots, \mathrm{~m}
+\begin{aligned}
+& H_{0}: P\left(A_{i}\right)=p_{i}^{0}, \quad\left(=\int_{R_{i}} d F_{\theta_{0}}(x)\right) \\
+& H_{1}: P\left(A_{i}\right)=p_{i} \neq p_{i}^{0}
+\end{aligned}
 $$
 
-La diferencia con el caso de independencia es que los totales de las filas $n_{i}$. son valores fijos y no aleatorios, y corresponden al número de individuos seleccionados en la muestra pertenecientes a la población i. La estimación de los valores $\mathrm{P}\left(\mathrm{B}_{\mathrm{j}}\right)$ bajo la hipótesis de homogeneidad se obtiene a partir de la tabla de contingencia a través de $n_{\cdot j} / N$.
+Obsérvese que no se contrasta el hecho de que $Y$ tenga distribución multinomial, sino si las probabilidades vienen determinadas o no por la distribución propuesta por la hipótesis nula.
 
-Hipótesis nula de homogeneidad: dadas dos poblaciones cualesquiera i y i' se verifica
+### Estadístico de test para las pruebas $\chi^{2}$ de ajuste
 
-$$
-\mathrm{H}_{0}: \mathrm{p}_{\mathrm{ij}}=\mathrm{p}_{\mathrm{i}}{ }^{\prime} \mathrm{j} \quad \text { para todo } \mathrm{j}=1, \ldots, \mathrm{~m}
-$$
-
-donde $\mathrm{p}_{\mathrm{ij}}$ es la probabilidad del resultado j en la población i.
-La hipótesis alternativa (alguna igualdad no es cierta) implica no homogeneidad de las poblaciones.
-Los valores observados son $n_{i j}$. Los valores esperados bajo la hipótesis nula de homogeneidad se calculan de la manera siguiente
+A comienzos de siglo el estadístico Karl Pearson propuso utilizar, para este test, el estadístico siguiente. Considerando la partición anterior, sea $n_{i}$, $i=1, \ldots, k$, el número de individuos observados en la partición $A_{i}$. Si la hipótesis nula fuese cierta, esperaríamos que el número de individuos en $A_{i}$ fuese: $E_{i}=n \cdot P_{H_{0}}\left(A_{i}\right)=n p_{i}^{0}$. Una medida razonable de la discrepancia entre lo observado y lo que postula la hipótesis nula viene dada por:
 
 $$
-e_{i j}=n_{i} \cdot P\left(\mathrm{~B}_{\mathrm{j}}\right)=n_{i \cdot}\left(n_{\cdot j} / N\right)=\left(n_{i \cdot} \cdot n_{\cdot j}\right) / N
+D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} .
 $$
 
-Resultado idéntico al obtenido en el caso del contraste de independencia.
-El estadístico de contraste se calcula de forma análoga
+El interés especial que tiene este estadístico es que, a diferencia de otros que podríamos concebir, se conoce su distribución asintótica bajo la hipótesis nula, de forma que es posible utilizarlo para construir una región crítica para las hipótesis
 
 $$
-\chi_{\exp }^{2}=\sum_{i=1}^{k} \sum_{j=1}^{m} \frac{\left(n_{i j}-e_{i j}\right)^{2}}{e_{i j}}
+H_{0}: P\left(A_{i}\right)=p_{i}^{0}, \quad H_{1}: P\left(A_{i}\right) \neq p_{i}^{0} .
 $$
 
-La distribución asintótica bajo la hipótesis nula es una $\chi^{2}$ con $(\mathrm{k}-1) \cdot(\mathrm{m}-1)$ grados de libertad. Los grados de libertad pueden entenderse de forma intuitiva entendiendo que el número de parámetros que se estiman son (m-1) al quedar fijada la probabilidad de la última clase $\mathrm{B}_{\mathrm{j}}$ una vez estimadas las restantes, y al considerar que existen k restricciones a los valores esperados debido a que tenemos fijados los totales de cada población. Por tanto aplicando la fórmula para los grados de libertad se obtiene
-grados de libertad $=$ número de clases - número de parámetros estimados - número de restricciones
+El resultado principal de esta sección, que permite construir el test, es el teorema siguiente, debido a K. Pearson:
+
+**Teorema 1** *Bajo las condiciones descritas más arriba, si las probabilidades $p_{1}^{0}, \ldots, p_{k}^{0}$ son números conocidos, entonces el estadístico:*
 
 $$
-\operatorname{grados~de~libertad~}=(\mathrm{k} \cdot \mathrm{~m})-(\mathrm{m}-1)-\mathrm{k}=(\mathrm{k}-1) \cdot(\mathrm{m}-1)
+D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} .
 $$
 
-El criterio de decisión es el mismo que en el contraste de independencia.
-
-La condición de validez es que las frecuencias esperadas $e_{i j}$ sean mayores que 5 .
-
-## La distribución Multinomial
-
-Este modelo se puede ver como una generalización del Binomial en el que, en lugar de tener dos posibles resultados, tenemos $r$ resultados posibles.
-
-Supongamos que el resultado de una determinada experiencia puede ser $r$ valores distintos: $A_{1}, A_{2}, \ldots$, $A_{r}$ cada uno de ellos con probabilidad $p_{1}, p_{2}, \ldots, p_{r}$, respectivamente.
+*tiene distribución asintótica $\chi^{2}$ con $k-1$ grados de libertad*
 
 $$
-P\left(A_{1}\right)=p_{1} ; \quad P\left(A_{2}\right)=p_{2} ; \quad \ldots . \quad P\left(A_{r}\right)=p_{r} ; \quad \text { con } \sum_{i=1}^{r} P\left(A_{i}\right)=1 ;
+D^{2} \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1}^{2}
 $$
 
-Si repetimos la experiencia $n$ veces en condiciones independientes, podemos preguntarnos la probabilidad de que el suceso $A_{1}$ aparezca $k_{1}$ veces, el suceso $A_{2}, k_{2}$ veces y así sucesivamente:
+Podéis ver la demostración de este teorema en Martínez y col. ([8]).  
+En base al teorema anterior podemos establecer el siguiente test.
+
+**Definición 1:** Test de bondad de ajuste
+
+Sea $X \sim F_{\theta}$, $\left(\theta \in \Theta \subset \mathbb{R}^{m}\right)$ y sean $R: \operatorname{Rec}(X)=\biguplus_{i=1}^{k} R_{i}$ y $A_{i}=\left\{X \in R_{i}\right\}$, $P\left(A_{i}\right)=p_{i}$. Sea $Y=\left(n_{1}, \ldots, n_{k}\right)$, $n_{i}=\# A_{i}$, que verifica $Y \sim M\left(n ; \mathbf{p}=\left(p_{1}, \ldots, p_{k}\right)\right)$.
+
+Entonces, para contrastar las hipótesis:
 
 $$
-P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]
+\begin{aligned}
+H_{0}: & X \sim F_{\theta_{0}}^{0} \Leftrightarrow \mathbf{p}=\left(p_{1}^{0}, \ldots, p_{k}^{0}\right) \\
+H_{1}: & \mathbf{p} \neq\left(p_{1}^{0}, \ldots, p_{k}^{0}\right),
+\end{aligned}
 $$
 
-Al modelo estadístico que nos da dicha probabilidad se le denomina Multinomial, y su función de densidad viene dada por:
+el test consiste en rechazar $H_{0}$ si $D^{2} \geq \chi_{k-1,1-\alpha}^{2}$, donde
 
 $$
-\begin{gathered}
-f\left(k_{1}, k_{2}, \ldots, k_{r}\right)=P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]=\frac{n!}{k_{1}!k!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}} \\
-\operatorname{con} \sum_{i=1}^{r} P\left(A_{i}\right)=1 \quad \mathbf{y} \quad \sum_{i=1}^{r} k_{i}=n ;
-\end{gathered}
+\begin{aligned}
+& D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} \\
+& D^{2} \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1}^{2}
+\end{aligned}
 $$
 
-como se ve, el modelo Multinomial queda definido por los parámetros $\left(n, p_{1}, p_{2}, \ldots, p_{r}\right)$. La fórmula anterior puede deducirse de forma análoga al caso Binomial. En realidad, si tomamos $r=2$ tenemos exactamente el modelo Binomial.
+es un test asintótico de nivel $\alpha$.
 
-Se debe destacar que este modelo es un ejemplo de distribución multivariante, es decir, de distribución conjunta de varias ( $r$ ) variables aleatorias. En efecto, si definimos la variable aleatoria $X_{1}$ como número de veces que se produce el suceso $A_{1}$ de un total de n experiencias, y así sucesivamente, tenemos un conjunto de $r$ variables aleatorias discretas cuya función de densidad conjunta (valorada a la vez) viene definida por la anterior fórmula. Nótese que si consideramos cada una de estas variables $X_{i}(i=1,2, \ldots, r)$ por separado, su distribución es la Binomial de parámetros $n$ y $p_{i}$.
-
-## La distribución Binomial
-
-Al igual que el modelo de Bernouilli, hace referencia a experiencias con resultados dicotómicos (el resultado sólo puede ser $A$ o $A^{c}$ ). Sin embargo en este modelo estamos interesados en la repetición de $n$ veces una experiencia de este tipo en condiciones independientes.
-
-Tomemos el ejemplo del contaje del número de caras en el lanzamiento $n$ veces de una moneda regular.
-Para concretar, vamos a suponer que disponemos de una moneda regular ( $P[$ cara $]=P[$ cruz $]=1 / 2$ ) que lanzamos cuatro veces. Es evidente que, en estas condiciones, la variable $X$ : número de caras en cuatro lanzamientos independientes de una moneda regular es una variable aleatoria discreta que sólo puede tomar cinco posibles valores:
+Este resultado establece que una región crítica para el test tendrá la forma:
 
 $$
-x=0,1,2,3,4
+W=\left\{D^{2} \geq \chi_{k-1,1-\alpha}^{2}\right\},
 $$
 
-Pasemos ahora a calcular la probabilidad de cada valor (en terminología estadística, vamos a calcular la función de densidad de la variable $X$ ).
+donde $\chi_{k-1,1-\alpha}^{2}$ es el cuantil $1-\alpha$ de una distribución $\chi^{2}$ con $k-1$ grados de libertad.
 
-Es evidente que la $P[X=0]$ es igual a la probabilidad de salgan cuatro cruces seguidas:
+### Observaciones
 
-$$
-P[X=0]=P[c r u z, c r u z, c r u z, c r u z]=\mathrm{P}[c r u z]^{4}=(1 / 2)^{4}=0,0625
-$$
+Hay algunos puntos que hay que tener en cuenta para que las conclusiones derivadas de este test sean fiables.
 
-ya que la moneda es regular y, por tanto, $P[$ cara $]=P[$ cruz $]=1 / 2$.
-La $P[X=3]$ corresponde al suceso de que salgan tres caras ( $c$ en adelante) y una cruz ( + en adelante). Sin embargo, en este caso tenemos hasta cuatro posibles maneras de obtener dicho resultado, según el orden en que aparezcan las tres caras y la cruz:
+- Se trata de un test asintótico y, por tanto, es válido para muestras de tamaño grande. En la práctica se suele requerir que $n p_{i}^{0} \geq 5,\quad \forall i=1,2, \ldots, k$.
+- El test no discrimina entre distribuciones que asignan la misma probabilidad a los conjuntos $A_{i}$. Por ejemplo, como caso extremo, si tomáramos $k=2$ y $A_{1}=[X \leq E(X)]$, $A_{2}=[X \geq E(X)]$, todas las distribuciones simétricas asignarían la misma probabilidad a cada categoría. En consecuencia conviene tomar $k \geq 5$ siempre que se pueda. Como esto implicará necesariamente alguna $p_{i}^{0} \leq 1 / 5$, significa que como mínimo se necesita $n \geq 25$.
 
-| +ccc | $\mathrm{c}+\mathrm{cc}$ | $\mathrm{cc}+\mathrm{c}$ | $\mathrm{ccc}+$ |
-| :--- | :--- | :--- | :--- |
+### Ejemplo
 
-También debería resultar evidente que la probabilidad de cada uno de estos sucesos es la misma:
+Una compañía afirma que el número diario de accidentes laborales sigue una distribución de Poisson de parámetro $\lambda=2$. Un estudio, basado en los accidentes producidos durante 200 días, da el resultado siguiente:
 
-$$
-P[+c c c]=P[c+c c]=P[c c+c]=P[c c c+]=(1 / 2)^{4}=(1 / 2)^{4}=0,0625,
-$$
+| $N^{\underline{O}}$ de accidentes | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Días | 22 | 53 | 58 | 39 | 20 | 5 | 2 | 1 |
 
-de manera que, finalmente, la probabilidad de que salgan tres caras y una cruz es la suma de las probabilidades de los 4 casos anteriores:
+Para contrastar el ajuste a una distribución de Poisson debemos calcular las probabilidades
 
 $$
-P[X=3]=4(1 / 2)^{4}=0,25
+p_{i}^{0}=P_{\lambda=2}[X=i]=e^{-\lambda} \frac{\lambda^{i}}{i!}, \quad i=1, \ldots, 7 .
 $$
 
-Y así podríamos ir calculando el resto de casos. Podemos ver que, en este ejemplo, todos los casos tienen la misma probabilidad $(0,0625)$ y que el número total de casos posibles es 16 . En términos de combinatoria dicho número se obtendría como variaciones con repetición de dos valores (cara o cruz) tomados de cuatro en cuatro (el número de lanzamientos de la moneda):
+Las frecuencias esperadas serán $n p_{i}^{0}=200 p_{i}^{0}$. Cuando $i=6,7$ los valores son demasiado pequeños, de forma que se agrupan los valores en una única categoría "$i \geq 5$".
+
+| $x_{i}$ | 0 | 1 | 2 | 3 | 4 | $\geq 5$ | $\Sigma$ |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| $n_{i}$ | 22 | 53 | 58 | 39 | 20 | 8 | 200 |
+| $p_{i}^{0}$ | 0.135 | 0.271 | 0.271 | 0.180 | 0.090 | 0.053 | 1 |
+| $n p_{i}^{0}$ | 27.067 | 54.134 | 54.134 | 36.089 | 18.045 | 10.531 | 200 |
+| $\frac{\left(n p_{i}^{0}-n_{i}\right)^{2}}{n p_{i}^{0}}$ | 0.9486 | 0.0238 | 0.2761 | 0.2347 | 0.2119 | 0.6081 | 2.303 |
+
+El valor del estadístico de test es, por tanto, 2.303. El $p$-valor correspondiente, es decir, $P\left(\chi_{6-1}^{2} \geq 2.303\right)$, es 0.80588 y, por tanto, no podemos rechazar la hipótesis de que los datos siguen una distribución de Poisson de parámetro $\lambda=2$. Otra forma de tomar la misma decisión es observar que el percentil 0.95 de dicha distribución es $\chi_{5,0.95}^{2}=11.07$, de donde, dado que $2.303<\chi_{5,0.95}^{2}$, vemos que no podemos rechazar $H_{0}$.
+
+### Ejemplo
+
+Un cierto modelo genético para unas plantas cuyas flores pueden ser blancas, rosas o rojas afirma que la proporción con la que deben aparecer es de $1:2:1$. En un estudio se obtuvieron 113 flores blancas, 242 rosas y 112 rojas. ¿Concuerdan las observaciones con el modelo? Construimos la tabla de cálculos y obtenemos:
+
+| $A_{i}$ | Blanca | Rosa | Rojas | $\Sigma$ |
+| :--- | :---: | :---: | :---: | :---: |
+| $n_{i}$ | 112 | 242 | 112 | 467 |
+| $p_{i}^{0}$ | 0.25 | 0.5 | 0.25 | 1 |
+| $n p_{i}^{0}$ | 116.7 | 233 | 116.7 | 467 |
+| $\frac{\left(n p_{i}^{0}-n_{i}\right)^{2}}{n p_{i}^{0}}$ | 0.117 | 0.348 | 0.193 | $\mathbf{0 . 6 5 7}$ |
+
+El valor crítico es el percentil de una distribución ji-cuadrado con dos grados de libertad, $\chi_{2,0.95}^{2}=5.99$, de donde, dado que $0.657<\chi_{2,0.95}^{2}$, vemos que no podemos rechazar $H_{0}$.
+
+Obsérvese que el primer ejemplo corresponde a una variable numérica que se ha categorizado, mientras que el segundo se refiere directamente a una distribución multinomial.
+
+### Hipótesis compuestas
+
+El test de ajuste que hemos discutido en la sección anterior corresponde a una situación poco habitual. En la práctica, lo que nos interesará es decidir si los datos se ajustan a una determinada familia de distribuciones. Por ejemplo, antes de aplicar un test en el que se supone que los datos siguen una ley Normal, hay que verificar hasta qué punto es válida esta suposición.
+
+En este caso nos encontramos en una situación análoga a la anterior, salvo por el hecho de que la distribución no está completamente especificada sino que depende de un parámetro $m$-dimensional.
 
 $$
-V R_{2}^{4}=2^{4}=16
+\begin{aligned}
+X & \sim F_{\theta},\left(\theta \in \Theta \subset \mathbb{R}^{m}\right) \\
+R & =\operatorname{Rec}(X)=\biguplus_{i=1}^{k} R_{i}, \quad A_{i}=\left\{X \in R_{i}\right\}, P\left(A_{i}\right)=p_{i}(\theta) \Longrightarrow \\
+Y & =\left(n_{1}, \ldots, n_{k}\right), n_{i}=\# A_{i} \quad Y \sim M\left(n ; \mathbf{p}=\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right)\right) .
+\end{aligned}
 $$
 
-En la siguiente tabla se muestran los dieciséis posibles resultados:
+Una primera idea que se nos podría ocurrir para abordar este problema sería estimar $\theta$ mediante un estimador $\hat{\theta}$ y sustituir $p_{i}^{0}$ por $p_{i}(\hat{\theta})$ en (7.1). Esto no sería mala idea si la estimación se basase en una muestra distinta de la que se usa para realizar el ajuste.
 
-<!-- ![](https://cdn.mathpix.com/cropped/8fb6aebc-d028-4d10-9d17-acf468c1b322-14.jpg?height=62&width=746&top_left_y=2741&top_left_x=657) -->
+Ahora bien, este no es el caso aquí. Si usamos la muestra para estimar los parámetros y después hacemos el ajuste, estamos “forzando la muestra” a seleccionar la distribución poblacional para que se ajuste bien a la muestra a través de la estimación de los parámetros (estamos haciendo un ajuste condicionado). Para compensarlo, intentaremos ser “más exigentes” a la hora de juzgar si las frecuencias observadas se corresponden con las esperadas, y eso se reflejará en que, en lugar de basarnos en una distribución $\chi^{2}$ con $k-1$ grados de libertad, lo haremos en una con $k-1-m$ grados de libertad, donde $m$ representará el número de parámetros que hemos tenido que estimar. Este resultado se expresa en el teorema siguiente:
 
-| k = número de caras | Casos |
-| :--- | :--- |
-| 0 | ++++ |
-| 1 | +++C |
-|  | ++C+ |
-|  | +C++ |
-|  | C+++ |
-| 2 | ++CC |
-|  | $+\mathrm{c}+\mathrm{c}$ |
-|  | +CC+ |
-|  | C++C |
-|  | C+C+ |
-|  | CC++ |
-| 3 | CCC+ |
-|  | CC+C |
-|  | C+CC |
-|  | +CCC |
-| 4 | CCCC |
+**Teorema:** *Bajo las condiciones del teorema 1 supongamos que las probabilidades $p_{1}, \ldots, p_{k}$ dependen de parámetros desconocidos $\theta=\theta_{1}, \ldots, \theta_{m}$. Sean $\hat{\theta}=\hat{\theta}_{1}, \ldots, \hat{\theta}_{m}$ las estimaciones de máxima verosimilitud de los parámetros $\theta$ y supongamos que se verifican las siguientes condiciones de regularidad:*
 
-Si hacemos uso de nuestros conocimientos de combinatoria, comprobamos que el número de casos para cada posible valor $k(k=0,1,2,3,4)$ puede calcularse como permutaciones con repetición de cuatro elementos tomado de $k$ y $4-k$ :
+1. Las derivadas parciales $\frac{\partial p_{i}}{\partial \theta_{j}}, \frac{\partial^{2} p_{i}}{\partial \theta_{i} \partial \theta_{j}}$ existen y son continuas.
+2. La matriz jacobiana $\frac{\partial p_{i}}{\partial \theta_{j}}$, $i=1, \ldots, k$, $j=1, \ldots, m$, tiene rango $m$.
+
+Entonces el estadístico
 
 $$
-R P_{4}^{k, 4-k}=\frac{4!}{k!(4-k)!}=\binom{4}{k}
+D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}(\hat{\theta})\right)^{2}}{n p_{i}(\hat{\theta})}
 $$
 
-y obtenemos finalmente el número combinatorio 4 sobre $k$. En efecto, para el caso $k=3$, tendríamos:
+verifica
 
 $$
-\binom{4}{3}=\frac{4!}{3!1!}=4
+D^{2} \xrightarrow[n \rightarrow \infty]{£} \chi_{k-1-\operatorname{dim}(\Theta)}^{2}
 $$
 
-que son los cuatro posibles casos que nos dan tres caras y una cruz.
-Finalmente, recordando que todos los casos tienen la misma probabilidad, se construye la siguiente tabla:
+es decir, tiene distribución asintótica $\chi^{2}$ con $k-1-\operatorname{dim}(\Theta)$ grados de libertad.
 
-| $k=$ número de caras | Número de casos | $P[X=k]$ |
-| :---: | :---: | :---: |
-| 0 | 1 | 0,0625 |
-| 1 | 4 | 0,2500 |
-|  |  |  |
+Podemos proceder de forma análoga al caso de probabilidades conocidas para establecer el test siguiente:
 
-La distribución Binomial
+**Definición 7.2** Test de bondad de ajuste cuando hay que estimar parámetros
 
-| 2 | 6 | 0,3750 |
-| :---: | :---: | :---: |
-| 3 | 4 | 0,2500 |
-| 4 | 1 | 0,0625 |
-| Total | 16 | 1 |
+Sean:
 
+$$
+\begin{aligned}
+X & \sim F_{\theta},\left(\theta \in \Theta \subset \Re^{m}\right) \quad R: \operatorname{Rec}(X)=\biguplus_{i=1}^{k} R_{i} \\
+A_{i} & =\left\{X \in R_{i}\right\}, P\left(A_{i}\right)=p_{i}(\theta) \\
+Y & =\left(n_{1}, \ldots, n_{k}\right), n_{i}=\# A_{i}, \quad Y \sim M\left(n ; \mathbf{p}=\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right)\right) .
+\end{aligned}
+$$
+
+Entonces, para contrastar las hipótesis:
+
+$$
+\begin{array}{ll}
+H_{0}: & X \sim F_{\theta}^{0} \Leftrightarrow \mathbf{p}=\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right) \\
+H_{1}: & \mathbf{p} \neq\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right)
+\end{array}
+$$
+
+el test consiste en rechazar $H_{0}$ si $D^{2} \geq \chi_{k-1-\operatorname{dim}(\Theta), 1-\alpha}^{2}$, donde
+
+$$
+\begin{aligned}
+D^{2}= & \sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}(\hat{\theta})\right)^{2}}{n p_{i}(\hat{\theta})} \\
+D^{2} & \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1-\operatorname{dim}(\Theta)}^{2}
+\end{aligned}
+$$
+
+es un test asintótico de nivel $\alpha$.
+Este resultado establece que una región crítica para el test 7.2 tendrá la forma
+
+$$
+W=\left\{D^{2} \geq \chi_{k-1-\operatorname{dim}(\Theta), 1-\alpha}^{2}\right\}
+$$
+
+donde $\chi_{k-1,1-\alpha}^{2}$ es el cuantil $1-\alpha$ de una distribución $\chi^{2}$ con $k-1-\operatorname{dim}(\Theta)$ grados de libertad.
+
+**Ejemplo 7.2.3** En el ejemplo (7.2.2), cuando hemos ajustado unos datos a unas proporciones del tipo "1:2:1" o "9:3:3:1" estábamos suponiendo dos cosas:
+
+- Un modelo genético (que no tenemos por qué conocer)
+- Unas probabilidades fijadas.
+
+Esto lo hemos sintetizado en un vector numérico $\left(p_{1}^{0}, \ldots, p_{k}^{0}\right)$. Por ejemplo, en (7.2.2) la proporción "1:2:1" viene de suponer:
+
+- Como modelo: $p^{2}, 2 p(1-p), q^{2}$,
+- Como probabilidades: $p=\frac{1}{2}$.
+
+A menudo nos interesa ajustar solo el modelo, es decir, decidir si, por ejemplo, el modelo $p^{2}, 2 p(1-p), q^{2}$ describe bien los datos observados para algún $p \in(0,1)$. En este caso, antes de comparar los observados $n_{i}$ con los esperados $p_{i}$, tendremos que estimar los valores de los $p_{i}$.
+
+Bajo la suposición de un modelo multinomial,
+
+$$
+\begin{array}{ll}
+Y \sim M(n, \mathbf{p}(\theta), & \theta=p, \\
+& p_{1}(\theta)=p^{2}, p_{2}(\theta)=2 p(1-p), p_{3}(\theta)=(1-p)^{2}
+\end{array}
+$$
+
+la verosimilitud del modelo es:
+
+$$
+L\left(n_{1}, \ldots, n_{k} ; \mathbf{p}(\theta)\right) \propto\left(p^{2}\right)^{n_{1}} \cdot(2 p(1-p))^{n_{2}} \cdot\left(q^{2}\right)^{n_{3}}
+$$
+
+Una aplicación rutinaria del método de máxima verosimilitud da como estimador de máxima verosimilitud de $p$:
+
+$$
+\hat{p}_{M V}=\frac{2 n_{1}+n_{2}}{2 n_{1}+2 n_{2}+2 n_{3}}
+$$
+
+Supongamos ahora que tenemos unos datos genéticos correspondientes al grupo sanguíneo $M-N$ en una población de 6129 individuos, indios navajos, que son los siguientes:
+
+| Grupo | $M$ | $M-N$ | $N$ |
+| :--- | :---: | :---: | :---: |
+| Individuos | 1787 | 3039 | 1303 |
+
+El estimador de máxima verosimilitud calculado sobre los datos del ejemplo es:
+
+$$
+\hat{p}_{M V}=\frac{2 \cdot 1787+3039}{2 \cdot 1787+2 \cdot 3039+2 \cdot 1303}=0.539
+$$
+
+de donde la tabla con los valores observados y esperados para hacer el test de ajuste es:
+
+|  | M | $M-N$ | $N$ | $\Sigma$ |
+| :--- | :--- | :--- | :--- | :--- |
+| $n_{i}$ | 1787 | 3039 | 1303 | 6129 |
+| $p_{i}\left(\hat{p}_{M V}\right)$ | 0.539 | 2. 0.539. 0.461 | 0.461 | 1 |
+| $n p_{i}\left(\hat{p}_{M V}\right)$ | 1784 | 3046 | 1299.8 | 6129 |
+| $\frac{\left(n p_{i}\left(\hat{p}_{M V}\right)-n_{i}\right)^{2}}{n p_{i}\left(\hat{p}_{M V}\right)}$ | 0.0067 | 0.0166 | 0.0078 | 0.0311 |
+
+El valor crítico es el percentil de una distribución ji-cuadrado con dos menos un grados de libertad, $\chi_{1,0.95}^{2}=3.841$, de donde, dado que $0.0311<\chi_{1,0.95}^{2}$, vemos que no podemos rechazar $H_{0}$.
+
+**Ejemplo 7.2.4** En un estudio sobre bilingüismo se aplicó una prueba a una muestra de 211 alumnos y se obtuvieron 211 puntuaciones que, una vez tabuladas, eran las siguientes:
+
+| Puntuación | $(\leq 55]$ | $(55-60]$ | $(60-65]$ | $(65-70]$ | $(70-75]$ | $(75-80]$ | $(80-85]$ |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Frecuencia | 4 | 17 | 45 | 67 | 53 | 15 | 10 |
+
+¿Podemos aceptar la hipótesis de que la puntuación sigue una distribución normal? Fijémonos en que aquí no nos interesa más que el hecho de que sea normal, no una normal en concreto. Es decir, tenemos:
+
+$$
+\begin{array}{ll}
+H_{0}: & X \sim N(\mu, \sigma) \\
+H_{1}: & X \nsim N(\mu, \sigma) .
+\end{array}
+$$
+
+En primer lugar estimamos los parámetros:
+
+$$
+\begin{aligned}
+\hat{\mu} & =\bar{X}=68.52 \\
+\hat{\sigma}^{2} & =S^{2}=6.44
+\end{aligned}
+$$
+
+Cada categoría $A_{i}$ es un intervalo del recorrido de la variable: $A_{1}=X \in (-\infty, 55]$, $A_{2}=X \in(55,60] \ldots$, de manera que si $A_{i}=(a, b]$, las probabilidades $p_{i}=P\left(A_{i}\right)$ se calcularán, si suponemos que $Y$ representa una variable con distribución normal de media $\hat{\mu}=\bar{x}$ y desviación típica $\hat{\sigma}=s^{2}$:
+
+$$
+\begin{aligned}
+p_{i}=p_{i}\left(\bar{x}, s^{2}\right) & =P_{\bar{x}, s^{2}}\left(X \in A_{i}\right)=F_{Y}(b)-F_{Y}(a) \\
+& =\Phi\left(\frac{b-\bar{x}}{s}\right)-\Phi\left(\frac{a-\bar{x}}{s}\right),
+\end{aligned}
+$$
+
+donde $\Phi$ es la función de distribución de una variable $N(0,1)$. Si calculamos las probabilidades en esos intervalos y construimos la tabla, obtenemos:
+
+| Puntuación | $(\leq 55]$ | $(55-60]$ | $(60-65]$ | $(65-70]$ | $(70-75]$ | $(75-80]$ | $(\geq 80)$ |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| $n_{i}$ | 4 | 17 | 45 | 67 | 53 | 15 | 10 |
+| $p_{i}\left(\bar{x}, s^{2}\right)$ | 0.01786 | 0.07556 | 0.19774 | 0.29979 | 0.2528 | 0.11871 | 0.03654 |
+| $n \cdot p_{i}\left(\bar{x}, s^{2}\right)$ | 3.77 | 15.94 | 41.72 | 63.26 | 53.34 | 25.05 | 7.92 |
+
+Antes de calcular el valor del estadístico de test hay que fusionar las dos primeras columnas, ya que la frecuencia esperada es inferior a 5. La tabla final queda:
+
+| Puntuación | $(\leq 60]$ | $(60-65]$ | $(65-70]$ | $(70-75]$ | $(75-80]$ | $(\geq 80)$ |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| $n_{i}$ | $4+17$ | 45 | 67 | 53 | 15 | 10 |
+| $n \cdot p_{i}\left(\bar{x}, s^{2}\right)$ | $3.77+15.94$ | 41.72 | 63.26 | 53.34 | 25.05 | 7.92 |
+
+El estadístico de test, $D^{2}$, vale aquí: 5.144. Como hemos estimado 2 parámetros y la tabla final tiene 6 columnas, obtendremos el valor crítico de una $\chi^{2}$ con $6-2-1$ grado de libertad. En concreto: rechazaremos $H_{0}$ si $D^{2}>\chi_{(3,0.05)}^{2}$. Como esto no ocurre, no podemos rechazar $H_{0}$.
+
+## Pruebas de independencia en tablas de contingencia
+
+Sea $\Omega$ una población que admite dos descomposiciones diferentes en eventos excluyentes. Por ejemplo, una descomposición puede hacerse por sexo (hombres/mujeres) y la otra por tabaquismo (fumadores/no fumadores).
+
+$$
+\Omega=A_{1} \biguplus \cdots \biguplus A_{k}=B_{1} \biguplus \cdots \biguplus B_{r},
+$$
+
+donde el símbolo $\biguplus$ indica unión disjunta. Supongamos que se realizan $n$ observaciones o pruebas independientes, de modo que $n_{ij}$ representa la frecuencia con la que se presenta el evento $A_i \cap B_j$. Podemos disponer las observaciones en una tabla cruzada o de contingencia de $r$ filas por $k$ columnas:
+
+|  | $A_{1}$ | $\cdots$ | $A_{k}$ |  |
+| :--- | :--- | :--- | :--- | :--- |
+| $\mathrm{B}_{1}$ | $\mathrm{n}_{11}$ | $\cdots$ | $\mathrm{n}_{1k}$ | $\mathrm{n}_{1\cdot}$ |
+| $\vdots$ | $\vdots$ | $\ddots$ | $\vdots$ |  |
+| $\mathrm{B}_{r}$ | $\mathrm{n}_{r1}$ | $\cdots$ | $\mathrm{n}_{rk}$ | $\mathrm{n}_{r\cdot}$ |
+|  | $\mathrm{n}_{\cdot 1}$ |  | $\mathrm{n}_{\cdot k}$ | $n$ |
+
+donde $n_{i\cdot}=\sum_{j=1}^{k} n_{ij}$ es la frecuencia del evento $A_i$ y $n_{\cdot j}=\sum_{i=1}^{r} n_{ij}$ es la frecuencia del evento $B_j$.
+
+Supongamos que queremos contrastar la hipótesis de que las dos particiones son independientes, es decir,
+
+$$
+H_{0}: \quad A_i \text{ es estocásticamente independiente de } B_j,
+$$
+
+lo que equivale a
+
+$$
+P(A_i \cap B_j)=P(A_i)\,P(B_j), \quad i=1,\ldots,k,\; j=1,\ldots,r.
+$$
+
+Si indicamos $p_{ij}=P(A_i \cap B_j)$ e introducimos los parámetros
+
+$$
+p_{1\cdot},\ldots,p_{r\cdot},\quad \sum_{i=1}^{r} p_{i\cdot}=1,\qquad
+p_{\cdot 1},\ldots,p_{\cdot k},\quad \sum_{j=1}^{k} p_{\cdot j}=1,
+$$
+
+la hipótesis nula se expresará como
+
+$$
+p_{ij}=p_{i\cdot}\,p_{\cdot j}.
+$$
+
+Es fácil ver que, en este caso, los estimadores de máxima verosimilitud de las probabilidades marginales son las frecuencias relativas:
+
+$$
+\hat p_{i\cdot}=\frac{n_{i\cdot}}{n}, \qquad \hat p_{\cdot j}=\frac{n_{\cdot j}}{n},
+$$
+
+y la frecuencia esperada del evento $A_i \cap B_j$ bajo $H_0$ será
+
+$$
+n\,\hat p_{i\cdot}\,\hat p_{\cdot j}
+= n\,\frac{n_{i\cdot}}{n}\,\frac{n_{\cdot j}}{n}
+= \frac{n_{i\cdot}\,n_{\cdot j}}{n}.
+$$
+
+Aplicando el Teorema 7.2 se tiene que el estadístico
+
+$$
+D^{2}=\sum_{i=1}^{k}\sum_{j=1}^{r}
+\frac{\left(n_{ij}-\frac{n_{i\cdot}n_{\cdot j}}{n}\right)^{2}}
+{\frac{n_{i\cdot}n_{\cdot j}}{n}}
+$$
+
+verifica
+
+$$
+D^{2}\xrightarrow[n\to\infty]{\mathcal{L}} \chi^{2}_{(r-1)(k-1)}.
+$$
+
+Como consecuencia, el test de independencia para la hipótesis
+
+$$
+H_{0}: \quad P(A_i\cap B_j)=P(A_i)\,P(B_j)
+\;\Longleftrightarrow\;
+p_{ij}=p_{i\cdot}\,p_{\cdot j}
+$$
+
+consiste en calcular
+
+$$
+D^{2}=\sum_{i=1}^{k}\sum_{j=1}^{r}
+\frac{\left(n_{ij}-\frac{n_{i\cdot}n_{\cdot j}}{n}\right)^{2}}
+{\frac{n_{i\cdot}n_{\cdot j}}{n}}
+$$
+
+y rechazar $H_{0}$ si
+
+$$
+D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
+$$
+
+### Ejemplo
+
+En un estudio de mercado se intenta determinar si existe alguna relación entre las preferencias de un grupo de consumidores por un tipo de vehículo y su nivel cultural. Se pregunta a 300 personas entre 20 y 50 años qué vehículo poseen y se clasifican en “NINGUNO”, “MOTOCICLETAS”, “COCHES NORMALES” y “COCHES POTENTES”. El nivel cultural se determina según hayan cursado estudios “ELEMENTALES”, “DE GRADO MEDIO” o “SUPERIORES”. ¿Qué se puede concluir a partir de los siguientes datos?
+
+|  | NINGUNO | MOTOS | C. NORMAL | C. POTENTE | TOTAL |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Elementales | 31 | 49 | 18 | 12 | 110 |
+| Nivel medio | 11 | 59 | 26 | 25 | 121 |
+| Superiores | 12 | 51 | 31 | 36 | 130 |
+| TOTAL | 54 | 159 | 75 | 73 | 361 |
+
+La tabla de frecuencias esperadas es:
+
+|  | NINGUNO | MOTOS | C. NORMAL | C. POTENTE | TOTAL |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Elementales | 16.5 | 48.4 | 22.9 | 22.2 | 110 |
+| Nivel medio | 18.1 | 53.3 | 25.1 | 24.5 | 121 |
+| Superiores | 19.4 | 57.3 | 27.0 | 26.3 | 130 |
+| TOTAL | 54 | 159 | 75 | 73 | 361 |
+
+El valor del estadístico de contraste $D^{2}$ calculado sobre estos datos es 29.76. El valor crítico de una distribución $\chi^2$ con $(4-1)(3-1)=6$ grados de libertad y nivel de significación 0.05 es 12.59. Dado que
+
+$$
+29.76 \ge 12.59=\chi^{2}_{(3-1)(4-1),\,1-0.05},
+$$
+
+se rechaza la hipótesis de independencia; es decir, parece existir relación entre el nivel de estudios y el tipo de vehículo.
+
+## Pruebas de homogeneidad
+
+Supongamos que tenemos una misma partición
+
+$$
+\Omega=A_{1} \biguplus \cdots \biguplus A_{k},
+$$
+
+en $r$ poblaciones:
+
+|  | $A_{1}$ | $\cdots$ | $A_{k}$ |  |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | $\mathrm{n}_{11}$ | $\cdots$ | $\mathrm{n}_{1k}$ | $\mathrm{n}_{1}$ |
+| $\vdots$ | $\vdots$ | $\ddots$ | $\vdots$ |  |
+| $r$ | $\mathrm{n}_{r1}$ | $\cdots$ | $\mathrm{n}_{rk}$ | $\mathrm{n}_{r}$ |
+|  | $\mathrm{n}_{\cdot 1}$ |  | $\mathrm{n}_{\cdot k}$ | $n$ |
+
+y queremos contrastar la hipótesis
+
+$$
+\begin{aligned}
+p_{11}&=p_{21}=\cdots=p_{r1},\\
+p_{12}&=p_{22}=\cdots=p_{r2},\\
+&\ \vdots\\
+p_{1k}&=p_{2k}=\cdots=p_{rk}.
+\end{aligned}
+$$
+
+De forma análoga al apartado anterior puede establecerse que el estadístico
+
+$$
+D^{2}=\sum_{i=1}^{k}\sum_{j=1}^{r}
+\frac{\left(n_{ij}-n_{i}\frac{n_{\cdot j}}{n}\right)^{2}}
+{n_{i}\frac{n_{\cdot j}}{n}}
+$$
+
+verifica
+
+$$
+D^{2}\xrightarrow[n\to\infty]{\mathcal{L}} \chi^{2}_{(r-1)(k-1)},
+$$
+
+de modo que la hipótesis nula se rechazará siempre que
+
+$$
+D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
+$$
+
+### Ejemplo
+
+En un estudio antropológico se analiza la distribución de los grupos sanguíneos $O,A,B,AB$ entre tres razas humanas. La siguiente tabla contiene las frecuencias observadas y esperadas, así como el análisis realizado con el programa SPSS, donde se observa que no se puede rechazar la hipótesis nula de que la probabilidad de cada grupo sanguíneo es la misma en todas las razas.
+
+**Tabla de contingencia Raza × Grupo sanguíneo**
+
+|  |  |  | Grupo sanguíneo |  |  |  | Total |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+|  |  |  | O | A | B | AB |  |
+| Raza | Caucásicos | Recuento | 32 | 11 | 7 | 2 | 52 |
+|  |  | Frecuencia esperada | 29.0 | 8.8 | 9.4 | 4.8 | 52.0 |
+|  |  | % de grupo sanguíneo | 31.4\% | 35.5\% | 21.2\% | 11.8\% | 28.4\% |
+|  | Pigmeos | Recuento | 47 | 13 | 17 | 9 | 86 |
+|  |  | Frecuencia esperada | 47.9 | 14.6 | 15.5 | 8.0 | 86.0 |
+|  |  | % de grupo sanguíneo | 46.1\% | 41.9\% | 51.5\% | 52.9\% | 47.0\% |
+|  | Esquimales | Recuento | 23 | 7 | 9 | 6 | 45 |
+|  |  | Frecuencia esperada | 25.1 | 7.6 | 8.1 | 4.2 | 45.0 |
+|  |  | % de grupo sanguíneo | 22.5\% | 22.6\% | 27.3\% | 35.3\% | 24.6\% |
+| Total |  | Recuento | 102 | 31 | 33 | 17 | 183 |
+|  |  | Frecuencia esperada | 102.0 | 31.0 | 33.0 | 17.0 | 183.0 |
+
+Figura 7.1: Diagrama de barras múltiples que muestra cómo se distribuyen los grupos sanguíneos en cada raza.

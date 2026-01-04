@@ -1,0 +1,941 @@
+# Estadística no paramétrica
+
+## Introducción
+
+En este capítulo presentaremos de forma breve algunos tests no paramétricos para problemas de una, dos o varias muestras. El objetivo de estos tests es disponer de alternativas a las pruebas de hipótesis de comparación clásicas cuando no se conoce la forma de la distribución de los datos o la ley de las variables. En particular, serán alternativas a los tests sobre la media o comparación de medias cuando no se verifica la suposición de normalidad de los datos. Nos referimos a los tests basados en poblaciones normales como contrastes paramétricos, ya que se basan en comparar medias o parámetros de la ley normal. En contraposición, los que consideramos aquí y que denominaremos contrastes no paramétricos pueden comparar medianas, cuantiles o incluso toda la distribución en bloque. Observemos, pues, que “no paramétrico” no significa que estos tests no comparen algún parámetro como la mediana; más bien significa que no queremos hacer determinadas suposiciones sobre la función de distribución de las variables.
+
+Desde un punto de vista práctico, que es también el que adoptan muchos programas informáticos de análisis estadístico, distinguiremos entre:
+
+- Problemas de una muestra
+- Problemas de dos muestras con datos apareados
+- Problemas de dos muestras independientes
+- Problemas de $k$ muestras independientes.
+
+Esta distinción nos permite clasificar las técnicas que estudiamos y compararlas con las correspondientes pruebas paramétricas:
+
+| Problema | Test paramétrico | Test no paramétrico |
+| :--- | :--- | :--- |
+| Una muestra | Test $t$ de una muestra | Test de los signos <br> Test de los rangos con signo |
+| Datos apareados | Test $t$ de datos <br> apareados | Test de los signos <br> Test de los rangos con signo |
+| Dos muestras ind. | Test $t$ para dos <br> muestras ind. (con <br> test $F$ previo) | Test $U$ de Mann-Whitney |
+| $k$ muestras ind. | ANOVA de un factor | Test de Kruskal-Wallis |
+
+Además, algunos tests no paramétricos tienen otras utilidades, como los tests de aleatoriedad, los tests de rachas, etc.
+
+## Test de los signos
+
+### Test para la mediana
+
+Sea $X$ una variable aleatoria con distribución continua $F_{X}$ desconocida y $M=Q_{50}$ su mediana o cuantil del $50\%$, es decir, el valor tal que
+
+$$
+P(X \leq M)=0.5
+$$
+
+Supongamos que queremos contrastar las hipótesis
+
+$$
+\begin{aligned}
+& H_{0}: M=m_{0} \\
+& H_{1}: M \neq m_{0}
+\end{aligned}
+$$
+
+Dada una muestra $x_{1}, x_{2}, \ldots, x_{n}$, consideremos el “signo” de cada valor muestral por comparación con la mediana propuesta por la hipótesis $H_{0}$, es decir,
+
+$$
+\operatorname{signe}\left(x_{i}\right)= \begin{cases}+ & \text { si } x_{i}>m_{0} \\ - & \text { si } x_{i}<m_{0}\end{cases}
+$$
+
+El estadístico $B=$ “Número de signos positivos” es:
+
+$$
+B\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\sum_{i=1}^{n} I_{x_{i}>m_{0}}
+$$
+
+donde
+
+$$
+I_{x_{i}>m_{0}}=\left\{\begin{array}{cc}
+1 & \text { si } x_{i}>m_{0}\left(\operatorname{signe}\left(x_{i}\right)=+\right) \\
+0 & \text { si } x_{i}<m_{0}\left(\operatorname{signe}\left(x_{i}\right)=-\right)
+\end{array}\right.
+$$
+
+Si la hipótesis nula es cierta, la distribución del estadístico $B$ será una binomial de parámetros $n$ y $1/2$, y es razonable esperar que $B$ tome valores próximos a $n/2$; mientras que cuando sea falsa es de esperar que tome valores en las colas de la distribución. Así pues, una región crítica para el test será aquella en la que el número de signos positivos sea demasiado alto o demasiado bajo como para ser coherente con la hipótesis nula, que implica que hay tantos positivos como negativos. Podemos tomar como región crítica:
+
+$$
+W=\left\{B(\mathbf{x}) \leq b_{\alpha / 2}\right\} \cup\left\{B(\mathbf{x}) \geq b_{1-\alpha / 2}\right\}
+$$
+
+donde $b_{\alpha / 2}$ y $b_{1-\alpha / 2}$ se determinan de forma que la probabilidad de las dos colas de una distribución $B\left(n, \frac{1}{2}\right)$ sea igual al nivel de significación $\alpha$ (o algo menor que $\alpha$), es decir,
+
+$$
+\sum_{i=0}^{b_{\alpha / 2}}\binom{n}{i}\left(\frac{1}{2}\right)^{i}\left(\frac{1}{2}\right)^{n-i}+\sum_{i=b_{1-\alpha / 2}}^{n}\binom{n}{i}\left(\frac{1}{2}\right)^{i}\left(\frac{1}{2}\right)^{n-i} \leq \alpha
+$$
+
+#### Observaciones
+
+- Aunque con probabilidad teórica cero, porque la variable considerada tiene función de distribución continua, puede darse el caso $x_{i}=m_{0}$, de signo indefinido. Si no es posible aumentar la precisión, se aconseja eliminar este valor muestral y descontarlo en consecuencia del tamaño de la muestra.
+- Si la hipótesis alternativa es $M<m_{0}$ o bien $M>m_{0}$, la región crítica se adapta a esta hipótesis de forma razonable, es decir:
+
+$$
+\begin{aligned}
+& H_{1}: M<m_{0} \quad \Rightarrow \quad W=\left\{B(\mathbf{x}) \leq b_{\alpha}\right\} \\
+& H_{1}: M>m_{0} \quad \Rightarrow \quad W=\left\{B(\mathbf{x}) \geq b_{1-\alpha / 2}\right\}
+\end{aligned}
+$$
+
+- Algunos libros incluyen tablas de la distribución binomial que podemos usar para encontrar los valores críticos. Para $n \geq 20$ podemos aproximar la binomial por una normal.
+
+#### Ejemplo 1
+
+La siguiente tabla recoge una muestra de 40 notas en un examen. Contraste, con un nivel de significación 0.05, la hipótesis de que el valor central (mediana) de las notas es 66.
+
+| 71 | 67 | 55 | 64 | 82 | 66 | 74 | 58 | 79 | 61 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| 78 | 46 | 84 | 93 | 72 | 54 | 78 | 86 | 48 | 52 |
+| 67 | 95 | 70 | 43 | 70 | 73 | 57 | 64 | 60 | 83 |
+| 73 | 40 | 78 | 70 | 64 | 86 | 76 | 62 | 95 | 66 |
+| + | + | - | - | + | 0 | + | - | + | - |
+| + | - | + | + | + | - | + | + | - | - |
+| + | + | + | - | + | + | - | - | - | + |
+| + | - | + | + | - | + | + | - | + | 0 |
+
+Si restamos 66 de las notas observadas y retenemos solo los signos de las diferencias, se obtienen 23 signos +, 15 signos - y 2 ceros. Descartados los ceros, $B=23$ sobre un total de 38. Si hacemos un contraste bilateral con la aproximación normal, la región de aceptación es $\{-1.96 \leq z \leq 1.96\}$.
+Dado que
+
+$$
+z=\frac{(23-0.5)-38 \cdot 0.5}{\sqrt{38 \cdot 0.5 \cdot 0.5}}=1.14
+$$
+
+aceptamos la hipótesis de que la mediana es 66, al nivel 0.05.
+
+Podemos hacer lo mismo con R:
+
+Primero introducimos las notas y calculamos cuántos valores son superiores a 66, es decir, el número de signos positivos.
+
+```{r}
+notes<-c (71,67,55,64,82,66,74,58,79,61,78,46,84,93,72,54,78,86,48,52,67,95,70,43,70,73,57,64,60,83,73,40,78,70,64,86,76,62,95,66)
+notes[notes>66]
+B<-length(notes[notes>66])
+B
+```
+
+Y finalmente calculamos la aproximación normal del estadístico y su p-valor. Aplicaremos una *corrección por continuidad*, habitual en esta aproximación, restando 0.5 al estadístico B
+
+```{r}
+n<-length(notes)-length(notes[notes==66])
+n
+z<-(B-0.5-n*0.5)/sqrt(n*0.5*0.5)
+round(z,2)
+2*(1-pnorm(z))
+2*(1-pnorm(B-0.5,mean=n*0.5,sd=sqrt(n*0.5*0.5)))
+```
+
+El p-valor, superior al nivel de significación, hace que aceptemos la hipótesis nula $H_{0}: M=66$.
+
+
+### Test de los signos para datos apareados
+
+El test de los signos puede servir también en el caso de datos apareados.
+Consideremos una muestra de dos variables $X, Y$
+
+$$
+\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{n}, y_{n}\right)
+$$
+
+con $n$ observaciones en dos situaciones lo más homogéneas posible.
+Supongamos que las distribuciones de las dos variables son similares, excepto quizá en un parámetro de localización como la mediana. Es decir, las dos situaciones consideradas solo pueden desplazar la distribución y no modifican su forma.
+
+Ahora queremos contrastar la hipótesis de que no hay diferencia entre las dos situaciones: las diferencias observadas entre los valores $x_{i}$ y $y_{i}$ se deben al azar; es decir, las dos muestras $x_{1}, \ldots, x_{n}$ e $y_{1}, \ldots, y_{n}$ proceden de la misma población. Esto puede expresarse estadísticamente con la hipótesis $H_{0}$ de igualdad de las distribuciones de probabilidad, que con las suposiciones asumidas es equivalente a la igualdad de medianas.
+Si la hipótesis $H_{0}$ es cierta, y la distribución de la variable diferencia $D=X-Y$ es simétrica respecto del origen, se verificará
+
+$$
+P(X>Y)=P(X-Y>0)=\frac{1}{2}
+$$
+
+Así pues, podemos aplicar el test de los signos a la variable diferencia $D=X-Y$. En general, aunque no necesariamente siempre, se tomará como valor de $m_{0}$ el 0.
+
+#### Ejemplo 2
+
+Se quiere comparar el número de piezas defectuosas producidas por dos máquinas diferentes. Se observa la producción durante 10 días, con la misma producción diaria para ambas máquinas, aunque diferente cada día. Los resultados son:
+
+| Día | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Máquina 1 | 46 | 110 | 70 | 54 | 60 | 120 | 82 | 76 | 37 | 28 |
+| Máquina 2 | 42 | 87 | 75 | 50 | 48 | 108 | 80 | 67 | 40 | 25 |
+
+Con un nivel de significación $\alpha=0.06$, ¿podemos aceptar que la primera máquina produce más piezas defectuosas?
+
+**Solución**:
+
+El hecho de que la producción total diaria de ambas máquinas sea la misma permite considerar los datos como apareados. Que la producción diaria sea diferente cada día aconseja utilizar un test no paramétrico.
+Observemos los signos de las diferencias
+
+$$
+\begin{array}{lcccccccccc}
+\text { Día: } & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\text { Signo: } & + & + & - & + & + & + & + & + & - & +
+\end{array}
+$$
+
+De modo que $B=8$ sobre $n=10$. En este contraste, la región crítica es unilateral y concretamente es $W=\{8,9,10\}$, ya que
+
+$$
+P(B \geq 8)=\sum_{i=8}^{10}\binom{10}{i} 0.5^{10}=0.0547<\alpha=0.06
+$$
+
+Dado que la frecuencia observada es 8 y pertenece a la región crítica, rechazamos la igualdad y podemos aceptar que la máquina 1 produce más piezas defectuosas.
+
+Para hacerlo con R introducimos los datos en dos vectores de la misma longitud. Calculamos la diferencia y el número de valores positivos. A partir de este número calculamos la probabilidad de la cola derecha de una binomial, ya que la hipótesis alternativa así lo requiere.
+
+```{r}
+maq1<-c(46,110,70,54,60,120,82,76,37,28)
+maq2<-c(42,87,75,50,48,108,80,67,40,25)
+dif<-maq1-maq2
+dif
+
+B<-length(dif[dif>0]);B
+dbinom(8,10,0.5)+dbinom(9,10,0.5)+dbinom(10,10,0.5)
+1-pbinom(B-1,10,0.5)
+```
+
+El p-valor es inferior al nivel de significación 0.06 y, por tanto, rechazamos la hipótesis nula y aceptamos que la máquina 1 produce más piezas defectuosas.
+
+
+### Test para datos binarios
+
+En el caso de una muestra de valores de una variable dicotómica, por ejemplo
+
+$$
+a, a, b, b, b, a, a, b, a, \ldots, b
+$$
+
+podemos aplicar el test de los signos para contrastar el equilibrio de las probabilidades de ambos valores.
+
+#### Ejemplo 3
+
+Ante un cambio en un servicio público se realiza una encuesta a 300 personas, a las cuales se les pregunta si el servicio ha mejorado o empeorado, sin posibilidad de ser indiferente. Ha resultado que 197 personas han dicho que el servicio ha mejorado y queremos contrastar este hecho con un nivel de significación del 0.01.
+
+Bajo la hipótesis nula de equilibrio, el número $B$ de personas que afirman que el servicio ha mejorado sigue una distribución binomial $B(300,0.5)$, de forma que
+
+$$
+z=\frac{(197-0.5)-150}{\sqrt{300 \cdot 0.5 \cdot 0.5}}=5.37
+$$
+
+La región crítica de una cola es $W=\{z>2.33\}$ para $\alpha=0.01$, de manera que aceptamos la opinión de que el servicio ha mejorado.
+
+## Test de McNemar
+
+Es una variante del test de los signos. Supongamos que un conjunto de individuos se clasifica en dos categorías opuestas, que podemos indicar con los signos $+\mathrm{i}-$.
+Después de algún estímulo, es posible que algunos individuos cambien de categoría, de forma que se obtiene la tabla de frecuencias
+
+|  |  | Después |  |
+| :---: | :---: | :---: | :---: |
+|  |  | - | + |
+| Antes | + | $a$ | $b$ |
+|  | - | $c$ | $d$ |$\quad a+b+c+d=n$
+
+Solo $a+d$ individuos han cambiado. Bajo la hipótesis nula de que las proporciones no cambian, las probabilidades son
+
+$$
+P(+\rightarrow-)=P(-\rightarrow+)=1 / 2
+$$
+
+de manera que la frecuencia esperada en estos dos casos es $(a+d) / 2$. Podemos aplicar el test ji-cuadrado
+
+$$
+\chi^{2}=\frac{(a-(a+d) / 2)^{2}}{(a+d) / 2}+\frac{(d-(a+d) / 2)^{2}}{(a+d) / 2}=\frac{(a-d)^{2}}{a+d} \quad \text { con } 1 \text { g.l. }
+$$
+
+Rechazaremos la hipótesis de equilibrio si $\chi>\chi_{\alpha}^{2}$, donde $\alpha$ es el nivel de significación. Si las frecuencias son pequeñas es conveniente utilizar la corrección de Yates
+
+$$
+\chi=\frac{(|a-d|-1)^{2}}{a+d}
+$$
+
+## Test de los rangos con signo de Wilcoxon
+
+Visto como una extensión del test de los signos anterior, la idea de este test es utilizar, además del signo, la magnitud de las diferencias.
+
+El **rango** de una observación es *la posición que ocupa en la muestra ordenada*. Por ejemplo, si consideramos la muestra
+
+$$
+x_{1}=3 \quad x_{2}=0 \quad x_{3}=5 \quad x_{4}=1.9
+$$
+la muestra ordenada es
+
+$$
+x_{(1)}=0 \quad x_{(2)}=1.9 \quad x_{(3)}=3 \quad x_{(4)}=5
+$$
+
+de modo que los rangos son:
+
+$$
+r(0)=1 \quad r(1.9)=2 \quad r(3)=3 \quad r(5)=4
+$$
+
+Una parte importante de la estadística no paramétrica ha surgido de la sustitución de los valores cuantitativos de las muestras por sus rangos y de la obtención de estadísticos de contraste análogos a los utilizados con datos cuantitativos.
+
+Podemos encontrar así, por ejemplo, un test equivalente al test $t$ de Student pero basado en rangos, o un coeficiente de correlación, denominado de Spearman, con la misma fórmula que el de Pearson pero utilizando rangos.
+
+Ahora nos centramos en la comparación de medianas, basada en rangos, y no en los coeficientes de correlación.
+
+Supongamos que la hipótesis nula es la misma que en el test de la mediana, es decir:
+
+$$
+\begin{aligned}
+& H_{0}: M=m_{0} \\
+& H_{1}: M \neq m_{0}
+\end{aligned}
+$$
+
+donde $M$ representa la mediana de una variable o, con frecuencia, de la diferencia entre dos variables apareadas.
+
+Wilcoxon propuso considerar los estadísticos:  
+$T^{+}=$ Suma de los rangos de las observaciones con signo +  
+$T^{-}=$ Suma de los rangos de las observaciones con signo -
+
+$$
+T^{+}=\sum_{i=1}^{n} r\left(\left|x_{i}-m_{0}\right|\right) I_{x_{i}>m_{0}}
+$$
+
+Si $H_{0}$ es cierta, entonces es de esperar que $T^{+}=T^{-}$.
+El estadístico $T^{+}$ se conoce con el nombre de estadístico de Wilcoxon y está tabulado, de forma que pueden encontrarse valores $t_{\alpha / 2}$ y $t_{1-\alpha / 2}$ tales que
+
+$$
+P\left[T^{+}<t_{\alpha / 2} \mid H_{0}\right]+P\left[T^{+}>t_{1-\alpha / 2} \mid H_{0}\right] \leq \alpha
+$$
+
+y definir la región crítica como
+
+$$
+W=\left\{T^{+}<t_{\alpha / 2}\right\} \cup\left\{T^{+}>t_{1-\alpha / 2}\right\}
+$$
+
+### Observaciones
+
+- Para valores grandes de $n$ puede utilizarse el hecho de que, bajo $H_{0}$, el estadístico $T^{+}$ es asintóticamente normal:
+
+$$
+T^{+} \sim A N\left(\mu_{T^{+}}, \sigma_{T^{+}}\right), \quad \mu_{T^{+}}=\frac{n(n+1)}{4}, \quad \sigma_{T^{+}}^{2}=\frac{n(n+1)(2 n+1)}{24}
+$$
+
+y, por tanto, para muestras grandes podemos basarnos en el estadístico
+
+$$
+Z=\frac{T^{+}-n(n+1) / 4}{\sqrt{n(n+1)(2 n+1) / 24}} \sim N(0,1)
+$$
+
+- Una alternativa al estadístico de contraste anterior consiste en considerar el estadístico
+
+$$
+T=\min \left(T^{+}, T^{-}\right) .
+$$
+
+Si $H_{0}$ es cierta, entonces $T^{+}=T^{-}$. Si no lo es, se tendrá $T^{+}>T^{-}$ o bien $T^{+}<T^{-}$, de modo que el mínimo será un valor “pequeño”. El test basado en este estadístico rechazará la hipótesis nula si $T$ es menor que $T_{\alpha}$, donde este valor crítico se obtiene a partir de una tabla diferente de la tabla de valores críticos para $T^{+}$.
+
+### Ejemplo 4
+
+Dado que en el ejemplo 1 las notas son numéricas, podemos utilizar el test de los rangos con signo para contrastar $H_{0}: M=66$ frente a $H_{1}: M \neq 66$, con un nivel de significación del 0.05.
+
+**Solución**:
+
+Para calcular el estadístico $T^{+}$ debemos asignar los rangos correspondientes a los valores positivos de las diferencias entre las observaciones y el valor 66 propuesto en la hipótesis nula.
+
+En este ejemplo utilizaremos la función `wilcox.test` con el vector `notes` del ejemplo:
+
+```{r}
+wilcox.test(notes,mu=66,alternative="two.sided",exact=F)
+```
+
+O bien, mediante una aproximación normal directa:
+
+```{r}
+z<-(465-0.5-38*39/4)/sqrt(38*39*77/24);z
+round(2*(1-pnorm(z)),2)
+```
+
+Esta función calcula el estadístico $T^{+}=465$ y su p-valor con corrección por continuidad.
+
+En este problema existen, además de dos ceros, un número considerable de empates o *ligaduras* (del inglés "ties"), de modo que la función `wilcox.test` no puede calcular el p-valor exacto y por ello se le ha indicado `exact=F`.
+
+El estadístico $z$ que hemos calculado de forma directa y su p-valor, sin tener en cuenta las ligaduras, son bastante similares a los que calcula el algoritmo. Si no se indica nada sobre este parámetro, aparecen dos mensajes de advertencia relativos a este hecho.
+
+```{r}
+wilcox.test(notes,mu=66,alternative="two.sided")
+```
+
+### Ejemplo 5
+
+Dado que en el ejemplo 2 las observaciones son numéricas y apareadas, podemos utilizar los valores de las diferencias con el test de los rangos con signo para contrastar si existen diferencias entre las dos máquinas.
+
+**Solución**:
+
+En este ejemplo se utiliza también la función `wilcox.test` con los dos vectores de datos del ejemplo y la opción `paired=TRUE`.
+
+```{r}
+wilcox.test(maq1,maq2,mu=0,paired=T,alternative="greater",exact=F)
+```
+
+Observamos que en este caso hemos utilizado la opción `paired=T` para indicar que los datos son apareados. También hemos identificado correctamente la alternativa con `alternative="greater"`. Además, como en el ejemplo anterior, las ligaduras no permiten calcular el p-valor exacto. El p-valor aproximado 0.029 indica el rechazo de la hipótesis nula.
+
+
+## El test $U$ de Mann-Whitney
+
+Este test permite comparar dos poblaciones con muestras independientes: 
+$$
+\left(x_{1}, \ldots, x_{n_{1}}\right),\left(y_{1}, \ldots, y_{n_{2}}\right)
+$$
+
+procedentes de dos poblaciones $X, Y$ con funciones de distribución $F_{X}, F_{Y}$ respectivamente. Queremos contrastar la hipótesis $H_{0}: F_{X}=F_{Y}$ frente a alguna de las alternativas
+
+$$
+H_{1}: F_{X} \neq F_{Y} \quad H_{1}: F_{X}<F_{Y} \quad H_{1}: F_{X}>F_{Y}
+$$
+
+Si la hipótesis nula es cierta, entonces $P(X<Y)=\frac{1}{2}$. Además, dado que existen $n_{1} \cdot n_{2}$ pares posibles, el número de pares de observaciones $\left(x_{i}, y_{j}\right)$ que se espera que verifiquen $x_{i}<y_{j}$ estará alrededor de $\frac{n_{1} \cdot n_{2}}{2}$.
+Un estadístico de contraste razonable para decidir si aceptamos o rechazamos la hipótesis nula es el número de pares que verifican $x_{i}<y_{j}$, que definimos como:
+
+$$
+U=\sum_{i=1}^{n_{1}} \sum_{j=1}^{n_{2}} I_{x_{i}<y_{j}}
+$$
+
+Una desviación significativa de $U$ respecto al valor esperado $\frac{n_{1} \cdot n_{2}}{2}$ conducirá al rechazo de la hipótesis nula. Para decidir si $U$ es significativo se consulta la tabla de Mann-Whitney-Wilcoxon, que permite decidir el rechazo de $H_{0}$ en función del nivel de significación elegido y de los tamaños muestrales $n_{1}$ y $n_{2}$.
+
+### Observaciones
+
+- Un procedimiento alternativo para calcular $U$, y a menudo más cómodo, consiste en formar la muestra conjunta reuniendo las dos muestras individuales y asignar los rangos $1,2, \ldots, n_{1}+n_{2}$ a cada uno de los valores de la muestra ordenada. Puede calcularse $U$ a partir de la relación:
+
+$$
+U=W-\frac{n_{2}\left(n_{2}+1\right)}{2}
+$$
+
+donde $W$ es la suma de los rangos de las observaciones $y_{j}$
+
+$$
+W=\sum_{j=1}^{n_{2}} r\left(y_{j}\right)
+$$
+
+Este estadístico $W$ para comparar dos poblaciones fue propuesto por Wilcoxon pero, por la relación anterior, es equivalente al estadístico $U$ de Mann-Whitney.
+
+- Si no existen ligaduras o empates, la relación entre el estadístico de Wilcoxon $W$ (suma de rangos correspondientes a las observaciones $Y$) y el estadístico $U$ de Mann-Whitney (número de veces que $x_{i}<y_{j}$ en la muestra conjunta ordenada) es
+
+$$
+W=\frac{n_{2}\left(n_{2}+1\right)}{2}+U
+$$
+
+Si $W^{\prime}$ es la suma de los rangos correspondientes a las observaciones $X$, entonces
+
+$$
+W+W^{\prime}=\frac{\left(n_{1}+n_{2}\right)\left(n_{1}+n_{2}+1\right)}{2}
+$$
+
+De modo que, si $U^{\prime}$ es el número de veces que $y_{j}<x_{i}$, se obtiene
+
+$$
+U+U^{\prime}=n_{1} n_{2} \quad W^{\prime}=\frac{n_{1}\left(n_{1}+1\right)}{2}+U^{\prime}
+$$
+
+- Para muestras “grandes” puede utilizarse el hecho de que, bajo $H_{0}$, el estadístico $U$ es asintóticamente normal:
+
+$$
+U \sim A N\left(\mu_{U}, \sigma_{U}\right), \quad \mu_{U}=\frac{n_{1} n_{2}}{2}, \quad \sigma_{U}^{2}=\frac{n_{1} n_{2}\left(n_{1}+n_{2}+1\right)}{12}
+$$
+
+y, por tanto, para $n_{1}>10$ o $n_{2}>10$ podemos basarnos en el estadístico de contraste
+
+$$
+Z=\frac{U-n_{1} n_{2} / 2}{\sqrt{n_{1} n_{2}\left(n_{1}+n_{2}+1\right) / 12}} \sim N(0,1)
+$$
+
+### Ejemplo 6
+
+Para comparar la resistencia en $\mathrm{kg} / \mathrm{cm}^{2}$ de un material suministrado por dos proveedores se midieron dos muestras de varios elementos:
+
+Proveedor A 202, 229, 215, 220, 223, 233, 208, 228, 209  
+Proveedor B 221, 207, 185, 203, 187, 190, 195, 204, 212  
+
+Con un nivel de significación del 0.05, indique si existen diferencias entre los materiales suministrados por los dos proveedores.
+
+**Solución**:
+
+Ahora utilizaremos la función `wilcox.test` con los dos vectores de datos, teniendo en cuenta que son independientes, que es la opción por defecto.
+
+```{r}
+pro.A<-c(202,229,215,220,223,233,208,228,209)
+pro.B<-c(221,207,185,203,187,190,195,204,212)
+wilcox.test(pro.A,pro.B,alternative="two.sided")
+```
+
+No debemos dejarnos confundir por la notación.
+
+El estadístico calculado es el que hemos denominado $U^{\prime}=70>n_{1} n_{2} / 2=40.5$. En cualquier caso, el p-valor es muy explícito e implica el rechazo de la hipótesis nula de equivalencia.
+
+
+## Comparación de medianas
+
+Consideremos una situación en la que se desea comparar dos poblaciones continuas con distribuciones de igual forma y tratar de detectar desplazamientos entre ambas distribuciones.
+Sean $x_{1}, \ldots, x_{n_{1}} \mathrm{i} y_{1}, \ldots, y_{n_{2}}$ dos muestras aleatorias correspondientes a cada población e independientes entre sí. Si se ordenan conjuntamente ambas muestras en orden creciente y se considera la mediana $M$ de la muestra combinada, podemos calcular el estadístico
+
+$$
+T=\sum_{i=1}^{n_{1}} I_{x_{i}<M}
+$$
+
+que sirve para contrastar la hipótesis $H_{0}: M_{X}=M_{Y}$.
+Si ambas poblaciones tienen la misma distribución, es de esperar que $T$ sea próximo a $n_{1} / 2$. En cambio, si $T$ resulta mucho mayor que $n_{1} / 2$, es razonable suponer que la mediana $M_{X}$ de la primera población es inferior a la de la segunda $M_{Y}$; mientras que si $T$ es mucho menor que $n_{1} / 2$, ello parece indicar que $M_{X}$ es superior a $M_{Y}$. Las regiones críticas son:
+
+| Alternativa | Región crítica |
+| :--- | :--- |
+| $M_{X}<M_{Y}$ | $\{T \geq k\}$ |
+| $M_{X}>M_{Y}$ | $\left\{T \leq k^{\prime}\right\}$ |
+| $M_{X} \neq M_{Y}$ | $\left\{T \leq k_{1}\right\} \cup\left\{T \geq k_{2}\right\}$ |
+
+Si la distribución de ambas poblaciones es la misma, la distribución de $T$ puede obtenerse con facilidad. Dado que las $n_{1}+n_{2}$ observaciones son independientes
+e idénticamente distribuidas, las $\binom{n_{1}+n_{2}}{n_{1}}$ formas de asignar $n_{1}$ a la primera muestra (y las restantes $n_{2}$ a la segunda) son equiprobables. Si $p$ es la parte entera de $\left(n_{1}+n_{2}\right) / 2$, existen $p$ de las $n_{1}+n_{2}$ observaciones inferiores a $M$ y se tendrá $T=t$ en todas aquellas asignaciones en las que resulten $t$ observaciones de la primera muestra de entre las $p$ primeras y $n_{1}-t$ entre las $n_{1}+n_{2}-p$ últimas. Así
+
+$$
+P(T=t)=\frac{\binom{p}{t}\binom{n_{1}+n_{2}-p}{n_{1}-t}}{\binom{n_{1}+n_{2}}{n_{1}}}
+$$
+
+donde $t$ puede variar entre $\max \left\{0, p-n_{2}\right\}$ y $\min \left\{n_{1}, p\right\}$. Se trata, por tanto, de una distribución hipergeométrica que puede aproximarse, si $n_{1}$ y $n_{2}$ son grandes, por una $N\left(n_{1} / 2, \sqrt{n_{1} n_{2} / 4\left(n_{1}+n_{2}\right)}\right)$.
+
+### Ejemplo 7
+
+Con los datos del ejemplo anterior, calcule el estadístico $\chi^{2}$ y compare las medianas de las dos muestras.
+
+**Solución**:
+
+Como ya sabemos, la mediana común de las dos muestras es $M=208.5$. Entonces la tabla para el test de homogeneidad es
+
+|  | Pro. A | Pro. B |  |
+| :--- | :---: | :---: | :---: |
+| valores inferiores | 2 | 7 | 9 |
+| valores superiores | 7 | 2 | 9 |
+| Total | 9 | 9 |  |
+
+Así, debemos calcular el estadístico ji-cuadrado con la corrección de Yates
+
+$$
+\chi^{2}=\frac{(|2 \cdot 2-7 \cdot 7|-18 / 2)^{2}}{9 \cdot 9 \cdot 9 \cdot 9} 18=3.556
+$$
+
+Con un grado de libertad y para un nivel de significación del 0.05 , la región crítica comienza en $\chi_{0.05}^{2}=3.841$, de modo que podemos aceptar la hipótesis nula.
+
+Con tamaños muestrales grandes, el test ji-cuadrado es preferible si no se tiene constancia de que la forma de ambas distribuciones sea la misma, ya que el test $T$ anterior tiende a aceptar la homogeneidad si $M_{X}=M_{Y}$ aunque la forma de las distribuciones sea diferente.
+Por la misma razón, es preferible el test de Kolmogorov-Smirnov que se explica en la sección siguiente.
+
+Observemos el cálculo de la mediana conjunta con `median(c(pro.A,pro.B))`.
+
+```{r}
+T<-length(pro.A[pro.A<median(c(pro.A,pro.B))])
+T
+phyper(T,9,9,9)
+1-phyper(6,9,9,9)
+```
+
+La distribución hipergeométrica permite encontrar los límites de la región crítica.
+
+Si queremos hacerlo mediante el test ji-cuadrado, en primer lugar debemos introducir las frecuencias de la tabla.
+
+```{r}
+numero<-cbind(expand.grid(M=c("inferior a M","superior a M"),
+grup=c("A","B")))
+fr<-c(2,7,7,2)
+attach(numero)
+taula<-table(M,grup)*fr
+taula
+```
+
+Y con esta tabla calculamos el test de homogeneidad.
+
+```{r}
+chisq.test(taula)
+```
+
+El resultado es la aceptación de la igualdad de medianas. La discrepancia con el ejemplo anterior es posible debido al reducido número de observaciones.
+
+## Test de Kolmogorov-Smirnov para la homogeneidad
+
+Cuando disponemos de dos muestras independientes $x_{1}, x_{2}, \ldots, x_{n_{1}}$ e $y_{1}, y_{2}, \ldots, y_{n_{2}}$ procedentes de dos poblaciones con distribuciones desconocidas $F_{X}$ y $F_{Y}$ respectivamente, y queremos contrastar su coincidencia, es decir, la hipótesis $H_{0}: F_{X}=F_{Y}$, podemos comparar las distribuciones empíricas asociadas a cada muestra. Esto es posible si conocemos los valores exactos de las observaciones y, en este aspecto, esta comparación es preferible al test ji-cuadrado de homogeneidad, que utiliza frecuencias y necesita muchos datos de cada población.
+
+Las distribuciones empíricas son:
+
+$$
+F_{n_{1}}(z)=\frac{1}{n_{1}} \sum_{i=1}^{n_{1}} I_{x_{i}<z} \quad
+G_{n_{2}}(z)=\frac{1}{n_{2}} \sum_{i=1}^{n_{2}} I_{y_{i}<z}
+$$
+
+y el estadístico de Kolmogorov-Smirnov es
+
+$$
+\Delta_{n_{1}, n_{2}}=\sup _{z \in \mathbb{R}}\left|F_{n_{1}}(z)-G_{n_{2}}(z)\right|
+$$
+
+Si la hipótesis $H_{0}$ es cierta, las dos distribuciones empíricas deben estar muy próximas y la medida global de discrepancia $\Delta_{n_{1}, n_{2}}$ será pequeña. Por el contrario, cuando $F_{X} \neq F_{Y}$, el valor de $\Delta_{n_{1}, n_{2}}$ será mayor, de modo que la región crítica que debemos considerar es de la forma
+
+$$
+\left\{\Delta_{n_{1}, n_{2}}>a\right\}
+$$
+
+El test se basa en el Teorema de Smirnov, que afirma lo siguiente:
+
+*Si las distribuciones continuas de las dos poblaciones coinciden $F_{X}=F_{Y}$ y $n_{1} \rightarrow \infty, n_{2} \rightarrow \infty$, entonces para cada $\lambda$*
+
+$$
+P\left(\sqrt{\frac{n_{1} n_{2}}{n_{1}+n_{2}}} \Delta_{n_{1}, n_{2}} \leq \lambda\right)
+\rightarrow
+Q(\lambda)=\sum_{i=-\infty}^{\infty}(-1)^{i} e^{-2 i^{2} \lambda^{2}}
+$$
+
+*donde $Q(\lambda)$ es la distribución asintótica de Kolmogorov-Smirnov.*
+
+
+### Ejemplo 8
+
+Con los datos del ejemplo 6, calcule el estadístico de Kolmogorov-Smirnov y compare las distribuciones de las dos muestras.
+
+**Solución**:
+
+Los datos han sido introducidos en los vectores `pro.A` y `pro.B`, y el test se calcula mediante la función `ks.test`.
+
+```{r}
+ks.test(pro.A,pro.B,alternative="two.sided")
+```
+
+En este caso, el p-valor indica el rechazo de la hipótesis nula.
+
+
+## Test $H$ de Kruskal-Wallis
+
+El test $U$ es un test no paramétrico para decidir si dos muestras independientes proceden o no de la misma población. El test $H$ de Kruskal-Wallis es una generalización para $k$ muestras tomadas de $k$ poblaciones. Así pues, *es una versión no paramétrica de un ANOVA de un factor*.
+
+Consideremos $k$ muestras de tamaños $n_{1}, n_{2}, \ldots, n_{k}$ recogidas en las $k$ poblaciones, tales que $n_{1}+n_{2}+\cdots+n_{k}=n$. Supongamos que ordenamos todas las observaciones de forma conjunta y calculamos las sumas de rangos para las $k$ muestras $R_{1}, R_{2}, \ldots, R_{k}$, respectivamente. Si definimos el estadístico
+
+$$
+H=\left(\frac{12}{n(n+1)} \sum_{i=1}^{k} \frac{R_{i}^{2}}{n_{i}}\right)-3(n+1)
+$$
+
+se demuestra que, si existe homogeneidad entre las distribuciones de los $k$ grupos, su distribución muestral está muy próxima a una ji-cuadrado con $k-1$ grados de libertad cuando los tamaños muestrales $n_{i}$ son grandes.
+
+Así, exigiremos siempre que $n_{1}, n_{2}, \ldots, n_{k}$ sean todos ellos superiores a 5. Para valores pequeños es necesario consultar tablas especiales.
+
+### Observaciones
+
+- El estadístico de Kruskal-Wallis puede escribirse en la forma
+
+$$
+H=\frac{12}{n(n+1)} \sum_{i=1}^{k} n_{i}\left(R_{\bullet i}-R_{\bullet \bullet}\right)^{2}
+$$
+
+donde $R_{\bullet i}=R_{i} / n_{i}$ y $R_{\bullet \bullet}=(n+1) / 2$. De esta forma, el test basado en $H$ se asemeja mucho al test $F$ en un diseño de un factor con réplicas.
+
+- Si existen observaciones repetidas, el estadístico $H$ se corrige mediante un factor, de forma que el nuevo estadístico es
+
+$$
+H^{\prime}=\frac{H}{1-\frac{\sum_{j=1}^{r}\left(t_{j}^{3}-t_{j}\right)}{n^{3}-n}}
+$$
+
+donde $t_{j}$ es el número de observaciones repetidas para un rango dado en la muestra combinada y $r$ es el número de repeticiones. Esta corrección tiene poco efecto sobre el valor de $H$, incluso en presencia de muchas observaciones repetidas.
+
+### Ejemplo 9
+
+Se desea comparar el peso en gramos de un producto envasado por tres fabricantes, con muestras de tamaño 6 en los tres casos.
+
+| Fabr. $A$ | 251 | 250 | 249 | 255 | 258 | 258 |  |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Fabr. $B$ | 247 | 246 | 250 | 241 | 240 | 242 |  |
+| Fabr. $C$ | 228 | 236 | 240 | 225 | 236 | 230 |  |
+
+Estudie si existen diferencias entre los tres fabricantes utilizando el test de Kruskal-Wallis.
+
+**Solución**:
+
+Para realizar el test de Kruskal-Wallis utilizamos la función `kruskal.test`, que proporciona el estadístico $H$ o, si es necesario, como en este caso, el estadístico corregido $H^{\prime}$.
+
+```{r}
+pes<-c(251,250,249,255,258,258,247,246,250,241,240,242,
+228,236,240,225,236,230)
+fabr<-c(rep(1,6),rep(2,6),rep(3,6))
+kruskal.test(pes,fabr)
+```
+
+El p-valor es suficientemente significativo como para rechazar la hipótesis nula.
+
+
+## Test de Friedman
+
+Este test está pensado para comprobar si existen diferencias significativas entre $k$ tratamientos o condiciones experimentales aplicados a $n$ individuos.
+
+|  | Tratamiento |  |  |  |  |  |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Individuo | 1 | 2 | $\ldots$ | $j$ | $\ldots$ | $k$ |
+| 1 | $x_{11}$ | $x_{12}$ | $\ldots$ | $x_{1 j}$ | $\ldots$ | $x_{1 k}$ |
+| 2 | $x_{21}$ | $x_{22}$ | $\ldots$ | $x_{2 j}$ | $\ldots$ | $x_{2 k}$ |
+| $\vdots$ | $\vdots$ | $\vdots$ |  | $\vdots$ |  | $\vdots$ |
+| $n$ | $x_{n 1}$ | $x_{n 2}$ | $\ldots$ | $x_{n j}$ | $\ldots$ | $x_{n k}$ |
+
+Los individuos deben escogerse al azar y de forma independiente, de modo que las filas son independientes entre sí. Sin embargo, como los individuos son los mismos, las columnas son dependientes.
+
+El test de Friedman sirve para comprobar si existen diferencias entre los $k$ tratamientos (efecto columna), en presencia de efectos individuales (efecto fila). *Es una versión no paramétrica del diseño de dos factores sin interacción*.
+
+La hipótesis nula es la igualdad de respuesta o de efecto de los diferentes tratamientos, mientras que la alternativa es que existen, al menos, dos tratamientos con respuesta diferente.
+
+Para calcular el estadístico no paramétrico, para cada fila por separado se asignan los rangos correspondientes a los valores observados. Una vez convertida la tabla original en rangos, se calculan las sumas de rangos $R_{j}$ para cada columna o tratamiento $j=1, \ldots, k$. El estadístico es
+
+$$
+S=\frac{12}{n k(k+1)} \sum_{j=1}^{k} R_{j}^{2}-3 n(k+1)
+$$
+
+La distribución aproximada de $S$ para valores grandes de $n$ es una ji-cuadrado con $k-1$ grados de libertad. Para valores muy pequeños de $n$ ($n<10$) es necesario consultar tablas especiales. La región crítica es de la forma $\{S \geq c\}$.
+
+Cuando existen ligaduras en una fila, deben promediarse los rangos de los valores repetidos y calcular el estadístico de Friedman modificado mediante un factor de corrección
+
+$$
+S^{\prime}=\frac{12 \sum_{j=1}^{k} R_{j}^{2}-3 n^{2} k(k+1)^{2}}{n k(k+1)-\frac{1}{k-1} \sum_{i=1}^{n}\left\{\sum_{j=1}^{g_{i}} t_{i j}^{3}-k\right\}}
+$$
+
+donde $g_{i}$ es el número de grupos de observaciones ligadas en la fila $i$ y $t_{i j}$ es el número de observaciones ligadas en el grupo $j$ de la fila $i$. Cuando no hay ligaduras se considera, por convenio, que $g_{i}=k$ y $t_{i j}=1$, y entonces el término de corrección para el individuo $i$ es $k-k=0$. Si esto ocurre en todas las filas, entonces $S^{\prime}=S$.
+
+### Ejemplo 10
+
+Se ha consultado a un grupo de 12 personas para que opinen sobre cinco marcas de champú. En concreto, sus clasificaciones se recogen en la siguiente tabla.
+
+|  | Champú |  |  |  |  |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Ind. | $A$ | $B$ | $C$ | $D$ | $E$ |
+| 1 | 5 | 3 | 2 | 4 | 1 |
+| 2 | 4 | 3 | 5 | 2 | 1 |
+| 3 | 3 | 5 | 4 | 2 | 1 |
+| 4 | 4 | 5 | 1 | 2 | 3 |
+| 5 | 3 | 4 | 5 | 1 | 2 |
+| 6 | 5 | 3 | 4 | 2 | 1 |
+| 7 | 2 | 5 | 4 | 3 | 1 |
+| 8 | 3 | 5 | 4 | 1 | 2 |
+| 9 | 3 | 4 | 5 | 2 | 1 |
+| 10 | 4 | 5 | 3 | 1 | 2 |
+| 11 | 5 | 3 | 2 | 4 | 1 |
+| 12 | 5 | 4 | 3 | 2 | 1 |
+
+Determine si existen diferencias significativas entre las puntuaciones otorgadas a los champús.
+
+**Solución**:
+
+El test de Friedman se aplica mediante la función `friedman.test`.
+
+```{r}
+nota<-c(5,3,2,4,1,4,3,5,2,1,3,5,4,2,1,
+4,5,1,2,3,3,4,5,1,2,5,3,4,2,1,
+2,5,4,3,1,3,5,4,1,2,3,4,5,2,1,
+4,5,3,1,2,5,3,2,4,1,5,4,3,2,1)
+individu<-c(rep(1,5),rep(2,5),rep(3,5),
+rep(4,5),rep(5,5),rep(6,5),
+rep(7,5),rep(8,5),rep(9,5),
+rep(10,5),rep(11,5),rep(12,5))
+xampu<-c(rep(seq(1,5,1),12))
+friedman.test(nota,xampu,individu)
+```
+
+El p-valor indica claramente la significación de las diferencias.
+
+
+### Observaciones
+
+- Puede verse que
+
+$$
+S=\frac{12 n}{k(k+1)} \sum_{j=1}^{k}\left(R_{\bullet j}-R_{\bullet \bullet}\right)^{2}
+$$
+
+donde $R_{\bullet j}=R_{j} / n$ y $R_{\bullet \bullet}=(k+1) / 2$. Esto pone de manifiesto la relación de este test con el test $F$ para detectar el efecto columna en el diseño de dos factores sin interacción.
+
+## Coeficientes de correlación no paramétricos
+
+En esta sección presentamos dos coeficientes no paramétricos que permiten medir la dependencia estocástica de dos muestras apareadas en poblaciones continuas.
+
+También estamos interesados en los contrastes de independencia que pueden formularse a partir de estos coeficientes.
+
+### Coeficiente $\tau$ de Kendall
+
+Consideremos una muestra aleatoria simple $(x_{1}, y_{1}), \ldots, (x_{n}, y_{n})$ procedente de una distribución bidimensional. Sabemos que la frecuencia relativa de los pares tales que $(x_{i}-x_{j})(y_{i}-y_{j})>0$ es un estimador del parámetro
+
+$$
+\pi_{+}=P\left\{(X-X^{\prime})(Y-Y^{\prime})>0\right\}
+$$
+
+donde $(X, Y)$ y $(X^{\prime}, Y^{\prime})$ son independientes y tienen la misma distribución conjunta poblacional.
+La continuidad de las distribuciones implica que
+
+$$
+P\left\{(X-X^{\prime})(Y-Y^{\prime})=0\right\}=0
+$$
+
+de modo que
+
+$$
+\pi_{-}=P\left\{(X-X^{\prime})(Y-Y^{\prime})<0\right\}=1-\pi_{+}
+$$
+
+Entonces,
+
+$$
+\tau=\pi_{+}-\pi_{-}=2\pi_{+}-1
+$$
+
+es el llamado **coeficiente de asociación de Kendall**, y mide, en cierto modo, la dependencia entre las variables. De hecho, si $X$ e $Y$ son independientes,
+
+$$
+\begin{aligned}
+\pi_{+} & =P(X<X^{\prime})P(Y<Y^{\prime})+P(X>X^{\prime})P(Y>Y^{\prime}) \\
+& =P(X>X^{\prime})P(Y<Y^{\prime})+P(X<X^{\prime})P(Y>Y^{\prime})=\pi_{-}
+\end{aligned}
+$$
+
+de forma que $\tau=0$. El recíproco no es cierto: puede ocurrir que $\tau=0$ sin que necesariamente las variables $X$ e $Y$ sean independientes.
+
+Si $P$ y $N$ representan el número de pares tales que $(x_{i}-x_{j})(y_{i}-y_{j})>0$ y $(x_{i}-x_{j})(y_{i}-y_{j})<0$, respectivamente, entre las $\binom{n}{2}$ posibles, el estimador natural de $\tau$ es
+
+$$
+T=\frac{P}{\binom{n}{2}}-\frac{N}{\binom{n}{2}}=\frac{2}{n(n-1)}(P-N)
+$$
+
+Además, dado que $P+N=\binom{n}{2}$, se obtiene
+
+$$
+T=\frac{4P}{n(n-1)}-1
+$$
+
+Para una muestra concreta, $P$ se calcula fácilmente ordenando la muestra según la primera componente: es el número de pares con $i<j$ tales que $y_{i}<y_{j}$.
+
+El estadístico $T$ toma valores entre $-1$ y $1$, y un valor alejado de cero indica que $\tau \neq 0$ y, por tanto, que las variables $X$ e $Y$ no son independientes.
+
+La distribución exacta de $T$ puede calcularse para valores moderados de $n$. Para $n \leq 10$ existen tablas de valores críticos tales que $P(|T|>k_{\alpha}) \leq \alpha$. Para $n>10$ puede considerarse la aproximación
+
+$$
+T \sim N\left(0, \sigma_K^2\right),
+$$
+dond $\displaystyle{\sigma_K^2 =\frac{2(2n+5)}{9n(n-1)}}$ es la varianza asintótica del estadístico $T$.
+
+##### Ejemplo 14
+
+La longitud y la anchura de una muestra de 11 hojas de una determinada planta son:
+
+| Hoja | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Long. | 6.60 | 7.11 | 9.80 | 6.62 | 7.10 | 6.83 | 6.54 | 7.14 | 7.13 | 12.52 | 10.41 |
+| Anch. | 4.24 | 5.41 | 5.26 | 5.53 | 3.25 | 4.22 | 3.98 | 3.29 | 3.43 | 5.57 | 6.01 |
+
+Calcule el coeficiente de correlación de Kendall y estudie si es significativo.
+
+**Solución**:
+
+Para el cálculo de los coeficientes de correlación se utiliza la función `cor.test` con el parámetro `method` y el valor `"pearson"`, `"kendall"` o `"spearman"`, según si deseamos el coeficiente clásico de Pearson, la $\tau$ de Kendall o el coeficiente por rangos de Spearman.
+
+Observemos, no obstante, que estrictamente esta función no sirve para calcular los coeficientes, sino para contrastar la hipótesis de que el coeficiente correspondiente es cero. Sin embargo, como el primer paso que realiza la función es el cálculo del coeficiente, se obtiene este como un efecto colateral.
+
+Otra cuestión **muy importante**, y que muchos usuarios suelen olvidar, es que si estos tests resultan significativos, únicamente indican que la correlación, del tipo que sea, no es cero; en ningún caso garantizan que sea suficientemente alta como para hablar de una "buena correlación".
+
+Volviendo a los datos del ejemplo:
+
+```{r}
+long<-c(6.60,7.11,9.80,6.62,7.10,6.83,6.54,7.14,7.13,12.52,10.41)
+ampl<-c(4.24,5.41,5.26,5.53,3.25,4.22,3.98,3.29,3.43,5.57,6.01)
+cor.test(long, ampl, method='kendall')
+```
+
+Observemos que el número de pares positivos es 34, estadístico que hemos denominado $P$.
+El procedimiento calcula el p-valor exacto para $n<50$. En este caso, el p-valor indica que el estadístico no es significativo.
+
+### Coeficiente de correlación por rangos de Spearman
+
+El coeficiente de correlación de Spearman es el coeficiente de correlación ordinario (coeficiente de Pearson) aplicado a los rangos de las observaciones.
+
+El resultado es
+
+$$
+r_{S}=1-\frac{6 \sum_{i=1}^{n} d_{i}^{2}}{n(n^{2}-1)}
+$$
+
+donde $d_{i}=r(x_{i})-r(y_{i})$, $i=1, \ldots, n$, son las diferencias entre los rangos.
+
+Este coeficiente se utiliza cuando las variables están medidas en una escala ordinal y el orden muestral es la información más relevante.
+
+#### Cálculo del coeficiente
+
+El coeficiente de correlación $r_{S}$ de Spearman se obtiene sustituyendo los valores $(x_{i},y_{i})$ por sus rangos $(a_{i},b_{i})$, donde $a_{i}=r(x_{i})$ y $b_{i}=r(y_{i})$.
+
+Así,
+
+$$
+r_{S}=\frac{\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b)}{\sqrt{\sum_{i=1}^{n}(a_{i}-\bar a)^{2}\sum_{i=1}^{n}(b_{i}-\bar b)^{2}}}
+$$
+
+donde $\bar a=\bar b=(n+1)/2$ y
+
+$$
+\sum_{i=1}^{n}(a_{i}-\bar a)^{2}=\sum_{i=1}^{n}(b_{i}-\bar b)^{2}=\frac{n(n^{2}-1)}{12}
+$$
+
+de modo que
+
+$$
+r_{S}=\frac{12}{n(n^{2}-1)}\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b)
+$$
+
+Por otro lado,
+
+$$
+\sum_{i=1}^{n} d_{i}^{2}=\frac{n(n^{2}-1)}{6}(1-r_{S})
+$$
+
+lo que conduce a la expresión inicial de $r_{S}$.
+
+Bajo la hipótesis de independencia, puede obtenerse la distribución muestral de $r_{S}$ y, por tanto, los puntos críticos del contraste para $n\leq10$. Para $n>10$, $r_{S}$ es aproximadamente $N(0,1/\sqrt{n-1})$.
+
+##### Ejemplo
+
+Calcule el coeficiente de correlación por rangos de Spearman para los datos del ejemplo 14 y estudie si es significativo.
+
+**Solución**:
+
+```{r}
+cor.test(long,ampl,method='spearman')
+```
+
+### El parámetro poblacional asociado a los coeficientes de correlación no paramétricos
+
+Si la distribución conjunta de $(X,Y)$ es $F(x,y)$ y las distribuciones marginales son $F_X(x)$ y $F_Y(y)$, entonces $\rho_S$ es el coeficiente de correlación ordinario entre las variables $V_1=F_X(X)$ y $V_2=F_Y(Y)$, ambas con distribución uniforme.
+
+En consecuencia, puede demostrarse que
+
+$$
+\begin{aligned}
+\rho_S &=12\iint_{\mathbb R^2}(F(x,y)-F_X(x)F_Y(y))\,dF_X(x)dF_Y(y)\\
+&=12\iint_{\mathbb R^2}F(x,y)\,dF_X(x)dF_Y(y)-3
+\end{aligned}
+$$
+
+La versión probabilística de la correlación $\tau$ de Kendall es
+
+$$
+\tau=4\int_{\mathbb R^2}(F(x,y)-F_X(x)F_Y(y))\,dF(x,y)
+$$
+
+y se verifica la relación
+
+$$
+-1\leq 3\tau-2\rho_S\leq1
+$$
+
+Observemos que $\rho_S=\tau=0$ si $F(x,y)=F_X(x)F_Y(y)$, es decir, si $X$ e $Y$ son estocásticamente independientes.
+
+Para contrastar la hipótesis nula $H_0:\rho_S=0$, puede calcularse el estadístico
+
+$$
+t=\sqrt{n-2}\frac{r_S}{\sqrt{1-r_S^2}}
+$$
+
+que tiene aproximadamente una distribución $t$ de Student con $n-2$ grados de libertad, siempre que $n\geq10$.
+
+

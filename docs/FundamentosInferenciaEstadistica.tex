@@ -122,7 +122,7 @@
 
 \title{Fundamentos de Inferencia Estadistica}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2026-01-01}
+\date{2026-01-04}
 
 \begin{document}
 \maketitle
@@ -12639,433 +12639,2191 @@ Individuo & Peso & Individuo & Peso \\
 10 & 106.0 & 20 & 116.0 \\
 \end{longtable}
 
-\section{\texorpdfstring{Pruebas \(\mathrm{X}^{2}\)}{Pruebas \textbackslash mathrm\{X\}\^{}\{2\}}}\label{pruebas-mathrmx2}
+\section{CONTRASTES DE LA JI-CUADRADO}\label{contrastes-de-la-ji-cuadrado}
+
+\subsection{Introducción}\label{introducciuxf3n-8}
+
+Con el nombre de pruebas ji-cuadrado se conoce una variedad de tests estadísticos que hacen referencia a problemas distintos pero que tienen los siguientes rasgos en común:
+
+\begin{itemize}
+\tightlist
+\item
+  Las muestras corresponden a datos categóricos, directamente o por categorización de una variable numérica; es decir, se mide si un individuo pertenece a un elemento de una partición \(A_{1}, A_{2}, \ldots, A_{k}\) del espacio muestral.
+\item
+  El estadístico de test tiene una estructura común:
+\end{itemize}
+
+\[
+\sum_{i} \frac{\left(O_{i}-E_{i}\right)^{2}}{E_{i}}
+\]
+
+siendo
+
+\begin{itemize}
+\tightlist
+\item
+  \(O_{i}\) el número de valores observados en una determinada categoría, y
+\item
+  \(E_{i}\) el número de valores esperados en dicha categoría en el caso de que la hipótesis nula fuese cierta.
+\item
+  El estadístico de test sigue una distribución \(\chi^{2}\).
+\end{itemize}
+
+Consideramos tres grandes grupos de pruebas:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  El modelo multinomial
+  Pruebas de bondad de ajuste (\emph{goodness of fit}) de unos datos a una distribución
+
+  \begin{enumerate}
+  \def\labelenumii{(\alph{enumii})}
+  \tightlist
+  \item
+    Todos los parámetros de la distribución son conocidos\\
+  \item
+    Algunos parámetros de la distribución son desconocidos\\
+  \end{enumerate}
 \item
-  Aplicaciones del modelo multinomial
-\item
-  Formalización del contraste
-\item
-  Condiciones de validez
-\item
-  Análisis de Tablas de contingencia
-\item
-  Pruebas de independencia
-\item
-  Violación de las condiciones del contraste
+  Pruebas de independencia\\
 \item
   Pruebas de homogeneidad
 \end{enumerate}
 
-\subsection{El modelo multinomial.}\label{el-modelo-multinomial.}
+\subsection{\texorpdfstring{Pruebas \(\chi^{2}\) de bondad de ajuste}{Pruebas \textbackslash chi\^{}\{2\} de bondad de ajuste}}\label{pruebas-chi2-de-bondad-de-ajuste}
 
-Es un modelo discreto multivariante. Puede verse como una generalización del modelo binomial que permite más de dos posibles resultados. Ya hemos hablado de él en el capítulo dedicado a las distribuciones discretas.
+\subsubsection{Hipótesis simples}\label{hipuxf3tesis-simples}
 
-Una situación típica es el número de veces que se dan cada uno de los posibles resultados \(\mathrm{A}_{1}, \ldots\), \(\mathrm{A}_{\mathrm{k}}\) en N extracciones independientes manteniéndose constante la probabilidad de cada resultado. Los parámetros del modelo se corresponden con las diferentes probabilidades: \(\mathrm{p}_{1}=\mathrm{P}\left(\mathrm{A}_{1}\right), \cdots \cdots, \mathrm{p}_{\mathrm{k}}=\mathrm{P}\left(\mathrm{A}_{\mathrm{k}}\right)\) y con el valor N .
+Dada una m.a.s. \(X_{1}, X_{2}, \ldots, X_{n}\) de una variable \(X\) queremos contrastar la hipótesis de que la variable se distribuye según una cierta distribución completamente especificada \(F_{\theta_{0}}\).
 
-Por ejemplo:
-Para saber si un dado es regular realizamos 120 lanzamientos y anotamos los resultados obtenidos:
+\[
+\begin{aligned}
+& H_{0}: X \sim F_{\theta_{0}} \\
+& H_{1}: X \nsim F_{\theta_{0}} .
+\end{aligned}
+\]
 
-\begin{longtable}[]{@{}ccccccc@{}}
+Sea \(R\) el recorrido de la distribución poblacional. Consideremos una partición de \(R\) en \(k\) subconjuntos disjuntos \(R_{1}, R_{2}, \ldots, R_{k}\). Esto genera una partición en \(k\) sucesos \(A_{1}, A_{2}, \ldots, A_{k}\)
+
+\[
+A_{i}=X \in R_{i}, \quad i=1, \ldots, k
+\]
+
+de forma que la variable \(k\)-dimensional \(\left(n_{1}, \ldots, n_{k}\right)\) que cuenta el número de observaciones de la muestra en cada uno de los subconjuntos \(R_{1}, R_{2}, \ldots, R_{k}\) tiene distribución multinomial
+
+\[
+Y \sim M\left(n ; p_{1}, \ldots, p_{k}\right) .
+\]
+
+Este planteamiento transforma el contraste inicial referido a la distribución de \(X\) en un contraste sobre las probabilidades \(p_{1}, \ldots, p_{k}\)
+
+\[
+\begin{aligned}
+& H_{0}: P\left(A_{i}\right)=p_{i}^{0}, \quad\left(=\int_{R_{i}} d F_{\theta_{0}}(x)\right) \\
+& H_{1}: P\left(A_{i}\right)=p_{i} \neq p_{i}^{0}
+\end{aligned}
+\]
+
+Obsérvese que no se contrasta el hecho de que \(Y\) tenga distribución multinomial, sino si las probabilidades vienen determinadas o no por la distribución propuesta por la hipótesis nula.
+
+\subsubsection{\texorpdfstring{Estadístico de test para las pruebas \(\chi^{2}\) de ajuste}{Estadístico de test para las pruebas \textbackslash chi\^{}\{2\} de ajuste}}\label{estaduxedstico-de-test-para-las-pruebas-chi2-de-ajuste}
+
+A comienzos de siglo el estadístico Karl Pearson propuso utilizar, para este test, el estadístico siguiente. Considerando la partición anterior, sea \(n_{i}\), \(i=1, \ldots, k\), el número de individuos observados en la partición \(A_{i}\). Si la hipótesis nula fuese cierta, esperaríamos que el número de individuos en \(A_{i}\) fuese: \(E_{i}=n \cdot P_{H_{0}}\left(A_{i}\right)=n p_{i}^{0}\). Una medida razonable de la discrepancia entre lo observado y lo que postula la hipótesis nula viene dada por:
+
+\[
+D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} .
+\]
+
+El interés especial que tiene este estadístico es que, a diferencia de otros que podríamos concebir, se conoce su distribución asintótica bajo la hipótesis nula, de forma que es posible utilizarlo para construir una región crítica para las hipótesis
+
+\[
+H_{0}: P\left(A_{i}\right)=p_{i}^{0}, \quad H_{1}: P\left(A_{i}\right) \neq p_{i}^{0} .
+\]
+
+El resultado principal de esta sección, que permite construir el test, es el teorema siguiente, debido a K. Pearson:
+
+\textbf{Teorema 1} \emph{Bajo las condiciones descritas más arriba, si las probabilidades \(p_{1}^{0}, \ldots, p_{k}^{0}\) son números conocidos, entonces el estadístico:}
+
+\[
+D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} .
+\]
+
+\emph{tiene distribución asintótica \(\chi^{2}\) con \(k-1\) grados de libertad}
+
+\[
+D^{2} \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1}^{2}
+\]
+
+Podéis ver la demostración de este teorema en Martínez y col.~({[}8{]}).\\
+En base al teorema anterior podemos establecer el siguiente test.
+
+\textbf{Definición 1:} Test de bondad de ajuste
+
+Sea \(X \sim F_{\theta}\), \(\left(\theta \in \Theta \subset \mathbb{R}^{m}\right)\) y sean \(R: \operatorname{Rec}(X)=\biguplus_{i=1}^{k} R_{i}\) y \(A_{i}=\left\{X \in R_{i}\right\}\), \(P\left(A_{i}\right)=p_{i}\). Sea \(Y=\left(n_{1}, \ldots, n_{k}\right)\), \(n_{i}=\# A_{i}\), que verifica \(Y \sim M\left(n ; \mathbf{p}=\left(p_{1}, \ldots, p_{k}\right)\right)\).
+
+Entonces, para contrastar las hipótesis:
+
+\[
+\begin{aligned}
+H_{0}: & X \sim F_{\theta_{0}}^{0} \Leftrightarrow \mathbf{p}=\left(p_{1}^{0}, \ldots, p_{k}^{0}\right) \\
+H_{1}: & \mathbf{p} \neq\left(p_{1}^{0}, \ldots, p_{k}^{0}\right),
+\end{aligned}
+\]
+
+el test consiste en rechazar \(H_{0}\) si \(D^{2} \geq \chi_{k-1,1-\alpha}^{2}\), donde
+
+\[
+\begin{aligned}
+& D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}^{0}\right)^{2}}{n p_{i}^{0}} \\
+& D^{2} \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1}^{2}
+\end{aligned}
+\]
+
+es un test asintótico de nivel \(\alpha\).
+
+Este resultado establece que una región crítica para el test tendrá la forma:
+
+\[
+W=\left\{D^{2} \geq \chi_{k-1,1-\alpha}^{2}\right\},
+\]
+
+donde \(\chi_{k-1,1-\alpha}^{2}\) es el cuantil \(1-\alpha\) de una distribución \(\chi^{2}\) con \(k-1\) grados de libertad.
+
+\subsubsection{Observaciones}\label{observaciones-2}
+
+Hay algunos puntos que hay que tener en cuenta para que las conclusiones derivadas de este test sean fiables.
+
+\begin{itemize}
+\tightlist
+\item
+  Se trata de un test asintótico y, por tanto, es válido para muestras de tamaño grande. En la práctica se suele requerir que \(n p_{i}^{0} \geq 5,\quad \forall i=1,2, \ldots, k\).
+\item
+  El test no discrimina entre distribuciones que asignan la misma probabilidad a los conjuntos \(A_{i}\). Por ejemplo, como caso extremo, si tomáramos \(k=2\) y \(A_{1}=[X \leq E(X)]\), \(A_{2}=[X \geq E(X)]\), todas las distribuciones simétricas asignarían la misma probabilidad a cada categoría. En consecuencia conviene tomar \(k \geq 5\) siempre que se pueda. Como esto implicará necesariamente alguna \(p_{i}^{0} \leq 1 / 5\), significa que como mínimo se necesita \(n \geq 25\).
+\end{itemize}
+
+\subsubsection{Ejemplo}\label{ejemplo-10}
+
+Una compañía afirma que el número diario de accidentes laborales sigue una distribución de Poisson de parámetro \(\lambda=2\). Un estudio, basado en los accidentes producidos durante 200 días, da el resultado siguiente:
+
+\begin{longtable}[]{@{}lcccccccc@{}}
 \toprule\noalign{}
-Resultado & 1 & 2 & 3 & 4 & 5 & 6 \\
+\(N^{\underline{O}}\) de accidentes & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Frecuencia & 15 & 22 & 18 & 14 & 25 & 26 \\
+Días & 22 & 53 & 58 & 39 & 20 & 5 & 2 & 1 \\
 \end{longtable}
 
-El modelo teórico sugiere que la probabilidad de cada cara es la misma
+Para contrastar el ajuste a una distribución de Poisson debemos calcular las probabilidades
 
 \[
-\mathrm{P}(1)=\mathrm{P}(2)=\mathrm{P}(3)=\mathrm{P}(4)=\mathrm{P}(5)=\mathrm{P}(6)=1 / 6 \text {, es decir } \mathrm{p}_{\mathrm{i}}=1 / 6 \quad \mathrm{i}=1, \ldots, 6
+p_{i}^{0}=P_{\lambda=2}[X=i]=e^{-\lambda} \frac{\lambda^{i}}{i!}, \quad i=1, \ldots, 7 .
 \]
 
-Los valores realmente observados son: \(O_{1}=15, \ldots, O_{6}=26\).
+Las frecuencias esperadas serán \(n p_{i}^{0}=200 p_{i}^{0}\). Cuando \(i=6,7\) los valores son demasiado pequeños, de forma que se agrupan los valores en una única categoría ``\(i \geq 5\)''.
 
-\subsubsection{Aplicaciones del modelo multinomial.}\label{aplicaciones-del-modelo-multinomial.}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(x_{i}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\geq 5\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\Sigma\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(n_{i}\) & 22 & 53 & 58 & 39 & 20 & 8 & 200 \\
+\(p_{i}^{0}\) & 0.135 & 0.271 & 0.271 & 0.180 & 0.090 & 0.053 & 1 \\
+\(n p_{i}^{0}\) & 27.067 & 54.134 & 54.134 & 36.089 & 18.045 & 10.531 & 200 \\
+\(\frac{\left(n p_{i}^{0}-n_{i}\right)^{2}}{n p_{i}^{0}}\) & 0.9486 & 0.0238 & 0.2761 & 0.2347 & 0.2119 & 0.6081 & 2.303 \\
+\end{longtable}
 
-Generalmente la inferencia basada en el modelo multinomial está enfocada a comprobar si dado un modelo teórico los resultados muestrales obtenidos son compatibles con el modelo.
+El valor del estadístico de test es, por tanto, 2.303. El \(p\)-valor correspondiente, es decir, \(P\left(\chi_{6-1}^{2} \geq 2.303\right)\), es 0.80588 y, por tanto, no podemos rechazar la hipótesis de que los datos siguen una distribución de Poisson de parámetro \(\lambda=2\). Otra forma de tomar la misma decisión es observar que el percentil 0.95 de dicha distribución es \(\chi_{5,0.95}^{2}=11.07\), de donde, dado que \(2.303<\chi_{5,0.95}^{2}\), vemos que no podemos rechazar \(H_{0}\).
 
-Posibles aplicaciones:
+\subsubsection{Ejemplo}\label{ejemplo-11}
+
+Un cierto modelo genético para unas plantas cuyas flores pueden ser blancas, rosas o rojas afirma que la proporción con la que deben aparecer es de \(1:2:1\). En un estudio se obtuvieron 113 flores blancas, 242 rosas y 112 rojas. ¿Concuerdan las observaciones con el modelo? Construimos la tabla de cálculos y obtenemos:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2083}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2083}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2083}}
+  >{\centering\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2083}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(A_{i}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Blanca
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rosa
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Rojas
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\Sigma\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(n_{i}\) & 112 & 242 & 112 & 467 \\
+\(p_{i}^{0}\) & 0.25 & 0.5 & 0.25 & 1 \\
+\(n p_{i}^{0}\) & 116.7 & 233 & 116.7 & 467 \\
+\(\frac{\left(n p_{i}^{0}-n_{i}\right)^{2}}{n p_{i}^{0}}\) & 0.117 & 0.348 & 0.193 & \(\mathbf{0 . 6 5 7}\) \\
+\end{longtable}
+
+El valor crítico es el percentil de una distribución ji-cuadrado con dos grados de libertad, \(\chi_{2,0.95}^{2}=5.99\), de donde, dado que \(0.657<\chi_{2,0.95}^{2}\), vemos que no podemos rechazar \(H_{0}\).
+
+Obsérvese que el primer ejemplo corresponde a una variable numérica que se ha categorizado, mientras que el segundo se refiere directamente a una distribución multinomial.
+
+\subsubsection{Hipótesis compuestas}\label{hipuxf3tesis-compuestas}
+
+El test de ajuste que hemos discutido en la sección anterior corresponde a una situación poco habitual. En la práctica, lo que nos interesará es decidir si los datos se ajustan a una determinada familia de distribuciones. Por ejemplo, antes de aplicar un test en el que se supone que los datos siguen una ley Normal, hay que verificar hasta qué punto es válida esta suposición.
+
+En este caso nos encontramos en una situación análoga a la anterior, salvo por el hecho de que la distribución no está completamente especificada sino que depende de un parámetro \(m\)-dimensional.
+
+\[
+\begin{aligned}
+X & \sim F_{\theta},\left(\theta \in \Theta \subset \mathbb{R}^{m}\right) \\
+R & =\operatorname{Rec}(X)=\biguplus_{i=1}^{k} R_{i}, \quad A_{i}=\left\{X \in R_{i}\right\}, P\left(A_{i}\right)=p_{i}(\theta) \Longrightarrow \\
+Y & =\left(n_{1}, \ldots, n_{k}\right), n_{i}=\# A_{i} \quad Y \sim M\left(n ; \mathbf{p}=\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right)\right) .
+\end{aligned}
+\]
+
+Una primera idea que se nos podría ocurrir para abordar este problema sería estimar \(\theta\) mediante un estimador \(\hat{\theta}\) y sustituir \(p_{i}^{0}\) por \(p_{i}(\hat{\theta})\) en (7.1). Esto no sería mala idea si la estimación se basase en una muestra distinta de la que se usa para realizar el ajuste.
+
+Ahora bien, este no es el caso aquí. Si usamos la muestra para estimar los parámetros y después hacemos el ajuste, estamos ``forzando la muestra'' a seleccionar la distribución poblacional para que se ajuste bien a la muestra a través de la estimación de los parámetros (estamos haciendo un ajuste condicionado). Para compensarlo, intentaremos ser ``más exigentes'' a la hora de juzgar si las frecuencias observadas se corresponden con las esperadas, y eso se reflejará en que, en lugar de basarnos en una distribución \(\chi^{2}\) con \(k-1\) grados de libertad, lo haremos en una con \(k-1-m\) grados de libertad, donde \(m\) representará el número de parámetros que hemos tenido que estimar. Este resultado se expresa en el teorema siguiente:
+
+\textbf{Teorema:} \emph{Bajo las condiciones del teorema 1 supongamos que las probabilidades \(p_{1}, \ldots, p_{k}\) dependen de parámetros desconocidos \(\theta=\theta_{1}, \ldots, \theta_{m}\). Sean \(\hat{\theta}=\hat{\theta}_{1}, \ldots, \hat{\theta}_{m}\) las estimaciones de máxima verosimilitud de los parámetros \(\theta\) y supongamos que se verifican las siguientes condiciones de regularidad:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Las derivadas parciales \(\frac{\partial p_{i}}{\partial \theta_{j}}, \frac{\partial^{2} p_{i}}{\partial \theta_{i} \partial \theta_{j}}\) existen y son continuas.
+\item
+  La matriz jacobiana \(\frac{\partial p_{i}}{\partial \theta_{j}}\), \(i=1, \ldots, k\), \(j=1, \ldots, m\), tiene rango \(m\).
+\end{enumerate}
+
+Entonces el estadístico
+
+\[
+D^{2}=\sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}(\hat{\theta})\right)^{2}}{n p_{i}(\hat{\theta})}
+\]
+
+verifica
+
+\[
+D^{2} \xrightarrow[n \rightarrow \infty]{£} \chi_{k-1-\operatorname{dim}(\Theta)}^{2}
+\]
+
+es decir, tiene distribución asintótica \(\chi^{2}\) con \(k-1-\operatorname{dim}(\Theta)\) grados de libertad.
+
+Podemos proceder de forma análoga al caso de probabilidades conocidas para establecer el test siguiente:
+
+\textbf{Definición 7.2} Test de bondad de ajuste cuando hay que estimar parámetros
+
+Sean:
+
+\[
+\begin{aligned}
+X & \sim F_{\theta},\left(\theta \in \Theta \subset \Re^{m}\right) \quad R: \operatorname{Rec}(X)=\biguplus_{i=1}^{k} R_{i} \\
+A_{i} & =\left\{X \in R_{i}\right\}, P\left(A_{i}\right)=p_{i}(\theta) \\
+Y & =\left(n_{1}, \ldots, n_{k}\right), n_{i}=\# A_{i}, \quad Y \sim M\left(n ; \mathbf{p}=\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right)\right) .
+\end{aligned}
+\]
+
+Entonces, para contrastar las hipótesis:
+
+\[
+\begin{array}{ll}
+H_{0}: & X \sim F_{\theta}^{0} \Leftrightarrow \mathbf{p}=\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right) \\
+H_{1}: & \mathbf{p} \neq\left(p_{1}(\theta), \ldots, p_{k}(\theta)\right)
+\end{array}
+\]
+
+el test consiste en rechazar \(H_{0}\) si \(D^{2} \geq \chi_{k-1-\operatorname{dim}(\Theta), 1-\alpha}^{2}\), donde
+
+\[
+\begin{aligned}
+D^{2}= & \sum_{i=1}^{k} \frac{\left(n_{i}-n p_{i}(\hat{\theta})\right)^{2}}{n p_{i}(\hat{\theta})} \\
+D^{2} & \underset{n \rightarrow \infty}{\stackrel{£}{\rightarrow}} \chi_{k-1-\operatorname{dim}(\Theta)}^{2}
+\end{aligned}
+\]
+
+es un test asintótico de nivel \(\alpha\).
+Este resultado establece que una región crítica para el test 7.2 tendrá la forma
+
+\[
+W=\left\{D^{2} \geq \chi_{k-1-\operatorname{dim}(\Theta), 1-\alpha}^{2}\right\}
+\]
+
+donde \(\chi_{k-1,1-\alpha}^{2}\) es el cuantil \(1-\alpha\) de una distribución \(\chi^{2}\) con \(k-1-\operatorname{dim}(\Theta)\) grados de libertad.
+
+\textbf{Ejemplo 7.2.3} En el ejemplo (7.2.2), cuando hemos ajustado unos datos a unas proporciones del tipo ``1:2:1'' o ``9:3:3:1'' estábamos suponiendo dos cosas:
 
 \begin{itemize}
 \tightlist
 \item
-  Bondad de ajuste a distribuciones teóricas.
+  Un modelo genético (que no tenemos por qué conocer)
 \item
-  Pruebas de independencia en Tablas de contingencia.
-\item
-  Pruebas de homogeneidad para variables cualitativas.
+  Unas probabilidades fijadas.
 \end{itemize}
 
-\subsubsection{Formalización del contraste.}\label{formalizaciuxf3n-del-contraste.}
-
-La hipótesis nula del contraste es que el modelo multinomial teórico es correcto :
-
-\[
-\begin{gathered}
-\mathrm{H}_{0}: \mathrm{P}\left(\mathrm{~A}_{1}\right)=\mathrm{p}_{1}, \mathrm{P}\left(\mathrm{~A}_{2}\right)=\mathrm{p}_{2}, \ldots, \mathrm{P}\left(\mathrm{~A}_{\mathrm{K}}\right)=\mathrm{p}_{\mathrm{k}} \\
-\mathrm{H}_{1}: \text { Para alguna i } \mathrm{P}\left(\mathrm{~A}_{\mathrm{i}}\right) \neq \mathrm{p}_{\mathrm{i}}
-\end{gathered}
-\]
-
-Obtención de las probabilidades \(\mathrm{p}_{\mathrm{i}}\) :
+Esto lo hemos sintetizado en un vector numérico \(\left(p_{1}^{0}, \ldots, p_{k}^{0}\right)\). Por ejemplo, en (7.2.2) la proporción ``1:2:1'' viene de suponer:
 
 \begin{itemize}
 \tightlist
 \item
-  Las que directamente indique \(\mathrm{H}_{0}\) si es el caso.
+  Como modelo: \(p^{2}, 2 p(1-p), q^{2}\),
 \item
-  \(\mathrm{Si}_{0}\) indica la distribución de la variable, estimar los parámetros y a través de ellos las probabilidades.
-\item
-  En el caso de pruebas de independencia y homogeneidad en tablas de contingencia se verá más adelante.
+  Como probabilidades: \(p=\frac{1}{2}\).
 \end{itemize}
 
-Los valores esperados para cada clase bajo \(\mathrm{H}_{0}\) son \(e_{i}=\mathrm{N} \cdot \mathrm{p}_{\mathrm{i}}\)., donde N es la suma de los valores observados para cada clase ( \(\mathrm{N}=o_{1}+o_{2}+\ldots+o_{k}\) )
+A menudo nos interesa ajustar solo el modelo, es decir, decidir si, por ejemplo, el modelo \(p^{2}, 2 p(1-p), q^{2}\) describe bien los datos observados para algún \(p \in(0,1)\). En este caso, antes de comparar los observados \(n_{i}\) con los esperados \(p_{i}\), tendremos que estimar los valores de los \(p_{i}\).
 
-El estadístico para contrastar la hipótesis es el siguiente:
-
-\[
-\chi_{\exp }^{2}=\sum_{i=1}^{k} \frac{\left(o_{i}-e_{i}\right)^{2}}{e_{i}}
-\]
-
-La distribución asintótica del estadístico anterior bajo la hipótesis nula es una \(\chi^{2}\) con \(\mathrm{k}-\mathrm{s}-\mathrm{r}\) grados de libertad, donde s es el número de parámetros que ha sido necesario estimar a partir de la muestra para determinar las probabilidades teóricas, y r es el número de restricciones impuestas a los valores esperados. Este último valor es generalmente 1 debido a la restricción \(e_{1}+e_{2}+\ldots+e_{k}=N\).
-
-Rechazamos la hipótesis nula si
+Bajo la suposición de un modelo multinomial,
 
 \[
-\chi_{\exp }^{2} \geq \chi_{\alpha}^{2}
+\begin{array}{ll}
+Y \sim M(n, \mathbf{p}(\theta), & \theta=p, \\
+& p_{1}(\theta)=p^{2}, p_{2}(\theta)=2 p(1-p), p_{3}(\theta)=(1-p)^{2}
+\end{array}
 \]
 
-donde el último término es el valor crítico asociado a una distribución \(\chi^{2}\) con \(\mathrm{k}-\mathrm{s}-\mathrm{r}\) grados de libertad tal que deja a su derecha una probabilidad igual a \(\alpha\).
+la verosimilitud del modelo es:
 
-Si \(\mathrm{k}=2\) es equivalente al contraste para una proporción.
-Puede aplicarse a variables continuas definiendo las clases a través de intervalos.
+\[
+L\left(n_{1}, \ldots, n_{k} ; \mathbf{p}(\theta)\right) \propto\left(p^{2}\right)^{n_{1}} \cdot(2 p(1-p))^{n_{2}} \cdot\left(q^{2}\right)^{n_{3}}
+\]
+
+Una aplicación rutinaria del método de máxima verosimilitud da como estimador de máxima verosimilitud de \(p\):
+
+\[
+\hat{p}_{M V}=\frac{2 n_{1}+n_{2}}{2 n_{1}+2 n_{2}+2 n_{3}}
+\]
+
+Supongamos ahora que tenemos unos datos genéticos correspondientes al grupo sanguíneo \(M-N\) en una población de 6129 individuos, indios navajos, que son los siguientes:
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+Grupo & \(M\) & \(M-N\) & \(N\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Individuos & 1787 & 3039 & 1303 \\
+\end{longtable}
+
+El estimador de máxima verosimilitud calculado sobre los datos del ejemplo es:
+
+\[
+\hat{p}_{M V}=\frac{2 \cdot 1787+3039}{2 \cdot 1787+2 \cdot 3039+2 \cdot 1303}=0.539
+\]
+
+de donde la tabla con los valores observados y esperados para hacer el test de ajuste es:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+M
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(M-N\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(N\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\Sigma\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(n_{i}\) & 1787 & 3039 & 1303 & 6129 \\
+\(p_{i}\left(\hat{p}_{M V}\right)\) & 0.539 & 2. 0.539. 0.461 & 0.461 & 1 \\
+\(n p_{i}\left(\hat{p}_{M V}\right)\) & 1784 & 3046 & 1299.8 & 6129 \\
+\(\frac{\left(n p_{i}\left(\hat{p}_{M V}\right)-n_{i}\right)^{2}}{n p_{i}\left(\hat{p}_{M V}\right)}\) & 0.0067 & 0.0166 & 0.0078 & 0.0311 \\
+\end{longtable}
+
+El valor crítico es el percentil de una distribución ji-cuadrado con dos menos un grados de libertad, \(\chi_{1,0.95}^{2}=3.841\), de donde, dado que \(0.0311<\chi_{1,0.95}^{2}\), vemos que no podemos rechazar \(H_{0}\).
+
+\textbf{Ejemplo 7.2.4} En un estudio sobre bilingüismo se aplicó una prueba a una muestra de 211 alumnos y se obtuvieron 211 puntuaciones que, una vez tabuladas, eran las siguientes:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1026}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Puntuación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((\leq 55]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((55-60]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((60-65]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((65-70]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((70-75]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((75-80]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((80-85]\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Frecuencia & 4 & 17 & 45 & 67 & 53 & 15 & 10 \\
+\end{longtable}
+
+¿Podemos aceptar la hipótesis de que la puntuación sigue una distribución normal? Fijémonos en que aquí no nos interesa más que el hecho de que sea normal, no una normal en concreto. Es decir, tenemos:
+
+\[
+\begin{array}{ll}
+H_{0}: & X \sim N(\mu, \sigma) \\
+H_{1}: & X \nsim N(\mu, \sigma) .
+\end{array}
+\]
+
+En primer lugar estimamos los parámetros:
+
+\[
+\begin{aligned}
+\hat{\mu} & =\bar{X}=68.52 \\
+\hat{\sigma}^{2} & =S^{2}=6.44
+\end{aligned}
+\]
+
+Cada categoría \(A_{i}\) es un intervalo del recorrido de la variable: \(A_{1}=X \in (-\infty, 55]\), \(A_{2}=X \in(55,60] \ldots\), de manera que si \(A_{i}=(a, b]\), las probabilidades \(p_{i}=P\left(A_{i}\right)\) se calcularán, si suponemos que \(Y\) representa una variable con distribución normal de media \(\hat{\mu}=\bar{x}\) y desviación típica \(\hat{\sigma}=s^{2}\):
+
+\[
+\begin{aligned}
+p_{i}=p_{i}\left(\bar{x}, s^{2}\right) & =P_{\bar{x}, s^{2}}\left(X \in A_{i}\right)=F_{Y}(b)-F_{Y}(a) \\
+& =\Phi\left(\frac{b-\bar{x}}{s}\right)-\Phi\left(\frac{a-\bar{x}}{s}\right),
+\end{aligned}
+\]
+
+donde \(\Phi\) es la función de distribución de una variable \(N(0,1)\). Si calculamos las probabilidades en esos intervalos y construimos la tabla, obtenemos:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1026}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1282}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Puntuación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((\leq 55]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((55-60]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((60-65]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((65-70]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((70-75]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((75-80]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((\geq 80)\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(n_{i}\) & 4 & 17 & 45 & 67 & 53 & 15 & 10 \\
+\(p_{i}\left(\bar{x}, s^{2}\right)\) & 0.01786 & 0.07556 & 0.19774 & 0.29979 & 0.2528 & 0.11871 & 0.03654 \\
+\(n \cdot p_{i}\left(\bar{x}, s^{2}\right)\) & 3.77 & 15.94 & 41.72 & 63.26 & 53.34 & 25.05 & 7.92 \\
+\end{longtable}
+
+Antes de calcular el valor del estadístico de test hay que fusionar las dos primeras columnas, ya que la frecuencia esperada es inferior a 5. La tabla final queda:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1176}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1471}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1471}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1471}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1471}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1471}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1471}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Puntuación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((\leq 60]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((60-65]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((65-70]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((70-75]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((75-80]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\((\geq 80)\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(n_{i}\) & \(4+17\) & 45 & 67 & 53 & 15 & 10 \\
+\(n \cdot p_{i}\left(\bar{x}, s^{2}\right)\) & \(3.77+15.94\) & 41.72 & 63.26 & 53.34 & 25.05 & 7.92 \\
+\end{longtable}
+
+El estadístico de test, \(D^{2}\), vale aquí: 5.144. Como hemos estimado 2 parámetros y la tabla final tiene 6 columnas, obtendremos el valor crítico de una \(\chi^{2}\) con \(6-2-1\) grado de libertad. En concreto: rechazaremos \(H_{0}\) si \(D^{2}>\chi_{(3,0.05)}^{2}\). Como esto no ocurre, no podemos rechazar \(H_{0}\).
+
+\subsection{Pruebas de independencia en tablas de contingencia}\label{pruebas-de-independencia-en-tablas-de-contingencia}
+
+Sea \(\Omega\) una población que admite dos descomposiciones diferentes en eventos excluyentes. Por ejemplo, una descomposición puede hacerse por sexo (hombres/mujeres) y la otra por tabaquismo (fumadores/no fumadores).
+
+\[
+\Omega=A_{1} \biguplus \cdots \biguplus A_{k}=B_{1} \biguplus \cdots \biguplus B_{r},
+\]
+
+donde el símbolo \(\biguplus\) indica unión disjunta. Supongamos que se realizan \(n\) observaciones o pruebas independientes, de modo que \(n_{ij}\) representa la frecuencia con la que se presenta el evento \(A_i \cap B_j\). Podemos disponer las observaciones en una tabla cruzada o de contingencia de \(r\) filas por \(k\) columnas:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(A_{1}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\cdots\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(A_{k}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\mathrm{B}_{1}\) & \(\mathrm{n}_{11}\) & \(\cdots\) & \(\mathrm{n}_{1k}\) & \(\mathrm{n}_{1\cdot}\) \\
+\(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \\
+\(\mathrm{B}_{r}\) & \(\mathrm{n}_{r1}\) & \(\cdots\) & \(\mathrm{n}_{rk}\) & \(\mathrm{n}_{r\cdot}\) \\
+& \(\mathrm{n}_{\cdot 1}\) & & \(\mathrm{n}_{\cdot k}\) & \(n\) \\
+\end{longtable}
+
+donde \(n_{i\cdot}=\sum_{j=1}^{k} n_{ij}\) es la frecuencia del evento \(A_i\) y \(n_{\cdot j}=\sum_{i=1}^{r} n_{ij}\) es la frecuencia del evento \(B_j\).
+
+Supongamos que queremos contrastar la hipótesis de que las dos particiones son independientes, es decir,
+
+\[
+H_{0}: \quad A_i \text{ es estocásticamente independiente de } B_j,
+\]
+
+lo que equivale a
+
+\[
+P(A_i \cap B_j)=P(A_i)\,P(B_j), \quad i=1,\ldots,k,\; j=1,\ldots,r.
+\]
+
+Si indicamos \(p_{ij}=P(A_i \cap B_j)\) e introducimos los parámetros
+
+\[
+p_{1\cdot},\ldots,p_{r\cdot},\quad \sum_{i=1}^{r} p_{i\cdot}=1,\qquad
+p_{\cdot 1},\ldots,p_{\cdot k},\quad \sum_{j=1}^{k} p_{\cdot j}=1,
+\]
+
+la hipótesis nula se expresará como
+
+\[
+p_{ij}=p_{i\cdot}\,p_{\cdot j}.
+\]
+
+Es fácil ver que, en este caso, los estimadores de máxima verosimilitud de las probabilidades marginales son las frecuencias relativas:
+
+\[
+\hat p_{i\cdot}=\frac{n_{i\cdot}}{n}, \qquad \hat p_{\cdot j}=\frac{n_{\cdot j}}{n},
+\]
+
+y la frecuencia esperada del evento \(A_i \cap B_j\) bajo \(H_0\) será
+
+\[
+n\,\hat p_{i\cdot}\,\hat p_{\cdot j}
+= n\,\frac{n_{i\cdot}}{n}\,\frac{n_{\cdot j}}{n}
+= \frac{n_{i\cdot}\,n_{\cdot j}}{n}.
+\]
+
+Aplicando el Teorema 7.2 se tiene que el estadístico
+
+\[
+D^{2}=\sum_{i=1}^{k}\sum_{j=1}^{r}
+\frac{\left(n_{ij}-\frac{n_{i\cdot}n_{\cdot j}}{n}\right)^{2}}
+{\frac{n_{i\cdot}n_{\cdot j}}{n}}
+\]
+
+verifica
+
+\[
+D^{2}\xrightarrow[n\to\infty]{\mathcal{L}} \chi^{2}_{(r-1)(k-1)}.
+\]
+
+Como consecuencia, el test de independencia para la hipótesis
+
+\[
+H_{0}: \quad P(A_i\cap B_j)=P(A_i)\,P(B_j)
+\;\Longleftrightarrow\;
+p_{ij}=p_{i\cdot}\,p_{\cdot j}
+\]
+
+consiste en calcular
+
+\[
+D^{2}=\sum_{i=1}^{k}\sum_{j=1}^{r}
+\frac{\left(n_{ij}-\frac{n_{i\cdot}n_{\cdot j}}{n}\right)^{2}}
+{\frac{n_{i\cdot}n_{\cdot j}}{n}}
+\]
+
+y rechazar \(H_{0}\) si
+
+\[
+D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
+\]
+
+\subsubsection{Ejemplo}\label{ejemplo-12}
+
+En un estudio de mercado se intenta determinar si existe alguna relación entre las preferencias de un grupo de consumidores por un tipo de vehículo y su nivel cultural. Se pregunta a 300 personas entre 20 y 50 años qué vehículo poseen y se clasifican en ``NINGUNO'', ``MOTOCICLETAS'', ``COCHES NORMALES'' y ``COCHES POTENTES''. El nivel cultural se determina según hayan cursado estudios ``ELEMENTALES'', ``DE GRADO MEDIO'' o ``SUPERIORES''. ¿Qué se puede concluir a partir de los siguientes datos?
+
+\begin{longtable}[]{@{}cccccc@{}}
+\toprule\noalign{}
+& NINGUNO & MOTOS & C. NORMAL & C. POTENTE & TOTAL \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Elementales & 31 & 49 & 18 & 12 & 110 \\
+Nivel medio & 11 & 59 & 26 & 25 & 121 \\
+Superiores & 12 & 51 & 31 & 36 & 130 \\
+TOTAL & 54 & 159 & 75 & 73 & 361 \\
+\end{longtable}
+
+La tabla de frecuencias esperadas es:
+
+\begin{longtable}[]{@{}cccccc@{}}
+\toprule\noalign{}
+& NINGUNO & MOTOS & C. NORMAL & C. POTENTE & TOTAL \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Elementales & 16.5 & 48.4 & 22.9 & 22.2 & 110 \\
+Nivel medio & 18.1 & 53.3 & 25.1 & 24.5 & 121 \\
+Superiores & 19.4 & 57.3 & 27.0 & 26.3 & 130 \\
+TOTAL & 54 & 159 & 75 & 73 & 361 \\
+\end{longtable}
+
+El valor del estadístico de contraste \(D^{2}\) calculado sobre estos datos es 29.76. El valor crítico de una distribución \(\chi^2\) con \((4-1)(3-1)=6\) grados de libertad y nivel de significación 0.05 es 12.59. Dado que
+
+\[
+29.76 \ge 12.59=\chi^{2}_{(3-1)(4-1),\,1-0.05},
+\]
+
+se rechaza la hipótesis de independencia; es decir, parece existir relación entre el nivel de estudios y el tipo de vehículo.
+
+\subsection{Pruebas de homogeneidad}\label{pruebas-de-homogeneidad}
+
+Supongamos que tenemos una misma partición
+
+\[
+\Omega=A_{1} \biguplus \cdots \biguplus A_{k},
+\]
+
+en \(r\) poblaciones:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(A_{1}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\cdots\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(A_{k}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & \(\mathrm{n}_{11}\) & \(\cdots\) & \(\mathrm{n}_{1k}\) & \(\mathrm{n}_{1}\) \\
+\(\vdots\) & \(\vdots\) & \(\ddots\) & \(\vdots\) & \\
+\(r\) & \(\mathrm{n}_{r1}\) & \(\cdots\) & \(\mathrm{n}_{rk}\) & \(\mathrm{n}_{r}\) \\
+& \(\mathrm{n}_{\cdot 1}\) & & \(\mathrm{n}_{\cdot k}\) & \(n\) \\
+\end{longtable}
+
+y queremos contrastar la hipótesis
+
+\[
+\begin{aligned}
+p_{11}&=p_{21}=\cdots=p_{r1},\\
+p_{12}&=p_{22}=\cdots=p_{r2},\\
+&\ \vdots\\
+p_{1k}&=p_{2k}=\cdots=p_{rk}.
+\end{aligned}
+\]
+
+De forma análoga al apartado anterior puede establecerse que el estadístico
+
+\[
+D^{2}=\sum_{i=1}^{k}\sum_{j=1}^{r}
+\frac{\left(n_{ij}-n_{i}\frac{n_{\cdot j}}{n}\right)^{2}}
+{n_{i}\frac{n_{\cdot j}}{n}}
+\]
+
+verifica
+
+\[
+D^{2}\xrightarrow[n\to\infty]{\mathcal{L}} \chi^{2}_{(r-1)(k-1)},
+\]
+
+de modo que la hipótesis nula se rechazará siempre que
+
+\[
+D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
+\]
+
+\subsubsection{Ejemplo}\label{ejemplo-13}
+
+En un estudio antropológico se analiza la distribución de los grupos sanguíneos \(O,A,B,AB\) entre tres razas humanas. La siguiente tabla contiene las frecuencias observadas y esperadas, así como el análisis realizado con el programa SPSS, donde se observa que no se puede rechazar la hipótesis nula de que la probabilidad de cada grupo sanguíneo es la misma en todas las razas.
+
+\textbf{Tabla de contingencia Raza × Grupo sanguíneo}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Grupo sanguíneo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Total
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+& & & O & A & B & AB & \\
+Raza & Caucásicos & Recuento & 32 & 11 & 7 & 2 & 52 \\
+& & Frecuencia esperada & 29.0 & 8.8 & 9.4 & 4.8 & 52.0 \\
+& & \% de grupo sanguíneo & 31.4\% & 35.5\% & 21.2\% & 11.8\% & 28.4\% \\
+& Pigmeos & Recuento & 47 & 13 & 17 & 9 & 86 \\
+& & Frecuencia esperada & 47.9 & 14.6 & 15.5 & 8.0 & 86.0 \\
+& & \% de grupo sanguíneo & 46.1\% & 41.9\% & 51.5\% & 52.9\% & 47.0\% \\
+& Esquimales & Recuento & 23 & 7 & 9 & 6 & 45 \\
+& & Frecuencia esperada & 25.1 & 7.6 & 8.1 & 4.2 & 45.0 \\
+& & \% de grupo sanguíneo & 22.5\% & 22.6\% & 27.3\% & 35.3\% & 24.6\% \\
+Total & & Recuento & 102 & 31 & 33 & 17 & 183 \\
+& & Frecuencia esperada & 102.0 & 31.0 & 33.0 & 17.0 & 183.0 \\
+\end{longtable}
+
+Figura 7.1: Diagrama de barras múltiples que muestra cómo se distribuyen los grupos sanguíneos en cada raza.
+
+\section{Estadística no paramétrica}\label{estaduxedstica-no-paramuxe9trica}
+
+\subsection{Introducción}\label{introducciuxf3n-9}
+
+En este capítulo presentaremos de forma breve algunos tests no paramétricos para problemas de una, dos o varias muestras. El objetivo de estos tests es disponer de alternativas a las pruebas de hipótesis de comparación clásicas cuando no se conoce la forma de la distribución de los datos o la ley de las variables. En particular, serán alternativas a los tests sobre la media o comparación de medias cuando no se verifica la suposición de normalidad de los datos. Nos referimos a los tests basados en poblaciones normales como contrastes paramétricos, ya que se basan en comparar medias o parámetros de la ley normal. En contraposición, los que consideramos aquí y que denominaremos contrastes no paramétricos pueden comparar medianas, cuantiles o incluso toda la distribución en bloque. Observemos, pues, que ``no paramétrico'' no significa que estos tests no comparen algún parámetro como la mediana; más bien significa que no queremos hacer determinadas suposiciones sobre la función de distribución de las variables.
+
+Desde un punto de vista práctico, que es también el que adoptan muchos programas informáticos de análisis estadístico, distinguiremos entre:
+
+\begin{itemize}
+\tightlist
+\item
+  Problemas de una muestra
+\item
+  Problemas de dos muestras con datos apareados
+\item
+  Problemas de dos muestras independientes
+\item
+  Problemas de \(k\) muestras independientes.
+\end{itemize}
+
+Esta distinción nos permite clasificar las técnicas que estudiamos y compararlas con las correspondientes pruebas paramétricas:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Problema
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test paramétrico
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test no paramétrico
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Una muestra & Test \(t\) de una muestra & Test de los signos Test de los rangos con signo \\
+Datos apareados & Test \(t\) de datos apareados & Test de los signos Test de los rangos con signo \\
+Dos muestras ind. & Test \(t\) para dos muestras ind. (con test \(F\) previo) & Test \(U\) de Mann-Whitney \\
+\(k\) muestras ind. & ANOVA de un factor & Test de Kruskal-Wallis \\
+\end{longtable}
+
+Además, algunos tests no paramétricos tienen otras utilidades, como los tests de aleatoriedad, los tests de rachas, etc.
+
+\subsection{Test de los signos}\label{test-de-los-signos}
+
+\subsubsection{Test para la mediana}\label{test-para-la-mediana}
+
+Sea \(X\) una variable aleatoria con distribución continua \(F_{X}\) desconocida y \(M=Q_{50}\) su mediana o cuantil del \(50\%\), es decir, el valor tal que
+
+\[
+P(X \leq M)=0.5
+\]
+
+Supongamos que queremos contrastar las hipótesis
+
+\[
+\begin{aligned}
+& H_{0}: M=m_{0} \\
+& H_{1}: M \neq m_{0}
+\end{aligned}
+\]
+
+Dada una muestra \(x_{1}, x_{2}, \ldots, x_{n}\), consideremos el ``signo'' de cada valor muestral por comparación con la mediana propuesta por la hipótesis \(H_{0}\), es decir,
+
+\[
+\operatorname{signe}\left(x_{i}\right)= \begin{cases}+ & \text { si } x_{i}>m_{0} \\ - & \text { si } x_{i}<m_{0}\end{cases}
+\]
+
+El estadístico \(B=\) ``Número de signos positivos'' es:
+
+\[
+B\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\sum_{i=1}^{n} I_{x_{i}>m_{0}}
+\]
+
+donde
+
+\[
+I_{x_{i}>m_{0}}=\left\{\begin{array}{cc}
+1 & \text { si } x_{i}>m_{0}\left(\operatorname{signe}\left(x_{i}\right)=+\right) \\
+0 & \text { si } x_{i}<m_{0}\left(\operatorname{signe}\left(x_{i}\right)=-\right)
+\end{array}\right.
+\]
+
+Si la hipótesis nula es cierta, la distribución del estadístico \(B\) será una binomial de parámetros \(n\) y \(1/2\), y es razonable esperar que \(B\) tome valores próximos a \(n/2\); mientras que cuando sea falsa es de esperar que tome valores en las colas de la distribución. Así pues, una región crítica para el test será aquella en la que el número de signos positivos sea demasiado alto o demasiado bajo como para ser coherente con la hipótesis nula, que implica que hay tantos positivos como negativos. Podemos tomar como región crítica:
+
+\[
+W=\left\{B(\mathbf{x}) \leq b_{\alpha / 2}\right\} \cup\left\{B(\mathbf{x}) \geq b_{1-\alpha / 2}\right\}
+\]
+
+donde \(b_{\alpha / 2}\) y \(b_{1-\alpha / 2}\) se determinan de forma que la probabilidad de las dos colas de una distribución \(B\left(n, \frac{1}{2}\right)\) sea igual al nivel de significación \(\alpha\) (o algo menor que \(\alpha\)), es decir,
+
+\[
+\sum_{i=0}^{b_{\alpha / 2}}\binom{n}{i}\left(\frac{1}{2}\right)^{i}\left(\frac{1}{2}\right)^{n-i}+\sum_{i=b_{1-\alpha / 2}}^{n}\binom{n}{i}\left(\frac{1}{2}\right)^{i}\left(\frac{1}{2}\right)^{n-i} \leq \alpha
+\]
+
+\paragraph{Observaciones}\label{observaciones-3}
+
+\begin{itemize}
+\tightlist
+\item
+  Aunque con probabilidad teórica cero, porque la variable considerada tiene función de distribución continua, puede darse el caso \(x_{i}=m_{0}\), de signo indefinido. Si no es posible aumentar la precisión, se aconseja eliminar este valor muestral y descontarlo en consecuencia del tamaño de la muestra.
+\item
+  Si la hipótesis alternativa es \(M<m_{0}\) o bien \(M>m_{0}\), la región crítica se adapta a esta hipótesis de forma razonable, es decir:
+\end{itemize}
+
+\[
+\begin{aligned}
+& H_{1}: M<m_{0} \quad \Rightarrow \quad W=\left\{B(\mathbf{x}) \leq b_{\alpha}\right\} \\
+& H_{1}: M>m_{0} \quad \Rightarrow \quad W=\left\{B(\mathbf{x}) \geq b_{1-\alpha / 2}\right\}
+\end{aligned}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Algunos libros incluyen tablas de la distribución binomial que podemos usar para encontrar los valores críticos. Para \(n \geq 20\) podemos aproximar la binomial por una normal.
+\end{itemize}
+
+\paragraph{Ejemplo 1}\label{ejemplo-1-1}
+
+La siguiente tabla recoge una muestra de 40 notas en un examen. Contraste, con un nivel de significación 0.05, la hipótesis de que el valor central (mediana) de las notas es 66.
+
+\begin{longtable}[]{@{}cccccccccc@{}}
+\toprule\noalign{}
+71 & 67 & 55 & 64 & 82 & 66 & 74 & 58 & 79 & 61 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+78 & 46 & 84 & 93 & 72 & 54 & 78 & 86 & 48 & 52 \\
+67 & 95 & 70 & 43 & 70 & 73 & 57 & 64 & 60 & 83 \\
+73 & 40 & 78 & 70 & 64 & 86 & 76 & 62 & 95 & 66 \\
++ & + & - & - & + & 0 & + & - & + & - \\
++ & - & + & + & + & - & + & + & - & - \\
++ & + & + & - & + & + & - & - & - & + \\
++ & - & + & + & - & + & + & - & + & 0 \\
+\end{longtable}
+
+Si restamos 66 de las notas observadas y retenemos solo los signos de las diferencias, se obtienen 23 signos +, 15 signos - y 2 ceros. Descartados los ceros, \(B=23\) sobre un total de 38. Si hacemos un contraste bilateral con la aproximación normal, la región de aceptación es \(\{-1.96 \leq z \leq 1.96\}\).
+Dado que
+
+\[
+z=\frac{(23-0.5)-38 \cdot 0.5}{\sqrt{38 \cdot 0.5 \cdot 0.5}}=1.14
+\]
+
+aceptamos la hipótesis de que la mediana es 66, al nivel 0.05.
+
+Podemos hacer lo mismo con R:
+
+Primero introducimos las notas y calculamos cuántos valores son superiores a 66, es decir, el número de signos positivos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{notes}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{ (}\DecValTok{71}\NormalTok{,}\DecValTok{67}\NormalTok{,}\DecValTok{55}\NormalTok{,}\DecValTok{64}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{66}\NormalTok{,}\DecValTok{74}\NormalTok{,}\DecValTok{58}\NormalTok{,}\DecValTok{79}\NormalTok{,}\DecValTok{61}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{46}\NormalTok{,}\DecValTok{84}\NormalTok{,}\DecValTok{93}\NormalTok{,}\DecValTok{72}\NormalTok{,}\DecValTok{54}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{86}\NormalTok{,}\DecValTok{48}\NormalTok{,}\DecValTok{52}\NormalTok{,}\DecValTok{67}\NormalTok{,}\DecValTok{95}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{43}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{73}\NormalTok{,}\DecValTok{57}\NormalTok{,}\DecValTok{64}\NormalTok{,}\DecValTok{60}\NormalTok{,}\DecValTok{83}\NormalTok{,}\DecValTok{73}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{64}\NormalTok{,}\DecValTok{86}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{62}\NormalTok{,}\DecValTok{95}\NormalTok{,}\DecValTok{66}\NormalTok{)}
+\NormalTok{notes[notes}\SpecialCharTok{\textgreater{}}\DecValTok{66}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 71 67 82 74 79 78 84 93 72 78 86 67 95 70 70 73 83 73 78 70 86 76 95
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B}\OtherTok{\textless{}{-}}\FunctionTok{length}\NormalTok{(notes[notes}\SpecialCharTok{\textgreater{}}\DecValTok{66}\NormalTok{])}
+\NormalTok{B}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 23
+\end{verbatim}
+
+Y finalmente calculamos la aproximación normal del estadístico y su p-valor. Aplicaremos una \emph{corrección por continuidad}, habitual en esta aproximación, restando 0.5 al estadístico B
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n}\OtherTok{\textless{}{-}}\FunctionTok{length}\NormalTok{(notes)}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(notes[notes}\SpecialCharTok{==}\DecValTok{66}\NormalTok{])}
+\NormalTok{n}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 38
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z}\OtherTok{\textless{}{-}}\NormalTok{(B}\FloatTok{{-}0.5}\SpecialCharTok{{-}}\NormalTok{n}\SpecialCharTok{*}\FloatTok{0.5}\NormalTok{)}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(n}\SpecialCharTok{*}\FloatTok{0.5}\SpecialCharTok{*}\FloatTok{0.5}\NormalTok{)}
+\FunctionTok{round}\NormalTok{(z,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(z))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.256145
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{2}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(B}\FloatTok{{-}0.5}\NormalTok{,}\AttributeTok{mean=}\NormalTok{n}\SpecialCharTok{*}\FloatTok{0.5}\NormalTok{,}\AttributeTok{sd=}\FunctionTok{sqrt}\NormalTok{(n}\SpecialCharTok{*}\FloatTok{0.5}\SpecialCharTok{*}\FloatTok{0.5}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.256145
+\end{verbatim}
+
+El p-valor, superior al nivel de significación, hace que aceptemos la hipótesis nula \(H_{0}: M=66\).
+
+\subsubsection{Test de los signos para datos apareados}\label{test-de-los-signos-para-datos-apareados}
+
+El test de los signos puede servir también en el caso de datos apareados.
+Consideremos una muestra de dos variables \(X, Y\)
+
+\[
+\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{n}, y_{n}\right)
+\]
+
+con \(n\) observaciones en dos situaciones lo más homogéneas posible.
+Supongamos que las distribuciones de las dos variables son similares, excepto quizá en un parámetro de localización como la mediana. Es decir, las dos situaciones consideradas solo pueden desplazar la distribución y no modifican su forma.
+
+Ahora queremos contrastar la hipótesis de que no hay diferencia entre las dos situaciones: las diferencias observadas entre los valores \(x_{i}\) y \(y_{i}\) se deben al azar; es decir, las dos muestras \(x_{1}, \ldots, x_{n}\) e \(y_{1}, \ldots, y_{n}\) proceden de la misma población. Esto puede expresarse estadísticamente con la hipótesis \(H_{0}\) de igualdad de las distribuciones de probabilidad, que con las suposiciones asumidas es equivalente a la igualdad de medianas.
+Si la hipótesis \(H_{0}\) es cierta, y la distribución de la variable diferencia \(D=X-Y\) es simétrica respecto del origen, se verificará
+
+\[
+P(X>Y)=P(X-Y>0)=\frac{1}{2}
+\]
+
+Así pues, podemos aplicar el test de los signos a la variable diferencia \(D=X-Y\). En general, aunque no necesariamente siempre, se tomará como valor de \(m_{0}\) el 0.
+
+\paragraph{Ejemplo 2}\label{ejemplo-2-1}
+
+Se quiere comparar el número de piezas defectuosas producidas por dos máquinas diferentes. Se observa la producción durante 10 días, con la misma producción diaria para ambas máquinas, aunque diferente cada día. Los resultados son:
+
+\begin{longtable}[]{@{}lcccccccccc@{}}
+\toprule\noalign{}
+Día & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Máquina 1 & 46 & 110 & 70 & 54 & 60 & 120 & 82 & 76 & 37 & 28 \\
+Máquina 2 & 42 & 87 & 75 & 50 & 48 & 108 & 80 & 67 & 40 & 25 \\
+\end{longtable}
+
+Con un nivel de significación \(\alpha=0.06\), ¿podemos aceptar que la primera máquina produce más piezas defectuosas?
+
+\textbf{Solución}:
+
+El hecho de que la producción total diaria de ambas máquinas sea la misma permite considerar los datos como apareados. Que la producción diaria sea diferente cada día aconseja utilizar un test no paramétrico.
+Observemos los signos de las diferencias
+
+\[
+\begin{array}{lcccccccccc}
+\text { Día: } & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\text { Signo: } & + & + & - & + & + & + & + & + & - & +
+\end{array}
+\]
+
+De modo que \(B=8\) sobre \(n=10\). En este contraste, la región crítica es unilateral y concretamente es \(W=\{8,9,10\}\), ya que
+
+\[
+P(B \geq 8)=\sum_{i=8}^{10}\binom{10}{i} 0.5^{10}=0.0547<\alpha=0.06
+\]
+
+Dado que la frecuencia observada es 8 y pertenece a la región crítica, rechazamos la igualdad y podemos aceptar que la máquina 1 produce más piezas defectuosas.
+
+Para hacerlo con R introducimos los datos en dos vectores de la misma longitud. Calculamos la diferencia y el número de valores positivos. A partir de este número calculamos la probabilidad de la cola derecha de una binomial, ya que la hipótesis alternativa así lo requiere.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maq1}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{46}\NormalTok{,}\DecValTok{110}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{54}\NormalTok{,}\DecValTok{60}\NormalTok{,}\DecValTok{120}\NormalTok{,}\DecValTok{82}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{37}\NormalTok{,}\DecValTok{28}\NormalTok{)}
+\NormalTok{maq2}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{42}\NormalTok{,}\DecValTok{87}\NormalTok{,}\DecValTok{75}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{48}\NormalTok{,}\DecValTok{108}\NormalTok{,}\DecValTok{80}\NormalTok{,}\DecValTok{67}\NormalTok{,}\DecValTok{40}\NormalTok{,}\DecValTok{25}\NormalTok{)}
+\NormalTok{dif}\OtherTok{\textless{}{-}}\NormalTok{maq1}\SpecialCharTok{{-}}\NormalTok{maq2}
+\NormalTok{dif}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  4 23 -5  4 12 12  2  9 -3  3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B}\OtherTok{\textless{}{-}}\FunctionTok{length}\NormalTok{(dif[dif}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{]);B}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dbinom}\NormalTok{(}\DecValTok{8}\NormalTok{,}\DecValTok{10}\NormalTok{,}\FloatTok{0.5}\NormalTok{)}\SpecialCharTok{+}\FunctionTok{dbinom}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{10}\NormalTok{,}\FloatTok{0.5}\NormalTok{)}\SpecialCharTok{+}\FunctionTok{dbinom}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{10}\NormalTok{,}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0546875
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pbinom}\NormalTok{(B}\DecValTok{{-}1}\NormalTok{,}\DecValTok{10}\NormalTok{,}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0546875
+\end{verbatim}
+
+El p-valor es inferior al nivel de significación 0.06 y, por tanto, rechazamos la hipótesis nula y aceptamos que la máquina 1 produce más piezas defectuosas.
+
+\subsubsection{Test para datos binarios}\label{test-para-datos-binarios}
+
+En el caso de una muestra de valores de una variable dicotómica, por ejemplo
+
+\[
+a, a, b, b, b, a, a, b, a, \ldots, b
+\]
+
+podemos aplicar el test de los signos para contrastar el equilibrio de las probabilidades de ambos valores.
+
+\paragraph{Ejemplo 3}\label{ejemplo-3-1}
+
+Ante un cambio en un servicio público se realiza una encuesta a 300 personas, a las cuales se les pregunta si el servicio ha mejorado o empeorado, sin posibilidad de ser indiferente. Ha resultado que 197 personas han dicho que el servicio ha mejorado y queremos contrastar este hecho con un nivel de significación del 0.01.
+
+Bajo la hipótesis nula de equilibrio, el número \(B\) de personas que afirman que el servicio ha mejorado sigue una distribución binomial \(B(300,0.5)\), de forma que
+
+\[
+z=\frac{(197-0.5)-150}{\sqrt{300 \cdot 0.5 \cdot 0.5}}=5.37
+\]
+
+La región crítica de una cola es \(W=\{z>2.33\}\) para \(\alpha=0.01\), de manera que aceptamos la opinión de que el servicio ha mejorado.
+
+\subsection{Test de McNemar}\label{test-de-mcnemar}
+
+Es una variante del test de los signos. Supongamos que un conjunto de individuos se clasifica en dos categorías opuestas, que podemos indicar con los signos \(+\mathrm{i}-\).
+Después de algún estímulo, es posible que algunos individuos cambien de categoría, de forma que se obtiene la tabla de frecuencias
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule\noalign{}
+& & Después & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+& & - & + \\
+Antes & + & \(a\) & \(b\) \\
+& - & \(c\) & \(d\) \\
+\end{longtable}
+
+Solo \(a+d\) individuos han cambiado. Bajo la hipótesis nula de que las proporciones no cambian, las probabilidades son
+
+\[
+P(+\rightarrow-)=P(-\rightarrow+)=1 / 2
+\]
+
+de manera que la frecuencia esperada en estos dos casos es \((a+d) / 2\). Podemos aplicar el test ji-cuadrado
+
+\[
+\chi^{2}=\frac{(a-(a+d) / 2)^{2}}{(a+d) / 2}+\frac{(d-(a+d) / 2)^{2}}{(a+d) / 2}=\frac{(a-d)^{2}}{a+d} \quad \text { con } 1 \text { g.l. }
+\]
+
+Rechazaremos la hipótesis de equilibrio si \(\chi>\chi_{\alpha}^{2}\), donde \(\alpha\) es el nivel de significación. Si las frecuencias son pequeñas es conveniente utilizar la corrección de Yates
+
+\[
+\chi=\frac{(|a-d|-1)^{2}}{a+d}
+\]
+
+\subsection{Test de los rangos con signo de Wilcoxon}\label{test-de-los-rangos-con-signo-de-wilcoxon}
+
+Visto como una extensión del test de los signos anterior, la idea de este test es utilizar, además del signo, la magnitud de las diferencias.
+
+El \textbf{rango} de una observación es \emph{la posición que ocupa en la muestra ordenada}. Por ejemplo, si consideramos la muestra
+
+\[
+x_{1}=3 \quad x_{2}=0 \quad x_{3}=5 \quad x_{4}=1.9
+\]
+la muestra ordenada es
+
+\[
+x_{(1)}=0 \quad x_{(2)}=1.9 \quad x_{(3)}=3 \quad x_{(4)}=5
+\]
+
+de modo que los rangos son:
+
+\[
+r(0)=1 \quad r(1.9)=2 \quad r(3)=3 \quad r(5)=4
+\]
+
+Una parte importante de la estadística no paramétrica ha surgido de la sustitución de los valores cuantitativos de las muestras por sus rangos y de la obtención de estadísticos de contraste análogos a los utilizados con datos cuantitativos.
+
+Podemos encontrar así, por ejemplo, un test equivalente al test \(t\) de Student pero basado en rangos, o un coeficiente de correlación, denominado de Spearman, con la misma fórmula que el de Pearson pero utilizando rangos.
+
+Ahora nos centramos en la comparación de medianas, basada en rangos, y no en los coeficientes de correlación.
+
+Supongamos que la hipótesis nula es la misma que en el test de la mediana, es decir:
+
+\[
+\begin{aligned}
+& H_{0}: M=m_{0} \\
+& H_{1}: M \neq m_{0}
+\end{aligned}
+\]
+
+donde \(M\) representa la mediana de una variable o, con frecuencia, de la diferencia entre dos variables apareadas.
+
+Wilcoxon propuso considerar los estadísticos:\\
+\(T^{+}=\) Suma de los rangos de las observaciones con signo +\\
+\(T^{-}=\) Suma de los rangos de las observaciones con signo -
+
+\[
+T^{+}=\sum_{i=1}^{n} r\left(\left|x_{i}-m_{0}\right|\right) I_{x_{i}>m_{0}}
+\]
+
+Si \(H_{0}\) es cierta, entonces es de esperar que \(T^{+}=T^{-}\).
+El estadístico \(T^{+}\) se conoce con el nombre de estadístico de Wilcoxon y está tabulado, de forma que pueden encontrarse valores \(t_{\alpha / 2}\) y \(t_{1-\alpha / 2}\) tales que
+
+\[
+P\left[T^{+}<t_{\alpha / 2} \mid H_{0}\right]+P\left[T^{+}>t_{1-\alpha / 2} \mid H_{0}\right] \leq \alpha
+\]
+
+y definir la región crítica como
+
+\[
+W=\left\{T^{+}<t_{\alpha / 2}\right\} \cup\left\{T^{+}>t_{1-\alpha / 2}\right\}
+\]
+
+\subsubsection{Observaciones}\label{observaciones-4}
+
+\begin{itemize}
+\tightlist
+\item
+  Para valores grandes de \(n\) puede utilizarse el hecho de que, bajo \(H_{0}\), el estadístico \(T^{+}\) es asintóticamente normal:
+\end{itemize}
+
+\[
+T^{+} \sim A N\left(\mu_{T^{+}}, \sigma_{T^{+}}\right), \quad \mu_{T^{+}}=\frac{n(n+1)}{4}, \quad \sigma_{T^{+}}^{2}=\frac{n(n+1)(2 n+1)}{24}
+\]
+
+y, por tanto, para muestras grandes podemos basarnos en el estadístico
+
+\[
+Z=\frac{T^{+}-n(n+1) / 4}{\sqrt{n(n+1)(2 n+1) / 24}} \sim N(0,1)
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Una alternativa al estadístico de contraste anterior consiste en considerar el estadístico
+\end{itemize}
+
+\[
+T=\min \left(T^{+}, T^{-}\right) .
+\]
+
+Si \(H_{0}\) es cierta, entonces \(T^{+}=T^{-}\). Si no lo es, se tendrá \(T^{+}>T^{-}\) o bien \(T^{+}<T^{-}\), de modo que el mínimo será un valor ``pequeño''. El test basado en este estadístico rechazará la hipótesis nula si \(T\) es menor que \(T_{\alpha}\), donde este valor crítico se obtiene a partir de una tabla diferente de la tabla de valores críticos para \(T^{+}\).
+
+\subsubsection{Ejemplo 4}\label{ejemplo-4-1}
+
+Dado que en el ejemplo 1 las notas son numéricas, podemos utilizar el test de los rangos con signo para contrastar \(H_{0}: M=66\) frente a \(H_{1}: M \neq 66\), con un nivel de significación del 0.05.
+
+\textbf{Solución}:
+
+Para calcular el estadístico \(T^{+}\) debemos asignar los rangos correspondientes a los valores positivos de las diferencias entre las observaciones y el valor 66 propuesto en la hipótesis nula.
+
+En este ejemplo utilizaremos la función \texttt{wilcox.test} con el vector \texttt{notes} del ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wilcox.test}\NormalTok{(notes,}\AttributeTok{mu=}\DecValTok{66}\NormalTok{,}\AttributeTok{alternative=}\StringTok{"two.sided"}\NormalTok{,}\AttributeTok{exact=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  notes
+## V = 465, p-value = 0.1726
+## alternative hypothesis: true location is not equal to 66
+\end{verbatim}
+
+O bien, mediante una aproximación normal directa:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z}\OtherTok{\textless{}{-}}\NormalTok{(}\DecValTok{465}\FloatTok{{-}0.5}\DecValTok{{-}38}\SpecialCharTok{*}\DecValTok{39}\SpecialCharTok{/}\DecValTok{4}\NormalTok{)}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{38}\SpecialCharTok{*}\DecValTok{39}\SpecialCharTok{*}\DecValTok{77}\SpecialCharTok{/}\DecValTok{24}\NormalTok{);z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.363214
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{round}\NormalTok{(}\DecValTok{2}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(z)),}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.17
+\end{verbatim}
+
+Esta función calcula el estadístico \(T^{+}=465\) y su p-valor con corrección por continuidad.
+
+En este problema existen, además de dos ceros, un número considerable de empates o \emph{ligaduras} (del inglés ``ties''), de modo que la función \texttt{wilcox.test} no puede calcular el p-valor exacto y por ello se le ha indicado \texttt{exact=F}.
+
+El estadístico \(z\) que hemos calculado de forma directa y su p-valor, sin tener en cuenta las ligaduras, son bastante similares a los que calcula el algoritmo. Si no se indica nada sobre este parámetro, aparecen dos mensajes de advertencia relativos a este hecho.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wilcox.test}\NormalTok{(notes,}\AttributeTok{mu=}\DecValTok{66}\NormalTok{,}\AttributeTok{alternative=}\StringTok{"two.sided"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  notes
+## V = 465, p-value = 0.1726
+## alternative hypothesis: true location is not equal to 66
+\end{verbatim}
+
+\subsubsection{Ejemplo 5}\label{ejemplo-5-1}
+
+Dado que en el ejemplo 2 las observaciones son numéricas y apareadas, podemos utilizar los valores de las diferencias con el test de los rangos con signo para contrastar si existen diferencias entre las dos máquinas.
+
+\textbf{Solución}:
+
+En este ejemplo se utiliza también la función \texttt{wilcox.test} con los dos vectores de datos del ejemplo y la opción \texttt{paired=TRUE}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wilcox.test}\NormalTok{(maq1,maq2,}\AttributeTok{mu=}\DecValTok{0}\NormalTok{,}\AttributeTok{paired=}\NormalTok{T,}\AttributeTok{alternative=}\StringTok{"greater"}\NormalTok{,}\AttributeTok{exact=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  maq1 and maq2
+## V = 46.5, p-value = 0.02942
+## alternative hypothesis: true location shift is greater than 0
+\end{verbatim}
+
+Observamos que en este caso hemos utilizado la opción \texttt{paired=T} para indicar que los datos son apareados. También hemos identificado correctamente la alternativa con \texttt{alternative="greater"}. Además, como en el ejemplo anterior, las ligaduras no permiten calcular el p-valor exacto. El p-valor aproximado 0.029 indica el rechazo de la hipótesis nula.
+
+\subsection{\texorpdfstring{El test \(U\) de Mann-Whitney}{El test U de Mann-Whitney}}\label{el-test-u-de-mann-whitney}
+
+Este test permite comparar dos poblaciones con muestras independientes:
+\[
+\left(x_{1}, \ldots, x_{n_{1}}\right),\left(y_{1}, \ldots, y_{n_{2}}\right)
+\]
+
+procedentes de dos poblaciones \(X, Y\) con funciones de distribución \(F_{X}, F_{Y}\) respectivamente. Queremos contrastar la hipótesis \(H_{0}: F_{X}=F_{Y}\) frente a alguna de las alternativas
+
+\[
+H_{1}: F_{X} \neq F_{Y} \quad H_{1}: F_{X}<F_{Y} \quad H_{1}: F_{X}>F_{Y}
+\]
+
+Si la hipótesis nula es cierta, entonces \(P(X<Y)=\frac{1}{2}\). Además, dado que existen \(n_{1} \cdot n_{2}\) pares posibles, el número de pares de observaciones \(\left(x_{i}, y_{j}\right)\) que se espera que verifiquen \(x_{i}<y_{j}\) estará alrededor de \(\frac{n_{1} \cdot n_{2}}{2}\).
+Un estadístico de contraste razonable para decidir si aceptamos o rechazamos la hipótesis nula es el número de pares que verifican \(x_{i}<y_{j}\), que definimos como:
+
+\[
+U=\sum_{i=1}^{n_{1}} \sum_{j=1}^{n_{2}} I_{x_{i}<y_{j}}
+\]
+
+Una desviación significativa de \(U\) respecto al valor esperado \(\frac{n_{1} \cdot n_{2}}{2}\) conducirá al rechazo de la hipótesis nula. Para decidir si \(U\) es significativo se consulta la tabla de Mann-Whitney-Wilcoxon, que permite decidir el rechazo de \(H_{0}\) en función del nivel de significación elegido y de los tamaños muestrales \(n_{1}\) y \(n_{2}\).
+
+\subsubsection{Observaciones}\label{observaciones-5}
+
+\begin{itemize}
+\tightlist
+\item
+  Un procedimiento alternativo para calcular \(U\), y a menudo más cómodo, consiste en formar la muestra conjunta reuniendo las dos muestras individuales y asignar los rangos \(1,2, \ldots, n_{1}+n_{2}\) a cada uno de los valores de la muestra ordenada. Puede calcularse \(U\) a partir de la relación:
+\end{itemize}
+
+\[
+U=W-\frac{n_{2}\left(n_{2}+1\right)}{2}
+\]
+
+donde \(W\) es la suma de los rangos de las observaciones \(y_{j}\)
+
+\[
+W=\sum_{j=1}^{n_{2}} r\left(y_{j}\right)
+\]
+
+Este estadístico \(W\) para comparar dos poblaciones fue propuesto por Wilcoxon pero, por la relación anterior, es equivalente al estadístico \(U\) de Mann-Whitney.
+
+\begin{itemize}
+\tightlist
+\item
+  Si no existen ligaduras o empates, la relación entre el estadístico de Wilcoxon \(W\) (suma de rangos correspondientes a las observaciones \(Y\)) y el estadístico \(U\) de Mann-Whitney (número de veces que \(x_{i}<y_{j}\) en la muestra conjunta ordenada) es
+\end{itemize}
+
+\[
+W=\frac{n_{2}\left(n_{2}+1\right)}{2}+U
+\]
+
+Si \(W^{\prime}\) es la suma de los rangos correspondientes a las observaciones \(X\), entonces
+
+\[
+W+W^{\prime}=\frac{\left(n_{1}+n_{2}\right)\left(n_{1}+n_{2}+1\right)}{2}
+\]
+
+De modo que, si \(U^{\prime}\) es el número de veces que \(y_{j}<x_{i}\), se obtiene
+
+\[
+U+U^{\prime}=n_{1} n_{2} \quad W^{\prime}=\frac{n_{1}\left(n_{1}+1\right)}{2}+U^{\prime}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Para muestras ``grandes'' puede utilizarse el hecho de que, bajo \(H_{0}\), el estadístico \(U\) es asintóticamente normal:
+\end{itemize}
+
+\[
+U \sim A N\left(\mu_{U}, \sigma_{U}\right), \quad \mu_{U}=\frac{n_{1} n_{2}}{2}, \quad \sigma_{U}^{2}=\frac{n_{1} n_{2}\left(n_{1}+n_{2}+1\right)}{12}
+\]
+
+y, por tanto, para \(n_{1}>10\) o \(n_{2}>10\) podemos basarnos en el estadístico de contraste
+
+\[
+Z=\frac{U-n_{1} n_{2} / 2}{\sqrt{n_{1} n_{2}\left(n_{1}+n_{2}+1\right) / 12}} \sim N(0,1)
+\]
+
+\subsubsection{Ejemplo 6}\label{ejemplo-6-1}
+
+Para comparar la resistencia en \(\mathrm{kg} / \mathrm{cm}^{2}\) de un material suministrado por dos proveedores se midieron dos muestras de varios elementos:
+
+Proveedor A 202, 229, 215, 220, 223, 233, 208, 228, 209\\
+Proveedor B 221, 207, 185, 203, 187, 190, 195, 204, 212
+
+Con un nivel de significación del 0.05, indique si existen diferencias entre los materiales suministrados por los dos proveedores.
+
+\textbf{Solución}:
+
+Ahora utilizaremos la función \texttt{wilcox.test} con los dos vectores de datos, teniendo en cuenta que son independientes, que es la opción por defecto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pro.A}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{202}\NormalTok{,}\DecValTok{229}\NormalTok{,}\DecValTok{215}\NormalTok{,}\DecValTok{220}\NormalTok{,}\DecValTok{223}\NormalTok{,}\DecValTok{233}\NormalTok{,}\DecValTok{208}\NormalTok{,}\DecValTok{228}\NormalTok{,}\DecValTok{209}\NormalTok{)}
+\NormalTok{pro.B}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{221}\NormalTok{,}\DecValTok{207}\NormalTok{,}\DecValTok{185}\NormalTok{,}\DecValTok{203}\NormalTok{,}\DecValTok{187}\NormalTok{,}\DecValTok{190}\NormalTok{,}\DecValTok{195}\NormalTok{,}\DecValTok{204}\NormalTok{,}\DecValTok{212}\NormalTok{)}
+\FunctionTok{wilcox.test}\NormalTok{(pro.A,pro.B,}\AttributeTok{alternative=}\StringTok{"two.sided"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum exact test
+## 
+## data:  pro.A and pro.B
+## W = 70, p-value = 0.007775
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+No debemos dejarnos confundir por la notación.
+
+El estadístico calculado es el que hemos denominado \(U^{\prime}=70>n_{1} n_{2} / 2=40.5\). En cualquier caso, el p-valor es muy explícito e implica el rechazo de la hipótesis nula de equivalencia.
+
+\subsection{Comparación de medianas}\label{comparaciuxf3n-de-medianas}
+
+Consideremos una situación en la que se desea comparar dos poblaciones continuas con distribuciones de igual forma y tratar de detectar desplazamientos entre ambas distribuciones.
+Sean \(x_{1}, \ldots, x_{n_{1}} \mathrm{i} y_{1}, \ldots, y_{n_{2}}\) dos muestras aleatorias correspondientes a cada población e independientes entre sí. Si se ordenan conjuntamente ambas muestras en orden creciente y se considera la mediana \(M\) de la muestra combinada, podemos calcular el estadístico
+
+\[
+T=\sum_{i=1}^{n_{1}} I_{x_{i}<M}
+\]
+
+que sirve para contrastar la hipótesis \(H_{0}: M_{X}=M_{Y}\).
+Si ambas poblaciones tienen la misma distribución, es de esperar que \(T\) sea próximo a \(n_{1} / 2\). En cambio, si \(T\) resulta mucho mayor que \(n_{1} / 2\), es razonable suponer que la mediana \(M_{X}\) de la primera población es inferior a la de la segunda \(M_{Y}\); mientras que si \(T\) es mucho menor que \(n_{1} / 2\), ello parece indicar que \(M_{X}\) es superior a \(M_{Y}\). Las regiones críticas son:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Se puede comprobar el comprobar el funcionamiento funcionamiento de la prueba Jide la prueba Jicuadrado para para verificar la de bondad de entre ajuste entre unas frecuencias observadas y unas y proporciones teóricas. toricas.
+Alternativa
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Región crítica
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
+\(M_{X}<M_{Y}\) & \(\{T \geq k\}\) \\
+\(M_{X}>M_{Y}\) & \(\left\{T \leq k^{\prime}\right\}\) \\
+\(M_{X} \neq M_{Y}\) & \(\left\{T \leq k_{1}\right\} \cup\left\{T \geq k_{2}\right\}\) \\
 \end{longtable}
 
-\subsubsection{Condiciones de validez.}\label{condiciones-de-validez.}
-
-Es un contraste asintótico que requiere para su validez que las frecuencias esperadas ( \(\mathrm{N} \cdot \mathrm{p}_{\mathrm{i}}\) ) sean suficientemente grandes, en general se pide que sean superiores a \(\mathbf{5}\). Caso de no verificarse esta premisa será necesario ampliar la muestra para incrementar las frecuencias esperadas, o en su defecto agrupar clases para lograr el mismo objetivo.
-
-El siguiente Applet nos permite verificar la correcta aproximación del contraste a través de unas simulaciones de lanzamientos de un dado con frecuencias teóricas de cada cara seleccionadas por nosotros. La simulación se realiza según la frecuencia teórica, por tanto el resultado correcto del contraste debe ser aceptar la hipótesis nula (la distribución de frecuencias teóricas). Los posibles errores deberían corresponder con los previstos según el nivel de significación.
-
-\subsection{Análisis de Tablas de contingencia.}\label{anuxe1lisis-de-tablas-de-contingencia.}
-
-Una tabla de contingencia bidimensional es una clasificación de observaciones muestrales según dos características cualitativas, cada una de ellas con un número determinado de posibles resultados. Una de las características determina las filas de la tabla y la otra las columnas.
-
-Característica B
-\textbar{} Característica A \textbar{} \textbar{} \(\mathrm{B}_{1}\) \textbar{} \(\mathrm{B}_{2}\) \textbar{} \(\dots\) \textbar{} \(\mathrm{B}_{m}\) \textbar{} Total \textbar{}
-\textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{}
-\textbar{} \textbar{} \(\mathrm{A}_{1}\) \textbar{} \(n_{11}\) \textbar{} \(n_{12}\) \textbar{} \(\dots\) \textbar{} \(n_{1 m}\) \textbar{} \(n_{1}\). \textbar{}
-\textbar{} \textbar{} \(\mathrm{A}_{2}\) \textbar{} \(n_{21}\) \textbar{} \(n_{22}\) \textbar{} \(\dots\) \textbar{} \(n_{2 m}\) \textbar{} \(n_{2}\). \textbar{}
-\textbar{} \textbar{} \(\dots\) \textbar{} \(\dots\) \textbar{} \(\dots\) \textbar{} \(\dots\) \textbar{} \(\dots\) \textbar{} \(\dots\) \textbar{}
-\textbar{} \textbar{} \(\mathrm{A}_{k}\) \textbar{} \(n_{k 1}\) \textbar{} \(n_{k 2}\) \textbar{} \(\dots\) \textbar{} \(n_{k m}\) \textbar{} \(n_{k}\). \textbar{}
-\textbar{} \textbar{} Total \textbar{} \(n \cdot 1\) \textbar{} \(n \cdot 2\) \textbar{} \(\dots\) \textbar{} \(n_{\cdot m}\) \textbar{} \(N\) \textbar{}
-
-Si la muestra corresponde a una única población y los individuos se clasifican según dos variables cualitativas medidas sobre cada uno de ellos con k y m posibles resultados para cada variable, el objetivo del análisis de la tabla será determinar si existe relación entre las variables, se tratará de una prueba de Independencia.
-
-Si por el contrario, cada fila corresponde a una muestra de una población diferente y sobre cada individuo se mide una variable cualitativa, el objetivo será determinar si las diferentes poblaciones son homogéneas respecto la característica estudiada, se trata de una prueba de Homogeneidad entre las poblaciones.
-
-La diferencia fundamental entre ambos enfoques es que en la tabla para la prueba de homogeneidad los totales de las filas no son aleatorios sino que son valores fijos.
-
-\subsubsection{Pruebas de independencia.}\label{pruebas-de-independencia.}
-
-El objetivo es verificar si existe una dependencia entre las variables cualitativas que definen filas y columnas, es decir si para todo \(\mathrm{i}=1, \ldots, \mathrm{k}\) y \(\mathrm{j}=1, . ., \mathrm{m}\) se verifica que la probabilidad del resultado correspondiente a la combinación \(\mathrm{A}_{\mathrm{i}} \cap \mathrm{B}_{\mathrm{j}}\) es el producto de las probabilidades marginales correspondientes. \(\mathrm{P}\left(\mathrm{A}_{\mathrm{i}}\right)\) es la probabilidad del resultado i para la variable fila y \(\mathrm{P}\left(\mathrm{B}_{\mathrm{j}}\right)\) la del resultado j para la variable columna.
+Si la distribución de ambas poblaciones es la misma, la distribución de \(T\) puede obtenerse con facilidad. Dado que las \(n_{1}+n_{2}\) observaciones son independientes
+e idénticamente distribuidas, las \(\binom{n_{1}+n_{2}}{n_{1}}\) formas de asignar \(n_{1}\) a la primera muestra (y las restantes \(n_{2}\) a la segunda) son equiprobables. Si \(p\) es la parte entera de \(\left(n_{1}+n_{2}\right) / 2\), existen \(p\) de las \(n_{1}+n_{2}\) observaciones inferiores a \(M\) y se tendrá \(T=t\) en todas aquellas asignaciones en las que resulten \(t\) observaciones de la primera muestra de entre las \(p\) primeras y \(n_{1}-t\) entre las \(n_{1}+n_{2}-p\) últimas. Así
 
 \[
-\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}} \cap \mathrm{~B}_{\mathrm{j}}\right)=\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right)
+P(T=t)=\frac{\binom{p}{t}\binom{n_{1}+n_{2}-p}{n_{1}-t}}{\binom{n_{1}+n_{2}}{n_{1}}}
 \]
 
-Utilizaremos generalmente la notación más simplificada:
+donde \(t\) puede variar entre \(\max \left\{0, p-n_{2}\right\}\) y \(\min \left\{n_{1}, p\right\}\). Se trata, por tanto, de una distribución hipergeométrica que puede aproximarse, si \(n_{1}\) y \(n_{2}\) son grandes, por una \(N\left(n_{1} / 2, \sqrt{n_{1} n_{2} / 4\left(n_{1}+n_{2}\right)}\right)\).
+
+\subsubsection{Ejemplo 7}\label{ejemplo-7-1}
+
+Con los datos del ejemplo anterior, calcule el estadístico \(\chi^{2}\) y compare las medianas de las dos muestras.
+
+\textbf{Solución}:
+
+Como ya sabemos, la mediana común de las dos muestras es \(M=208.5\). Entonces la tabla para el test de homogeneidad es
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+& Pro. A & Pro. B & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+valores inferiores & 2 & 7 & 9 \\
+valores superiores & 7 & 2 & 9 \\
+Total & 9 & 9 & \\
+\end{longtable}
+
+Así, debemos calcular el estadístico ji-cuadrado con la corrección de Yates
 
 \[
-\begin{gathered}
-\mathrm{P}\left(\mathrm{~A}_{\mathrm{i}} \cap \mathrm{~B}_{\mathrm{j}}\right)=\mathrm{p}_{\mathrm{ij}} \\
-\mathrm{P}\left(\mathrm{~A}_{\mathrm{j}}\right)=\mathrm{p}_{\mathrm{i}} \cdot \\
-\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right)=\mathrm{p} \cdot \mathrm{j}
-\end{gathered}
+\chi^{2}=\frac{(|2 \cdot 2-7 \cdot 7|-18 / 2)^{2}}{9 \cdot 9 \cdot 9 \cdot 9} 18=3.556
 \]
 
-Los valores de \(\mathrm{p}_{\mathrm{i}} \cdot \mathrm{y} \mathrm{p} \cdot \mathrm{j}\) serán estimados, a partir de los valores observados en la tabla de contingencia, por
-\(n_{i} \cdot / N\) y \(n_{\cdot j} / N\) respectivamente.
-Hipótesis nula de independencia: para toda combinación de resultados de las variables fila y columna (i,j)
+Con un grado de libertad y para un nivel de significación del 0.05 , la región crítica comienza en \(\chi_{0.05}^{2}=3.841\), de modo que podemos aceptar la hipótesis nula.
+
+Con tamaños muestrales grandes, el test ji-cuadrado es preferible si no se tiene constancia de que la forma de ambas distribuciones sea la misma, ya que el test \(T\) anterior tiende a aceptar la homogeneidad si \(M_{X}=M_{Y}\) aunque la forma de las distribuciones sea diferente.
+Por la misma razón, es preferible el test de Kolmogorov-Smirnov que se explica en la sección siguiente.
+
+Observemos el cálculo de la mediana conjunta con \texttt{median(c(pro.A,pro.B))}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{T}\OtherTok{\textless{}{-}}\FunctionTok{length}\NormalTok{(pro.A[pro.A}\SpecialCharTok{\textless{}}\FunctionTok{median}\NormalTok{(}\FunctionTok{c}\NormalTok{(pro.A,pro.B))])}
+\NormalTok{T}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{phyper}\NormalTok{(T,}\DecValTok{9}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02834225
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{phyper}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02834225
+\end{verbatim}
+
+La distribución hipergeométrica permite encontrar los límites de la región crítica.
+
+Si queremos hacerlo mediante el test ji-cuadrado, en primer lugar debemos introducir las frecuencias de la tabla.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{numero}\OtherTok{\textless{}{-}}\FunctionTok{cbind}\NormalTok{(}\FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{M=}\FunctionTok{c}\NormalTok{(}\StringTok{"inferior a M"}\NormalTok{,}\StringTok{"superior a M"}\NormalTok{),}
+\AttributeTok{grup=}\FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{,}\StringTok{"B"}\NormalTok{)))}
+\NormalTok{fr}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\FunctionTok{attach}\NormalTok{(numero)}
+\NormalTok{taula}\OtherTok{\textless{}{-}}\FunctionTok{table}\NormalTok{(M,grup)}\SpecialCharTok{*}\NormalTok{fr}
+\NormalTok{taula}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               grup
+## M              A B
+##   inferior a M 2 7
+##   superior a M 7 2
+\end{verbatim}
+
+Y con esta tabla calculamos el test de homogeneidad.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{chisq.test}\NormalTok{(taula)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  taula
+## X-squared = 3.5556, df = 1, p-value = 0.05935
+\end{verbatim}
+
+El resultado es la aceptación de la igualdad de medianas. La discrepancia con el ejemplo anterior es posible debido al reducido número de observaciones.
+
+\subsection{Test de Kolmogorov-Smirnov para la homogeneidad}\label{test-de-kolmogorov-smirnov-para-la-homogeneidad}
+
+Cuando disponemos de dos muestras independientes \(x_{1}, x_{2}, \ldots, x_{n_{1}}\) e \(y_{1}, y_{2}, \ldots, y_{n_{2}}\) procedentes de dos poblaciones con distribuciones desconocidas \(F_{X}\) y \(F_{Y}\) respectivamente, y queremos contrastar su coincidencia, es decir, la hipótesis \(H_{0}: F_{X}=F_{Y}\), podemos comparar las distribuciones empíricas asociadas a cada muestra. Esto es posible si conocemos los valores exactos de las observaciones y, en este aspecto, esta comparación es preferible al test ji-cuadrado de homogeneidad, que utiliza frecuencias y necesita muchos datos de cada población.
+
+Las distribuciones empíricas son:
 
 \[
-\mathrm{H}_{0}: \mathrm{p}_{\mathrm{ij}}=\mathrm{p}_{\mathrm{i}} \cdot \mathrm{p} \cdot \mathrm{j} \quad \text { para todo } \quad \mathrm{i}=1, \ldots, \mathrm{k} \quad \mathrm{j}=1, . ., \mathrm{m}
+F_{n_{1}}(z)=\frac{1}{n_{1}} \sum_{i=1}^{n_{1}} I_{x_{i}<z} \quad
+G_{n_{2}}(z)=\frac{1}{n_{2}} \sum_{i=1}^{n_{2}} I_{y_{i}<z}
 \]
 
-La hipótesis alternativa, que implica dependencia, se puede formular diciendo que alguna de las igualdades de la hipótesis nula es falsa.
-
-Los valores observados son \(n_{i j}\). Los valores esperados bajo la hipótesis nula de independencia se calculan de la manera siguiente
+y el estadístico de Kolmogorov-Smirnov es
 
 \[
-e_{i j}=N \cdot \mathrm{p}_{\mathrm{ij}}=N \cdot \mathrm{p}_{\mathrm{i} \cdot} \cdot \mathrm{p}_{\cdot \mathrm{j}}=N \cdot\left(n_{i \cdot} / N\right) \cdot\left(n_{\cdot j} / N\right)=\left(n_{i \cdot} \cdot n_{\cdot j}\right) / N
+\Delta_{n_{1}, n_{2}}=\sup _{z \in \mathbb{R}}\left|F_{n_{1}}(z)-G_{n_{2}}(z)\right|
 \]
 
-El estadístico de contraste se calcula de la forma habitual
+Si la hipótesis \(H_{0}\) es cierta, las dos distribuciones empíricas deben estar muy próximas y la medida global de discrepancia \(\Delta_{n_{1}, n_{2}}\) será pequeña. Por el contrario, cuando \(F_{X} \neq F_{Y}\), el valor de \(\Delta_{n_{1}, n_{2}}\) será mayor, de modo que la región crítica que debemos considerar es de la forma
 
 \[
-\chi_{\exp }^{2}=\sum_{i=1}^{k} \sum_{j=1}^{m} \frac{\left(n_{i j}-e_{i j}\right)^{2}}{e_{i j}}
+\left\{\Delta_{n_{1}, n_{2}}>a\right\}
 \]
 
-La distribución asintótica bajo la hipótesis nula es una \(\chi^{2}\) con \((\mathrm{k}-1) \cdot(\mathrm{m}-1)\) grados de libertad. Los grados de libertad pueden entenderse de forma intuitiva entendiendo que el número de parámetros que se estiman son (k-1) y (m-1) al quedar fijada la probabilidad de la última clase de cada característica una vez estimadas las restantes. Por tanto aplicando la fórmula para los grados de libertad se obtiene
+El test se basa en el Teorema de Smirnov, que afirma lo siguiente:
+
+\emph{Si las distribuciones continuas de las dos poblaciones coinciden \(F_{X}=F_{Y}\) y \(n_{1} \rightarrow \infty, n_{2} \rightarrow \infty\), entonces para cada \(\lambda\)}
 
 \[
-\begin{aligned}
-& \text { grados de libertad }=\text { número de clases }- \text { número de parámetros estimados }-1 \\
-& \qquad \operatorname{grados~de~libertad~}=k \cdot m-(k-1)-(m-1)-1=(k-1) \cdot(m-1)
-\end{aligned}
+P\left(\sqrt{\frac{n_{1} n_{2}}{n_{1}+n_{2}}} \Delta_{n_{1}, n_{2}} \leq \lambda\right)
+\rightarrow
+Q(\lambda)=\sum_{i=-\infty}^{\infty}(-1)^{i} e^{-2 i^{2} \lambda^{2}}
 \]
 
-El criterio de decisión es el mismo que en el caso general:
-Rechazamos la hipótesis nula si
+\emph{donde \(Q(\lambda)\) es la distribución asintótica de Kolmogorov-Smirnov.}
+
+\subsubsection{Ejemplo 8}\label{ejemplo-8-1}
+
+Con los datos del ejemplo 6, calcule el estadístico de Kolmogorov-Smirnov y compare las distribuciones de las dos muestras.
+
+\textbf{Solución}:
+
+Los datos han sido introducidos en los vectores \texttt{pro.A} y \texttt{pro.B}, y el test se calcula mediante la función \texttt{ks.test}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ks.test}\NormalTok{(pro.A,pro.B,}\AttributeTok{alternative=}\StringTok{"two.sided"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Exact two-sample Kolmogorov-Smirnov test
+## 
+## data:  pro.A and pro.B
+## D = 0.66667, p-value = 0.03357
+## alternative hypothesis: two-sided
+\end{verbatim}
+
+En este caso, el p-valor indica el rechazo de la hipótesis nula.
+
+\subsection{\texorpdfstring{Test \(H\) de Kruskal-Wallis}{Test H de Kruskal-Wallis}}\label{test-h-de-kruskal-wallis}
+
+El test \(U\) es un test no paramétrico para decidir si dos muestras independientes proceden o no de la misma población. El test \(H\) de Kruskal-Wallis es una generalización para \(k\) muestras tomadas de \(k\) poblaciones. Así pues, \emph{es una versión no paramétrica de un ANOVA de un factor}.
+
+Consideremos \(k\) muestras de tamaños \(n_{1}, n_{2}, \ldots, n_{k}\) recogidas en las \(k\) poblaciones, tales que \(n_{1}+n_{2}+\cdots+n_{k}=n\). Supongamos que ordenamos todas las observaciones de forma conjunta y calculamos las sumas de rangos para las \(k\) muestras \(R_{1}, R_{2}, \ldots, R_{k}\), respectivamente. Si definimos el estadístico
 
 \[
-\chi_{\exp }^{2} \geq \chi_{\alpha}^{2}
+H=\left(\frac{12}{n(n+1)} \sum_{i=1}^{k} \frac{R_{i}^{2}}{n_{i}}\right)-3(n+1)
 \]
 
-donde el último término es el valor crítico asociado a una distribución \(\chi^{2}\) con \((\mathrm{k}-1) \cdot(\mathrm{m}-1)\) grados de libertad tal que deja a su derecha una probabilidad igual a \(\alpha\).
+se demuestra que, si existe homogeneidad entre las distribuciones de los \(k\) grupos, su distribución muestral está muy próxima a una ji-cuadrado con \(k-1\) grados de libertad cuando los tamaños muestrales \(n_{i}\) son grandes.
 
-La condición de validez es que las frecuencias esperadas \(e_{i j}\) sean mayores que 5 .
+Así, exigiremos siempre que \(n_{1}, n_{2}, \ldots, n_{k}\) sean todos ellos superiores a 5. Para valores pequeños es necesario consultar tablas especiales.
 
-\subsubsection{Violación de las condiciones del contraste.}\label{violaciuxf3n-de-las-condiciones-del-contraste.}
+\subsubsection{Observaciones}\label{observaciones-6}
 
 \begin{itemize}
 \tightlist
 \item
-  Solución óptima: ampliar la muestra.
-\item
-  Solución alternativa: agrupar filas o columnas.
-\item
-  Sin embargo, agrupar filas o columnas significa perder algún resultado experimental que puede ser justamente el importante para la significación del contraste y se reducen los grados de libertad.
+  El estadístico de Kruskal-Wallis puede escribirse en la forma
 \end{itemize}
 
-En tablas \(2 \times 2\) existe una corrección por continuidad (Corrección de Yates).
-
 \[
-\chi_{\exp }^{2}=N \frac{\left(\left|n_{11} n_{22}-n_{12} n_{21}\right|-\frac{N}{2}\right)^{2}}{n_{1} \cdot n_{2} \cdot n_{1} n_{2}}
+H=\frac{12}{n(n+1)} \sum_{i=1}^{k} n_{i}\left(R_{\bullet i}-R_{\bullet \bullet}\right)^{2}
 \]
 
-Si las frecuencias esperadas son demasiado pequeñas, también es posible utilizar el test exacto de Fisher al ser equivalente a la comparación de dos proporciones.
+donde \(R_{\bullet i}=R_{i} / n_{i}\) y \(R_{\bullet \bullet}=(n+1) / 2\). De esta forma, el test basado en \(H\) se asemeja mucho al test \(F\) en un diseño de un factor con réplicas.
 
-\subsection{Pruebas de homogeneidad.}\label{pruebas-de-homogeneidad.}
-
-El objetivo es comprobar si en k poblaciones \(\left(\mathrm{A}_{1}, \ldots, \mathrm{~A}_{\mathrm{k}}\right)\), es idéntica la distribución de probabilidad de una variable cualitativa con m posibles resultados \(\left(\mathrm{B}_{1}, \ldots, \mathrm{~B}_{\mathrm{m}}\right)\). Es decir si se verifica
-
-\[
-\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{1}\right)=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{2}\right)=\cdots=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}} / \mathrm{A}_{\mathrm{k}}\right)=\mathrm{P}\left(\mathrm{~B}_{\mathrm{j}}\right) \quad \text { para todo } \mathrm{j}=1, \ldots, \mathrm{~m}
-\]
-
-La diferencia con el caso de independencia es que los totales de las filas \(n_{i}\). son valores fijos y no aleatorios, y corresponden al número de individuos seleccionados en la muestra pertenecientes a la población i. La estimación de los valores \(\mathrm{P}\left(\mathrm{B}_{\mathrm{j}}\right)\) bajo la hipótesis de homogeneidad se obtiene a partir de la tabla de contingencia a través de \(n_{\cdot j} / N\).
-
-Hipótesis nula de homogeneidad: dadas dos poblaciones cualesquiera i y i' se verifica
+\begin{itemize}
+\tightlist
+\item
+  Si existen observaciones repetidas, el estadístico \(H\) se corrige mediante un factor, de forma que el nuevo estadístico es
+\end{itemize}
 
 \[
-\mathrm{H}_{0}: \mathrm{p}_{\mathrm{ij}}=\mathrm{p}_{\mathrm{i}}{ }^{\prime} \mathrm{j} \quad \text { para todo } \mathrm{j}=1, \ldots, \mathrm{~m}
+H^{\prime}=\frac{H}{1-\frac{\sum_{j=1}^{r}\left(t_{j}^{3}-t_{j}\right)}{n^{3}-n}}
 \]
 
-donde \(\mathrm{p}_{\mathrm{ij}}\) es la probabilidad del resultado j en la población i.
-La hipótesis alternativa (alguna igualdad no es cierta) implica no homogeneidad de las poblaciones.
-Los valores observados son \(n_{i j}\). Los valores esperados bajo la hipótesis nula de homogeneidad se calculan de la manera siguiente
+donde \(t_{j}\) es el número de observaciones repetidas para un rango dado en la muestra combinada y \(r\) es el número de repeticiones. Esta corrección tiene poco efecto sobre el valor de \(H\), incluso en presencia de muchas observaciones repetidas.
 
-\[
-e_{i j}=n_{i} \cdot P\left(\mathrm{~B}_{\mathrm{j}}\right)=n_{i \cdot}\left(n_{\cdot j} / N\right)=\left(n_{i \cdot} \cdot n_{\cdot j}\right) / N
-\]
+\subsubsection{Ejemplo 9}\label{ejemplo-9-1}
 
-Resultado idéntico al obtenido en el caso del contraste de independencia.
-El estadístico de contraste se calcula de forma análoga
+Se desea comparar el peso en gramos de un producto envasado por tres fabricantes, con muestras de tamaño 6 en los tres casos.
 
-\[
-\chi_{\exp }^{2}=\sum_{i=1}^{k} \sum_{j=1}^{m} \frac{\left(n_{i j}-e_{i j}\right)^{2}}{e_{i j}}
-\]
+\begin{longtable}[]{@{}llllllll@{}}
+\toprule\noalign{}
+Fabr. \(A\) & 251 & 250 & 249 & 255 & 258 & 258 & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Fabr. \(B\) & 247 & 246 & 250 & 241 & 240 & 242 & \\
+Fabr. \(C\) & 228 & 236 & 240 & 225 & 236 & 230 & \\
+\end{longtable}
 
-La distribución asintótica bajo la hipótesis nula es una \(\chi^{2}\) con \((\mathrm{k}-1) \cdot(\mathrm{m}-1)\) grados de libertad. Los grados de libertad pueden entenderse de forma intuitiva entendiendo que el número de parámetros que se estiman son (m-1) al quedar fijada la probabilidad de la última clase \(\mathrm{B}_{\mathrm{j}}\) una vez estimadas las restantes, y al considerar que existen k restricciones a los valores esperados debido a que tenemos fijados los totales de cada población. Por tanto aplicando la fórmula para los grados de libertad se obtiene
-grados de libertad \(=\) número de clases - número de parámetros estimados - número de restricciones
+Estudie si existen diferencias entre los tres fabricantes utilizando el test de Kruskal-Wallis.
 
-\[
-\operatorname{grados~de~libertad~}=(\mathrm{k} \cdot \mathrm{~m})-(\mathrm{m}-1)-\mathrm{k}=(\mathrm{k}-1) \cdot(\mathrm{m}-1)
-\]
+\textbf{Solución}:
 
-El criterio de decisión es el mismo que en el contraste de independencia.
+Para realizar el test de Kruskal-Wallis utilizamos la función \texttt{kruskal.test}, que proporciona el estadístico \(H\) o, si es necesario, como en este caso, el estadístico corregido \(H^{\prime}\).
 
-La condición de validez es que las frecuencias esperadas \(e_{i j}\) sean mayores que 5 .
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pes}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{251}\NormalTok{,}\DecValTok{250}\NormalTok{,}\DecValTok{249}\NormalTok{,}\DecValTok{255}\NormalTok{,}\DecValTok{258}\NormalTok{,}\DecValTok{258}\NormalTok{,}\DecValTok{247}\NormalTok{,}\DecValTok{246}\NormalTok{,}\DecValTok{250}\NormalTok{,}\DecValTok{241}\NormalTok{,}\DecValTok{240}\NormalTok{,}\DecValTok{242}\NormalTok{,}
+\DecValTok{228}\NormalTok{,}\DecValTok{236}\NormalTok{,}\DecValTok{240}\NormalTok{,}\DecValTok{225}\NormalTok{,}\DecValTok{236}\NormalTok{,}\DecValTok{230}\NormalTok{)}
+\NormalTok{fabr}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{6}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+\FunctionTok{kruskal.test}\NormalTok{(pes,fabr)}
+\end{Highlighting}
+\end{Shaded}
 
-\subsection{La distribución Multinomial}\label{la-distribuciuxf3n-multinomial-1}
+\begin{verbatim}
+## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  pes and fabr
+## Kruskal-Wallis chi-squared = 14.396, df = 2, p-value = 0.0007482
+\end{verbatim}
 
-Este modelo se puede ver como una generalización del Binomial en el que, en lugar de tener dos posibles resultados, tenemos \(r\) resultados posibles.
+El p-valor es suficientemente significativo como para rechazar la hipótesis nula.
 
-Supongamos que el resultado de una determinada experiencia puede ser \(r\) valores distintos: \(A_{1}, A_{2}, \ldots\), \(A_{r}\) cada uno de ellos con probabilidad \(p_{1}, p_{2}, \ldots, p_{r}\), respectivamente.
+\subsection{Test de Friedman}\label{test-de-friedman}
 
-\[
-P\left(A_{1}\right)=p_{1} ; \quad P\left(A_{2}\right)=p_{2} ; \quad \ldots . \quad P\left(A_{r}\right)=p_{r} ; \quad \text { con } \sum_{i=1}^{r} P\left(A_{i}\right)=1 ;
-\]
-
-Si repetimos la experiencia \(n\) veces en condiciones independientes, podemos preguntarnos la probabilidad de que el suceso \(A_{1}\) aparezca \(k_{1}\) veces, el suceso \(A_{2}, k_{2}\) veces y así sucesivamente:
-
-\[
-P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]
-\]
-
-Al modelo estadístico que nos da dicha probabilidad se le denomina Multinomial, y su función de densidad viene dada por:
-
-\[
-\begin{gathered}
-f\left(k_{1}, k_{2}, \ldots, k_{r}\right)=P\left[\left(A_{1}=k_{1}\right) \cap\left(A_{1}=k_{2}\right) \cap \cdots \cap\left(A_{r}=k_{r}\right)\right]=\frac{n!}{k_{1}!k!\cdots k_{r}!} p_{1}^{k_{1}} p_{2}^{k_{2}} \cdots p_{r}^{k_{r}} \\
-\operatorname{con} \sum_{i=1}^{r} P\left(A_{i}\right)=1 \quad \mathbf{y} \quad \sum_{i=1}^{r} k_{i}=n ;
-\end{gathered}
-\]
-
-como se ve, el modelo Multinomial queda definido por los parámetros \(\left(n, p_{1}, p_{2}, \ldots, p_{r}\right)\). La fórmula anterior puede deducirse de forma análoga al caso Binomial. En realidad, si tomamos \(r=2\) tenemos exactamente el modelo Binomial.
-
-Se debe destacar que este modelo es un ejemplo de distribución multivariante, es decir, de distribución conjunta de varias ( \(r\) ) variables aleatorias. En efecto, si definimos la variable aleatoria \(X_{1}\) como número de veces que se produce el suceso \(A_{1}\) de un total de n experiencias, y así sucesivamente, tenemos un conjunto de \(r\) variables aleatorias discretas cuya función de densidad conjunta (valorada a la vez) viene definida por la anterior fórmula. Nótese que si consideramos cada una de estas variables \(X_{i}(i=1,2, \ldots, r)\) por separado, su distribución es la Binomial de parámetros \(n\) y \(p_{i}\).
-
-\subsection{La distribución Binomial}\label{la-distribuciuxf3n-binomial-1}
-
-Al igual que el modelo de Bernouilli, hace referencia a experiencias con resultados dicotómicos (el resultado sólo puede ser \(A\) o \(A^{c}\) ). Sin embargo en este modelo estamos interesados en la repetición de \(n\) veces una experiencia de este tipo en condiciones independientes.
-
-Tomemos el ejemplo del contaje del número de caras en el lanzamiento \(n\) veces de una moneda regular.
-Para concretar, vamos a suponer que disponemos de una moneda regular ( \(P[\) cara \(]=P[\) cruz \(]=1 / 2\) ) que lanzamos cuatro veces. Es evidente que, en estas condiciones, la variable \(X\) : número de caras en cuatro lanzamientos independientes de una moneda regular es una variable aleatoria discreta que sólo puede tomar cinco posibles valores:
-
-\[
-x=0,1,2,3,4
-\]
-
-Pasemos ahora a calcular la probabilidad de cada valor (en terminología estadística, vamos a calcular la función de densidad de la variable \(X\) ).
-
-Es evidente que la \(P[X=0]\) es igual a la probabilidad de salgan cuatro cruces seguidas:
-
-\[
-P[X=0]=P[c r u z, c r u z, c r u z, c r u z]=\mathrm{P}[c r u z]^{4}=(1 / 2)^{4}=0,0625
-\]
-
-ya que la moneda es regular y, por tanto, \(P[\) cara \(]=P[\) cruz \(]=1 / 2\).
-La \(P[X=3]\) corresponde al suceso de que salgan tres caras ( \(c\) en adelante) y una cruz ( + en adelante). Sin embargo, en este caso tenemos hasta cuatro posibles maneras de obtener dicho resultado, según el orden en que aparezcan las tres caras y la cruz:
+Este test está pensado para comprobar si existen diferencias significativas entre \(k\) tratamientos o condiciones experimentales aplicados a \(n\) individuos.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\centering\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-+ccc
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\(\mathrm{c}+\mathrm{cc}\)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\(\mathrm{cc}+\mathrm{c}\)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\(\mathrm{ccc}+\)
+\begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Tratamiento
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
+Individuo & 1 & 2 & \(\ldots\) & \(j\) & \(\ldots\) & \(k\) \\
+1 & \(x_{11}\) & \(x_{12}\) & \(\ldots\) & \(x_{1 j}\) & \(\ldots\) & \(x_{1 k}\) \\
+2 & \(x_{21}\) & \(x_{22}\) & \(\ldots\) & \(x_{2 j}\) & \(\ldots\) & \(x_{2 k}\) \\
+\(\vdots\) & \(\vdots\) & \(\vdots\) & & \(\vdots\) & & \(\vdots\) \\
+\(n\) & \(x_{n 1}\) & \(x_{n 2}\) & \(\ldots\) & \(x_{n j}\) & \(\ldots\) & \(x_{n k}\) \\
 \end{longtable}
 
-También debería resultar evidente que la probabilidad de cada uno de estos sucesos es la misma:
+Los individuos deben escogerse al azar y de forma independiente, de modo que las filas son independientes entre sí. Sin embargo, como los individuos son los mismos, las columnas son dependientes.
+
+El test de Friedman sirve para comprobar si existen diferencias entre los \(k\) tratamientos (efecto columna), en presencia de efectos individuales (efecto fila). \emph{Es una versión no paramétrica del diseño de dos factores sin interacción}.
+
+La hipótesis nula es la igualdad de respuesta o de efecto de los diferentes tratamientos, mientras que la alternativa es que existen, al menos, dos tratamientos con respuesta diferente.
+
+Para calcular el estadístico no paramétrico, para cada fila por separado se asignan los rangos correspondientes a los valores observados. Una vez convertida la tabla original en rangos, se calculan las sumas de rangos \(R_{j}\) para cada columna o tratamiento \(j=1, \ldots, k\). El estadístico es
 
 \[
-P[+c c c]=P[c+c c]=P[c c+c]=P[c c c+]=(1 / 2)^{4}=(1 / 2)^{4}=0,0625,
+S=\frac{12}{n k(k+1)} \sum_{j=1}^{k} R_{j}^{2}-3 n(k+1)
 \]
 
-de manera que, finalmente, la probabilidad de que salgan tres caras y una cruz es la suma de las probabilidades de los 4 casos anteriores:
+La distribución aproximada de \(S\) para valores grandes de \(n\) es una ji-cuadrado con \(k-1\) grados de libertad. Para valores muy pequeños de \(n\) (\(n<10\)) es necesario consultar tablas especiales. La región crítica es de la forma \(\{S \geq c\}\).
+
+Cuando existen ligaduras en una fila, deben promediarse los rangos de los valores repetidos y calcular el estadístico de Friedman modificado mediante un factor de corrección
 
 \[
-P[X=3]=4(1 / 2)^{4}=0,25
+S^{\prime}=\frac{12 \sum_{j=1}^{k} R_{j}^{2}-3 n^{2} k(k+1)^{2}}{n k(k+1)-\frac{1}{k-1} \sum_{i=1}^{n}\left\{\sum_{j=1}^{g_{i}} t_{i j}^{3}-k\right\}}
 \]
 
-Y así podríamos ir calculando el resto de casos. Podemos ver que, en este ejemplo, todos los casos tienen la misma probabilidad \((0,0625)\) y que el número total de casos posibles es 16 . En términos de combinatoria dicho número se obtendría como variaciones con repetición de dos valores (cara o cruz) tomados de cuatro en cuatro (el número de lanzamientos de la moneda):
+donde \(g_{i}\) es el número de grupos de observaciones ligadas en la fila \(i\) y \(t_{i j}\) es el número de observaciones ligadas en el grupo \(j\) de la fila \(i\). Cuando no hay ligaduras se considera, por convenio, que \(g_{i}=k\) y \(t_{i j}=1\), y entonces el término de corrección para el individuo \(i\) es \(k-k=0\). Si esto ocurre en todas las filas, entonces \(S^{\prime}=S\).
 
-\[
-V R_{2}^{4}=2^{4}=16
-\]
+\subsubsection{Ejemplo 10}\label{ejemplo-10-1}
 
-En la siguiente tabla se muestran los dieciséis posibles resultados:
+Se ha consultado a un grupo de 12 personas para que opinen sobre cinco marcas de champú. En concreto, sus clasificaciones se recogen en la siguiente tabla.
 
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}cccccc@{}}
 \toprule\noalign{}
-k = número de caras & Casos \\
+& Champú & & & & \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0 & ++++ \\
-1 & +++C \\
-& ++C+ \\
-& +C++ \\
-& C+++ \\
-2 & ++CC \\
-& \(+\mathrm{c}+\mathrm{c}\) \\
-& +CC+ \\
-& C++C \\
-& C+C+ \\
-& CC++ \\
-3 & CCC+ \\
-& CC+C \\
-& C+CC \\
-& +CCC \\
-4 & CCCC \\
+Ind. & \(A\) & \(B\) & \(C\) & \(D\) & \(E\) \\
+1 & 5 & 3 & 2 & 4 & 1 \\
+2 & 4 & 3 & 5 & 2 & 1 \\
+3 & 3 & 5 & 4 & 2 & 1 \\
+4 & 4 & 5 & 1 & 2 & 3 \\
+5 & 3 & 4 & 5 & 1 & 2 \\
+6 & 5 & 3 & 4 & 2 & 1 \\
+7 & 2 & 5 & 4 & 3 & 1 \\
+8 & 3 & 5 & 4 & 1 & 2 \\
+9 & 3 & 4 & 5 & 2 & 1 \\
+10 & 4 & 5 & 3 & 1 & 2 \\
+11 & 5 & 3 & 2 & 4 & 1 \\
+12 & 5 & 4 & 3 & 2 & 1 \\
 \end{longtable}
 
-Si hacemos uso de nuestros conocimientos de combinatoria, comprobamos que el número de casos para cada posible valor \(k(k=0,1,2,3,4)\) puede calcularse como permutaciones con repetición de cuatro elementos tomado de \(k\) y \(4-k\) :
+Determine si existen diferencias significativas entre las puntuaciones otorgadas a los champús.
+
+\textbf{Solución}:
+
+El test de Friedman se aplica mediante la función \texttt{friedman.test}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nota}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}
+\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}
+\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{,}
+\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{individu}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{),}
+\FunctionTok{rep}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{5}\NormalTok{),}
+\FunctionTok{rep}\NormalTok{(}\DecValTok{7}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{8}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{5}\NormalTok{),}
+\FunctionTok{rep}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{11}\NormalTok{,}\DecValTok{5}\NormalTok{),}\FunctionTok{rep}\NormalTok{(}\DecValTok{12}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\NormalTok{xampu}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{),}\DecValTok{12}\NormalTok{))}
+\FunctionTok{friedman.test}\NormalTok{(nota,xampu,individu)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Friedman rank sum test
+## 
+## data:  nota, xampu and individu
+## Friedman chi-squared = 25.533, df = 4, p-value = 3.929e-05
+\end{verbatim}
+
+El p-valor indica claramente la significación de las diferencias.
+
+\subsubsection{Observaciones}\label{observaciones-7}
+
+\begin{itemize}
+\tightlist
+\item
+  Puede verse que
+\end{itemize}
 
 \[
-R P_{4}^{k, 4-k}=\frac{4!}{k!(4-k)!}=\binom{4}{k}
+S=\frac{12 n}{k(k+1)} \sum_{j=1}^{k}\left(R_{\bullet j}-R_{\bullet \bullet}\right)^{2}
 \]
 
-y obtenemos finalmente el número combinatorio 4 sobre \(k\). En efecto, para el caso \(k=3\), tendríamos:
+donde \(R_{\bullet j}=R_{j} / n\) y \(R_{\bullet \bullet}=(k+1) / 2\). Esto pone de manifiesto la relación de este test con el test \(F\) para detectar el efecto columna en el diseño de dos factores sin interacción.
+
+\subsection{Coeficientes de correlación no paramétricos}\label{coeficientes-de-correlaciuxf3n-no-paramuxe9tricos}
+
+En esta sección presentamos dos coeficientes no paramétricos que permiten medir la dependencia estocástica de dos muestras apareadas en poblaciones continuas.
+
+También estamos interesados en los contrastes de independencia que pueden formularse a partir de estos coeficientes.
+
+\subsubsection{\texorpdfstring{Coeficiente \(\tau\) de Kendall}{Coeficiente \textbackslash tau de Kendall}}\label{coeficiente-tau-de-kendall}
+
+Consideremos una muestra aleatoria simple \((x_{1}, y_{1}), \ldots, (x_{n}, y_{n})\) procedente de una distribución bidimensional. Sabemos que la frecuencia relativa de los pares tales que \((x_{i}-x_{j})(y_{i}-y_{j})>0\) es un estimador del parámetro
 
 \[
-\binom{4}{3}=\frac{4!}{3!1!}=4
+\pi_{+}=P\left\{(X-X^{\prime})(Y-Y^{\prime})>0\right\}
 \]
 
-que son los cuatro posibles casos que nos dan tres caras y una cruz.
-Finalmente, recordando que todos los casos tienen la misma probabilidad, se construye la siguiente tabla:
+donde \((X, Y)\) y \((X^{\prime}, Y^{\prime})\) son independientes y tienen la misma distribución conjunta poblacional.
+La continuidad de las distribuciones implica que
 
-\begin{longtable}[]{@{}ccc@{}}
+\[
+P\left\{(X-X^{\prime})(Y-Y^{\prime})=0\right\}=0
+\]
+
+de modo que
+
+\[
+\pi_{-}=P\left\{(X-X^{\prime})(Y-Y^{\prime})<0\right\}=1-\pi_{+}
+\]
+
+Entonces,
+
+\[
+\tau=\pi_{+}-\pi_{-}=2\pi_{+}-1
+\]
+
+es el llamado \textbf{coeficiente de asociación de Kendall}, y mide, en cierto modo, la dependencia entre las variables. De hecho, si \(X\) e \(Y\) son independientes,
+
+\[
+\begin{aligned}
+\pi_{+} & =P(X<X^{\prime})P(Y<Y^{\prime})+P(X>X^{\prime})P(Y>Y^{\prime}) \\
+& =P(X>X^{\prime})P(Y<Y^{\prime})+P(X<X^{\prime})P(Y>Y^{\prime})=\pi_{-}
+\end{aligned}
+\]
+
+de forma que \(\tau=0\). El recíproco no es cierto: puede ocurrir que \(\tau=0\) sin que necesariamente las variables \(X\) e \(Y\) sean independientes.
+
+Si \(P\) y \(N\) representan el número de pares tales que \((x_{i}-x_{j})(y_{i}-y_{j})>0\) y \((x_{i}-x_{j})(y_{i}-y_{j})<0\), respectivamente, entre las \(\binom{n}{2}\) posibles, el estimador natural de \(\tau\) es
+
+\[
+T=\frac{P}{\binom{n}{2}}-\frac{N}{\binom{n}{2}}=\frac{2}{n(n-1)}(P-N)
+\]
+
+Además, dado que \(P+N=\binom{n}{2}\), se obtiene
+
+\[
+T=\frac{4P}{n(n-1)}-1
+\]
+
+Para una muestra concreta, \(P\) se calcula fácilmente ordenando la muestra según la primera componente: es el número de pares con \(i<j\) tales que \(y_{i}<y_{j}\).
+
+El estadístico \(T\) toma valores entre \(-1\) y \(1\), y un valor alejado de cero indica que \(\tau \neq 0\) y, por tanto, que las variables \(X\) e \(Y\) no son independientes.
+
+La distribución exacta de \(T\) puede calcularse para valores moderados de \(n\). Para \(n \leq 10\) existen tablas de valores críticos tales que \(P(|T|>k_{\alpha}) \leq \alpha\). Para \(n>10\) puede considerarse la aproximación
+
+\[
+T \sim N\left(0, \sigma_K^2\right),
+\]
+dond \(\displaystyle{\sigma_K^2 =\frac{2(2n+5)}{9n(n-1)}}\) es la varianza asintótica del estadístico \(T\).
+
+\subparagraph{Ejemplo 14}\label{ejemplo-14}
+
+La longitud y la anchura de una muestra de 11 hojas de una determinada planta son:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 22\tabcolsep) * \real{0.0833}}@{}}
 \toprule\noalign{}
-\(k=\) número de caras & Número de casos & \(P[X=k]\) \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Hoja
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+8
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+9
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+10
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+11
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0 & 1 & 0,0625 \\
-1 & 4 & 0,2500 \\
-& & \\
+Long. & 6.60 & 7.11 & 9.80 & 6.62 & 7.10 & 6.83 & 6.54 & 7.14 & 7.13 & 12.52 & 10.41 \\
+Anch. & 4.24 & 5.41 & 5.26 & 5.53 & 3.25 & 4.22 & 3.98 & 3.29 & 3.43 & 5.57 & 6.01 \\
 \end{longtable}
 
-La distribución Binomial
+Calcule el coeficiente de correlación de Kendall y estudie si es significativo.
 
-\begin{longtable}[]{@{}ccc@{}}
-\toprule\noalign{}
-2 & 6 & 0,3750 \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-3 & 4 & 0,2500 \\
-4 & 1 & 0,0625 \\
-Total & 16 & 1 \\
-\end{longtable}
+\textbf{Solución}:
+
+Para el cálculo de los coeficientes de correlación se utiliza la función \texttt{cor.test} con el parámetro \texttt{method} y el valor \texttt{"pearson"}, \texttt{"kendall"} o \texttt{"spearman"}, según si deseamos el coeficiente clásico de Pearson, la \(\tau\) de Kendall o el coeficiente por rangos de Spearman.
+
+Observemos, no obstante, que estrictamente esta función no sirve para calcular los coeficientes, sino para contrastar la hipótesis de que el coeficiente correspondiente es cero. Sin embargo, como el primer paso que realiza la función es el cálculo del coeficiente, se obtiene este como un efecto colateral.
+
+Otra cuestión \textbf{muy importante}, y que muchos usuarios suelen olvidar, es que si estos tests resultan significativos, únicamente indican que la correlación, del tipo que sea, no es cero; en ningún caso garantizan que sea suficientemente alta como para hablar de una ``buena correlación''.
+
+Volviendo a los datos del ejemplo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{long}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FloatTok{6.60}\NormalTok{,}\FloatTok{7.11}\NormalTok{,}\FloatTok{9.80}\NormalTok{,}\FloatTok{6.62}\NormalTok{,}\FloatTok{7.10}\NormalTok{,}\FloatTok{6.83}\NormalTok{,}\FloatTok{6.54}\NormalTok{,}\FloatTok{7.14}\NormalTok{,}\FloatTok{7.13}\NormalTok{,}\FloatTok{12.52}\NormalTok{,}\FloatTok{10.41}\NormalTok{)}
+\NormalTok{ampl}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FloatTok{4.24}\NormalTok{,}\FloatTok{5.41}\NormalTok{,}\FloatTok{5.26}\NormalTok{,}\FloatTok{5.53}\NormalTok{,}\FloatTok{3.25}\NormalTok{,}\FloatTok{4.22}\NormalTok{,}\FloatTok{3.98}\NormalTok{,}\FloatTok{3.29}\NormalTok{,}\FloatTok{3.43}\NormalTok{,}\FloatTok{5.57}\NormalTok{,}\FloatTok{6.01}\NormalTok{)}
+\FunctionTok{cor.test}\NormalTok{(long, ampl, }\AttributeTok{method=}\StringTok{\textquotesingle{}kendall\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Kendall's rank correlation tau
+## 
+## data:  long and ampl
+## T = 34, p-value = 0.3587
+## alternative hypothesis: true tau is not equal to 0
+## sample estimates:
+##       tau 
+## 0.2363636
+\end{verbatim}
+
+Observemos que el número de pares positivos es 34, estadístico que hemos denominado \(P\).
+El procedimiento calcula el p-valor exacto para \(n<50\). En este caso, el p-valor indica que el estadístico no es significativo.
+
+\subsubsection{Coeficiente de correlación por rangos de Spearman}\label{coeficiente-de-correlaciuxf3n-por-rangos-de-spearman}
+
+El coeficiente de correlación de Spearman es el coeficiente de correlación ordinario (coeficiente de Pearson) aplicado a los rangos de las observaciones.
+
+El resultado es
+
+\[
+r_{S}=1-\frac{6 \sum_{i=1}^{n} d_{i}^{2}}{n(n^{2}-1)}
+\]
+
+donde \(d_{i}=r(x_{i})-r(y_{i})\), \(i=1, \ldots, n\), son las diferencias entre los rangos.
+
+Este coeficiente se utiliza cuando las variables están medidas en una escala ordinal y el orden muestral es la información más relevante.
+
+\paragraph{Cálculo del coeficiente}\label{cuxe1lculo-del-coeficiente}
+
+El coeficiente de correlación \(r_{S}\) de Spearman se obtiene sustituyendo los valores \((x_{i},y_{i})\) por sus rangos \((a_{i},b_{i})\), donde \(a_{i}=r(x_{i})\) y \(b_{i}=r(y_{i})\).
+
+Así,
+
+\[
+r_{S}=\frac{\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b)}{\sqrt{\sum_{i=1}^{n}(a_{i}-\bar a)^{2}\sum_{i=1}^{n}(b_{i}-\bar b)^{2}}}
+\]
+
+donde \(\bar a=\bar b=(n+1)/2\) y
+
+\[
+\sum_{i=1}^{n}(a_{i}-\bar a)^{2}=\sum_{i=1}^{n}(b_{i}-\bar b)^{2}=\frac{n(n^{2}-1)}{12}
+\]
+
+de modo que
+
+\[
+r_{S}=\frac{12}{n(n^{2}-1)}\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b)
+\]
+
+Por otro lado,
+
+\[
+\sum_{i=1}^{n} d_{i}^{2}=\frac{n(n^{2}-1)}{6}(1-r_{S})
+\]
+
+lo que conduce a la expresión inicial de \(r_{S}\).
+
+Bajo la hipótesis de independencia, puede obtenerse la distribución muestral de \(r_{S}\) y, por tanto, los puntos críticos del contraste para \(n\leq10\). Para \(n>10\), \(r_{S}\) es aproximadamente \(N(0,1/\sqrt{n-1})\).
+
+\subparagraph{Ejemplo}\label{ejemplo-15}
+
+Calcule el coeficiente de correlación por rangos de Spearman para los datos del ejemplo 14 y estudie si es significativo.
+
+\textbf{Solución}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor.test}\NormalTok{(long,ampl,}\AttributeTok{method=}\StringTok{\textquotesingle{}spearman\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Spearman's rank correlation rho
+## 
+## data:  long and ampl
+## S = 140, p-value = 0.2732
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## 0.3636364
+\end{verbatim}
+
+\subsubsection{El parámetro poblacional asociado a los coeficientes de correlación no paramétricos}\label{el-paruxe1metro-poblacional-asociado-a-los-coeficientes-de-correlaciuxf3n-no-paramuxe9tricos}
+
+Si la distribución conjunta de \((X,Y)\) es \(F(x,y)\) y las distribuciones marginales son \(F_X(x)\) y \(F_Y(y)\), entonces \(\rho_S\) es el coeficiente de correlación ordinario entre las variables \(V_1=F_X(X)\) y \(V_2=F_Y(Y)\), ambas con distribución uniforme.
+
+En consecuencia, puede demostrarse que
+
+\[
+\begin{aligned}
+\rho_S &=12\iint_{\mathbb R^2}(F(x,y)-F_X(x)F_Y(y))\,dF_X(x)dF_Y(y)\\
+&=12\iint_{\mathbb R^2}F(x,y)\,dF_X(x)dF_Y(y)-3
+\end{aligned}
+\]
+
+La versión probabilística de la correlación \(\tau\) de Kendall es
+
+\[
+\tau=4\int_{\mathbb R^2}(F(x,y)-F_X(x)F_Y(y))\,dF(x,y)
+\]
+
+y se verifica la relación
+
+\[
+-1\leq 3\tau-2\rho_S\leq1
+\]
+
+Observemos que \(\rho_S=\tau=0\) si \(F(x,y)=F_X(x)F_Y(y)\), es decir, si \(X\) e \(Y\) son estocásticamente independientes.
+
+Para contrastar la hipótesis nula \(H_0:\rho_S=0\), puede calcularse el estadístico
+
+\[
+t=\sqrt{n-2}\frac{r_S}{\sqrt{1-r_S^2}}
+\]
+
+que tiene aproximadamente una distribución \(t\) de Student con \(n-2\) grados de libertad, siempre que \(n\geq10\).
 
 \end{document}

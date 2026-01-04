@@ -20,5 +20,6 @@ rmd_files:
   - 10-Construccion_de_Tests.Rmd
   - 11-Contrastes_Poblaciones_Normales.Rmd
   - 12-Pruebas_Ji-cuadrado.Rmd
+  - 13-NoParametrica.Rmd
   
 
