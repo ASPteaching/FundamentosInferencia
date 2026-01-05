@@ -2,6 +2,8 @@
 title: "Fundamentos de Inferencia Estadistica"
 author: "Alex Sanchez Pla y Santiago Pérez Hoyos"
 date: "`r Sys.Date()`"
+bibliography: bibliografia.bib
+nocite: '@*'
 site: bookdown::bookdown_site
 ---
 

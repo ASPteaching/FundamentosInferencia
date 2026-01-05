@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica</title>
-  <meta name="description" content="Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
+  <title>Capítulo 11 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica</title>
+  <meta name="description" content="Capítulo 11 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
+  <meta property="og:title" content="Capítulo 11 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 12 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
+  <meta name="twitter:title" content="Capítulo 11 Contrastes con dos muestras | Fundamentos de Inferencia Estadistica" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
 
 
-<meta name="date" content="2026-01-04" />
+<meta name="date" content="2026-01-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="pruebas-de-una-muestra.html"/>
-<link rel="next" href="contrastes-de-chi-cuadrado.html"/>
+<link rel="next" href="las-pruebas-chi-cuadrado.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -123,6 +123,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="blocks.css" type="text/css" />
@@ -509,318 +532,316 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.15.4" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#una-aproximaci%C3%B3n-diferente-para-la-distribuci%C3%B3n-de-poisson"><i class="fa fa-check"></i><b>8.15.4</b> Una aproximación diferente para la distribución de Poisson</a></li>
 <li class="chapter" data-level="8.15.5" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#aproximaci%C3%B3n-mediante-ch%C3%A9bishev"><i class="fa fa-check"></i><b>8.15.5</b> Aproximación mediante Chébishev</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Pruebas de hipótesis</a>
+<li class="chapter" data-level="8.16" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#introducci%C3%B3n-2"><i class="fa fa-check"></i><b>8.16</b> Introducción</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#introducci%C3%B3n-2"><i class="fa fa-check"></i><b>9.1</b> Introducción</a>
+<li class="chapter" data-level="8.16.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#de-las-hip%C3%B3tesis-cient%C3%ADficas-a-las-hip%C3%B3tesis-estad%C3%ADsticas"><i class="fa fa-check"></i><b>8.16.1</b> De las hipótesis científicas a las hipótesis estadísticas</a></li>
+<li class="chapter" data-level="8.16.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#del-lenguaje-natural-a-la-hip%C3%B3tesis-estad%C3%ADstica"><i class="fa fa-check"></i><b>8.16.2</b> Del lenguaje natural a la hipótesis estadística</a></li>
+<li class="chapter" data-level="8.16.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-presentaci%C3%B3n"><i class="fa fa-check"></i><b>8.16.3</b> Caso 1: Presentación</a></li>
+<li class="chapter" data-level="8.16.4" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-modelo-de-probabilidad"><i class="fa fa-check"></i><b>8.16.4</b> Caso 1: Modelo de probabilidad</a></li>
+<li class="chapter" data-level="8.16.5" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-presentaci%C3%B3n"><i class="fa fa-check"></i><b>8.16.5</b> Caso 2: Presentación</a></li>
+<li class="chapter" data-level="8.16.6" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-modelo-de-probabilidad"><i class="fa fa-check"></i><b>8.16.6</b> Caso 2: Modelo de probabilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="8.17" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#las-hip%C3%B3tesis-del-contraste-de-hip%C3%B3tesis"><i class="fa fa-check"></i><b>8.17</b> Las hipótesis del contraste de hipótesis</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#de-las-hip%C3%B3tesis-cient%C3%ADficas-a-las-hip%C3%B3tesis-estad%C3%ADsticas"><i class="fa fa-check"></i><b>9.1.1</b> De las hipótesis científicas a las hipótesis estadísticas</a></li>
-<li class="chapter" data-level="9.1.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#del-lenguaje-natural-a-la-hip%C3%B3tesis-estad%C3%ADstica"><i class="fa fa-check"></i><b>9.1.2</b> Del lenguaje natural a la hipótesis estadística</a></li>
-<li class="chapter" data-level="9.1.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-presentaci%C3%B3n"><i class="fa fa-check"></i><b>9.1.3</b> Caso 1: Presentación</a></li>
-<li class="chapter" data-level="9.1.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-modelo-de-probabilidad"><i class="fa fa-check"></i><b>9.1.4</b> Caso 1: Modelo de probabilidad</a></li>
-<li class="chapter" data-level="9.1.5" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-presentaci%C3%B3n"><i class="fa fa-check"></i><b>9.1.5</b> Caso 2: Presentación</a></li>
-<li class="chapter" data-level="9.1.6" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-modelo-de-probabilidad"><i class="fa fa-check"></i><b>9.1.6</b> Caso 2: Modelo de probabilidad</a></li>
+<li class="chapter" data-level="8.17.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-hip%C3%B3tesis-para-dirimir-la-controversia-sobre-el-n%C3%BAmero-de-hembras"><i class="fa fa-check"></i><b>8.17.1</b> Caso 1: Hipótesis para dirimir la controversia sobre el número de hembras</a></li>
+<li class="chapter" data-level="8.17.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-hip%C3%B3tesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona"><i class="fa fa-check"></i><b>8.17.2</b> Caso 2: Hipótesis a contrastar en el problema de la tasa de statdrolona</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#las-hip%C3%B3tesis-del-contraste-de-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.2</b> Las hipótesis del contraste de hipótesis</a>
+<li class="chapter" data-level="8.18" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>8.18</b> Compatibilidad de resultados e hipótesis</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-hip%C3%B3tesis-para-dirimir-la-controversia-sobre-el-n%C3%BAmero-de-hembras"><i class="fa fa-check"></i><b>9.2.1</b> Caso 1: Hipótesis para dirimir la controversia sobre el número de hembras</a></li>
-<li class="chapter" data-level="9.2.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-hip%C3%B3tesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona"><i class="fa fa-check"></i><b>9.2.2</b> Caso 2: Hipótesis a contrastar en el problema de la tasa de statdrolona</a></li>
+<li class="chapter" data-level="8.18.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>8.18.1</b> Caso 1: Compatibilidad de resultados e hipótesis</a></li>
+<li class="chapter" data-level="8.18.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>8.18.2</b> Caso 2: Compatibilidad de resultados e hipótesis</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.3</b> Compatibilidad de resultados e hipótesis</a>
+<li class="chapter" data-level="8.19" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#no-todo-es-igualmente-probable"><i class="fa fa-check"></i><b>8.19</b> No todo es igualmente probable…</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.3.1</b> Caso 1: Compatibilidad de resultados e hipótesis</a></li>
-<li class="chapter" data-level="9.3.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.3.2</b> Caso 2: Compatibilidad de resultados e hipótesis</a></li>
+<li class="chapter" data-level="8.19.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-una-regi%C3%B3n-con-n%C3%BAmero-de-hembras-con-baja-probabilidad-bajo-mathrmh_0"><i class="fa fa-check"></i><b>8.19.1</b> Caso 1: Una región con número de hembras con baja probabilidad bajo <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+<li class="chapter" data-level="8.19.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0"><i class="fa fa-check"></i><b>8.19.2</b> Caso 2: Medias de las tasas de statdrolona improbables si se cumple <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#no-todo-es-igualmente-probable"><i class="fa fa-check"></i><b>9.4</b> No todo es igualmente probable…</a>
+<li class="chapter" data-level="8.20" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#el-papel-privilegiado-de-la-hip%C3%B3tesis-nula-criterio-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>8.20</b> El papel privilegiado de la hipótesis nula: criterio de decisión</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-una-regi%C3%B3n-con-n%C3%BAmero-de-hembras-con-baja-probabilidad-bajo-mathrmh_0"><i class="fa fa-check"></i><b>9.4.1</b> Caso 1: Una región con número de hembras con baja probabilidad bajo <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
-<li class="chapter" data-level="9.4.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0"><i class="fa fa-check"></i><b>9.4.2</b> Caso 2: Medias de las tasas de statdrolona improbables si se cumple <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+<li class="chapter" data-level="8.20.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-n.%C2%BA-de-nidos-propuestos-ad-hoc-como-inicio-de-regi%C3%B3n-cr%C3%ADtica.-regla-de-decisi%C3%B3n-resultante"><i class="fa fa-check"></i><b>8.20.1</b> Caso 1: N.º de nidos propuestos ad hoc como inicio de región crítica. Regla de decisión resultante</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#el-papel-privilegiado-de-la-hip%C3%B3tesis-nula-criterio-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>9.5</b> El papel privilegiado de la hipótesis nula: criterio de decisión</a>
+<li class="chapter" data-level="8.21" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#hip%C3%B3tesis-nula-y-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>8.21</b> Hipótesis nula y nivel de significación</a>
 <ul>
-<li class="chapter" data-level="9.5.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-n.%C2%BA-de-nidos-propuestos-ad-hoc-como-inicio-de-regi%C3%B3n-cr%C3%ADtica.-regla-de-decisi%C3%B3n-resultante"><i class="fa fa-check"></i><b>9.5.1</b> Caso 1: N.º de nidos propuestos ad hoc como inicio de región crítica. Regla de decisión resultante</a></li>
+<li class="chapter" data-level="8.21.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>8.21.1</b> Caso 1: Nivel de significación</a></li>
+<li class="chapter" data-level="8.21.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-elecci%C3%B3n-de-la-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>8.21.2</b> Caso 1: Elección de la región crítica</a></li>
+<li class="chapter" data-level="8.21.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-elecci%C3%B3n-de-la-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>8.21.3</b> Caso 2: Elección de la región crítica</a></li>
 </ul></li>
-<li class="chapter" data-level="9.6" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#hip%C3%B3tesis-nula-y-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>9.6</b> Hipótesis nula y nivel de significación</a>
+<li class="chapter" data-level="8.22" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#regi%C3%B3n-cr%C3%ADtica-y-formalizaci%C3%B3n-del-contraste"><i class="fa fa-check"></i><b>8.22</b> Región crítica y formalización del contraste</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>9.6.1</b> Caso 1: Nivel de significación</a></li>
-<li class="chapter" data-level="9.6.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-elecci%C3%B3n-de-la-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>9.6.2</b> Caso 1: Elección de la región crítica</a></li>
-<li class="chapter" data-level="9.6.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-elecci%C3%B3n-de-la-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>9.6.3</b> Caso 2: Elección de la región crítica</a></li>
+<li class="chapter" data-level="8.22.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-resumen-de-conceptos-asociados-al-contraste.-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>8.22.1</b> Caso 1: Resumen de conceptos asociados al contraste. Región crítica</a></li>
+<li class="chapter" data-level="8.22.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-tabla-resumen-de-la-regi%C3%B3n-cr%C3%ADtica-el-estad%C3%ADstico-de-test-y-del-criterio-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>8.22.2</b> Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión</a></li>
+<li class="chapter" data-level="8.22.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#regi%C3%B3n-cr%C3%ADtica-frente-a-estad%C3%ADstico-de-test"><i class="fa fa-check"></i><b>8.22.3</b> Región crítica frente a Estadístico de Test</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#regi%C3%B3n-cr%C3%ADtica-y-formalizaci%C3%B3n-del-contraste"><i class="fa fa-check"></i><b>9.7</b> Región crítica y formalización del contraste</a>
+<li class="chapter" data-level="8.23" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#tabla-de-decisi%C3%B3n-del-contraste"><i class="fa fa-check"></i><b>8.23</b> Tabla de decisión del contraste</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-resumen-de-conceptos-asociados-al-contraste.-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>9.7.1</b> Caso 1: Resumen de conceptos asociados al contraste. Región crítica</a></li>
-<li class="chapter" data-level="9.7.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-tabla-resumen-de-la-regi%C3%B3n-cr%C3%ADtica-el-estad%C3%ADstico-de-test-y-del-criterio-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>9.7.2</b> Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión</a></li>
-<li class="chapter" data-level="9.7.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#regi%C3%B3n-cr%C3%ADtica-frente-a-estad%C3%ADstico-de-test"><i class="fa fa-check"></i><b>9.7.3</b> Región crítica frente a Estadístico de Test</a></li>
+<li class="chapter" data-level="8.23.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-evaluaci%C3%B3n-de-los-dos-errores-asociados-al-contraste"><i class="fa fa-check"></i><b>8.23.1</b> Caso 1: Evaluación de los dos errores asociados al contraste</a></li>
+<li class="chapter" data-level="8.23.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-c%C3%A1lculo-expl%C3%ADcito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><i class="fa fa-check"></i><b>8.23.2</b> Caso 2: Cálculo explícito de los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#tabla-de-decisi%C3%B3n-del-contraste"><i class="fa fa-check"></i><b>9.8</b> Tabla de decisión del contraste</a>
+<li class="chapter" data-level="8.24" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#relaci%C3%B3n-entre-el-error-de-tipo-i-y-el-de-tipo-ii"><i class="fa fa-check"></i><b>8.24</b> Relación entre el error de tipo I y el de tipo II</a>
 <ul>
-<li class="chapter" data-level="9.8.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-evaluaci%C3%B3n-de-los-dos-errores-asociados-al-contraste"><i class="fa fa-check"></i><b>9.8.1</b> Caso 1: Evaluación de los dos errores asociados al contraste</a></li>
-<li class="chapter" data-level="9.8.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-c%C3%A1lculo-expl%C3%ADcito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><i class="fa fa-check"></i><b>9.8.2</b> Caso 2: Cálculo explícito de los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+<li class="chapter" data-level="8.24.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-evaluaci%C3%B3n-de-alpha-y-1--beta-para-diferentes-regiones-cr%C3%ADticas"><i class="fa fa-check"></i><b>8.24.1</b> Caso 1: Evaluación de <span class="math inline">\(\alpha\)</span> y 1- <span class="math inline">\(\beta\)</span> para diferentes regiones críticas</a></li>
+<li class="chapter" data-level="8.24.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-relaci%C3%B3n-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><i class="fa fa-check"></i><b>8.24.2</b> Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
 </ul></li>
-<li class="chapter" data-level="9.9" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#relaci%C3%B3n-entre-el-error-de-tipo-i-y-el-de-tipo-ii"><i class="fa fa-check"></i><b>9.9</b> Relación entre el error de tipo I y el de tipo II</a>
+<li class="chapter" data-level="8.25" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#potencia-y-test-m%C3%A1s-potente"><i class="fa fa-check"></i><b>8.25</b> Potencia y test más potente</a>
 <ul>
-<li class="chapter" data-level="9.9.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-evaluaci%C3%B3n-de-alpha-y-1--beta-para-diferentes-regiones-cr%C3%ADticas"><i class="fa fa-check"></i><b>9.9.1</b> Caso 1: Evaluación de <span class="math inline">\(\alpha\)</span> y 1- <span class="math inline">\(\beta\)</span> para diferentes regiones críticas</a></li>
-<li class="chapter" data-level="9.9.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-relaci%C3%B3n-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><i class="fa fa-check"></i><b>9.9.2</b> Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+<li class="chapter" data-level="8.25.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-potencia-en-hip%C3%B3tesis-simple-vs-simple"><i class="fa fa-check"></i><b>8.25.1</b> Caso 1: Potencia en hipótesis simple vs simple</a></li>
+<li class="chapter" data-level="8.25.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-potencia-en-hip%C3%B3tesis-simple-vs-simple"><i class="fa fa-check"></i><b>8.25.2</b> Caso 2: Potencia en hipótesis simple vs simple</a></li>
 </ul></li>
-<li class="chapter" data-level="9.10" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#potencia-y-test-m%C3%A1s-potente"><i class="fa fa-check"></i><b>9.10</b> Potencia y test más potente</a>
+<li class="chapter" data-level="8.26" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#efecto-del-tama%C3%B1o-muestral"><i class="fa fa-check"></i><b>8.26</b> Efecto del tamaño muestral</a>
 <ul>
-<li class="chapter" data-level="9.10.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-potencia-en-hip%C3%B3tesis-simple-vs-simple"><i class="fa fa-check"></i><b>9.10.1</b> Caso 1: Potencia en hipótesis simple vs simple</a></li>
-<li class="chapter" data-level="9.10.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-potencia-en-hip%C3%B3tesis-simple-vs-simple"><i class="fa fa-check"></i><b>9.10.2</b> Caso 2: Potencia en hipótesis simple vs simple</a></li>
+<li class="chapter" data-level="8.26.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1"><i class="fa fa-check"></i><b>8.26.1</b> Caso 1</a></li>
+<li class="chapter" data-level="8.26.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2"><i class="fa fa-check"></i><b>8.26.2</b> Caso 2</a></li>
 </ul></li>
-<li class="chapter" data-level="9.11" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#efecto-del-tama%C3%B1o-muestral"><i class="fa fa-check"></i><b>9.11</b> Efecto del tamaño muestral</a>
+<li class="chapter" data-level="8.27" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#hip%C3%B3tesis-simples-vs.-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>8.27</b> Hipótesis simples vs. hipótesis compuestas</a>
 <ul>
-<li class="chapter" data-level="9.11.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1"><i class="fa fa-check"></i><b>9.11.1</b> Caso 1</a></li>
-<li class="chapter" data-level="9.11.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2"><i class="fa fa-check"></i><b>9.11.2</b> Caso 2</a></li>
+<li class="chapter" data-level="8.27.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>8.27.1</b> Caso 1: Hipótesis compuestas</a></li>
+<li class="chapter" data-level="8.27.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>8.27.2</b> Caso 2: Hipótesis compuestas</a></li>
 </ul></li>
-<li class="chapter" data-level="9.12" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#hip%C3%B3tesis-simples-vs.-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>9.12</b> Hipótesis simples vs. hipótesis compuestas</a>
+<li class="chapter" data-level="8.28" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>8.28</b> Función de potencia</a>
 <ul>
-<li class="chapter" data-level="9.12.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>9.12.1</b> Caso 1: Hipótesis compuestas</a></li>
-<li class="chapter" data-level="9.12.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>9.12.2</b> Caso 2: Hipótesis compuestas</a></li>
+<li class="chapter" data-level="8.28.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>8.28.1</b> Caso 1: Función de potencia</a></li>
+<li class="chapter" data-level="8.28.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>8.28.2</b> Caso 2: Función de potencia</a></li>
 </ul></li>
-<li class="chapter" data-level="9.13" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>9.13</b> Función de potencia</a>
+<li class="chapter" data-level="8.29" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#tests-%C3%B3ptimos"><i class="fa fa-check"></i><b>8.29</b> Tests óptimos</a></li>
+<li class="chapter" data-level="8.30" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#pruebas-bilaterales-y-pruebas-unilaterales"><i class="fa fa-check"></i><b>8.30</b> Pruebas bilaterales y pruebas unilaterales</a>
 <ul>
-<li class="chapter" data-level="9.13.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>9.13.1</b> Caso 1: Función de potencia</a></li>
-<li class="chapter" data-level="9.13.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>9.13.2</b> Caso 2: Función de potencia</a></li>
+<li class="chapter" data-level="8.30.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-prueba-unilateral"><i class="fa fa-check"></i><b>8.30.1</b> Caso 1: Prueba unilateral</a></li>
+<li class="chapter" data-level="8.30.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-prueba-unilateral"><i class="fa fa-check"></i><b>8.30.2</b> Caso 2: Prueba unilateral</a></li>
 </ul></li>
-<li class="chapter" data-level="9.14" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#tests-%C3%B3ptimos"><i class="fa fa-check"></i><b>9.14</b> Tests óptimos</a></li>
-<li class="chapter" data-level="9.15" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#pruebas-bilaterales-y-pruebas-unilaterales"><i class="fa fa-check"></i><b>9.15</b> Pruebas bilaterales y pruebas unilaterales</a>
+<li class="chapter" data-level="8.31" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#elecci%C3%B3n-del-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>8.31</b> Elección del nivel de significación</a></li>
+<li class="chapter" data-level="8.32" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#el-p-valor"><i class="fa fa-check"></i><b>8.32</b> El p-valor</a>
 <ul>
-<li class="chapter" data-level="9.15.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-prueba-unilateral"><i class="fa fa-check"></i><b>9.15.1</b> Caso 1: Prueba unilateral</a></li>
-<li class="chapter" data-level="9.15.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-prueba-unilateral"><i class="fa fa-check"></i><b>9.15.2</b> Caso 2: Prueba unilateral</a></li>
+<li class="chapter" data-level="8.32.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-c%C3%A1lculo-del-p-valor-prueba-unilateral"><i class="fa fa-check"></i><b>8.32.1</b> Caso 1: Cálculo del p-valor (prueba unilateral)</a></li>
+<li class="chapter" data-level="8.32.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-c%C3%A1lculo-del-p-valor-prueba-unilateral"><i class="fa fa-check"></i><b>8.32.2</b> Caso 2: Cálculo del p-valor (prueba unilateral)</a></li>
+<li class="chapter" data-level="8.32.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-c%C3%A1lculo-del-p-valor-prueba-bilateral"><i class="fa fa-check"></i><b>8.32.3</b> Caso 2: Cálculo del p-valor (prueba bilateral)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.16" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#elecci%C3%B3n-del-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>9.16</b> Elección del nivel de significación</a></li>
-<li class="chapter" data-level="9.17" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#el-p-valor"><i class="fa fa-check"></i><b>9.17</b> El p-valor</a>
+<li class="chapter" data-level="8.33" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#pruebas-exactas-y-pruebas-asint%C3%B3ticas"><i class="fa fa-check"></i><b>8.33</b> Pruebas exactas y pruebas asintóticas</a>
 <ul>
-<li class="chapter" data-level="9.17.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-c%C3%A1lculo-del-p-valor-prueba-unilateral"><i class="fa fa-check"></i><b>9.17.1</b> Caso 1: Cálculo del p-valor (prueba unilateral)</a></li>
-<li class="chapter" data-level="9.17.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-c%C3%A1lculo-del-p-valor-prueba-unilateral"><i class="fa fa-check"></i><b>9.17.2</b> Caso 2: Cálculo del p-valor (prueba unilateral)</a></li>
-<li class="chapter" data-level="9.17.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-c%C3%A1lculo-del-p-valor-prueba-bilateral"><i class="fa fa-check"></i><b>9.17.3</b> Caso 2: Cálculo del p-valor (prueba bilateral)</a></li>
+<li class="chapter" data-level="8.33.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-1-test-asint%C3%B3tico"><i class="fa fa-check"></i><b>8.33.1</b> Caso 1: Test asintótico</a></li>
+<li class="chapter" data-level="8.33.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-test-exacto"><i class="fa fa-check"></i><b>8.33.2</b> Caso 2: Test exacto</a></li>
 </ul></li>
-<li class="chapter" data-level="9.18" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#pruebas-exactas-y-pruebas-asint%C3%B3ticas"><i class="fa fa-check"></i><b>9.18</b> Pruebas exactas y pruebas asintóticas</a>
+<li class="chapter" data-level="8.34" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#relaci%C3%B3n-con-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>8.34</b> Relación con los intervalos de confianza</a>
 <ul>
-<li class="chapter" data-level="9.18.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-test-asint%C3%B3tico"><i class="fa fa-check"></i><b>9.18.1</b> Caso 1: Test asintótico</a></li>
-<li class="chapter" data-level="9.18.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-test-exacto"><i class="fa fa-check"></i><b>9.18.2</b> Caso 2: Test exacto</a></li>
+<li class="chapter" data-level="8.34.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-relaci%C3%B3n-con-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>8.34.1</b> Caso 2: Relación con los intervalos de confianza</a></li>
 </ul></li>
-<li class="chapter" data-level="9.19" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#relaci%C3%B3n-con-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.19</b> Relación con los intervalos de confianza</a>
+<li class="chapter" data-level="8.35" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#tama%C3%B1os-de-muestra.-diferencia-m%C3%ADnima-significativa"><i class="fa fa-check"></i><b>8.35</b> Tamaños de muestra. Diferencia mínima significativa</a>
 <ul>
-<li class="chapter" data-level="9.19.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-relaci%C3%B3n-con-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.19.1</b> Caso 2: Relación con los intervalos de confianza</a></li>
+<li class="chapter" data-level="8.35.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-c%C3%A1lculo-del-tama%C3%B1o-de-la-muestra"><i class="fa fa-check"></i><b>8.35.1</b> Caso 2: Cálculo del tamaño de la muestra</a></li>
 </ul></li>
-<li class="chapter" data-level="9.20" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#tama%C3%B1os-de-muestra.-diferencia-m%C3%ADnima-significativa"><i class="fa fa-check"></i><b>9.20</b> Tamaños de muestra. Diferencia mínima significativa</a>
+<li class="chapter" data-level="8.36" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#esquema-de-un-contraste-correctamente-planteado"><i class="fa fa-check"></i><b>8.36</b> Esquema de un contraste correctamente planteado</a></li>
+<li class="chapter" data-level="8.37" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#significaci%C3%B3n-estad%C3%ADstica-y-significaci%C3%B3n-aplicada"><i class="fa fa-check"></i><b>8.37</b> Significación estadística y significación aplicada</a>
 <ul>
-<li class="chapter" data-level="9.20.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-c%C3%A1lculo-del-tama%C3%B1o-de-la-muestra"><i class="fa fa-check"></i><b>9.20.1</b> Caso 2: Cálculo del tamaño de la muestra</a></li>
+<li class="chapter" data-level="8.37.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-2-significaci%C3%B3n-estad%C3%ADstica-y-aplicada"><i class="fa fa-check"></i><b>8.37.1</b> Caso 2: Significación estadística y aplicada</a></li>
 </ul></li>
-<li class="chapter" data-level="9.21" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#esquema-de-un-contraste-correctamente-planteado"><i class="fa fa-check"></i><b>9.21</b> Esquema de un contraste correctamente planteado</a></li>
-<li class="chapter" data-level="9.22" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#significaci%C3%B3n-estad%C3%ADstica-y-significaci%C3%B3n-aplicada"><i class="fa fa-check"></i><b>9.22</b> Significación estadística y significación aplicada</a>
+</ul></li>
+<li class="chapter" data-level="9" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>9</b> Construcción de contrastes de hipótesis</a>
 <ul>
-<li class="chapter" data-level="9.22.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-significaci%C3%B3n-estad%C3%ADstica-y-aplicada"><i class="fa fa-check"></i><b>9.22.1</b> Caso 2: Significación estadística y aplicada</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html"><i class="fa fa-check"></i><b>10</b> Construcción de contrastes de hipótesis</a>
+<li class="chapter" data-level="9.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#qu%C3%A9-significa-construir-un-contraste-de-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.1</b> ¿Qué significa “construir” un contraste de hipótesis?</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#qu%C3%A9-significa-construir-un-contraste-de-hip%C3%B3tesis"><i class="fa fa-check"></i><b>10.1</b> ¿Qué significa “construir” un contraste de hipótesis?</a>
+<li class="chapter" data-level="9.1.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#el-contraste-como-regla-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>9.1.1</b> El contraste como regla de decisión</a></li>
+<li class="chapter" data-level="9.1.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#nivel-de-significaci%C3%B3n-como-restricci%C3%B3n-b%C3%A1sica"><i class="fa fa-check"></i><b>9.1.2</b> Nivel de significación como restricción básica</a></li>
+<li class="chapter" data-level="9.1.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#primer-ejemplo-distintos-contrastes-con-el-mismo-nivel"><i class="fa fa-check"></i><b>9.1.3</b> Primer ejemplo: distintos contrastes con el mismo nivel</a></li>
+<li class="chapter" data-level="9.1.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#potencia-como-criterio-de-comparaci%C3%B3n"><i class="fa fa-check"></i><b>9.1.4</b> Potencia como criterio de comparación</a></li>
+<li class="chapter" data-level="9.1.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#segundo-ejemplo-misma-alpha-distinta-potencia"><i class="fa fa-check"></i><b>9.1.5</b> Segundo ejemplo: misma alpha, distinta potencia</a></li>
+<li class="chapter" data-level="9.1.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#de-contrastes-razonables-a-contrastes-%C3%B3ptimos"><i class="fa fa-check"></i><b>9.1.6</b> De contrastes razonables a contrastes óptimos</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#evidencia-y-decisi%C3%B3n-dos-enfoques-cl%C3%A1sicos"><i class="fa fa-check"></i><b>9.2</b> Evidencia y decisión: dos enfoques clásicos</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#el-contraste-como-regla-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>10.1.1</b> El contraste como regla de decisión</a></li>
-<li class="chapter" data-level="10.1.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#nivel-de-significaci%C3%B3n-como-restricci%C3%B3n-b%C3%A1sica"><i class="fa fa-check"></i><b>10.1.2</b> Nivel de significación como restricción básica</a></li>
-<li class="chapter" data-level="10.1.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#primer-ejemplo-distintos-contrastes-con-el-mismo-nivel"><i class="fa fa-check"></i><b>10.1.3</b> Primer ejemplo: distintos contrastes con el mismo nivel</a></li>
-<li class="chapter" data-level="10.1.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#potencia-como-criterio-de-comparaci%C3%B3n"><i class="fa fa-check"></i><b>10.1.4</b> Potencia como criterio de comparación</a></li>
-<li class="chapter" data-level="10.1.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#segundo-ejemplo-misma-alpha-distinta-potencia"><i class="fa fa-check"></i><b>10.1.5</b> Segundo ejemplo: misma alpha, distinta potencia</a></li>
-<li class="chapter" data-level="10.1.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#de-contrastes-razonables-a-contrastes-%C3%B3ptimos"><i class="fa fa-check"></i><b>10.1.6</b> De contrastes razonables a contrastes óptimos</a></li>
+<li class="chapter" data-level="9.2.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#el-enfoque-de-fisher-tests-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>9.2.1</b> El enfoque de Fisher: tests de significación</a></li>
+<li class="chapter" data-level="9.2.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#el-enfoque-de-neymanpearson-contraste-como-regla-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>9.2.2</b> El enfoque de Neyman–Pearson: contraste como regla de decisión</a></li>
+<li class="chapter" data-level="9.2.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#diferencias-conceptuales-clave"><i class="fa fa-check"></i><b>9.2.3</b> Diferencias conceptuales clave</a></li>
+<li class="chapter" data-level="9.2.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#convivencia-de-ambos-enfoques-en-la-pr%C3%A1ctica"><i class="fa fa-check"></i><b>9.2.4</b> Convivencia de ambos enfoques en la práctica</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#evidencia-y-decisi%C3%B3n-dos-enfoques-cl%C3%A1sicos"><i class="fa fa-check"></i><b>10.2</b> Evidencia y decisión: dos enfoques clásicos</a>
+<li class="chapter" data-level="9.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#tests-%C3%B3ptimos-el-lema-de-neymanpearson"><i class="fa fa-check"></i><b>9.3</b> Tests óptimos: el lema de Neyman–Pearson</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#el-enfoque-de-fisher-tests-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>10.2.1</b> El enfoque de Fisher: tests de significación</a></li>
-<li class="chapter" data-level="10.2.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#el-enfoque-de-neymanpearson-contraste-como-regla-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>10.2.2</b> El enfoque de Neyman–Pearson: contraste como regla de decisión</a></li>
-<li class="chapter" data-level="10.2.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#diferencias-conceptuales-clave"><i class="fa fa-check"></i><b>10.2.3</b> Diferencias conceptuales clave</a></li>
-<li class="chapter" data-level="10.2.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#convivencia-de-ambos-enfoques-en-la-pr%C3%A1ctica"><i class="fa fa-check"></i><b>10.2.4</b> Convivencia de ambos enfoques en la práctica</a></li>
+<li class="chapter" data-level="9.3.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#hip%C3%B3tesis-simples-y-raz%C3%B3n-de-verosimilitudes"><i class="fa fa-check"></i><b>9.3.1</b> Hipótesis simples y razón de verosimilitudes</a></li>
+<li class="chapter" data-level="9.3.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#enunciado-del-lema-de-neymanpearson"><i class="fa fa-check"></i><b>9.3.2</b> Enunciado del lema de Neyman–Pearson</a></li>
+<li class="chapter" data-level="9.3.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-modelo-normal-con-varianza-conocida"><i class="fa fa-check"></i><b>9.3.3</b> Ejemplo: modelo normal con varianza conocida</a></li>
+<li class="chapter" data-level="9.3.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-modelo-de-poisson"><i class="fa fa-check"></i><b>9.3.4</b> Ejemplo: modelo de Poisson</a></li>
+<li class="chapter" data-level="9.3.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#extensiones-del-lema-de-neymanpearson"><i class="fa fa-check"></i><b>9.3.5</b> Extensiones del lema de Neyman–Pearson</a></li>
+<li class="chapter" data-level="9.3.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#l%C3%ADmites-del-enfoque"><i class="fa fa-check"></i><b>9.3.6</b> Límites del enfoque</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#tests-%C3%B3ptimos-el-lema-de-neymanpearson"><i class="fa fa-check"></i><b>10.3</b> Tests óptimos: el lema de Neyman–Pearson</a>
+<li class="chapter" data-level="9.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#contrastes-de-raz%C3%B3n-de-verosimilitudes-generalizados"><i class="fa fa-check"></i><b>9.4</b> Contrastes de razón de verosimilitudes generalizados</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#hip%C3%B3tesis-simples-y-raz%C3%B3n-de-verosimilitudes"><i class="fa fa-check"></i><b>10.3.1</b> Hipótesis simples y razón de verosimilitudes</a></li>
-<li class="chapter" data-level="10.3.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#enunciado-del-lema-de-neymanpearson"><i class="fa fa-check"></i><b>10.3.2</b> Enunciado del lema de Neyman–Pearson</a></li>
-<li class="chapter" data-level="10.3.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-modelo-normal-con-varianza-conocida"><i class="fa fa-check"></i><b>10.3.3</b> Ejemplo: modelo normal con varianza conocida</a></li>
-<li class="chapter" data-level="10.3.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-modelo-de-poisson"><i class="fa fa-check"></i><b>10.3.4</b> Ejemplo: modelo de Poisson</a></li>
-<li class="chapter" data-level="10.3.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#extensiones-del-lema-de-neymanpearson"><i class="fa fa-check"></i><b>10.3.5</b> Extensiones del lema de Neyman–Pearson</a></li>
-<li class="chapter" data-level="10.3.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#l%C3%ADmites-del-enfoque"><i class="fa fa-check"></i><b>10.3.6</b> Límites del enfoque</a></li>
+<li class="chapter" data-level="9.4.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#definici%C3%B3n-del-estad%C3%ADstico-de-raz%C3%B3n-de-verosimilitudes"><i class="fa fa-check"></i><b>9.4.1</b> Definición del estadístico de razón de verosimilitudes</a></li>
+<li class="chapter" data-level="9.4.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#regla-de-decisi%C3%B3n-y-aproximaci%C3%B3n-asint%C3%B3tica"><i class="fa fa-check"></i><b>9.4.2</b> Regla de decisión y aproximación asintótica</a></li>
+<li class="chapter" data-level="9.4.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-comparaci%C3%B3n-de-par%C3%A1metros-en-un-modelo-de-poisson"><i class="fa fa-check"></i><b>9.4.3</b> Ejemplo: comparación de parámetros en un modelo de Poisson</a></li>
+<li class="chapter" data-level="9.4.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-contraste-en-un-modelo-exponencial"><i class="fa fa-check"></i><b>9.4.4</b> Ejemplo: contraste en un modelo exponencial</a></li>
+<li class="chapter" data-level="9.4.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-contraste-en-un-modelo-trinomial"><i class="fa fa-check"></i><b>9.4.5</b> Ejemplo: contraste en un modelo trinomial</a></li>
+<li class="chapter" data-level="9.4.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#del-contraste-de-raz%C3%B3n-de-verosimilitudes-al-test-ji-cuadrado"><i class="fa fa-check"></i><b>9.4.6</b> Del contraste de razón de verosimilitudes al test ji-cuadrado</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#contrastes-de-raz%C3%B3n-de-verosimilitudes-generalizados"><i class="fa fa-check"></i><b>10.4</b> Contrastes de razón de verosimilitudes generalizados</a>
+<li class="chapter" data-level="9.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#tests-de-permutaciones"><i class="fa fa-check"></i><b>9.5</b> Tests de permutaciones</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#definici%C3%B3n-del-estad%C3%ADstico-de-raz%C3%B3n-de-verosimilitudes"><i class="fa fa-check"></i><b>10.4.1</b> Definición del estadístico de razón de verosimilitudes</a></li>
-<li class="chapter" data-level="10.4.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#regla-de-decisi%C3%B3n-y-aproximaci%C3%B3n-asint%C3%B3tica"><i class="fa fa-check"></i><b>10.4.2</b> Regla de decisión y aproximación asintótica</a></li>
-<li class="chapter" data-level="10.4.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-comparaci%C3%B3n-de-par%C3%A1metros-en-un-modelo-de-poisson"><i class="fa fa-check"></i><b>10.4.3</b> Ejemplo: comparación de parámetros en un modelo de Poisson</a></li>
-<li class="chapter" data-level="10.4.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-contraste-en-un-modelo-exponencial"><i class="fa fa-check"></i><b>10.4.4</b> Ejemplo: contraste en un modelo exponencial</a></li>
-<li class="chapter" data-level="10.4.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-contraste-en-un-modelo-trinomial"><i class="fa fa-check"></i><b>10.4.5</b> Ejemplo: contraste en un modelo trinomial</a></li>
-<li class="chapter" data-level="10.4.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#del-contraste-de-raz%C3%B3n-de-verosimilitudes-al-test-ji-cuadrado"><i class="fa fa-check"></i><b>10.4.6</b> Del contraste de razón de verosimilitudes al test ji-cuadrado</a></li>
+<li class="chapter" data-level="9.5.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#idea-b%C3%A1sica"><i class="fa fa-check"></i><b>9.5.1</b> Idea básica</a></li>
+<li class="chapter" data-level="9.5.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-1-test-de-permutaciones-con-enumeraci%C3%B3n-completa"><i class="fa fa-check"></i><b>9.5.2</b> Ejemplo 1: test de permutaciones con enumeración completa</a></li>
+<li class="chapter" data-level="9.5.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#valor-observado-del-estad%C3%ADstico"><i class="fa fa-check"></i><b>9.5.3</b> Valor observado del estadístico</a></li>
+<li class="chapter" data-level="9.5.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#distribuci%C3%B3n-exacta-por-permutaciones"><i class="fa fa-check"></i><b>9.5.4</b> Distribución exacta por permutaciones</a></li>
+<li class="chapter" data-level="9.5.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-2-test-de-permutaciones-mediante-simulaci%C3%B3n"><i class="fa fa-check"></i><b>9.5.5</b> Ejemplo 2: test de permutaciones mediante simulación</a></li>
+<li class="chapter" data-level="9.5.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#comentario-final"><i class="fa fa-check"></i><b>9.5.6</b> Comentario final</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#tests-de-permutaciones"><i class="fa fa-check"></i><b>10.5</b> Tests de permutaciones</a>
+</ul></li>
+<li class="chapter" data-level="10" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html"><i class="fa fa-check"></i><b>10</b> Pruebas de una muestra</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#idea-b%C3%A1sica"><i class="fa fa-check"></i><b>10.5.1</b> Idea básica</a></li>
-<li class="chapter" data-level="10.5.2" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-1-test-de-permutaciones-con-enumeraci%C3%B3n-completa"><i class="fa fa-check"></i><b>10.5.2</b> Ejemplo 1: test de permutaciones con enumeración completa</a></li>
-<li class="chapter" data-level="10.5.3" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#valor-observado-del-estad%C3%ADstico"><i class="fa fa-check"></i><b>10.5.3</b> Valor observado del estadístico</a></li>
-<li class="chapter" data-level="10.5.4" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#distribuci%C3%B3n-exacta-por-permutaciones"><i class="fa fa-check"></i><b>10.5.4</b> Distribución exacta por permutaciones</a></li>
-<li class="chapter" data-level="10.5.5" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#ejemplo-2-test-de-permutaciones-mediante-simulaci%C3%B3n"><i class="fa fa-check"></i><b>10.5.5</b> Ejemplo 2: test de permutaciones mediante simulación</a></li>
-<li class="chapter" data-level="10.5.6" data-path="construcción-de-contrastes-de-hipótesis.html"><a href="construcción-de-contrastes-de-hipótesis.html#comentario-final"><i class="fa fa-check"></i><b>10.5.6</b> Comentario final</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html"><i class="fa fa-check"></i><b>11</b> Pruebas de una muestra</a>
+<li class="chapter" data-level="10.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-a-los-contrastes-de-una-muestra."><i class="fa fa-check"></i><b>10.1</b> Introducción a los contrastes de una muestra.</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-a-los-contrastes-de-una-muestra."><i class="fa fa-check"></i><b>11.1</b> Introducción a los contrastes de una muestra.</a>
+<li class="chapter" data-level="10.1.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#esquema-de-los-contrastes-presentados"><i class="fa fa-check"></i><b>10.1.1</b> Esquema de los contrastes presentados</a></li>
+<li class="chapter" data-level="10.1.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contrastes-sobre-los-par%C3%A1metros-de-una-distribuci%C3%B3n-normal"><i class="fa fa-check"></i><b>10.1.2</b> Contrastes sobre los parámetros de una distribución Normal</a></li>
+<li class="chapter" data-level="10.1.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contrastes-sobre-una-proporci%C3%B3n"><i class="fa fa-check"></i><b>10.1.3</b> Contrastes sobre una proporción</a></li>
+<li class="chapter" data-level="10.1.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#esquema-general-de-los-contrastes-presentados"><i class="fa fa-check"></i><b>10.1.4</b> Esquema general de los contrastes presentados</a></li>
+<li class="chapter" data-level="10.1.5" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contrastes-param%C3%A9tricos-frente-a-no-param%C3%A9tricos"><i class="fa fa-check"></i><b>10.1.5</b> Contrastes paramétricos frente a no paramétricos</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida-z-test."><i class="fa fa-check"></i><b>10.2</b> Contraste de hipótesis para la media de una distribución Normal con varianza conocida: <span class="math inline">\(Z\)</span>-test.</a>
 <ul>
-<li class="chapter" data-level="11.1.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#esquema-de-los-contrastes-presentados"><i class="fa fa-check"></i><b>11.1.1</b> Esquema de los contrastes presentados</a></li>
-<li class="chapter" data-level="11.1.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contrastes-sobre-los-par%C3%A1metros-de-una-distribuci%C3%B3n-normal"><i class="fa fa-check"></i><b>11.1.2</b> Contrastes sobre los parámetros de una distribución Normal</a></li>
-<li class="chapter" data-level="11.1.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contrastes-sobre-una-proporci%C3%B3n"><i class="fa fa-check"></i><b>11.1.3</b> Contrastes sobre una proporción</a></li>
-<li class="chapter" data-level="11.1.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#esquema-general-de-los-contrastes-presentados"><i class="fa fa-check"></i><b>11.1.4</b> Esquema general de los contrastes presentados</a></li>
-<li class="chapter" data-level="11.1.5" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contrastes-param%C3%A9tricos-frente-a-no-param%C3%A9tricos"><i class="fa fa-check"></i><b>11.1.5</b> Contrastes paramétricos frente a no paramétricos</a></li>
+<li class="chapter" data-level="10.2.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-3"><i class="fa fa-check"></i><b>10.2.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida."><i class="fa fa-check"></i><b>10.2.2</b> Resolución del contraste para la media de una distribución Normal con varianza conocida.</a></li>
+<li class="chapter" data-level="10.2.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida."><i class="fa fa-check"></i><b>10.2.3</b> Intervalo de confianza para la media de una distribución Normal con varianza conocida.</a></li>
+<li class="chapter" data-level="10.2.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#c%C3%A1lculo-del-tama%C3%B1o-muestral-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida."><i class="fa fa-check"></i><b>10.2.4</b> Cálculo del tamaño muestral para la media de una distribución Normal con varianza conocida.</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida-z-test."><i class="fa fa-check"></i><b>11.2</b> Contraste de hipótesis para la media de una distribución Normal con varianza conocida: <span class="math inline">\(Z\)</span>-test.</a>
+<li class="chapter" data-level="10.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida-t-test."><i class="fa fa-check"></i><b>10.3</b> Contraste de hipótesis para la media de una distribución Normal con varianza desconocida: <span class="math inline">\(T\)</span>-test.</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-3"><i class="fa fa-check"></i><b>11.2.1</b> Introducción</a></li>
-<li class="chapter" data-level="11.2.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida."><i class="fa fa-check"></i><b>11.2.2</b> Resolución del contraste para la media de una distribución Normal con varianza conocida.</a></li>
-<li class="chapter" data-level="11.2.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida."><i class="fa fa-check"></i><b>11.2.3</b> Intervalo de confianza para la media de una distribución Normal con varianza conocida.</a></li>
-<li class="chapter" data-level="11.2.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#c%C3%A1lculo-del-tama%C3%B1o-muestral-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-conocida."><i class="fa fa-check"></i><b>11.2.4</b> Cálculo del tamaño muestral para la media de una distribución Normal con varianza conocida.</a></li>
+<li class="chapter" data-level="10.3.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-4"><i class="fa fa-check"></i><b>10.3.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.3.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida."><i class="fa fa-check"></i><b>10.3.2</b> Resolución del contraste para la media de una distribución Normal con varianza desconocida.</a></li>
+<li class="chapter" data-level="10.3.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida."><i class="fa fa-check"></i><b>10.3.3</b> Intervalo de confianza para la media de una distribución Normal con varianza desconocida.</a></li>
+<li class="chapter" data-level="10.3.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#c%C3%A1lculo-del-tama%C3%B1o-muestral-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida."><i class="fa fa-check"></i><b>10.3.4</b> Cálculo del tamaño muestral para la media de una distribución Normal con varianza desconocida.</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida-t-test."><i class="fa fa-check"></i><b>11.3</b> Contraste de hipótesis para la media de una distribución Normal con varianza desconocida: <span class="math inline">\(T\)</span>-test.</a>
+<li class="chapter" data-level="10.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-varianza-de-una-distribuci%C3%B3n-normal."><i class="fa fa-check"></i><b>10.4</b> Contraste de hipótesis para la varianza de una distribución Normal.</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-4"><i class="fa fa-check"></i><b>11.3.1</b> Introducción</a></li>
-<li class="chapter" data-level="11.3.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida."><i class="fa fa-check"></i><b>11.3.2</b> Resolución del contraste para la media de una distribución Normal con varianza desconocida.</a></li>
-<li class="chapter" data-level="11.3.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida."><i class="fa fa-check"></i><b>11.3.3</b> Intervalo de confianza para la media de una distribución Normal con varianza desconocida.</a></li>
-<li class="chapter" data-level="11.3.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#c%C3%A1lculo-del-tama%C3%B1o-muestral-para-la-media-de-una-distribuci%C3%B3n-normal-con-varianza-desconocida."><i class="fa fa-check"></i><b>11.3.4</b> Cálculo del tamaño muestral para la media de una distribución Normal con varianza desconocida.</a></li>
+<li class="chapter" data-level="10.4.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-5"><i class="fa fa-check"></i><b>10.4.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.4.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#informaci%C3%B3n-previa-premisas"><i class="fa fa-check"></i><b>10.4.2</b> Información previa (premisas)</a></li>
+<li class="chapter" data-level="10.4.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-varianza-de-una-distribuci%C3%B3n-normal."><i class="fa fa-check"></i><b>10.4.3</b> Resolución del contraste para la varianza de una distribución Normal.</a></li>
+<li class="chapter" data-level="10.4.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-varianza-de-una-distribuci%C3%B3n-normal."><i class="fa fa-check"></i><b>10.4.4</b> Intervalo de confianza para la varianza de una distribución Normal.</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-varianza-de-una-distribuci%C3%B3n-normal."><i class="fa fa-check"></i><b>11.4</b> Contraste de hipótesis para la varianza de una distribución Normal.</a>
+<li class="chapter" data-level="10.5" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>10.5</b> Contraste de hipótesis para la proporción.</a>
 <ul>
-<li class="chapter" data-level="11.4.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-5"><i class="fa fa-check"></i><b>11.4.1</b> Introducción</a></li>
-<li class="chapter" data-level="11.4.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#informaci%C3%B3n-previa-premisas"><i class="fa fa-check"></i><b>11.4.2</b> Información previa (premisas)</a></li>
-<li class="chapter" data-level="11.4.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-varianza-de-una-distribuci%C3%B3n-normal."><i class="fa fa-check"></i><b>11.4.3</b> Resolución del contraste para la varianza de una distribución Normal.</a></li>
-<li class="chapter" data-level="11.4.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-varianza-de-una-distribuci%C3%B3n-normal."><i class="fa fa-check"></i><b>11.4.4</b> Intervalo de confianza para la varianza de una distribución Normal.</a></li>
+<li class="chapter" data-level="10.5.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-6"><i class="fa fa-check"></i><b>10.5.1</b> Introducción:</a></li>
+<li class="chapter" data-level="10.5.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#informaci%C3%B3n-previa-premisas-1"><i class="fa fa-check"></i><b>10.5.2</b> Información previa (premisas)</a></li>
+<li class="chapter" data-level="10.5.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>10.5.3</b> Resolución del contraste para la proporción.</a></li>
+<li class="chapter" data-level="10.5.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>10.5.4</b> Intervalo de confianza para la proporción.</a></li>
+<li class="chapter" data-level="10.5.5" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#c%C3%A1lculo-del-tama%C3%B1o-muestral-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>10.5.5</b> Cálculo del tamaño muestral para la proporción.</a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#contraste-de-hip%C3%B3tesis-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>11.5</b> Contraste de hipótesis para la proporción.</a>
+<li class="chapter" data-level="10.6" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#tabla-resumen-para-una-muestra."><i class="fa fa-check"></i><b>10.6</b> Tabla resumen para una muestra.</a></li>
+<li class="chapter" data-level="10.7" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#la-importancia-de-elegir-correctamente-la-hip%C3%B3tesis-nula."><i class="fa fa-check"></i><b>10.7</b> La importancia de elegir correctamente la hipótesis nula.</a></li>
+<li class="chapter" data-level="10.8" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#relaci%C3%B3n-con-los-intervalos-de-confianza-1"><i class="fa fa-check"></i><b>10.8</b> Relación con los intervalos de confianza</a></li>
+<li class="chapter" data-level="10.9" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#relaci%C3%B3n-entre-el-intervalo-y-el-contraste"><i class="fa fa-check"></i><b>10.9</b> Relación entre el intervalo y el contraste</a>
 <ul>
-<li class="chapter" data-level="11.5.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#introducci%C3%B3n-6"><i class="fa fa-check"></i><b>11.5.1</b> Introducción:</a></li>
-<li class="chapter" data-level="11.5.2" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#informaci%C3%B3n-previa-premisas-1"><i class="fa fa-check"></i><b>11.5.2</b> Información previa (premisas)</a></li>
-<li class="chapter" data-level="11.5.3" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#resoluci%C3%B3n-del-contraste-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>11.5.3</b> Resolución del contraste para la proporción.</a></li>
-<li class="chapter" data-level="11.5.4" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>11.5.4</b> Intervalo de confianza para la proporción.</a></li>
-<li class="chapter" data-level="11.5.5" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#c%C3%A1lculo-del-tama%C3%B1o-muestral-para-la-proporci%C3%B3n."><i class="fa fa-check"></i><b>11.5.5</b> Cálculo del tamaño muestral para la proporción.</a></li>
+<li class="chapter" data-level="10.9.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-varianza-de-una-distribuci%C3%B3n-normal-1"><i class="fa fa-check"></i><b>10.9.1</b> Intervalo de confianza para la varianza de una distribución Normal</a></li>
 </ul></li>
-<li class="chapter" data-level="11.6" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#tabla-resumen-para-una-muestra."><i class="fa fa-check"></i><b>11.6</b> Tabla resumen para una muestra.</a></li>
-<li class="chapter" data-level="11.7" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#la-importancia-de-elegir-correctamente-la-hip%C3%B3tesis-nula."><i class="fa fa-check"></i><b>11.7</b> La importancia de elegir correctamente la hipótesis nula.</a></li>
-<li class="chapter" data-level="11.8" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#relaci%C3%B3n-con-los-intervalos-de-confianza-1"><i class="fa fa-check"></i><b>11.8</b> Relación con los intervalos de confianza</a></li>
-<li class="chapter" data-level="11.9" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#relaci%C3%B3n-entre-el-intervalo-y-el-contraste"><i class="fa fa-check"></i><b>11.9</b> Relación entre el intervalo y el contraste</a>
+</ul></li>
+<li class="chapter" data-level="11" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html"><i class="fa fa-check"></i><b>11</b> Contrastes con dos muestras</a>
 <ul>
-<li class="chapter" data-level="11.9.1" data-path="pruebas-de-una-muestra.html"><a href="pruebas-de-una-muestra.html#intervalo-de-confianza-para-la-varianza-de-una-distribuci%C3%B3n-normal-1"><i class="fa fa-check"></i><b>11.9.1</b> Intervalo de confianza para la varianza de una distribución Normal</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html"><i class="fa fa-check"></i><b>12</b> Contrastes con dos muestras</a>
+<li class="chapter" data-level="11.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#introducci%C3%B3n-7"><i class="fa fa-check"></i><b>11.1</b> Introducción</a></li>
+<li class="chapter" data-level="11.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-independencia-vs-datos-apareados"><i class="fa fa-check"></i><b>11.2</b> Premisas: independencia vs datos apareados</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#introducci%C3%B3n-7"><i class="fa fa-check"></i><b>12.1</b> Introducción</a></li>
-<li class="chapter" data-level="12.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-independencia-vs-datos-apareados"><i class="fa fa-check"></i><b>12.2</b> Premisas: independencia vs datos apareados</a>
+<li class="chapter" data-level="11.2.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#ejemplo-datos-independientes-vs-apareados"><i class="fa fa-check"></i><b>11.2.1</b> Ejemplo: Datos independientes vs apareados</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en-comparaciones-de-medias-de-datos-normales-independientes."><i class="fa fa-check"></i><b>11.3</b> Premisas e hipótesis en comparaciones de medias de datos normales independientes.</a></li>
+<li class="chapter" data-level="11.4" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-medias-de-datos-normales-independientes."><i class="fa fa-check"></i><b>11.4</b> Comparación de medias de datos normales independientes.</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#ejemplo-datos-independientes-vs-apareados"><i class="fa fa-check"></i><b>12.2.1</b> Ejemplo: Datos independientes vs apareados</a></li>
+<li class="chapter" data-level="11.4.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos"><i class="fa fa-check"></i><b>11.4.1</b> Estadístico de test y valores críticos</a></li>
+<li class="chapter" data-level="11.4.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-medias."><i class="fa fa-check"></i><b>11.4.2</b> Intervalo de confianza para la diferencia de medias.</a></li>
+<li class="chapter" data-level="11.4.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra"><i class="fa fa-check"></i><b>11.4.3</b> Cálculo del tamaño de muestra</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en-comparaciones-de-medias-de-datos-normales-independientes."><i class="fa fa-check"></i><b>12.3</b> Premisas e hipótesis en comparaciones de medias de datos normales independientes.</a></li>
-<li class="chapter" data-level="12.4" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-medias-de-datos-normales-independientes."><i class="fa fa-check"></i><b>12.4</b> Comparación de medias de datos normales independientes.</a>
+<li class="chapter" data-level="11.5" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-varianzas-de-datos-normales-independientes."><i class="fa fa-check"></i><b>11.5</b> Comparación de varianzas de datos normales independientes.</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos"><i class="fa fa-check"></i><b>12.4.1</b> Estadístico de test y valores críticos</a></li>
-<li class="chapter" data-level="12.4.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-medias."><i class="fa fa-check"></i><b>12.4.2</b> Intervalo de confianza para la diferencia de medias.</a></li>
-<li class="chapter" data-level="12.4.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra"><i class="fa fa-check"></i><b>12.4.3</b> Cálculo del tamaño de muestra</a></li>
+<li class="chapter" data-level="11.5.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en"><i class="fa fa-check"></i><b>11.5.1</b> Premisas e hipótesis en</a></li>
+<li class="chapter" data-level="11.5.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-1"><i class="fa fa-check"></i><b>11.5.2</b> Estadístico de test y valores críticos</a></li>
+<li class="chapter" data-level="11.5.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-raz%C3%B3n-de-varianzas"><i class="fa fa-check"></i><b>11.5.3</b> Intervalo de confianza para la razón de varianzas</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-varianzas-de-datos-normales-independientes."><i class="fa fa-check"></i><b>12.5</b> Comparación de varianzas de datos normales independientes.</a>
+<li class="chapter" data-level="11.6" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaciones-de-medias-de-datos-normales-apareados"><i class="fa fa-check"></i><b>11.6</b> Comparaciones de medias de datos normales apareados</a>
 <ul>
-<li class="chapter" data-level="12.5.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en"><i class="fa fa-check"></i><b>12.5.1</b> Premisas e hipótesis en</a></li>
-<li class="chapter" data-level="12.5.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-1"><i class="fa fa-check"></i><b>12.5.2</b> Estadístico de test y valores críticos</a></li>
-<li class="chapter" data-level="12.5.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-raz%C3%B3n-de-varianzas"><i class="fa fa-check"></i><b>12.5.3</b> Intervalo de confianza para la razón de varianzas</a></li>
+<li class="chapter" data-level="11.6.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>11.6.1</b> Premisas e hipótesis</a></li>
+<li class="chapter" data-level="11.6.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#relaci%C3%B3n-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales."><i class="fa fa-check"></i><b>11.6.2</b> Relación entre el contraste de datos apareados y el de una media (datos normales).</a></li>
+<li class="chapter" data-level="11.6.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#int%C3%A9rvalos-de-confianza-para-la-diferencia"><i class="fa fa-check"></i><b>11.6.3</b> Intérvalos de confianza para la diferencia</a></li>
+<li class="chapter" data-level="11.6.4" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#tama%C3%B1o-muestral"><i class="fa fa-check"></i><b>11.6.4</b> Tamaño muestral</a></li>
+<li class="chapter" data-level="11.6.5" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#ejemplo-efecto-de-una-intervenci%C3%B3n-sobre-el-colesterol-hdl"><i class="fa fa-check"></i><b>11.6.5</b> Ejemplo: efecto de una intervención sobre el colesterol HDL</a></li>
+<li class="chapter" data-level="11.6.6" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#resumen-datos-independientes-frente-a-datos-apareados"><i class="fa fa-check"></i><b>11.6.6</b> Resumen: Datos independientes frente a datos apareados</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaciones-de-medias-de-datos-normales-apareados"><i class="fa fa-check"></i><b>12.6</b> Comparaciones de medias de datos normales apareados</a>
+<li class="chapter" data-level="11.7" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaciones-de-2-proporciones-datos-independientes"><i class="fa fa-check"></i><b>11.7</b> Comparaciones de 2 proporciones (datos independientes)</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>12.6.1</b> Premisas e hipótesis</a></li>
-<li class="chapter" data-level="12.6.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#relaci%C3%B3n-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales."><i class="fa fa-check"></i><b>12.6.2</b> Relación entre el contraste de datos apareados y el de una media (datos normales).</a></li>
-<li class="chapter" data-level="12.6.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#int%C3%A9rvalos-de-confianza-para-la-diferencia"><i class="fa fa-check"></i><b>12.6.3</b> Intérvalos de confianza para la diferencia</a></li>
-<li class="chapter" data-level="12.6.4" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#tama%C3%B1o-muestral"><i class="fa fa-check"></i><b>12.6.4</b> Tamaño muestral</a></li>
-<li class="chapter" data-level="12.6.5" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#ejemplo-efecto-de-una-intervenci%C3%B3n-sobre-el-colesterol-hdl"><i class="fa fa-check"></i><b>12.6.5</b> Ejemplo: efecto de una intervención sobre el colesterol HDL</a></li>
-<li class="chapter" data-level="12.6.6" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#resumen-datos-independientes-frente-a-datos-apareados"><i class="fa fa-check"></i><b>12.6.6</b> Resumen: Datos independientes frente a datos apareados</a></li>
+<li class="chapter" data-level="11.7.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-1"><i class="fa fa-check"></i><b>11.7.1</b> Premisas e hipótesis</a></li>
+<li class="chapter" data-level="11.7.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-2"><i class="fa fa-check"></i><b>11.7.2</b> Estadístico de test y valores críticos</a></li>
+<li class="chapter" data-level="11.7.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#condiciones-de-aplicaci%C3%B3n-del-test"><i class="fa fa-check"></i><b>11.7.3</b> Condiciones de aplicación del test</a></li>
+<li class="chapter" data-level="11.7.4" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes."><i class="fa fa-check"></i><b>11.7.4</b> Intervalo de confianza para la diferencia de proporciones (datos independientes).</a></li>
+<li class="chapter" data-level="11.7.5" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes."><i class="fa fa-check"></i><b>11.7.5</b> Cálculo del tamaño de muestra en el contraste de proporciones de datos independientes.</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaciones-de-2-proporciones-datos-independientes"><i class="fa fa-check"></i><b>12.7</b> Comparaciones de 2 proporciones (datos independientes)</a>
+<li class="chapter" data-level="11.8" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaciones-de-dos-muestras-tabla-resumen"><i class="fa fa-check"></i><b>11.8</b> Comparaciones de dos muestras: Tabla resumen</a></li>
+<li class="chapter" data-level="11.9" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t"><i class="fa fa-check"></i><b>11.9</b> Complementos: efecto de las transformaciones de los datos en el test t</a>
 <ul>
-<li class="chapter" data-level="12.7.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-1"><i class="fa fa-check"></i><b>12.7.1</b> Premisas e hipótesis</a></li>
-<li class="chapter" data-level="12.7.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-2"><i class="fa fa-check"></i><b>12.7.2</b> Estadístico de test y valores críticos</a></li>
-<li class="chapter" data-level="12.7.3" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#condiciones-de-aplicaci%C3%B3n-del-test"><i class="fa fa-check"></i><b>12.7.3</b> Condiciones de aplicación del test</a></li>
-<li class="chapter" data-level="12.7.4" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes."><i class="fa fa-check"></i><b>12.7.4</b> Intervalo de confianza para la diferencia de proporciones (datos independientes).</a></li>
-<li class="chapter" data-level="12.7.5" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes."><i class="fa fa-check"></i><b>12.7.5</b> Cálculo del tamaño de muestra en el contraste de proporciones de datos independientes.</a></li>
+<li class="chapter" data-level="11.9.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#efecto-del-cambi-de-posici%C3%B3n"><i class="fa fa-check"></i><b>11.9.1</b> Efecto del cambi de posición</a></li>
+<li class="chapter" data-level="11.9.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#efecto-de-un-cambio-de-escala"><i class="fa fa-check"></i><b>11.9.2</b> Efecto de un cambio de escala</a></li>
 </ul></li>
-<li class="chapter" data-level="12.8" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#comparaciones-de-dos-muestras-tabla-resumen"><i class="fa fa-check"></i><b>12.8</b> Comparaciones de dos muestras: Tabla resumen</a></li>
-<li class="chapter" data-level="12.9" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t"><i class="fa fa-check"></i><b>12.9</b> Complementos: efecto de las transformaciones de los datos en el test t</a>
+<li class="chapter" data-level="11.10" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#presentaci%C3%B3n-del-caso-1"><i class="fa fa-check"></i><b>11.10</b> Presentación del caso 1</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html"><i class="fa fa-check"></i><b>12</b> Las pruebas “Chi-cuadrado”</a>
 <ul>
-<li class="chapter" data-level="12.9.1" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#efecto-del-cambi-de-posici%C3%B3n"><i class="fa fa-check"></i><b>12.9.1</b> Efecto del cambi de posición</a></li>
-<li class="chapter" data-level="12.9.2" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#efecto-de-un-cambio-de-escala"><i class="fa fa-check"></i><b>12.9.2</b> Efecto de un cambio de escala</a></li>
-</ul></li>
-<li class="chapter" data-level="12.10" data-path="contrastes-con-dos-muestras.html"><a href="contrastes-con-dos-muestras.html#presentaci%C3%B3n-del-caso-1"><i class="fa fa-check"></i><b>12.10</b> Presentación del caso 1</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html"><i class="fa fa-check"></i><b>13</b> CONTRASTES DE CHI-CUADRADO</a>
+<li class="chapter" data-level="12.1" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#introducci%C3%B3n-8"><i class="fa fa-check"></i><b>12.1</b> Introducción</a></li>
+<li class="chapter" data-level="12.2" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#pruebas-chi2-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>12.2</b> Pruebas <span class="math inline">\(\chi^2\)</span> de bondad de ajuste</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#introducci%C3%B3n-8"><i class="fa fa-check"></i><b>13.1</b> Introducción</a></li>
-<li class="chapter" data-level="13.2" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#pruebas-chi2-de-bondad-de-ajuste"><i class="fa fa-check"></i><b>13.2</b> Pruebas <span class="math inline">\(\chi^2\)</span> de bondad de ajuste</a>
+<li class="chapter" data-level="12.2.1" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#hip%C3%B3tesis-simples"><i class="fa fa-check"></i><b>12.2.1</b> Hipótesis simples</a></li>
+<li class="chapter" data-level="12.2.2" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#estad%C3%ADstico-de-pearson"><i class="fa fa-check"></i><b>12.2.2</b> Estadístico de Pearson</a></li>
+<li class="chapter" data-level="12.2.3" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#observaciones-pr%C3%A1cticas"><i class="fa fa-check"></i><b>12.2.3</b> Observaciones prácticas</a></li>
+<li class="chapter" data-level="12.2.4" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#ejemplo-10"><i class="fa fa-check"></i><b>12.2.4</b> Ejemplo</a></li>
+<li class="chapter" data-level="12.2.5" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#ejemplo-11"><i class="fa fa-check"></i><b>12.2.5</b> Ejemplo</a></li>
+<li class="chapter" data-level="12.2.6" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>12.2.6</b> Hipótesis compuestas</a></li>
+<li class="chapter" data-level="12.2.7" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#ejemplo-12"><i class="fa fa-check"></i><b>12.2.7</b> Ejemplo</a></li>
+<li class="chapter" data-level="12.2.8" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#ejemplo-13"><i class="fa fa-check"></i><b>12.2.8</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#pruebas-de-independencia-en-tablas-de-contingencia"><i class="fa fa-check"></i><b>12.3</b> Pruebas de independencia en tablas de contingencia</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#hip%C3%B3tesis-simples"><i class="fa fa-check"></i><b>13.2.1</b> Hipótesis simples</a></li>
-<li class="chapter" data-level="13.2.2" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#estad%C3%ADstico-de-pearson"><i class="fa fa-check"></i><b>13.2.2</b> Estadístico de Pearson</a></li>
-<li class="chapter" data-level="13.2.3" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#observaciones-pr%C3%A1cticas"><i class="fa fa-check"></i><b>13.2.3</b> Observaciones prácticas</a></li>
-<li class="chapter" data-level="13.2.4" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#ejemplo-10"><i class="fa fa-check"></i><b>13.2.4</b> Ejemplo</a></li>
-<li class="chapter" data-level="13.2.5" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#ejemplo-11"><i class="fa fa-check"></i><b>13.2.5</b> Ejemplo</a></li>
-<li class="chapter" data-level="13.2.6" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>13.2.6</b> Hipótesis compuestas</a></li>
-<li class="chapter" data-level="13.2.7" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#ejemplo-12"><i class="fa fa-check"></i><b>13.2.7</b> Ejemplo</a></li>
-<li class="chapter" data-level="13.2.8" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#ejemplo-13"><i class="fa fa-check"></i><b>13.2.8</b> Ejemplo</a></li>
+<li class="chapter" data-level="12.3.1" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#ejemplo-14"><i class="fa fa-check"></i><b>12.3.1</b> Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#pruebas-de-independencia-en-tablas-de-contingencia"><i class="fa fa-check"></i><b>13.3</b> Pruebas de independencia en tablas de contingencia</a>
+<li class="chapter" data-level="12.4" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#pruebas-de-homogeneidad"><i class="fa fa-check"></i><b>12.4</b> Pruebas de homogeneidad</a>
 <ul>
-<li class="chapter" data-level="13.3.1" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#ejemplo-14"><i class="fa fa-check"></i><b>13.3.1</b> Ejemplo</a></li>
+<li class="chapter" data-level="12.4.1" data-path="las-pruebas-chi-cuadrado.html"><a href="las-pruebas-chi-cuadrado.html#ejemplo-15"><i class="fa fa-check"></i><b>12.4.1</b> Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#pruebas-de-homogeneidad"><i class="fa fa-check"></i><b>13.4</b> Pruebas de homogeneidad</a>
+</ul></li>
+<li class="chapter" data-level="13" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html"><i class="fa fa-check"></i><b>13</b> Estadística no paramétrica</a>
 <ul>
-<li class="chapter" data-level="13.4.1" data-path="contrastes-de-chi-cuadrado.html"><a href="contrastes-de-chi-cuadrado.html#ejemplo-15"><i class="fa fa-check"></i><b>13.4.1</b> Ejemplo</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html"><i class="fa fa-check"></i><b>14</b> Estadística no paramétrica</a>
+<li class="chapter" data-level="13.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#introducci%C3%B3n-9"><i class="fa fa-check"></i><b>13.1</b> Introducción</a></li>
+<li class="chapter" data-level="13.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-los-signos"><i class="fa fa-check"></i><b>13.2</b> Test de los signos</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#introducci%C3%B3n-9"><i class="fa fa-check"></i><b>14.1</b> Introducción</a></li>
-<li class="chapter" data-level="14.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-los-signos"><i class="fa fa-check"></i><b>14.2</b> Test de los signos</a>
+<li class="chapter" data-level="13.2.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-para-la-mediana"><i class="fa fa-check"></i><b>13.2.1</b> Test para la mediana</a></li>
+<li class="chapter" data-level="13.2.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-los-signos-para-datos-apareados"><i class="fa fa-check"></i><b>13.2.2</b> Test de los signos para datos apareados</a></li>
+<li class="chapter" data-level="13.2.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-para-datos-binarios"><i class="fa fa-check"></i><b>13.2.3</b> Test para datos binarios</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-mcnemar"><i class="fa fa-check"></i><b>13.3</b> Test de McNemar</a></li>
+<li class="chapter" data-level="13.4" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-los-rangos-con-signo-de-wilcoxon"><i class="fa fa-check"></i><b>13.4</b> Test de los rangos con signo de Wilcoxon</a>
 <ul>
-<li class="chapter" data-level="14.2.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-para-la-mediana"><i class="fa fa-check"></i><b>14.2.1</b> Test para la mediana</a></li>
-<li class="chapter" data-level="14.2.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-los-signos-para-datos-apareados"><i class="fa fa-check"></i><b>14.2.2</b> Test de los signos para datos apareados</a></li>
-<li class="chapter" data-level="14.2.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-para-datos-binarios"><i class="fa fa-check"></i><b>14.2.3</b> Test para datos binarios</a></li>
+<li class="chapter" data-level="13.4.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-3"><i class="fa fa-check"></i><b>13.4.1</b> Observaciones</a></li>
+<li class="chapter" data-level="13.4.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-4-1"><i class="fa fa-check"></i><b>13.4.2</b> Ejemplo 4</a></li>
+<li class="chapter" data-level="13.4.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-5-1"><i class="fa fa-check"></i><b>13.4.3</b> Ejemplo 5</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-mcnemar"><i class="fa fa-check"></i><b>14.3</b> Test de McNemar</a></li>
-<li class="chapter" data-level="14.4" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-los-rangos-con-signo-de-wilcoxon"><i class="fa fa-check"></i><b>14.4</b> Test de los rangos con signo de Wilcoxon</a>
+<li class="chapter" data-level="13.5" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#el-test-u-de-mann-whitney"><i class="fa fa-check"></i><b>13.5</b> El test <span class="math inline">\(U\)</span> de Mann-Whitney</a>
 <ul>
-<li class="chapter" data-level="14.4.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-3"><i class="fa fa-check"></i><b>14.4.1</b> Observaciones</a></li>
-<li class="chapter" data-level="14.4.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-4-1"><i class="fa fa-check"></i><b>14.4.2</b> Ejemplo 4</a></li>
-<li class="chapter" data-level="14.4.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-5-1"><i class="fa fa-check"></i><b>14.4.3</b> Ejemplo 5</a></li>
+<li class="chapter" data-level="13.5.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-4"><i class="fa fa-check"></i><b>13.5.1</b> Observaciones</a></li>
+<li class="chapter" data-level="13.5.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-6-1"><i class="fa fa-check"></i><b>13.5.2</b> Ejemplo 6</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#el-test-u-de-mann-whitney"><i class="fa fa-check"></i><b>14.5</b> El test <span class="math inline">\(U\)</span> de Mann-Whitney</a>
+<li class="chapter" data-level="13.6" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#comparaci%C3%B3n-de-medianas"><i class="fa fa-check"></i><b>13.6</b> Comparación de medianas</a>
 <ul>
-<li class="chapter" data-level="14.5.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-4"><i class="fa fa-check"></i><b>14.5.1</b> Observaciones</a></li>
-<li class="chapter" data-level="14.5.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-6-1"><i class="fa fa-check"></i><b>14.5.2</b> Ejemplo 6</a></li>
+<li class="chapter" data-level="13.6.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-7-1"><i class="fa fa-check"></i><b>13.6.1</b> Ejemplo 7</a></li>
 </ul></li>
-<li class="chapter" data-level="14.6" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#comparaci%C3%B3n-de-medianas"><i class="fa fa-check"></i><b>14.6</b> Comparación de medianas</a>
+<li class="chapter" data-level="13.7" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-kolmogorov-smirnov-para-la-homogeneidad"><i class="fa fa-check"></i><b>13.7</b> Test de Kolmogorov-Smirnov para la homogeneidad</a>
 <ul>
-<li class="chapter" data-level="14.6.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-7-1"><i class="fa fa-check"></i><b>14.6.1</b> Ejemplo 7</a></li>
+<li class="chapter" data-level="13.7.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-8-1"><i class="fa fa-check"></i><b>13.7.1</b> Ejemplo 8</a></li>
 </ul></li>
-<li class="chapter" data-level="14.7" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-kolmogorov-smirnov-para-la-homogeneidad"><i class="fa fa-check"></i><b>14.7</b> Test de Kolmogorov-Smirnov para la homogeneidad</a>
+<li class="chapter" data-level="13.8" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-h-de-kruskal-wallis"><i class="fa fa-check"></i><b>13.8</b> Test <span class="math inline">\(H\)</span> de Kruskal-Wallis</a>
 <ul>
-<li class="chapter" data-level="14.7.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-8-1"><i class="fa fa-check"></i><b>14.7.1</b> Ejemplo 8</a></li>
+<li class="chapter" data-level="13.8.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-5"><i class="fa fa-check"></i><b>13.8.1</b> Observaciones</a></li>
+<li class="chapter" data-level="13.8.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-9-1"><i class="fa fa-check"></i><b>13.8.2</b> Ejemplo 9</a></li>
 </ul></li>
-<li class="chapter" data-level="14.8" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-h-de-kruskal-wallis"><i class="fa fa-check"></i><b>14.8</b> Test <span class="math inline">\(H\)</span> de Kruskal-Wallis</a>
+<li class="chapter" data-level="13.9" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-friedman"><i class="fa fa-check"></i><b>13.9</b> Test de Friedman</a>
 <ul>
-<li class="chapter" data-level="14.8.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-5"><i class="fa fa-check"></i><b>14.8.1</b> Observaciones</a></li>
-<li class="chapter" data-level="14.8.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-9-1"><i class="fa fa-check"></i><b>14.8.2</b> Ejemplo 9</a></li>
+<li class="chapter" data-level="13.9.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-10-1"><i class="fa fa-check"></i><b>13.9.1</b> Ejemplo 10</a></li>
+<li class="chapter" data-level="13.9.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-6"><i class="fa fa-check"></i><b>13.9.2</b> Observaciones</a></li>
 </ul></li>
-<li class="chapter" data-level="14.9" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#test-de-friedman"><i class="fa fa-check"></i><b>14.9</b> Test de Friedman</a>
+<li class="chapter" data-level="13.10" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#coeficientes-de-correlaci%C3%B3n-no-param%C3%A9tricos"><i class="fa fa-check"></i><b>13.10</b> Coeficientes de correlación no paramétricos</a>
 <ul>
-<li class="chapter" data-level="14.9.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#ejemplo-10-1"><i class="fa fa-check"></i><b>14.9.1</b> Ejemplo 10</a></li>
-<li class="chapter" data-level="14.9.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#observaciones-6"><i class="fa fa-check"></i><b>14.9.2</b> Observaciones</a></li>
-</ul></li>
-<li class="chapter" data-level="14.10" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#coeficientes-de-correlaci%C3%B3n-no-param%C3%A9tricos"><i class="fa fa-check"></i><b>14.10</b> Coeficientes de correlación no paramétricos</a>
-<ul>
-<li class="chapter" data-level="14.10.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#coeficiente-tau-de-kendall"><i class="fa fa-check"></i><b>14.10.1</b> Coeficiente <span class="math inline">\(\tau\)</span> de Kendall</a></li>
-<li class="chapter" data-level="14.10.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#coeficiente-de-correlaci%C3%B3n-por-rangos-de-spearman"><i class="fa fa-check"></i><b>14.10.2</b> Coeficiente de correlación por rangos de Spearman</a></li>
-<li class="chapter" data-level="14.10.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#el-par%C3%A1metro-poblacional-asociado-a-los-coeficientes-de-correlaci%C3%B3n-no-param%C3%A9tricos"><i class="fa fa-check"></i><b>14.10.3</b> El parámetro poblacional asociado a los coeficientes de correlación no paramétricos</a></li>
+<li class="chapter" data-level="13.10.1" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#coeficiente-tau-de-kendall"><i class="fa fa-check"></i><b>13.10.1</b> Coeficiente <span class="math inline">\(\tau\)</span> de Kendall</a></li>
+<li class="chapter" data-level="13.10.2" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#coeficiente-de-correlaci%C3%B3n-por-rangos-de-spearman"><i class="fa fa-check"></i><b>13.10.2</b> Coeficiente de correlación por rangos de Spearman</a></li>
+<li class="chapter" data-level="13.10.3" data-path="estadística-no-paramétrica.html"><a href="estadística-no-paramétrica.html#el-par%C3%A1metro-poblacional-asociado-a-los-coeficientes-de-correlaci%C3%B3n-no-param%C3%A9tricos"><i class="fa fa-check"></i><b>13.10.3</b> El parámetro poblacional asociado a los coeficientes de correlación no paramétricos</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="bibliografia.html"><a href="bibliografia.html"><i class="fa fa-check"></i>Bibliografia</a></li>
 </ul>
 
       </nav>
@@ -838,22 +859,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="contrastes-con-dos-muestras" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Capítulo 12</span> Contrastes con dos muestras<a href="contrastes-con-dos-muestras.html#contrastes-con-dos-muestras" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introducción-7" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> Introducción<a href="contrastes-con-dos-muestras.html#introducci%C3%B3n-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="contrastes-con-dos-muestras" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Capítulo 11</span> Contrastes con dos muestras<a href="contrastes-con-dos-muestras.html#contrastes-con-dos-muestras" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducción-7" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Introducción<a href="contrastes-con-dos-muestras.html#introducci%C3%B3n-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Un problema muy frecuente en las ciencias experimentales es la comprobación de la homogeneidad de dos grupos, esto es, la decisión de si existen diferencias entre ellos, en determinada característica.</p>
 <p>La estadística paramétrica resuelve esta cuestión comparando los parámetros que caracterizan los dos grupos, que son considerados dos poblaciones a priori diferentes. El proceso consiste en obtener una muestra de cada grupo, y a partir de ellas contrastar la igualdad de los parámetros de la distribución de referencia. Por ejemplo, si la distribución de referencia es una normal, se contrasta si la media (poblacional) de los dos grupos es idéntica. De aquí que a veces se nombra este tema como comparaciones de dos muestras, aunque realmente las muestras sirven para inferir si hay diferencias significativas en las poblaciones de las cuales se han extraído.</p>
 <p>Desde el punto de vista aplicado es importante distinguir los estudios experimentales y los estudios observacionales. En los primeros, el experimentador puede asignar los individuos al azar en cada grupo. Por ejemplo, al comparar la eficacia de dos fármacos en el tratamiento de una enfermedad, se puede muchas veces asignar los enfermos al azar a uno de los dos tratamientos. En cambio, si el estudio compara una variable biométrica en dos especies diferentes, los individuos están indefectiblemente asociados a su especie y no se pueden asignar al azar: el estudio es observacional.</p>
 <p>Este tema trata de las comparaciones de dos grupos en las situaciones paramétricas más habituales y básicas: en primer lugar trata el caso en el que la variable sea normal comparando las medias y las varianzas, en segundo lugar, el caso en que la variable sea binomial, comparando entonces las proporciones.</p>
 </div>
-<div id="premisas-independencia-vs-datos-apareados" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> Premisas: independencia vs datos apareados<a href="contrastes-con-dos-muestras.html#premisas-independencia-vs-datos-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="premisas-independencia-vs-datos-apareados" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Premisas: independencia vs datos apareados<a href="contrastes-con-dos-muestras.html#premisas-independencia-vs-datos-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En el desarrollo de este tema destaca la importancia que tienen las premisas (requisitos) que deben cumplir los datos para la correcta aplicación de cada una de las técnicas de comparación.</p>
 <p>La primera premisa se refiere a la independencia de los datos. En el tema de muestreo (ver aquí) se ha estudiado la definición y obtención de muestras aleatorias simples, que exige, entre otras condiciones, la independencia de los datos. En este sentido, las comparaciones de dos grupos que abordamos aquí siempre se basan en muestra aleatorias simples dentro de cada grupo.</p>
 <p>Ahora bien, según el tipo de estudio, pueden presentarse situaciones de dependencia entre los datos de los dos grupos. La dependencia o independencia a la que se refieren los tests de este capítulo ha de entenderse siempre referida a la de los datos entre los dos grupos, sobreentendiendo la independencia exigida dentro del grupo.</p>
-<div id="ejemplo-datos-independientes-vs-apareados" class="section level3 hasAnchor" number="12.2.1">
-<h3><span class="header-section-number">12.2.1</span> Ejemplo: Datos independientes vs apareados<a href="contrastes-con-dos-muestras.html#ejemplo-datos-independientes-vs-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-datos-independientes-vs-apareados" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Ejemplo: Datos independientes vs apareados<a href="contrastes-con-dos-muestras.html#ejemplo-datos-independientes-vs-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Como primer ejemplo supongamos un experimento cuyo objetivo es comparar la eficacia de dos fármacos adelgazantes. Se toman 20 individuos y se asignan al azar 10 de ellos a cada uno de los dos tratamientos. Al cabo de dos meses se mide la diferencia de peso antes y después del tratamiento. Aquí los dos grupos (poblaciones) son respectivamente todos los participantes en el estudio, tratados con los 2 fármaco. Hay dos muestras de 10 individuos y los datos pueden considerarse con este diseño experimental independientes. Este ejemplo corresponde a una situación muy frecuente en análisis de datos conocida como comparación de 2 muestras independientes.</p>
 <p>Supongamos en cambio que el experimento consiste en escoger a 10 individuos al azar, medir su peso, suministrarles durante dos meses el mismo tratamiento y medir finalmente de nuevo el peso. Hay también aquí 2 muestras de 10 individuos: los 10 valores antes del tratamiento y los 10 de después. Sin embargo, ahora los datos de las dos muestras presentan una probable dependencia que corresponde a este esquema:</p>
 <table>
@@ -890,8 +911,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Debido a esta situación experimental tan específica los datos aparecen de forma natural emparejados si nos atenemos a su posible dependencia. Este es una segunda situación muy frecuente en experimentación: la comparación de muestras apareadas.</p>
 </div>
 </div>
-<div id="premisas-e-hipótesis-en-comparaciones-de-medias-de-datos-normales-independientes." class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">12.3</span> Premisas e hipótesis en comparaciones de medias de datos normales independientes.<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en-comparaciones-de-medias-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="premisas-e-hipótesis-en-comparaciones-de-medias-de-datos-normales-independientes." class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Premisas e hipótesis en comparaciones de medias de datos normales independientes.<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en-comparaciones-de-medias-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Abordaremos primero cómo comparar las medias de dos grupos asociados a una variable normal cuando el muestreo se ha realizado de forma independiente entre los dos grupos.</p>
 <p>Las premisas para aplicar el test que se describe a continuación son:</p>
 <ul>
@@ -918,10 +939,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \mathrm{H}_{0}: \mu_{1}-\mu_{2} \geq \mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2}&lt;\mathrm{d}_{0}
 \]</span></p>
 </div>
-<div id="comparación-de-medias-de-datos-normales-independientes." class="section level2 hasAnchor" number="12.4">
-<h2><span class="header-section-number">12.4</span> Comparación de medias de datos normales independientes.<a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-medias-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="estadístico-de-test-y-valores-críticos" class="section level3 hasAnchor" number="12.4.1">
-<h3><span class="header-section-number">12.4.1</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="comparación-de-medias-de-datos-normales-independientes." class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Comparación de medias de datos normales independientes.<a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-medias-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="estadístico-de-test-y-valores-críticos" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En el resto de esta sección asumiremos muestras de tamaño <span class="math inline">\(n_{1}\)</span> y <span class="math inline">\(n_{2}\)</span> respectivamente para las dos poblaciones. Los estadísticos se indican mediante:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -969,8 +990,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 <p>en otras palabras, <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> es el valor crítico bilateral de la T asociada a una probabilidad <span class="math inline">\(\alpha\)</span> mientras que <span class="math inline">\(\mathrm{t}_{\alpha}\)</span> es el valor crítico unilateral derecho de la misma v.a.</p>
 </div>
-<div id="intervalo-de-confianza-para-la-diferencia-de-medias." class="section level3 hasAnchor" number="12.4.2">
-<h3><span class="header-section-number">12.4.2</span> Intervalo de confianza para la diferencia de medias.<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-medias." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="intervalo-de-confianza-para-la-diferencia-de-medias." class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Intervalo de confianza para la diferencia de medias.<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-medias." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los límites para el intervalo de una diferencia de medias correspondientes a dos muestras independientes son:</p>
 <p><span class="math display">\[
 \bar{X}_{1}-\bar{X}_{2} \pm t_{\alpha / 2} \sqrt{\frac{\left(n_{1}-1\right) \widetilde{S}_{1}^{2}+\left(n_{2}-1\right) \widetilde{S}_{2}^{2}}{n_{1}+n_{2}-2} \frac{\left(n_{1}+n_{2}\right)}{n_{1} n_{2}}}
@@ -985,8 +1006,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 <p>La decisión tomada con este intervalo es totalmente equivalente a la decisión tomada con el contraste t Student de 2 muestras independientes con alternativa unilateral derecha.</p>
 </div>
-<div id="cálculo-del-tamaño-de-muestra" class="section level3 hasAnchor" number="12.4.3">
-<h3><span class="header-section-number">12.4.3</span> Cálculo del tamaño de muestra<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cálculo-del-tamaño-de-muestra" class="section level3 hasAnchor" number="11.4.3">
+<h3><span class="header-section-number">11.4.3</span> Cálculo del tamaño de muestra<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supongamos que se desea realizar el contraste bilateral:</p>
 <p><span class="math display">\[
 \mathrm{H}_{0}: \mu_{1}-\mu_{2}=\mathrm{d}_{0} \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}-\mu_{2} \neq \mathrm{d}_{0}
@@ -1002,10 +1023,10 @@ p\left(T \geq t_{\alpha / 2}\right)=\alpha / 2 \quad p\left(T \geq t_{1-\beta}\r
 <p>Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra <span class="math inline">\(t_{\alpha / 2}\)</span> por <span class="math inline">\(t_{\alpha}\)</span>.</p>
 </div>
 </div>
-<div id="comparación-de-varianzas-de-datos-normales-independientes." class="section level2 hasAnchor" number="12.5">
-<h2><span class="header-section-number">12.5</span> Comparación de varianzas de datos normales independientes.<a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-varianzas-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="premisas-e-hipótesis-en" class="section level3 hasAnchor" number="12.5.1">
-<h3><span class="header-section-number">12.5.1</span> Premisas e hipótesis en<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="comparación-de-varianzas-de-datos-normales-independientes." class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Comparación de varianzas de datos normales independientes.<a href="contrastes-con-dos-muestras.html#comparaci%C3%B3n-de-varianzas-de-datos-normales-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="premisas-e-hipótesis-en" class="section level3 hasAnchor" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> Premisas e hipótesis en<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-en" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Aquí se detalla cómo comparar las varianzas de dos grupos asociados a una variable normal cuando el muestreo se ha realizado de forma independiente entre los dos grupos.</p>
 <p>Las premisas para aplicar el test que se describe a continuación son:</p>
 <ul>
@@ -1027,8 +1048,8 @@ p\left(T \geq t_{\alpha / 2}\right)=\alpha / 2 \quad p\left(T \geq t_{1-\beta}\r
 \mathrm{H}_{0}: \sigma_{1} \geq \sigma_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \sigma_{1}&lt;\sigma_{2}
 \]</span></p>
 </div>
-<div id="estadístico-de-test-y-valores-críticos-1" class="section level3 hasAnchor" number="12.5.2">
-<h3><span class="header-section-number">12.5.2</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="estadístico-de-test-y-valores-críticos-1" class="section level3 hasAnchor" number="11.5.2">
+<h3><span class="header-section-number">11.5.2</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hemos asumido antes que las muestras eran de tamaño <span class="math inline">\(n_{1}\)</span> y <span class="math inline">\(n_{2}\)</span> respectivamente para las dos poblaciones y que los estadísticos se indican mediante:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1088,8 +1109,8 @@ p\left(T \geq t_{\alpha / 2}\right)=\alpha / 2 \quad p\left(T \geq t_{1-\beta}\r
 </table>
 <p>en otras palabras, <span class="math inline">\(\mathrm{f}_{\alpha / 2}\)</span> y <span class="math inline">\(\mathrm{f}_{\alpha}\)</span> son valores críticos unilaterales derechos de la <span class="math inline">\(F\)</span> (asociados respectivamente a una probabilidad <span class="math inline">\(\alpha / 2\)</span> y <span class="math inline">\(\alpha\)</span> ) mientras que <span class="math inline">\(f_{1-\alpha / 2}\)</span> y <span class="math inline">\(f_{1-\alpha}\)</span> son unilaterales izquierdos de la misma variable aleatoria.</p>
 </div>
-<div id="intervalo-de-confianza-para-la-razón-de-varianzas" class="section level3 hasAnchor" number="12.5.3">
-<h3><span class="header-section-number">12.5.3</span> Intervalo de confianza para la razón de varianzas<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-raz%C3%B3n-de-varianzas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="intervalo-de-confianza-para-la-razón-de-varianzas" class="section level3 hasAnchor" number="11.5.3">
+<h3><span class="header-section-number">11.5.3</span> Intervalo de confianza para la razón de varianzas<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-raz%C3%B3n-de-varianzas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los límites de un intervalo de confianza <span class="math inline">\(1-\alpha \%\)</span> para el cociente de varianzas correspondientes a dos muestras independientes son:</p>
 <p><span class="math display">\[
 \left(f_{1-\alpha / 2} \frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}, f_{\alpha / 2} \frac{\widetilde{S}_{1}^{2}}{\widetilde{S}_{2}^{2}}\right)
@@ -1098,10 +1119,10 @@ p\left(T \geq t_{\alpha / 2}\right)=\alpha / 2 \quad p\left(T \geq t_{1-\beta}\r
 <p>Este intervalo puede utilizarse de forma alternativa al contraste de hipótesis para decidir (con nivel de significación <span class="math inline">\(\alpha\)</span> %) si hay igualdad de varianzas de los dos grupos. Se decidirá que no hay diferencias significativas si el valor 1 queda incluido en cualquier posición en el intervalo. El número 1 no ha de estar forzosamente en el centro del intervalo para aceptar <span class="math inline">\(\mathrm{H}_{0}\)</span>.</p>
 </div>
 </div>
-<div id="comparaciones-de-medias-de-datos-normales-apareados" class="section level2 hasAnchor" number="12.6">
-<h2><span class="header-section-number">12.6</span> Comparaciones de medias de datos normales apareados<a href="contrastes-con-dos-muestras.html#comparaciones-de-medias-de-datos-normales-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="premisas-e-hipótesis" class="section level3 hasAnchor" number="12.6.1">
-<h3><span class="header-section-number">12.6.1</span> Premisas e hipótesis<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="comparaciones-de-medias-de-datos-normales-apareados" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Comparaciones de medias de datos normales apareados<a href="contrastes-con-dos-muestras.html#comparaciones-de-medias-de-datos-normales-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="premisas-e-hipótesis" class="section level3 hasAnchor" number="11.6.1">
+<h3><span class="header-section-number">11.6.1</span> Premisas e hipótesis<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Las premisas para aplicar el test que se describe a continuación son:</p>
 <ul>
 <li>las muestras corresponden a datos apareados</li>
@@ -1129,8 +1150,8 @@ X_{d}=X_{1}-X_{2}
 \mathrm{H}_{0}: \mu_{\mathrm{d}} \geq 0 \quad \text { contra } \quad \mathrm{H}_{1}: \mu_{1}&lt;0
 \]</span></p>
 </div>
-<div id="relación-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales." class="section level3 hasAnchor" number="12.6.2">
-<h3><span class="header-section-number">12.6.2</span> Relación entre el contraste de datos apareados y el de una media (datos normales).<a href="contrastes-con-dos-muestras.html#relaci%C3%B3n-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="relación-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales." class="section level3 hasAnchor" number="11.6.2">
+<h3><span class="header-section-number">11.6.2</span> Relación entre el contraste de datos apareados y el de una media (datos normales).<a href="contrastes-con-dos-muestras.html#relaci%C3%B3n-entre-el-contraste-de-datos-apareados-y-el-de-una-media-datos-normales." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se dispone de una muestra de datos apareados de tamaño n (es decir, n parejas). Los estadísticos se indican mediante:</p>
 <p><span class="math display">\[\bar{X}_{d}, \quad \widetilde{S}_{d}^{2},\]</span>
 promedio y varianza muestral corregida de la resta de las 2 muestras</p>
@@ -1172,22 +1193,22 @@ promedio y varianza muestral corregida de la resta de las 2 muestras</p>
 \]</span></p>
 <p>en otras palabras, <span class="math inline">\(\mathrm{t}_{\alpha / 2}\)</span> es el valor crítico bilateral de la T asociada a una probabilidad <span class="math inline">\(\alpha\)</span> mientras que <span class="math inline">\(\mathrm{t}_{\alpha}\)</span> es el valor crítico unilateral derecho de la misma v.a.</p>
 </div>
-<div id="intérvalos-de-confianza-para-la-diferencia" class="section level3 hasAnchor" number="12.6.3">
-<h3><span class="header-section-number">12.6.3</span> Intérvalos de confianza para la diferencia<a href="contrastes-con-dos-muestras.html#int%C3%A9rvalos-de-confianza-para-la-diferencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="intérvalos-de-confianza-para-la-diferencia" class="section level3 hasAnchor" number="11.6.3">
+<h3><span class="header-section-number">11.6.3</span> Intérvalos de confianza para la diferencia<a href="contrastes-con-dos-muestras.html#int%C3%A9rvalos-de-confianza-para-la-diferencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El intervalo de confianza para la media de la variable diferencia es el mismo que el de la media de una muestra normal, es decir:</p>
 <p><span class="math display">\[
 \bar{X}_{d} \pm t_{\alpha / 2} \frac{\widetilde{S}_{d}}{\sqrt{n}}
 \]</span></p>
 </div>
-<div id="tamaño-muestral" class="section level3 hasAnchor" number="12.6.4">
-<h3><span class="header-section-number">12.6.4</span> Tamaño muestral<a href="contrastes-con-dos-muestras.html#tama%C3%B1o-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tamaño-muestral" class="section level3 hasAnchor" number="11.6.4">
+<h3><span class="header-section-number">11.6.4</span> Tamaño muestral<a href="contrastes-con-dos-muestras.html#tama%C3%B1o-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finalmente, el tamaño de muestra también corresponde al mismo caso:</p>
 <p><span class="math display">\[
 n=\left(\frac{t_{\alpha / 2}+t_{1-\beta}}{\Delta}\right)^{2} \widetilde{S}_{d}^{2}
 \]</span></p>
 </div>
-<div id="ejemplo-efecto-de-una-intervención-sobre-el-colesterol-hdl" class="section level3 hasAnchor" number="12.6.5">
-<h3><span class="header-section-number">12.6.5</span> Ejemplo: efecto de una intervención sobre el colesterol HDL<a href="contrastes-con-dos-muestras.html#ejemplo-efecto-de-una-intervenci%C3%B3n-sobre-el-colesterol-hdl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplo-efecto-de-una-intervención-sobre-el-colesterol-hdl" class="section level3 hasAnchor" number="11.6.5">
+<h3><span class="header-section-number">11.6.5</span> Ejemplo: efecto de una intervención sobre el colesterol HDL<a href="contrastes-con-dos-muestras.html#ejemplo-efecto-de-una-intervenci%C3%B3n-sobre-el-colesterol-hdl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se estudia el efecto de una intervención destinada a aumentar el colesterol HDL en un grupo de <span class="math inline">\(n = 10\)</span> pacientes.
 En cada paciente se mide el nivel de HDL (en mg/dL) antes y después de la intervención.</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="contrastes-con-dos-muestras.html#cb70-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
@@ -1199,14 +1220,14 @@ En cada paciente se mide el nivel de HDL (en mg/dL) antes y después de la inter
 <pre><code>##  [1] 32.8 34.1 41.2 35.3 35.5 41.9 36.8 29.9 32.3 33.2</code></pre>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="contrastes-con-dos-muestras.html#cb72-1" tabindex="-1"></a>HDL_despues</span></code></pre></div>
 <pre><code>##  [1] 49.9 46.4 46.6 45.4 42.8 52.1 47.0 37.1 47.8 43.1</code></pre>
-<div id="definición-de-la-variable-diferencia" class="section level4 hasAnchor" number="12.6.5.1">
-<h4><span class="header-section-number">12.6.5.1</span> Definición de la variable diferencia<a href="contrastes-con-dos-muestras.html#definici%C3%B3n-de-la-variable-diferencia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="definición-de-la-variable-diferencia" class="section level4 hasAnchor" number="11.6.5.1">
+<h4><span class="header-section-number">11.6.5.1</span> Definición de la variable diferencia<a href="contrastes-con-dos-muestras.html#definici%C3%B3n-de-la-variable-diferencia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="contrastes-con-dos-muestras.html#cb74-1" tabindex="-1"></a>D <span class="ot">&lt;-</span> HDL_despues <span class="sc">-</span> HDL_antes</span>
 <span id="cb74-2"><a href="contrastes-con-dos-muestras.html#cb74-2" tabindex="-1"></a>D</span></code></pre></div>
 <pre><code>##  [1] 17.1 12.3  5.4 10.1  7.3 10.2 10.2  7.2 15.5  9.9</code></pre>
 </div>
-<div id="planteamiento-de-las-hipótesis" class="section level4 hasAnchor" number="12.6.5.2">
-<h4><span class="header-section-number">12.6.5.2</span> Planteamiento de las hipótesis<a href="contrastes-con-dos-muestras.html#planteamiento-de-las-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="planteamiento-de-las-hipótesis" class="section level4 hasAnchor" number="11.6.5.2">
+<h4><span class="header-section-number">11.6.5.2</span> Planteamiento de las hipótesis<a href="contrastes-con-dos-muestras.html#planteamiento-de-las-hip%C3%B3tesis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Las hipótesis del contraste son</p>
 <p><span class="math display">\[
 H_0: \mu_D = 0
@@ -1214,8 +1235,8 @@ H_0: \mu_D = 0
 H_1: \mu_D \neq 0.
 \]</span></p>
 </div>
-<div id="cálculo-del-estadístico-de-contraste" class="section level4 hasAnchor" number="12.6.5.3">
-<h4><span class="header-section-number">12.6.5.3</span> Cálculo del estadístico de contraste<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-estad%C3%ADstico-de-contraste" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="cálculo-del-estadístico-de-contraste" class="section level4 hasAnchor" number="11.6.5.3">
+<h4><span class="header-section-number">11.6.5.3</span> Cálculo del estadístico de contraste<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-estad%C3%ADstico-de-contraste" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="contrastes-con-dos-muestras.html#cb76-1" tabindex="-1"></a><span class="fu">mean</span>(D)</span></code></pre></div>
 <pre><code>## [1] 10.52</code></pre>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="contrastes-con-dos-muestras.html#cb78-1" tabindex="-1"></a><span class="fu">sd</span>(D)</span></code></pre></div>
@@ -1225,8 +1246,8 @@ H_1: \mu_D \neq 0.
 <pre><code>## [1] 9.124436</code></pre>
 <p>Bajo la hipótesis nula, este estadístico sigue una distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(n-1 = 9\)</span> grados de libertad.</p>
 </div>
-<div id="decisión-mediante-el-p-valor" class="section level4 hasAnchor" number="12.6.5.4">
-<h4><span class="header-section-number">12.6.5.4</span> Decisión mediante el p-valor<a href="contrastes-con-dos-muestras.html#decisi%C3%B3n-mediante-el-p-valor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="decisión-mediante-el-p-valor" class="section level4 hasAnchor" number="11.6.5.4">
+<h4><span class="header-section-number">11.6.5.4</span> Decisión mediante el p-valor<a href="contrastes-con-dos-muestras.html#decisi%C3%B3n-mediante-el-p-valor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="contrastes-con-dos-muestras.html#cb82-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="fu">abs</span>(T), <span class="at">df =</span> <span class="fu">length</span>(D) <span class="sc">-</span> <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## [1] 7.629805e-06</code></pre>
 <p><strong>Uso de <code>t.test</code> sobre la variable diferencia</strong></p>
@@ -1262,8 +1283,8 @@ internamente la variable <span class="math inline">\(D = \text{HDL}_{\text{despu
 y aplicar sobre ella un contraste de una muestra.</p>
 </div>
 </div>
-<div id="resumen-datos-independientes-frente-a-datos-apareados" class="section level3 hasAnchor" number="12.6.6">
-<h3><span class="header-section-number">12.6.6</span> Resumen: Datos independientes frente a datos apareados<a href="contrastes-con-dos-muestras.html#resumen-datos-independientes-frente-a-datos-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="resumen-datos-independientes-frente-a-datos-apareados" class="section level3 hasAnchor" number="11.6.6">
+<h3><span class="header-section-number">11.6.6</span> Resumen: Datos independientes frente a datos apareados<a href="contrastes-con-dos-muestras.html#resumen-datos-independientes-frente-a-datos-apareados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La distinción entre datos independientes y datos apareados no depende del contraste estadístico,
 sino del diseño del estudio y del modo en que se han obtenido los datos.</p>
 <ul>
@@ -1274,10 +1295,10 @@ sino del diseño del estudio y del modo en que se han obtenido los datos.</p>
 <p>El apareamiento se incorpora al análisis transformando los datos originales en una muestra de diferencias, y aplicando posteriormente un contraste de una sola muestra sobre dicha variable.</p>
 </div>
 </div>
-<div id="comparaciones-de-2-proporciones-datos-independientes" class="section level2 hasAnchor" number="12.7">
-<h2><span class="header-section-number">12.7</span> Comparaciones de 2 proporciones (datos independientes)<a href="contrastes-con-dos-muestras.html#comparaciones-de-2-proporciones-datos-independientes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="premisas-e-hipótesis-1" class="section level3 hasAnchor" number="12.7.1">
-<h3><span class="header-section-number">12.7.1</span> Premisas e hipótesis<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="comparaciones-de-2-proporciones-datos-independientes" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Comparaciones de 2 proporciones (datos independientes)<a href="contrastes-con-dos-muestras.html#comparaciones-de-2-proporciones-datos-independientes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="premisas-e-hipótesis-1" class="section level3 hasAnchor" number="11.7.1">
+<h3><span class="header-section-number">11.7.1</span> Premisas e hipótesis<a href="contrastes-con-dos-muestras.html#premisas-e-hip%C3%B3tesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Otra de las pruebas estadísticas más básicas consiste en comprobar si la proporción de veces que ocurre un suceso es la misma en dos grupos diferentes. Se basa en la obtención de dos muestras donde en cada una de ellas se contabiliza el número de veces que ocurre el suceso estudiado.</p>
 <p>Las premisas para aplicar el test que se describe a continuación son:</p>
 <ul>
@@ -1298,8 +1319,8 @@ sino del diseño del estudio y del modo en que se han obtenido los datos.</p>
 \mathrm{H}_{0}: \mathrm{p}_{1} \geq \mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1}&lt;\mathrm{p}_{2}
 \]</span></p>
 </div>
-<div id="estadístico-de-test-y-valores-críticos-2" class="section level3 hasAnchor" number="12.7.2">
-<h3><span class="header-section-number">12.7.2</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="estadístico-de-test-y-valores-críticos-2" class="section level3 hasAnchor" number="11.7.2">
+<h3><span class="header-section-number">11.7.2</span> Estadístico de test y valores críticos<a href="contrastes-con-dos-muestras.html#estad%C3%ADstico-de-test-y-valores-cr%C3%ADticos-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los estadísticos necesarios para el test se indican mediante:
 <span class="math inline">\(\hat{p}_{1}\)</span> proporción del suceso en la <span class="math inline">\(1^{\mathrm{a}}\)</span> muestra
 <span class="math inline">\(\hat{p}_{2}\)</span> proporción del suceso en la <span class="math inline">\(2^{\mathrm{a}}\)</span> muestra</p>
@@ -1346,8 +1367,8 @@ sino del diseño del estudio y del modo en que se han obtenido los datos.</p>
 \]</span></p>
 <p>en otras palabras, <span class="math inline">\(z_{\alpha / 2}\)</span> es el valor crítico bilateral de la <span class="math inline">\(\operatorname{Normal}(0,1)\)</span> asociada a una probabilidad <span class="math inline">\(\alpha\)</span> mientras que <span class="math inline">\(\mathrm{z}_{\alpha}\)</span> es el valor crítico unilateral derecho de la misma variable aleatoria.</p>
 </div>
-<div id="condiciones-de-aplicación-del-test" class="section level3 hasAnchor" number="12.7.3">
-<h3><span class="header-section-number">12.7.3</span> Condiciones de aplicación del test<a href="contrastes-con-dos-muestras.html#condiciones-de-aplicaci%C3%B3n-del-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="condiciones-de-aplicación-del-test" class="section level3 hasAnchor" number="11.7.3">
+<h3><span class="header-section-number">11.7.3</span> Condiciones de aplicación del test<a href="contrastes-con-dos-muestras.html#condiciones-de-aplicaci%C3%B3n-del-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esta prueba tiene carácter asintótico, para que la aproximación a la <span class="math inline">\(\operatorname{Normal}(0,1)\)</span> sea adecuada se requiere que:</p>
 <p><span class="math display">\[
 \begin{array}{cc}
@@ -1356,8 +1377,8 @@ sino del diseño del estudio y del modo en que se han obtenido los datos.</p>
 \end{array}
 \]</span></p>
 </div>
-<div id="intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes." class="section level3 hasAnchor" number="12.7.4">
-<h3><span class="header-section-number">12.7.4</span> Intervalo de confianza para la diferencia de proporciones (datos independientes).<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes." class="section level3 hasAnchor" number="11.7.4">
+<h3><span class="header-section-number">11.7.4</span> Intervalo de confianza para la diferencia de proporciones (datos independientes).<a href="contrastes-con-dos-muestras.html#intervalo-de-confianza-para-la-diferencia-de-proporciones-datos-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los límites para el intervalo de una diferencia de proporciones correspondientes a dos muestras independientes son:</p>
 <p><span class="math display">\[
 \hat{p}_{1}-\hat{p}_{2} \pm z_{\alpha / 2} \sqrt{\frac{\hat{p}_{1}\left(1-\hat{p}_{1}\right)}{n_{1}}+\frac{\hat{p}_{2}\left(1-\hat{p}_{2}\right)}{n_{2}}}
@@ -1370,8 +1391,8 @@ sino del diseño del estudio y del modo en que se han obtenido los datos.</p>
 \left(-\infty, \hat{p}_{1}-\hat{p}_{2} \pm z_{\alpha} \sqrt{\frac{\hat{p}_{1}\left(1-\hat{p}_{1}\right)}{n_{1}}+\frac{\hat{p}_{2}\left(1-\hat{p}_{2}\right)}{n_{2}}}\right)
 \]</span></p>
 </div>
-<div id="cálculo-del-tamaño-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes." class="section level3 hasAnchor" number="12.7.5">
-<h3><span class="header-section-number">12.7.5</span> Cálculo del tamaño de muestra en el contraste de proporciones de datos independientes.<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="cálculo-del-tamaño-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes." class="section level3 hasAnchor" number="11.7.5">
+<h3><span class="header-section-number">11.7.5</span> Cálculo del tamaño de muestra en el contraste de proporciones de datos independientes.<a href="contrastes-con-dos-muestras.html#c%C3%A1lculo-del-tama%C3%B1o-de-muestra-en-el-contraste-de-proporciones-de-datos-independientes." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supongamos que se desea realizar el contraste bilateral:</p>
 <p><span class="math display">\[
 \mathrm{H}_{0}: \mathrm{p}_{1}=\mathrm{p}_{2} \quad \text { contra } \quad \mathrm{H}_{1}: \mathrm{p}_{1} \neq \mathrm{p}_{2}
@@ -1387,8 +1408,8 @@ p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\r
 <p>Si el contraste es unilateral, basta cambiar en la expresión del tamaño de muestra <span class="math inline">\(z_{\alpha / 2}\)</span> por <span class="math inline">\(z_{\alpha}\)</span>.</p>
 </div>
 </div>
-<div id="comparaciones-de-dos-muestras-tabla-resumen" class="section level2 hasAnchor" number="12.8">
-<h2><span class="header-section-number">12.8</span> Comparaciones de dos muestras: Tabla resumen<a href="contrastes-con-dos-muestras.html#comparaciones-de-dos-muestras-tabla-resumen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="comparaciones-de-dos-muestras-tabla-resumen" class="section level2 hasAnchor" number="11.8">
+<h2><span class="header-section-number">11.8</span> Comparaciones de dos muestras: Tabla resumen<a href="contrastes-con-dos-muestras.html#comparaciones-de-dos-muestras-tabla-resumen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Los contrastes vistos en este tema se resumen en:</p>
 <table style="width:100%;">
 <colgroup>
@@ -1531,15 +1552,15 @@ p\left(Z \geq z_{\alpha / 2}\right)=\alpha / 2 \quad p\left(Z \geq z_{1-\beta}\r
 <p>si <span class="math inline">\(T\)</span> es la variable aleatoria t -Student, <span class="math inline">\(\operatorname{prob}\left(T&gt;\mathrm{t}_{\alpha / 2}\right)=\alpha / 2\)</span> y <span class="math inline">\(\operatorname{prob}\left(T&gt;\mathrm{t}_{\alpha}\right)=\alpha\)</span>
 si Z es la variable normal tipificada, <span class="math inline">\(\operatorname{prob}\left(Z&gt;\mathrm{z}_{\alpha / 2}\right)=\alpha / 2\)</span> y prob <span class="math inline">\(\left(Z&gt;\mathrm{z}_{\alpha}\right)=\alpha\)</span></p>
 </div>
-<div id="complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t" class="section level2 hasAnchor" number="12.9">
-<h2><span class="header-section-number">12.9</span> Complementos: efecto de las transformaciones de los datos en el test t<a href="contrastes-con-dos-muestras.html#complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t" class="section level2 hasAnchor" number="11.9">
+<h2><span class="header-section-number">11.9</span> Complementos: efecto de las transformaciones de los datos en el test t<a href="contrastes-con-dos-muestras.html#complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para acabar de comprender el funcionamiento del test T es interesante considerar el efecto que tiene sobre dicho contrastes dos típicas operaciones sobre un conjunto de datos:</p>
 <ul>
 <li>cambio de posición: esto es, sumar una constante a todos los datos.</li>
 <li>cambio de escala: esto es, multiplicar por una constante todos los datos.</li>
 </ul>
-<div id="efecto-del-cambi-de-posición" class="section level3 hasAnchor" number="12.9.1">
-<h3><span class="header-section-number">12.9.1</span> Efecto del cambi de posición<a href="contrastes-con-dos-muestras.html#efecto-del-cambi-de-posici%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="efecto-del-cambi-de-posición" class="section level3 hasAnchor" number="11.9.1">
+<h3><span class="header-section-number">11.9.1</span> Efecto del cambi de posición<a href="contrastes-con-dos-muestras.html#efecto-del-cambi-de-posici%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veamos primero el efecto del primer tipo de cambio desde un punto de vista empírico, tomando dos grupos de datos independientes (para más detalles, corresponden a los datos del casol de este mismo tema). Los datos originales (en breve, diferencia de peso de unos pacientes en kilos) y el resultado del test T se detallan a continuación para poder comparar con en el cuadro más abajo donde se modificarán:</p>
 <p>Supongamos que se ha detectado un error en la balanza que medía el peso, sistemático para todos los datos, lo cual implica sumar 2 kilos a todos los datos del estudio. Si se modifican adecuadamente los datos (sumar 2 a todos ellos):
 se ha de observar que:</p>
@@ -1562,8 +1583,8 @@ T_{Y}=\frac{\left(\bar{X}_{1}+k\right)-\left(\bar{X}_{2}+k\right)-d_{0}}{\sqrt{\
 \]</span></p>
 <p>La conclusión es que el test t no se ve alterado por un cambio de posición en todos los datos.</p>
 </div>
-<div id="efecto-de-un-cambio-de-escala" class="section level3 hasAnchor" number="12.9.2">
-<h3><span class="header-section-number">12.9.2</span> Efecto de un cambio de escala<a href="contrastes-con-dos-muestras.html#efecto-de-un-cambio-de-escala" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="efecto-de-un-cambio-de-escala" class="section level3 hasAnchor" number="11.9.2">
+<h3><span class="header-section-number">11.9.2</span> Efecto de un cambio de escala<a href="contrastes-con-dos-muestras.html#efecto-de-un-cambio-de-escala" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Veamos ahora el efecto del segundo tipo de cambio desde un punto de vista empírico. Con los datos originales (corresponden a los datos del casol de este mismo tema), el resultado del test T es:</p>
 <p>Supongamos que se decide cambiar de unidad, pasando a decigramos en lugar de kilogramos. Equivale a multiplicar por cien todos los datos del estudio. Modificando adecuadamente los datos siguientes:
 se ha de observar que:</p>
@@ -1602,8 +1623,8 @@ T_{Y}=\frac{k \bar{X}_{1}-k \bar{X}_{2}-k d_{0}}{\sqrt{\frac{\left(n_{1}-1\right
 <pre><code>##  [1] 21  6  2  5  8 12 13 18  1  9</code></pre>
 </div>
 </div>
-<div id="presentación-del-caso-1" class="section level2 hasAnchor" number="12.10">
-<h2><span class="header-section-number">12.10</span> Presentación del caso 1<a href="contrastes-con-dos-muestras.html#presentaci%C3%B3n-del-caso-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="presentación-del-caso-1" class="section level2 hasAnchor" number="11.10">
+<h2><span class="header-section-number">11.10</span> Presentación del caso 1<a href="contrastes-con-dos-muestras.html#presentaci%C3%B3n-del-caso-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Una empresa farmacéutica está probando un nuevo fármaco para adelgazar denominado Prim. En esta fase del ensayo clínico se pretende comparar el efecto de Prim con un fármaco de la competencia conocido como Nofat. Se considerará relevante la diferencia si es de al menos 2 kilogramos en promedio entre los dos fármacos.</p>
 <p>En la prueba piloto se desea experimentar sobre 20 personas voluntarias sometidas a una misma dieta, pero medicadas 10 de ellas con Prim y otras 10 con Nofat. La variable observada será la diferencia de peso en kilogramos entre el inicio y el final del estudio. Los datos iniciales son:</p>
 <table>
@@ -1679,6 +1700,7 @@ T_{Y}=\frac{k \bar{X}_{1}-k \bar{X}_{2}-k d_{0}}{\sqrt{\frac{\left(n_{1}-1\right
 </tbody>
 </table>
 
+<div style="page-break-after: always;"></div>
 </div>
 </div>
             </section>
@@ -1687,7 +1709,7 @@ T_{Y}=\frac{k \bar{X}_{1}-k \bar{X}_{2}-k d_{0}}{\sqrt{\frac{\left(n_{1}-1\right
         </div>
       </div>
 <a href="pruebas-de-una-muestra.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="contrastes-de-chi-cuadrado.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="las-pruebas-chi-cuadrado.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

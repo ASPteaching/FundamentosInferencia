@@ -1,12 +1,6 @@
+\newpage
+
 # Distribuciones de probabilidad multidimensionales
-
-<!-- :::: {.calloutBox .important} -->
-
-<!-- Este capítulo está en curso de ser introducido en los apuntes. -->
-
-<!-- La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1). -->
-
-<!-- :::: -->
 
 En este capítulo se extiende el concepto de variable aleatoria a un conjunto de variables que pueden interpretarse asociadas a un conjunto de medidas distintas y que pueden estar, o no relacionadas. 
 

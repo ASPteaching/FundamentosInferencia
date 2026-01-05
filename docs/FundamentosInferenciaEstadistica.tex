@@ -111,6 +111,20 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -122,7 +136,7 @@
 
 \title{Fundamentos de Inferencia Estadistica}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2026-01-04}
+\date{2026-01-05}
 
 \begin{document}
 \maketitle
@@ -264,6 +278,8 @@ Los prerequisitos para este curso corresponden básicamente a una matemáticas -
     \href{https://www.youtube.com/playlist?list=PLv8FweHfYYMo6Lr2zt6H4znq5KuBacq28}{Colección de (100) videos de soporte a las matemáticas para la ingeniería}
   \end{itemize}
 \end{itemize}
+
+\newpage
 
 \section{Probabilidad y Experimentos aleatorios}\label{probabilidad-y-experimentos-aleatorios}
 
@@ -1127,6 +1143,8 @@ Obsérvese que:
 \item
   Probabilidad de falso negativo \(=1-\) sensibilidad
 \end{itemize}
+
+\newpage
 
 \section{Variables aleatorias y Distribuciones de probabilidad}\label{variables-aleatorias-y-distribuciones-de-probabilidad}
 
@@ -2514,6 +2532,8 @@ E \left(X^{2}\right)&=1^{2} \cdot 1 / 6+2^{2} \cdot 1 / 6+3^{2} \cdot 1 / 6+4^{2
 y se cumple que la varianza de la variable Suma de puntos de las dos
 caras es la suma de las varianzas de las puntuaciones de cada dado por separado. Recordemos que esto sólo sucede si las variables sumadas son independientes, como así ocurre con las puntuaciones de cada dado por separado.
 
+\newpage
+
 \section{Distribuciones Notables}\label{distribuciones-notables}
 
 \subsection{Distribuciones discretas}\label{distribuciones-discretas}
@@ -3630,6 +3650,8 @@ Otra ventaja importante es que, al trabajar con distribuciones de la familia exp
 Esto, que se explicará con más detalle en capítulos siguientes, implica que los estimadores que obtenemos con estos modelos suelen ser precisos y reflejar correctamente la información que contienen los datos.
 
 Naturalmente esto se puede ver al revés: Si podemos trabajar con distribuciones de la familia exponencial, solemos tener, de entrada, una serie de ventajas, como el buen comportamiento de los etimadores, por lo que siempre es una buena opción intentar utilizarlas en nuestros modelos.
+
+\newpage
 
 \section{Distribuciones de probabilidad multidimensionales}\label{distribuciones-de-probabilidad-multidimensionales}
 
@@ -4761,6 +4783,8 @@ En este caso particular, cuando las variables son normales, la incorrelación \t
 
 Sin embargo, en otras distribuciones que no son normales, la incorrelación no garantiza la independencia, lo que subraya la importancia de distinguir entre los dos conceptos.
 
+\newpage
+
 \section{Grandes muestras}\label{grandes-muestras}
 
 \subsection{Introducción: Aproximaciones asintóticas}\label{introducciuxf3n-aproximaciones-asintuxf3ticas}
@@ -5076,6 +5100,8 @@ El TCL permite dar una explicación a este fenómeno. La variable peso de un adu
 La versión del TCL que se ha presentado aquí exige estas condiciones para la convergencia a la normal, pero, como ya se ha comentado antes otras versiones más elaboradas del TCL permiten modelar la suma de variables de forma menos restringida. En este contexto, al considerar la variable peso como una suma más o menos extensa (pero finita) de diferentes variables primarias, es esperable que ocurra que la variable resultante, el peso, siga una distribución aproximadamente normal.
 
 De forma similar es explicable la normalidad aproximada que se observa en muchas variables biométricas (pesos, alturas, longitudes, concentraciones de metabolitos, distribuciones de edad, etc.) así cómo en muchos otros contextos (distribución de rentas, errores de medición, etc.). A pesar de esta ubicuidad de la distribución normal, el lector no debe inferir que es forzosamente, ni mucho menos, la distribución de referencia en todo estudio aplicado.
+
+\newpage
 
 \section{Introducción a la inferencia estadística}\label{introducciuxf3n-a-la-inferencia-estaduxedstica}
 
@@ -5882,6 +5908,8 @@ Estas relaciones son la base de los contrastes t, F y ANOVA que se utilizarán e
 \]
 
 Estas propiedades justifican métodos de inferencia aproximada y son el fundamento del método delta y del bootstrap que aparecerán más adelante.
+
+\newpage
 
 \section{Estimación puntual}\label{estimaciuxf3n-puntual}
 
@@ -7370,6 +7398,8 @@ H=\left(\begin{array}{cc}
 
 Las condiciones de extremo que hemos dado más arriba se verifican: \(H_{11}<0 y|H|>0\), de manera que podemos concluir que el estimador del máximo de verosimilitud de \(\left(\mu, \sigma^{2}\right)\) es, efectivamente, \(\left(\bar{x}, s^{2}\right)\).
 
+\newpage
+
 \section{Estimación por intérvalos}\label{estimaciuxf3n-por-intuxe9rvalos}
 
 \subsection{Motivación de los intervalos de confianza: la estimación puntual casi siempre es falsa}\label{motivaciuxf3n-de-los-intervalos-de-confianza-la-estimaciuxf3n-puntual-casi-siempre-es-falsa}
@@ -8415,7 +8445,9 @@ h^{2}=\frac{\operatorname{Var}(X)}{1-\text { Probabilidad deseada del intervalo 
 
 El resultado final se interpreta en el sentido de que la probabilidad de que la variable se encuentre dentro del intervalo construido es mayor o igual que la probabilidad fijada.
 
-\section{Pruebas de hipótesis}\label{pruebas-de-hipuxf3tesis}
+\newpage
+
+Pruebas de hipótesis
 
 \subsection{Introducción}\label{introducciuxf3n-2}
 
@@ -9952,6 +9984,8 @@ Supongamos que la población tuviera una desviación estándar de \(0.1 \mathrm{
 
 Habría que concluir que no hay S.A. En este segundo caso, la varianza tan pequeña permite que el contraste sea muy sensible a pequeñas variaciones de la media. La S.E. en este último ejemplo no resulta relevante en la práctica.
 
+\newpage
+
 \section{Construcción de contrastes de hipótesis}\label{construcciuxf3n-de-contrastes-de-hipuxf3tesis}
 
 \subsection{¿Qué significa ``construir'' un contraste de hipótesis?}\label{quuxe9-significa-construir-un-contraste-de-hipuxf3tesis}
@@ -10850,6 +10884,8 @@ Los tests de permutaciones ilustran una forma alternativa de construir contraste
 \end{itemize}
 
 Estos métodos cierran de forma natural el recorrido de este capítulo, mostrando que la construcción de contrastes puede basarse en principios distintos pero complementarios.
+
+\newpage
 
 \section{Pruebas de una muestra}\label{pruebas-de-una-muestra}
 
@@ -12639,7 +12675,9 @@ Individuo & Peso & Individuo & Peso \\
 10 & 106.0 & 20 & 116.0 \\
 \end{longtable}
 
-\section{CONTRASTES DE CHI-CUADRADO}\label{contrastes-de-chi-cuadrado}
+\newpage
+
+\section{Las pruebas ``Chi-cuadrado''}\label{las-pruebas-chi-cuadrado}
 
 \subsection{Introducción}\label{introducciuxf3n-8}
 
@@ -13441,6 +13479,8 @@ Raza & Caucásicos & Recuento & 32 & 11 & 7 & 2 & 52 \\
 Total & & Recuento & 102 & 31 & 33 & 17 & 183 \\
 & & Frecuencia esperada & 102.0 & 31.0 & 33.0 & 17.0 & 183.0 \\
 \end{longtable}
+
+\newpage
 
 \section{Estadística no paramétrica}\label{estaduxedstica-no-paramuxe9trica}
 
@@ -14788,5 +14828,9 @@ t=\sqrt{n-2}\frac{r_S}{\sqrt{1-r_S^2}}
 \]
 
 que tiene aproximadamente una distribución \(t\) de Student con \(n-2\) grados de libertad, siempre que \(n\geq10\).
+
+\newpage
+
+\section{Bibliografia}\label{bibliografia}
 
 \end{document}

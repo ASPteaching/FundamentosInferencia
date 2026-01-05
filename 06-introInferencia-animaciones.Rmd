@@ -1,7 +1,5 @@
----
-title: "Animaciones y simulaciones — Introducción a la Inferencia"
-output: html_document
----
+\newpage
+
 
 # Animaciones y simulaciones — Introducción a la Inferencia
 

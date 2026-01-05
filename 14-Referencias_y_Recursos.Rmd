@@ -1,0 +1,21 @@
+\newpage
+
+# Referencias y Recursos
+
+# Bibliografia principal
+
+[1] Canavos, George C. (1988). Probabilidad y Estadistica. Aplicaciones y Metodos. McGraw-Hill/Interamericana. Mexico.
+[2] Cuadras, C.M. (2000). Problemas de probabilidades y estadística. Vol. 2: Inferencia estadística. EUB. Economía y Empresa. Barcelona.
+[3] De Groot, M. (1988). Probabilidad y Estadística. Addison-Wesley. .
+[4] Casella, G. Berger, M (1990). Statistical inference. Duxbury Press. .
+[5] Dudewicz, Edward J., Mishra, S. (1989). Modern mathematical statistics. John Wiley \& Sons, Wiley series in probability and statistics. New York.
+[6] Fortiana, J., Nualart, D. (1999). Estadística. Publicacions de la Universitat de Barcelona. Barcelona.
+[7] Lehman, E. (1986). Testing Statistical Hypothesis. John Wiley \& Sons, Wiley series in probability and statistics. New York.
+[8] Martínez A., Rodriguez, C., Gutiérrez, R (1993). Inferencia Estadistica, un Enfoque Clasico. Ediciones Pirámide, Economia y Administración de Empresas. Madrid.
+[9] Peña, Daniel (1987). Estadística modelos y metodos 1. Fundamentos. Alianza editorial. Madrid.
+[10] Rohatgi, V. K. (1976). An Introduction to Probability Theory and Mathematical Statistics. John Wiley \& Sons, Wiley Series in Probability. New York.
+[11] Ruiz-Maya, L., Martín Pliego, J. (1995). Estadística II: Inferencia. Editorial AC. Colección Plan Nuevo. Madrid.
+[12] Sanz, Marta (1999). Probabilitats. Edicions de la UNiversitat de Barcelona. Barcelona.
+[13] Vélez Ibarrola, Ricardo, Garcia Perez, Alfonso (1993). Principios de Inferencia estadística. Editorial UNED. Madrid.
+
+

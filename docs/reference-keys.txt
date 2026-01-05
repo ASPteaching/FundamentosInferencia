@@ -300,7 +300,6 @@ intervalos-para-muestras-grandes
 intervalos-exactos-para-distribuciones-discretas
 una-aproximación-diferente-para-la-distribución-de-poisson
 aproximación-mediante-chébishev
-pruebas-de-hipótesis
 introducción-2
 de-las-hipótesis-científicas-a-las-hipótesis-estadísticas
 del-lenguaje-natural-a-la-hipótesis-estadística
@@ -469,7 +468,7 @@ complementos-efecto-de-las-transformaciones-de-los-datos-en-el-test-t
 efecto-del-cambi-de-posición
 efecto-de-un-cambio-de-escala
 presentación-del-caso-1
-contrastes-de-chi-cuadrado
+las-pruebas-chi-cuadrado
 introducción-8
 pruebas-chi2-de-bondad-de-ajuste
 hipótesis-simples

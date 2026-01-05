@@ -1,3 +1,5 @@
+\newpage
+
 # Pruebas de una muestra
 
 ## Introducción a los contrastes de una muestra.

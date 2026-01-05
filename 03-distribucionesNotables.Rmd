@@ -1,13 +1,6 @@
+\newpage
+
 # Distribuciones Notables
-
-<!-- :::: {.calloutBox .important} -->
-
-<!-- Este capítulo está pendiente de revisión, para corregir posibles problemas derivados de la importación, desde la antigua version en HTML, a la versión actual. -->
-
-<!-- Estos problemas siempre serán _estéticos y no conceptuales_, por lo que la lectura del texto en su estado actual no debería  inducir a errores conceptuales en ningún caso. -->
-
-<!-- La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1). -->
-<!-- :::: -->
 
 ## Distribuciones discretas
 

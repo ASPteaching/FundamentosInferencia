@@ -1,5 +1,6 @@
-# Estimación por intérvalos
+\newpage
 
+# Estimación por intérvalos
 
 ## Motivación de los intervalos de confianza: la estimación puntual casi siempre es falsa
 

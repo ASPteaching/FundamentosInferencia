@@ -1,4 +1,6 @@
-# CONTRASTES DE CHI-CUADRADO
+\newpage
+
+# Las pruebas "Chi-cuadrado"
 
 ## Introducción
 

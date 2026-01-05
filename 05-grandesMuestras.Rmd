@@ -1,5 +1,6 @@
-# Grandes muestras
+\newpage
 
+# Grandes muestras
 
 ## Introducción: Aproximaciones asintóticas
 

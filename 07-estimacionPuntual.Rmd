@@ -1,3 +1,5 @@
+\newpage
+
 # Estimación puntual
 
 ## El problema de la estimación puntual

@@ -1,8 +1,4 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
+\newpage
 
 # Variables aleatorias y Distribuciones de probabilidad
 

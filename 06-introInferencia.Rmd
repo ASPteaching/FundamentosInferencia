@@ -1,3 +1,5 @@
+\newpage
+
 # Introducción a la inferencia estadística
 
 ## Inferencia estadística

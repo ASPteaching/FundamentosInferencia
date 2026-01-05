@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.2)  4 JAN 2026 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.2)  5 JAN 2026 08:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -374,6 +374,112 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 ty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 ))
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip66
+\multirow@cntb=\count307
+\multirow@dima=\skip67
+\bigstrutjot=\dimen194
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen195
+\WF@size=\dimen196
+\c@WF@wrappedlines=\count308
+\WF@box=\box65
+\WF@everypar=\toks37
+Package: wrapfig 2003/01/31  v 3.6
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count309
+\float@exts=\toks38
+\float@box=\box66
+\@float@everytoks=\toks39
+\@floatcapt=\box67
+)
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+\everycr=\toks40
+\minrowclearance=\skip68
+\rownum=\count310
+)
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.s
+ty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-n
+ometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/tabu\tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box68
+\sift@deathcycles=\count311
+\@vwid@loff=\dimen197
+\@vwid@roff=\dimen198
+)
+\c@taburow=\count312
+\tabu@nbcols=\count313
+\tabu@cnt=\count314
+\tabu@Xcol=\count315
+\tabu@alloc=\count316
+\tabu@nested=\count317
+\tabu@target=\dimen199
+\tabu@spreadtarget=\dimen256
+\tabu@naturalX=\dimen257
+\tabucolX=\dimen258
+\tabu@Xsum=\dimen259
+\extrarowdepth=\dimen260
+\abovetabulinesep=\dimen261
+\belowtabulinesep=\dimen262
+\tabustrutrule=\dimen263
+\tabu@thebody=\toks41
+\tabu@footnotes=\toks42
+\tabu@box=\box69
+\tabu@arstrutbox=\box70
+\tabu@hleads=\box71
+\tabu@vleads=\box72
+\tabu@cellskip=\skip69
+)
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/threeparttable\threep
+arttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box73
+)
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/threeparttablex\three
+parttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces
+.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip70
+) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box74
+\UL@hyphenbox=\box75
+\UL@skip=\skip71
+\UL@hook=\toks43
+\UL@height=\dimen264
+\UL@pe=\count318
+\UL@pixel=\dimen265
+\ULC@box=\box76
+Package: ulem 2019/11/18
+\ULdepth=\dimen266
+)
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen267
+\c@nlinenum=\count319
+\TeXr@lab=\toks44
+)
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 
@@ -409,16 +515,16 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 itlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count307
+\c@section@level=\count320
 )
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc
 .sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen194
-\Hy@linkcounter=\count308
-\Hy@pagecounter=\count309
+\@linkdim=\dimen268
+\Hy@linkcounter=\count321
+\Hy@pagecounter=\count322
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -427,7 +533,7 @@ Now handling font encoding PD1 ...
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count310
+\Hy@SavedSpaceFactor=\count323
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -441,13 +547,13 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count311
+\c@Hy@tempcnt=\count324
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen195
+\XeTeXLinkMargin=\dimen269
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
@@ -456,9 +562,9 @@ lc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count312
-\Field@Width=\dimen196
-\Fld@charsize=\dimen197
+\Fld@menulength=\count325
+\Field@Width=\dimen270
+\Fld@charsize=\dimen271
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -471,9 +577,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count313
-\c@Item=\count314
-\c@Hfootnote=\count315
+\Hy@abspage=\count326
+\c@Item=\count327
+\c@Hfootnote=\count328
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -485,8 +591,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count316
-\c@bookmark@seq@number=\count317
+\Fld@listcount=\count329
+\c@bookmark@seq@number=\count330
 
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunf
 ilecheck.sty
@@ -499,62 +605,62 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip66
+\Hy@SectionHShift=\skip72
 )
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.d
 ef
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
 )
-\BKM@id=\count318
+\BKM@id=\count331
 )) (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
-7.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 14
+1.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count319
-\l__pdf_internal_box=\box65
+\l__color_backend_stack_int=\count332
+\l__pdf_internal_box=\box77
 ) (FundamentosInferenciaEstadistica.aux)
 \openout1 = `FundamentosInferenciaEstadistica.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 127.
-LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
 
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count320
-\scratchdimen=\dimen198
-\scratchbox=\box66
-\nofMPsegments=\count321
-\nofMParguments=\count322
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count323
-\MPscratchDim=\dimen199
-\MPnumerator=\count324
-\makeMPintoPDFobject=\count325
-\everyMPtoPDFconversion=\toks38
+\scratchcounter=\count333
+\scratchdimen=\dimen272
+\scratchbox=\box78
+\nofMPsegments=\count334
+\nofMParguments=\count335
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count336
+\MPscratchDim=\dimen273
+\MPnumerator=\count337
+\makeMPintoPDFobject=\count338
+\everyMPtoPDFconversion=\toks46
 )
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
 -base.sty
@@ -600,20 +706,23 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 127.
-Package microtype Info: Applying patch `item' on input line 127.
-Package microtype Info: Applying patch `toc' on input line 127.
-Package microtype Info: Applying patch `eqnum' on input line 127.
-Package microtype Info: Applying patch `footnote' on input line 127.
-Package microtype Info: Applying patch `verbatim' on input line 127.
-LaTeX Info: Redefining \microtypesetup on input line 127.
+Package microtype Info: Patching varwidth to enable character protrusion.
+\MT@vwid@leftmargin=\dimen274
+\MT@vwid@rightmargin=\dimen275
+LaTeX Info: Redefining \microtypecontext on input line 141.
+Package microtype Info: Applying patch `item' on input line 141.
+Package microtype Info: Applying patch `toc' on input line 141.
+Package microtype Info: Applying patch `eqnum' on input line 141.
+Package microtype Info: Applying patch `footnote' on input line 141.
+Package microtype Info: Applying patch `verbatim' on input line 141.
+LaTeX Info: Redefining \microtypesetup on input line 141.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 127.
+LaTeX Info: Redefining \showhyphens on input line 141.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -621,34 +730,34 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 127.
+Package hyperref Info: Link coloring OFF on input line 141.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-29.
+43.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-29.
+43.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-129.
+143.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-129.
+143.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 129.
+(Font)              <12> on input line 143.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 129.
+(Font)              <8> on input line 143.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 129.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 129
+(Font)              <6> on input line 143.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 143
 .
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -656,7 +765,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 g
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 129
+LaTeX Font Info:    Trying to load font information for U+msb on input line 143
 .
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -685,7 +794,7 @@ rio/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
 \openout4 = `FundamentosInferenciaEstadistica.toc'.
 
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-47.
+61.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -725,21 +834,21 @@ enc}]
 [18]
 
 [19]
-<images/cdfContinua.png, id=470, 444.91219pt x 277.035pt>
+
+[20]
+<images/cdfContinua.png, id=474, 444.91219pt x 277.035pt>
 File: images/cdfContinua.png Graphic file (type png)
 <use images/cdfContinua.png>
-Package pdftex.def Info: images/cdfContinua.png  used on input line 1289.
+Package pdftex.def Info: images/cdfContinua.png  used on input line 1307.
 (pdftex.def)             Requested size: 422.77664pt x 263.25362pt.
-<images/cdfDiscreta.png, id=472, 441.14813pt x 274.02374pt>
+<images/cdfDiscreta.png, id=476, 441.14813pt x 274.02374pt>
 File: images/cdfDiscreta.png Graphic file (type png)
 <use images/cdfDiscreta.png>
-Package pdftex.def Info: images/cdfDiscreta.png  used on input line 1293.
+Package pdftex.def Info: images/cdfDiscreta.png  used on input line 1311.
 (pdftex.def)             Requested size: 422.77664pt x 262.62495pt.
 
 
-[20 <./images/cdfContinua.png> <./images/cdfDiscreta.png>]
-
-[21]
+[21 <./images/cdfContinua.png> <./images/cdfDiscreta.png>]
 
 [22]
 
@@ -748,181 +857,182 @@ Package pdftex.def Info: images/cdfDiscreta.png  used on input line 1293.
 [24]
 
 [25]
-<images/probsDNormal.png, id=518, 440.39531pt x 832.61063pt>
+
+[26]
+<images/probsDNormal.png, id=523, 440.39531pt x 832.61063pt>
 File: images/probsDNormal.png Graphic file (type png)
 <use images/probsDNormal.png>
-Package pdftex.def Info: images/probsDNormal.png  used on input line 1738.
+Package pdftex.def Info: images/probsDNormal.png  used on input line 1756.
 (pdftex.def)             Requested size: 375.80544pt x 710.5174pt.
 
 
-[26]
+[27]
 Overfull \vbox (60.08739pt too high) has occurred while \output is active []
 
 
 
-[27 <./images/probsDNormal.png>]
-
-[28]
+[28 <./images/probsDNormal.png>]
 
 [29]
 
 [30]
-<images/clipboard-1434716414.png, id=552, 458.46281pt x 79.04532pt>
+
+[31]
+<images/clipboard-1434716414.png, id=557, 458.46281pt x 79.04532pt>
 File: images/clipboard-1434716414.png Graphic file (type png)
 <use images/clipboard-1434716414.png>
 Package pdftex.def Info: images/clipboard-1434716414.png  used on input line 20
-69.
+87.
 (pdftex.def)             Requested size: 458.46169pt x 79.0451pt.
 
 
-[31 <./images/clipboard-1434716414.png>]
-<images/clipboard-2572516778.png, id=560, 459.96844pt x 193.47281pt>
+[32 <./images/clipboard-1434716414.png>]
+<images/clipboard-2572516778.png, id=564, 459.96844pt x 193.47281pt>
 File: images/clipboard-2572516778.png Graphic file (type png)
 <use images/clipboard-2572516778.png>
 Package pdftex.def Info: images/clipboard-2572516778.png  used on input line 21
-07.
+25.
 (pdftex.def)             Requested size: 459.96732pt x 193.47234pt.
-<images/clipboard-3898377838.png, id=561, 542.025pt x 222.07968pt>
+<images/clipboard-3898377838.png, id=565, 542.025pt x 222.07968pt>
 File: images/clipboard-3898377838.png Graphic file (type png)
 <use images/clipboard-3898377838.png>
 Package pdftex.def Info: images/clipboard-3898377838.png  used on input line 21
-29.
+47.
 (pdftex.def)             Requested size: 542.02367pt x 222.07913pt.
 
 
-[32 <./images/clipboard-2572516778.png>]
-<images/clipboard-1018442669.png, id=569, 545.03625pt x 186.6975pt>
+[33 <./images/clipboard-2572516778.png>]
+<images/clipboard-1018442669.png, id=573, 545.03625pt x 186.6975pt>
 File: images/clipboard-1018442669.png Graphic file (type png)
 <use images/clipboard-1018442669.png>
 Package pdftex.def Info: images/clipboard-1018442669.png  used on input line 21
-44.
+62.
 (pdftex.def)             Requested size: 545.03493pt x 186.69704pt.
-<images/clipboard-2353777197.png, id=570, 539.76656pt x 184.43906pt>
+<images/clipboard-2353777197.png, id=574, 539.76656pt x 184.43906pt>
 File: images/clipboard-2353777197.png Graphic file (type png)
 <use images/clipboard-2353777197.png>
 Package pdftex.def Info: images/clipboard-2353777197.png  used on input line 21
-72.
+90.
 (pdftex.def)             Requested size: 539.76524pt x 184.4386pt.
 
 
-[33 <./images/clipboard-3898377838.png> <./images/clipboard-1018442669.png>]
-<images/clipboard-1894572766.png, id=579, 536.0025pt x 334.24875pt>
+[34 <./images/clipboard-3898377838.png> <./images/clipboard-1018442669.png>]
+<images/clipboard-1894572766.png, id=583, 536.0025pt x 334.24875pt>
 File: images/clipboard-1894572766.png Graphic file (type png)
 <use images/clipboard-1894572766.png>
-Package pdftex.def Info: images/clipboard-1894572766.png  used on input line 21
-90.
+Package pdftex.def Info: images/clipboard-1894572766.png  used on input line 22
+08.
 (pdftex.def)             Requested size: 422.77664pt x 263.64049pt.
 
 
-[34 <./images/clipboard-2353777197.png>]
-<images/clipboard-2707476680.png, id=585, 540.51938pt x 182.93344pt>
+[35 <./images/clipboard-2353777197.png>]
+<images/clipboard-2707476680.png, id=589, 540.51938pt x 182.93344pt>
 File: images/clipboard-2707476680.png Graphic file (type png)
 <use images/clipboard-2707476680.png>
 Package pdftex.def Info: images/clipboard-2707476680.png  used on input line 22
-27.
+45.
 (pdftex.def)             Requested size: 540.51805pt x 182.93298pt.
 
 
-[35 <./images/clipboard-1894572766.png>]
-<images/fmp2Dados.png, id=593, 819.06pt x 515.67656pt>
+[36 <./images/clipboard-1894572766.png>]
+<images/fmp2Dados.png, id=597, 819.06pt x 515.67656pt>
 File: images/fmp2Dados.png Graphic file (type png)
 <use images/fmp2Dados.png>
-Package pdftex.def Info: images/fmp2Dados.png  used on input line 2244.
+Package pdftex.def Info: images/fmp2Dados.png  used on input line 2262.
 (pdftex.def)             Requested size: 375.80544pt x 236.60822pt.
 
 
-[36 <./images/clipboard-2707476680.png>]
+[37 <./images/clipboard-2707476680.png>]
 
-[37 <./images/fmp2Dados.png>]
-
-[38]
+[38 <./images/fmp2Dados.png>]
 
 [39]
 
 [40]
 
 [41]
-<images/fmpBernouilli.png, id=628, 370.38374pt x 274.77657pt>
+
+[42]
+<images/fmpBernouilli.png, id=631, 370.38374pt x 274.77657pt>
 File: images/fmpBernouilli.png Graphic file (type png)
 <use images/fmpBernouilli.png>
-Package pdftex.def Info: images/fmpBernouilli.png  used on input line 2559.
+Package pdftex.def Info: images/fmpBernouilli.png  used on input line 2579.
 (pdftex.def)             Requested size: 375.80544pt x 278.8009pt.
-<images/cdfBernouilli.png, id=629, 381.67593pt x 241.65282pt>
+
+
+[43 <./images/fmpBernouilli.png>]
+<images/cdfBernouilli.png, id=639, 381.67593pt x 241.65282pt>
 File: images/cdfBernouilli.png Graphic file (type png)
 <use images/cdfBernouilli.png>
-Package pdftex.def Info: images/cdfBernouilli.png  used on input line 2573.
+Package pdftex.def Info: images/cdfBernouilli.png  used on input line 2593.
 (pdftex.def)             Requested size: 375.80544pt x 237.94646pt.
 
 
-[42 <./images/fmpBernouilli.png>]
-
-[43 <./images/cdfBernouilli.png>]
-
-[44]
+[44 <./images/cdfBernouilli.png>]
 
 [45]
 
 [46]
-<images/pmfUnifDiscreta.png, id=672, 351.56343pt x 249.18094pt>
+
+[47]
+<images/pmfUnifDiscreta.png, id=676, 351.56343pt x 249.18094pt>
 File: images/pmfUnifDiscreta.png Graphic file (type png)
 <use images/pmfUnifDiscreta.png>
-Package pdftex.def Info: images/pmfUnifDiscreta.png  used on input line 2907.
+Package pdftex.def Info: images/pmfUnifDiscreta.png  used on input line 2927.
 (pdftex.def)             Requested size: 375.80544pt x 266.3624pt.
 
 
-[47]
-<images/cdfUnifDiscreta.png, id=683, 362.10281pt x 250.68657pt>
+[48]
+<images/cdfUnifDiscreta.png, id=687, 362.10281pt x 250.68657pt>
 File: images/cdfUnifDiscreta.png Graphic file (type png)
 <use images/cdfUnifDiscreta.png>
-Package pdftex.def Info: images/cdfUnifDiscreta.png  used on input line 2909.
+Package pdftex.def Info: images/cdfUnifDiscreta.png  used on input line 2929.
 (pdftex.def)             Requested size: 375.80544pt x 260.17616pt.
 
 
-[48 <./images/pmfUnifDiscreta.png> <./images/cdfUnifDiscreta.png>]
-
-[49]
+[49 <./images/pmfUnifDiscreta.png> <./images/cdfUnifDiscreta.png>]
 
 [50]
-Overfull \hbox (12.74033pt too wide) in paragraph at lines 3108--3108
+
+[51]
+Overfull \hbox (12.74033pt too wide) in paragraph at lines 3128--3128
  []|$[]\OML/lmm/m/it/10 p[]p[] [] p[]$ 
  []
 
 
-Overfull \hbox (2.47713pt too wide) in paragraph at lines 3109--3110
+Overfull \hbox (2.47713pt too wide) in paragraph at lines 3129--3130
  []|$[]$| 
  []
 
-<images/pdfUnifContinua.png, id=716, 416.30531pt x 237.13594pt>
+<images/pdfUnifContinua.png, id=720, 416.30531pt x 237.13594pt>
 File: images/pdfUnifContinua.png Graphic file (type png)
 <use images/pdfUnifContinua.png>
-Package pdftex.def Info: images/pdfUnifContinua.png  used on input line 3132.
+Package pdftex.def Info: images/pdfUnifContinua.png  used on input line 3152.
 (pdftex.def)             Requested size: 375.80544pt x 214.07529pt.
 
 
-[51]
-<images/cdfUnifContinua.png, id=726, 400.49625pt x 240.9pt>
+[52]
+<images/cdfUnifContinua.png, id=730, 400.49625pt x 240.9pt>
 File: images/cdfUnifContinua.png Graphic file (type png)
 <use images/cdfUnifContinua.png>
-Package pdftex.def Info: images/cdfUnifContinua.png  used on input line 3148.
+Package pdftex.def Info: images/cdfUnifContinua.png  used on input line 3168.
 (pdftex.def)             Requested size: 375.80544pt x 226.06006pt.
 
 
-[52 <./images/pdfUnifContinua.png> <./images/cdfUnifContinua.png>]
-
-[53]
+[53 <./images/pdfUnifContinua.png> <./images/cdfUnifContinua.png>]
 
 [54]
 
 [55]
 
 [56]
-Overfull \hbox (6.34076pt too wide) in paragraph at lines 3443--3443
+
+[57]
+Overfull \hbox (6.34076pt too wide) in paragraph at lines 3463--3463
  []|$[] [] []$ 
  []
 
 
-
-[57]
 
 [58]
 
@@ -933,25 +1043,30 @@ Overfull \hbox (6.34076pt too wide) in paragraph at lines 3443--3443
 [61]
 
 [62]
+
+[63]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-776.
+798.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3777.
-<images/distribucion_conjunta.png, id=831, 433.62pt x 289.08pt>
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3799.
+
+
+[64]
+<images/distribucion_conjunta.png, id=844, 433.62pt x 289.08pt>
 File: images/distribucion_conjunta.png Graphic file (type png)
 <use images/distribucion_conjunta.png>
 Package pdftex.def Info: images/distribucion_conjunta.png  used on input line 3
-804.
+826.
 (pdftex.def)             Requested size: 375.80544pt x 250.5492pt.
 
 
-[63 <./images/distribucion_conjunta.png>]
+[65 <./images/distribucion_conjunta.png>]
 
-[64]
-Overfull \hbox (99.03635pt too wide) detected at line 3915
+[66]
+Overfull \hbox (99.03635pt too wide) detected at line 3937
 \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X < \OT1/lmr/m/n/10 3\OML/l
 mm/m/it/10 ; Y < \OT1/lmr/m/n/10 2) = \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/l
 mm/m/it/10 X \OT1/lmr/m/n/10 = 0\OML/lmm/m/it/10 ; Y \OT1/lmr/m/n/10 = 0) + \OM
@@ -967,35 +1082,31 @@ m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OT1/lmr/m/n/10 = 2\OML/lmm/m/it/1
 
 
 
-[65]
-
-[66]
-<images/pmfTrinomial.png, id=861, 481.8pt x 481.8pt>
+[67]
+<images/pmfTrinomial.png, id=865, 481.8pt x 481.8pt>
 File: images/pmfTrinomial.png Graphic file (type png)
 <use images/pmfTrinomial.png>
-Package pdftex.def Info: images/pmfTrinomial.png  used on input line 4040.
+Package pdftex.def Info: images/pmfTrinomial.png  used on input line 4062.
 (pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
 
 
-[67]
+[68]
 
-[68 <./images/pmfTrinomial.png>]
-
-[69]
+[69 <./images/pmfTrinomial.png>]
 
 [70]
 
 [71]
 
 [72]
-Overfull \hbox (0.60146pt too wide) detected at line 4395
+
+[73]
+Overfull \hbox (0.60146pt too wide) detected at line 4417
 \OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x; y\OT1/lmr/m/n/10 ) = [
 ] [] []
  []
 
 
-
-[73]
 
 [74]
 
@@ -1008,142 +1119,146 @@ Overfull \hbox (0.60146pt too wide) detected at line 4395
 [78]
 
 [79]
-<images/LLN1.png, id=954, 481.8pt x 481.8pt>
-File: images/LLN1.png Graphic file (type png)
-<use images/LLN1.png>
-Package pdftex.def Info: images/LLN1.png  used on input line 4842.
-(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
-
 
 [80]
 
-[81 <./images/LLN1.png>]
+[81]
+<images/LLN1.png, id=963, 481.8pt x 481.8pt>
+File: images/LLN1.png Graphic file (type png)
+<use images/LLN1.png>
+Package pdftex.def Info: images/LLN1.png  used on input line 4866.
+(pdftex.def)             Requested size: 422.77664pt x 422.78697pt.
 
-[82]
+
+[82 <./images/LLN1.png>]
 
 [83]
+
+[84]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf, id
-=985, 469.755pt x 325.215pt>
+=989, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf
 >
 Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
-named-chunk-15-1.pdf  used on input line 4982.
+named-chunk-15-1.pdf  used on input line 5006.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (236.23465pt too wide) in paragraph at lines 4982--4983
+Overfull \hbox (236.23465pt too wide) in paragraph at lines 5006--5007
  \T1/lmr/bx/n/10 (-20) 5.3.4.1 Nor-mal-i-dad as-in-tótica de la Bi-no-mial.[] [
 ] 
  []
 
 
 
-[84 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.p
+[85]
+Underfull \vbox (badness 1769) detected at line 5040
+ []
+
+
+
+[86 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.p
 df>]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.pdf, id
-=1000, 469.755pt x 325.215pt>
+=1009, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.pdf
 >
 Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
-named-chunk-16-1.pdf  used on input line 5018.
+named-chunk-16-1.pdf  used on input line 5042.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (350.52776pt too wide) in paragraph at lines 5018--5019
+Overfull \hbox (350.52776pt too wide) in paragraph at lines 5042--5043
  \T1/lmr/bx/n/10 (-20) 5.3.4.2 Nor-mal-i-dad as-in-tótica de la suma de pun-tua
 -ciones de un dado[] [] 
  []
 
 
 
-[85 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.p
+[87 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.p
 df>]
-<images/simPoisson_1_11.png, id=1019, 1543.26563pt x 819.06pt>
+<images/simPoisson_1_11.png, id=1029, 1543.26563pt x 819.06pt>
 File: images/simPoisson_1_11.png Graphic file (type png)
 <use images/simPoisson_1_11.png>
-Package pdftex.def Info: images/simPoisson_1_11.png  used on input line 5058.
+Package pdftex.def Info: images/simPoisson_1_11.png  used on input line 5082.
 (pdftex.def)             Requested size: 469.75502pt x 249.30676pt.
 
 
-[86 <./images/simPoisson_1_11.png>]
-<images/pesosVaronesCat.jpg, id=1029, 540.0175pt x 533.995pt>
+[88 <./images/simPoisson_1_11.png>]
+<images/pesosVaronesCat.jpg, id=1038, 540.0175pt x 533.995pt>
 File: images/pesosVaronesCat.jpg Graphic file (type jpg)
 <use images/pesosVaronesCat.jpg>
-Package pdftex.def Info: images/pesosVaronesCat.jpg  used on input line 5072.
+Package pdftex.def Info: images/pesosVaronesCat.jpg  used on input line 5096.
 (pdftex.def)             Requested size: 469.75502pt x 464.52301pt.
 
 
-[87 <./images/pesosVaronesCat.jpg>]
+[89 <./images/pesosVaronesCat.jpg>]
 
-[88]
+[90]
+
+[91]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.pdf, id
-=1042, 469.755pt x 325.215pt>
+=1057, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.pdf
 >
 Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
-named-chunk-19-1.pdf  used on input line 5198.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-
-[89]
-
-[90 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.p
-df>]
-
-[91]
-<FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pdf, id
-=1070, 469.755pt x 325.215pt>
-File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pd
-f Graphic file (type pdf)
-<use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pdf
->
-Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
-named-chunk-20-1.pdf  used on input line 5381.
+named-chunk-19-1.pdf  used on input line 5224.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
 [92]
 
-[93 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.p
+[93 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.p
+df>]
+
+[94]
+<FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pdf, id
+=1082, 469.755pt x 325.215pt>
+File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pd
+f Graphic file (type pdf)
+<use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pdf
+>
+Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
+named-chunk-20-1.pdf  used on input line 5407.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+
+[95]
+
+[96 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.p
 df>]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.pdf, id
-=1088, 469.755pt x 325.215pt>
+=1100, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.pdf
 >
 Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
-named-chunk-21-1.pdf  used on input line 5467.
+named-chunk-21-1.pdf  used on input line 5493.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
-[94]
+[97]
 
-[95 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.p
+[98 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.p
 df>]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf, id
-=1105, 469.755pt x 325.215pt>
+=1118, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf
 >
 Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
-named-chunk-22-1.pdf  used on input line 5513.
+named-chunk-22-1.pdf  used on input line 5539.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
-[96 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.p
+[99 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.p
 df>]
-
-[97]
-
-[98]
-
-[99]
 
 [100]
 
@@ -1198,33 +1313,33 @@ df>]
 [125]
 
 [126]
-<images/dNormalQuantil975.png, id=1305, 654.19406pt x 584.1825pt>
-File: images/dNormalQuantil975.png Graphic file (type png)
-<use images/dNormalQuantil975.png>
-Package pdftex.def Info: images/dNormalQuantil975.png  used on input line 7427.
-
-(pdftex.def)             Requested size: 422.77664pt x 377.53021pt.
-
 
 [127]
 
-[128 <./images/dNormalQuantil975.png>]
-<images/simulaIC.png, id=1320, 1025.33063pt x 531.48563pt>
-File: images/simulaIC.png Graphic file (type png)
-<use images/simulaIC.png>
-Package pdftex.def Info: images/simulaIC.png  used on input line 7451.
-(pdftex.def)             Requested size: 422.77664pt x 219.15132pt.
+[128]
 
-
-[129 <./images/simulaIC.png>]
+[129]
 
 [130]
 
 [131]
+<images/dNormalQuantil975.png, id=1330, 654.19406pt x 584.1825pt>
+File: images/dNormalQuantil975.png Graphic file (type png)
+<use images/dNormalQuantil975.png>
+Package pdftex.def Info: images/dNormalQuantil975.png  used on input line 7457.
 
-[132]
+(pdftex.def)             Requested size: 422.77664pt x 377.53021pt.
 
-[133]
+
+[132 <./images/dNormalQuantil975.png>]
+<images/simulaIC.png, id=1336, 1025.33063pt x 531.48563pt>
+File: images/simulaIC.png Graphic file (type png)
+<use images/simulaIC.png>
+Package pdftex.def Info: images/simulaIC.png  used on input line 7481.
+(pdftex.def)             Requested size: 422.77664pt x 219.15132pt.
+
+
+[133 <./images/simulaIC.png>]
 
 [134]
 
@@ -1241,57 +1356,57 @@ Package pdftex.def Info: images/simulaIC.png  used on input line 7451.
 [140]
 
 [141]
-<images/interpretacionGeometrica.png, id=1407, 795.72281pt x 603.0028pt>
+
+[142]
+
+[143]
+
+[144]
+
+[145]
+<images/interpretacionGeometrica.png, id=1424, 795.72281pt x 603.0028pt>
 File: images/interpretacionGeometrica.png Graphic file (type png)
 <use images/interpretacionGeometrica.png>
 Package pdftex.def Info: images/interpretacionGeometrica.png  used on input lin
-e 8270.
+e 8300.
 (pdftex.def)             Requested size: 375.80544pt x 284.78232pt.
 
 
-[142]
-<images/freqVsprop.png, id=1413, 790.45313pt x 596.98032pt>
+[146]
+<images/freqVsprop.png, id=1430, 790.45313pt x 596.98032pt>
 File: images/freqVsprop.png Graphic file (type png)
 <use images/freqVsprop.png>
-Package pdftex.def Info: images/freqVsprop.png  used on input line 8282.
+Package pdftex.def Info: images/freqVsprop.png  used on input line 8312.
 (pdftex.def)             Requested size: 375.80544pt x 283.82365pt.
 
 
-[143 <./images/interpretacionGeometrica.png>]
+[147 <./images/interpretacionGeometrica.png>]
 
-[144 <./images/freqVsprop.png>]
-
-[145]
-
-[146]
-Underfull \hbox (badness 10000) in paragraph at lines 8432--8434
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8434--8436
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8436--8438
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8438--8440
-
- []
-
-
-
-[147]
-
-[148]
+[148 <./images/freqVsprop.png>]
 
 [149]
 
 [150]
+Underfull \hbox (badness 10000) in paragraph at lines 8464--8466
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8466--8468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8468--8470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8470--8472
+
+ []
+
+
 
 [151]
 
@@ -1300,249 +1415,249 @@ Underfull \hbox (badness 10000) in paragraph at lines 8438--8440
 [153]
 
 [154]
-Underfull \hbox (badness 10000) in paragraph at lines 8889--8891
-
- []
-
-
 
 [155]
-Underfull \hbox (badness 10000) in paragraph at lines 8907--8909
-
- []
-
-
 
 [156]
-Underfull \hbox (badness 10000) in paragraph at lines 9006--9008
-
- []
-
-
 
 [157]
 
 [158]
-Underfull \hbox (badness 10000) in paragraph at lines 9110--9112
+Underfull \hbox (badness 10000) in paragraph at lines 8921--8923
 
  []
 
 
 
 [159]
+Underfull \hbox (badness 10000) in paragraph at lines 8939--8941
+
+ []
+
+
 
 [160]
-<images/cap9-ProbsErrTipo2b.png, id=1540, 618.05907pt x 172.39406pt>
+Underfull \hbox (badness 10000) in paragraph at lines 9038--9040
+
+ []
+
+
+
+[161]
+
+[162]
+Underfull \hbox (badness 10000) in paragraph at lines 9142--9144
+
+ []
+
+
+
+[163]
+
+[164]
+<images/cap9-ProbsErrTipo2b.png, id=1557, 618.05907pt x 172.39406pt>
 File: images/cap9-ProbsErrTipo2b.png Graphic file (type png)
 <use images/cap9-ProbsErrTipo2b.png>
-Package pdftex.def Info: images/cap9-ProbsErrTipo2b.png  used on input line 922
-1.
+Package pdftex.def Info: images/cap9-ProbsErrTipo2b.png  used on input line 925
+3.
 (pdftex.def)             Requested size: 422.77664pt x 117.92874pt.
-<images/cap9-PlotProbsErrTipo2b.png, id=1541, 367.3725pt x 260.47313pt>
+<images/cap9-PlotProbsErrTipo2b.png, id=1558, 367.3725pt x 260.47313pt>
 File: images/cap9-PlotProbsErrTipo2b.png Graphic file (type png)
 <use images/cap9-PlotProbsErrTipo2b.png>
 Package pdftex.def Info: images/cap9-PlotProbsErrTipo2b.png  used on input line
- 9225.
+ 9257.
 (pdftex.def)             Requested size: 422.77664pt x 299.77626pt.
-<images/cap9-PlotProbsErrTipo_1_y_2.png, id=1542, 706.89093pt x 609.77812pt>
+<images/cap9-PlotProbsErrTipo_1_y_2.png, id=1559, 706.89093pt x 609.77812pt>
 File: images/cap9-PlotProbsErrTipo_1_y_2.png Graphic file (type png)
 <use images/cap9-PlotProbsErrTipo_1_y_2.png>
 Package pdftex.def Info: images/cap9-PlotProbsErrTipo_1_y_2.png  used on input 
-line 9231.
+line 9263.
 (pdftex.def)             Requested size: 422.77664pt x 364.69733pt.
 
 
-[161 <./images/cap9-ProbsErrTipo2b.png> <./images/cap9-PlotProbsErrTipo2b.png>]
-<images/cap9-PlotProbsErrTipo_1_y_2b.png, id=1553, 420.06938pt x 286.06876pt>
+[165 <./images/cap9-ProbsErrTipo2b.png> <./images/cap9-PlotProbsErrTipo2b.png>]
+<images/cap9-PlotProbsErrTipo_1_y_2b.png, id=1570, 420.06938pt x 286.06876pt>
 File: images/cap9-PlotProbsErrTipo_1_y_2b.png Graphic file (type png)
 <use images/cap9-PlotProbsErrTipo_1_y_2b.png>
 Package pdftex.def Info: images/cap9-PlotProbsErrTipo_1_y_2b.png  used on input
- line 9250.
+ line 9282.
 (pdftex.def)             Requested size: 422.77664pt x 287.91446pt.
 
 
-[162 <./images/cap9-PlotProbsErrTipo_1_y_2.png>]
-<images/cap9-ProbsTestOptim.png, id=1559, 400.49625pt x 242.40562pt>
+[166 <./images/cap9-PlotProbsErrTipo_1_y_2.png>]
+<images/cap9-ProbsTestOptim.png, id=1576, 400.49625pt x 242.40562pt>
 File: images/cap9-ProbsTestOptim.png Graphic file (type png)
 <use images/cap9-ProbsTestOptim.png>
-Package pdftex.def Info: images/cap9-ProbsTestOptim.png  used on input line 927
-6.
+Package pdftex.def Info: images/cap9-ProbsTestOptim.png  used on input line 930
+8.
 (pdftex.def)             Requested size: 422.77664pt x 255.90565pt.
 
 
-[163 <./images/cap9-PlotProbsErrTipo_1_y_2b.png>]
-<images/cap9-PlotProbsTestOptim.png, id=1567, 701.62125pt x 305.64188pt>
+[167 <./images/cap9-PlotProbsErrTipo_1_y_2b.png>]
+<images/cap9-PlotProbsTestOptim.png, id=1583, 701.62125pt x 305.64188pt>
 File: images/cap9-PlotProbsTestOptim.png Graphic file (type png)
 <use images/cap9-PlotProbsTestOptim.png>
 Package pdftex.def Info: images/cap9-PlotProbsTestOptim.png  used on input line
- 9296.
+ 9328.
 (pdftex.def)             Requested size: 422.77664pt x 184.1747pt.
 
 
-[164 <./images/cap9-ProbsTestOptim.png> <./images/cap9-PlotProbsTestOptim.png>]
-<images/cap9-SampleSizeEffect-1.png, id=1575, 408.77719pt x 138.5175pt>
+[168 <./images/cap9-ProbsTestOptim.png> <./images/cap9-PlotProbsTestOptim.png>]
+<images/cap9-SampleSizeEffect-1.png, id=1591, 408.77719pt x 138.5175pt>
 File: images/cap9-SampleSizeEffect-1.png Graphic file (type png)
 <use images/cap9-SampleSizeEffect-1.png>
 Package pdftex.def Info: images/cap9-SampleSizeEffect-1.png  used on input line
- 9324.
+ 9356.
 (pdftex.def)             Requested size: 422.77664pt x 143.26852pt.
-<images/cap9-SampleSizeEffect-2.png, id=1576, 407.27156pt x 192.72pt>
+<images/cap9-SampleSizeEffect-2.png, id=1592, 407.27156pt x 192.72pt>
 File: images/cap9-SampleSizeEffect-2.png Graphic file (type png)
 <use images/cap9-SampleSizeEffect-2.png>
 Package pdftex.def Info: images/cap9-SampleSizeEffect-2.png  used on input line
- 9330.
+ 9362.
 (pdftex.def)             Requested size: 422.77664pt x 200.06529pt.
 
 
-[165 <./images/cap9-SampleSizeEffect-1.png>]
-<images/cap9-SampleSizeEffect-3.png, id=1584, 412.54124pt x 284.56313pt>
+[169 <./images/cap9-SampleSizeEffect-1.png>]
+<images/cap9-SampleSizeEffect-3.png, id=1601, 412.54124pt x 284.56313pt>
 File: images/cap9-SampleSizeEffect-3.png Graphic file (type png)
 <use images/cap9-SampleSizeEffect-3.png>
 Package pdftex.def Info: images/cap9-SampleSizeEffect-3.png  used on input line
- 9334.
+ 9366.
 (pdftex.def)             Requested size: 422.77664pt x 291.62698pt.
 
 
-[166 <./images/cap9-SampleSizeEffect-2.png> <./images/cap9-SampleSizeEffect-3.p
+[170 <./images/cap9-SampleSizeEffect-2.png> <./images/cap9-SampleSizeEffect-3.p
 ng>]
-<images/cap9-RCSimpleVsComposta.png, id=1591, 405.76593pt x 254.45062pt>
+<images/cap9-RCSimpleVsComposta.png, id=1608, 405.76593pt x 254.45062pt>
 File: images/cap9-RCSimpleVsComposta.png Graphic file (type png)
 <use images/cap9-RCSimpleVsComposta.png>
 Package pdftex.def Info: images/cap9-RCSimpleVsComposta.png  used on input line
- 9389.
+ 9421.
 (pdftex.def)             Requested size: 422.77664pt x 265.12714pt.
 
 
-[167 <./images/cap9-RCSimpleVsComposta.png>]
-<images/cap9-RCHipotesisComposta.png, id=1599, 406.51875pt x 327.47343pt>
+[171 <./images/cap9-RCSimpleVsComposta.png>]
+<images/cap9-RCHipotesisComposta.png, id=1616, 406.51875pt x 327.47343pt>
 File: images/cap9-RCHipotesisComposta.png Graphic file (type png)
 <use images/cap9-RCHipotesisComposta.png>
 Package pdftex.def Info: images/cap9-RCHipotesisComposta.png  used on input lin
-e 9425.
+e 9457.
 (pdftex.def)             Requested size: 422.77664pt x 340.58434pt.
 
 
-[168]
+[172]
 
-[169 <./images/cap9-RCHipotesisComposta.png>]
-<images/cap9-comparaProbs.png, id=1611, 447.92343pt x 242.40562pt>
+[173 <./images/cap9-RCHipotesisComposta.png>]
+<images/cap9-comparaProbs.png, id=1627, 447.92343pt x 242.40562pt>
 File: images/cap9-comparaProbs.png Graphic file (type png)
 <use images/cap9-comparaProbs.png>
-Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9479.
+Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9511.
 
 (pdftex.def)             Requested size: 422.77664pt x 228.80449pt.
-<images/cap9-FuncPotencia1.png, id=1612, 416.30531pt x 545.78906pt>
+<images/cap9-FuncPotencia1.png, id=1628, 416.30531pt x 545.78906pt>
 File: images/cap9-FuncPotencia1.png Graphic file (type png)
 <use images/cap9-FuncPotencia1.png>
-Package pdftex.def Info: images/cap9-FuncPotencia1.png  used on input line 9483
+Package pdftex.def Info: images/cap9-FuncPotencia1.png  used on input line 9515
 .
 (pdftex.def)             Requested size: 281.85587pt x 369.54099pt.
 
 
-[170 <./images/cap9-comparaProbs.png>]
-<images/cap9-FuncPotencia2.png, id=1619, 466.74374pt x 405.01312pt>
+[174 <./images/cap9-comparaProbs.png>]
+<images/cap9-FuncPotencia2.png, id=1635, 466.74374pt x 405.01312pt>
 File: images/cap9-FuncPotencia2.png Graphic file (type png)
 <use images/cap9-FuncPotencia2.png>
-Package pdftex.def Info: images/cap9-FuncPotencia2.png  used on input line 9502
+Package pdftex.def Info: images/cap9-FuncPotencia2.png  used on input line 9534
 .
 (pdftex.def)             Requested size: 281.85587pt x 244.58563pt.
 
 
-[171 <./images/cap9-FuncPotencia1.png>]
-<images/cap9-FuncPotencia3.png, id=1626, 469.00218pt x 339.51843pt>
+[175 <./images/cap9-FuncPotencia1.png>]
+<images/cap9-FuncPotencia3.png, id=1643, 469.00218pt x 339.51843pt>
 File: images/cap9-FuncPotencia3.png Graphic file (type png)
 <use images/cap9-FuncPotencia3.png>
-Package pdftex.def Info: images/cap9-FuncPotencia3.png  used on input line 9507
+Package pdftex.def Info: images/cap9-FuncPotencia3.png  used on input line 9539
 .
 (pdftex.def)             Requested size: 281.85587pt x 204.039pt.
 
 
-[172 <./images/cap9-FuncPotencia2.png> <./images/cap9-FuncPotencia3.png>]
+[176 <./images/cap9-FuncPotencia2.png> <./images/cap9-FuncPotencia3.png>]
 File: images/cap9-comparaProbs.png Graphic file (type png)
 <use images/cap9-comparaProbs.png>
-Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9575.
-
-(pdftex.def)             Requested size: 422.77664pt x 228.80449pt.
-
-
-[173]
-<images/cap9-RCHipotesisComposta2.png, id=1639, 412.54124pt x 339.51843pt>
-File: images/cap9-RCHipotesisComposta2.png Graphic file (type png)
-<use images/cap9-RCHipotesisComposta2.png>
-Package pdftex.def Info: images/cap9-RCHipotesisComposta2.png  used on input li
-ne 9596.
-(pdftex.def)             Requested size: 422.77664pt x 347.94647pt.
-
-
-[174]
-<images/cap9-PotenciaHipotesisComposta.png, id=1645, 412.54124pt x 339.51843pt>
-
-File: images/cap9-PotenciaHipotesisComposta.png Graphic file (type png)
-<use images/cap9-PotenciaHipotesisComposta.png>
-Package pdftex.def Info: images/cap9-PotenciaHipotesisComposta.png  used on inp
-ut line 9606.
-(pdftex.def)             Requested size: 422.77664pt x 347.94647pt.
-
-
-[175 <./images/cap9-RCHipotesisComposta2.png>]
-
-[176 <./images/cap9-PotenciaHipotesisComposta.png>]
-File: images/cap9-comparaProbs.png Graphic file (type png)
-<use images/cap9-comparaProbs.png>
-Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9658.
+Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9607.
 
 (pdftex.def)             Requested size: 422.77664pt x 228.80449pt.
 
 
 [177]
+<images/cap9-RCHipotesisComposta2.png, id=1656, 412.54124pt x 339.51843pt>
+File: images/cap9-RCHipotesisComposta2.png Graphic file (type png)
+<use images/cap9-RCHipotesisComposta2.png>
+Package pdftex.def Info: images/cap9-RCHipotesisComposta2.png  used on input li
+ne 9628.
+(pdftex.def)             Requested size: 422.77664pt x 347.94647pt.
+
 
 [178]
-<images/cap9-CalculPvalorUnilateral.png, id=1670, 408.77719pt x 409.53pt>
-File: images/cap9-CalculPvalorUnilateral.png Graphic file (type png)
-<use images/cap9-CalculPvalorUnilateral.png>
-Package pdftex.def Info: images/cap9-CalculPvalorUnilateral.png  used on input 
-line 9697.
-(pdftex.def)             Requested size: 422.77664pt x 423.57655pt.
+<images/cap9-PotenciaHipotesisComposta.png, id=1662, 412.54124pt x 339.51843pt>
+
+File: images/cap9-PotenciaHipotesisComposta.png Graphic file (type png)
+<use images/cap9-PotenciaHipotesisComposta.png>
+Package pdftex.def Info: images/cap9-PotenciaHipotesisComposta.png  used on inp
+ut line 9638.
+(pdftex.def)             Requested size: 422.77664pt x 347.94647pt.
 
 
-[179 <./images/cap9-CalculPvalorUnilateral.png>]
-<images/cap9-CalculPvalorBilateral.png, id=1676, 411.78844pt x 411.03563pt>
-File: images/cap9-CalculPvalorBilateral.png Graphic file (type png)
-<use images/cap9-CalculPvalorBilateral.png>
-Package pdftex.def Info: images/cap9-CalculPvalorBilateral.png  used on input l
-ine 9723.
-(pdftex.def)             Requested size: 422.77664pt x 422.00415pt.
+[179 <./images/cap9-RCHipotesisComposta2.png>]
 
+[180 <./images/cap9-PotenciaHipotesisComposta.png>]
+File: images/cap9-comparaProbs.png Graphic file (type png)
+<use images/cap9-comparaProbs.png>
+Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9690.
 
-[180 <./images/cap9-CalculPvalorBilateral.png>]
+(pdftex.def)             Requested size: 422.77664pt x 228.80449pt.
+
 
 [181]
 
 [182]
-
-[183]
-<images/cap9-SampleSize_i_MDS.png, id=1700, 412.54124pt x 286.06876pt>
-File: images/cap9-SampleSize_i_MDS.png Graphic file (type png)
-<use images/cap9-SampleSize_i_MDS.png>
-Package pdftex.def Info: images/cap9-SampleSize_i_MDS.png  used on input line 9
-894.
-(pdftex.def)             Requested size: 422.77664pt x 293.16998pt.
+<images/cap9-CalculPvalorUnilateral.png, id=1687, 408.77719pt x 409.53pt>
+File: images/cap9-CalculPvalorUnilateral.png Graphic file (type png)
+<use images/cap9-CalculPvalorUnilateral.png>
+Package pdftex.def Info: images/cap9-CalculPvalorUnilateral.png  used on input 
+line 9729.
+(pdftex.def)             Requested size: 422.77664pt x 423.57655pt.
 
 
-[184 <./images/cap9-SampleSize_i_MDS.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 9934--9936
+[183 <./images/cap9-CalculPvalorUnilateral.png>]
+<images/cap9-CalculPvalorBilateral.png, id=1693, 411.78844pt x 411.03563pt>
+File: images/cap9-CalculPvalorBilateral.png Graphic file (type png)
+<use images/cap9-CalculPvalorBilateral.png>
+Package pdftex.def Info: images/cap9-CalculPvalorBilateral.png  used on input l
+ine 9755.
+(pdftex.def)             Requested size: 422.77664pt x 422.00415pt.
 
- []
 
-
+[184 <./images/cap9-CalculPvalorBilateral.png>]
 
 [185]
 
 [186]
 
 [187]
+<images/cap9-SampleSize_i_MDS.png, id=1717, 412.54124pt x 286.06876pt>
+File: images/cap9-SampleSize_i_MDS.png Graphic file (type png)
+<use images/cap9-SampleSize_i_MDS.png>
+Package pdftex.def Info: images/cap9-SampleSize_i_MDS.png  used on input line 9
+926.
+(pdftex.def)             Requested size: 422.77664pt x 293.16998pt.
 
-[188]
+
+[188 <./images/cap9-SampleSize_i_MDS.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 9966--9968
+
+ []
+
+
 
 [189]
 
@@ -1559,11 +1674,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 9934--9936
 [195]
 
 [196]
-Underfull \hbox (badness 10000) in paragraph at lines 10697--10699
-
- []
-
-
 
 [197]
 
@@ -1572,6 +1682,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 10697--10699
 [199]
 
 [200]
+Underfull \hbox (badness 10000) in paragraph at lines 10731--10733
+
+ []
+
+
 
 [201]
 
@@ -1585,7 +1700,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 10697--10699
 
 [206]
 
-[207] [208]
+[207]
+
+[208]
 
 [209]
 
@@ -1610,11 +1727,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 10697--10699
 [219]
 
 [220]
-Overfull \hbox (43.16385pt too wide) in paragraph at lines 12449--12449
-[]$|  
- []
-
-
 
 [221]
 
@@ -1623,54 +1735,21 @@ Overfull \hbox (43.16385pt too wide) in paragraph at lines 12449--12449
 [223]
 
 [224]
-Underfull \hbox (badness 10000) in paragraph at lines 12684--12686
-
- []
-
-
 
 [225]
+Overfull \hbox (43.16385pt too wide) in paragraph at lines 12485--12485
+[]$|  
+ []
 
 [226]
 
 [227]
 
-LaTeX Warning: Command \textsterling invalid in math mode on input line 12901.
-
-
-LaTeX Warning: Command \textsterling invalid in math mode on input line 12901.
-
-
-LaTeX Warning: Command \textsterling invalid in math mode on input line 12934.
-
-
-LaTeX Warning: Command \textsterling invalid in math mode on input line 12934.
-
-
-LaTeX Warning: Command \textsterling invalid in math mode on input line 12934.
-
-
-
 [228]
-Overfull \hbox (9.27968pt too wide) in paragraph at lines 13056--13057
-[]\T1/lmr/m/n/10 (-20) Puntuación  
- []
-
-
-Overfull \hbox (5.75737pt too wide) in paragraph at lines 13076--13076
-[]|\T1/lmr/m/n/10 (-20) Frecuencia|  
- []
-
-
 
 [229]
-Overfull \hbox (9.27968pt too wide) in paragraph at lines 13119--13120
-[]\T1/lmr/m/n/10 (-20) Puntuación  
- []
+Underfull \hbox (badness 10000) in paragraph at lines 12722--12724
 
-
-Overfull \hbox (2.0824pt too wide) in paragraph at lines 13156--13157
-[]\T1/lmr/m/n/10 (-20) Puntuación  
  []
 
 
@@ -1679,76 +1758,128 @@ Overfull \hbox (2.0824pt too wide) in paragraph at lines 13156--13157
 
 [231]
 
-[232] [233] [234]
+[232]
+
+LaTeX Warning: Command \textsterling invalid in math mode on input line 12939.
+
+
+LaTeX Warning: Command \textsterling invalid in math mode on input line 12939.
+
+
+LaTeX Warning: Command \textsterling invalid in math mode on input line 12972.
+
+
+LaTeX Warning: Command \textsterling invalid in math mode on input line 12972.
+
+
+LaTeX Warning: Command \textsterling invalid in math mode on input line 12972.
+
+
+
+[233]
+
+[234]
+Overfull \hbox (9.27968pt too wide) in paragraph at lines 13094--13095
+[]\T1/lmr/m/n/10 (-20) Puntuación  
+ []
+
+
+Overfull \hbox (5.75737pt too wide) in paragraph at lines 13114--13114
+[]|\T1/lmr/m/n/10 (-20) Frecuencia|  
+ []
+
+
+Overfull \hbox (9.27968pt too wide) in paragraph at lines 13157--13158
+[]\T1/lmr/m/n/10 (-20) Puntuación  
+ []
+
+
+Overfull \hbox (2.0824pt too wide) in paragraph at lines 13194--13195
+[]\T1/lmr/m/n/10 (-20) Puntuación  
+ []
+
+
 
 [235]
 
 [236]
 
-[237]
-
-[238]
+[237] [238]
 
 [239]
 
-[240]
-
-[241]
+[240] [241]
 
 [242]
 
-[243] [244]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-14264.
-(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmtt.fd
-File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+[243]
+
+[244]
 
 [245]
 
 [246]
 
 [247]
-Overfull \hbox (0.11523pt too wide) in alignment at lines 14419--14431
- [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (0.11523pt too wide) in alignment at lines 14431--14433
- [] [] [] [] [] [] [] 
- []
-
-
-Overfull \hbox (0.11523pt too wide) in alignment at lines 14433--14439
- [] [] [] [] [] [] [] 
- []
-
-
 
 [248]
 
 [249]
 
 [250]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+14304.
+(C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
 [251]
 
 [252]
+Overfull \hbox (0.11523pt too wide) in alignment at lines 14459--14471
+ [] [] [] [] [] [] [] 
+ []
 
-[253] (FundamentosInferenciaEstadistica.aux)
+
+Overfull \hbox (0.11523pt too wide) in alignment at lines 14471--14473
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (0.11523pt too wide) in alignment at lines 14473--14479
+ [] [] [] [] [] [] [] 
+ []
+
+
+
+[253]
+
+[254]
+
+[255]
+
+[256]
+
+[257]
+
+[258]
+
+[259]
+
+[260] (FundamentosInferenciaEstadistica.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17383 strings out of 473530
- 295762 string characters out of 5713827
- 745671 words of memory out of 5000000
- 38940 multiletter control sequences out of 15000+600000
- 660165 words of font info for 290 fonts, out of 8000000 for 9000
+ 18870 strings out of 473530
+ 320064 string characters out of 5713827
+ 774008 words of memory out of 5000000
+ 40361 multiletter control sequences out of 15000+600000
+ 660271 words of font info for 291 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,15n,81p,1224b,643s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,16n,81p,1224b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb
@@ -1777,10 +1908,10 @@ onts/type1/public/lm/lmtk10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX
 eX/fonts/type1/public/lm/lmtti10.pfb><C:/Users/Usuario/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Usuario/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on FundamentosInferenciaEstadistica.pdf (253 pages, 8365950 byte
+Output written on FundamentosInferenciaEstadistica.pdf (260 pages, 8370454 byte
 s).
 PDF statistics:
- 3014 PDF objects out of 3580 (max. 8388607)
- 1017 named destinations out of 1200 (max. 500000)
+ 3044 PDF objects out of 3580 (max. 8388607)
+ 1024 named destinations out of 1200 (max. 500000)
  54797 words of extra memory for PDF output out of 61914 (max. 10000000)
 

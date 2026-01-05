@@ -1,3 +1,5 @@
+\newpage
+
 # Construcción de contrastes de hipótesis
 
 ## ¿Qué significa “construir” un contraste de hipótesis?
