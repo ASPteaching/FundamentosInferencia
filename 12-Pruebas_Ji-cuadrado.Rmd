@@ -95,7 +95,7 @@ $$
 - El contraste es **asintótico**, por lo que se requiere un tamaño muestral suficientemente grande. En la práctica se exige que todas las frecuencias esperadas cumplan $n p_i^0 \ge 5$.
 - El contraste depende de la partición elegida. Conviene tomar $k \ge 5$ siempre que sea posible para evitar situaciones poco discriminantes.
 
-### Ejemplo
+### Ejemplo 1: Bondad de ajuste
 
 Una compañía afirma que el número diario de accidentes laborales sigue una distribución de Poisson de parámetro $\lambda=2$. Un estudio, basado en los accidentes producidos durante 200 días, da el resultado siguiente:
 
@@ -120,9 +120,9 @@ Las frecuencias esperadas serán $n p_{i}^{0}=200 p_{i}^{0}$. Cuando $i=6,7$ los
 
 El valor del estadístico de test es, por tanto, 2.303. El $p$-valor correspondiente, es decir, $P\left(\chi_{6-1}^{2} \geq 2.303\right)$, es 0.80588 y, por tanto, no podemos rechazar la hipótesis de que los datos siguen una distribución de Poisson de parámetro $\lambda=2$. Otra forma de tomar la misma decisión es observar que el percentil 0.95 de dicha distribución es $\chi_{5,0.95}^{2}=11.07$, de donde, dado que $2.303<\chi_{5,0.95}^{2}$, vemos que no podemos rechazar $H_{0}$.
 
-### Ejemplo
+### Ejemplo 2: Ajuste de modelo genético
 
-Un cierto modelo genético para unas plantas cuyas flores pueden ser blancas, rosas o rojas afirma que la proporción con la que deben aparecer es de $1:2:1$. En un estudio se obtuvieron 113 flores blancas, 242 rosas y 112 rojas. ¿Concuerdan las observaciones con el modelo? Construimos la tabla de cálculos y obtenemos:
+Un cierto modelo genético para unas plantas cuyas flores pueden ser blancas, rosas o rojas afirma que la proporción con la que deben aparecer es de $1:2:1$. En un estudio se obtuvieron 112 flores blancas, 242 rosas y 112 rojas. ¿Concuerdan las observaciones con el modelo? Construimos la tabla de cálculos y obtenemos:
 
 | $A_{i}$ | Blanca | Rosa | Rojas | $\Sigma$ |
 | :--- | :---: | :---: | :---: | :---: |
@@ -213,7 +213,7 @@ $$
 
 donde $\chi_{k-1,1-\alpha}^{2}$ es el cuantil $1-\alpha$ de una distribución $\chi^{2}$ con $k-1-\operatorname{dim}(\Theta)$ grados de libertad.
 
-### Ejemplo
+### Ejemplo 3: Ajuste de modelo genético con probabilidades desconocidas
 
 En el ejemplo anterior, cuando hemos ajustado unos datos a unas proporciones del tipo "1:2:1" o "9:3:3:1" estábamos suponiendo dos cosas:
 
@@ -271,7 +271,7 @@ de donde la tabla con los valores observados y esperados para hacer el test de a
 
 El valor crítico es el percentil de una distribución ji-cuadrado con dos menos un grados de libertad, $\chi_{1,0.95}^{2}=3.841$, de donde, dado que $0.0311<\chi_{1,0.95}^{2}$, vemos que no podemos rechazar $H_{0}$.
 
-### Ejemplo 
+### Ejemplo 4: Ajuste a una distribución normal
 
 En un estudio sobre bilingüismo se aplicó una prueba a una muestra de 211 alumnos y se obtuvieron 211 puntuaciones que, una vez tabuladas, eran las siguientes:
 
@@ -417,7 +417,7 @@ $$
 D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
 $$
 
-### Ejemplo
+### Ejemplo 5: Relación entre nivel de estudios y preferencias
 
 En un estudio de mercado se intenta determinar si existe alguna relación entre las preferencias de un grupo de consumidores por un tipo de vehículo y su nivel cultural. Se pregunta a 300 personas entre 20 y 50 años qué vehículo poseen y se clasifican en “NINGUNO”, “MOTOCICLETAS”, “COCHES NORMALES” y “COCHES POTENTES”. El nivel cultural se determina según hayan cursado estudios “ELEMENTALES”, “DE GRADO MEDIO” o “SUPERIORES”. ¿Qué se puede concluir a partir de los siguientes datos?
 
@@ -493,7 +493,7 @@ $$
 D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
 $$
 
-### Ejemplo
+### Ejemplo 6: Homogeneidad en los grupos sanguíneos
 
 En un estudio antropológico se analiza la distribución de los grupos sanguíneos $O,A,B,AB$ entre tres razas humanas. La siguiente tabla contiene las frecuencias observadas y esperadas, así como el análisis realizado con el programa SPSS, donde se observa que no se puede rechazar la hipótesis nula de que la probabilidad de cada grupo sanguíneo es la misma en todas las razas.
 
@@ -513,4 +513,339 @@ En un estudio antropológico se analiza la distribución de los grupos sanguíne
 |  |  | % de grupo sanguíneo | 22.5\% | 22.6\% | 27.3\% | 35.3\% | 24.6\% |
 | Total |  | Recuento | 102 | 31 | 33 | 17 | 183 |
 |  |  | Frecuencia esperada | 102.0 | 31.0 | 33.0 | 17.0 | 183.0 |
+
+
+A partir de esta información queremos contrastar si la distribución de los grupos sanguíneos es la misma en las tres razas consideradas. Formalmente, planteamos el contraste de homogeneidad:
+
+$$
+\begin{aligned}
+H_0 &: p_{1j}=p_{2j}=p_{3j}, \quad j=1,\ldots,4, \\
+H_1 &: \text{no todas las probabilidades anteriores son iguales}.
+\end{aligned}
+$$
+
+Bajo la hipótesis nula, la frecuencia esperada en la celda correspondiente a la raza $i$ y al grupo sanguíneo $j$ viene dada por
+
+$$
+E_{ij}=\frac{n_{i\cdot}\,n_{\cdot j}}{n},
+$$
+
+donde $n_{i\cdot}$ es el total de individuos de la raza $i$, $n_{\cdot j}$ el total del grupo sanguíneo $j$ y $n$ el tamaño muestral total. Estas frecuencias esperadas son las que figuran en la tabla anterior.
+
+El estadístico de contraste es el estadístico de Pearson
+
+$$
+D^{2}
+=
+\sum_{i=1}^{3}\sum_{j=1}^{4}
+\frac{(n_{ij}-E_{ij})^{2}}{E_{ij}},
+$$
+
+que mide la discrepancia global entre las frecuencias observadas y las esperadas bajo la hipótesis de homogeneidad.
+
+En este caso, la tabla tiene $r=3$ filas y $k=4$ columnas, por lo que, bajo $H_{0}$, el estadístico $D^{2}$ sigue asintóticamente una distribución ji-cuadrado con
+
+$$
+(r-1)(k-1)=(3-1)(4-1)=6
+$$
+
+grados de libertad.
+
+El análisis realizado muestra que el valor observado del estadístico es inferior al valor crítico de una distribución $\chi^{2}_{6}$ al nivel de significación $\alpha=0.05$, cuyo percentil 0.95 es $\chi^{2}_{6,0.95}=12.59$. De forma equivalente, el $p$-valor asociado al contraste es suficientemente grande.
+
+Por tanto, **no se rechaza la hipótesis nula de homogeneidad**, y los datos son compatibles con la hipótesis de que la probabilidad de pertenecer a cada grupo sanguíneo es la misma en las tres razas consideradas.
+
+## Ejemplos resueltos en R
+
+La primera versión de este documento se creó en un momento en que R no era la herramienta universal de los estadísticos por lo que los ejemplos estan resueltos para ser calculados manualmente. En el caso de las pruebas chi-cuadrado esto resulta particularmente interesante por lo que se ha mantenido dicha resolución y se incluyen a continuación la resolución de cada ejercicio con R.
+
+### Ejemplo 1: Bondad de ajuste
+
+**Datos (200 días).** Se contrasta $H_0: X \sim \text{Poisson}(\lambda=2)$.
+
+```{r ej1-datos}
+n <- 200
+obs_raw <- c(`0`=22, `1`=53, `2`=58, `3`=39, `4`=20, `5`=5, `6`=2, `7`=1)
+
+# Agrupamos en categoría ">=5" para evitar esperadas pequeñas
+obs <- c(`0`=obs_raw["0"],
+         `1`=obs_raw["1"],
+         `2`=obs_raw["2"],
+         `3`=obs_raw["3"],
+         `4`=obs_raw["4"],
+         `>=5`=sum(obs_raw[c("5","6","7")]))
+
+obs
+sum(obs)
+```
+
+```{r ej1-probs-test}
+lambda <- 2
+
+# Probabilidades bajo Poisson(2): 0..4 y >=5
+p0_4 <- dpois(0:4, lambda = lambda)
+p_ge5 <- 1 - ppois(4, lambda = lambda)
+p <- c(p0_4, p_ge5)
+names(p) <- names(obs)
+
+# Comprobación: suman 1
+sum(p)
+
+# Test chi-cuadrado (probabilidades completamente especificadas)
+test1 <- chisq.test(x = obs, p = p, rescale.p = TRUE)
+test1
+```
+
+```{r ej1-tabla}
+expected <- as.numeric(test1$expected)
+stat_contrib <- (obs - expected)^2 / expected
+
+res1 <- data.frame(
+  Categoria = names(obs),
+  Observado = as.numeric(obs),
+  p0 = as.numeric(p),
+  Esperado = expected,
+  Contribucion = stat_contrib
+)
+res1
+sum(res1$Contribucion)  # Debe coincidir con el estadístico
+```
+
+```{r ej1-plot}
+op <- par(mar=c(5,4,2,1))
+bp <- barplot(rbind(Observado = as.numeric(obs), Esperado = expected),
+              beside = TRUE, las = 2, ylab = "Frecuencia",
+              main = "Ejemplo 1: Observado vs Esperado (Poisson(2))")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+par(op)
+```
+
+---
+
+### Ejemplo 2: Ajuste de modelo genético
+
+Modelo: proporciones $1:2:1$ (multinomial con $p=(0.25,0.5,0.25)$).
+
+
+```{r ej2-test}
+obs <- c(Blanca = 112, Rosa = 242, Roja = 112)
+p <- c(0.25, 0.50, 0.25)
+
+test2 <- chisq.test(x = obs, p = p, rescale.p = TRUE)
+test2
+```
+
+```{r ej2-tabla-plot}
+expected <- as.numeric(test2$expected)
+
+data.frame(
+  Categoria = names(obs),
+  Observado = as.numeric(obs),
+  Esperado  = expected,
+  Contribucion = (obs-expected)^2/expected
+)
+
+barplot(rbind(Observado = as.numeric(obs), Esperado = expected),
+        beside = TRUE, las = 2, ylab = "Frecuencia",
+        main = "Ejemplo 2: Observado vs Esperado (1:2:1)")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+```
+
+---
+
+### Ejemplo 3: Ajuste de modelo genético con probabilidades desconocidas
+
+Se contrasta el ajuste a un **modelo Hardy–Weinberg** para alelos $M/N$:
+
+$$p_1(p)=p^2,\quad p_2(p)=2p(1-p),\quad p_3(p)=(1-p)^2,$$
+estimando $p$ por máxima verosimilitud.
+
+Datos:
+
+| Grupo | M | M-N | N |
+|---|---:|---:|---:|
+| Individuos | 1787 | 3039 | 1303 |
+
+```{r ej3-estimacion}
+n1 <- 1787
+n2 <- 3039
+n3 <- 1303
+n  <- n1 + n2 + n3
+
+p_hat <- (2*n1 + n2) / (2*n)
+p_hat
+```
+
+```{r ej3-test-manual}
+p_model <- c(M = p_hat^2,
+             `M-N` = 2*p_hat*(1-p_hat),
+             N = (1-p_hat)^2)
+
+expected <- n * p_model
+obs <- c(M = n1, `M-N` = n2, N = n3)
+
+# Estadístico de Pearson
+D2 <- sum((obs - expected)^2 / expected)
+
+# Grados de libertad ajustados: k - 1 - m = 3 - 1 - 1 = 1
+df <- 1
+p_value <- 1 - pchisq(D2, df = df)
+
+list(
+  p_hat = p_hat,
+  expected = expected,
+  D2 = D2,
+  df = df,
+  p_value = p_value
+)
+```
+
+```{r ej3-plot}
+barplot(rbind(Observado = as.numeric(obs), Esperado = as.numeric(expected)),
+        beside = TRUE, las = 2, ylab = "Frecuencia",
+        main = "Ejemplo 3: Observado vs Esperado (modelo con p estimado)")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+```
+
+---
+
+### Ejemplo 4: Ajuste a una distribución normal
+
+Se dispone de 211 puntuaciones tabuladas:
+
+| Intervalo | $(\leq 55]$ | $(55-60]$ | $(60-65]$ | $(65-70]$ | $(70-75]$ | $(75-80]$ | $(80-85]$ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Frecuencia | 4 | 17 | 45 | 67 | 53 | 15 | 10 |
+
+Queremos contrastar $H_0: X \sim N(\mu,\sigma)$, con $\mu$ y $\sigma$ **desconocidos** (se estiman).
+
+> Importante: como se estiman 2 parámetros, el contraste usa **$k-1-m$** grados de libertad tras posibles fusiones de clases.
+
+```{r ej4-datos}
+obs_raw <- c(`<=55`=4, `55-60`=17, `60-65`=45, `65-70`=67, `70-75`=53, `75-80`=15, `80-85`=10)
+
+n <- sum(obs_raw)
+
+
+mu_hat <- 68.52
+sigma_hat <- 6.44
+mu_hat; sigma_hat
+```
+
+```{r ej4-probs}
+# Intervalos: (-Inf,55], (55,60], ..., (80,Inf)
+breaks <- c(-Inf, 55, 60, 65, 70, 75, 80, Inf)
+
+p <- numeric(length(breaks)-1)
+for(i in seq_along(p)){
+  a <- breaks[i]; b <- breaks[i+1]
+  p[i] <- pnorm(b, mean = mu_hat, sd = sigma_hat) - pnorm(a, mean = mu_hat, sd = sigma_hat)
+}
+names(p) <- names(c(`<=55`=1, `55-60`=1, `60-65`=1, `65-70`=1, `70-75`=1, `75-80`=1, `>=80`=1))
+p
+sum(p)
+```
+
+```{r ej4-fusion}
+expected_raw <- n * p
+
+# Fusionamos las dos primeras clases si alguna esperada < 5 (en el texto se fusionan)
+obs <- c(`<=60` = obs_raw["<=55"] + obs_raw["55-60"],
+         `60-65` = obs_raw["60-65"],
+         `65-70` = obs_raw["65-70"],
+         `70-75` = obs_raw["70-75"],
+         `75-80` = obs_raw["75-80"],
+         `>=80`  = obs_raw["80-85"])
+
+expected <- c(`<=60` = expected_raw[1] + expected_raw[2],
+              `60-65` = expected_raw[3],
+              `65-70` = expected_raw[4],
+              `70-75` = expected_raw[5],
+              `75-80` = expected_raw[6],
+              `>=80`  = expected_raw[7])
+
+data.frame(Categoria = names(obs),
+           Observado = as.numeric(obs),
+           Esperado  = as.numeric(expected))
+```
+
+```{r ej4-test-manual}
+# Estadístico de Pearson
+D2 <- sum((obs - expected)^2 / expected)
+
+k <- length(obs)        # número final de clases
+m <- 2                  # mu y sigma estimados
+df <- k - 1 - m
+
+p_value <- 1 - pchisq(D2, df = df)
+
+list(D2 = D2, df = df, p_value = p_value)
+```
+
+```{r ej4-plot}
+barplot(rbind(Observado = as.numeric(obs), Esperado = as.numeric(expected)),
+        beside = TRUE, las = 2, ylab = "Frecuencia",
+        main = "Ejemplo 4: Observado vs Esperado (Normal con parámetros estimados)")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+```
+
+
+### Ejemplo 5: Relación entre nivel de estudios y preferencias
+
+Tabla (Nivel de estudios × Tipo de vehículo):
+
+```{r ej5-datos}
+tab <- matrix(
+  c(31,49,18,12,
+    11,59,26,25,
+    12,51,31,36),
+  nrow = 3, byrow = TRUE
+)
+rownames(tab) <- c("Elementales","Nivel medio","Superiores")
+colnames(tab) <- c("Ninguno","Motos","C. normal","C. potente")
+tab
+addmargins(tab)
+```
+
+```{r ej5-test}
+test5 <- chisq.test(tab, correct = FALSE)
+test5
+test5$expected
+```
+
+```{r ej5-plot}
+mosaicplot(tab, shade = TRUE, las = 1,
+           main = "Ejemplo 5: Mosaicplot (independencia)")
+assocplot(tab, main = "Ejemplo 5: Assocplot (residuales estandarizados)")
+```
+
+### Ejemplo 6: Homogeneidad en los grupos sanguíneos
+
+Tabla (Raza × Grupo sanguíneo):
+
+```{r ej6-datos}
+tab <- matrix(
+  c(32,11,7,2,
+    47,13,17,9,
+    23,7,9,6),
+  nrow = 3, byrow = TRUE
+)
+rownames(tab) <- c("Caucásicos","Pigmeos","Esquimales")
+colnames(tab) <- c("O","A","B","AB")
+tab
+addmargins(tab)
+```
+
+```{r ej6-test}
+# El test de homogeneidad se implementa igual que el test de independencia sobre la tabla de recuentos
+test6 <- chisq.test(tab, correct = FALSE)
+test6
+test6$expected
+```
+
+```{r ej6-plot}
+mosaicplot(tab, shade = TRUE, las = 1,
+           main = "Ejemplo 6: Mosaicplot (homogeneidad)")
+assocplot(tab, main = "Ejemplo 6: Assocplot (residuales estandarizados)")
+```
 

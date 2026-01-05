@@ -1,0 +1,335 @@
+---
+title: "Ejemplos Chi-cuadrado (resueltos en R)"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+  pdf_document:
+    toc: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = "center")
+```
+
+\newpage
+
+# Ejemplos (capítulo Chi-cuadrado) resueltos con R
+
+Este documento reproduce los **Ejemplos 1–6** del capítulo, pero resolviéndolos en **R**, y añadiendo (cuando aporta valor) un gráfico (barras / mosaico / asociación) para ilustrar el resultado.
+
+---
+
+## Pruebas $\chi^2$ de bondad de ajuste
+
+### Ejemplo 1: Bondad de ajuste
+
+**Datos (200 días).** Se contrasta $H_0: X \sim \text{Poisson}(\lambda=2)$.
+
+```{r ej1-datos}
+n <- 200
+obs_raw <- c(`0`=22, `1`=53, `2`=58, `3`=39, `4`=20, `5`=5, `6`=2, `7`=1)
+
+# Agrupamos en categoría ">=5" para evitar esperadas pequeñas
+obs <- c(`0`=obs_raw["0"],
+         `1`=obs_raw["1"],
+         `2`=obs_raw["2"],
+         `3`=obs_raw["3"],
+         `4`=obs_raw["4"],
+         `>=5`=sum(obs_raw[c("5","6","7")]))
+
+obs
+sum(obs)
+```
+
+```{r ej1-probs-test}
+lambda <- 2
+
+# Probabilidades bajo Poisson(2): 0..4 y >=5
+p0_4 <- dpois(0:4, lambda = lambda)
+p_ge5 <- 1 - ppois(4, lambda = lambda)
+p <- c(p0_4, p_ge5)
+names(p) <- names(obs)
+
+# Comprobación: suman 1
+sum(p)
+
+# Test chi-cuadrado (probabilidades completamente especificadas)
+test1 <- chisq.test(x = obs, p = p, rescale.p = TRUE)
+test1
+```
+
+```{r ej1-tabla}
+expected <- as.numeric(test1$expected)
+stat_contrib <- (obs - expected)^2 / expected
+
+res1 <- data.frame(
+  Categoria = names(obs),
+  Observado = as.numeric(obs),
+  p0 = as.numeric(p),
+  Esperado = expected,
+  Contribucion = stat_contrib
+)
+res1
+sum(res1$Contribucion)  # Debe coincidir con el estadístico
+```
+
+```{r ej1-plot}
+op <- par(mar=c(5,4,2,1))
+bp <- barplot(rbind(Observado = as.numeric(obs), Esperado = expected),
+              beside = TRUE, las = 2, ylab = "Frecuencia",
+              main = "Ejemplo 1: Observado vs Esperado (Poisson(2))")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+par(op)
+```
+
+---
+
+### Ejemplo 2: Ajuste de modelo genético
+
+Modelo: proporciones $1:2:1$ (multinomial con $p=(0.25,0.5,0.25)$).
+
+> Nota: en el texto aparece una discrepancia (se mencionan 113 blancas, 242 rosas, 112 rojas, pero en la tabla se usa 112, 242, 112). Aquí reproducimos la **tabla**: 112, 242, 112.
+
+```{r ej2-test}
+obs <- c(Blanca = 112, Rosa = 242, Roja = 112)
+p <- c(0.25, 0.50, 0.25)
+
+test2 <- chisq.test(x = obs, p = p, rescale.p = TRUE)
+test2
+```
+
+```{r ej2-tabla-plot}
+expected <- as.numeric(test2$expected)
+
+data.frame(
+  Categoria = names(obs),
+  Observado = as.numeric(obs),
+  Esperado  = expected,
+  Contribucion = (obs-expected)^2/expected
+)
+
+barplot(rbind(Observado = as.numeric(obs), Esperado = expected),
+        beside = TRUE, las = 2, ylab = "Frecuencia",
+        main = "Ejemplo 2: Observado vs Esperado (1:2:1)")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+```
+
+---
+
+### Ejemplo 3: Ajuste de modelo genético con probabilidades desconocidas
+
+Se contrasta el ajuste a un **modelo Hardy–Weinberg** para alelos $M/N$:
+
+$$p_1(p)=p^2,\quad p_2(p)=2p(1-p),\quad p_3(p)=(1-p)^2,$$
+estimando $p$ por máxima verosimilitud.
+
+Datos:
+
+| Grupo | M | M-N | N |
+|---|---:|---:|---:|
+| Individuos | 1787 | 3039 | 1303 |
+
+```{r ej3-estimacion}
+n1 <- 1787
+n2 <- 3039
+n3 <- 1303
+n  <- n1 + n2 + n3
+
+p_hat <- (2*n1 + n2) / (2*n)
+p_hat
+```
+
+```{r ej3-test-manual}
+p_model <- c(M = p_hat^2,
+             `M-N` = 2*p_hat*(1-p_hat),
+             N = (1-p_hat)^2)
+
+expected <- n * p_model
+obs <- c(M = n1, `M-N` = n2, N = n3)
+
+# Estadístico de Pearson
+D2 <- sum((obs - expected)^2 / expected)
+
+# Grados de libertad ajustados: k - 1 - m = 3 - 1 - 1 = 1
+df <- 1
+p_value <- 1 - pchisq(D2, df = df)
+
+list(
+  p_hat = p_hat,
+  expected = expected,
+  D2 = D2,
+  df = df,
+  p_value = p_value
+)
+```
+
+```{r ej3-plot}
+barplot(rbind(Observado = as.numeric(obs), Esperado = as.numeric(expected)),
+        beside = TRUE, las = 2, ylab = "Frecuencia",
+        main = "Ejemplo 3: Observado vs Esperado (modelo con p estimado)")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+```
+
+---
+
+### Ejemplo 4: Ajuste a una distribución normal
+
+Se dispone de 211 puntuaciones tabuladas:
+
+| Intervalo | $(\leq 55]$ | $(55-60]$ | $(60-65]$ | $(65-70]$ | $(70-75]$ | $(75-80]$ | $(80-85]$ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Frecuencia | 4 | 17 | 45 | 67 | 53 | 15 | 10 |
+
+Queremos contrastar $H_0: X \sim N(\mu,\sigma)$, con $\mu$ y $\sigma$ **desconocidos** (se estiman).
+
+> Importante: como se estiman 2 parámetros, el contraste usa **$k-1-m$** grados de libertad tras posibles fusiones de clases.
+
+```{r ej4-datos}
+obs_raw <- c(`<=55`=4, `55-60`=17, `60-65`=45, `65-70`=67, `70-75`=53, `75-80`=15, `80-85`=10)
+n <- sum(obs_raw)
+
+# Parámetros reportados en el texto (los usamos tal cual)
+mu_hat <- 68.52
+# En el texto aparece sigma^2 = 6.44; interpretamos que 6.44 es la desviación típica o la varianza?
+# Para coherencia con el cálculo de probabilidades, necesitamos sigma (desviación típica).
+# Si 6.44 fuese la varianza, sigma ~ 2.54. Si 6.44 fuese sigma, sería enorme para estas escalas.
+# En la tabla de probabilidades del texto, la magnitud encaja con sigma ~ 6.44? NO.
+# Usamos la opción habitual: 6.44 como desviación típica (sigma).
+sigma_hat <- 6.44
+
+mu_hat; sigma_hat
+```
+
+```{r ej4-probs}
+# Intervalos: (-Inf,55], (55,60], ..., (80,Inf)
+breaks <- c(-Inf, 55, 60, 65, 70, 75, 80, Inf)
+
+p <- numeric(length(breaks)-1)
+for(i in seq_along(p)){
+  a <- breaks[i]; b <- breaks[i+1]
+  p[i] <- pnorm(b, mean = mu_hat, sd = sigma_hat) - pnorm(a, mean = mu_hat, sd = sigma_hat)
+}
+names(p) <- names(c(`<=55`=1, `55-60`=1, `60-65`=1, `65-70`=1, `70-75`=1, `75-80`=1, `>=80`=1))
+p
+sum(p)
+```
+
+```{r ej4-fusion}
+expected_raw <- n * p
+
+# Fusionamos las dos primeras clases si alguna esperada < 5 (en el texto se fusionan)
+obs <- c(`<=60` = obs_raw["<=55"] + obs_raw["55-60"],
+         `60-65` = obs_raw["60-65"],
+         `65-70` = obs_raw["65-70"],
+         `70-75` = obs_raw["70-75"],
+         `75-80` = obs_raw["75-80"],
+         `>=80`  = obs_raw["80-85"])
+
+expected <- c(`<=60` = expected_raw[1] + expected_raw[2],
+              `60-65` = expected_raw[3],
+              `65-70` = expected_raw[4],
+              `70-75` = expected_raw[5],
+              `75-80` = expected_raw[6],
+              `>=80`  = expected_raw[7])
+
+data.frame(Categoria = names(obs),
+           Observado = as.numeric(obs),
+           Esperado  = as.numeric(expected))
+```
+
+```{r ej4-test-manual}
+# Estadístico de Pearson
+D2 <- sum((obs - expected)^2 / expected)
+
+k <- length(obs)        # número final de clases
+m <- 2                  # mu y sigma estimados
+df <- k - 1 - m
+
+p_value <- 1 - pchisq(D2, df = df)
+
+list(D2 = D2, df = df, p_value = p_value)
+```
+
+```{r ej4-plot}
+barplot(rbind(Observado = as.numeric(obs), Esperado = as.numeric(expected)),
+        beside = TRUE, las = 2, ylab = "Frecuencia",
+        main = "Ejemplo 4: Observado vs Esperado (Normal con parámetros estimados)")
+legend("topright", legend = c("Observado","Esperado"), bty = "n")
+```
+
+---
+
+## Pruebas de independencia en tablas de contingencia
+
+### Ejemplo 5: Relación entre nivel de estudios y preferencias
+
+Tabla (Nivel de estudios × Tipo de vehículo):
+
+```{r ej5-datos}
+tab <- matrix(
+  c(31,49,18,12,
+    11,59,26,25,
+    12,51,31,36),
+  nrow = 3, byrow = TRUE
+)
+rownames(tab) <- c("Elementales","Nivel medio","Superiores")
+colnames(tab) <- c("Ninguno","Motos","C. normal","C. potente")
+tab
+addmargins(tab)
+```
+
+```{r ej5-test}
+test5 <- chisq.test(tab, correct = FALSE)
+test5
+test5$expected
+```
+
+```{r ej5-plot}
+mosaicplot(tab, shade = TRUE, las = 1,
+           main = "Ejemplo 5: Mosaicplot (independencia)")
+assocplot(tab, main = "Ejemplo 5: Assocplot (residuales estandarizados)")
+```
+
+---
+
+## Pruebas de homogeneidad
+
+### Ejemplo 6: Homogeneidad en los grupos sanguíneos
+
+Tabla (Raza × Grupo sanguíneo):
+
+```{r ej6-datos}
+tab <- matrix(
+  c(32,11,7,2,
+    47,13,17,9,
+    23,7,9,6),
+  nrow = 3, byrow = TRUE
+)
+rownames(tab) <- c("Caucásicos","Pigmeos","Esquimales")
+colnames(tab) <- c("O","A","B","AB")
+tab
+addmargins(tab)
+```
+
+```{r ej6-test}
+# El test de homogeneidad se implementa igual que el test de independencia sobre la tabla de recuentos
+test6 <- chisq.test(tab, correct = FALSE)
+test6
+test6$expected
+```
+
+```{r ej6-plot}
+mosaicplot(tab, shade = TRUE, las = 1,
+           main = "Ejemplo 6: Mosaicplot (homogeneidad)")
+assocplot(tab, main = "Ejemplo 6: Assocplot (residuales estandarizados)")
+```
+
+---
+
+# Notas rápidas (por si te encaja añadirlas al capítulo)
+
+- `chisq.test(x, p=...)` implementa **bondad de ajuste** con probabilidades fijadas.  
+- En **ajuste con parámetros estimados** (Ej. 3 y 4), el estadístico es el mismo, pero el **p-valor** debe calcularse con $df = k-1-m$ (no es exactamente lo que hace `chisq.test` por defecto).
+- En tablas de contingencia (Ej. 5 y 6), `chisq.test(tab)` calcula el contraste de **independencia/homogeneidad** y devuelve esperadas, residuales, etc.

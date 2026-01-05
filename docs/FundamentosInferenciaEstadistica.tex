@@ -108,6 +108,39 @@
 \else
   \usepackage{soul}
 \fi
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -12801,7 +12834,7 @@ D^2 \ge \chi^2_{k-1,1-\alpha}.
   El contraste depende de la partición elegida. Conviene tomar \(k \ge 5\) siempre que sea posible para evitar situaciones poco discriminantes.
 \end{itemize}
 
-\subsubsection{Ejemplo}\label{ejemplo-10}
+\subsubsection{Ejemplo 1: Bondad de ajuste}\label{ejemplo-1-bondad-de-ajuste}
 
 Una compañía afirma que el número diario de accidentes laborales sigue una distribución de Poisson de parámetro \(\lambda=2\). Un estudio, basado en los accidentes producidos durante 200 días, da el resultado siguiente:
 
@@ -12862,9 +12895,9 @@ Las frecuencias esperadas serán \(n p_{i}^{0}=200 p_{i}^{0}\). Cuando \(i=6,7\)
 
 El valor del estadístico de test es, por tanto, 2.303. El \(p\)-valor correspondiente, es decir, \(P\left(\chi_{6-1}^{2} \geq 2.303\right)\), es 0.80588 y, por tanto, no podemos rechazar la hipótesis de que los datos siguen una distribución de Poisson de parámetro \(\lambda=2\). Otra forma de tomar la misma decisión es observar que el percentil 0.95 de dicha distribución es \(\chi_{5,0.95}^{2}=11.07\), de donde, dado que \(2.303<\chi_{5,0.95}^{2}\), vemos que no podemos rechazar \(H_{0}\).
 
-\subsubsection{Ejemplo}\label{ejemplo-11}
+\subsubsection{Ejemplo 2: Ajuste de modelo genético}\label{ejemplo-2-ajuste-de-modelo-genuxe9tico}
 
-Un cierto modelo genético para unas plantas cuyas flores pueden ser blancas, rosas o rojas afirma que la proporción con la que deben aparecer es de \(1:2:1\). En un estudio se obtuvieron 113 flores blancas, 242 rosas y 112 rojas. ¿Concuerdan las observaciones con el modelo? Construimos la tabla de cálculos y obtenemos:
+Un cierto modelo genético para unas plantas cuyas flores pueden ser blancas, rosas o rojas afirma que la proporción con la que deben aparecer es de \(1:2:1\). En un estudio se obtuvieron 112 flores blancas, 242 rosas y 112 rojas. ¿Concuerdan las observaciones con el modelo? Construimos la tabla de cálculos y obtenemos:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
@@ -12982,7 +13015,7 @@ W=\left\{D^{2} \geq \chi_{k-1-\operatorname{dim}(\Theta), 1-\alpha}^{2}\right\}
 
 donde \(\chi_{k-1,1-\alpha}^{2}\) es el cuantil \(1-\alpha\) de una distribución \(\chi^{2}\) con \(k-1-\operatorname{dim}(\Theta)\) grados de libertad.
 
-\subsubsection{Ejemplo}\label{ejemplo-12}
+\subsubsection{Ejemplo 3: Ajuste de modelo genético con probabilidades desconocidas}\label{ejemplo-3-ajuste-de-modelo-genuxe9tico-con-probabilidades-desconocidas}
 
 En el ejemplo anterior, cuando hemos ajustado unos datos a unas proporciones del tipo ``1:2:1'' o ``9:3:3:1'' estábamos suponiendo dos cosas:
 
@@ -13076,7 +13109,7 @@ M
 
 El valor crítico es el percentil de una distribución ji-cuadrado con dos menos un grados de libertad, \(\chi_{1,0.95}^{2}=3.841\), de donde, dado que \(0.0311<\chi_{1,0.95}^{2}\), vemos que no podemos rechazar \(H_{0}\).
 
-\subsubsection{Ejemplo}\label{ejemplo-13}
+\subsubsection{Ejemplo 4: Ajuste a una distribución normal}\label{ejemplo-4-ajuste-a-una-distribuciuxf3n-normal}
 
 En un estudio sobre bilingüismo se aplicó una prueba a una muestra de 211 alumnos y se obtuvieron 211 puntuaciones que, una vez tabuladas, eran las siguientes:
 
@@ -13328,7 +13361,7 @@ y rechazar \(H_{0}\) si
 D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
 \]
 
-\subsubsection{Ejemplo}\label{ejemplo-14}
+\subsubsection{Ejemplo 5: Relación entre nivel de estudios y preferencias}\label{ejemplo-5-relaciuxf3n-entre-nivel-de-estudios-y-preferencias}
 
 En un estudio de mercado se intenta determinar si existe alguna relación entre las preferencias de un grupo de consumidores por un tipo de vehículo y su nivel cultural. Se pregunta a 300 personas entre 20 y 50 años qué vehículo poseen y se clasifican en ``NINGUNO'', ``MOTOCICLETAS'', ``COCHES NORMALES'' y ``COCHES POTENTES''. El nivel cultural se determina según hayan cursado estudios ``ELEMENTALES'', ``DE GRADO MEDIO'' o ``SUPERIORES''. ¿Qué se puede concluir a partir de los siguientes datos?
 
@@ -13435,7 +13468,7 @@ de modo que la hipótesis nula se rechazará siempre que
 D^{2}\ge \chi^{2}_{(k-1)(r-1),\,1-\alpha}.
 \]
 
-\subsubsection{Ejemplo}\label{ejemplo-15}
+\subsubsection{Ejemplo 6: Homogeneidad en los grupos sanguíneos}\label{ejemplo-6-homogeneidad-en-los-grupos-sanguuxedneos}
 
 En un estudio antropológico se analiza la distribución de los grupos sanguíneos \(O,A,B,AB\) entre tres razas humanas. La siguiente tabla contiene las frecuencias observadas y esperadas, así como el análisis realizado con el programa SPSS, donde se observa que no se puede rechazar la hipótesis nula de que la probabilidad de cada grupo sanguíneo es la misma en todas las razas.
 
@@ -13479,6 +13512,660 @@ Raza & Caucásicos & Recuento & 32 & 11 & 7 & 2 & 52 \\
 Total & & Recuento & 102 & 31 & 33 & 17 & 183 \\
 & & Frecuencia esperada & 102.0 & 31.0 & 33.0 & 17.0 & 183.0 \\
 \end{longtable}
+
+A partir de esta información queremos contrastar si la distribución de los grupos sanguíneos es la misma en las tres razas consideradas. Formalmente, planteamos el contraste de homogeneidad:
+
+\[
+\begin{aligned}
+H_0 &: p_{1j}=p_{2j}=p_{3j}, \quad j=1,\ldots,4, \\
+H_1 &: \text{no todas las probabilidades anteriores son iguales}.
+\end{aligned}
+\]
+
+Bajo la hipótesis nula, la frecuencia esperada en la celda correspondiente a la raza \(i\) y al grupo sanguíneo \(j\) viene dada por
+
+\[
+E_{ij}=\frac{n_{i\cdot}\,n_{\cdot j}}{n},
+\]
+
+donde \(n_{i\cdot}\) es el total de individuos de la raza \(i\), \(n_{\cdot j}\) el total del grupo sanguíneo \(j\) y \(n\) el tamaño muestral total. Estas frecuencias esperadas son las que figuran en la tabla anterior.
+
+El estadístico de contraste es el estadístico de Pearson
+
+\[
+D^{2}
+=
+\sum_{i=1}^{3}\sum_{j=1}^{4}
+\frac{(n_{ij}-E_{ij})^{2}}{E_{ij}},
+\]
+
+que mide la discrepancia global entre las frecuencias observadas y las esperadas bajo la hipótesis de homogeneidad.
+
+En este caso, la tabla tiene \(r=3\) filas y \(k=4\) columnas, por lo que, bajo \(H_{0}\), el estadístico \(D^{2}\) sigue asintóticamente una distribución ji-cuadrado con
+
+\[
+(r-1)(k-1)=(3-1)(4-1)=6
+\]
+
+grados de libertad.
+
+El análisis realizado muestra que el valor observado del estadístico es inferior al valor crítico de una distribución \(\chi^{2}_{6}\) al nivel de significación \(\alpha=0.05\), cuyo percentil 0.95 es \(\chi^{2}_{6,0.95}=12.59\). De forma equivalente, el \(p\)-valor asociado al contraste es suficientemente grande.
+
+Por tanto, \textbf{no se rechaza la hipótesis nula de homogeneidad}, y los datos son compatibles con la hipótesis de que la probabilidad de pertenecer a cada grupo sanguíneo es la misma en las tres razas consideradas.
+
+\subsection{Ejemplos resueltos en R}\label{ejemplos-resueltos-en-r}
+
+La primera versión de este documento se creó en un momento en que R no era la herramienta universal de los estadísticos por lo que los ejemplos estan resueltos para ser calculados manualmente. En el caso de las pruebas chi-cuadrado esto resulta particularmente interesante por lo que se ha mantenido dicha resolución y se incluyen a continuación la resolución de cada ejercicio con R.
+
+\subsubsection{Ejemplo 1: Bondad de ajuste}\label{ejemplo-1-bondad-de-ajuste-1}
+
+\textbf{Datos (200 días).} Se contrasta \(H_0: X \sim \text{Poisson}(\lambda=2)\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{\textless{}{-}} \DecValTok{200}
+\NormalTok{obs\_raw }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{0}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{22}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{53}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{2}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{58}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{3}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{39}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{4}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{20}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{5}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{5}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{6}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{2}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{7}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Agrupamos en categoría "\textgreater{}=5" para evitar esperadas pequeñas}
+\NormalTok{obs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{0}\StringTok{\textasciigrave{}}\OtherTok{=}\NormalTok{obs\_raw[}\StringTok{"0"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{1}\StringTok{\textasciigrave{}}\OtherTok{=}\NormalTok{obs\_raw[}\StringTok{"1"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{2}\StringTok{\textasciigrave{}}\OtherTok{=}\NormalTok{obs\_raw[}\StringTok{"2"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{3}\StringTok{\textasciigrave{}}\OtherTok{=}\NormalTok{obs\_raw[}\StringTok{"3"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{4}\StringTok{\textasciigrave{}}\OtherTok{=}\NormalTok{obs\_raw[}\StringTok{"4"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{\textgreater{}=5}\StringTok{\textasciigrave{}}\OtherTok{=}\FunctionTok{sum}\NormalTok{(obs\_raw[}\FunctionTok{c}\NormalTok{(}\StringTok{"5"}\NormalTok{,}\StringTok{"6"}\NormalTok{,}\StringTok{"7"}\NormalTok{)]))}
+
+\NormalTok{obs}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0.0 1.1 2.2 3.3 4.4 >=5 
+##  22  53  58  39  20   8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(obs)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 200
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda }\OtherTok{\textless{}{-}} \DecValTok{2}
+
+\CommentTok{\# Probabilidades bajo Poisson(2): 0..4 y \textgreater{}=5}
+\NormalTok{p0\_4 }\OtherTok{\textless{}{-}} \FunctionTok{dpois}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\AttributeTok{lambda =}\NormalTok{ lambda)}
+\NormalTok{p\_ge5 }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{ppois}\NormalTok{(}\DecValTok{4}\NormalTok{, }\AttributeTok{lambda =}\NormalTok{ lambda)}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(p0\_4, p\_ge5)}
+\FunctionTok{names}\NormalTok{(p) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(obs)}
+
+\CommentTok{\# Comprobación: suman 1}
+\FunctionTok{sum}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Test chi{-}cuadrado (probabilidades completamente especificadas)}
+\NormalTok{test1 }\OtherTok{\textless{}{-}} \FunctionTok{chisq.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ obs, }\AttributeTok{p =}\NormalTok{ p, }\AttributeTok{rescale.p =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{test1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Chi-squared test for given probabilities
+## 
+## data:  obs
+## X-squared = 2.3031, df = 5, p-value = 0.8058
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{expected }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(test1}\SpecialCharTok{$}\NormalTok{expected)}
+\NormalTok{stat\_contrib }\OtherTok{\textless{}{-}}\NormalTok{ (obs }\SpecialCharTok{{-}}\NormalTok{ expected)}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{/}\NormalTok{ expected}
+
+\NormalTok{res1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Categoria =} \FunctionTok{names}\NormalTok{(obs),}
+  \AttributeTok{Observado =} \FunctionTok{as.numeric}\NormalTok{(obs),}
+  \AttributeTok{p0 =} \FunctionTok{as.numeric}\NormalTok{(p),}
+  \AttributeTok{Esperado =}\NormalTok{ expected,}
+  \AttributeTok{Contribucion =}\NormalTok{ stat\_contrib}
+\NormalTok{)}
+\NormalTok{res1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Categoria Observado         p0 Esperado Contribucion
+## 0.0       0.0        22 0.13533528 27.06706   0.94857241
+## 1.1       1.1        53 0.27067057 54.13411   0.02375975
+## 2.2       2.2        58 0.27067057 54.13411   0.27607509
+## 3.3       3.3        39 0.18044704 36.08941   0.23473759
+## 4.4       4.4        20 0.09022352 18.04470   0.21187273
+## >=5       >=5         8 0.05265302 10.53060   0.60812791
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(res1}\SpecialCharTok{$}\NormalTok{Contribucion)  }\CommentTok{\# Debe coincidir con el estadístico}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.303145
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{op }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\AttributeTok{mar=}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\NormalTok{bp }\OtherTok{\textless{}{-}} \FunctionTok{barplot}\NormalTok{(}\FunctionTok{rbind}\NormalTok{(}\AttributeTok{Observado =} \FunctionTok{as.numeric}\NormalTok{(obs), }\AttributeTok{Esperado =}\NormalTok{ expected),}
+              \AttributeTok{beside =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{las =} \DecValTok{2}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Frecuencia"}\NormalTok{,}
+              \AttributeTok{main =} \StringTok{"Ejemplo 1: Observado vs Esperado (Poisson(2))"}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observado"}\NormalTok{,}\StringTok{"Esperado"}\NormalTok{), }\AttributeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej1-plot-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(op)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Ejemplo 2: Ajuste de modelo genético}\label{ejemplo-2-ajuste-de-modelo-genuxe9tico-1}
+
+Modelo: proporciones \(1:2:1\) (multinomial con \(p=(0.25,0.5,0.25)\)).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{obs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{Blanca =} \DecValTok{112}\NormalTok{, }\AttributeTok{Rosa =} \DecValTok{242}\NormalTok{, }\AttributeTok{Roja =} \DecValTok{112}\NormalTok{)}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.25}\NormalTok{, }\FloatTok{0.50}\NormalTok{, }\FloatTok{0.25}\NormalTok{)}
+
+\NormalTok{test2 }\OtherTok{\textless{}{-}} \FunctionTok{chisq.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ obs, }\AttributeTok{p =}\NormalTok{ p, }\AttributeTok{rescale.p =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{test2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Chi-squared test for given probabilities
+## 
+## data:  obs
+## X-squared = 0.69528, df = 2, p-value = 0.7064
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{expected }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(test2}\SpecialCharTok{$}\NormalTok{expected)}
+
+\FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Categoria =} \FunctionTok{names}\NormalTok{(obs),}
+  \AttributeTok{Observado =} \FunctionTok{as.numeric}\NormalTok{(obs),}
+  \AttributeTok{Esperado  =}\NormalTok{ expected,}
+  \AttributeTok{Contribucion =}\NormalTok{ (obs}\SpecialCharTok{{-}}\NormalTok{expected)}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{/}\NormalTok{expected}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        Categoria Observado Esperado Contribucion
+## Blanca    Blanca       112    116.5    0.1738197
+## Rosa        Rosa       242    233.0    0.3476395
+## Roja        Roja       112    116.5    0.1738197
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{rbind}\NormalTok{(}\AttributeTok{Observado =} \FunctionTok{as.numeric}\NormalTok{(obs), }\AttributeTok{Esperado =}\NormalTok{ expected),}
+        \AttributeTok{beside =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{las =} \DecValTok{2}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Frecuencia"}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Ejemplo 2: Observado vs Esperado (1:2:1)"}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observado"}\NormalTok{,}\StringTok{"Esperado"}\NormalTok{), }\AttributeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej2-tabla-plot-1.pdf}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Ejemplo 3: Ajuste de modelo genético con probabilidades desconocidas}\label{ejemplo-3-ajuste-de-modelo-genuxe9tico-con-probabilidades-desconocidas-1}
+
+Se contrasta el ajuste a un \textbf{modelo Hardy--Weinberg} para alelos \(M/N\):
+
+\[p_1(p)=p^2,\quad p_2(p)=2p(1-p),\quad p_3(p)=(1-p)^2,\]
+estimando \(p\) por máxima verosimilitud.
+
+Datos:
+
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule\noalign{}
+Grupo & M & M-N & N \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Individuos & 1787 & 3039 & 1303 \\
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n1 }\OtherTok{\textless{}{-}} \DecValTok{1787}
+\NormalTok{n2 }\OtherTok{\textless{}{-}} \DecValTok{3039}
+\NormalTok{n3 }\OtherTok{\textless{}{-}} \DecValTok{1303}
+\NormalTok{n  }\OtherTok{\textless{}{-}}\NormalTok{ n1 }\SpecialCharTok{+}\NormalTok{ n2 }\SpecialCharTok{+}\NormalTok{ n3}
+
+\NormalTok{p\_hat }\OtherTok{\textless{}{-}}\NormalTok{ (}\DecValTok{2}\SpecialCharTok{*}\NormalTok{n1 }\SpecialCharTok{+}\NormalTok{ n2) }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{2}\SpecialCharTok{*}\NormalTok{n)}
+\NormalTok{p\_hat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5394844
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p\_model }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{M =}\NormalTok{ p\_hat}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{,}
+             \StringTok{\textasciigrave{}}\AttributeTok{M{-}N}\StringTok{\textasciigrave{}} \OtherTok{=} \DecValTok{2}\SpecialCharTok{*}\NormalTok{p\_hat}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{p\_hat),}
+             \AttributeTok{N =}\NormalTok{ (}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{p\_hat)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}
+
+\NormalTok{expected }\OtherTok{\textless{}{-}}\NormalTok{ n }\SpecialCharTok{*}\NormalTok{ p\_model}
+\NormalTok{obs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{M =}\NormalTok{ n1, }\StringTok{\textasciigrave{}}\AttributeTok{M{-}N}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ n2, }\AttributeTok{N =}\NormalTok{ n3)}
+
+\CommentTok{\# Estadístico de Pearson}
+\NormalTok{D2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((obs }\SpecialCharTok{{-}}\NormalTok{ expected)}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{/}\NormalTok{ expected)}
+
+\CommentTok{\# Grados de libertad ajustados: k {-} 1 {-} m = 3 {-} 1 {-} 1 = 1}
+\NormalTok{df }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{p\_value }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{pchisq}\NormalTok{(D2, }\AttributeTok{df =}\NormalTok{ df)}
+
+\FunctionTok{list}\NormalTok{(}
+  \AttributeTok{p\_hat =}\NormalTok{ p\_hat,}
+  \AttributeTok{expected =}\NormalTok{ expected,}
+  \AttributeTok{D2 =}\NormalTok{ D2,}
+  \AttributeTok{df =}\NormalTok{ df,}
+  \AttributeTok{p\_value =}\NormalTok{ p\_value}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $p_hat
+## [1] 0.5394844
+## 
+## $expected
+##        M      M-N        N 
+## 1783.805 3045.390 1299.805 
+## 
+## $D2
+## [1] 0.02698008
+## 
+## $df
+## [1] 1
+## 
+## $p_value
+## [1] 0.8695295
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{rbind}\NormalTok{(}\AttributeTok{Observado =} \FunctionTok{as.numeric}\NormalTok{(obs), }\AttributeTok{Esperado =} \FunctionTok{as.numeric}\NormalTok{(expected)),}
+        \AttributeTok{beside =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{las =} \DecValTok{2}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Frecuencia"}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Ejemplo 3: Observado vs Esperado (modelo con p estimado)"}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observado"}\NormalTok{,}\StringTok{"Esperado"}\NormalTok{), }\AttributeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej3-plot-1.pdf}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Ejemplo 4: Ajuste a una distribución normal}\label{ejemplo-4-ajuste-a-una-distribuciuxf3n-normal-1}
+
+Se dispone de 211 puntuaciones tabuladas:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0968}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1290}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Intervalo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\((\leq 55]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\((55-60]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\((60-65]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\((65-70]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\((70-75]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\((75-80]\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\((80-85]\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Frecuencia & 4 & 17 & 45 & 67 & 53 & 15 & 10 \\
+\end{longtable}
+
+Queremos contrastar \(H_0: X \sim N(\mu,\sigma)\), con \(\mu\) y \(\sigma\) \textbf{desconocidos} (se estiman).
+
+\begin{quote}
+Importante: como se estiman 2 parámetros, el contraste usa \textbf{\(k-1-m\)} grados de libertad tras posibles fusiones de clases.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{obs\_raw }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\textless{}=55}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{4}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{55{-}60}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{17}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{60{-}65}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{45}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{65{-}70}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{67}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{70{-}75}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{53}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{75{-}80}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{15}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{80{-}85}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{10}\NormalTok{)}
+
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(obs\_raw)}
+
+
+\NormalTok{mu\_hat }\OtherTok{\textless{}{-}} \FloatTok{68.52}
+\NormalTok{sigma\_hat }\OtherTok{\textless{}{-}} \FloatTok{6.44}
+\NormalTok{mu\_hat; sigma\_hat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 68.52
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 6.44
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Intervalos: ({-}Inf,55], (55,60], ..., (80,Inf)}
+\NormalTok{breaks }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\ConstantTok{Inf}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{80}\NormalTok{, }\ConstantTok{Inf}\NormalTok{)}
+
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\FunctionTok{length}\NormalTok{(breaks)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \FunctionTok{seq\_along}\NormalTok{(p))\{}
+\NormalTok{  a }\OtherTok{\textless{}{-}}\NormalTok{ breaks[i]; b }\OtherTok{\textless{}{-}}\NormalTok{ breaks[i}\SpecialCharTok{+}\DecValTok{1}\NormalTok{]}
+\NormalTok{  p[i] }\OtherTok{\textless{}{-}} \FunctionTok{pnorm}\NormalTok{(b, }\AttributeTok{mean =}\NormalTok{ mu\_hat, }\AttributeTok{sd =}\NormalTok{ sigma\_hat) }\SpecialCharTok{{-}} \FunctionTok{pnorm}\NormalTok{(a, }\AttributeTok{mean =}\NormalTok{ mu\_hat, }\AttributeTok{sd =}\NormalTok{ sigma\_hat)}
+\NormalTok{\}}
+\FunctionTok{names}\NormalTok{(p) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\textless{}=55}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{55{-}60}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{60{-}65}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{65{-}70}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{70{-}75}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{75{-}80}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{\textgreater{}=80}\StringTok{\textasciigrave{}}\OtherTok{=}\DecValTok{1}\NormalTok{))}
+\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       <=55      55-60      60-65      65-70      70-75      75-80       >=80 
+## 0.01789176 0.07502903 0.19941155 0.29854938 0.25196129 0.11983199 0.03732501
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{expected\_raw }\OtherTok{\textless{}{-}}\NormalTok{ n }\SpecialCharTok{*}\NormalTok{ p}
+
+\CommentTok{\# Fusionamos las dos primeras clases si alguna esperada \textless{} 5 (en el texto se fusionan)}
+\NormalTok{obs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\textless{}=60}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ obs\_raw[}\StringTok{"\textless{}=55"}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ obs\_raw[}\StringTok{"55{-}60"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{60{-}65}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ obs\_raw[}\StringTok{"60{-}65"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{65{-}70}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ obs\_raw[}\StringTok{"65{-}70"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{70{-}75}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ obs\_raw[}\StringTok{"70{-}75"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{75{-}80}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ obs\_raw[}\StringTok{"75{-}80"}\NormalTok{],}
+         \StringTok{\textasciigrave{}}\AttributeTok{\textgreater{}=80}\StringTok{\textasciigrave{}}  \OtherTok{=}\NormalTok{ obs\_raw[}\StringTok{"80{-}85"}\NormalTok{])}
+
+\NormalTok{expected }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\textless{}=60}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ expected\_raw[}\DecValTok{1}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ expected\_raw[}\DecValTok{2}\NormalTok{],}
+              \StringTok{\textasciigrave{}}\AttributeTok{60{-}65}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ expected\_raw[}\DecValTok{3}\NormalTok{],}
+              \StringTok{\textasciigrave{}}\AttributeTok{65{-}70}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ expected\_raw[}\DecValTok{4}\NormalTok{],}
+              \StringTok{\textasciigrave{}}\AttributeTok{70{-}75}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ expected\_raw[}\DecValTok{5}\NormalTok{],}
+              \StringTok{\textasciigrave{}}\AttributeTok{75{-}80}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ expected\_raw[}\DecValTok{6}\NormalTok{],}
+              \StringTok{\textasciigrave{}}\AttributeTok{\textgreater{}=80}\StringTok{\textasciigrave{}}  \OtherTok{=}\NormalTok{ expected\_raw[}\DecValTok{7}\NormalTok{])}
+
+\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Categoria =} \FunctionTok{names}\NormalTok{(obs),}
+           \AttributeTok{Observado =} \FunctionTok{as.numeric}\NormalTok{(obs),}
+           \AttributeTok{Esperado  =} \FunctionTok{as.numeric}\NormalTok{(expected))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Categoria Observado  Esperado
+## 1   <=60.<=55        21 19.606286
+## 2 60-65.60-65        45 42.075836
+## 3 65-70.65-70        67 62.993920
+## 4 70-75.70-75        53 53.163831
+## 5 75-80.75-80        15 25.284549
+## 6  >=80.80-85        10  7.875577
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Estadístico de Pearson}
+\NormalTok{D2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{((obs }\SpecialCharTok{{-}}\NormalTok{ expected)}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{/}\NormalTok{ expected)}
+
+\NormalTok{k }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(obs)        }\CommentTok{\# número final de clases}
+\NormalTok{m }\OtherTok{\textless{}{-}} \DecValTok{2}                  \CommentTok{\# mu y sigma estimados}
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ k }\SpecialCharTok{{-}} \DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ m}
+
+\NormalTok{p\_value }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{pchisq}\NormalTok{(D2, }\AttributeTok{df =}\NormalTok{ df)}
+
+\FunctionTok{list}\NormalTok{(}\AttributeTok{D2 =}\NormalTok{ D2, }\AttributeTok{df =}\NormalTok{ df, }\AttributeTok{p\_value =}\NormalTok{ p\_value)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $D2
+## [1] 5.313888
+## 
+## $df
+## [1] 3
+## 
+## $p_value
+## [1] 0.1502038
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{rbind}\NormalTok{(}\AttributeTok{Observado =} \FunctionTok{as.numeric}\NormalTok{(obs), }\AttributeTok{Esperado =} \FunctionTok{as.numeric}\NormalTok{(expected)),}
+        \AttributeTok{beside =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{las =} \DecValTok{2}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Frecuencia"}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Ejemplo 4: Observado vs Esperado (Normal con parámetros estimados)"}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observado"}\NormalTok{,}\StringTok{"Esperado"}\NormalTok{), }\AttributeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej4-plot-1.pdf}}
+
+\subsubsection{Ejemplo 5: Relación entre nivel de estudios y preferencias}\label{ejemplo-5-relaciuxf3n-entre-nivel-de-estudios-y-preferencias-1}
+
+Tabla (Nivel de estudios × Tipo de vehículo):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{31}\NormalTok{,}\DecValTok{49}\NormalTok{,}\DecValTok{18}\NormalTok{,}\DecValTok{12}\NormalTok{,}
+    \DecValTok{11}\NormalTok{,}\DecValTok{59}\NormalTok{,}\DecValTok{26}\NormalTok{,}\DecValTok{25}\NormalTok{,}
+    \DecValTok{12}\NormalTok{,}\DecValTok{51}\NormalTok{,}\DecValTok{31}\NormalTok{,}\DecValTok{36}\NormalTok{),}
+  \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}
+\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(tab) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Elementales"}\NormalTok{,}\StringTok{"Nivel medio"}\NormalTok{,}\StringTok{"Superiores"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(tab) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Ninguno"}\NormalTok{,}\StringTok{"Motos"}\NormalTok{,}\StringTok{"C. normal"}\NormalTok{,}\StringTok{"C. potente"}\NormalTok{)}
+\NormalTok{tab}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Ninguno Motos C. normal C. potente
+## Elementales      31    49        18         12
+## Nivel medio      11    59        26         25
+## Superiores       12    51        31         36
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{addmargins}\NormalTok{(tab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Ninguno Motos C. normal C. potente Sum
+## Elementales      31    49        18         12 110
+## Nivel medio      11    59        26         25 121
+## Superiores       12    51        31         36 130
+## Sum              54   159        75         73 361
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test5 }\OtherTok{\textless{}{-}} \FunctionTok{chisq.test}\NormalTok{(tab, }\AttributeTok{correct =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{test5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  tab
+## X-squared = 29.763, df = 6, p-value = 4.361e-05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test5}\SpecialCharTok{$}\NormalTok{expected}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              Ninguno    Motos C. normal C. potente
+## Elementales 16.45429 48.44875  22.85319   22.24377
+## Nivel medio 18.09972 53.29363  25.13850   24.46814
+## Superiores  19.44598 57.25762  27.00831   26.28809
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mosaicplot}\NormalTok{(tab, }\AttributeTok{shade =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{las =} \DecValTok{1}\NormalTok{,}
+           \AttributeTok{main =} \StringTok{"Ejemplo 5: Mosaicplot (independencia)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{assocplot}\NormalTok{(tab, }\AttributeTok{main =} \StringTok{"Ejemplo 5: Assocplot (residuales estandarizados)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-2.pdf}}
+
+\subsubsection{Ejemplo 6: Homogeneidad en los grupos sanguíneos}\label{ejemplo-6-homogeneidad-en-los-grupos-sanguuxedneos-1}
+
+Tabla (Raza × Grupo sanguíneo):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\DecValTok{32}\NormalTok{,}\DecValTok{11}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{2}\NormalTok{,}
+    \DecValTok{47}\NormalTok{,}\DecValTok{13}\NormalTok{,}\DecValTok{17}\NormalTok{,}\DecValTok{9}\NormalTok{,}
+    \DecValTok{23}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{6}\NormalTok{),}
+  \AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}
+\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(tab) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Caucásicos"}\NormalTok{,}\StringTok{"Pigmeos"}\NormalTok{,}\StringTok{"Esquimales"}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(tab) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"O"}\NormalTok{,}\StringTok{"A"}\NormalTok{,}\StringTok{"B"}\NormalTok{,}\StringTok{"AB"}\NormalTok{)}
+\NormalTok{tab}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             O  A  B AB
+## Caucásicos 32 11  7  2
+## Pigmeos    47 13 17  9
+## Esquimales 23  7  9  6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{addmargins}\NormalTok{(tab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              O  A  B AB Sum
+## Caucásicos  32 11  7  2  52
+## Pigmeos     47 13 17  9  86
+## Esquimales  23  7  9  6  45
+## Sum        102 31 33 17 183
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# El test de homogeneidad se implementa igual que el test de independencia sobre la tabla de recuentos}
+\NormalTok{test6 }\OtherTok{\textless{}{-}} \FunctionTok{chisq.test}\NormalTok{(tab, }\AttributeTok{correct =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{test6}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  tab
+## X-squared = 4.6911, df = 6, p-value = 0.584
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test6}\SpecialCharTok{$}\NormalTok{expected}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   O         A         B       AB
+## Caucásicos 28.98361  8.808743  9.377049 4.830601
+## Pigmeos    47.93443 14.568306 15.508197 7.989071
+## Esquimales 25.08197  7.622951  8.114754 4.180328
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mosaicplot}\NormalTok{(tab, }\AttributeTok{shade =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{las =} \DecValTok{1}\NormalTok{,}
+           \AttributeTok{main =} \StringTok{"Ejemplo 6: Mosaicplot (homogeneidad)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{assocplot}\NormalTok{(tab, }\AttributeTok{main =} \StringTok{"Ejemplo 6: Assocplot (residuales estandarizados)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-2.pdf}}
 
 \newpage
 
@@ -14500,7 +15187,7 @@ S^{\prime}=\frac{12 \sum_{j=1}^{k} R_{j}^{2}-3 n^{2} k(k+1)^{2}}{n k(k+1)-\frac{
 
 donde \(g_{i}\) es el número de grupos de observaciones ligadas en la fila \(i\) y \(t_{i j}\) es el número de observaciones ligadas en el grupo \(j\) de la fila \(i\). Cuando no hay ligaduras se considera, por convenio, que \(g_{i}=k\) y \(t_{i j}=1\), y entonces el término de corrección para el individuo \(i\) es \(k-k=0\). Si esto ocurre en todas las filas, entonces \(S^{\prime}=S\).
 
-\subsubsection{Ejemplo 10}\label{ejemplo-10-1}
+\subsubsection{Ejemplo 10}\label{ejemplo-10}
 
 Se ha consultado a un grupo de 12 personas para que opinen sobre cinco marcas de champú. En concreto, sus clasificaciones se recogen en la siguiente tabla.
 
@@ -14638,7 +15325,7 @@ T \sim N\left(0, \sigma_K^2\right),
 \]
 dond \(\displaystyle{\sigma_K^2 =\frac{2(2n+5)}{9n(n-1)}}\) es la varianza asintótica del estadístico \(T\).
 
-\subparagraph{Ejemplo 14}\label{ejemplo-14-1}
+\subparagraph{Ejemplo 14}\label{ejemplo-14}
 
 La longitud y la anchura de una muestra de 11 hojas de una determinada planta son:
 
@@ -14770,7 +15457,7 @@ lo que conduce a la expresión inicial de \(r_{S}\).
 
 Bajo la hipótesis de independencia, puede obtenerse la distribución muestral de \(r_{S}\) y, por tanto, los puntos críticos del contraste para \(n\leq10\). Para \(n>10\), \(r_{S}\) es aproximadamente \(N(0,1/\sqrt{n-1})\).
 
-\subparagraph{Ejemplo}\label{ejemplo-16}
+\subparagraph{Ejemplo}\label{ejemplo-11}
 
 Calcule el coeficiente de correlación por rangos de Spearman para los datos del ejemplo 14 y estudie si es significativo.
 
@@ -14831,6 +15518,50 @@ que tiene aproximadamente una distribución \(t\) de Student con \(n-2\) grados 
 
 \newpage
 
-\section{Bibliografia}\label{bibliografia}
+\section*{Bibliografia}\label{bibliografia}
+\addcontentsline{toc}{section}{Bibliografia}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-canavos1988}
+Canavos, George C. 1988. \emph{Probabilidad y Estadística: Aplicaciones y Métodos}. México: McGraw-Hill/Interamericana.
+
+\bibitem[\citeproctext]{ref-casella1990}
+Casella, George, and Roger L. Berger. 1990. \emph{Statistical Inference}. Duxbury Press.
+
+\bibitem[\citeproctext]{ref-cuadras2000}
+Cuadras, C. M. 2000. \emph{Problemas de Probabilidades y Estadística. Vol. 2: Inferencia Estadística}. Barcelona: EUB. Economía y Empresa.
+
+\bibitem[\citeproctext]{ref-degroot1988}
+De Groot, Morris. 1988. \emph{Probabilidad y Estadística}. Addison-Wesley.
+
+\bibitem[\citeproctext]{ref-dudewicz1989}
+Dudewicz, Edward J., and S. N. Mishra. 1989. \emph{Modern Mathematical Statistics}. Wiley Series in Probability and Statistics. New York: John Wiley \& Sons.
+
+\bibitem[\citeproctext]{ref-fortiana1999}
+Fortiana, Josep, and David Nualart. 1999. \emph{Estadística}. Barcelona: Publicacions de la Universitat de Barcelona.
+
+\bibitem[\citeproctext]{ref-lehmann1986}
+Lehmann, Erich L. 1986. \emph{Testing Statistical Hypotheses}. Wiley Series in Probability and Statistics. New York: John Wiley \& Sons.
+
+\bibitem[\citeproctext]{ref-martinez1993}
+Martínez, Antonio, Carlos Rodríguez, and Rafael Gutiérrez. 1993. \emph{Inferencia Estadística: Un Enfoque Clásico}. Madrid: Ediciones Pirámide.
+
+\bibitem[\citeproctext]{ref-pena1987}
+Peña, Daniel. 1987. \emph{Estadística: Modelos y Métodos i. Fundamentos}. Madrid: Alianza Editorial.
+
+\bibitem[\citeproctext]{ref-rohatgi1976}
+Rohatgi, V. K. 1976. \emph{An Introduction to Probability Theory and Mathematical Statistics}. Wiley Series in Probability. New York: John Wiley \& Sons.
+
+\bibitem[\citeproctext]{ref-ruizmaya1995}
+Ruiz-Maya, Luis, and Juan Martín Pliego. 1995. \emph{Estadística II: Inferencia}. Colección Plan Nuevo. Madrid: Editorial AC.
+
+\bibitem[\citeproctext]{ref-sanz1999}
+Sanz, Marta. 1999. \emph{Probabilitats}. Barcelona: Edicions de la Universitat de Barcelona.
+
+\bibitem[\citeproctext]{ref-velez1993}
+Vélez Ibarrola, Ricardo, and Alfonso García Pérez. 1993. \emph{Principios de Inferencia Estadística}. Madrid: Editorial UNED.
+
+\end{CSLReferences}
 
 \end{document}
