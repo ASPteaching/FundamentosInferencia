@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.2)  22 JAN 2026 07:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.2)  22 JAN 2026 07:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -796,15 +796,14 @@ rio/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
 \tf@toc=\write4
 \openout4 = `FundamentosInferenciaEstadistica.toc'.
 
-
-
-[4{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}
-]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 94.
 (C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
+
+[4{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}
+]
 
 [5{C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc
 }]
@@ -842,12 +841,12 @@ enc}]
 [20]
 
 [21]
-<images/cdfContinua.png, id=519, 444.91219pt x 277.035pt>
+<images/cdfContinua.png, id=507, 444.91219pt x 277.035pt>
 File: images/cdfContinua.png Graphic file (type png)
 <use images/cdfContinua.png>
 Package pdftex.def Info: images/cdfContinua.png  used on input line 1340.
 (pdftex.def)             Requested size: 422.77664pt x 263.25362pt.
-<images/cdfDiscreta.png, id=521, 441.14813pt x 274.02374pt>
+<images/cdfDiscreta.png, id=509, 441.14813pt x 274.02374pt>
 File: images/cdfDiscreta.png Graphic file (type png)
 <use images/cdfDiscreta.png>
 Package pdftex.def Info: images/cdfDiscreta.png  used on input line 1344.
@@ -865,7 +864,7 @@ Package pdftex.def Info: images/cdfDiscreta.png  used on input line 1344.
 [26]
 
 [27]
-<images/probsDNormal.png, id=568, 440.39531pt x 832.61063pt>
+<images/probsDNormal.png, id=556, 440.39531pt x 832.61063pt>
 File: images/probsDNormal.png Graphic file (type png)
 <use images/probsDNormal.png>
 Package pdftex.def Info: images/probsDNormal.png  used on input line 1789.
@@ -884,7 +883,7 @@ Overfull \vbox (60.08739pt too high) has occurred while \output is active []
 [31]
 
 [32]
-<images/clipboard-1434716414.png, id=602, 458.46281pt x 79.04532pt>
+<images/clipboard-1434716414.png, id=590, 458.46281pt x 79.04532pt>
 File: images/clipboard-1434716414.png Graphic file (type png)
 <use images/clipboard-1434716414.png>
 Package pdftex.def Info: images/clipboard-1434716414.png  used on input line 21
@@ -893,13 +892,13 @@ Package pdftex.def Info: images/clipboard-1434716414.png  used on input line 21
 
 
 [33 <./images/clipboard-1434716414.png>]
-<images/clipboard-2572516778.png, id=609, 459.96844pt x 193.47281pt>
+<images/clipboard-2572516778.png, id=597, 459.96844pt x 193.47281pt>
 File: images/clipboard-2572516778.png Graphic file (type png)
 <use images/clipboard-2572516778.png>
 Package pdftex.def Info: images/clipboard-2572516778.png  used on input line 21
 58.
 (pdftex.def)             Requested size: 459.96732pt x 193.47234pt.
-<images/clipboard-3898377838.png, id=610, 542.025pt x 222.07968pt>
+<images/clipboard-3898377838.png, id=598, 542.025pt x 222.07968pt>
 File: images/clipboard-3898377838.png Graphic file (type png)
 <use images/clipboard-3898377838.png>
 Package pdftex.def Info: images/clipboard-3898377838.png  used on input line 21
@@ -908,13 +907,13 @@ Package pdftex.def Info: images/clipboard-3898377838.png  used on input line 21
 
 
 [34 <./images/clipboard-2572516778.png>]
-<images/clipboard-1018442669.png, id=618, 545.03625pt x 186.6975pt>
+<images/clipboard-1018442669.png, id=606, 545.03625pt x 186.6975pt>
 File: images/clipboard-1018442669.png Graphic file (type png)
 <use images/clipboard-1018442669.png>
 Package pdftex.def Info: images/clipboard-1018442669.png  used on input line 21
 95.
 (pdftex.def)             Requested size: 545.03493pt x 186.69704pt.
-<images/clipboard-2353777197.png, id=619, 539.76656pt x 184.43906pt>
+<images/clipboard-2353777197.png, id=607, 539.76656pt x 184.43906pt>
 File: images/clipboard-2353777197.png Graphic file (type png)
 <use images/clipboard-2353777197.png>
 Package pdftex.def Info: images/clipboard-2353777197.png  used on input line 22
@@ -923,7 +922,7 @@ Package pdftex.def Info: images/clipboard-2353777197.png  used on input line 22
 
 
 [35 <./images/clipboard-3898377838.png> <./images/clipboard-1018442669.png>]
-<images/clipboard-1894572766.png, id=628, 536.0025pt x 334.24875pt>
+<images/clipboard-1894572766.png, id=616, 536.0025pt x 334.24875pt>
 File: images/clipboard-1894572766.png Graphic file (type png)
 <use images/clipboard-1894572766.png>
 Package pdftex.def Info: images/clipboard-1894572766.png  used on input line 22
@@ -932,7 +931,7 @@ Package pdftex.def Info: images/clipboard-1894572766.png  used on input line 22
 
 
 [36 <./images/clipboard-2353777197.png>]
-<images/clipboard-2707476680.png, id=634, 540.51938pt x 182.93344pt>
+<images/clipboard-2707476680.png, id=622, 540.51938pt x 182.93344pt>
 File: images/clipboard-2707476680.png Graphic file (type png)
 <use images/clipboard-2707476680.png>
 Package pdftex.def Info: images/clipboard-2707476680.png  used on input line 22
@@ -941,7 +940,7 @@ Package pdftex.def Info: images/clipboard-2707476680.png  used on input line 22
 
 
 [37 <./images/clipboard-1894572766.png>]
-<images/fmp2Dados.png, id=643, 819.06pt x 515.67656pt>
+<images/fmp2Dados.png, id=631, 819.06pt x 515.67656pt>
 File: images/fmp2Dados.png Graphic file (type png)
 <use images/fmp2Dados.png>
 Package pdftex.def Info: images/fmp2Dados.png  used on input line 2295.
@@ -959,7 +958,7 @@ Package pdftex.def Info: images/fmp2Dados.png  used on input line 2295.
 [42]
 
 [43]
-<images/fmpBernouilli.png, id=677, 370.38374pt x 274.77657pt>
+<images/fmpBernouilli.png, id=665, 370.38374pt x 274.77657pt>
 File: images/fmpBernouilli.png Graphic file (type png)
 <use images/fmpBernouilli.png>
 Package pdftex.def Info: images/fmpBernouilli.png  used on input line 2612.
@@ -967,7 +966,7 @@ Package pdftex.def Info: images/fmpBernouilli.png  used on input line 2612.
 
 
 [44 <./images/fmpBernouilli.png>]
-<images/cdfBernouilli.png, id=684, 381.67593pt x 241.65282pt>
+<images/cdfBernouilli.png, id=672, 381.67593pt x 241.65282pt>
 File: images/cdfBernouilli.png Graphic file (type png)
 <use images/cdfBernouilli.png>
 Package pdftex.def Info: images/cdfBernouilli.png  used on input line 2626.
@@ -981,7 +980,7 @@ Package pdftex.def Info: images/cdfBernouilli.png  used on input line 2626.
 [47]
 
 [48]
-<images/pmfUnifDiscreta.png, id=721, 351.56343pt x 249.18094pt>
+<images/pmfUnifDiscreta.png, id=709, 351.56343pt x 249.18094pt>
 File: images/pmfUnifDiscreta.png Graphic file (type png)
 <use images/pmfUnifDiscreta.png>
 Package pdftex.def Info: images/pmfUnifDiscreta.png  used on input line 2960.
@@ -989,7 +988,7 @@ Package pdftex.def Info: images/pmfUnifDiscreta.png  used on input line 2960.
 
 
 [49]
-<images/cdfUnifDiscreta.png, id=733, 362.10281pt x 250.68657pt>
+<images/cdfUnifDiscreta.png, id=721, 362.10281pt x 250.68657pt>
 File: images/cdfUnifDiscreta.png Graphic file (type png)
 <use images/cdfUnifDiscreta.png>
 Package pdftex.def Info: images/cdfUnifDiscreta.png  used on input line 2962.
@@ -1010,7 +1009,7 @@ Overfull \hbox (2.47713pt too wide) in paragraph at lines 3162--3163
  []|$[]$| 
  []
 
-<images/pdfUnifContinua.png, id=765, 416.30531pt x 237.13594pt>
+<images/pdfUnifContinua.png, id=753, 416.30531pt x 237.13594pt>
 File: images/pdfUnifContinua.png Graphic file (type png)
 <use images/pdfUnifContinua.png>
 Package pdftex.def Info: images/pdfUnifContinua.png  used on input line 3185.
@@ -1018,7 +1017,7 @@ Package pdftex.def Info: images/pdfUnifContinua.png  used on input line 3185.
 
 
 [53]
-<images/cdfUnifContinua.png, id=775, 400.49625pt x 240.9pt>
+<images/cdfUnifContinua.png, id=763, 400.49625pt x 240.9pt>
 File: images/cdfUnifContinua.png Graphic file (type png)
 <use images/cdfUnifContinua.png>
 Package pdftex.def Info: images/cdfUnifContinua.png  used on input line 3201.
@@ -1061,7 +1060,7 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 
 
 [65]
-<images/distribucion_conjunta.png, id=889, 433.62pt x 289.08pt>
+<images/distribucion_conjunta.png, id=877, 433.62pt x 289.08pt>
 File: images/distribucion_conjunta.png Graphic file (type png)
 <use images/distribucion_conjunta.png>
 Package pdftex.def Info: images/distribucion_conjunta.png  used on input line 3
@@ -1089,7 +1088,7 @@ m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 X \OT1/lmr/m/n/10 = 2\OML/lmm/m/it/1
 
 
 [68]
-<images/pmfTrinomial.png, id=910, 481.8pt x 481.8pt>
+<images/pmfTrinomial.png, id=898, 481.8pt x 481.8pt>
 File: images/pmfTrinomial.png Graphic file (type png)
 <use images/pmfTrinomial.png>
 Package pdftex.def Info: images/pmfTrinomial.png  used on input line 4095.
@@ -1129,7 +1128,7 @@ Overfull \hbox (0.60146pt too wide) detected at line 4450
 [81]
 
 [82]
-<images/LLN1.png, id=1008, 481.8pt x 481.8pt>
+<images/LLN1.png, id=996, 481.8pt x 481.8pt>
 File: images/LLN1.png Graphic file (type png)
 <use images/LLN1.png>
 Package pdftex.def Info: images/LLN1.png  used on input line 4899.
@@ -1142,7 +1141,7 @@ Package pdftex.def Info: images/LLN1.png  used on input line 4899.
 
 [85]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf, id
-=1035, 469.755pt x 325.215pt>
+=1023, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.pdf
@@ -1167,7 +1166,7 @@ Underfull \vbox (badness 1769) detected at line 5073
 [87 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-15-1.p
 df>]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.pdf, id
-=1054, 469.755pt x 325.215pt>
+=1042, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.pdf
@@ -1185,7 +1184,7 @@ Overfull \hbox (350.52776pt too wide) in paragraph at lines 5075--5076
 
 [88 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-16-1.p
 df>]
-<images/simPoisson_1_11.png, id=1074, 1543.26563pt x 819.06pt>
+<images/simPoisson_1_11.png, id=1062, 1543.26563pt x 819.06pt>
 File: images/simPoisson_1_11.png Graphic file (type png)
 <use images/simPoisson_1_11.png>
 Package pdftex.def Info: images/simPoisson_1_11.png  used on input line 5115.
@@ -1193,7 +1192,7 @@ Package pdftex.def Info: images/simPoisson_1_11.png  used on input line 5115.
 
 
 [89 <./images/simPoisson_1_11.png>]
-<images/pesosVaronesCat.jpg, id=1083, 540.0175pt x 533.995pt>
+<images/pesosVaronesCat.jpg, id=1071, 540.0175pt x 533.995pt>
 File: images/pesosVaronesCat.jpg Graphic file (type jpg)
 <use images/pesosVaronesCat.jpg>
 Package pdftex.def Info: images/pesosVaronesCat.jpg  used on input line 5129.
@@ -1206,7 +1205,7 @@ Package pdftex.def Info: images/pesosVaronesCat.jpg  used on input line 5129.
 
 [92]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.pdf, id
-=1102, 469.755pt x 325.215pt>
+=1090, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-19-1.pdf
@@ -1223,7 +1222,7 @@ df>]
 
 [95]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pdf, id
-=1127, 469.755pt x 325.215pt>
+=1115, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.pdf
@@ -1238,7 +1237,7 @@ named-chunk-20-1.pdf  used on input line 5440.
 [97 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-20-1.p
 df>]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.pdf, id
-=1146, 469.755pt x 325.215pt>
+=1134, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.pdf
@@ -1253,7 +1252,7 @@ named-chunk-21-1.pdf  used on input line 5526.
 [99 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-21-1.p
 df>]
 <FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf, id
-=1163, 469.755pt x 325.215pt>
+=1151, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.pd
 f Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-22-1.pdf
@@ -1329,7 +1328,7 @@ pdf>]
 [131]
 
 [132]
-<images/dNormalQuantil975.png, id=1375, 654.19406pt x 584.1825pt>
+<images/dNormalQuantil975.png, id=1363, 654.19406pt x 584.1825pt>
 File: images/dNormalQuantil975.png Graphic file (type png)
 <use images/dNormalQuantil975.png>
 Package pdftex.def Info: images/dNormalQuantil975.png  used on input line 7490.
@@ -1338,7 +1337,7 @@ Package pdftex.def Info: images/dNormalQuantil975.png  used on input line 7490.
 
 
 [133 <./images/dNormalQuantil975.png>]
-<images/simulaIC.png, id=1382, 1025.33063pt x 531.48563pt>
+<images/simulaIC.png, id=1370, 1025.33063pt x 531.48563pt>
 File: images/simulaIC.png Graphic file (type png)
 <use images/simulaIC.png>
 Package pdftex.def Info: images/simulaIC.png  used on input line 7514.
@@ -1370,7 +1369,7 @@ Package pdftex.def Info: images/simulaIC.png  used on input line 7514.
 [145]
 
 [146]
-<images/interpretacionGeometrica.png, id=1469, 795.72281pt x 603.0028pt>
+<images/interpretacionGeometrica.png, id=1457, 795.72281pt x 603.0028pt>
 File: images/interpretacionGeometrica.png Graphic file (type png)
 <use images/interpretacionGeometrica.png>
 Package pdftex.def Info: images/interpretacionGeometrica.png  used on input lin
@@ -1379,7 +1378,7 @@ e 8333.
 
 
 [147]
-<images/freqVsprop.png, id=1475, 790.45313pt x 596.98032pt>
+<images/freqVsprop.png, id=1463, 790.45313pt x 596.98032pt>
 File: images/freqVsprop.png Graphic file (type png)
 <use images/freqVsprop.png>
 Package pdftex.def Info: images/freqVsprop.png  used on input line 8345.
@@ -1461,19 +1460,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 9175--9177
 [164]
 
 [165]
-<images/cap9-ProbsErrTipo2b.png, id=1602, 618.05907pt x 172.39406pt>
+<images/cap9-ProbsErrTipo2b.png, id=1590, 618.05907pt x 172.39406pt>
 File: images/cap9-ProbsErrTipo2b.png Graphic file (type png)
 <use images/cap9-ProbsErrTipo2b.png>
 Package pdftex.def Info: images/cap9-ProbsErrTipo2b.png  used on input line 928
 6.
 (pdftex.def)             Requested size: 422.77664pt x 117.92874pt.
-<images/cap9-PlotProbsErrTipo2b.png, id=1603, 367.3725pt x 260.47313pt>
+<images/cap9-PlotProbsErrTipo2b.png, id=1591, 367.3725pt x 260.47313pt>
 File: images/cap9-PlotProbsErrTipo2b.png Graphic file (type png)
 <use images/cap9-PlotProbsErrTipo2b.png>
 Package pdftex.def Info: images/cap9-PlotProbsErrTipo2b.png  used on input line
  9290.
 (pdftex.def)             Requested size: 422.77664pt x 299.77626pt.
-<images/cap9-PlotProbsErrTipo_1_y_2.png, id=1604, 706.89093pt x 609.77812pt>
+<images/cap9-PlotProbsErrTipo_1_y_2.png, id=1592, 706.89093pt x 609.77812pt>
 File: images/cap9-PlotProbsErrTipo_1_y_2.png Graphic file (type png)
 <use images/cap9-PlotProbsErrTipo_1_y_2.png>
 Package pdftex.def Info: images/cap9-PlotProbsErrTipo_1_y_2.png  used on input 
@@ -1482,7 +1481,7 @@ line 9296.
 
 
 [166 <./images/cap9-ProbsErrTipo2b.png> <./images/cap9-PlotProbsErrTipo2b.png>]
-<images/cap9-PlotProbsErrTipo_1_y_2b.png, id=1615, 420.06938pt x 286.06876pt>
+<images/cap9-PlotProbsErrTipo_1_y_2b.png, id=1603, 420.06938pt x 286.06876pt>
 File: images/cap9-PlotProbsErrTipo_1_y_2b.png Graphic file (type png)
 <use images/cap9-PlotProbsErrTipo_1_y_2b.png>
 Package pdftex.def Info: images/cap9-PlotProbsErrTipo_1_y_2b.png  used on input
@@ -1491,7 +1490,7 @@ Package pdftex.def Info: images/cap9-PlotProbsErrTipo_1_y_2b.png  used on input
 
 
 [167 <./images/cap9-PlotProbsErrTipo_1_y_2.png>]
-<images/cap9-ProbsTestOptim.png, id=1621, 400.49625pt x 242.40562pt>
+<images/cap9-ProbsTestOptim.png, id=1609, 400.49625pt x 242.40562pt>
 File: images/cap9-ProbsTestOptim.png Graphic file (type png)
 <use images/cap9-ProbsTestOptim.png>
 Package pdftex.def Info: images/cap9-ProbsTestOptim.png  used on input line 934
@@ -1500,7 +1499,7 @@ Package pdftex.def Info: images/cap9-ProbsTestOptim.png  used on input line 934
 
 
 [168 <./images/cap9-PlotProbsErrTipo_1_y_2b.png>]
-<images/cap9-PlotProbsTestOptim.png, id=1628, 701.62125pt x 305.64188pt>
+<images/cap9-PlotProbsTestOptim.png, id=1616, 701.62125pt x 305.64188pt>
 File: images/cap9-PlotProbsTestOptim.png Graphic file (type png)
 <use images/cap9-PlotProbsTestOptim.png>
 Package pdftex.def Info: images/cap9-PlotProbsTestOptim.png  used on input line
@@ -1509,13 +1508,13 @@ Package pdftex.def Info: images/cap9-PlotProbsTestOptim.png  used on input line
 
 
 [169 <./images/cap9-ProbsTestOptim.png> <./images/cap9-PlotProbsTestOptim.png>]
-<images/cap9-SampleSizeEffect-1.png, id=1637, 408.77719pt x 138.5175pt>
+<images/cap9-SampleSizeEffect-1.png, id=1625, 408.77719pt x 138.5175pt>
 File: images/cap9-SampleSizeEffect-1.png Graphic file (type png)
 <use images/cap9-SampleSizeEffect-1.png>
 Package pdftex.def Info: images/cap9-SampleSizeEffect-1.png  used on input line
  9389.
 (pdftex.def)             Requested size: 422.77664pt x 143.26852pt.
-<images/cap9-SampleSizeEffect-2.png, id=1638, 407.27156pt x 192.72pt>
+<images/cap9-SampleSizeEffect-2.png, id=1626, 407.27156pt x 192.72pt>
 File: images/cap9-SampleSizeEffect-2.png Graphic file (type png)
 <use images/cap9-SampleSizeEffect-2.png>
 Package pdftex.def Info: images/cap9-SampleSizeEffect-2.png  used on input line
@@ -1524,7 +1523,7 @@ Package pdftex.def Info: images/cap9-SampleSizeEffect-2.png  used on input line
 
 
 [170 <./images/cap9-SampleSizeEffect-1.png>]
-<images/cap9-SampleSizeEffect-3.png, id=1646, 412.54124pt x 284.56313pt>
+<images/cap9-SampleSizeEffect-3.png, id=1634, 412.54124pt x 284.56313pt>
 File: images/cap9-SampleSizeEffect-3.png Graphic file (type png)
 <use images/cap9-SampleSizeEffect-3.png>
 Package pdftex.def Info: images/cap9-SampleSizeEffect-3.png  used on input line
@@ -1534,7 +1533,7 @@ Package pdftex.def Info: images/cap9-SampleSizeEffect-3.png  used on input line
 
 [171 <./images/cap9-SampleSizeEffect-2.png> <./images/cap9-SampleSizeEffect-3.p
 ng>]
-<images/cap9-RCSimpleVsComposta.png, id=1653, 405.76593pt x 254.45062pt>
+<images/cap9-RCSimpleVsComposta.png, id=1641, 405.76593pt x 254.45062pt>
 File: images/cap9-RCSimpleVsComposta.png Graphic file (type png)
 <use images/cap9-RCSimpleVsComposta.png>
 Package pdftex.def Info: images/cap9-RCSimpleVsComposta.png  used on input line
@@ -1543,7 +1542,7 @@ Package pdftex.def Info: images/cap9-RCSimpleVsComposta.png  used on input line
 
 
 [172 <./images/cap9-RCSimpleVsComposta.png>]
-<images/cap9-RCHipotesisComposta.png, id=1661, 406.51875pt x 327.47343pt>
+<images/cap9-RCHipotesisComposta.png, id=1649, 406.51875pt x 327.47343pt>
 File: images/cap9-RCHipotesisComposta.png Graphic file (type png)
 <use images/cap9-RCHipotesisComposta.png>
 Package pdftex.def Info: images/cap9-RCHipotesisComposta.png  used on input lin
@@ -1554,13 +1553,13 @@ e 9490.
 [173]
 
 [174 <./images/cap9-RCHipotesisComposta.png>]
-<images/cap9-comparaProbs.png, id=1672, 447.92343pt x 242.40562pt>
+<images/cap9-comparaProbs.png, id=1660, 447.92343pt x 242.40562pt>
 File: images/cap9-comparaProbs.png Graphic file (type png)
 <use images/cap9-comparaProbs.png>
 Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9544.
 
 (pdftex.def)             Requested size: 422.77664pt x 228.80449pt.
-<images/cap9-FuncPotencia1.png, id=1673, 416.30531pt x 545.78906pt>
+<images/cap9-FuncPotencia1.png, id=1661, 416.30531pt x 545.78906pt>
 File: images/cap9-FuncPotencia1.png Graphic file (type png)
 <use images/cap9-FuncPotencia1.png>
 Package pdftex.def Info: images/cap9-FuncPotencia1.png  used on input line 9548
@@ -1569,7 +1568,7 @@ Package pdftex.def Info: images/cap9-FuncPotencia1.png  used on input line 9548
 
 
 [175 <./images/cap9-comparaProbs.png>]
-<images/cap9-FuncPotencia2.png, id=1681, 466.74374pt x 405.01312pt>
+<images/cap9-FuncPotencia2.png, id=1669, 466.74374pt x 405.01312pt>
 File: images/cap9-FuncPotencia2.png Graphic file (type png)
 <use images/cap9-FuncPotencia2.png>
 Package pdftex.def Info: images/cap9-FuncPotencia2.png  used on input line 9567
@@ -1578,7 +1577,7 @@ Package pdftex.def Info: images/cap9-FuncPotencia2.png  used on input line 9567
 
 
 [176 <./images/cap9-FuncPotencia1.png>]
-<images/cap9-FuncPotencia3.png, id=1688, 469.00218pt x 339.51843pt>
+<images/cap9-FuncPotencia3.png, id=1676, 469.00218pt x 339.51843pt>
 File: images/cap9-FuncPotencia3.png Graphic file (type png)
 <use images/cap9-FuncPotencia3.png>
 Package pdftex.def Info: images/cap9-FuncPotencia3.png  used on input line 9572
@@ -1595,7 +1594,7 @@ Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9640.
 
 
 [178]
-<images/cap9-RCHipotesisComposta2.png, id=1701, 412.54124pt x 339.51843pt>
+<images/cap9-RCHipotesisComposta2.png, id=1689, 412.54124pt x 339.51843pt>
 File: images/cap9-RCHipotesisComposta2.png Graphic file (type png)
 <use images/cap9-RCHipotesisComposta2.png>
 Package pdftex.def Info: images/cap9-RCHipotesisComposta2.png  used on input li
@@ -1604,7 +1603,7 @@ ne 9661.
 
 
 [179]
-<images/cap9-PotenciaHipotesisComposta.png, id=1707, 412.54124pt x 339.51843pt>
+<images/cap9-PotenciaHipotesisComposta.png, id=1695, 412.54124pt x 339.51843pt>
 
 File: images/cap9-PotenciaHipotesisComposta.png Graphic file (type png)
 <use images/cap9-PotenciaHipotesisComposta.png>
@@ -1626,7 +1625,7 @@ Package pdftex.def Info: images/cap9-comparaProbs.png  used on input line 9723.
 [182]
 
 [183]
-<images/cap9-CalculPvalorUnilateral.png, id=1732, 408.77719pt x 409.53pt>
+<images/cap9-CalculPvalorUnilateral.png, id=1720, 408.77719pt x 409.53pt>
 File: images/cap9-CalculPvalorUnilateral.png Graphic file (type png)
 <use images/cap9-CalculPvalorUnilateral.png>
 Package pdftex.def Info: images/cap9-CalculPvalorUnilateral.png  used on input 
@@ -1635,7 +1634,7 @@ line 9762.
 
 
 [184 <./images/cap9-CalculPvalorUnilateral.png>]
-<images/cap9-CalculPvalorBilateral.png, id=1738, 411.78844pt x 411.03563pt>
+<images/cap9-CalculPvalorBilateral.png, id=1726, 411.78844pt x 411.03563pt>
 File: images/cap9-CalculPvalorBilateral.png Graphic file (type png)
 <use images/cap9-CalculPvalorBilateral.png>
 Package pdftex.def Info: images/cap9-CalculPvalorBilateral.png  used on input l
@@ -1650,7 +1649,7 @@ ine 9788.
 [187]
 
 [188]
-<images/cap9-SampleSize_i_MDS.png, id=1762, 412.54124pt x 286.06876pt>
+<images/cap9-SampleSize_i_MDS.png, id=1750, 412.54124pt x 286.06876pt>
 File: images/cap9-SampleSize_i_MDS.png Graphic file (type png)
 <use images/cap9-SampleSize_i_MDS.png>
 Package pdftex.def Info: images/cap9-SampleSize_i_MDS.png  used on input line 9
@@ -1820,7 +1819,7 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 [241]
-<FundamentosInferenciaEstadistica_files/figure-latex/ej1-plot-1.pdf, id=2142, 4
+<FundamentosInferenciaEstadistica_files/figure-latex/ej1-plot-1.pdf, id=2130, 4
 69.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej1-plot-1.pdf Graphi
 c file (type pdf)
@@ -1834,7 +1833,7 @@ Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/ej
 
 [243 <./FundamentosInferenciaEstadistica_files/figure-latex/ej1-plot-1.pdf>]
 <FundamentosInferenciaEstadistica_files/figure-latex/ej2-tabla-plot-1.pdf, id=2
-158, 469.755pt x 325.215pt>
+146, 469.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej2-tabla-plot-1.pdf 
 Graphic file (type pdf)
 <use FundamentosInferenciaEstadistica_files/figure-latex/ej2-tabla-plot-1.pdf>
@@ -1845,7 +1844,7 @@ Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/ej
 
 [244 <./FundamentosInferenciaEstadistica_files/figure-latex/ej2-tabla-plot-1.pd
 f>]
-<FundamentosInferenciaEstadistica_files/figure-latex/ej3-plot-1.pdf, id=2171, 4
+<FundamentosInferenciaEstadistica_files/figure-latex/ej3-plot-1.pdf, id=2159, 4
 69.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej3-plot-1.pdf Graphi
 c file (type pdf)
@@ -1870,7 +1869,7 @@ Overfull \hbox (7.99411pt too wide) in paragraph at lines 13869--13869
 [246 <./FundamentosInferenciaEstadistica_files/figure-latex/ej3-plot-1.pdf>]
 
 [247]
-<FundamentosInferenciaEstadistica_files/figure-latex/ej4-plot-1.pdf, id=2193, 4
+<FundamentosInferenciaEstadistica_files/figure-latex/ej4-plot-1.pdf, id=2181, 4
 69.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej4-plot-1.pdf Graphi
 c file (type pdf)
@@ -1881,7 +1880,7 @@ Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/ej
 
 
 [248 <./FundamentosInferenciaEstadistica_files/figure-latex/ej4-plot-1.pdf>]
-<FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-1.pdf, id=2205, 4
+<FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-1.pdf, id=2193, 4
 69.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-1.pdf Graphi
 c file (type pdf)
@@ -1892,7 +1891,7 @@ Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/ej
 
 
 [249]
-<FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-2.pdf, id=2210, 4
+<FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-2.pdf, id=2198, 4
 69.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-2.pdf Graphi
 c file (type pdf)
@@ -1905,7 +1904,7 @@ Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/ej
 [250 <./FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-1.pdf>]
 
 [251 <./FundamentosInferenciaEstadistica_files/figure-latex/ej5-plot-2.pdf>]
-<FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-1.pdf, id=2232, 4
+<FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-1.pdf, id=2220, 4
 69.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-1.pdf Graphi
 c file (type pdf)
@@ -1913,7 +1912,7 @@ c file (type pdf)
 Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/ej
 6-plot-1.pdf  used on input line 14160.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-2.pdf, id=2233, 4
+<FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-2.pdf, id=2221, 4
 69.755pt x 325.215pt>
 File: FundamentosInferenciaEstadistica_files/figure-latex/ej6-plot-2.pdf Graphi
 c file (type pdf)
@@ -2095,11 +2094,11 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19359 strings out of 473530
- 331728 string characters out of 5713827
- 795313 words of memory out of 5000000
- 40561 multiletter control sequences out of 15000+600000
- 670447 words of font info for 308 fonts, out of 8000000 for 9000
+ 19339 strings out of 473530
+ 331523 string characters out of 5713827
+ 795108 words of memory out of 5000000
+ 40549 multiletter control sequences out of 15000+600000
+ 670353 words of font info for 307 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,16n,81p,1224b,655s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
@@ -2131,10 +2130,10 @@ TeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/Usuario/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/lm/lmtti10.pfb><C:/Users/Usuario/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Usuario/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on FundamentosInferenciaEstadistica.pdf (319 pages, 8681393 byte
+Output written on FundamentosInferenciaEstadistica.pdf (319 pages, 8678085 byte
 s).
 PDF statistics:
- 3688 PDF objects out of 4296 (max. 8388607)
- 1282 named destinations out of 1440 (max. 500000)
- 59093 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 3657 PDF objects out of 4296 (max. 8388607)
+ 1276 named destinations out of 1440 (max. 500000)
+ 59045 words of extra memory for PDF output out of 61914 (max. 10000000)
 

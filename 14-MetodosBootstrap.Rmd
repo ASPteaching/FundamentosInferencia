@@ -624,8 +624,6 @@ a) Repetir un elevado número de veces $s=1, \ldots, S$ (p.ej. $S=10000$ ) el si
 b) La desviación típica muestral, $s_{\hat{\rho}}$ de los coeficientes de correlación $\hat{\rho}_{1}, \ldots, \hat{\rho}_{s}$ es una buena estimación del error estándar de $\hat{\rho}$ y la media muestral de los errores estándar bootstrap, $\overline{\hat{\sigma}}_{B}$ es una buena estimación del error estándar bootstrap del coeficiente de correlación.
 $c)$ Cuanto más similares sean $s_{\hat{\rho}}$ y $\overline{\hat{\sigma}}_{B}$ mejor será la calidad de $\hat{\sigma}_{B}$ cómo estimador de $\sigma_{\hat{\rho}}$.
 
-# Capítulo 2
-
 ## Estimación y corrección del sesgo de un estimador
 
 ### Introducción
@@ -998,8 +996,6 @@ $$
 \hat{s} / \sqrt{n}=\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2} /\{(n-1) n\}} .
 $$
 
-# Capítulo 3
-
 ## Intervalos de confianza bootstrap
 
 ### Introducción
@@ -1084,7 +1080,6 @@ $$
 
 Otros ejemplos de sta doble aproximación los tendremos cuando utilicemos el estimador aproximado por montecarlo del estimador bootstrap del error estándar o el estimador del error estándar del coeficiente de correlación,(3.1), en donde substituyamos $\rho$ por su estimador máximo verosímil, $\hat{\rho}$.
 
-# Capítulo 4
 
 ## Intervalos de confianza basados en tablas bootstrap
 
@@ -1302,7 +1297,6 @@ En general no conoceremos esta transformación y tendremos que considerar distin
 - Estimar la transformación utilizando el bootstrap.
 
 
-# Capítulo 5
 
 ## Intervalos de confianza basados en percentiles bootstrap
 
@@ -1687,7 +1681,6 @@ Los estudios de simulación ayudan a decidir qué método resulta más adecuado 
 2. Una estimación del error estándar
 3. Un intervalo de confianza. ¿Qué metodo podemos elegir?. ¿Que argumentos estan a favor de los IC estandar?, del bootstrap-t, de los métodos percentil?. Realice un estudio de simulación para comparar los métodos competitivos y decida cual resultará más adecuado.
 
-# Capítulo 6
 
 ## Contraste de hipótesis mediante bootstrap
 
@@ -2091,8 +2084,6 @@ Este es un valor similar al que se obtendria remuestreando bajo la hipó tesis n
 Los cálculos anteriores se basan en el intervalo percentil ordinario. Efron (1993) describe cómo hacerlo de forma general basándose en los intervalos percentil $\mathrm{BC}_{a}$, de los que los intervalos percentil son un caso particular.
 
 Es importante contrastar las dos aproximaciones a la resolución del problema del contraste de hipótesis: El histograma de la distribución bootstrap de la diferencia está centrado entorno del $\hat{\theta}_{o b s}$, mientras que el del test bootstrap estás centrado entorno del 0 . En este sentido $N D S_{\text {boot }}$ mide qué tan lejos está $\hat{\theta}_{o b s}$ del 0 mientras que $N D S\left(\hat{\theta}_{o b s}\right)$ mide qué tan lejos está el 0 de $\hat{\theta}_{\text {obs }}$. Efron (1993) sugiere que los ajustes que realiza el método del $\mathrm{BC}_{a}$ pueden verse como una forma de reconciliar estas dos aproximaciones.
-
-# Capítulo 7
 
 ## Validez de los métodos bootstrap
 
