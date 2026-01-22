@@ -16,9 +16,11 @@ Supongamos que estamos interesados en estudiar el tiempo de vida, en años, de u
 
 Tabla 1
 Tiempos de supervivencia
-| .14 | .18 | .25 | .26 | .37 |
-| :--- | :--- | :--- | :--- | :--- |
-| .43 | .51 | .61 | .71 |  |
+
+|  t1  |  t2  |  t3  |  t4  |  t5  |
+| :--: | :--: | :--: | :--: | :--: |
+| 0.14 | 0.18 | 0.25 | 0.26 | 0.37 |
+| 0.43 | 0.51 | 0.61 | 0.71 |      |
 
 
 El valor de los estimadores seleccionados, calculados sobre la muestra es:
@@ -35,14 +37,11 @@ La muestra de 15 estudiantes que utilizaremos para el estudio es la siguiente:
 
 Tabla 2
 Notas de COU y de selectividad de 15 estudiantes
-| Estudiante núm: | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Selectividad | 5.76 | 6.35 | 5.58 | 5.78 | 6.66 | 5.8 | 5.55 | 6.61 |
-| COU | 6.78 | 6.6 | 5.62 | 6.06 | 6.88 | 6.14 | 6 | 6.86 |
-| Estudiante núm: | 9 | 10 | 11 | 12 | 13 | 14 | 15 |  |
-| Selectividad | 6.51 | 6.05 | 6.53 | 5.75 | 5.45 | 5.72 | 5.94 |  |
-| COU | 6.72 | 6.26 | 6.24 | 5.48 | 5.52 | 5.76 | 5.92 |  |
 
+| Estudiante núm. |    1 |    2 |    3 |    4 |    5 |    6 |    7 |    8 |
+| :-------------- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Selectividad    | 5.76 | 6.35 | 5.58 | 5.78 | 6.66 | 5.80 | 5.55 | 6.61 |
+| COU             | 6.78 | 6.60 | 5.62 | 6.06 | 6.88 | 6.14 | 6.00 | 6.86 |
 
 El valor del coeficiente de correlación sobre esta muestra es:
 
@@ -133,6 +132,7 @@ $$
 
 Ejemplo 1 Extraemos una muestra y obtenemos:
 
+
 | $x_{1}$ | $x_{2}$ | $x_{3}$ | $x_{4}$ | $x_{5}$ | $x_{6}$ | $x_{7}$ |
 | :---: | :--- | :--- | :---: | :--- | :---: | :--- |
 | 5.1 | 3.4 | 1.2 | 17.6 | 2.1 | 16.4 | 4.3 |
@@ -146,6 +146,12 @@ x_{(3)} & x_{(5)} & x_{(2)} & x_{(7)} & x_{(1)} & x_{(6)} & x_{(4)}
 $$
 
 y si hacemos la representación gráfica:
+
+```{r}
+x0<-c(5.1, 3.4, 1.2, 17.6, 2.1, 16.4, 4.3)
+Fn <- ecdf(x0)
+plot(Fn)
+```
 
 
 La distribución muestral refleja exclusivamente los valores contenidos en la muestra y por lo tanto no se relaciona directamente ni con la distribución (conjunta) de la muestra $G\left(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\right)$ ni con la distribución de la población: $F$. Sin embargo, como es razonable esperar $F_{n}(x)$ proporciona una imagen aproximada de la distribución de la población de donde se ha extraido la muestra. Pueden repasarse las propiedades de la distribución empírica en Velez y García (1993,[23]).

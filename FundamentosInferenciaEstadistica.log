@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.2)  22 JAN 2026 07:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.2)  22 JAN 2026 09:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1978,19 +1978,19 @@ Overfull \hbox (0.11523pt too wide) in alignment at lines 15160--15166
 [272]
 
 [273]
-Underfull \hbox (badness 1097) in paragraph at lines 15553--15556
+Underfull \hbox (badness 1097) in paragraph at lines 15561--15564
  \T1/lmr/bx/n/10 (+20) 14.1.1.2 Prob-lema 2: Co-e-fi-ciente de cor-relación[] \
 T1/lmr/m/n/10 (+20) Disponemos de las no-tas de C.O.U. y
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 15553--15556
+Underfull \hbox (badness 1057) in paragraph at lines 15561--15564
 \T1/lmr/m/n/10 (+20) de se-lec-tivi-dad de un grupo de 15 alum-nos de primer cu
 rso de la uni-ver-si-dad y de-seamos de-
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 15553--15556
+Underfull \hbox (badness 1194) in paragraph at lines 15561--15564
 \T1/lmr/m/n/10 (+20) mos medir el grado de relación en-tre am-bas me-di-ante el
  co-e-fi-ciente de cor-relación de Pear-son:
  []
@@ -2000,10 +2000,21 @@ Underfull \hbox (badness 1194) in paragraph at lines 15553--15556
 [274]
 
 [275]
+<FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-88-1.pdf, id
+=2376, 469.755pt x 325.215pt>
+File: FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-88-1.pd
+f Graphic file (type pdf)
+<use FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-88-1.pdf
+>
+Package pdftex.def Info: FundamentosInferenciaEstadistica_files/figure-latex/un
+named-chunk-88-1.pdf  used on input line 15738.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
 
 [276]
 
-[277]
+[277 <./FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-88-1.
+pdf>]
 
 [278]
 
@@ -2087,20 +2098,22 @@ Underfull \hbox (badness 1194) in paragraph at lines 15553--15556
 
 [318]
 
-[319] (FundamentosInferenciaEstadistica.aux)
+[319]
+
+[320] (FundamentosInferenciaEstadistica.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19339 strings out of 473530
- 331523 string characters out of 5713827
- 795108 words of memory out of 5000000
- 40549 multiletter control sequences out of 15000+600000
+ 19351 strings out of 473530
+ 332156 string characters out of 5713827
+ 795329 words of memory out of 5000000
+ 40558 multiletter control sequences out of 15000+600000
  670353 words of font info for 307 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,16n,81p,1224b,655s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,16n,81p,1224b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb
@@ -2130,10 +2143,10 @@ TeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/Usuario/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/lm/lmtti10.pfb><C:/Users/Usuario/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Usuario/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on FundamentosInferenciaEstadistica.pdf (319 pages, 8678085 byte
+Output written on FundamentosInferenciaEstadistica.pdf (320 pages, 8683967 byte
 s).
 PDF statistics:
- 3657 PDF objects out of 4296 (max. 8388607)
- 1276 named destinations out of 1440 (max. 500000)
- 59045 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 3671 PDF objects out of 4296 (max. 8388607)
+ 1279 named destinations out of 1440 (max. 500000)
+ 59050 words of extra memory for PDF output out of 61914 (max. 10000000)
 

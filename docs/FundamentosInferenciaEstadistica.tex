@@ -15534,9 +15534,17 @@ Supongamos que estamos interesados en estudiar el tiempo de vida, en años, de u
 
 Tabla 1
 Tiempos de supervivencia
-\textbar{} .14 \textbar{} .18 \textbar{} .25 \textbar{} .26 \textbar{} .37 \textbar{}
-\textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{}
-\textbar{} .43 \textbar{} .51 \textbar{} .61 \textbar{} .71 \textbar{} \textbar{}
+
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule\noalign{}
+t1 & t2 & t3 & t4 & t5 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0.14 & 0.18 & 0.25 & 0.26 & 0.37 \\
+0.43 & 0.51 & 0.61 & 0.71 & \\
+\end{longtable}
 
 El valor de los estimadores seleccionados, calculados sobre la muestra es:
 
@@ -15556,13 +15564,44 @@ La muestra de 15 estudiantes que utilizaremos para el estudio es la siguiente:
 
 Tabla 2
 Notas de COU y de selectividad de 15 estudiantes
-\textbar{} Estudiante núm: \textbar{} 1 \textbar{} 2 \textbar{} 3 \textbar{} 4 \textbar{} 5 \textbar{} 6 \textbar{} 7 \textbar{} 8 \textbar{}
-\textbar{} :--- \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{}
-\textbar{} Selectividad \textbar{} 5.76 \textbar{} 6.35 \textbar{} 5.58 \textbar{} 5.78 \textbar{} 6.66 \textbar{} 5.8 \textbar{} 5.55 \textbar{} 6.61 \textbar{}
-\textbar{} COU \textbar{} 6.78 \textbar{} 6.6 \textbar{} 5.62 \textbar{} 6.06 \textbar{} 6.88 \textbar{} 6.14 \textbar{} 6 \textbar{} 6.86 \textbar{}
-\textbar{} Estudiante núm: \textbar{} 9 \textbar{} 10 \textbar{} 11 \textbar{} 12 \textbar{} 13 \textbar{} 14 \textbar{} 15 \textbar{} \textbar{}
-\textbar{} Selectividad \textbar{} 6.51 \textbar{} 6.05 \textbar{} 6.53 \textbar{} 5.75 \textbar{} 5.45 \textbar{} 5.72 \textbar{} 5.94 \textbar{} \textbar{}
-\textbar{} COU \textbar{} 6.72 \textbar{} 6.26 \textbar{} 6.24 \textbar{} 5.48 \textbar{} 5.52 \textbar{} 5.76 \textbar{} 5.92 \textbar{} \textbar{}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.3191}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0851}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Estudiante núm.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+1
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+4
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+5
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+8
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Selectividad & 5.76 & 6.35 & 5.58 & 5.78 & 6.66 & 5.80 & 5.55 & 6.61 \\
+COU & 6.78 & 6.60 & 5.62 & 6.06 & 6.88 & 6.14 & 6.00 & 6.86 \\
+\end{longtable}
 
 El valor del coeficiente de correlación sobre esta muestra es:
 
@@ -15687,6 +15726,16 @@ x_{(3)} & x_{(5)} & x_{(2)} & x_{(7)} & x_{(1)} & x_{(6)} & x_{(4)}
 \]
 
 y si hacemos la representación gráfica:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x0}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\FloatTok{5.1}\NormalTok{, }\FloatTok{3.4}\NormalTok{, }\FloatTok{1.2}\NormalTok{, }\FloatTok{17.6}\NormalTok{, }\FloatTok{2.1}\NormalTok{, }\FloatTok{16.4}\NormalTok{, }\FloatTok{4.3}\NormalTok{)}
+\NormalTok{Fn }\OtherTok{\textless{}{-}} \FunctionTok{ecdf}\NormalTok{(x0)}
+\FunctionTok{plot}\NormalTok{(Fn)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{FundamentosInferenciaEstadistica_files/figure-latex/unnamed-chunk-88-1.pdf}}
 
 La distribución muestral refleja exclusivamente los valores contenidos en la muestra y por lo tanto no se relaciona directamente ni con la distribución (conjunta) de la muestra \(G\left(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\right)\) ni con la distribución de la población: \(F\). Sin embargo, como es razonable esperar \(F_{n}(x)\) proporciona una imagen aproximada de la distribución de la población de donde se ha extraido la muestra. Pueden repasarse las propiedades de la distribución empírica en Velez y García (1993,{[}23{]}).
 

@@ -943,10 +943,34 @@ div.csl-indent {
 <h4><span class="header-section-number">14.1.1.1</span> Problema 1: Tiempo de supervivencia<a href="métodos-de-computación-intensiva-el-bootstrap.html#problema-1-tiempo-de-supervivencia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Supongamos que estamos interesados en estudiar el tiempo de vida, en años, de unos enfermos después de un trasplante de riñón. El parámetro que nos interesa estimar es el tiempo medio de vida tras la intervención. Para estimarlo podemos utilizar la media muestral, <span class="math inline">\(\bar{X}\)</span> o la mediana muestral <span class="math inline">\(\widehat{\operatorname{Med}}(X)\)</span>. Los datos de que disponemos <span class="math inline">\((n=9)\)</span> son los siguientes:</p>
 <p>Tabla 1
-Tiempos de supervivencia
-| .14 | .18 | .25 | .26 | .37 |
-| :— | :— | :— | :— | :— |
-| .43 | .51 | .61 | .71 | |</p>
+Tiempos de supervivencia</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">t1</th>
+<th align="center">t2</th>
+<th align="center">t3</th>
+<th align="center">t4</th>
+<th align="center">t5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.14</td>
+<td align="center">0.18</td>
+<td align="center">0.25</td>
+<td align="center">0.26</td>
+<td align="center">0.37</td>
+</tr>
+<tr class="even">
+<td align="center">0.43</td>
+<td align="center">0.51</td>
+<td align="center">0.61</td>
+<td align="center">0.71</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
 <p>El valor de los estimadores seleccionados, calculados sobre la muestra es:</p>
 <ul>
 <li>Media muestral, <span class="math inline">\(\bar{X}=0,384\)</span>,</li>
@@ -959,14 +983,57 @@ Tiempos de supervivencia
 <span class="math inline">\(\hat{\rho}=\frac{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)\left(Y_{i}-\bar{Y}\right)}{\sqrt{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}} \sqrt{\sum_{i=1}^{n}\left(Y_{i}-\bar{Y}\right)^{2}}}, \quad\left(\bar{X}=\sum_{i=1}^{n} X_{i} / n, \bar{Y}=\sum_{i=1}^{n} Y_{i} / n\right)\)</span>.
 La muestra de 15 estudiantes que utilizaremos para el estudio es la siguiente:</p>
 <p>Tabla 2
-Notas de COU y de selectividad de 15 estudiantes
-| Estudiante núm: | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
-| :— | :—: | :—: | :—: | :—: | :—: | :—: | :—: | :—: |
-| Selectividad | 5.76 | 6.35 | 5.58 | 5.78 | 6.66 | 5.8 | 5.55 | 6.61 |
-| COU | 6.78 | 6.6 | 5.62 | 6.06 | 6.88 | 6.14 | 6 | 6.86 |
-| Estudiante núm: | 9 | 10 | 11 | 12 | 13 | 14 | 15 | |
-| Selectividad | 6.51 | 6.05 | 6.53 | 5.75 | 5.45 | 5.72 | 5.94 | |
-| COU | 6.72 | 6.26 | 6.24 | 5.48 | 5.52 | 5.76 | 5.92 | |</p>
+Notas de COU y de selectividad de 15 estudiantes</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Estudiante núm.</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+<th align="right">7</th>
+<th align="right">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Selectividad</td>
+<td align="right">5.76</td>
+<td align="right">6.35</td>
+<td align="right">5.58</td>
+<td align="right">5.78</td>
+<td align="right">6.66</td>
+<td align="right">5.80</td>
+<td align="right">5.55</td>
+<td align="right">6.61</td>
+</tr>
+<tr class="even">
+<td align="left">COU</td>
+<td align="right">6.78</td>
+<td align="right">6.60</td>
+<td align="right">5.62</td>
+<td align="right">6.06</td>
+<td align="right">6.88</td>
+<td align="right">6.14</td>
+<td align="right">6.00</td>
+<td align="right">6.86</td>
+</tr>
+</tbody>
+</table>
 <p>El valor del coeficiente de correlación sobre esta muestra es:</p>
 <p><span class="math display">\[
 \hat{\rho}=0,776
@@ -1068,6 +1135,10 @@ x_{(3)} &amp; x_{(5)} &amp; x_{(2)} &amp; x_{(7)} &amp; x_{(1)} &amp; x_{(6)} &a
 \end{array}
 \]</span></p>
 <p>y si hacemos la representación gráfica:</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="métodos-de-computación-intensiva-el-bootstrap.html#cb200-1" tabindex="-1"></a>x0<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">3.4</span>, <span class="fl">1.2</span>, <span class="fl">17.6</span>, <span class="fl">2.1</span>, <span class="fl">16.4</span>, <span class="fl">4.3</span>)</span>
+<span id="cb200-2"><a href="métodos-de-computación-intensiva-el-bootstrap.html#cb200-2" tabindex="-1"></a>Fn <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(x0)</span>
+<span id="cb200-3"><a href="métodos-de-computación-intensiva-el-bootstrap.html#cb200-3" tabindex="-1"></a><span class="fu">plot</span>(Fn)</span></code></pre></div>
+<p><img src="FundamentosInferenciaEstadistica_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <p>La distribución muestral refleja exclusivamente los valores contenidos en la muestra y por lo tanto no se relaciona directamente ni con la distribución (conjunta) de la muestra <span class="math inline">\(G\left(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\right)\)</span> ni con la distribución de la población: <span class="math inline">\(F\)</span>. Sin embargo, como es razonable esperar <span class="math inline">\(F_{n}(x)\)</span> proporciona una imagen aproximada de la distribución de la población de donde se ha extraido la muestra. Pueden repasarse las propiedades de la distribución empírica en Velez y García (1993,[23]).</p>
 </div>
 <div id="estimadores-de-substitución" class="section level4 hasAnchor" number="14.1.3.2">
@@ -3192,7 +3263,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": null,
+  "download": ["FundamentosInferenciaEstadistica.pdf"],
   "search": {
     "engine": "fuse",
     "options": null
