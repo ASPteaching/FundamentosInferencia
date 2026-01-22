@@ -169,7 +169,7 @@
 
 \title{Fundamentos de Inferencia Estadistica}
 \author{Alex Sanchez Pla y Santiago Pérez Hoyos}
-\date{2026-01-05}
+\date{2026-01-22}
 
 \begin{document}
 \maketitle
@@ -15515,6 +15515,2841 @@ t=\sqrt{n-2}\frac{r_S}{\sqrt{1-r_S^2}}
 \]
 
 que tiene aproximadamente una distribución \(t\) de Student con \(n-2\) grados de libertad, siempre que \(n\geq10\).
+
+\newpage
+
+\section{\texorpdfstring{Métodos de computación intensiva: El \emph{Bootstrap}}{Métodos de computación intensiva: El Bootstrap}}\label{muxe9todos-de-computaciuxf3n-intensiva-el-bootstrap}
+
+\subsection{Introducción: Precisión de un estimador}\label{introducciuxf3n-precisiuxf3n-de-un-estimador}
+
+Los métodos bootstrap que se expondrán a continuación son un conjunto de técnicas introducidas por Bradley Efron de la universidad de Stanford a finales de los años 70 ({[}7,9,12{]}) y que se han revelado como una poderosa herramienta de gran utilidad en diversos campos de la estadística.
+
+\subsubsection{Ejemplos de introducción}\label{ejemplos-de-introducciuxf3n}
+
+Empezaremos por considerar algunas situaciones aparentemente sencillas en donde se nos presentarán algunos problemas difíciles de resolver mediante las técnicas ``clásicas'' de la inferencia estadística (convendremos en denominar así al conjunto de métodos paramétricos y no paramétricos que constituyen el soporte usual de la inferencia estadística).
+
+\paragraph{Problema 1: Tiempo de supervivencia}\label{problema-1-tiempo-de-supervivencia}
+
+Supongamos que estamos interesados en estudiar el tiempo de vida, en años, de unos enfermos después de un trasplante de riñón. El parámetro que nos interesa estimar es el tiempo medio de vida tras la intervención. Para estimarlo podemos utilizar la media muestral, \(\bar{X}\) o la mediana muestral \(\widehat{\operatorname{Med}}(X)\). Los datos de que disponemos \((n=9)\) son los siguientes:
+
+Tabla 1
+Tiempos de supervivencia
+\textbar{} .14 \textbar{} .18 \textbar{} .25 \textbar{} .26 \textbar{} .37 \textbar{}
+\textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{}
+\textbar{} .43 \textbar{} .51 \textbar{} .61 \textbar{} .71 \textbar{} \textbar{}
+
+El valor de los estimadores seleccionados, calculados sobre la muestra es:
+
+\begin{itemize}
+\tightlist
+\item
+  Media muestral, \(\bar{X}=0,384\),
+\item
+  Mediana muestral, \(\widehat{\operatorname{Med}}(X)=0,37\)
+\end{itemize}
+
+\paragraph{Problema 2: Coeficiente de correlación}\label{problema-2-coeficiente-de-correlaciuxf3n}
+
+Disponemos de las notas de C.O.U. y de selectividad de un grupo de 15 alumnos de primer curso de la universidad y deseamos determinar cuán relacionadas se hallan las dos. Puesto que se trata de medidas numéricas podemos medir el grado de relación entre ambas mediante el coeficiente de correlación de Pearson:
+\(\hat{\rho}=\frac{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)\left(Y_{i}-\bar{Y}\right)}{\sqrt{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}} \sqrt{\sum_{i=1}^{n}\left(Y_{i}-\bar{Y}\right)^{2}}}, \quad\left(\bar{X}=\sum_{i=1}^{n} X_{i} / n, \bar{Y}=\sum_{i=1}^{n} Y_{i} / n\right)\).
+La muestra de 15 estudiantes que utilizaremos para el estudio es la siguiente:
+
+Tabla 2
+Notas de COU y de selectividad de 15 estudiantes
+\textbar{} Estudiante núm: \textbar{} 1 \textbar{} 2 \textbar{} 3 \textbar{} 4 \textbar{} 5 \textbar{} 6 \textbar{} 7 \textbar{} 8 \textbar{}
+\textbar{} :--- \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{} :---: \textbar{}
+\textbar{} Selectividad \textbar{} 5.76 \textbar{} 6.35 \textbar{} 5.58 \textbar{} 5.78 \textbar{} 6.66 \textbar{} 5.8 \textbar{} 5.55 \textbar{} 6.61 \textbar{}
+\textbar{} COU \textbar{} 6.78 \textbar{} 6.6 \textbar{} 5.62 \textbar{} 6.06 \textbar{} 6.88 \textbar{} 6.14 \textbar{} 6 \textbar{} 6.86 \textbar{}
+\textbar{} Estudiante núm: \textbar{} 9 \textbar{} 10 \textbar{} 11 \textbar{} 12 \textbar{} 13 \textbar{} 14 \textbar{} 15 \textbar{} \textbar{}
+\textbar{} Selectividad \textbar{} 6.51 \textbar{} 6.05 \textbar{} 6.53 \textbar{} 5.75 \textbar{} 5.45 \textbar{} 5.72 \textbar{} 5.94 \textbar{} \textbar{}
+\textbar{} COU \textbar{} 6.72 \textbar{} 6.26 \textbar{} 6.24 \textbar{} 5.48 \textbar{} 5.52 \textbar{} 5.76 \textbar{} 5.92 \textbar{} \textbar{}
+
+El valor del coeficiente de correlación sobre esta muestra es:
+
+\[
+\hat{\rho}=0,776
+\]
+
+\subsubsection{Estimación del error estándar: soluciones clásica y bootstrap}\label{estimaciuxf3n-del-error-estuxe1ndar-soluciones-cluxe1sica-y-bootstrap}
+
+Una vez calculadas las estimaciones sobre la muestra suele interesar disponer de alguna medida de su fiabilidad.
+
+En el caso de la media muestral podemos calcular su error estándar
+
+\[
+\hat{\sigma}_{\bar{X}}=\frac{\sqrt{\sum\left(X_{i}-\bar{X}\right)^{2}}}{n}
+\]
+
+pero para la mediana y el coeficiente de correlación, no existe una fórmula de validez tan general -es decir rápida de calcular y libre de suposiciones sobre la distribución de la variable o variables- como la anterior.
+
+Antes de pasar a buscar una solución general para el tipo de problema planteado vamos a establecer una formalización que nos permita tratar ambas situaciones de forma unificada:
+
+\begin{itemize}
+\tightlist
+\item
+  Partimos de unos datos, es decir una muestra de una variable aleatoria, unidimensional o multidimensional, que sigue una distribución \(F\).
+\end{itemize}
+
+\[
+\mathbf{X}=\left(X_{1}, X_{2}, \ldots, X_{n}\right), \quad \mathbf{X} \sim F
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Existe un parámetro de interés \(\theta\), que, como en los ejemplos anteriores, puede ser el valor medio, la mediana o el coeficiente de correlación poblacionales. (Estamos pues suponiendo un modelo estadístico paramétrico \(\left(\Omega, \mathcal{A},\left\{P_{\theta}, \theta \in \Theta\right\}\right)\) o abreviadamente \(\mathbf{X} \sim F_{\theta}, \theta \in \Theta\) ).
+\item
+  Deseamos estimar \(\theta\) a partir de la muestra.
+\end{itemize}
+
+En las circunstancias anteriores se nos plantean usualmente dos cuestiones básicas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Qué estadístico \(\hat{\theta}(\mathbf{X})\) resulta el (más) adecuado para estimar \(\theta\) ?
+\item
+  Qué tan ``preciso'' es \(\hat{\theta}\) como estimador de \(\theta\) ?
+\end{enumerate}
+
+Una primera aproximación para responder a estas dos preguntas consiste en acudir a la teoría clásica de la estimación máximo-verosímil, que sugiere como solución a la primera pregunta el uso del estimador máximo-verosímil de \(\theta\), llamémosle \(\hat{\theta}_{M V}\).
+
+Bajo condiciones bastante generales esta teoría establece que el estimador máximo verosímil, \(\hat{\theta}_{M V}\), es asintóticamente normal de media igual al valor del parámetro \(\theta\) y de varianza asintótica \(\frac{1}{I(\theta)}\), donde \(I(\theta)\) representa la información de Fisher del modelo.
+
+\[
+\hat{\theta}_{M V} \simeq A N\left(\theta, \frac{1}{I(\theta)}\right)
+\]
+
+Como es habitual en estos casos error estándar de \(\hat{\theta}_{M V}\) se puede aproximar, en muestras grandes, por
+
+\[
+\hat{\sigma}_{\hat{\theta}_{M V}} \simeq \frac{1}{\sqrt{I(\hat{\theta})}}
+\]
+
+donde \(I(\hat{\theta})\) suele denominarse información observada del modelo, frente a \(I(\theta)\) que se denomina al hacer esta distinción, información esperada.
+
+La aplicación del método de la máxima verosimilitud al caso de \(\theta= E_{F}(X)\) nos conduce a
+
+\[
+\begin{aligned}
+\hat{\theta}_{M V} & =\bar{X} \\
+\hat{\sigma}_{\hat{\theta}_{M V}} & =\sqrt{\frac{1}{n^{2}} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}}
+\end{aligned}
+\]
+
+En el caso de la mediana y el coeficiente de correlación la respuesta no es tan inmediata. Antes de considerar el enfoque bootstrap
+
+\subsubsection{Estimadores de substitución (``plug-in'') y Funcionales estadísticos}\label{estimadores-de-substituciuxf3n-plug-in-y-funcionales-estaduxedsticos}
+
+\paragraph{La distribución muestral (o empírica)}\label{la-distribuciuxf3n-muestral-o-empuxedrica}
+
+Sea \(\left(x_{1}, x_{2}, \ldots, x_{n}\right)\) una realización de una muestra aleatoria simple \(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\) de una v.a. \(X\). Podemos asociar una distribución a las observaciones \(\left(x_{1}, x_{2}, \ldots, x_{n}\right)\) con la pretensión de que, en tanto que la muestra ``emula'' a la población, \(X\), la distribución de la muestra \(F_{n}(x)\) emule la distribución de la población. Esta distribución se denomina distribución empírica o distribució muestral y se representa por:
+
+\[
+F_{n}(x)=F^{*}(x)=F_{n}^{*}(x)=\frac{\sharp d^{\prime} \text { elementos muestrales }}{n}
+\]
+
+En la práctica se construye ordenando la muestra
+
+\[
+x_{1}, x_{2}, \ldots, x_{n} \longrightarrow x_{(1)}<x_{(2)} \ldots<x_{(n)}
+\]
+
+definiendo:
+
+\[
+F_{n}(x)=\left\{\begin{array}{ll}
+0 & \text { si } x<x_{(1)} \\
+\frac{k}{n} & \text { si } x_{(k)} \leq x<x_{(k+1)} \\
+1 & \text { si } x \geq x_{(n)}
+\end{array}\right\}
+\]
+
+Ejemplo 1 Extraemos una muestra y obtenemos:
+
+\begin{longtable}[]{@{}cllclcl@{}}
+\toprule\noalign{}
+\(x_{1}\) & \(x_{2}\) & \(x_{3}\) & \(x_{4}\) & \(x_{5}\) & \(x_{6}\) & \(x_{7}\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+5.1 & 3.4 & 1.2 & 17.6 & 2.1 & 16.4 & 4.3 \\
+\end{longtable}
+
+Una vez ordenada queda:
+
+\[
+\begin{array}{lllllll}
+x_{(3)} & x_{(5)} & x_{(2)} & x_{(7)} & x_{(1)} & x_{(6)} & x_{(4)}
+\end{array}
+\]
+
+y si hacemos la representación gráfica:
+
+La distribución muestral refleja exclusivamente los valores contenidos en la muestra y por lo tanto no se relaciona directamente ni con la distribución (conjunta) de la muestra \(G\left(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\right)\) ni con la distribución de la población: \(F\). Sin embargo, como es razonable esperar \(F_{n}(x)\) proporciona una imagen aproximada de la distribución de la población de donde se ha extraido la muestra. Pueden repasarse las propiedades de la distribución empírica en Velez y García (1993,{[}23{]}).
+
+\paragraph{Estimadores de substitución}\label{estimadores-de-substituciuxf3n}
+
+El principio de substitución es un método de estimación, o más bien una idea subyacente en algunos métodos de estimación. El estimador de substitución de un parámetro \(\theta=T(F)\) se define como
+
+\[
+\hat{\theta}=T\left(F_{n}\right) .
+\]
+
+En otras palabras, estimamos la función \(\theta=T(F)\) por la misma función de la función de distribución empírica, \(F_{n}\), o, en general, por la misma función de algún estimador de la función de distribución, \(\hat{F}\).
+
+Un enfoque algo más formal que el anterior consiste en introducir los el concepto de funcional estadístico. Este concepto ha resultado de gran utilidad en diversas áreas de la estadística -como el de la robustez- y que permite
+utilizar una notación que arroja considerable luz sobre el significado del bootstrap .
+
+Consideremos la situación introducida en el párrafo anterior donde se tiene una muestra de observaciones iid de una cierta función de distribución \(F\), siendo \(F_{n}\) la función de distribución empírica de la muestra. Como hemos indicado, muchos estadísticos importantes pueden representarse como funciones de la función de distribución empírica, llamémosles \(T\left(F_{n}\right)\). Obsérvese que esto significa que \(T\) es una función de algún conjunto \(\mathcal{F}\) de funciones de distribución -al que pertenecen \(F_{n}\) y \(F\) - en \(\mathbf{R}\) :
+
+\[
+\begin{aligned}
+T: \mathcal{F} & \longrightarrow \mathbf{R} \\
+G & \longrightarrow T(G) .
+\end{aligned}
+\]
+
+(Es habitual denominar funcional a aquellas funciones en que el conjunto origen es, a su vez, un conjunto de funciones).
+
+Por ejemplo para la varianza de \(F, \sigma^{2}\), el funcional relevante es:
+
+\[
+T(F)=\int\left[x-\int x d F(x)\right]^{2} d F(x)
+\]
+
+donde la integral \(\int() d F(x)\) se puede tomar en el sentido de Riemann-Stieltjes, con lo que \(T\left(F_{n}\right)\) es la varianza muestral
+
+\[
+T\left(F_{n}\right)=S^{2}=1 / n \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}
+\]
+
+La idea central del uso de estimadores que son funcionales estadísticos y que, por tanto se basan en el principio de substitución es la siguiente: dado que \(F_{n}\) es un estimador razonable de \(F\) puede esperarse que \(T\left(F_{n}\right)\) se relacione con \(T(F)\) de forma similar siempre que el funcional \(T(\cdot)\) se comporte ``suficientemente bien'' en una entorno de \(F\). Esta idea conduce a la consideración de \(F\) como un punto en una colección \(\mathcal{F}\) de funciones de distribución y a nociones de continuidad, diferenciabilidad y otras propiedades de regularidad que no discutiremos aquí dado que escapan de nuestro objetivo. Para un estudio de los funcionales estadísticos puede consultarse p.ej. Serfling (1980, {[}20{]}).
+
+Veamos la utilidad de este enfoque en el problema que nos ocupa:
+
+\begin{itemize}
+\tightlist
+\item
+  Como hemos indicado en la sección anterior nuestro objetivo es estimar algún parámetro \(\theta\), que generalmente podrá expresarse como \(\theta(F)\) siendo \(F\) la función de distribución de cada \(X_{i}\) en \(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\). Por ejemplo:
+\end{itemize}
+
+\[
+\begin{aligned}
+& \theta=E_{F}(X)=\theta(F) \\
+& \theta=\operatorname{Med}(X)=\left\{m: P_{F}(X \leq m)=1 / 2\right\}=\theta(F)
+\end{aligned}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Para estimar \(\theta\) utilizaremos un estimador de substitución \(\hat{\theta}\) ( \(\hat{\theta}\) es un funcional de \(F_{n}\) ), es decir \(\hat{\theta}=\theta\left(F_{n}\right)\). Por ejemplo:
+\end{itemize}
+
+\[
+\begin{aligned}
+& \hat{\theta}=\bar{X}=\int X d F_{n}(x)=\frac{1}{n} \sum_{i=1}^{n} x_{i}=\theta\left(F_{n}\right) \\
+& \hat{\theta}=\widehat{\operatorname{Med}}(X)=\left\{m: \frac{\# x_{i} \leq m}{n}=1 / 2\right\}=\theta\left(F_{n}\right)
+\end{aligned}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Centrándonos en \(\hat{\theta}=\bar{X}\) podemos ver como la medida de precisión que deseamos obtener, su error estándar, también es un funcional de \(F\) :
+\end{itemize}
+
+\[
+\sigma_{\bar{X}}=\frac{\sigma(X)}{\sqrt{n}}=\frac{\sqrt{\int\left[x-\int x d F(x)\right]^{2} d F(x)}}{\sqrt{n}}=\sigma_{\bar{X}}(F)
+\]
+
+y que el estimador de su varianza es el mismo funcional aplicado sobre \(F_{n}\) es decir:
+
+\[
+\hat{\sigma}_{\bar{X}}=\frac{\hat{\sigma}(X)}{\sqrt{n}}=\frac{\sqrt{1 / n \sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}{\sqrt{n}}=\sigma_{\bar{X}}\left(F_{n}\right) .
+\]
+
+Vemos pues que una forma de obtener una estimación del error estándar de un estimador, \(\hat{\sigma}_{\hat{\theta}}\) consiste en substituir \(F\) por \(F_{n}\) en la expresión del error estándar ``poblacional'' de \(\hat{\theta}, \sigma_{\hat{\theta}}=\sigma_{\hat{\theta}}(F)\), siempre que ésta sea conocida. De forma esquemática el proceso consistirá en:
+
+\[
+\sigma_{\hat{\theta}}=\sigma_{\hat{\theta}}(F) \Longrightarrow \sigma_{\hat{\theta}}\left(F_{n}\right)=\widehat{\sigma}_{\hat{\theta}} .
+\]
+
+El método anterior presenta el inconveniente obvio de que cuando la forma (el funcional) de \(\sigma_{\hat{\theta}}(F)\) es desconocida no es posible realizar la substitución de \(F\) por \(F_{n}\). Este es por ejemplo el caso del error estándar de la mediana o el coeficiente de correlación. En el apartado siguiente se presenta el método bootstrap a partir del cual es posible realizar la aproximación que nos interesa
+
+\[
+\hat{\sigma}_{\hat{\theta}} \simeq \sigma_{\hat{\theta}}\left(F_{n}\right)
+\]
+
+sin que sea necesario conocer la forma de \(\sigma_{\hat{\theta}}(F)\).
+
+\subsubsection{El bootstrap}\label{el-bootstrap}
+
+\paragraph{Estimación de la distribución en el muestreo}\label{estimaciuxf3n-de-la-distribuciuxf3n-en-el-muestreo}
+
+En la sección anterior se ha propuesto el principio de substitución para estimar el error estándar de un estimador, es decir:
+
+\[
+\widehat{\sigma_{\hat{\theta}}(F)}=\sigma_{\hat{\theta}}(\hat{F}),
+\]
+
+supuesta conocida la forma del funcional \(\sigma_{\hat{\theta}}(F)\) y dado un estimador \(\hat{F}\) de \(F\), que suele ser la función de distribución empírica \(F_{n}\).
+
+Sea \(\mathbf{X} \stackrel{\text { i.i.d. }}{\sim} F\) una muestra aleatoria simple y \(\mathcal{R}_{n}(\mathbf{X}, F)\) una función medible de la muestra que por tanto depende también de \(F\) y de \(n\). El estimador \(\hat{\theta}\), considerado hasta el momento, es un caso particular de tal función. Llamemos \(H_{F, n}(x)\) a la función de distribución de \(\mathcal{R}_{n}(\mathbf{X}, F)\), es decir:
+
+\[
+H_{F, n}(x)=P\left\{\mathcal{R}_{n}(\mathbf{X}, F) \leq x\right\}
+\]
+
+En general nos referiremos a ella simplemente como \(H_{F}(x)\), omitiendo la dependencia de \(n\).
+
+Cuando \(\mathcal{R}_{n}(\mathbf{X}, F)=\hat{\theta}\) entonces el error estándar de \(\hat{\theta}\) coincide con la desviación típica de \(\mathcal{R}_{n}(\mathbf{X}, F)\) es decir:
+
+\[
+\sigma_{F}(\hat{\theta})=\sqrt{\operatorname{var}_{H}\left(\mathcal{R}_{n}(\mathbf{X}, F)\right)}
+\]
+
+Una alternativa al conocimiento de la forma de \(\sigma_{\hat{\theta}}(F)\) consiste en estimar directamente la distribución \(H_{F}(x)\) y tomar su varianza como un estimador de \(\operatorname{var}_{H}\left(\mathcal{R}_{n}(\mathbf{X}, F)\right)\), es decir:
+
+\[
+\begin{aligned}
+P_{F}\left\{\mathcal{R}_{n}(\mathbf{X}, F) \leq x\right\}=H_{F}(x) & \doteq H_{F_{n}}(x)=P_{F_{n}}\left\{\mathcal{R}_{n}\left(\mathbf{X}^{*}, F_{n}\right) \leq x\right\} \\
+\sigma_{\hat{\theta}}^{2}(F)=\operatorname{var}_{H_{F}}(\hat{\theta}) & \doteq \operatorname{var}_{H_{F_{n}}}(\hat{\theta})=\sigma_{\hat{\theta}}^{2}\left(F_{n}\right)
+\end{aligned}
+\]
+
+La notación \(\mathbf{X}^{*}\) hace referencia al hecho de que la muestra proviene de la distribución \(F_{n}\) en vez de \(F\).
+
+\begin{itemize}
+\tightlist
+\item
+  \(\mathbf{X}^{*}\) recibe el nombre de muestra bootstrap o remuestra.
+\item
+  La distribución \(H_{F_{n}}(x)\) se denominará la distribución bootstrap de \(\mathcal{R}_{n}(\mathbf{X}, F)\).
+\end{itemize}
+
+El principio bootstrap consistirá en utilizar la distribución bootstrap como base para realizar inferencias sobre \(\mathcal{R}_{n}(\mathbf{X}, F)\).
+
+Esta aproximación resulta muy atractiva de entrada, en tanto que permite prescindir de suposiciones previas -como la normalidad de los datos- para hacer inferencia. Existe sin embargo un problema importante y es que, en la mayoria de los casos de interés, no es posible obtener analíticamente la distribución bootstrap de \(\mathcal{R}_{n}(\mathbf{X}, F)\), con lo que aparentemente, el método bootstrap no tendrá ningún interés práctico.
+
+Resulta sin embargo que, en muchos casos, es posible aproximar de forma, razonablemente buena la distribución bootstrap mediante simulación de Monte Carlo. Esto determina que, en la práctica, la situación haya sido la contraria de la descrita en el parrafo anterior, es decir el método ha adquirido una gran popularidad dada la posibilidad que ofrece de realizar inferencia de forma relativamente automática.
+
+Ejemplo 1 Sea \(X\) una variable discreta con distribución de Bernouilli,
+
+\[
+X \sim b(1, p), \quad\left\{\begin{array}{l}
+P(X=1)=\theta \\
+P(X=0)=1-\theta
+\end{array}\right.
+\]
+
+Sea \(\theta(F)=P(X=1)\) el parámetro de interés cuyo estimador de substitución es \(\widehat{\theta(F)}=\theta\left(F_{n}\right)=\bar{X}\). Sea
+
+\[
+\mathcal{R}_{n}(\mathbf{X}, F)=\bar{X}-\hat{\theta}(F)
+\]
+
+el error de estimación. Dada una muestra \(\mathbf{x}=\left(X_{1}, X_{2}, \ldots, X_{n}\right)\) la probabilidat, condicional, de que en una muestra de \(F_{n}, \mathbf{x}^{*}\), un valor valga 1 será \(\bar{x}\) :
+
+\[
+P\left(X_{i}^{*}=1\right)=\bar{x} \Leftrightarrow X^{*} \sim b(1, \bar{x}) .
+\]
+
+Esto permitirá estimar \(\mathcal{R}_{n}(\mathbf{X}, F)=\bar{X}-\hat{\theta}(F)\) por
+
+\[
+\mathcal{R}_{n}\left(\mathbf{X}^{*}, F_{n}\right)=\bar{X}^{*}-\hat{\theta}\left(F_{n}\right)=\bar{X}^{*}-\bar{x}
+\]
+
+El cálculo exacto de las características de la distribución bootstrap de \(\mathcal{R}_{n}\left(\mathbf{X}^{*}, F_{n}\right)\) puede ahora realizarse, simplemente teniendo en cuenta que, para cualquier remuestra, el valor \(\bar{x}\) es fijo: entre las remuestras \(\bar{x}\) hace el papel de parámetro que correspondia a \(\theta\) entre las muestras. Tenemos pues que, si denominamos \(\operatorname{var}_{B}\left(\mathcal{R}^{*}\right)\) a la varianza bajo la distribución bootstrap de \(\mathcal{R}_{n}\left(\mathbf{X}^{*}, F_{n}\right)\) :
+
+\[
+\begin{aligned}
+\operatorname{var}_{H_{n}}\left(\mathcal{R}_{n}\left(\mathbf{X}^{*}, F_{n}\right)\right) & =\operatorname{var}_{B}\left(\mathcal{R}^{*}\right)=\operatorname{var}_{B}\left(\bar{X}^{*}-\bar{x}\right)=\operatorname{var}_{B}\left(\bar{X}^{*}\right)+0= \\
+& =n \frac{\bar{x}}{n} \frac{1-\bar{x}}{n}=\frac{\bar{x}(1-\bar{x})}{n}
+\end{aligned}
+\]
+
+El ejemplo anterior refleja una situación, poco habitual, en que es posible obtener el estimador bootstrap de la varianza, analíticamente. Otro ejemplo, correspondiente a la distribución bootstrap de la mediana se encuentra en Efron ({[}9{]}). Otra forma de plantear el estudio de la distribución bootstrap consiste en construirla por enumeración de todas las muestras posibles. Excepto en los casos en que el tamaño de la muestra es muy pequeño el problema es difícil de abordar computacionalmente. Holmes ({[}14{]}) discute brevemente este problema en \url{http://www-stat.stanford.edu/~susan/courses/s208/node12.html}.
+
+\paragraph{Muestreo bootstrap de Monte Carlo}\label{muestreo-bootstrap-de-monte-carlo}
+
+Como se ha discutido en la sección anterior la idea básica del bootstrap consiste en estimar el error estándar - u otra característica de la distribución-
+a partir de muestras bootstrap de \(F_{n}\), que se obtienen substituyendo \(F_{n}\) por \(F\) en la etapa de muestreo (en vez de hacerlo en la cálculo de \(\sigma_{\hat{\theta}}(F)\) ). Es decir en vez de realizar el muestreo:
+
+\[
+F \xrightarrow{\text { m.a.s. }} \mathbf{X}=\left(X_{1}, X_{2}, \ldots, X_{n}\right)
+\]
+
+se hace
+
+\[
+F_{n} \xrightarrow{\text { m.a.s. }} \mathrm{X}^{*}=\left(X_{1}^{*}, X_{2}^{*}, \ldots, X_{n}^{*}\right) .
+\]
+
+Esto significa que muestreamos extrayendo muestras de tamaño \(n\) de \(F_{n}\), es decir que \(\mathrm{X}^{*}=\left(X_{1}^{*}, X_{2}^{*}, \ldots, X_{n}^{*}\right)\) es una muestra aleatoria de tamaño \(n\) obtenida con reemplazamiento de la muestra original ( \(X_{1}, X_{2}, \ldots, X_{n}\) ).
+
+La muestra resultante del muestreo bootstrap, \(\mathbf{X}^{*}\), recibe el nombre de muestra bootstrap o remuestra.
+
+El cálculo del error estándar a partir de las remuestras debe de aproximarse habitualmente mediante un algoritmo de Monte Carlo, dado que no suele conocerse explícitamente la forma de la distribución bootstrap . Este algoritmo consiste en:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Extraer \(B\) muestras, \(\mathbf{x}_{1}^{*}, \mathbf{x}_{2}^{*}, \ldots, \mathbf{x}_{B}^{*}\) de \(F_{n}\)
+\item
+  Calcular \(\hat{\theta}\left(\mathrm{x}_{1}^{*}\right), \ldots, \hat{\theta}\left(\mathrm{x}_{B}^{*}\right)\)
+\item
+  Sea
+\end{enumerate}
+
+\[
+\overline{\hat{\theta}} \equiv \frac{1}{B} \sum_{b=1}^{B} \hat{\theta}\left(\mathrm{x}_{b}^{*}\right)
+\]
+
+entonces el el error estándar bootstrap de \(\hat{\theta}, \sigma_{B}(\hat{\theta})\) se puede aproximar por:
+
+\[
+\hat{\sigma}_{B}(\hat{\theta})=\sqrt{\frac{1}{(B-1)} \sum_{b=1}^{B}\left(\hat{\theta}\left(\mathbf{x}_{\mathbf{i}}^{*}\right)-\overline{\hat{\theta}}\right)^{2}}
+\]
+
+Cuando
+
+\[
+B \rightarrow \infty \quad \Longrightarrow \hat{\sigma}_{B}(\hat{\theta}) \rightarrow \hat{\sigma}_{\infty}(\hat{\theta})=\sigma_{B}(\hat{\theta})=\hat{\sigma}_{\hat{\theta}}\left(F_{n}\right)
+\]
+
+\subsubsection{Ejemplo 1 (continuación)}\label{ejemplo-1-continuaciuxf3n}
+
+Como hemos visto anteriormente el muestreo bootstrap equivale a tomar muestras con reemplazamiento de la muestra original -es decir extraer \(n\) valores de la muestra original con probabilidad \(1 / n\) para cada uno de ellossobre las que se calcula el estimador del parámetro de interés. En los listados
+siguientes \({ }^{1}\) se puede ver el aspecto de las primeras remuestras de un muestreo bootstrap con \(B=100\) y el valor del parámetro calculado sobre cada una de ellas.
+
+Ejemplo núm 1: Muestra inicial de 9 tiempos de supervivencia y 5 remuestras extraídas de ella.
+
+\begin{verbatim}
+Muestra original
+Datos para calcular el error estándar bootstrap de la mediana.
+    0.14 0.18 0.25 0.26 0.37 0.44 0.51 0.61 0.71
+El valor del parámetro sobre la muestra original es: 0.37
+Remuestra numero: 1
+    0.14 0.26 0.37 0.44 0.51 0.51 0.61 0.61 0.71
+El valor del parámetro sobre la remuestra n : 1 es: 0.51
+Remuestra numero: 2
+    0.14 0.18 0.18 0.26 0.37 0.61 0.71 0.71 0.71
+El valor del parámetro sobre la remuestra n : 2 es: 0.37
+Remuestra numero: 3
+    0.18 0.18 0.18 0.25 0.26 0.26 0.26 0.37 0.44
+El valor del parámetro sobre la remuestra n : 3 es: 0.26
+Remuestra numero: 4
+    0.14 0.18 0.18 0.25 0.26 0.44 0.51 0.51 0.71
+El valor del parámetro sobre la remuestra n : 4 es: 0.26
+Remuestra numero: 5
+    0.18 0.26 0.26 0.26 0.37 0.37 0.44 0.51 0.71
+El valor del parámetro sobre la remuestra n : 5 es: 0.37
+\end{verbatim}
+
+Ejemplo núm 2: Muestra de notas de COU y selectividad de 15 estudiantes de primer curso de universidad
+
+{[}\^{}0{]}Un hecho que merece la pena comentar, en tanto que en una primera aproximación puede generar dudas, es como se realiza el remuestreo en variables bidimensionales o \(k\)-dimensionales. La respuesta es, evidentemente, que en una muestra de tamaño \(n\) deben sacarse \(n\) pares, en variables bidimensionales, o \(k\)-tuplas, en variables \(k\)-dimensionales, con reemplazamiento, manteniendo siempre juntos las coordenadas originales en cada punto.
+
+\begin{verbatim}
+Muestra inicial Datos para calcular el error estándar bootstrap
+del coeficiente de correlaci\'on.
+(5.76, 6.78)( 6.35, 6.60)( 5.58, 5.62)( 5.78, 6.06)
+( 6.66, 6.88)( 5.80, 6.14)( 5.55, 6.00) ( 6.61, 6.86)
+( 6.51, 6.72) ( 6.05, 6.26) ( 6.53, 6.24) ( 5.75, 5.48)
+( 5.45, 5.52) ( 5.72, 5.76) ( 5.94, 5.92)
+El valor del parámetro sobre la muestra original es: 0.776
+Remuestra no 1:(5.55, 6.00)( 6.66, 6.88)( 5.72, 5.76)
+( 6.51, 6.72) ( 6.53, 6.24) ( 5.75, 5.48) ( 5.72, 5.76)
+(5.78, 6.06)( 5.58, 5.62)( 5.94, 5.92)( 6.35, 6.60)
+( 6.05, 6.26)( 5.78, 6.06)( 5.76, 6.78)( 5.80, 6.14)
+El valor del parámetro sobre la remuestra n : 1 es: 0.71
+Remuestra numero: 2 ( 6.61, 6.86) ( 6.35, 6.60) ( 6.61,
+6.86) ( 6.66, 6.88)( 6.61, 6.86)( 5.75, 5.48)( 6.53,
+6.24) ( 5.72, 5.76) ( 5.80, 6.14) ( 6.35, 6.60) ( 5.72,
+5.76) ( 6.35, 6.60) ( 5.45, 5.52) ( 5.55, 6.00) ( 5.80,
+6.14) El valor del parámetro sobre la remuestra no: 2 es: 0.91
+Remuestra numero: 3( 5.76, 6.78)( 5.45, 5.52)( 5.58,
+5.62) ( 5.45, 5.52) ( 5.80, 6.14) ( 6.61, 6.86) ( 6.35,
+6.60) ( 6.66, 6.88)( 5.76, 6.78)( 5.94, 5.92)(5.55,
+6.00) ( 5.75, 5.48)( 5.45, 5.52)( 6.05, 6.26)( 5.55,
+6.00) El valor del parámetro sobre la remuestra no: 3 es: 0.75
+\end{verbatim}
+
+Realizado el remuestreo se obtienen los siguientes resultados:
+
+\begin{itemize}
+\tightlist
+\item
+  Media muestral
+  \(\hat{\sigma}_{100}=0,156, \quad \sigma_{\infty}=, 155\)
+  \(\left(\hat{\sigma}_{\infty}=\frac{1}{n^{2}}\left[\sum\left(X_{i}-\bar{X}\right)^{2}\right]^{1 / 2}\right)\)
+  El ajuste entre la estimación bootstrap y el valor teórico es muy bueno.
+\item
+  Mediana muestral
+  \(\hat{\sigma}_{100}=, 106\)
+\item
+  Coeficiente de correlación
+  \(\hat{\sigma}_{100}=, 130 \quad \sigma_{\infty}=, 114\)
+  ( \(\hat{\sigma}_{\infty}\) representa el error estándar del coeficiente de correlación según la teoría normal).
+\end{itemize}
+
+En general para estimar errores estándares basta con \(B=100\). P.ej. en el caso de la mediana del ejemplo anterior se obtiene:
+
+\begin{longtable}[]{@{}lccccc@{}}
+\toprule\noalign{}
+B & 25 & 50 & 100 & 250 & 1000 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\widehat{\sigma_{B}}\) & .087 & .109 & .106 & .102 & .102 \\
+\end{longtable}
+
+\subsubsection{Resumen: del mundo real al mundo bootstrap}\label{resumen-del-mundo-real-al-mundo-bootstrap}
+
+Podemos resumir lo visto hasta aquí en las ideas siguientes:
+
+\begin{itemize}
+\tightlist
+\item
+  La mayoría de los métodos usuales para obtener errores estándares son versiones aproximadas de:
+\end{itemize}
+
+\[
+\hat{\sigma}=\sigma\left(F_{n}\right)
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  El bootstrap permite evaluar \(\sigma\left(F_{n}\right)\) directamente a base de ``fuerza bruta'' (método de Monte Carlo).
+\end{itemize}
+
+Esquemáticamente se puede considerar que al aplicar el bootstrap disponemos de alguna forma de estimación del modelo completo de probabilidad \(P=P_{F}\), a partir de los datos observados \(\mathbf{X}\), y sabemos como producir un modelo estimado \(\hat{P}=P_{F_{n}}\). Este el paso crucial del método.
+
+Una vez disponemos del modelo estimado \(\hat{P}\) podemos utilizar el método de Monte Carlo para generar remuestras, \(\mathbf{X}^{*}\), según las mismas reglas por las que los datos originales son generados de \(P\). La variable bootstrap, \(\hat{\theta}\left(\mathbf{X}^{*}\right)\), es observable dado que conocemos \(\hat{P}\) y \(\mathbf{X}^{*}\) con lo que el muestreo de Monte Carlo nos permitirá conocer la distribución de \(\hat{\theta}\left(\mathbf{X}^{*}\right)\). De esta forma podremos sobre ella estimar las características que nos interesen como, en nuestro ejemplo, el error estándar, que será \(\operatorname{Var}_{\hat{P}}\left[\hat{\theta}\left(\mathbf{X}^{*}\right)\right]\).
+
+\subsubsection{Otros aspectos}\label{otros-aspectos}
+
+\paragraph{Bootstrap paramétrico y no paramétrico}\label{bootstrap-paramuxe9trico-y-no-paramuxe9trico}
+
+En ocasiones puede disponerse de información sobre la forma de \(F\). Por ejemplo, se puede aceptar razonablemente que el tiempo de vida sigue una distribución exponencial. Si esta suposición se considera válida, la distribución dependerá tan solo del parámetro \(\alpha=\left(E_{F} X\right)^{-1}\).
+
+En vez de estimar \(F\) por \(F_{n}\) y generar las remuestras a partir de ésta, un procedimiento alternativo consiste en estimar el parámetro -p.ej. mediante su estimador máximo-verosímil, llamémosle \(\hat{\alpha}_{M V}-\) y obtener las remuestras generando muestras de una distribución exponencial de parámetro \(\hat{\alpha}_{M V}\).
+
+Es decir en vez de remuestrear aproximando \(F=F_{\alpha}\) por \(F_{n}\) y extrayendo muestras con reemplazamiento de la muestra original:
+
+\[
+F_{\alpha} \simeq F_{n} \quad \xrightarrow{\text { m.a.s. }} \mathbf{X}^{*}=\left(X_{1}^{*}, X_{2}^{*}, \ldots, X_{n}^{*}\right) .
+\]
+
+lo haremos aproximando \(F_{\alpha}\) por \(F_{\hat{\alpha}_{M V}}\) y generando mediante métodos de Monte Carlo, muestras a partir de esta distribución.
+
+\[
+F_{\alpha} \simeq F_{\hat{\alpha}_{M V}} \quad \xrightarrow{\text { m.a.s. }} \quad \mathbf{Y}^{*}=\left(Y_{1}^{*}, Y_{2}^{*}, \ldots, Y_{n}^{*}\right)
+\]
+
+Este procedimiento se conoce como Bootstrap paramétrico. Una diferencia obvia con el procedimiento anterior es que, en general, los elementos de la remuestra no pertenecerán a la muestra original.
+
+Ejemplo 1 Si en el ejemplo número 1, en donde considerábamos los tiempos de supervivencia, realizamos la suposición, razonable, de que éstos se distribuyen según una distribución exponencial
+
+\[
+f(x ; \alpha)=\alpha \exp (-\alpha x), x>0, \alpha>0
+\]
+
+podemos utilizar el estimador \(F_{\alpha} \simeq F_{\hat{\alpha}_{M V}}\), en donde
+
+\[
+\hat{\alpha}_{M V}=\frac{1}{\bar{x}}
+\]
+
+Para generar muestras según la distribución exponencial nos podemos basar en el procedimiento de inversión que, aplicado a la función de distribución de la ley exponencial, garantiza que la variable
+
+\[
+X=-\frac{1}{\alpha} \ln (1-U), \quad U \sim \operatorname{Unif.}(0,1),
+\]
+
+sigue una distribución exponencial \({ }^{2}\).
+
+\paragraph{Numero de remuestras necesario}\label{numero-de-remuestras-necesario}
+
+Como ya hemos comentado suele ser necesario recurrir a algún tipo de muestreo de Monte Carlo para evaluar los estimadores bootstrap. Una pregunta de inminente interés práctico es cuantas remuestras deben realizarse para que la aproximación de Monte Carlo del estimador bootstrap se aproxime ``razonablemente'' al auténtico valor del estimador bootstrap. Si llamamos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\sigma_{F}(\hat{\theta})\) al error estándar de \(\hat{\theta}\),
+\item
+  \(\sigma_{\hat{F}}(\hat{\theta})=\sigma_{B}(\hat{\theta})\) al estimador bootstrap del error estándar de \(\hat{\theta}\), y
+\item
+  \(\hat{\sigma}_{\hat{F}}(\hat{\theta})=\hat{\sigma}_{B}(\hat{\theta})\) a la aproximación de Monte Carlo del estimador bootstrap del error estándar de \(\hat{\theta}\),
+  la pregunta relevante es cuan mayor es el error cometido para estimar \(\sigma_{F}(\hat{\theta})\) si, en vez de basarnos en \(\sigma_{B}(\hat{\theta})\) lo hacemos en \(\hat{\sigma}_{B}(\hat{\theta})\) ?
+\end{enumerate}
+
+Efron ({[}11{]})deduce una fórmula para el coeficiente de variación (es decir el cociente entre la desviación típica y la esperanza) de \(\hat{\sigma}_{B}(\hat{\theta})\), condicional sobre una muestra dada:
+
+\[
+C V\left(\hat{\sigma}_{B}(\hat{\theta}) \mid \mathbf{x}\right)=\left[\frac{\hat{\Delta}+2}{4 B}\right]^{1 / 2}
+\]
+
+donde \(\hat{\Delta}\) es la curtosis de la distribución (bootstrap) de \(\hat{\theta}\). La notación indica que los datos observados, \(\mathbf{x}\), se consideran fijos en esta expresión. Cuando \(B \rightarrow \infty\) la expresión anterior \(\rightarrow 0\) y \(\sigma_{B} \rightarrow \hat{\sigma}\) el estimador bootstrap del error estándar, ``ideal''. Sean ahora \(C V\left(\sigma_{B}(\hat{\theta})\right)\) y \(C V\left(\hat{\sigma}_{B}(\hat{\theta})\right)\) los coeficientes de variación incondicionales (es decir los CV condicionales promediados sobre
+
+{[}\^{}1{]}todas las posibles muestras) de \(\sigma_{B}(\hat{\theta})\) y \(\hat{\sigma}_{B}(\hat{\theta})\) respectivamente. En este caso la relación entre ambos coeficientes de variación viene dada por la expresión:
+\[
+C V\left(\hat{\sigma}_{B}(\hat{\theta})\right) \doteq\left\{\left[C V\left(\sigma_{B}\right)\right]^{2}+\left[\frac{E[\hat{\Delta}]+2}{4 B}\right]^{1 / 2}\right\}
+\]
+
+La tabla siguiente muestra \(C V\left(\hat{\sigma}_{B}\right)\) para diversos valores de \(B\) y \(C V\left(\sigma_{B}\right)\) suponiendo que sea \(E[\hat{\Delta}]=0\). Valores de \(C V\left(\sigma_{B}\right) \geq 0,10\), lo que, según Efron {[}11{]}, es habitual en la práctica, se observa poca mejora a partir de \(B=100\), lo que sugiere que, para estimar el error estándar este puede ser un número de remuestras adecuado.
+
+\begin{longtable}[]{@{}cccccc@{}}
+\toprule\noalign{}
+& & & B & & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(C V(\hat{\sigma})\) & 25 & 50 & 100 & 200 & \(\infty\) \\
+.25 & .29 & .27 & .26 & .25 & .25 \\
+.20 & .24 & .22 & .21 & .21 & .20 \\
+.15 & .21 & .18 & .17 & .16 & .15 \\
+.10 & .17 & .14 & .12 & .11 & .10 \\
+.05 & .15 & .11 & .09 & .07 & .05 \\
+0 & .14 & .10 & .07 & .05 & 0 \\
+\end{longtable}
+
+Razonamientos similares sugieren que para los intervalos de confianza el número de remuestras debería ser mucho mayor, del orden de 1000 o 2000.
+
+En un artículo de Booth y Sarkar ({[}3{]}) se critica el razonamiento anterior argumentando que es preciso controlar la variabilidad derivada del remuestreo de Monte Carlo, para evitar que las conclusiones del uso del bootstrap difieran entre dos repeticiones del mismo cálculo como resultado de factores como las semillas de los generadores de números aleatorios.
+
+\subsubsection{Ejercicios}\label{ejercicios}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Sea \(x_{(1)}<x_{(2)}<\ldots<x_{(7)}\) una muestra ordenada de tamaño \(n=7\). Sea \(\mathbf{x}^{*}\) una muestra bootstrap y \(s\left(\mathbf{x}^{*}\right)\) la correspondiente replica bootstrap de la mediana. Muestre que:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  \(s\left(\mathbf{x}^{*}\right)\) coincide con uno de los valores originales de la muestra \(x_{(i)}\), \(i=1,2, \ldots 7\).
+\item
+  \(P\left[s(\mathbf{x})=x_{(i)}\right]=p(i)\) donde
+\end{enumerate}
+
+\[
+p(i)=\sum_{j=0}^{3}\left\{\operatorname{Bi}\left(j ; n, \frac{i-1}{n}\right)-\operatorname{Bi}\left(j ; n, \frac{i}{n}\right)\right\},
+\]
+
+donde \(\operatorname{Bi}(j ; n, p)\) es la probabilidad binomial \(\binom{n}{j} p^{j}(1-p)^{n-j}\). (Los valores numéricos de \(p(i)\) son \(.0102, .0981, .2386, .3062, .2386\), .0981, .0102.) Estos valores se utilizaron para calcular un error estándar \(\hat{\sigma}_{B=\infty}\) (mediana) \(=37,83\) con el grupo tratamiento con los datos de supervivencia de \(9+9\) ratones (``mouse data set'').
+2. Aplique la ley débil de los grandes números para demostrar que, si \(s\left(\mathbf{x}^{*}\right)\) es la media muestral \(\bar{x}\) el estimador bootstrap del error estándar
+
+\[
+\hat{\sigma}_{B}=\left\{\frac{1}{(B-1)} \sum_{b=1}^{B}\left[s\left(\mathbf{x}_{b}^{*}\right)-s(\cdot)\right]^{2}\right\}^{\frac{1}{2}}
+\]
+
+siendo \(s(\cdot)=\sum_{b=1}^{B} s\left(\mathbf{x}^{*}{ }_{b}\right) / B\), tiende hacia
+
+\[
+\left\{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2} / n^{2}\right\}^{\frac{1}{2}},
+\]
+
+cuando \(n\) tiende a infinito.
+3. Tomamos una muestra aleatoria de tamaño \(n\) con reemplazamiento de una población de tamaño \(N\). Muestre que la probabilidad de que no aparezcan repeticiones en la muestra se obtiene del producto:
+
+\[
+\prod_{j=0}^{n-1}\left(1-\frac{j}{N}\right) .
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Sean \(\bar{X}\) y \(S\) la media y la desviación típica de un conjunto de \(N\) valores \(X_{1}, X_{2}, \ldots, X_{N}\) :
+\end{enumerate}
+
+\[
+\bar{X}=\sum_{i=1}^{N} X_{i}, \quad S=\left\{\sum_{i=1}^{N}\left(X_{i}-\bar{X}\right)^{2} / N\right\}^{\frac{1}{2}} .
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Extraemos una muestra \(\left(x_{1}, x_{2}, \ldots, x_{n}\right)\) de \(X_{1}, \ldots, X_{N}\) con reemplazamiento. La desviación típica de la media muestral, \(\bar{x}=\sum_{i=1}^{n} x_{i}\), se indica como \(\sigma_{\bar{x}}, \mathrm{y}\) suele denominarse el error estándar de la media. Demuestre que:
+\end{enumerate}
+
+\[
+\sigma_{\bar{x}}=\frac{S}{\sqrt{n}}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Supongamos que el muestreo se realiza sin reemplazamiento (es decir es preciso que \(n \leq N\). Demuestre que:
+\end{enumerate}
+
+\[
+\sigma_{\bar{x}}=\frac{S}{\sqrt{n}}\left[\frac{N-n}{N-1}\right]^{\frac{1}{2}}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Como puede verse el muestreo sin reemplazamiento da lugar a un menor error para \(\bar{x}\). Proporcionalmente qué tan menor será en el caso de los datos de las escuelas norteamericanas de abogacía \((N=84, n=15)\) ?.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Dado un conjunto de \(n\) valores distintos pruebe que el número de muestras bootstrap distintas es:
+\end{enumerate}
+
+\[
+\binom{2 n-1}{n .}
+\]
+
+Cuantas son para \(n=15 ?\).
+
+\subsubsection{Practicas}\label{practicas}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Es posible, aunque poco práctico implementar el bootstrap por uno mismo en cualquier lenguaje de ordenador.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Las instrucciones contenidas en BOOTSD1. R y BOOTSD1B. \(\mathrm{R}^{3}\) en realizan remuestreo no paramétrico sobre la media de tiempo de supervivencia de 9 ratones asignados a un tratamiento destinado a prolongar la supervivencia después de una intervención quirúrgica. El resultado se compara con el error estándar de la media.
+\item
+  Las instrucciones contenidas en BOOTSD2.R realizan remuestreo no paramétrico sobre la mediana del tiempo de supervivencia de 9 ratones asignados a un tratamiento destinado a prolongar la supervivencia después de una intervención quirúrgica. El resultado se compara con el error estándar teórico de la mediana,
+\end{enumerate}
+
+\[
+\sqrt{\operatorname{var}(\widehat{M})}=\sqrt{\frac{1}{4 n \cdot[f(\widehat{M})]^{2}}},
+\]
+
+donde \(f()\) es la función de densidad evaluada en la mediana de la muestra, \(\widehat{M} . f()\) se estima mediante un estimador kernel.
+c) Las instrucciones contenidas en BOOTSD3. R y BOOTSD3B. R realizan remuestreo no paramétrico sobre el coeficiente de correlación de las notas de COU y selectividad de 15 estudiantes. En este caso no disponemos, en general, de una fórmula teórica con la que comparar y, en todo caso la varianza auténtica debe estimarse por simulación.
+2. En ocasiones se dispone de alguna hipótesis razonable sobre la distribución de los datos, lo cual sugiere la utilización de un remuestreo paramétrico. Modificar el mecanismo de remuestreo del ejercicio anterior para que las remuestras del tiempo de supervivencia se realicen mediante la generación de muestras de tamaño \(\mathrm{n}=9\) de una distribución exponencial de parámetro \(\alpha=\bar{x}\). Comparar los resultados obtenidos con los del remuestreo no paramétrico.
+3. El jackknife ofrece un procedimiento alternativo al bootstrap para estimar la varianza de un estimador. Modifique las rutinas del ejercicio 1
+
+{[}\^{}2{]}para calcular también el estimador jackknife de la varianza de los estimadores. Compárelo con el estimador bootstrap. (Solución JACKSD1.R )
+4. El bootstrap, junto con el jackknife pueden utilizarse para estimar el sesgo y para obtener estimadores corregidos para el sesgo.A partir de la siguiente muestra obtenida mediante un generador de números aleatorios \(\mathrm{N}(0,1)\)
+\[
+\begin{aligned}
+\mathbf{X}= & 0,3996,1,5074,0,5640,-1,3542,-0,5846,0,4271,-0,7518 \\
+& 0,4622,-0,4563,-0,0783
+\end{aligned}
+\]
+a) Calcular el sesgo bootstrap y jackknife del estimador de la varianza muestral y compararlo con el estimador exacto \(\frac{-1}{n} \sigma^{2}\), que en este ejemplo es conocido al proceder los datos de una distribución simulada.
+b) Repetir varias veces los cálculos y observe como varían las estimaciones. ¿Como explica la variación observada?.
+c) ¿Como se modifica la variabilidad de las estimaciones del sesgo al aumentar el número de remuestras?. Podemos estimar esta variabilidad mediante simulación o mediante jackknife after bootstrap
+5. Si no se dispone de un ``patron-oro'' con el que comparar las estimacionesbootstrap, jackknife u otras- del error estándar pueden validarse estos métodos por simulación. Por ejemplo, para realizar esta validación en el caso del error estándar bootstrap del coeficiente de correlación ejecutaremos el siguiente algoritmo:
+a) Repetir un elevado número de veces \(s=1, \ldots, S\) (p.ej. \(S=10000\) ) el siguiente proceso:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Generar una muestra de una distribución bivariante, p.ej. una normal, \(N(\mu, \boldsymbol{\Sigma})\).
+\item
+  Calcular sobre ella el coeficiente de correlación \(\hat{\rho}_{s}\), y el error estándar bootstrap \(\hat{\sigma}_{B}\)
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  La desviación típica muestral, \(s_{\hat{\rho}}\) de los coeficientes de correlación \(\hat{\rho}_{1}, \ldots, \hat{\rho}_{s}\) es una buena estimación del error estándar de \(\hat{\rho}\) y la media muestral de los errores estándar bootstrap, \(\overline{\hat{\sigma}}_{B}\) es una buena estimación del error estándar bootstrap del coeficiente de correlación.
+  \(c)\) Cuanto más similares sean \(s_{\hat{\rho}}\) y \(\overline{\hat{\sigma}}_{B}\) mejor será la calidad de \(\hat{\sigma}_{B}\) cómo estimador de \(\sigma_{\hat{\rho}}\).
+\end{enumerate}
+
+\section{Capítulo 2}\label{capuxedtulo-2}
+
+\subsection{Estimación y corrección del sesgo de un estimador}\label{estimaciuxf3n-y-correcciuxf3n-del-sesgo-de-un-estimador}
+
+\subsubsection{Introducción}\label{introducciuxf3n-10}
+
+Supongamos que tenemos un modelo estadístico paramétrico, \(X \sim F_{\theta}\), una muestra aleatoria simple de \(X\),
+
+\[
+\mathbf{X}=X_{1}, X_{2}, \ldots, X_{n}
+\]
+
+y un estimador \(\hat{\theta}=T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\) del parámetro. Una forma razonable de valorar qué tan próximos son los valores de \(\hat{\theta}\) de los de \(\theta\) es ver si, en promedio, los valores de \(\hat{\theta}\) coinciden con el valor medio de \(\theta\).
+
+Bajo las condiciones anteriores, si \(E_{F}(T(\mathbf{X}))\) representa la esperanza de \(\hat{\theta}=T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\) la diferencia
+
+\[
+b_{F}(T)=E_{F}(T(\mathbf{X}))-\theta
+\]
+
+recibe el nombre de sesgo del estimador \(\hat{\theta}\) para estimar \(\theta\). Si el sesgo vale cero, es decir si:
+
+\[
+\theta=E_{F}(T(\mathbf{X})), \forall \theta \in \Theta
+\]
+
+diremos que \(\hat{\theta}\) es un estimador insesgado de \(\theta\).
+Ejemplo 1 Los dos ejemplos mas habituales son la media y la varianza muestrales
+
+\begin{itemize}
+\tightlist
+\item
+  La media muestral es un estimador sin sesgo de \(\mu\).
+\item
+  La varianza muestral es un estimador sesgado de la varianza poblacional. En concreto el sesgo vale \(\frac{-1}{n} \sigma^{2}\).
+\end{itemize}
+
+El uso de estimadores sin sesgo es conveniente en muestras de tamaño grande puesto que, en éstas, \(\operatorname{Var}_{\theta}(\hat{\theta})\) es a menudo pequeña y entonces si \(E_{F}(\hat{\theta})=\theta+b_{F}(\theta)\) es muy probable obtener estimaciones centradas en este valor en vez de en el entorno de \(\theta\).
+
+Ejemplo 2 Sea \(X_{1}, X_{2}, \ldots, X_{n}\) una muestra aleatoria simple de \(X \sim U(0, \theta)\). Sea \(T_{1}=\max_{1 \leq i \leq n}\left(X_{i}\right)\) el estimador del máximo de la distribución. Obviamente podemos decir que \(T_{1}<\theta\) y por tanto la estimación es siempre sesgada. La distribución en el muestreo de \(T_{1}\) es
+
+\[
+H_{\theta}(\theta)=P_{\theta}\left[T_{1} \leq t\right]=\left(\frac{t}{\theta}\right)^{n}
+\]
+
+\(y\) su función de densidad
+
+\[
+f_{\theta}(\theta)=H_{\theta}^{\prime}(\theta)=\frac{n}{\theta}\left(\frac{t}{\theta}\right)^{n-1}
+\]
+
+El valor medio de vale:
+
+\[
+E_{F}(t)=\int_{0}^{\theta} t \cdot\left[\frac{n}{\theta}\left(\frac{t}{\theta}\right)^{n-1}\right] d t=\left.\frac{n}{\theta^{n}} \frac{t^{n+1}}{n+1}\right|_{0} ^{\theta}=\frac{n}{n+1} \frac{\theta^{n+1}}{\theta^{n}}=\frac{n}{n+1} \theta
+\]
+
+de donde el sesgo de \(T_{1}\) para estimar \(\theta\) vale
+
+\[
+b_{F}(\theta)=\frac{n}{n+1} \theta-\theta=-\frac{1}{n+1} \theta
+\]
+
+Podemos preguntarnos sino podríamos mejorar este estimador corrigiendo el sesgo de forma análoga a como se suele hacer con \(\hat{S}^{2} y\) así utilizar el estimador \(T_{1}^{\prime}=\frac{n+1}{n} T_{1}\) que verifica \(E\left(T_{1}^{\prime}\right)=\theta\). Si buscamos el estimador de mínimo, riesgo en el sentido del error cuadrático medio, es decir el estimador que minimiza \(E\left[(\theta-T)^{2}\right]\) obtenemos
+
+\[
+T_{k}=\frac{n+2}{n+1} T_{1}
+\]
+
+que es preferible a \(T_{1}\) pero no es insesgado puesto que:
+
+\[
+E_{\theta}\left(T^{\prime \prime}\right)=\frac{n+2}{n+1} E_{\theta}\left(T_{1}\right)=\frac{(n+2) n}{(n+1)^{2}} \theta
+\]
+
+El ejemplo anterior muestra que debido a la descomposición
+
+\[
+E Q M_{F}(T)=\operatorname{Var}_{F}(T)+b_{F}^{2}(T)
+\]
+
+puede ser preferible un estimador sesgado a uno insesgado.
+En general, sin embargo, eliminar el sesgo no es una mala estrategia. Esto viene avalado por la teoría de la estimación sin sesgo en donde restringiendo la clase de los estimadores a los estimadores insesgados se obtiene una solución constructiva que permite obtener estimadores insesgados de varianza mínima en condiciones bastante generales. En el contexto actual dicha teoría no suele tener aplicación por lo que vamos considerar formas de reducir el sesgo mediante aplicación de los métodos de remuestreo.
+
+\subsubsection{Estimación bootstrap del sesgo}\label{estimaciuxf3n-bootstrap-del-sesgo}
+
+Si en la definición del sesgo
+
+\[
+b_{F}(T)=E_{F}(T(\mathbf{X}))-\theta(F)
+\]
+
+en donde \(\theta(F)\) indica la dependencia del parámetro respecto de la distribución \(F\), substituimos \(F\) por una estimación \(\hat{F}\), obtendremos el estimador bootstrap del sesgo:
+
+\[
+b_{\hat{F}}(T)=E_{\hat{F}}\left(T\left(\mathbf{X}^{*}\right)\right)-\theta(\hat{F})
+\]
+
+Algunas observaciones importantes sobre esta definición son las siguientes:
+
+\begin{itemize}
+\tightlist
+\item
+  La substitución de \(F\) por \(\hat{F}\) se realiza en dos puntos: \(E_{F}(T(\mathbf{X}))\) y en \(\theta(F)\)
+\item
+  Definiendo así el estimador bootstrap del sesgo no es preciso que \(T(\mathbf{X})\) sea un estimador de substitución pero si debe serlo \(\theta(\hat{F})\).
+\end{itemize}
+
+En ocasiones será posible calcular directamente \(b_{\hat{F}}(T)\), siempre que sepamos cómo calcular \(E_{\hat{F}}\left(T\left(\mathbf{X}^{*}\right)\right)\) y \(\theta(\hat{F})\), pero en general será preciso aproximarlos por remuestreo de Monte Carlo mediante los mismos algoritmos de remuestreo que hemos visto en el capítulo anterior. Veamos algunos ejemplos en los que es posible el cálculo exacto de \(b_{\hat{F}}(T)\).
+
+Ejemplo 1 Si \(\theta(F)\) es la media de la distribución, \(\theta(F)=\int X d F, y T(\mathbf{X})\) es la media muestral entonces
+
+\[
+\begin{aligned}
+b_{\hat{F}}(T) & =E_{\hat{F}}\left(T\left(\mathbf{X}^{*}\right)\right)-\theta(\hat{F})=E_{\hat{F}}\left(\overline{\mathbf{X}^{*}}\right)-\bar{X} \\
+& =E_{\hat{F}}\left(\frac{1}{n} \sum X_{i}^{*}\right)-\bar{X}=\bar{X}-\bar{X}=0
+\end{aligned}
+\]
+
+es decir el estimador bootstrap del sesgo es cero coincidiendo con el sesgo auténtico de \(\bar{X}\) para estimar \(\mu\).
+
+Ejemplo 2 Si \(\theta(F)\) es la varianza de la distribución, \(\theta(F)=\int\left(X-\int X d F\right)^{2} d F\), y \(T(\mathbf{X})\) es la varianza muestral entonces es fácil ver que
+
+\[
+\begin{array}{r}
+b_{F}(T)=-\frac{1}{n} \sigma^{2} y \\
+b_{\hat{F}}(T)=-\frac{1}{n^{2}} \sum\left(X_{i}-\bar{X}\right)^{2}
+\end{array}
+\]
+
+Como hemos indicado estos y otros casos sencillos suelen ser la excepción. En general deberemos recorrer a remuestreo de Monte Carlo para estimar \(b_{\hat{F}}(T)\). El algoritmo es muy similar al utilizado para estimar el error estándar:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Extraer \(B\) muestras, \(\mathbf{X}_{1}^{*}, \mathbf{X}_{2}^{*}, \ldots, \mathbf{X}_{B}^{*}\) de \(F_{n}\)
+\item
+  Calcular \(T\left(\mathbf{X}_{1}^{*}\right), \ldots, T\left(\mathbf{X}_{B}^{*}\right)\)
+\item
+  Sea
+\end{enumerate}
+
+\[
+\overline{\hat{\theta}^{*}} \equiv \frac{1}{B} \sum_{b=1}^{B} \hat{\theta}\left(\mathbf{X}_{b}^{*}\right)
+\]
+
+entonces el estimador bootstrap del sesgo, \(b_{\hat{F}}(T)\) se puede aproximar por:
+
+\[
+\widehat{b_{\hat{F}}(T)}=\overline{\hat{\theta}^{*}}-T(\mathbf{X})
+\]
+
+\subsubsection{Ejemplo 1. Estimación del sesgo del estimador de la varianza}\label{ejemplo-1.-estimaciuxf3n-del-sesgo-del-estimador-de-la-varianza}
+
+Supongamos que tomamos una muestra de una población normal de media \(\mu=0\) y varianza conocida \(\sigma^{2}=1\). El estimador de substitución de la varianza es
+
+\[
+T(\mathbf{X})=S^{2}=\frac{1}{n} \sum\left(X_{i}-\bar{X}\right)^{2}
+\]
+
+En este caso podemos calcular el sesgo exacto y el estimador bootstrap del sesgo. Si a continuación calculamos el estimador bootstrap aproximado del sesgo podremos compararlo con los anteriores.
+
+Una muestra de tamaño \(n=10\) de dicha distribución, obtenida mediante un generador de números aleatorios, es la siguiente
+
+\[
+\begin{gathered}
+\mathbf{X}=0,3996,1,5074,0,5640,-1,3542,-0,5846,0,4271,-0,7518, \\
+0,4622,-0,4563,-0,0783 .
+\end{gathered}
+\]
+
+La varianza muestral estimada sobre la muestra vale:
+
+\[
+S^{2}(\mathbf{X})=0,60971 .
+\]
+
+El el sesgo exacto y el estimador bootstrap del sesgo valen respectivamente:
+
+\[
+\begin{aligned}
+b_{F}(T) & =-\frac{1}{n} \sigma^{2}=-0.1 \times 1=0.1 \\
+b_{\hat{F}}(T) & =-\frac{1}{n^{2}} \sum\left(X_{i}-\bar{X}\right)^{2}=-\frac{0,60971}{10}=-0,060971 .
+\end{aligned}
+\]
+
+Para obtener la aproximación de Monte Carlo realizamos 100 remuestras, estimamos \(S^{2}\) sobre cada una de ellas y calculamos el promedio de las 100 estimaciones. El estimador bootstrap aproximado del sesgo vale
+
+\[
+\begin{aligned}
+\widehat{b_{\hat{F}}\left(S^{2}\right)} & =\overline{S^{2 *}}-S^{2}(\mathbf{X})= \\
+& =0,57060-0,60971=-0,03911
+\end{aligned}
+\]
+
+Es importante observar que este valor se halla influido por el remuestreo de Monte Carlo. Otras extracciones de 100 remuestras dan lugar a valores distintos del sesgo que pueden oscilar considerablemente desde -0.01 hasta 0.1. Esto sugiere la necesidad de realizar un remuestreo con un mayor número de remuestras. Un estudio de simulación en donde se repite 100 veces el remuestreo con \(100,250,500\) y 1000 remuestras muestra el efecto del número de remuestras sobre la dispersión de las estimaciones del sesgo
+
+\subsubsection{Corrección del sesgo de un estimador}\label{correcciuxf3n-del-sesgo-de-un-estimador}
+
+En ocasiones es deseable eliminar o reducir, dentro de lo posible, el sesgo de un estimador. Si \(\hat{\theta}=T(\mathbf{X})\) és un estimador de \(\theta\) y \(\widehat{b(T)}\) un estimador del sesgo de \(T(\mathbf{X})\), entonces una forma de reducir el sesgo de la estimación es definir el estimador corregido para el sesgo,
+
+\[
+\tilde{\theta}=T(\mathbf{X})-\widehat{b(T)}
+\]
+
+El estimador del sesgo puede obtenerse por cualquier procedimiento que resulte adecuado, ya sea
+
+\begin{itemize}
+\tightlist
+\item
+  mediante una fórmula analítica ``ad hoc'',
+\item
+  el estimador bootstrap del sesgo, \(b_{\hat{F}}(T)\), si se sabe cómo calcularlo,
+\item
+  el estimador bootstrap del sesgo aproximado por Monte Carlo \(\widehat{b_{\hat{F}}(T)}\), o
+\item
+  otros métodos como el jackknife que se discutirá más adelante.
+\end{itemize}
+
+Si utilizamos el estimador bootstrap aproximado por Monte Carlo para corregir el sesgo obtenemos el estimador bootstrap de \(\theta\) corregido para el sesgo o más precisamente, el estimador de \(\theta\) corregido para el sesgo mediante bootstrap:
+
+\[
+\begin{aligned}
+\tilde{\theta}^{*} & =T(\mathbf{X})-\widehat{b_{\hat{F}}(T)}=T(\mathbf{X})-\left(\overline{\hat{\theta}^{*}}-T(\mathbf{X})\right)= \\
+& =2 \cdot T(\mathbf{X})-\overline{\hat{\theta}^{*}}
+\end{aligned}
+\]
+
+Este estimador no debe confundirse con la media bootstrap \(\overline{\hat{\theta}^{*}}\) que no es, en general un estimador adecuado de \(\theta\).
+
+La corrección del sesgo no debe realizarse de forma indiscriminada. Puede darse el caso que el estimador corregido para el sesgo tenga una varianza mayor que el estimador original, con lo que el error cuadrático medio aumente en vez de disminuir. Una posibilidad, de cara a decidir si vale la pena o no corregir el sesgo es estimar el error estándar del estimador corregido para el sesgo mediante bootstrap, es decir calcular \(\widehat{\sigma_{\tilde{\theta}}^{*}}\). Si el error estándar bootstrap estimado de \(\tilde{\theta}^{*}\) y de \(\hat{\theta}^{*}\) es aproximadamente el mismo
+
+\[
+\widehat{\sigma_{\tilde{\theta}}^{*}} \approx \widehat{\sigma_{\hat{\theta}}^{*}}
+\]
+
+dado que el sesgo es menor
+
+\[
+\widehat{b_{\hat{F}}\left(\tilde{\theta}^{*}\right)}<\widehat{b_{\hat{F}}\left(\hat{\theta}^{*}\right)}
+\]
+
+entonces puede ser interesante, en terminos de reduccion del error cuadrático medio, la reducción del sesgo.
+
+\subsubsection{El jackknife}\label{el-jackknife}
+
+El jackknife fue introducido por Quenouille en 1949 para estudiar el sesgo de un estimador. Es bàsicamente un método de ``remuestreo'' consistente en eliminar un punto de la muestra original y recalcular el estimador. Esto da lugar a \(n\) estimaciones ligeramente distintas a partir de las cuales se estimará el sesgo.
+
+\paragraph{El estimador jackknife del sesgo}\label{el-estimador-jackknife-del-sesgo}
+
+Sea \(\left\{X \sim F_{\theta}, \theta \in \Theta\right\}\) y sea \(\mathbf{X}\) una muestra aleatoria simple de \(X\). La muestra jackknife \(i\)-esima, \(\mathbf{X}_{(i)}\) es:
+
+\[
+\mathbf{X}_{(i)}=\left(X_{1}, X_{2}, \ldots, X_{i-1}, X_{i+1}, \ldots, X_{n}\right)
+\]
+
+es decir la muestra original de la que se ha eliminado la observación \(X_{i}\).
+Sea ahora \(\hat{\theta}=T_{n}(\mathbf{X})\) un estimador del parámetro \(\theta\) que puede ser, o no, un estadístico de substitución. Sea
+
+\[
+\hat{\theta}_{(i)}=T_{(n-1)}\left(\mathbf{X}_{(i)}\right)=T_{(n-1)}\left(\left(X_{1}, X_{2}, \ldots, X_{i-1}, X_{i+1}, \ldots, X_{n}\right)\right) .
+\]
+
+El estimador jackknife del sesgo definido por Quenouille es:
+
+\[
+\hat{b}_{J}=(n-1)\left(\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right), \quad \text { donde: } \hat{\theta}_{(\cdot)}=\frac{1}{n} \sum_{i=1}^{n} \hat{\theta}_{(i)}
+\]
+
+A partir del estimador jackknife del seso puede definirse el estimador jackknife corregido para el sesgo:
+
+\[
+\begin{aligned}
+\hat{\theta}_{J}=\hat{\theta}-\hat{b}_{J} & =\hat{\theta}-(n-1)\left(\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right) \\
+& =n \hat{\theta}-(n-1) \hat{\theta}_{(\cdot)}
+\end{aligned}
+\]
+
+A veces este estimador recibe directamente el nombre de estimador jackknife de \(\theta\).
+¿Como se explica que el estimador jackknife tenga menor sesgo que el original? Supongamos que \(\hat{b}_{J}\) sea un estimador insesgado del sesgo de \(\hat{\theta}\), es decir
+
+\[
+E\left[\hat{b}_{J}\right]=b(\theta)=E\left[T_{n}\right]-\theta
+\]
+
+Entonces tendremos que:
+
+\[
+\begin{aligned}
+b\left(\hat{\theta}_{J}\right) & =E\left[\hat{\theta}_{J}\right]-\theta=E\left[\hat{\theta}-\hat{b}_{J}\right]-\theta \\
+& =E(\hat{\theta})-E\left(\hat{b}_{J}\right)-\theta= \\
+& =\underbrace{\theta+b(\hat{\theta})}_{E(\hat{\theta})}-b(\hat{\theta})-\theta=0 .
+\end{aligned}
+\]
+
+Es decir, si \(\hat{b}_{J}\) es un estimador insesgado del sesgo de \(\hat{\theta}\) entonces \(\hat{\theta}_{J}\) no tendrá sesgo:
+
+\[
+E\left(\hat{b}_{J}\right)=b(\hat{\theta}) \Longrightarrow E\left(\hat{\theta}_{J}\right)=\theta
+\]
+
+Evidentemente el problema reside en que, en general, no es posible establecer analíticamente si \(\hat{b}_{J}\) esta centrado, o no, en el sesgo de \(\hat{\theta}, b(\theta)\). Efron ({[}7{]}) da un argumento heurístico, no del todo formal, para argumentar que, como mínimo, el sesgo de \(\hat{\theta}_{J}\) suele ser inferior al de \(\hat{\theta}\). Para ello se basa en el hecho de que muchos estimadores sesgados son asintóticamente insesgados dado que, a menudo el sesgo es una función del tamaño muestral que tiende a 0 cuando \(n \longrightarrow \infty\), es decir
+
+\[
+b(\hat{\theta})=o(1)
+\]
+
+Ejemplos conocidos de esta propiedad son la variancia muestral o el máximo de una muestra en una distribución uniforme \(\mathcal{U}(0, \theta)\). Para los estimadores de este tipu suele exisatir un desarrollo asintótico de la esperanza en potencias de \(n\), del tipo:
+
+\[
+E(\hat{\theta})=\theta+\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+\frac{a_{3}}{n^{3}}+\ldots,
+\]
+
+donde las \(a_{i}\) dependen únicamente de \(F\) pero no de \(n, a_{i}=a_{i}(F)\), de forma que podemos poner el sesgo de \(\hat{\theta}\) como
+
+\[
+b(\hat{\theta})=E(\hat{\theta})-\theta=\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+O\left(\frac{1}{n^{3}}\right)
+\]
+
+Suponiendo que el desarrollo (2.7) exista entonces podemos justificar que el sesgo de \(\hat{\theta}_{J}\) es inferior al de \(\hat{\theta}\). Veamos como. Si suponemos que
+
+\[
+b(\hat{\theta})=\frac{a_{1}}{n}+\frac{a_{2}}{n^{2}}+O\left(\frac{1}{n^{3}}\right)
+\]
+
+entonces
+
+\[
+b\left(\hat{\theta}_{(i)}\right)=\frac{a_{1}}{n-1}+\frac{a_{2}}{(n-1)^{2}}+O\left(\frac{1}{(n-1)^{3}}\right)
+\]
+
+y por lo tanto, dado que
+
+\[
+E\left[\hat{\theta}_{(\cdot)}\right]=E\left(\frac{1}{n} \sum_{i=1}^{n} \hat{\theta}_{(i)}\right)=E\left(\hat{\theta}_{(i)}\right)
+\]
+
+el sesgo de \(\hat{\theta}_{(\cdot)}\) tiene la misma expresión que el de \(\hat{\theta}_{(i)}\). Podemos calcular la esperanza del estimador del sesgo, es decir:
+
+\[
+\begin{aligned}
+E\left(\hat{b}_{J}\right) & =E\left[(n-1)\left(\hat{\theta}_{(\cdot)}-\hat{\theta}_{n}\right)\right] \\
+& =(n-1)\left(E\left(\hat{\theta}_{(\cdot)}\right)-E\left(\hat{\theta}_{n}\right)\right) \\
+& =(n-1)\left[\left(\theta+b\left(\hat{\theta}_{(i)}\right)\right)+\left(\theta+b\left(\hat{\theta}_{n}\right)\right)\right] \\
+& =(n-1)\left[b\left(\hat{\theta}_{(i)}\right)-b\left(\hat{\theta}_{n}\right]\right. \\
+& =(n-1)\left[\left(\frac{1}{n-1}-\frac{1}{n}\right) a_{1}+\left(\frac{1}{(n-1)^{2}}-\frac{1}{n^{2}}\right) a_{2}+O\left(\frac{1}{n^{3}}\right)\right] \\
+& =\frac{a_{1}}{n}+\frac{(2 n-1)}{n^{2}(n-1)} a_{2}+O\left(\frac{1}{n^{2}}\right)
+\end{aligned}
+\]
+
+La expresion anterior muestra que, bajo determinadas suposiciones, \(\hat{b}_{J}\) es correcto hasta el orden \(n^{-2}\) com estimador del sesgo de \(\hat{\theta}_{n}\).
+
+Reuniendo lo anterior para determinar el sesgo de \(\hat{\theta}_{J}\) tendremos:
+
+\[
+\begin{aligned}
+b\left(\hat{\theta}_{J}\right) & =b\left(\hat{\theta}_{n}-\hat{b}_{J}\right)= \\
+& =b\left(\hat{\theta}_{n}\right)-E\left(\hat{b}_{J}\right)= \\
+& =-\frac{b}{n(n-1)}+O\left(\frac{1}{n^{2}}\right)
+\end{aligned}
+\]
+
+que es de un orden inferior a \(b\left(\hat{\theta}_{n}\right)\), lo que explica porqué, en general, \(\hat{\theta}_{J}\) tendrá menos sesgo que \(\hat{\theta}_{n}\).
+
+Aún insistiendo en el hecho de que la aproximación que hemos realizado es heurística su validez es bastante grande. Por ejemplo para los estimadores máximo verosímiles suele existir un desarrollo asintótico de la esperanza con lo que en este caso la afirmación seria cierto.
+
+\subsubsection{Ejercicios}\label{ejercicios-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Supongamos que utilizamos la mediana muestral para estimar la media poblacional \(\theta=E_{F}(X)\). Describa el estimador bootstrap del sesgo \(\widehat{\operatorname{bias}}_{B}\).
+\item
+  Sea \(\widehat{b i a s}_{\text {JACK }}\) el estimador jackknife del sesgo de un estimador \(\hat{\theta}\) :
+\end{enumerate}
+
+\[
+\widehat{\operatorname{bias}}_{J A C K}=(n-1)\left(\hat{\theta}_{(\cdot)}-\hat{\theta}\right),
+\]
+
+siendo
+
+\[
+\begin{array}{r}
+\hat{\theta}_{(\cdot)}=\sum_{i=1}^{n} \hat{\theta}_{(i)} / n, \mathrm{y} \\
+\hat{\theta}_{(i)}=\hat{\theta}\left(x_{1}, x_{2}, \ldots, x_{i-1}, x_{i+1}, \ldots x_{n}\right)
+\end{array}
+\]
+
+Mostrar que, si \(\hat{\theta}=\bar{x}\) entonces \(\hat{\theta}_{(\cdot)}-\hat{\theta}=0\), es decir \(\widehat{\operatorname{bias}}_{\text {JACK }}=0\).
+3. Demuestre que si \(\hat{\theta}=\bar{x}\) el estimador jackknife del error estandar definido por
+
+\[
+\widehat{E E}_{J A C K}=\sqrt{\frac{n-1}{n} \sum_{i=1}^{n}\left(\hat{\theta}_{(i)}-\hat{\theta}_{(\cdot)}\right)^{2}}
+\]
+
+coincide con el estimador insesgado del error error estándar de la media
+
+\[
+\hat{s} / \sqrt{n}=\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2} /\{(n-1) n\}} .
+\]
+
+\section{Capítulo 3}\label{capuxedtulo-3}
+
+\subsection{Intervalos de confianza bootstrap}\label{intervalos-de-confianza-bootstrap}
+
+\subsubsection{Introducción}\label{introducciuxf3n-11}
+
+Como hemos visto en el apartado anterior, un aspecto importante en la estimación de un parámetro es el grado de precisión de dicha estimación. Una forma de incluir la medida de la precisión en la estimación consiste en utilizar estimadores por intervalo, es decir, estimar \(\theta\) mediante un subconjunto \(T \subset \Theta\) del espacio paramétrico que verifique:
+
+\[
+T=\{t \in \Theta \mid P(\theta \in T)=(1-\alpha)\} .
+\]
+
+Hay muchos métodos para construir intervalos de confianza (IC de aquí en adelante). Bajo ciertas circunstancias es posible obtener IC exactos, entendiendo como tales aquellos en que el recubrimiento real del intervalo, \(P(\theta \in T)\) es igual al recubrimiento nominal \(1-\alpha\) con que se pretende estimar el parámetro.
+
+El método del pivote o el de Neyman, que se estudian en los cursos introductorios de Estadística Matemática, pueden dar IC exactos en algunos casos, como la media de una población normal o el parámetro de una ley exponencial. Son sin embargo escasas las ocasiones en que se verifican las condiciones de aplicación de estos métodos. En muchas situaciones de interés es preciso recurrir a intervalos de confianza aproximados en los que el recubrimiento real es tan solo aproximadamente igual al nominal es decir \(P(\theta \in T) \simeq 1-\alpha\).
+
+El bootstrap se ha revelado como una técnica de gran utilidad de cara a construir IC aproximados. Como hemos visto en la primera parte de este tema su naturaleza esencialmente no paramétrica permite abordar gran tipo
+de situaciones en los que las condiciones de aplicación de otros métodos ``clásicos'' no se verifican.
+
+Una ventaja adicional de los métodos bootstrap es que, mediante procedimientos sofisticados, en los que aquí no entraremos, es posible conocer qué tan bueno es el grado de aproximación de un IC aproximado, valga la redundancia. Dicho de otra forma, se puede cuantificar la diferencia entre el recubrimiento real y el nominal. Ello ha permitido no tan sólo crear una amplia gama de metodos de construcción de IC sino también determinar en qué grado la estimación que estos ofrecen debe de considerarse aceptable.
+
+El número de técnicas que se basan en la distribución bootstrap del estadístico para, en una forma u otra, obtener intervalos de confianza es muy elevado. Para evitar que, como se suele decir, el gran número de árboles no nos impida ver el bosque, nos centraremos en tres categorías: los intervalos de confianza estándar, los intervalos de confianza estudentizados o bootstrap-t y el grupo de los denominados métodos percentil, todos ellos ideados por Efron que fue introduciendo sofisticaciones en una interesante idea inicial.
+
+\subsubsection{Intervalos de confianza estándar}\label{intervalos-de-confianza-estuxe1ndar}
+
+El concepto de IC estándar no va necesariamente ligado al bootstrap . La idea en que se basa consiste en suponer que, dado un parámetro \(\theta\), un estimador centrado \(\hat{\theta}\) de \(\theta\) y el error estándar de \(\hat{\theta}, \sigma_{\hat{\theta}}\),se verifica de forma aproximada que:
+
+\[
+\frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} \xrightarrow{\mathcal{L}} N(0,1) .
+\]
+
+Bajo esta suposición un IC aproximado al nivel de confianza \((1-\alpha)\) será:
+
+\[
+\hat{\theta}-z_{1-\alpha / 2} \sigma_{\hat{\theta}}, \hat{\theta}-z_{\alpha / 2} \sigma_{\hat{\theta}}
+\]
+
+donde \(z_{1-\alpha / 2}\) es el percentil \(100(1-\alpha / 2)\) de la distribución normal \(N(0,1)\).
+En una situación paramétrica, \(\sigma_{\hat{\theta}}\) puede ser el error estándar asintótico del estimador máximo-verosímil o incluso una expresión exacta. P.ej. si \(\hat{\theta}=\hat{\rho}\), el coeficiente de correlación muestral, entonces, supuesta la distribución de la población normal bivariante, podemos usar el estimador de la teoría normal:
+
+\[
+\sigma_{N O R M}=\left(1-\rho^{2}\right) /(n-3)^{1 / 2}
+\]
+
+Cuando no se conoce la forma de \(\sigma_{\hat{\theta}}\) puede utilizarse el estimador bootstrap del error estándar, \(\sigma_{B O O T}\) definido en la sección anterior, que, como hemos visto puede siempre aproximarse mediante el algoritmo de Monte Carlo.
+
+Los IC estándar resultan muy atractivos -han sido y son muy utilizados en la práctica- por el hecho de ser automáticos: es posible escribir un programa que a partir de cualquier conjunto de datos estime el parámetro y los construya.
+
+Su inconveniente principal reside en el hecho de que son aproximados, con lo pueden dar lugar a intervalos inexactos. Vale la pena destacar que, de hecho, suelen ser doblemente aproximados puesto que en la práctica se realizan a menudo no una sino dos aproximaciones:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La suposición de normalidad, que no es necesariamente cierta, sobre todo en muestras pequeñas,
+\item
+  A menudo el error estándar es funcion del parámetro desconocido, es decir \(\sigma_{\hat{\theta}}=\sigma_{\hat{\theta}}(\theta)\) con lo que no podemos basarnos en la aproximación
+\end{enumerate}
+
+\[
+\frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}} \xrightarrow{\mathcal{L}} N(0,1),
+\]
+
+sinó en esta otra, de velocidad de convergencia más lenta, y por lo tanto más errónea en muestras pequeñas:
+
+\[
+\frac{\hat{\theta}-\theta}{\hat{\sigma}_{\hat{\theta}}} \xrightarrow{\mathcal{L}} N(0,1) .
+\]
+
+Un ejemplo conocido de esta doble aproximación es el caso de la proporción muestral que estima la probabilidad de observar un suceso \(A, P(A)\) mediante
+
+\[
+\hat{p}=\frac{\sum_{i=1}^{n} Y_{i}}{n}, Y=\left\{\begin{array}{l}
+1, \text { si se presenta un suceso } A \\
+0, \text { si no se presenta el suceso }
+\end{array}\right.
+\]
+
+donde el error estándar de \(\hat{p}\) es:
+
+\[
+\sigma_{\hat{p}}=\sqrt{\frac{p \cdot q}{n}},
+\]
+
+que debe aproximarse en la práctica por:
+
+\[
+\hat{\sigma}_{\hat{p}}=\sqrt{\frac{\hat{p} \cdot \hat{q}}{n}}
+\]
+
+Otros ejemplos de sta doble aproximación los tendremos cuando utilicemos el estimador aproximado por montecarlo del estimador bootstrap del error estándar o el estimador del error estándar del coeficiente de correlación,(3.1), en donde substituyamos \(\rho\) por su estimador máximo verosímil, \(\hat{\rho}\).
+
+\section{Capítulo 4}\label{capuxedtulo-4}
+
+\subsection{Intervalos de confianza basados en tablas bootstrap}\label{intervalos-de-confianza-basados-en-tablas-bootstrap}
+
+\subsubsection{El caso de la t de Student}\label{el-caso-de-la-t-de-student}
+
+Cuando el parámetro de interés es la media poblacional de una distribución normal \(X \sim N(\mu, \sigma)\), que estimamos mediante la media muestral, \(\hat{\theta}=\bar{X}\), existe una solución conocida para que no sea preciso realizar la doble aproximación
+
+\[
+\frac{\bar{X}-\mu}{\hat{\sigma}_{\bar{X}}} \dot{\sim} N(0,1)
+\]
+
+Tomando \(\hat{\sigma}_{\bar{X}}=s / \sqrt{n-1}\), donde \(s\) representa la desviación típica muestra, és decir el estimador maximo verosímil de \(\sigma\), la distribución del estadístico anterior es una \(t\) de Student con \(n-1\) grados de libertad, es decir:
+
+\[
+\frac{\bar{X}-\mu}{s / \sqrt{n-1}} \sim t_{n-1}
+\]
+
+Basándonos en esta aproximación el intervalo de confianza que se obtiene para \(\hat{\theta}\) es:
+
+\[
+\hat{\theta}-t_{n-1,1-\alpha / 2} \hat{\sigma}_{\hat{\theta}}, \hat{\theta}-t_{n-1, \alpha / 2} \hat{\sigma}_{\hat{\theta}}
+\]
+
+donde \(t_{n-1,1-\alpha / 2}\) es el percentil \(1-\alpha / 2\) de la distribución \(t\) de Student con \(n-1\) grados de libertad.
+
+Este intervalo es exacto si \(X \sim N(\mu, \sigma)\) y el parámetro a estimar es la media, \(\mu \mathrm{y}\) tiene el efcto de ensanchar el intervalo para compensar el error cometido al tener que estimar \(\sigma_{\bar{X}}\), con \(\hat{\sigma}_{\bar{X}}\). Esto se debe al hecho de que la distribución \(t\) de Student es ligeramente más ancha que la \(N(0,1)\) a la cual tiende cuando \(n \rightarrow \infty\).
+
+Si, por ejemplo tomamos los datos de tiempos de supervivencia de los ratones del grupo control, discutidos en el capítulo 1
+
+\[
+52,10,40,104,51,27,146,30,46
+\]
+
+con media y error estándar
+
+\[
+\bar{X}=56,22, \hat{\sigma}_{\bar{X}}=s / \sqrt{n-1}=13,33
+\]
+
+obtenemos el intérvalo de confianza ``aproximadísimo'' al \(95 \%\) basado en la normal:
+
+\[
+56,22 \pm 1,645 \times 13,33=[34,29,78,15]
+\]
+
+y el intervalo de confianza basado en la \(t\) de tudent:
+
+\[
+56,22 \pm 1,86 \times 13,33=[31,22,81,01] .
+\]
+
+La corrección que efectua el segundo tipo de intérvalo es válida únicamente para la media. Otros estadísticos como la mediana no pueden aprovecharla por lo que un intervalo de confianza estándar para la mediana seria del tipo:
+
+\[
+\widehat{M e d} \pm 1,645 \times \hat{\sigma}_{B O O T}(\widehat{M e d}) .
+\]
+
+\subsubsection{Intervalos de confianza basados en tablas bootstrap}\label{intervalos-de-confianza-basados-en-tablas-bootstrap-1}
+
+Hasta el momento hemos podido constatar que la aproximación normal falla, especialmente con muestras pequeñas si tenemos que estimar \(\sigma_{\hat{\theta}}\).
+
+Tambien hemos visto un caso, la media muestral en que este problema se compensa utilizando unas tablas diferentes a las de la \(N(0,1)\), las de la \(t\) de Student. Observamos que lo que ha sucedido es que hemos ganado en precisión al precio de perder generalidad ya que hemos pasado de usar unas tablas válidas para todas las muestras a necesitar una distinta para cada tamaño muestral. Encima esta mejora con ``coste'' solo es válida para el caso de la media muestral. Para la inmensa mayoria de los estadísticos restantes no es válida.
+
+El bootstrap-t fuerza esta idea de ganar precisión perdiendo generalidad y pasa de tener una tabla distinta para cada tamaño muestral a tener una tabla distinta para cada muestra. Es decir lo que hace este procedimiento es construir una tabla a medida para cada muestra. Esta tabla se utilizará para construir intervalos de confianza exactament de la misma forma en que se procedia con la \(N(0,1)\) o con la \(t_{n-1}\).
+
+El algoritmo para el cálculo de los intervalos de confianza es el siguiente:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Sea \(\mathbf{X}\) la muestra original y \(\hat{\theta}=T(\mathbf{X})\)
+\item
+  Extraer \(B\) muestras, \(\mathbf{X}_{1}^{*}, \mathbf{X}_{2}^{*}, \ldots, \mathbf{X}_{B}^{*}\) de \(F_{n}\)
+\item
+  Sobre cada una de ellas:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Calcular \(\hat{\theta}_{b}^{*}=T\left(\mathbf{X}_{b}^{*}\right), \widehat{\sigma}_{\hat{\theta}}\left(\mathbf{X}_{b}^{*}\right)=\widehat{\sigma}_{b}^{*}\)
+\item
+  Calcular
+\end{enumerate}
+
+\[
+\frac{\hat{\theta}_{b}^{*}-\hat{\theta}}{\widehat{\sigma}_{b}^{*}}=z_{b}^{*}
+\]
+
+Este algoritmo dara lugar a \(B\) valores \(z_{1}^{*}, z_{2}^{*}, \ldots, z_{B}^{*}\) que, una vez ordenados \(z_{(1)}^{*}, z_{(2)}^{*}, \ldots, z_{(B)}^{*}\) representan la aproximación de Monte carlo a la distribución bootstrap del estadístico
+
+\[
+Z=\frac{\hat{\theta}-\theta}{\widehat{\sigma}_{\hat{\theta}}}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  El percentil \(\alpha\) de de \(\mathrm{Z}^{*}\) lo estimaremos por el valor \(\hat{t}^{(\alpha)}\) que verifica que
+\end{enumerate}
+
+\[
+\frac{\#\left\{z_{b}^{*} \leq \hat{t}^{(\alpha)}\right\}}{B}=\alpha,
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  El intervalo de confianza basado en el bootstrap- \(t\) será finalmente:
+\end{enumerate}
+
+\[
+\hat{\theta}-\hat{t}^{(1-\alpha / 2)} \hat{\sigma}_{\hat{\theta}}, \hat{\theta}-\hat{t}^{(\alpha / 2)} \hat{\sigma}_{\hat{\theta}} .
+\]
+
+Aplicando este método a la media del grupo control se obtiene
+
+\[
+56,22-1,53 \times 13,33,56,22+4,53 \times 13,33=[35,82,116,74] .
+\]
+
+Si comparamos los tres intervalos desarrollados hastra el momento observamos lo siguiente:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Intervalo & Extremos \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Normal & \([34,29,78,15]\) \\
+\(t\) de Student & \([31,22,81,01]\) \\
+Bootstrap- \(t\) & \([35,8,116,7]\). \\
+\end{longtable}
+
+Pdemos observar que, mientras el extremo inferior és muy parecido en los tres casos el IC basado en el bootstrap tiene un extremo superior más alargado, como consecuencia de que en 1 muestra aparecen 2 valores muy grandes.
+
+El estadístico \(Z=\frac{\hat{\theta}-\theta}{\widehat{\sigma}_{\hat{\theta}}}\), cuya distribución aproximamos doblemente mediante bootstrap recibe el nombre de pivote aproximado, lo que da a entender
+que su distribución no depende de \(\theta\). Esta propiedad es la que permite utilizarlo para construir el intervalo de confianza basado en el bootstrap-t.
+
+La clave del buen funcionamiento del bootsrap- \(t\) está precisamente en qué tan buena aproximación a la distribución del pivote podemos lograr mediante el remuestreo. Estudios teóricos bastante complejos demuestran que, en muestras grandes el recubrimiento del bootstrap-t tiende a aproximarse más al recubrimiento nominal, es decir el recubrimiento que se desea que tengan los intervalos de confianza en el momento de construirlos, que los intervalos estándar o basados en la \(t\) de Student. El bootstrap- \(t\) es una generalización de la \(t\) de Student que extiende su aplicabilidad de la media muestral a estadísticos de posición como la media, la mediana, la media recortada o el percentil de la muestra.
+
+Resumiendo:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Intervalos
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+IC estándar (Normales)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+IC estandar (t de Student)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bootstrap-t
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Propiedades & Simétricos & Simétricos & No simétricos \\
+Tablas & Muy inexactos & Poca exactitud & Los más exactos \\
+Una sola & Una para cada \(n\) & Una por muestra & \\
+\end{longtable}
+
+\subsubsection{El bootstrap-t y las transformaciones}\label{el-bootstrap-t-y-las-transformaciones}
+
+A pesar de sus buenas propiedades el bootstrap- \(t\) no es la ``panacea'' en cuanto a intervalos de confianza, puesto que presenta algunas dificultades.
+
+\begin{itemize}
+\tightlist
+\item
+  El cálculo de los intervalos basados en el bootstrap-t puede ser muy costoso computacionalmente. Como hemos visto se basa en calcular o aproximar los percentiles de \(Z_{b}^{*}\) definido como
+\end{itemize}
+
+\[
+Z_{b}^{*}=\frac{\hat{\theta}_{b}^{*}-\hat{\theta}}{\widehat{\sigma}_{b}^{*}}=\frac{T\left(\mathbf{X}_{b}^{*}\right)-T(\mathbf{X})}{\widehat{\sigma}_{\hat{\theta}}\left(\mathbf{X}_{b}^{*}\right)}
+\]
+
+pero, dado que, en general, no se dispone de una fórmula cerrada con la que calcular \(\widehat{\sigma}_{\hat{\theta}}\left(\mathbf{X}_{b}^{*}\right)\) suele recurrirse de nuevo al bootstrap (una alternativa es el jackknife) es decir debemos remuestrear cada remuestra para estimar el error estándar, lo que conlleva de nuevo un error de aproximación:
+
+\[
+\widehat{\sigma}_{b}^{*} \approx \widehat{\sigma}_{b, B_{2}}^{* *}
+\]
+
+Teniendo en cuenta que para construir intervalos de confianza suelen considerarse necesarias unas \(1000-2000\) remuestras, si cada una tiene que remuestrearse entre 100 y 200 veces estamos hablando de
+un número total de remuestras que oscila entre 100.000 y 400.000 , lo que, segun para que modelos puede resultar bastante costoso.
+
+\begin{itemize}
+\tightlist
+\item
+  Para que el bootstrap-t funcione correctamente el estimador del error estándar debe ser estable, es decir no debe tener una gran variación entre muestras. Algunos estimadores del error estándar varian mucho entre muestras, y, en estos casos el bootstrap- \(t\) puede dar resultados erráticos. Para acabar de empeorar la situación el estimador bootstrap del error estándar no es estable, es decir no tan sólo da lugar a que el proceso sea costoso sino que puede hacer que no sea bueno.
+\end{itemize}
+
+Un caso conocido, en donde el bootstrap- \(t\) no funciona correctamente es el coeficiente de correlación. Si aplicamos sin más el bootsrap- \(t\) a los datos de las notas de los 15 alumnos presentados en el capítulo 1 , tomando \(B_{1}=1000\), \(B_{2}=25\) y \(\alpha=0.10\) obtenemos
+
+\[
+\left[\hat{\rho}_{i n f}, \hat{\rho}_{s u p}\right]=[-0,026,0,90]
+\]
+
+que, para un valor de \(\hat{\rho}\) de 0.776 parece excesivamente ancho (Un test basado en estos intervalos nos llevaria a considerar no significativa la correlación entre ambas notas, lo cual contradice la intuición de los datos).
+
+\paragraph{Transformación normalizante para el coeficiente de correlación}\label{transformaciuxf3n-normalizante-para-el-coeficiente-de-correlaciuxf3n}
+
+Los textos de estadística matemática sugieren que para hacer inferencia sobre el coeficiente de correlación, si los datos siguen una distribución normal bivariante puede aplicarse lo que se conoce con el nombre de transformación normalizante de Fisher para el coeficiente de correlación. Ésta permite normalizar el coeficiente de correlación muestral, \(\hat{\rho}\) aplicándole la transformación arco tangente hiperbólica, \(\tanh ^{-1}\). Dado que se trata de una transformación monótona ello permite la construcción de intervalos de confianza por el procedimiento siguiente:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Dado \(\hat{\rho}\) el coeficiente de correlación calculado sobre una muestra la transformación \(\tanh ^{-1}(\hat{\rho})\) da lugar a un estadístico aproximadamente normal:
+\end{enumerate}
+
+\[
+\tanh ^{-1}(\hat{\rho})=\hat{\phi} \simeq N\left(\mu_{\phi}, \sigma_{\phi}\right), \quad \mu_{\phi}=\phi+\frac{\rho}{2(n-1)}, \quad \sigma_{\phi}=\frac{1}{(n-3)}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  A continuación se construye un intervalo de confianza ``normal'' para \(\phi\)
+\end{enumerate}
+
+\[
+\left[\hat{\phi}_{1}, \hat{\phi}_{2}\right], \quad \hat{\phi}_{1}=\mu_{\hat{\phi}}-z_{\alpha / 2} \sigma_{\hat{\phi}}, \hat{\phi}_{2}=\mu_{\hat{\phi}}+z_{\alpha / 2} \sigma_{\hat{\phi}}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Invirtiendo la transformación se obtienen intervalos de confianza para \(\rho\).
+\end{enumerate}
+
+\[
+\begin{aligned}
+& \hat{\rho}_{1}=\tanh \left[\left(\phi+\frac{\hat{\rho}}{2(n-1)}\right)-\frac{z_{\alpha / 2}}{\sqrt{n-3}}\right] \\
+& \hat{\rho}_{2}=\tanh \left[\left(\phi+\frac{\hat{\rho}}{2(n-1)}\right)+\frac{z_{\alpha / 2}}{\sqrt{n-3}}\right] .
+\end{aligned}
+\]
+
+Por ejemplo, con los datos de las notas de 15 alumnos si
+
+\begin{itemize}
+\tightlist
+\item
+  \(\alpha=0,05\) el intervalo de confianza obtenido es {[}0,592, 0,926{]}
+\item
+  \(\alpha=0,10\) el intervalo de confianza obtenido es \([0,4487,0,9495]\).
+\end{itemize}
+
+\paragraph{\texorpdfstring{Aplicación del bootstrap- \(t\) sobre la escala transformada}{Aplicación del bootstrap- t sobre la escala transformada}}\label{aplicaciuxf3n-del-bootstrap--t-sobre-la-escala-transformada}
+
+La idea de transformar los datos para construir los intervalos de confianza puede expresarse, esquemáticamente:
+
+\[
+\hat{\rho} \xrightarrow{\text { tanh }} \hat{\phi}^{\text {IC estandar }}\left[\hat{\phi}_{1}, \hat{\phi}_{2}\right] \xrightarrow{\text { tanh }^{-1}}\left[\hat{\rho}_{1}, \hat{\rho}_{2}\right] \quad(\stackrel{\alpha=0,10}{=}[0,4487,0,9495])
+\]
+
+Si procedemos de forma similar pero una vez en la escala transformada calculamos intervalos de confianza basados en el bootstrap- \(t\)
+
+\[
+\hat{\rho} \xrightarrow{\text { tanh }} \hat{\phi} \xrightarrow{\text { Bootstrap- } t}\left[\hat{\phi}_{1}^{*}, \hat{\phi}_{2}^{*}\right] \xrightarrow{\tanh ^{-1}}\left[\hat{\rho}_{1}^{*}, \hat{\rho}_{2}^{*}\right] \quad(\stackrel{\alpha=0,10}{=}[0,45,0,93])
+\]
+
+obtenemos unos intervalos distintos, aparentemente mejores, que los que obteníamos para el coeficiente de correlación al trabajar sobre la escala sin transformar. Si el coeficiente de confianza es menor la diferencia resulta aún más exagerada. Un intervalo bootstrap- \(t\) al \(98 \%\) es \([-0.66,1.03]\) en la escala original y {[}0.17,0-95{]} en la transformada.
+
+Resumiendo: El bootstrap-t no da lugar a intervalos que se conserven al transformar los datos. En el ejemplo anterior los mejores intervalos son los construidos en la escala transformada ( \(\hat{\phi}\) ) puesto que sabemos que la transformación es realmente normalizante. De hecho si calculamos los intervalos de confianza estándar a partir de \(\hat{\phi}\) y los invertimos obtenemos valores similares a los obtenidos con el bootstrap- \(t\) basado calculado sobre \(\hat{\phi}\) e invirtiendo.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(90 \%\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(98 \%\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+& Ext. inf & Ext. sup & Ext. inf & Ext. sup. \\
+bootstrap-t directo & -0.026 & 0.90 & -0.66 & 1.03 \\
+bootstrap-t para \(\hat{\phi}\) e inversión & 0.45 & 0.903 & 0.17 & 0.95 \\
+IC estándar para \(\hat{\phi}\) e inversión & 0.591 & 0.926 & 0.449 & 0.949 \\
+\end{longtable}
+
+El bootsrap- \(t\) funciona ``tan bien como lo correcto'' es decir el intervalo estándar en la escala normal, cuando se conoce la transformación normalizante.
+
+En general no conoceremos esta transformación y tendremos que considerar distintas alternativas:
+
+\begin{itemize}
+\tightlist
+\item
+  Suponer que existe aunque no la conozcamos. Esto nos llevará a los métodos percentil desarrollados por Efron
+\item
+  Estimar la transformación utilizando el bootstrap.
+\end{itemize}
+
+\section{Capítulo 5}\label{capuxedtulo-5}
+
+\subsection{Intervalos de confianza basados en percentiles bootstrap}\label{intervalos-de-confianza-basados-en-percentiles-bootstrap}
+
+\subsubsection{Intervalos basados en percentiles de una distribución normal}\label{intervalos-basados-en-percentiles-de-una-distribuciuxf3n-normal}
+
+Los métodos percentil fueron ideados por Efron entre 1979 y 1987 ({[}7, 9, 10, 11{]}) quien en sucesivos trabajos fue refinando la idea original en que se basan.
+
+Una forma de motivar el método es observar que los intervalos de confianza estándar son intervalos basados en los percentiles de una distribución. Consideremos \(X \sim F_{\theta}\) un modelo estadístico, \(\hat{\theta}\) un estimador de \(\theta\), y \(\hat{\sigma}_{\hat{\theta}}\) un estimador del error estándar de \(\hat{\theta}\). El intervalo de confianza estándar que hemos presentado en el capítulo anterior era de la forma:
+
+\[
+\left[\hat{\theta}-z^{(1-\alpha)} \hat{\sigma}_{\hat{\theta}}, \hat{\theta}-z^{(\alpha)} \hat{\sigma}_{\hat{\theta}}\right]=\left[\hat{\theta}_{\mathrm{inf}}, \hat{\theta}_{\mathrm{sup}}\right]
+\]
+
+Consideremos una variable aleatoria \(\tilde{\theta}\) distribuida normalmente con parámet\(\operatorname{ros} \hat{\theta}, \hat{\sigma}_{\hat{\theta}}\) es decir
+
+\[
+\tilde{\theta} \sim N\left(\hat{\theta}, \hat{\sigma}_{\hat{\theta}}\right)
+\]
+
+El intervalo de confianza estándar \(\left[\hat{\theta}_{\text {inf }}, \hat{\theta}_{\text {sup }}\right]\) consiste precisamente en los percentiles \(\alpha \mathrm{y}(1-\alpha)\) de esta distribución, es decir
+
+\[
+\begin{aligned}
+& \hat{\theta}_{\text {inf }}=\tilde{\theta}^{\alpha} \\
+& \hat{\theta}_{\text {sup }}=\tilde{\theta}^{1-\alpha} .
+\end{aligned}
+\]
+
+Ejemplo 1 Consideremos el caso de los tiempos de supervivencia de los 9 ratones del grupo. Poniendo \(\hat{\theta}=\bar{x}=86,85, \hat{\sigma}_{\hat{\theta}}=s / \sqrt{n}=25,23\) y tomando \(\alpha=0,05\) obtenemos el intervalo de confianza estándar:
+
+\[
+\left[\hat{\theta}_{\mathrm{inf}}, \hat{\theta}_{\mathrm{sup}}\right]=[45,3,128,4]
+\]
+
+Si hacemos 1000 replicas bootstrap y representamos su histograma vemos que se aproxima bastante a una distribución normal, es decir llamando \(\hat{\theta}^{*}=\tilde{\theta}\) tenemos
+
+\[
+\hat{\theta}^{*} \dot{\sim} N\left(\hat{\theta}=86,85, \hat{\sigma}_{\hat{\theta}}=25,23\right) .
+\]
+
+El razonamiento anterior junto con una aparente normalidad sugeriría que los percentiles 5\% y 95\% se asemejen a los intervalos estándar. Estos valores valen:
+
+\[
+\left[\hat{\theta}_{\mathrm{inf}}^{*}, \hat{\theta}_{\mathrm{sup}}^{*}\right]=[47,3,126,4] .
+\]
+
+Es decir, si la distribución bootstrap es aproximadamente normal entonces los percentiles de ésta coinciden bastante aproximada con los extremos de los intervalos estándar. En este paralelismo se basan los métodos percentil desarrollados por Efron
+
+\subsubsection{Los intervalos percentil}\label{los-intervalos-percentil}
+
+El ejemplo de la sección anterior sugiere como utilizar el bootstrap para construir intervalos de confianza.
+
+El método percentil para construir un intervalo de confianza de coeficiente de confianza \(1-2 \alpha\) consiste en tomar com extremos inferior y superior respectivamente los percentiles \(\alpha\) i \(1-\alpha\) de la distribución bootstrap del estimador. En general deberemos aproximar dicha distribución por Monte Carlo por lo que el intervalo percentil aproximado estará formado por los valores consistirá en los valores
+
+\[
+\left[\hat{\theta}_{\mathrm{inf}}^{*}, \hat{\theta}_{\mathrm{sup}}^{*}\right]=\left[\hat{\theta}_{(B \cdot \alpha)}^{*}, \hat{\theta}_{(B \cdot(1-\alpha))}^{*}\right]
+\]
+
+de la distribución ordenada de estadísticos bootstrap \(\hat{\theta}_{(1)}^{*}, \ldots, \hat{\theta}_{(B)}^{*}\).
+Si la distribución bootstrap es normal el intervalo percentil y el estándar seran muy similares.
+
+Si el estimador es asintóticamente normal, entonces para muestras grandes tambien se obtendran valores parecidos.
+
+El problema se presenta cuando la muestra es pequeña o el estimador no es asintóticamente normal. Si ambos intervalos difieren ¿cual debemos utilizar?
+
+\paragraph{Una situación en la que podemos saber qué intervalo es mejor}\label{una-situaciuxf3n-en-la-que-podemos-saber-quuxe9-intervalo-es-mejor}
+
+Vamos a considerar un caso en el que conocemos el intervalo exacto por lo que podremos decidir si se ajusta mejor el intervalo de confianza estándar o el percentil.
+
+Sea \(X \sim N(\mu=0, \sigma=1)\), sea \(\theta=e^{\mu}\), es decir en este ejemplo \(\theta= e^{0}=1\), y el estimador máximo verosímil es \(\hat{\theta}=e^{\bar{x}}\). La distribución de \(e^{\bar{x}}\) es asimé trica. Si generamos una muestra de 10 observaciones podemos comprobar como los intervalos difieren mas que en el caso anterior.
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+\(e^{\bar{x}}\) & Error estándar & I.C. estándar & I.C. percentil \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1.25 & 0.34 & \([0,59,1,92]\) & \([0,75,2,07]\) \\
+\end{longtable}
+
+Hay una buena razón para pensar que los intervalos percentil son preferibles a los estándar: la necesaria suposición de normalidad no está en absoluto clara para \(e^{\bar{x}}\) ni tan sólo si la distribución de \(X\), como en este caso es normal. Los IC estándar, que son simétricos, recubriran desigualmente la distribución.
+
+Una forma de solucionar esta dificultad consiste en transformar los datos mediante una transformación normalizante, de forma que \(\hat{\phi}=g(\hat{\theta})\) sea aproximadamente normal. En este caso conocemos la transformación normalizante: \(g(\theta)=\log (\theta)\). Si llevamos a cabo la transformación construimos los intervalos de confianza estándar y percentil en la escala normalizada veremos que resultan muy similares. Esto es razonable puesto que ahora trabajamos de nuevo con una distribución normal.
+
+Resumiendo una forma de soslayar el problema de la falta de normalidad de \(\hat{\theta}\) consiste en:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Transformar los datos mediante una transformación normalizadora.
+\item
+  Construir los intervalos de confianza en la escala normalizada
+\item
+  Invertir la transformación.
+\end{enumerate}
+
+Ejemplo 1 Simulando 10 valores como en la introducción de la sección tendremos:
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+Escala & IC Estándar & IC Percentil \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Escala Original & \([0,65,1,53]\) & \([0,75,1,71]\) \\
+Escal Normalizada & \([-0,35,0,53]\) & \([-0,28,0,54]\) \\
+Escala original & & \\
+(inversión de la & \([0,71,1,69]\) & \([0,75,1,71]\) \\
+transformación) & & \\
+\end{longtable}
+
+La tabla nos muestra cómo los intervalos estándar ``correctos'' construidos por el método de
+``transformación → Intervalo → Intervalo invertido''
+son mucho más parecidos a los intervalos percentil que los intervalos estándar ``incorrectos'' en la escala original inicial. Dicho al revés los intervalos percentil dan la solución correcta directamente sin necesidad de realizar la transformación. Además al hacer la transformación e invertir los intervalos se obtienen los mismos extremos que en la escala original. Podemos considerar que la bondad de los intervalos percentil proviene de que funcionan como si incorporasen automáticamente la transformación normalizante, dando de salida los intervalos que de otra forma requieren tres pasos para su obtención.
+
+Además y aquí está la clave del interés del método, mientras que con el método general'es preciso conocer la transfoprmación no pasa así con el percentil. De hecho basta con que exista la transformación normalizante para que el método funcione.
+
+Ejemplo 2 Un estudio de simulación en el que se repitió 100 veces el proceso del ejemplo anterior, tomando \(B=1000\) da lugar a los siguientes intervalos ``promedio''
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+Escala & IC Estándar & IC Percentil \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Escala Original & \([0,452,1,677]\) & \([0,599,1,932]\) \\
+Escal Normalizada & \([-0,606,0,619]\) & \([-0,5742,0,585]\) \\
+Escala original & & \\
+(inversión de la & \([0,580,1,995]\) & \([0,599,1,932]\) \\
+transformación) & & \\
+\end{longtable}
+
+Queda de nuevo claro que los intervalos percentil dan sobre la escala original unos valores similares a los que se obtienen de los intervalos estándar transformando e invirtiendo la transformación.
+
+Los resultados anteriores se formalizan en lo que Efron denomina ``Lema percentil''
+Lema 1 Supóngase que la transformación \(\hat{\phi}=g(\hat{\theta})\) normaliza perfectamente la distribución de \(\hat{\theta}\), es decir que
+
+\[
+\hat{\phi} \sim N\left(\phi, \tau^{2}\right)
+\]
+
+siendo \(\phi=g(\theta)\) y \(\tau\) una constante (es decir además de normalizar, la transformación estabiliza la varianza). Entonces, si \(\hat{G}()\) es la distribución bootstrap de \(\hat{\theta}\), el intervalo percentil basado en los percentiles de ésta:
+
+\[
+\left[\hat{\theta}_{\mathrm{inf}}^{*}, \hat{\theta}_{\mathrm{sup}}^{*}\right]=\left[\hat{G}^{-1}(\alpha), \hat{G}^{-1}(1-\alpha)\right]
+\]
+
+coincide con el intervalo resultante de transformar la estimación e invertirla de nuevo
+
+\[
+\left[\hat{\theta}_{\text {inf }}, \hat{\theta}_{\text {sup }}\right]=\left[g^{-1}\left(\hat{\phi}-z^{(1-\alpha)} \tau\right), g^{-1}\left(\hat{\phi}-z^{(\alpha)} \tau\right)\right]
+\]
+
+con la ventaja adicional de que no es preciso conocer la transformación sino tan sólo (suponer) que existe.
+
+Podemos ver los intervalos percentil como un algoritmo computacional para extender la efectividad y la utilización universal de los IC estándar:
+
+\begin{itemize}
+\tightlist
+\item
+  Si los IC estándar son adecuados entonces los IC percentil coincidiran con ellos.
+\item
+  Si los IC estándar no son apropiados, es decir lo serian si pudiéramos aplicar una transformación normalizante, entonces los IC percentil realizan la transformación automáticamente.
+\end{itemize}
+
+La ventaja principal del método es que no es preciso conocer la forma de la transformación.
+
+\paragraph{La propiedad de respetar las transformaciones}\label{la-propiedad-de-respetar-las-transformaciones}
+
+La tabla anterior ilustra también una propiedad importante de los IC percentil que, como vimos en el capítulo anterior, no poseen los intervalos basados en el bootstrap- \(t\) : Los intervalos percentil són invariantes bajo transformaciones o dicho de otra manera el método ``respeta'' las transformaciones: El intervalo percentil para cualquier transformación monótona del parámetro \(\phi=g(\theta)\) es simplemente el intervalo percentil para \(\theta\) transformado mediante \(g()\) :
+
+\[
+\left[\hat{\phi}_{\mathrm{inf}}, \hat{\phi}_{\mathrm{sup}}\right]=g\left(\hat{\theta}_{\mathrm{inf}}\right), g\left(\hat{\theta}_{\mathrm{sup}}\right)
+\]
+
+Esta propiedad, interesante donde las haya no es compartida ni por el bootstrap\(t\) ni por los IC estándar.
+
+En la figura núm 1. puede verse de forma esquemática el funcionamiento del método percentil.
+
+Este método, a pesar de su automatismo, no resulta adecuado en todas las situaciones. Es por ello que Efron fue realizando sucesivos refinamientos que dieron lugar al método percentil corregido para el sesgo o \(B C\) y al método percentil corregido para el sesgo de forma acelerada, \(B C_{a}\).
+
+Los tres métodos tienen en común que utilizan para calcular los intervalos de confianza los percentiles de la distribución bootstrap del estimador, \(G(\hat{\theta})\).
+
+Figura 5.1: Funcionamiento del método percentil
+
+Utilizaremos \(\hat{G}(\hat{\theta})\) para referirnos a la aproximación por Monte Carlo de dicha distribución.
+
+El método percentil incorpora de forma automática las transformación normalizante \(g\). Sucede sin embargo que hay situaciones en que no existe una transformación normalizante que transforme \(\hat{\theta}\) en \(\hat{\phi} \sim N\left(\phi, \tau^{2}\right)\).
+
+Una de tales situaciones se da cuando el estimador \(\hat{\theta}\) presenta un cierto sesgo, como es el caso del coeficiente de correlación muestral.
+
+Consideremos, p.ej., \(f_{\theta}(\hat{\theta})\) la familia de densidades del coeficiente de correlación muestral en muestras de tamaño \(n=15\) de una distribución normal bivariante. En este caso no existe la transformación, puesto que si así fuera se tendría que
+
+\[
+\operatorname{Prob}_{\theta}(\hat{\theta}<\theta)=\operatorname{Prob}_{\phi}(\hat{\phi}<\phi)=0,50,
+\]
+
+pero si para el valor \(\hat{\theta}=0,776\) de nuestro ejemplo integramos la función de densidad \(f_{, 776}(\hat{\theta})\) se obtiene \(\operatorname{Prob}_{\theta=, 776}(\hat{\theta}<\theta)=0,431\).
+
+Una explicación de este malfuncionamiento se encuentra en el hecho de que aunque existe una transformación normalizadora frecuentemente utilizada, el inverso de la tangente hiperbólica, la media del parámetro en la escala transformada, \(\mu_{\phi}\) tiene la forma \(\phi+\) cte
+
+Para solucionar este problema Efron propuso el método del percentil corregido para el sesgo, \(B C\). Este método, como el anterior, presupone la existencia de una transformación normalizadora \(g\) del parámetro \(\theta\), pero no requiere que la distribución normal resultante esté centrada en \(g(\theta)\).
+theorem 1 Sea \(\theta\) un parámetro que se desea estimar, \(\theta=\theta(F)\) y \(\hat{\theta}=\theta\left(F_{n}\right)\) un estimador de \(\theta\). Supongamos que existe una transformación monótona \(y\) creciente, \(g\) tal que si \(\phi=g(\theta), \hat{\phi}=g(\hat{\theta})\) y \(\hat{\phi}^{*}=g\left(\hat{\theta}^{*}\right)\) se verifica:
+
+\[
+\hat{\phi} \sim N\left(\phi-z_{o} \tau, \tau^{2}\right), \quad \hat{\phi}^{*} \sim N\left(\hat{\phi}-z_{o} \tau, \tau^{2}\right),
+\]
+
+\(\forall \theta y\) para cierta constante \(z_{o}\). Entonces para cualquier \(\alpha, 0<\alpha<1\) el intervalo
+
+\[
+\left[\hat{G}^{-1}\left(\Phi\left\{2 z_{o}-z_{\alpha / 2}\right\}\right), \hat{G}^{-1}\left(\Phi\left\{2 z_{o}+z_{\alpha / 2}\right\}\right)\right]
+\]
+
+es un intervalo para \(\theta\) al coeficiente \(1-\alpha\), siendo
+
+\[
+z_{o}=\Phi^{-1}(\hat{G}(\hat{\theta})
+\]
+
+y \(\hat{G}\) la distribución bootstrap del estadístico.
+Con los datos del ejemplo 2, del coeficiente de correlación podemos construir los intervalos de confianza que hemos discutido hasta el momento, obteniendose la tabla siguiente:
+
+Tabla 3
+Intervalos de confianza exactos y aproximados al 90 \% para el coeficiente de correlación
+\textbar{} 1. Exactos (teoría normal) \textbar{} \([.496, .898]\) \textbar{} \(\mathrm{D} / \mathrm{I}=0.44\) \textbar{}
+\textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{}
+\textbar{} 2. Estándar \textbar{} \([.587, .965]\) \textbar{} \(\mathrm{D} / \mathrm{I}=1.00\) \textbar{}
+\textbar{} 3. Estándar transformados \textbar{} \([.508, .907]\) \textbar{} \(\mathrm{D} / \mathrm{I}=.49\) \textbar{}
+\textbar{} 4. Percentil ordinario \textbar{} \([.536, .911]\) \textbar{} \(\mathrm{D} / \mathrm{I}=.56\) \textbar{}
+\textbar{} 5. Percentil corregido \((B C)\) \textbar{} \([.488, .900]\) \textbar{} \(\mathrm{D} / \mathrm{I}=.43\) \textbar{}
+
+El valor \(D / I\) mide la simetría de los intervalos mediante el cociente entre la distancia del extremo superior hasta \(\hat{\theta}\) (D) respecto a la distancia desde el extremo inferior. Como puede verse los intervalos de confianza obtenidos por el método del percentil corregido por el sesgo se asemejan mucho más a los intervalos exactos, que los obtenidos por el método percentil ordinario, o los intervalos de confianza estándar, o estándar transformados.
+
+Los intervalos \(B C\) efectivamente corrigen el problema anterior. Sin embargo Schenker (1985, {[}19{]}) demostró que este método funcionaba mal para la varianza de una población normal. Esto se debía a la no existencia en este caso de una transformación normalizadora con \(a=0\), es decir, que sea a la vez normalizadora y estabilizadora de la varianza. Como indica Efron (1982, {[}9{]}), estos dos objetivos son antagónicos en algunas de las familias de distribuciones más usuales (como p.ejemplo la binomial o la Poisson).
+
+Esto hizo replantearse el problema a Efron quien en 1987 ({[}11{]}) construyo el método \(B C a\) corregido para el sesgo y acelerado, que con la corrección introducida por una nueva constante \(a\), requiere únicamente la existencia de una transformación normalizante \(g\).
+theorem 2 Sea \(\theta\) un parámetro que se desea estimar, \(\theta=\theta(F)\) y \(\hat{\theta}=\theta\left(F_{n}\right)\) un estimador de \(\theta\). Supongamos que existe una transformación monótona \(y\) creciente, \(g\) tal que si \(\phi=g(\theta), \hat{\phi}=g(\hat{\theta})\) y se verifica:
+
+\[
+\frac{\hat{\phi}-\phi}{\tau_{\phi}} \sim N\left(-z_{o}, 1\right), \quad \tau_{\phi}=1+a \phi
+\]
+
+para ciertas constantes \(z_{o}\) y a tales que \(\tau_{\phi}>0\). Entonces para cualquier \(\alpha\), \(0<\alpha<1\) el intervalo
+
+\[
+\left[\hat{G}^{-1}\left(\Phi\left\{z_{B C_{a}}\left[\frac{\alpha}{2}\right]\right\}\right), \quad \hat{G}^{-1}\left(\Phi\left\{z_{B C_{a}}\left[1-\frac{\alpha}{2}\right]\right\}\right)\right]
+\]
+
+es un intervalo para \(\theta\) al coeficiente \(1-\alpha\), siendo
+
+\[
+z_{B C_{a}}[\alpha]=z_{o}+\frac{z_{o}+z_{1-\alpha}}{1-a\left(z_{o}+z_{1-\alpha}\right)}, \quad y z_{1-\alpha}=\Phi^{-1}(\alpha)
+\]
+
+La demostración de este teorema, que no se incluye aquí, puede verse en Efron (1987, {[}11{]}) o en Cristóbal (1992, {[}4{]}).
+
+Como en los casos anteriores, el intervalo de confianza 5.3 puede construirse sin el conocimiento de la transformación normalizante \(g\), únicamente aceptando que existe. Lo que sí es necesario conocer son los valores de las constantes \(z_{o}\) y \(a\) que se discutirán más adelante.
+
+En el caso particular en que \(z_{o}=a=0\) el intervalo queda reducido a
+
+\[
+\left[\hat{G}^{-1}(\alpha / 2), \hat{G}^{-1}(1-\alpha / 2)\right]
+\]
+
+es decir el percentil ordinario.
+Si \(a=0\) el método del \(B C_{a}\) se reduce al del percentil corregido para el sesgo.
+
+El método \(B C\) al igual que el del percentil ordinario es automático de calcular, mientras que el método \(B C_{a}\) requiere un cierto trabajo analítico para determinar una constante, denominada de aceleración. En compensación al inconveniente que esto representa el método \(B C_{a}\) es el que resulta más exacto de los tres.
+
+En la tabla siguiente se presentan de forma resumida los distintos intervalos. Como puede observarse al pasar de los IC estándar a los IC percentil, percentil \(B C\) o percentil \(B C_{a}\) aumenta la complejidad en la forma de los extremos, pero simultáneamente cada método resulta correcto bajo condiciones más generales que sus predecesores, lo cual los hace, supuestas calculables todas las constantes necesarias, de mayor aplicabilidad.
+
+Tabla 4
+Cuatro métodos de construcción de IC aproximados para un parámetro \(\theta\)
+\textbar{} Cuatro métodos de construcción de IC aproximados para un parámetro \(\theta\) \textbar{} \textbar{} \textbar{} \textbar{} \textbar{}
+\textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{} :--- \textbar{}
+\textbar{} Método \textbar{} Abreviación \textbar{} Extremo de nivel \(\alpha\) \textbar{} Es correcto si \textbar{} \textbar{}
+\textbar{} 1. Estándar \textbar{} \(\theta_{E}[\alpha]\) \textbar{} \(\hat{\theta}+\hat{\sigma}_{\hat{\theta}} z_{\alpha}\) \textbar{} \(\hat{\theta} \sim N\left(\theta, \sigma^{2}\right)\) \textbar{} \(\sigma\) constante \textbar{}
+\textbar{} \textbar{} \textbar{} \textbar{} Existe una transformación monótona \(\hat{\phi}=g(\hat{\theta}), \phi=g(\theta)\), tal que: \textbar{} \textbar{}
+\textbar{} 2. Percentil \textbar{} \(\theta_{P}[\alpha]\) \textbar{} \(\hat{G}^{-1}(\alpha)\) \textbar{} \(\hat{\phi} \sim N\left(\phi, \tau^{2}\right)\) \textbar{} \(\tau\) constante \textbar{}
+\textbar{} 3. \(B C\) \textbar{} \(\theta_{B C}[\alpha]\) \textbar{} \(\hat{G}^{-1}\left(\Phi\left[2 z_{o}+z_{\alpha}\right]\right)\) \textbar{} \(\hat{\phi} \sim N\left(\phi-z_{o} \tau, \tau^{2}\right)\) \textbar{} \(z_{o}, \tau\) constante \textbar{}
+\textbar{} 4. \(B C_{a}\) \textbar{} \(\theta_{B C_{a}}[\alpha]\) \textbar{} \(\hat{G}^{-1}\left(\Phi\left[z_{o}+\frac{z_{o}+z_{\alpha}}{1-a\left(z_{o}+z_{\alpha}\right)}\right]\right)\) \textbar{} \(\hat{\phi} \sim N\left(\phi-z_{o} \tau_{\phi}, \tau_{\phi}^{2}\right)\) \textbar{} \(\tau_{\phi}=1+a \phi\) \textbar{}
+\textbar{} \textbar{} \textbar{} \textbar{} \textbar{} \textbar{}
+
+El cálculo de la constante de aceleración \(a\) es el punto débil de este método, en tanto que al tener que realizarse previo al cálculo de los intervalos, les resta automaticidad. Dicho cálculo se basa en los resultados que se presentan a continuación.
+theorem 3 Sea \(\theta\) un parámetro sobre el cual queremos encontrar intervalos de confianza basados en un estimador \(\hat{\theta}\), cuya función de densidad (o de
+probabilidad, según el caso), es \(f_{\theta}\), derivable en \(\hat{\theta}\). Supongamos que existen transformaciones \(h_{1}, h_{2}\) biyectivas y derivables tal que si \(\phi=h_{1}(\theta)\) y \(\hat{\phi}=h_{2}(\hat{\theta})\) se verifica
+
+\[
+\frac{\hat{\phi}-\phi}{\tau_{\phi}} \sim N\left(-z_{o}, 1\right), \quad \tau_{\phi}=1+a \phi
+\]
+
+Entonces la constante de aceleración a puede aproximarse por:
+
+\[
+\left.a \simeq \frac{1}{6} \gamma_{3}\left[\frac{\partial}{\partial \theta} \log f_{\theta}(\hat{\theta})\right]\right|_{\theta=\hat{\theta}}
+\]
+
+siendo \(\gamma_{3}(\mathbf{X})=\mu_{3}(\mathbf{X}) \mu_{2}^{-3 / 2}(\mathbf{X})\) el coeficiente de simetría de \(\mathbf{X}\).
+El teorema anterior resuelve el problema del cálculo de \(a\) en el caso paramétrico. En el caso no paramétrico el cálculo de \(a\) requiere la determinación de la función de influencia empírica de \(\hat{\theta}=T\left(F_{n}\right)\) definida como:
+
+\[
+U_{i}=\lim _{\Delta \rightarrow 0} \frac{T\left((1-\Delta) F_{n}+\Delta \delta_{i}\right)-T\left(F_{n}\right)}{\Delta}, \quad i=1,2, \ldots n
+\]
+
+siendo \(\delta_{i}\) una delta de Dirac en \(x_{i}\), es decir una variable aleatoria degenerada cuya función de masa de probabilidad vale 1 en \(x_{i}\) y 0 en \(\mathbf{R}-\mathbf{x}_{\mathbf{i}}\).
+theorem 4 En las hipótesis del teorema 1, la constante de aceleración puede aproximarse por
+
+\[
+a \simeq \frac{1}{6} \frac{\sum_{i=1}^{n} U_{i}^{3}}{\left[\sum_{i=1}^{n} U_{i}^{2}\right]^{3 / 2}}
+\]
+
+La constante \(a\) se denomina de aceleración porque tiene el efecto de cambiar constantemente las unidades naturales de medida al movernos a lo largo del eje \(\phi\). Efectivamente por las hipótesis del teorema 1 podemos poner:
+
+\[
+\tau_{\phi}=\tau_{\phi_{0}}\left[1+a\left(\phi-\phi_{0}\right) / \tau_{\phi_{0}}\right]
+\]
+
+con lo que se obtiene
+
+\[
+a=\frac{d\left(\tau_{\phi} / \tau_{\phi_{0}}\right)}{d\left(\left(\phi-\phi_{0}\right) / \tau_{\phi_{0}}\right)}
+\]
+
+para cualquier valor fijo de \(\phi_{0}\). Esto muestra que \(a\) mide el cambio \(\tau_{\phi}\) relativo al cambio en en unidades de desviación estándar en \(\phi\).
+
+\paragraph{Ejemplo: IC para la varianza de una población normal}\label{ejemplo-ic-para-la-varianza-de-una-poblaciuxf3n-normal}
+
+Schenker (1985, {[}19{]}) cita un ejemplo tomado de una población normal de parámetros conocidos en donde se ve como el método \(B C\) no funciona correctamente. Si en este caso se calcula el intervalo \(B C_{a}\) con valores \(z_{o}=\) 0,1082 y \(a=0,1077\) se obtiene una aproximación mucho mejor a los intervalos exactos, que podemos calcular aquí por el hecho de encontrarnos en una situación paramétrica conocida.
+
+Tabla 5
+\textbar{} Intervalos de confianza exactos y aproximados al 90 \% para la varianza de una población normal \textbar{} \textbar{}
+\textbar{} :--- \textbar{} :--- \textbar{}
+\textbar{} 1. Exactos (teoría normal) \textbar{} \(\left[, 631 S^{2}, 1,88 S^{2}\right]\) \textbar{}
+\textbar{} 2. Basados en la verosimilitud \textbar{} \(\left[, 466 S^{2}, 1,53 S^{2}\right]\) \textbar{}
+\textbar{} 3. Percentil corregido ( \(B C\) ) \textbar{} {[},580S \({ }^{2}\), \(1,69 S^{2}\) {]} \textbar{}
+\textbar{} 4. Percentil acelerado ( \(B C_{a}\) ) \textbar{} , \(630 S^{2}\), \(1,88 S^{2}\) {]} \textbar{}
+
+\subsubsection{Ejercicios}\label{ejercicios-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Sea \(X\) una v.a. con media \(\theta\) i desviación estándar \(s(\theta)\). Sea \(g(x)\) una transformación aplicada sobre \(X\).
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Expanda \(g(X)\) en serie de Taylor para mostrar que:
+\end{enumerate}
+
+\[
+\operatorname{var}(g(X)) \simeq g^{\prime}(\theta)^{2} \operatorname{var}(X)
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Mostrar que la transformación
+\end{enumerate}
+
+\[
+g(x)=\int^{x} \frac{1}{s(u)} d u
+\]
+
+tiene la propiedad \(\operatorname{var}(g(X)) \simeq\) constante.
+2. Supóngase \(X_{i} / \theta\) son i.i.d. \(\simeq \chi_{1}^{2}, i=1, \ldots, n\) y que \(\hat{\theta}=\bar{X}\). Mostrar que la transformación estabilizadora de la varianza para \(\hat{\theta}\) es:
+
+\[
+g(\hat{\theta})=(n / 2)^{1 / 2} \log \hat{\theta}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Supóngase \(X_{i} / \theta\) son i.i.d. \(\simeq \chi_{1}^{2}, i=1, \ldots, 20\). Realizar un estudio de simulación para comparar los siguientes intervalos para \(\theta\) basados en \(\bar{X}\) suponiendo que el auténtico valor de \(\theta\) és 1 .
+\end{enumerate}
+
+\subsubsection{Prácticas}\label{pruxe1cticas}
+
+El objetivo de las prácticas siguientes es estudiar el comportamiento de los distintos métodos de construcción de intervalos de confianza bajo condiciones diferentes.
+
+Para facilitar el cálculo conviene disponer de una función que construya los IC estándar y percentil de forma automática. Por ejemplo las funciones ICStd() y ICPerc()realizan estos cálculos
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Comparación de los IC estándar y percentil cuando la distribución del estimador es normal: Tomamos como parámetro la media, \(\mu, \mathrm{y}\) como estimador la media aritmética, \(\bar{X}\)
+\item
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    Generar muestras de tamaño 10 de una distribución normal \(\mathrm{N}(10,2)\)
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Estimar el EE como \(\operatorname{sqrt}(\operatorname{var}(\mathrm{x}) / \mathrm{n})\)
+\item
+  Remuestrear con \(\mathrm{B}=1000\)
+\item
+  Representar la distribución bootstrap. ¿Parece normal?
+  \(e\) ) Construir el IC estándar y el IC percentil
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Comparación de los IC estándar y percentil cuando la distribución del estimador no es normal: Tomamos como parámetro \(\exp \{\mu\}\) y como estimador (el estimador máximo verosímil) \(\exp \{\bar{X}\}\). El error estándar asintótico de este estimador es la raíz cuadrada de la inversa de la información de Fisher del modelo y vale \(\sigma_{\hat{\theta}}=\exp \{\bar{X}\} \sigma / \sqrt{n}\) y puede estimarse como \(\hat{\sigma}_{\hat{\theta}}=\exp \{\bar{X}\} s / \sqrt{n}\)
+\item
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    Generar muestras de tamaño 10 de una distribución normal \(\mathrm{N}(0,1)\)
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Estimar el EE como \(\exp \{\bar{X}\} s / \sqrt{n}\)
+\item
+  Remuestrear con \(\mathrm{B}=1000\)
+\item
+  Representar la distribución bootstrap. ¿Parece normal?
+  \(e\) ) Construir el IC estándar y el IC percentil. ¿Cual de los 2 resulta más fiable?.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Para responder a la pregunta anterior podemos normalizar la distribución del estimador a través de la transformación \(\lg (\exp (\bar{X}))\)
+\item
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    Generar muestras de tamaño 10 de una distribución normal \(\mathrm{N}(0,1)\)
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Estimar el EE como \(\exp \{\bar{X}\} s / \sqrt{n}\)
+\item
+  Remuestrear con \(\mathrm{B}=1000\)
+\item
+  Construir el IC estándar y el IC percentil.
+  \(e\) ) Transformar la distribución bootstrap tomando logaritmos neperianos. Representar la distribución transformada. Parece normal?
+  \(f)\) Construir el IC estándar y el IC percentil. Para el IC estándar tómese el error estándar usual de la media, o, si se prefiere, tómese dicho error con \(\mathrm{s}=1\).
+\item
+  Inviértase la transformación. Los intervalos resultantes de invertir los IC estándar deberian ser ahora correctos puesto que provienen de una distribución normal. Que ha sucedido ahora con los IC percentil?.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Repita un estudio similar al anterior para el coeficiente de correlación tomando como transformación normalizante la transformación \(z\) de Fisher: \(\arctan h(\rho)\)
+\item
+  Para ver que tan bien funciona un intervalo de confianza podemos plantear un estudio de simulación en donde se compare el recubrimiento real del IC con el nominal. Para ello debemos comparar el\% de veces que el IC contiene al parámetro ``real'', conocido por tratarse de una simulación, con el nivel de confianza nominal, con el que se ha construido teóricamente el intervalo. Otra característica interesante de estudiar es la forma del IC. Para ello podemos calcular el cociente ``Brazo Derecho/Brazo Izquierdo'' definido como :
+  ``(Extremo superior-Valor del parámetro)/(Valor del parámetro-Extremo inferior)''
+  Realizar un programa que compare el funcionamiento de dos métodos de construcción de intervalos de confianza basandose en el algoritmo siguiente:
+\item
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    Repetir \(1 \ldots \mathrm{~S}\) veces:
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Generar una muestra de una población de distribución conocida
+\item
+  Para cada intervalo de confianza que se estudia:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Construir el IC
+\item
+  Determinar si cubre (1) o no (0) el parámetro y acumular el resultado
+\item
+  Calcular la forma (D/I) y acumular el resultado
+\item
+  Calcular la longitud (D-I) y acumular el resultado
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Estimar el recubrimiento, la longitud y la potencia de los intervalos mediante el promedio de las cantidades acumuladas anteriores
+\end{enumerate}
+
+Los estudios de simulación ayudan a decidir qué método resulta más adecuado aún cuando no se conozca el resultado exacto (no se disponga de resultados teóricos con los que comparar). Tomando los datos de 20 pacientes afectados de SIDA (variable CD4 del dataframe cd4 en la libreria) queremos estudiar las propiedades del estimador del mayor valor propio de la matriz de covarianzas. Deseamos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Una aproximación de su distribución muestral. Es normal?
+\item
+  Una estimación del error estándar
+\item
+  Un intervalo de confianza. ¿Qué metodo podemos elegir?. ¿Que argumentos estan a favor de los IC estandar?, del bootstrap-t, de los métodos percentil?. Realice un estudio de simulación para comparar los métodos competitivos y decida cual resultará más adecuado.
+\end{enumerate}
+
+\section{Capítulo 6}\label{capuxedtulo-6}
+
+\subsection{Contraste de hipótesis mediante bootstrap}\label{contraste-de-hipuxf3tesis-mediante-bootstrap}
+
+\subsubsection{Introducción}\label{introducciuxf3n-12}
+
+Muchas aplicaciones estadísticas implican la realización de contrastes o pruebas de significación para establecer la plausibilidad de una hipótesis científica. Distintos métodos de remuestreo, como los tests de permutaciones o los tests de Monte Carlo ya se utilizaban para la elaboración de contrastes antes de la aparición del bootstrap. En primer lugar se revisan algunos de los conceptos básicos sobre contraste de hipótesis
+
+\paragraph{Revisión de conceptos básicos de contraste de hipótesis}\label{revisiuxf3n-de-conceptos-buxe1sicos-de-contraste-de-hipuxf3tesis}
+
+En un contraste de hipótesis se desea aceptar o rechazar una hipótesis nula que especifica cierta clase de distribuciones para los datos \(\mathcal{F}_{\mathcal{H}}\). Un contraste de hipótesis se basa en un estadístico de test \(T=T\left(X_{1}, X_{2}, \ldots, X_{n}\right)\) que mide la discrepancia entre los datos, \(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\), y la hipótesis nula. En general valores grandes de \(T\) son evidencia en contra de \(H_{0}\). Si el valor observado del estadístico de test es \(t\) el nivel de evidencia en contra de \(H_{0}\) se mide por la probabilidad de significación:
+
+\[
+p=P_{H_{0}}\{T \geq t\}=P\left\{T \geq t \mid H_{0}\right\}=P\left\{T \geq t \mid F \in \mathcal{F}_{\mathcal{H}_{1}}\right\}
+\]
+
+también llamada \(p\)-valor o NSA por Nivel de Significación Alcanzado. Cuanto menor sea el p-valor mayor será pués la evidencia en contra de \(H_{0}\). El test de hipótesis consiste en calcular el p-valor y ver si es demasiado pequeño según ciertos criterios ``usuales''. En general si \(N S A>0,10\) se aceptará \(H_{0}\), si
+\(N S A<0,01\) se rechazará y para valores intermedios la decisión dependerá del decisor. El punto de corte entre aceptar o rechazar la hipótesis recibe el nombre de nivel de significación del test y por lo tanto podemos resumir diciendo que se rechazará la hipótesis nula si \(N S A<\alpha\).
+
+En la elaboración de un test de hipótesis hay dos aspectos a tener en cuenta:
+
+\begin{itemize}
+\tightlist
+\item
+  la elección del estadístico de test y
+\item
+  el calculo del p-valor
+\end{itemize}
+
+\subsection{Elección del estadístico de test}\label{elecciuxf3n-del-estaduxedstico-de-test}
+
+En problemas paramétricos la distribución de los datos está completamente especificada, salvo por un número finito de parámetros desconocidos. Hay una hipótesis alternativa \(H_{1}\) que describe qué alternativas a la hipótesis nula se pretenden detectar o se suponen más probables, en el caso de que ésta sea falsa. Esta hipótesis alternativa suele guiar la elección del estadístico de test, generalmente a través de la función de verosimilitud
+
+\[
+L(\underset{\sim}{X} ; \theta)=f_{X_{1}, X_{2}, \ldots, X_{n}}\left(x_{1}, x_{2}, \ldots, x_{n} \mid \theta\right) .
+\]
+
+Por ejemplo si ambas hipótesis son simples, \(H_{1}: \theta=\theta_{0}, \quad H_{1}: \theta=\theta_{1}\), entonces el mejor estadístico de test se obtiene a través del lema de NeymannPearson, de la razón de verosimilitudes:
+
+\[
+T=L\left(\underset{\sim}{X} ; \theta_{1}\right) / L\left(\underset{\sim}{X} ; \theta_{0}\right) .
+\]
+
+Si las hipótesis són compuestas la solución puede todavía basarse en la verosimilitud, a través, por ejemplo, del test de razón de verosimilitud.
+
+En el caso no paramétrico la elección del estadístico de test es menos obvia pero también debería basarse en mayor o menor grado en lo que ocurre cuando la hipótesis nula es falsa
+
+\subsection{Cálculo del p-valor}\label{cuxe1lculo-del-p-valor-1}
+
+En muchos casos la hipótesis nula es compuesta. Por ejemplo \(H_{0}: X\) sigue una distribución Normal, \(\left(\mathcal{F}_{\mathcal{H},}=\{\mathcal{F} \mid \mathcal{F} \sim \mathcal{N}(\mu, \sigma)\}\right.\). Esto deja parámetros desconocidos y por lo tanto \(F\) no está completamente especificada, con lo cual el p-valor no estará bien definido, dado que \(P\left\{T \geq t \mid F \in \mathcal{F}_{\mathcal{H}}\right\}\) puede depender de cual \(F\) de entre todas las que satisfacen la hipótesis nula se tome. Hay distintas soluciones posibles:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Podemos escoger \(T\) de forma que tenga la misma distribución \(\forall F \in \mathcal{F}_{\mathcal{H}}\). Un ejemplo és el test de comparación de medias en poblaciones normales con varianza, común, desconocida. Bajo la hipótesis nula \(\mu_{1}= \mu_{2}\) estadístico de test tiene una distribución t-Student que no depende de los valores de \(\mu_{1}\) ni \(\mu_{2}\).
+\item
+  Otra posibilidad es eliminar los parámetros desconocidos cuando \(H_{0}\) es cierta. En algúnos casos esto puede hacerse condicionando por un estadístico suficiente bajo \(H_{0}\). Un ejemplo de es el test exacto de Fisher para contrastar la igualdad entre dos distribuciones. Dadas 2 muestras
+\end{enumerate}
+
+\[
+Y_{1}, \ldots, Y_{n} \sim F_{Y}, Z_{1}, \ldots, Z_{m} \sim G_{Z}
+\]
+
+y la muestra conjunta resultante de combinarlas:
+
+\[
+X_{1}, X_{2}, \ldots, X_{N}, N=n+m
+\]
+
+Fisher demostró que bajo la hipótesis nula \(H_{0}: F_{Y}=G_{Z}\) el estadístico de orden
+
+\[
+X_{(1)}, X_{(2)}, \ldots, X_{(N)}
+\]
+
+es suficiente para \(F, G\) y la probabilidad de una muestra dado este estadístico es
+
+\[
+P_{F_{Y}=G_{Z}}\left\{X_{1}, X_{2}, \ldots, X_{N} \mid X_{(1)}=x_{(1)}, X_{(2)}=x_{(2)}, \ldots, X_{(N)}=x_{(N)}\right\}=\frac{1}{n!} .
+\]
+
+A partir de este resultado, dado un estadístico de test \(T\), plantea un test condicional que permite estimar el p -valor enumerando todas las muestras y contando en cuáles el valor del estadístico de test es superior al valor observado en la muestra, \(t_{o b s}\) :
+
+\[
+\begin{aligned}
+P_{F_{Y}=G_{Z}}\left\{T \geq t_{o b s} \mid x_{(1)}, x_{(2)}, \ldots, x_{(N)}\right\} & =\sum_{\left\{x_{1}, x_{2}, \ldots, x_{N} \mid T>t\right\}} \frac{1}{n!}= \\
+& =\frac{\left\{\# \text { ordenaciones de } x_{1}, x_{2}, \ldots, x_{N}: T \geq t_{o b s}\right\}}{n!} .
+\end{aligned}
+\]
+
+Si, por ejemplo, tomamos como estadístico de test la diferencia (en valor absoluto) entre las medias de las muestras el test consiste en determinar en cuántas de ellas la diferencia es mayor que la diferencia observada sobre la muestra. Si la hipótesis nula es cierta es de esperar que un elevado número de muestras lo cumplan, mientras que si no lo es habra pocas, tantas menos cuanto mas distintas sean ambas muestras.
+
+\subsubsection{Contrastes de hipótesis bootstrap}\label{contrastes-de-hipuxf3tesis-bootstrap}
+
+Del planteamiento realizado en el apartado anterior queda claro que al realizar un contraste de hipótesis el p-valor debe calcularse bajo la hipótesis nula.
+
+Las dos opciones presentadas son soluciones clásicas aplicadas en gran número de contrastes, especialmente cuando la distribución de la poblaciones es normal. Los tests bootstrap no suelen basarse ni en la primera opción ni en segunda sinó que explotan una tercera posibilidad consistente en estimar \(F\) mediante una función de distribución \(\hat{F}_{0}\) que satisface la hipótesis nula, es decir una función de distribución que verifique \(\hat{F}_{0} \in \mathcal{F}_{\mathcal{H}}\). Si llamamos \(t_{o b s}\) al valor observado del estadístico de test sobre la muestra original, el p-valor bootstrap se define como:
+
+\[
+p^{*}=P\left\{T\left({\underset{\sim}{X}}^{*}\right) \geq t_{o b s} \mid \hat{F}_{0}\right\}=P_{\hat{F}_{0}}\left\{T\left({\underset{\sim}{X}}^{*}\right) \geq t_{o b s}\right\}
+\]
+
+donde \({\underset{\sim}{X}}^{*}\) indica que las \(X_{i}^{*}\) son remuestras independientes de \(\hat{F}_{0}\).
+
+\paragraph{Ejemplos}\label{ejemplos}
+
+Presentamos algunos ejemplos con problemas básicos como hipótesis sobre medias o varianzas que permiten la comparación de los métodos bootstrap con procedimientos familiares.
+
+\subsection{Ejemplo 1: Comparación de medias}\label{ejemplo-1-comparaciuxf3n-de-medias}
+
+Supongamos que tenemos 2 muestras independientes que indicamos por \(X_{11}, X_{12}, \ldots, X_{1 n}\) y \(X_{21}, X_{22}, \ldots, X_{2 m}\) y que deseamos contrastar la hipótesis \(H_{0}: \mu_{1}=\mu_{2}\). Aquí intervienen dos distribuciones, \(F, G\) con sus correspondientes aproximaciones empíricas, \(\hat{F}, \hat{G}\). Hay distintas elecciones possibles para \(\hat{F}_{0}=\left(\hat{F}_{H_{0}}, \hat{G}_{H_{0}}\right):\)
+
+\begin{itemize}
+\tightlist
+\item
+  Una posibilidad es ``forzar'' que las medias de \(\hat{F}_{H_{0}}\) y \(\hat{G}_{H_{0}}\) sean iguales. Esta posibilidad se muestra con más detalle a continuación.
+\item
+  Otra posibilidad es igualar ambas distribuciones empíricas a la de la muestra combinada es decir \(\hat{F}_{0}=\left(\hat{F}_{\text {comb }}, \hat{F}_{\text {comb }}\right)\), donde \(\hat{F}_{\text {comb }}\) asigna probabilidad \(1 / N, N=n+m\) a cada valor observado.
+\end{itemize}
+
+Como estadístico de test puede utilizarse la diferencia de medias, \(\bar{X}_{1}-\bar{X}_{2}\), o un estadístico estudentizado como el estadístico \(t\) de Student habitual para la comparación de dos medias:
+
+\[
+T(\underset{\sim}{X})=\frac{\bar{X}_{1}-\bar{X}_{2}}{\tilde{\sigma} \sqrt{1 / n+1 / m}},
+\]
+
+\(\operatorname{con} \tilde{\sigma}=\left\{\left[n \cdot s_{1}^{2}+m \cdot s_{2}^{2}\right] /[n+m-2]\right\}^{1 / 2}\).
+El p-valor a calcular es:
+
+\[
+p=\operatorname{Prob}\left\{T(\underset{\sim}{X}) \geq t_{o b s} \mid \mu_{1}=\mu_{2}\right\} .
+\]
+
+El planteamiento bootstrap de este problema consistirá en estimar este p -valor, \(p\), mediante el p -valor bootstrap, \(p^{*}\)
+
+\[
+p^{*}=\operatorname{Prob}_{*}\left\{T\left(\mathbf{Y}^{*}\right) \geq t_{o b s} \mid \bar{Y}_{1}=\bar{Y}_{2}\right\}
+\]
+
+en donde el requisito de estimar la probabilidad bajo la hipótesis nula, es decir como sobre una ``población'' (``mundo real'') en donde \(\mu_{1}=\mu_{2}\) se realiza substituyendo dicha población por la ``muestra'' (``mundo bootstrap''), \(\tilde{\mathbf{Y}}\) que se ajusta a la hipótesis \(\bar{Y}_{1}=\bar{Y}_{2}(=\bar{X})\) donde
+
+\[
+\bar{X}=\frac{m \bar{X}_{1}+n \bar{X}_{2}}{m+n}
+\]
+
+y donde las remuestras \(X^{*}\) pueden generarse a partir de \(\widehat{F}_{H_{0}}\) que asigna probabilidad \(\frac{1}{m}\) y \(\frac{1}{n}\) respectivamente a los valores
+
+\[
+\left(Y_{11} \ldots Y_{1 m} ; Y_{21} \ldots Y_{2 n}\right)
+\]
+
+obtenidos de \(Y_{i j}=X_{i j}-\bar{X}_{i}+\bar{X}\). Como puede comprobarse en la tabla siguiente esta transformación de los datos da lugar a dos nuevas muestras cuyas varianzas muestrales son iguales a las de la muestra inicial y cuyas medias aritméticas coinciden y son iguales a \(\bar{X}\).
+
+El p-valor bootstrap \(p^{*}\) se puede aproximar mediante el siguiente algoritmo de Monte Carlo, en donde se observa que aquí, el remuestreo bajo la hipótesisi nula consiste en extraer muestras de \(\widehat{F}_{H_{0}}\) por separado en la primera y la segunda submuestras.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Generar \(b=1, \ldots, B\) pares de remuestras a partir de \(\widehat{F}_{H_{0}}\) definida en el párrafo anterior y calcular sobre cada una de ellas el estadístico de test
+  \(T^{*}\)
+\end{enumerate}
+
+\[
+\begin{array}{cccc}
+\left(Y_{11} \ldots Y_{1 m} ; Y_{21} \ldots Y_{2 n}\right) & & \\
+\Downarrow & \Downarrow & & \\
+& & & \\
+\left(Y_{11}^{*} \ldots Y_{1 m}^{*} ; Y_{21}^{*} \ldots Y_{2 n}^{*}\right)_{1} & \rightarrow & T_{1}^{*} \\
+\left(Y_{11}^{*} \ldots Y_{1 m}^{*}\right. & \left.; Y_{21}^{*} \ldots Y_{2 n}^{*}\right)_{2} & \rightarrow & T_{2}^{*} \\
+\ldots & \ldots & \ldots & \\
+\left(Y_{11}^{*} \ldots Y_{1 m}^{*}\right. & \left.; Y_{21}^{*} \ldots Y_{2 n}^{*}\right)_{B} & \rightarrow & T_{B}^{*}
+\end{array}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Aproximar el p -valor bootstrap \(p^{*}\) mediante
+\end{enumerate}
+
+\[
+\hat{p}^{*}=\frac{\#\left\{T_{b}^{*} \geq t_{o b s}\right\}}{B} \approx p^{*}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Si \(\hat{p}^{*} \leq \alpha\) se rechaza la hiopótesis nula.
+\end{enumerate}
+
+\subsection{Ejemplo 2: Prueba de independencia}\label{ejemplo-2-prueba-de-independencia}
+
+Supongase que observamos \(n\) pares de valores
+
+\[
+(\underset{\sim}{X} ; \underset{\sim}{Y})=\left(\begin{array}{cc}
+X_{1} & Y_{1} \\
+X_{2} & Y_{2} \\
+\ldots & \ldots \\
+X_{n} & Y_{n}
+\end{array}\right)
+\]
+
+y que deseamos contrastar la independencia entre \(X\) e \(Y\) :
+
+\[
+H_{0}: X \quad \text { e } \quad Y \text { son estocásticamente independientes. }
+\]
+
+Es razonable utilizar un estadístico de test que no tan sólo permita calcular el p-valor sino que cuando la hipótesis nula no se verifique también lo indique. Una posibilidad es basar el estadístico de test en el coeficiente de correlación muestral. Algunas elecciones posibles para \(T\) son:
+
+\begin{itemize}
+\tightlist
+\item
+  \(T(\underset{\sim}{X} ; \underset{\sim}{Y})=|r(\underset{\sim}{X} ; \underset{\sim}{Y})|\), el coeficiente de correlación muestral.
+\item
+  \(T(\underset{\sim}{X} ; \underset{\sim}{Y})=\left|\frac{r}{\sqrt{1-r^{2}}} \sqrt{n-2}\right|\), una versión estudentizada del anterior, cuya distribución -si las poblaciones son normales- no depende de \(\rho\), es decir que es pivotal.
+\item
+  \(T(\underset{\sim}{X} ; \underset{\sim}{Y})=\sup _{\left(X_{i}, Y_{i}\right)}\left|\hat{F}-\hat{G}_{1} \hat{G}_{2}\right|\) basado en la diferencia entre la la función de distribucion empírica de la muestra original y la función de distribución bajo la hipótesis nula que seria el producto de la funciones de distribución marginales.
+\end{itemize}
+
+El planteamiento bootstrap del problema se basa en la idea utilizada en el tercer estadístico. Si indicamos por \(\hat{F}\) la función de distribución empírica de la muestra original:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(\hat{F}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(Y_{(1)}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(Y_{(2)}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(Y_{(n)}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\hat{G}_{1}\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(X_{(1)}\) & 0 & \(\frac{1}{n}\) & . & . & . & 0 & \(\frac{1}{n}\) \\
+\(X_{(2)}\) & 0 & 0 & . & . & . & \(\frac{1}{n}\) & \(\frac{1}{n}\) \\
+. & . & . & & & & . & . \\
+. & . & . & & & & . & . \\
+. & . & . & & & & . & . \\
+\(X_{(n)}\) & \(\frac{1}{n}\) & 0 & . & . & . & 0 & \(\frac{1}{n}\) \\
+\(\hat{G}_{2}\) & \(\frac{1}{n}\) & \(\frac{1}{n}\) & . & . & . & \(\frac{1}{n}\) & \\
+\end{longtable}
+
+la distribución empírica bajo la hipótesis nula asignará a cada par de valores el producto de sus funciones de distribución marginales \(\widehat{F}_{H_{0}}=\hat{G}_{1} \hat{G}_{2}\) :
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1111}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(\widehat{F}_{H}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(Y_{(1)}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(Y_{(2)}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\cdot\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\cdot\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\cdot\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(Y_{(n)}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\hat{G}_{1}\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(X_{(1)}\) & \(\frac{1}{n^{2}}\) & \(\frac{1}{n^{2}}\) & \(\cdot\) & \(\cdot\) & \(\cdot\) & \(\frac{1}{n^{2}}\) & \(\frac{1}{n}\) \\
+\(X_{(2)}\) & \(\frac{1}{n^{2}}\) & \(\frac{1}{n^{2}}\) & \(\cdot\) & \(\cdot\) & \(\cdot\) & \(\frac{1}{n^{2}}\) & \(\frac{1}{n}\) \\
+\(\cdot\) & \(\cdot\) & \(\cdot\) & & & & \(\cdot\) & \(\cdot\) \\
+\(\cdot\) & \(\cdot\) & \(\cdot\) & & & & \(\cdot\) & \(\cdot\) \\
+\(\cdot\) & \(\cdot\) & \(\cdot\) & & & & \(\cdot\) & \(\cdot\) \\
+\(X_{(n)}\) & \(\frac{1}{n^{2}}\) & \(\frac{1}{n^{2}}\) & \(\cdot\) & \(\cdot\) & \(\cdot\) & \(\frac{1}{n^{2}}\) & \(\frac{1}{n}\) \\
+\(\hat{G}_{2}\) & \(\frac{1}{n}\) & \(\frac{1}{n}\) & \(\cdot\) & \(\cdot\) & \(\cdot\) & \(\frac{1}{n}\) & \\
+\end{longtable}
+
+Para realizar un test de independencia es preciso estimar:
+
+\[
+p=\operatorname{Prob}\{T(\underset{\sim}{X} ; \underset{\sim}{Y}) \geq t_{o b s} \mid \underbrace{F=G_{1} G_{2}}_{H_{0}}\} .
+\]
+
+El planteamiento bootstrap de este problema consistirá en estimar este pvalor, \(p\), mediante el p -valor bootstrap, \(p^{*}\) :
+
+\[
+p^{*}=\operatorname{Prob}_{*}\left\{T\left(\mathbf{X}^{*} ; \mathbf{Y}^{*}\right) \geq t_{o b s} \mid \widehat{F}_{H_{0}}=\hat{G}_{1} \hat{G}_{2}\right\}
+\]
+
+Este p-valor bootstrap se aproximará por Monte Carlo mediante el siguiente algoritmo:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Generar \(b=1 \ldots B\) remuestras a partir de \(\widehat{F}_{H_{0}}\) y calcular sobre cada una de ellas el estadístico de test escogido
+\end{enumerate}
+
+\[
+\begin{array}{lllll}
+\left(\left(X_{1}^{*}, Y_{1}^{*}\right),\right. & \ldots & \left.\left(X_{n}^{*}, Y_{n}^{*}\right)\right)_{1} & \rightarrow & T_{1}^{*} \\
+\left(\left(X_{1}^{*}, Y_{1}^{*}\right),\right. & \ldots & \left.\left(X_{n}^{*}, Y_{n}^{*}\right)\right)_{2} & \rightarrow & T_{2}^{*} \\
+& \ldots & & \ldots & \\
+\left(\left(X_{1}^{*}, Y_{1}^{*}\right),\right. & \ldots & \left.\left(X_{n}^{*}, Y_{n}^{*}\right)\right)_{B} & \rightarrow & T_{B}^{*}
+\end{array}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Aproximar el p -valor bootstrap \(p^{*}\) mediante
+\end{enumerate}
+
+\[
+\hat{p}^{*}=\frac{\#\left\{T_{b}^{*} \geq t_{o b s}\right\}}{B} \approx p^{*}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Si \(\hat{p}^{*} \leq \alpha\) se rechaza la hipótesis nula.
+\end{enumerate}
+
+\paragraph{\texorpdfstring{Resumiendo: Estimación de \(F\) bajo \(H_{0}\)}{Resumiendo: Estimación de F bajo H\_\{0\}}}\label{resumiendo-estimaciuxf3n-de-f-bajo-h_0}
+
+A pesar de que existen diversas estrategias para la estimación de \(F\) bajo la hipótesis nula la idea básica es procurar realizar la estimación bajo las restricciones impuestas por la hipótesis nula. En terminos prácticos esto significa que, cuando ello sea posible, se mire de adaptar el proceso de remuestreo para generar las remuestras directamente a partir de la hipótesis nula.
+
+De forma más general si \(\hat{F}\) es la estimación que se considera más apropiada para \(F\) en condiciones generales, y \(\delta\) es una medida de distancia entre distribuciones escogeremos \(\hat{F}_{H_{0}}\) de forma que minimice \(\delta(\hat{F}, G)\) entre todas aquellas distribuciones \(G\) que verifiquen \(H_{0}\). Posteriormente se remuestreará a partir de \(\hat{F}_{H_{0}}\). La distancia \(\delta(\),\() puede no considerarse explicitamente. De he-\) cho puede tomarse el mínimo valor de \(\delta\) como estadístico de test.
+
+Los ejemplos introductorias nos han mostrado distintos enfoques para la estimación de la distribución bajo la hipótesis nula, y por lo tanto para el remuestreo bajo la hipótesis nula
+
+\begin{itemize}
+\tightlist
+\item
+  En el primer ejemplo (comparación de medias) se ha modificado el soporte de la distribución empírica, puesto que se ha remuestreado a partir de una nueva muestra adaptada a la hipótesis nula. Se ha realizado un desplazamiento de la muestra y de su distribución empírica pero no de la distribución bootstrap del estadístico de test que no se ha visto afectada.
+\item
+  En el segundo ejemplo (independencia entre variables) podemos considerar que la muestra original era toda la tabla cruzada \(\left(X_{i}, Y_{j}\right), i=\)
+  \(1 \ldots n, j=1 \ldots n\) y que la distribución empírica asigna masa de probabilidad \(1 / n\) a todos los pares tales que \(i=j\), es decir \(\left(X_{i}, Y_{i}\right)\) y 0 a los restantes. En este caso el proceso de remuestreo de \(\hat{F}_{H_{0}}\) solo ha modificado los pesos o probabilidades de cada par ( \(X_{i}, Y_{j}\) ), asignandoles un peso1 \(/ n^{2}\) pero sin modificar sus valores, es decir sin cambiar el soporte.
+\end{itemize}
+
+\subsubsection{Relación entre contrastes de hipótesis, intervalos de confianza y el bootstrap}\label{relaciuxf3n-entre-contrastes-de-hipuxf3tesis-intervalos-de-confianza-y-el-bootstrap}
+
+Cuando la hipótesis nula se refiere a un valor concreto de un parámetro, \(H_{0}: \theta=\theta_{0}\), puede utilizarse la relación entre pruebas de hipótesis e intervalos de confianza para estimar el p-valor o para aceptar o rechazar la hipótesis nula a partir de un intervalo de confianza.
+
+\paragraph{Conceptos básicos de intervalos de confianza}\label{conceptos-buxe1sicos-de-intervalos-de-confianza}
+
+Supongamos que disponemos de un estimador, \(\hat{\theta}\), centrado en \(\theta\) y con distribución normal
+
+\[
+\hat{\theta} \sim N\left(\theta, \sigma_{\hat{\theta}}\right)
+\]
+
+Sea \(\left(\hat{\theta}_{\text {inf }}, \hat{\theta}_{\text {sup }}\right)\) un intervalo de confianza de nivel \(1-2 \alpha\) para \(\theta\), es decir si sobre una muestra dada el valor de \(\hat{\theta}\) ha sido \(\hat{\theta}_{\text {obs }}\) entonces
+
+\[
+\hat{\theta}_{\mathrm{inf}}=\hat{\theta}_{o b s}-z^{1-\alpha} \cdot \sigma_{\hat{\theta}}, \quad \hat{\theta}_{\mathrm{sup}}=\hat{\theta}_{o b s}-z^{\alpha} \cdot \sigma_{\hat{\theta}}
+\]
+
+donde
+
+\[
+P_{\theta}\left\{\theta \in\left(\hat{\theta}_{\mathrm{inf}}, \hat{\theta}_{\mathrm{sup}}\right)\right\}=1-2 \alpha
+\]
+
+en el sentido habitual de los contrastes de hipótesis. Este intervalo no tiene tan sólo un recubrimiento global de \(1-2 \alpha\) sinó que unilateralmente los recubrimientos son de \(\alpha\) a cada lado, es decir
+
+\[
+P_{\theta}\left\{\theta<\hat{\theta}_{\text {inf }}\right\}=\alpha, \text { y } P_{\theta}\left\{\theta>\hat{\theta}_{\text {sup }}\right\}=\alpha
+\]
+
+Esta segunda propiedad es más fuerte que la anterior puesto que la implica mientras que la implicación contraria no es necesariamente cierta.
+
+\paragraph{Relación entre los intérvalos de confianza y las pruebas de hipótesis}\label{relaciuxf3n-entre-los-intuxe9rvalos-de-confianza-y-las-pruebas-de-hipuxf3tesis}
+
+Supongamos ahora que el auténtico valor de \(\theta\) fuera \(\hat{\theta}_{\text {ínf }}\). Tendríamos:
+
+\[
+\hat{\theta} \sim N\left(\hat{\theta}_{\mathrm{inf}}, \sigma_{\hat{\theta}}\right)
+\]
+
+y es fácil ver que
+
+\[
+P_{\hat{\theta}_{\text {inf }}}\left\{\hat{\theta} \geq \hat{\theta}_{o b s}\right\}=\alpha
+\]
+
+Así para cualquier valor de \(\theta\) menor que \(\hat{\theta}_{\text {inf }}\) tendremos
+
+\[
+P_{\theta}\left\{\hat{\theta} \geq \hat{\theta}_{o b s}\right\}<\alpha \quad\left[\forall \theta<\hat{\theta}_{\mathrm{inf}}\right]
+\]
+
+Similarmente, para cualquier valor de \(\theta\) mayor que \(\hat{\theta}_{\text {sup }}\) tendremos
+
+\[
+P_{\theta}\left\{\hat{\theta} \leq \hat{\theta}_{o b s}\right\}<\alpha \quad\left[\forall \theta>\hat{\theta}_{\mathrm{inf}}\right]
+\]
+
+La lógica del intervalo de confianza ( \(\hat{\theta}_{\text {inf }}, \hat{\theta}_{\text {sup }}\) ) puede explicarse en terminos de 6.5 y 6.6 :
+
+\begin{itemize}
+\tightlist
+\item
+  Escogemos una probabilidad pequeña \(\alpha\)
+\item
+  Decidimos qué valores del parámetro inferiores a \(\hat{\theta}_{\text {inf }}\) son implausibles porque dan una probabilidad menor que \(\alpha\) de observar una estimación tan grande cómo (o mayor que) la que hemos observado
+\item
+  Decidimos qué valores del parámetro inferiores a \(\hat{\theta}_{\text {sup }}\) son implausibles porque dan una probabilidad menor que \(\alpha\) de observar una estimación tan pequeña cómo (o menor que) la que hemos observado
+\end{itemize}
+
+En resumen:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  el intervalo de confianza de nivel \(1-2 \alpha\), ( \(\left.\hat{\theta}_{\text {inf }}, \hat{\theta}_{\text {sup }}\right)\) es el conjunto de los valores plausibles de \(\theta\), habiendo observado \(\hat{\theta}_{\text {obs }}\), cuyos valores no son rechazados por los tests de plausibilidad 6.5 y 6.6.
+\item
+  los tests de plausibilidad 6.5 y 6.6 'on tambien los niveles de significación para los contrastes de hipótesis asociados
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  El valor en los tests de plausibilidad 6.5 es el nivel de significación para el test de alternativa unilateral de que el verdadero valor del parámetro es mayor que \(\theta\) y
+\item
+  El valor en los tests de plausibilidad 6.6 es el nivel de significación para el test de alternativa unilateral de que el verdadero valor del parámetro es menor que \(\theta\).
+\end{itemize}
+
+Los resultados anteriores permiten que, en muchas situaciones, sea posible llevar a cabo una prueba de hipótesis construyendo un intervalo de confianza y comprobandoi si el valor de la hipótesis nula se encuentra en el intérvalo.
+
+\paragraph{Pruebas de hipótesis, intervalos de confianza y bootstrap}\label{pruebas-de-hipuxf3tesis-intervalos-de-confianza-y-bootstrap}
+
+Como acabamos de ver la relación entre intervalos de confianza y pruebas de hipótesis es muy fuerte. De hecho lo es tanto que no tan sólo podemos utilizar el intervalo de confianza para aceptar o rechazar la hipótesis nula sinó que también podemos utilizarlo para calcular el p -valor asociado al test.
+
+Supongamos que \(\hat{\theta}_{o b s}\), el valor observado del estadístico de interés es mayor que 0 y escojamos \(\alpha\) de forma que el extremo inferior del intervalo \(\hat{\theta}_{\text {inf }}\) de nivel \(1-2 \alpha\) sea exactamente igual a 0 . Entonces según 6.4
+
+\[
+P_{\theta=0}\left\{\hat{\theta} \geq \hat{\theta}_{o b s}\right\}=\alpha
+\]
+
+Ejemplo 1 Con los datos de dos grupos de ratones, control y tratamiento tenemos, suponiendo normalidad:
+
+\[
+\begin{aligned}
+\bar{X}_{T} & =86,9, \quad S_{T} / \sqrt{7}=25,2 \\
+\bar{X}_{C} & =56,3, \quad S_{C} / \sqrt{7}=14,3 \\
+\bar{X}_{D} & =\bar{X}_{T}-\bar{X}_{C}=30,6, \quad S_{D}=28,8
+\end{aligned}
+\]
+
+Un intervalo de confianza al 95\% para la diferencia, es
+
+\[
+\bar{X}_{D} \mp S_{D} \cdot 1,96,
+\]
+
+de donde el extremo inferior del intervalo es
+
+\[
+\bar{X}_{\mathrm{inf}}=-26,6 .
+\]
+
+Tomando un valor \(\alpha\) tal que: \(z_{\alpha / 2}=1,06\) conseguiremos que el extremo inferior valga 0 .
+
+Cuando como en el ejemplo anterior ( \(\theta=\mu_{1}-\mu_{2}\), ) la hipótesis nula es \(\theta=0\), el p-valor, tal como se ha definido en 6.1:
+
+\[
+N S A=P_{H_{0}}\left\{\hat{\theta} \geq \hat{\theta}_{o b s}\right\}
+\]
+
+coincide con el valor de \(\alpha\) que ha sido preciso fijar para que el extremo inferior del intervalo de nivel \(1-2 \alpha, \hat{\theta}_{\text {inf }}\), valga 0 . Es decir a través del intervalo de confianza (en concreto a traves de fijar el valor para \(\hat{\theta}_{\text {inf }}\) ) hemos obtenido el p-valor del test correspondiente, tal como se habia indicado que er posible realizar.
+
+Veamos un ejemplo:
+
+La figura muestra la distribución bootstrap de la diferencia de medias con los datos de los tiempos de supervivencia para dos grupos de ratones.
+
+Podemos utilizar esta distribución para formar intervalos de confianza para la diferencia entre el grupo tratamiento y el grupo control con una diferencia media observada de \(\hat{\theta}_{\text {obs }}=30,23\).
+
+Qué valor de \(\alpha\) hará que el extremo inferior del intervalo sea igual a cero?. Si consideramos el método del percentil aplicado a un estadístico \(\hat{\theta}_{b}^{*}\) la respuesta es
+
+\[
+\alpha_{0}=\frac{\left\{\# \hat{\theta}_{b}^{*}<0\right\}}{B},
+\]
+
+es decir la proporción de réplicas bootstrap en donde \(\hat{\theta}_{b}^{*}\) es menor que 0 , con lo que, por la definición del método percentil, \(\hat{\theta}_{\text {ínf }}=\hat{\theta}^{\left(\alpha_{0}\right)}=0\). El valor \(\alpha_{0}\) coincide, como hemos indicado en el párrafo anterior, con el NDS de \(\hat{\theta}\) es decir:
+
+\[
+\widehat{N S A}=\frac{\left\{\# \hat{\theta}_{b}^{*}<0\right\}}{B}
+\]
+
+Las \(B=1000\) réplicas bootstrap de la figura anterior dieron unos valores de
+
+\[
+\widehat{N S A}\left(\hat{\theta}_{o b s}\right)=\frac{\left\{\# \hat{\theta}_{b}^{*}<0\right\}}{B}=0,132
+\]
+
+Este es un valor similar al que se obtendria remuestreando bajo la hipó tesis nula o mediante el test de permutaciones comentado en el apartado anterior que, en este ejemplo concreto da un valor de 0.137
+
+Los cálculos anteriores se basan en el intervalo percentil ordinario. Efron (1993) describe cómo hacerlo de forma general basándose en los intervalos percentil \(\mathrm{BC}_{a}\), de los que los intervalos percentil son un caso particular.
+
+Es importante contrastar las dos aproximaciones a la resolución del problema del contraste de hipótesis: El histograma de la distribución bootstrap de la diferencia está centrado entorno del \(\hat{\theta}_{o b s}\), mientras que el del test bootstrap estás centrado entorno del 0 . En este sentido \(N D S_{\text {boot }}\) mide qué tan lejos está \(\hat{\theta}_{o b s}\) del 0 mientras que \(N D S\left(\hat{\theta}_{o b s}\right)\) mide qué tan lejos está el 0 de \(\hat{\theta}_{\text {obs }}\). Efron (1993) sugiere que los ajustes que realiza el método del \(\mathrm{BC}_{a}\) pueden verse como una forma de reconciliar estas dos aproximaciones.
+
+\section{Capítulo 7}\label{capuxedtulo-7}
+
+\subsection{Validez de los métodos bootstrap}\label{validez-de-los-muxe9todos-bootstrap}
+
+\subsubsection{Introducción}\label{introducciuxf3n-13}
+
+A la vista de las técnicas que acabamos de discutir, los métodos bootstrap aparecen como una valiosa herramienta, utilizable en muchas situaciones en las que no se dispone de una solución exacta. Debemos fijarnos sin embargo que la justificación que se ha dado para su utilización era, de entrada, de tipo intuitivo: dado que en general los estimadores del error estándar de un estimador son de la forma
+
+\[
+\sigma_{\hat{\theta}}=\sigma_{\hat{\theta}}(F)
+\]
+
+entonces, cuando no se conoce la forma explícita de \(\sigma_{\hat{\theta}}(F)\) se puede calcular, mediante bootstrap, directamente \(\hat{\sigma}_{\hat{\theta}}\left(F_{n}\right)\) y utilizarlo para estimar \(\sigma_{\hat{\theta}}\).
+
+La idea anterior parece correcta, pero ``qué garantía tenemos de que, en cada caso concreto, esta aproximación será correcta?
+
+Yendo más allá del error estándar, la idea que hay detrás de los métodos bootstrap consiste en utilizar la distribución bootstrap del estadístico -aproximable por Monte Carlo- en substitución de su distribución muestral (habitualmente desconocida). De nuevo debemos preguntarnos si esta aproximación será correcta en cada situación en que la utilicemos.
+
+No se trata ahora de descubrir que todo lo anterior era una falacia, sino de remarcar el hecho de que, para utilizar un método determinado, por muy intuitivo o correcto que este nos parezca, debemos de justificar de alguna forma su validez en una situación dada.
+
+En el caso del bootstrap esto se puede hacer de diversas formas. Sin embargo la mayoría de ellas requieren resultados cuya complejidad escapa por completo al nivel al que se realiza nuestra discusión. Por lo tanto, y simple-
+mente a modo de ilustración, nos limitaremos a enunciar un resultado que justifica asintóticamente la validez del bootstrap, en ciertas situaciones, y a discutir como puede probarse la validez del método mediante simulación.
+
+\subsubsection{Teorema central del límite bootstrap}\label{teorema-central-del-luxedmite-bootstrap}
+
+El siguiente teorema, enunciado de forma casi simultánea por P. Bickel de la universidad de Berkeley y K. Singh de Stanford a principios de los 80, establece la normalidad asintótica de la media bootstrap y la convergencia del error estándar bootstrapen probabilidad condicional hacia el error estándar de la media.
+
+Aún cuando parezca que ``para este viaje no hacían falta alforjas'', dado que la distribución asintótica de la media muestral es conocida, este resultado es sugerente cómo mínimo por dos motivos:
+
+\begin{itemize}
+\tightlist
+\item
+  En un caso conocido se obtienen mediante el bootstrap los mismos resultados que con la teoría clásica.
+\item
+  La mayor parte de los resultados asintóticos relativos a los métodos bootstrap para situaciones diversas son parecidas a este teorema de Bickel: Establecen que la distribución bootstrapconverge hacia la misma distribución asintótica que la distribución del estadístico con lo que la primera - y las características calculadas sobre ella- es una buena aproximación de la última.
+\end{itemize}
+
+El enunciado del teorema es el siguiente:
+theorem 1 Sean \(\left(X_{1}, X_{2}, \ldots, X_{n}\right) \stackrel{\text { iiid }}{\sim} F\) con varianza finita, \(\sigma^{2}>0\). Sea \(F_{n}\) la función de distribución empírica de \(\left(X_{1}, X_{2}, \ldots, X_{n}\right)\) y \(\left(X_{1}^{*}, X_{2}^{*}, \ldots, X_{n}^{*}\right)\) una muestra obtenida de \(F_{n}\). Sea:
+
+\[
+T_{n}^{*}=\sqrt{n}\left(\bar{X}_{b}^{*}-\bar{X}\right)
+\]
+
+donde \(\bar{X}=n^{-1} \sum_{i=1}^{n} X_{i}\) y \(\bar{X}_{b}^{*}=n^{-1} \sum_{i=1}^{n} X_{i}^{*}\). Entonces:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  (Bickel y Freedman (1981, {[}2{]} ), K. Singh (1981, {[}22{]}) y Shie Shie Yang (1988, {[}21{]}): La distribución condicional de \(T_{n}^{*}\), dada \(\left(X_{1}, X_{2} \ldots, X_{n}\right)\), converge débilmente hacia una distribución normal \(N\left(0, \sigma^{2}\right)\), cuando \(n \rightarrow \infty\).
+\item
+  (Unicamente en Bickel y Freedman (1981, {[}2{]})). Sea
+\end{enumerate}
+
+\[
+\hat{S}^{2 *}=\frac{1}{n} \sum_{i=1}^{n}\left(X_{i}^{*}-\bar{X}_{b}^{*}\right)^{2}
+\]
+
+Entonces:
+
+\[
+\hat{S}^{*} \rightarrow \sigma
+\]
+
+en probabilidad condicional es decir que \(\forall \epsilon>0\) :
+
+\[
+P\left\{\left|\hat{S}^{*}-\sigma\right|>\epsilon \mid\left(X_{1}, X_{2}, \ldots, X_{n}\right)\right\} \rightarrow 0 \text {, casi seguramente. }
+\]
+
+\subsubsection{Validación del bootstrap mediante simulación}\label{validaciuxf3n-del-bootstrap-mediante-simulaciuxf3n}
+
+Como hemos comentado, la teoría asintótica para el bootstrap es muy compleja. Una forma alternativa de determinar si un método bootstrap funciona es mediante simulación de Monte Carlo (este método es de aplicabilidad general aunque aquí se considera tan sólo en el contexto de los métodos bootstrap. Puede consultarse Lewis (1988{[}16{]}) para una exposición general del tema).
+
+La validación del bootstrap mediante métodos de Monte Carlo consiste en simular la población original de forma que los estimadores calculados sobre el conjunto de la muestra nos den una buena aproximación de los valores poblacionales. Una vez estimados éstos podremos compararlos con los estimadores que deseamos validar, mediante su valor medio a lo largo de todas las simulaciones.
+
+Por ejemplo, para realizar esta validación en el caso del error estándar bootstrapdel coeficiente de correlación ejecutaremos el siguiente algoritmo:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Repetir un elevado número de veces \(s=1, \ldots, S\) (p.ej. \(S=10000\) ) el siguiente proceso:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Generar una muestra de una distribución bivariante, p.ej. una normal, \(N(\mu, \Sigma)\).
+\item
+  Calcular sobre ella el coeficiente de correlación \(\hat{\rho}_{s}\), y el error estándar bootstrap \(\hat{\sigma}_{B}\)
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  La desviación típica muestral, \(s_{\hat{\rho}}\) de los coeficientes de correlación \(\hat{\rho}_{1}, \ldots, \hat{\rho}_{s}\) es una buena estimación del error estándar de \(\hat{\rho}\) y la media muestral de los errores estándar bootstrap, \(\overline{\hat{\sigma}}_{B}\) es una buena estimación del error estándar bootstrap del coeficiente de correlación.
+\item
+  Cuanto más similares sean \(s_{\hat{\rho}}\) y \(\overline{\hat{\sigma}_{B}}\) mejor será la calidad de \(\hat{\sigma}_{B}\) cómo estimador de \(\sigma_{\hat{\rho}}\).
+\end{enumerate}
+
+Una simulación realizada con el programa EMSS en donde se han generado se generaron \(S=10000\) muestras de una población normal bivariante con auténtico valor del coeficiente de correlación \(\rho=0,5\) y \(n=15\) da los resultados siguientes:
+
+Tabla 6
+Comparación de estimadores del error estándar
+\(X \sim N(\mu, \boldsymbol{\Sigma}), S=10000\)
+\textbar{} Bootstrap \((\mathrm{B}=128)\) \textbar{} 0.197 \textbar{}
+\textbar{} :--- \textbar{} :--- \textbar{}
+\textbar{} Teoría normal \textbar{} 0.207 \textbar{}
+\textbar{} Verdadero valor \textbar{} 0.208 \textbar{}
+
+Cómo se ve en la tabla 6 el estimador bootstrap del error estándar es una buiena aproximación, pero el estimador de la teoría normal funciona aún mejor, dado que la situación en que se ha realizado la simulación es precisamente una normal bivariante.
+
+\subsection{Bibliografía}\label{bibliografuxeda}
+
+{[}2{]} Bickel, P. and Freedman, J. (1981). Some assymptotic theory for the bootstrap. The annals of Statistics, (9), 6, 1196-1217.
+
+{[}3{]} Booth, J., G. and Sarkar, S. (1998). Monte Carlo Approximation of Bootstrap Variances. The American Statistician, (52), 4, 354-357.
+
+{[}4{]} Cristóbal Cristobal, J. Antonio (1992).Inferencia Estadística. Servicio de Publicaciones. Universidad de Zaragoza.
+
+{[}5{]} Dudewicz, Edward J., Mishra, S. (1988).Modern mathematical statistics. Wiley. New York.
+
+{[}6{]} Di Ciccio, T.J. and Romano, J.P. (1988). A review of bootstrap confidence intervals. J.R. Statist. Soc. B. 50, 338-354.
+
+{[}7{]} Efron, B., 1979 The bootstrap, another look at the jackniffe. Annals of Statistics 7 (1), 1-26
+
+{[}8{]} Efron, B. 1982 Transformation theory: how normal is a family of distributions?. Annals of Statistics 10 (2), 323-339
+
+{[}9{]} Efron, B., 1982 The jackniffe, the bootstrap and other resampling plans. S.I.A.M. CBMS-Natl. Sci. Found. Monogr. 38
+
+{[}10{]} Efron, B.(1985) Bootstrap confidence intervals for a class of parametric problems. Biometrika 72 (1) 45-58
+
+{[}11{]} Efron, B.(1987) Better Bootstrap Confidence Intervals. Journal of the American Statistical Association 82 (397) 171-200
+
+{[}12{]} Efron, B. Tibishirani, R. (1986) Bootstrap methods for standard errors, confidence intervals and other measures of statistical accuracy.Statistical Science 1 54-77
+
+{[}13{]} Hall, P. (1988) Theoretical comparison of Bootstrap confidence intervals. Annals of Statistics 16 927-953.
+
+{[}14{]} Holmes, Susan (1999) Introduction to the bootstrap. Curso en internet en la dirección URL:
+\url{http://www-stat.stanford.edu/~susan/courses/s208/web1.html}
+
+{[}15{]} Hampel, F., Ronchetti, E., Rouseeuw, P. and Stahel, W. (1986). Robust Statistics, The Approach Based on Influence Functions. Wiley, New York.
+
+{[}16{]} (1989) Simulation methodology for Statisticians, Operations Analysts, and Engineers. Volume I. Wadsworth \& Brooks/Cole. Pacific Grove, California.
+
+{[}17{]} Peña, Daniel (1988). Estadística modelos y metodos 1. Fundamentos. Alianza editorial, Madrid.
+
+{[}18{]} Sánchez, A., Ocaña, J., Ruiz de Villa, C. (1992) An Environment for Monte Carlo Simulation Studies (EMSS). 10th Symposium on Computational Statistics (COMPSTAT).Physica-Verlag. Springer Verlag.
+
+{[}19{]} Schenker,N. (1985) Qualms about bootstrap confidence intervals. Journal of the American Statistical Association 80 360-361.
+
+{[}20{]} Serfling, R. J., (1980). Approximation Theorems of Mathematical Statistics. John Wiley \& Sons. New York.
+
+{[}21{]} Shie Shie Yang (1988). A Central Limit Theorem for the Bootstrap Mean. The American Statistician. (42), 3, 202-203.
+
+{[}22{]} Singh,Kesar. (1981). On the assymptotic accuracy of Efron's Bootstrap. The annals of Statistics, (9), 6, 1187-1195.
+
+{[}23{]} Velez, R., García, A. (1993). Principios de inferencia estadística. Publicaciones de la U.N.E.D. Madrid
 
 \newpage
 

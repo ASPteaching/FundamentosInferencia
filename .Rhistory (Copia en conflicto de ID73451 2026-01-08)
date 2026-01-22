@@ -1,0 +1,331 @@
+install.packages("bookdown")
+bookdown::render_book(ouput_format="all")
+bookdown::render_book(output_format = "all")
+install.packages("ggplot2")
+bookdown::render_book(output_format = "all")
+install.packages("scatterplot3d", dep=TRUE)
+bookdown::render_book(output_format = "all")
+install.packages("miniUI")
+bookdown:::serve_book()
+install.packages("servr")
+bookdown:::serve_book()
+bookdown::render_book(output_format = "all")
+bookdown:::serve_book()
+bookdown::render_book(output_format = "all")
+bookdown:::serve_book()
+git add -A .
+git add . -A
+bookdown::render_book(output_format = "all")
+dbinom(x=0:10, size=10, prob=0.3)
+probs<- dbinom(x=0:10, size=10, prob=0.3)
+res<- data.frame(X=0:10,Prob=probs)
+res
+kableExtra::kable(res)
+bookdown::render_book(output_format = "all")
+# Parámetros
+lambda <- 150
+n_sim <- 100000
+# Generar muestras de Poisson
+set.seed(123)
+poisson_samples <- rpois(n_sim, lambda)
+# Gráfico comparativo
+hist(poisson_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = "Aproximación de Poisson a Normal", xlab = "Valores")
+curve(dnorm(x, mean = lambda, sd = sqrt(lambda)), col = "red", lwd = 2, add = TRUE)
+legend("topright", legend = c("Poisson", "Normal Aproximada"),
+fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+# Gráfico comparativo
+hist(poisson_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = "Aproximación de Poisson a Normal", xlab = "Valores")
+curve(dnorm(x, mean = lambda, sd = sqrt(lambda)), col = "red", lwd = 2, add = TRUE)
+# Parámetros
+lambda <- 15
+n_sim <- 100000
+# Generar muestras de Poisson
+set.seed(123)
+poisson_samples <- rpois(n_sim, lambda)
+# Gráfico comparativo
+hist(poisson_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = "Aproximación de Poisson a Normal", xlab = "Valores")
+curve(dnorm(x, mean = lambda, sd = sqrt(lambda)), col = "red", lwd = 2, add = TRUE)
+legend("topright", legend = c("Poisson", "Normal Aproximada"),
+fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+# Parámetros
+lambda <- 150
+sim_and_plot_Binomial <- function(n, p, n_sim){
+set.seed(123)
+binomial_samples <- rbinom(n_sim, size = n, prob = p)
+hist(binomial_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Binomial a Normal\n n= ",n, "; p= ",p), xlab = "Valores")
+curve(dnorm(x, mean = n * p, sd = sqrt(n * p * (1 - p))), col = "red", lwd = 2, add = TRUE)
+legend("topright", legend = c("Binomial", "Normal Aproximada"),
+fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+sim_and_plot_Binomial (n = 250, p = 0.5, n_sim=100000)
+# Parámetros
+n <- 250
+p <- 0.5
+n_sim <- 100000
+sim_and_plot_Binomial <- function(n, p, n_sim){
+set.seed(123)
+binomial_samples <- rbinom(n_sim, size = n, prob = p)
+hist(binomial_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Binomial a Normal\n n= ",n, "; p= ",p), xlab = "Valores")
+curve(dnorm(x, mean = n * p, sd = sqrt(n * p * (1 - p))), col = "red", lwd = 2, add = TRUE)
+legend("bottomright", legend = c("Binomial", "Normal Aproximada"),
+fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+sim_and_plot_Binomial (n = 250, p = 0.5, n_sim=100000)
+# Parámetros
+n <- 250
+p <- 0.5
+n_sim <- 100000
+sim_and_plot_Binomial <- function(n, p, n_sim){
+set.seed(123)
+binomial_samples <- rbinom(n_sim, size = n, prob = p)
+hist(binomial_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Binomial a Normal\n n= ",n, "; p= ",p), xlab = "Valores")
+curve(dnorm(x, mean = n * p, sd = sqrt(n * p * (1 - p))), col = "red", lwd = 2, add = TRUE)
+#  legend("bottomright", legend = c("Binomial", "Normal Aproximada"),
+#       fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+sim_and_plot_Binomial (n = 250, p = 0.5, n_sim=100000)
+# Parámetros
+n <- 250
+p <- 0.5
+n_sim <- 100000
+sim_and_plot_Binomial <- function(n, p, n_sim){
+set.seed(123)
+binomial_samples <- rbinom(n_sim, size = n, prob = p)
+hist(binomial_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Binomial a Normal\n n= ",n, "; p= ",p), cex.main=0.8, xlab = "Valores")
+curve(dnorm(x, mean = n * p, sd = sqrt(n * p * (1 - p))), col = "red", lwd = 2, add = TRUE)
+#  legend("bottomright", legend = c("Binomial", "Normal Aproximada"),
+#       fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+sim_and_plot_Binomial (n = 250, p = 0.5, n_sim=100000)
+# Parámetros
+n <- 250
+p <- 0.5
+n_sim <- 100000
+sim_and_plot_Binomial <- function(n, p, n_sim){
+set.seed(123)
+binomial_samples <- rbinom(n_sim, size = n, prob = p)
+hist(binomial_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Binomial a Normal\n n= ",n, "; p= ",p), cex.main=0.8, xlab = "Valores")
+curve(dnorm(x, mean = n * p, sd = sqrt(n * p * (1 - p))), col = "red", lwd = 2, add = TRUE)
+#  legend("bottomright", legend = c("Binomial", "Normal Aproximada"),
+#       fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+opt<- par(mfrow=c(2,2))
+sim_and_plot_Binomial (n = 25, p = 0.2, n_sim=100000)
+# Parámetros
+n <- 250
+p <- 0.5
+n_sim <- 100000
+sim_and_plot_Binomial <- function(n, p, n_sim){
+set.seed(123)
+binomial_samples <- rbinom(n_sim, size = n, prob = p)
+hist(binomial_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Binomial a Normal\n n= ",n, "; p= ",p), cex.main=0.8, xlab = "Valores")
+curve(dnorm(x, mean = n * p, sd = sqrt(n * p * (1 - p))), col = "red", lwd = 2, add = TRUE)
+#  legend("bottomright", legend = c("Binomial", "Normal Aproximada"),
+#       fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+opt<- par(mfrow=c(2,2))
+sim_and_plot_Binomial (n = 25, p = 0.2, n_sim=100000)
+# Parámetros
+n <- 250
+p <- 0.5
+n_sim <- 100000
+sim_and_plot_Binomial <- function(n, p, n_sim){
+set.seed(123)
+binomial_samples <- rbinom(n_sim, size = n, prob = p)
+hist(binomial_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Binomial a Normal\n n= ",n, "; p= ",p), cex.main=0.8, xlab = "Valores")
+curve(dnorm(x, mean = n * p, sd = sqrt(n * p * (1 - p))), col = "red", lwd = 2, add = TRUE)
+#  legend("bottomright", legend = c("Binomial", "Normal Aproximada"),
+#       fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+opt<- par(mfrow=c(2,2))
+sim_and_plot_Binomial (n = 25, p = 0.2, n_sim=100000)
+sim_and_plot_Binomial (n = 25, p = 0.5, n_sim=100000)
+sim_and_plot_Binomial (n = 250, p = 0.2, n_sim=100000)
+sim_and_plot_Binomial (n = 250, p = 0.5, n_sim=100000)
+par(opt)
+# Parámetros
+lambda <- 150
+n_sim <- 100000
+sim_and_plot_Poisson <- function(lambda, n_sim){
+# Generar muestras de Poisson
+set.seed(123)
+poisson_samples <- rpois(n_sim, lambda)
+# Gráfico comparativo
+hist(poisson_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Poisson a Normal\n  lambda = ", lambda, ")", cex.main=0.9, xlab = "Valores")
+curve(dnorm(x, mean = lambda, sd = sqrt(lambda)), col = "red", lwd = 2, add = TRUE)
+# Parámetros
+lambda <- 150
+n_sim <- 100000
+sim_and_plot_Poisson <- function(lambda, n_sim){
+# Generar muestras de Poisson
+set.seed(123)
+poisson_samples <- rpois(n_sim, lambda)
+# Gráfico comparativo
+hist(poisson_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Poisson a Normal\n  lambda = ", lambda, ")"), cex.main=0.9, xlab = "Valores")
+curve(dnorm(x, mean = lambda, sd = sqrt(lambda)), col = "red", lwd = 2, add = TRUE)
+legend("topright", legend = c("Poisson", "Normal Aproximada"),
+fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+# Parámetros
+lambda <- 150
+n_sim <- 100000
+sim_and_plot_Poisson <- function(lambda, n_sim){
+# Generar muestras de Poisson
+set.seed(123)
+poisson_samples <- rpois(n_sim, lambda)
+# Gráfico comparativo
+hist(poisson_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Poisson a Normal\n  lambda = ", lambda, ")"), cex.main=0.9, xlab = "Valores")
+curve(dnorm(x, mean = lambda, sd = sqrt(lambda)), col = "red", lwd = 2, add = TRUE)
+legend("topright", legend = c("Poisson", "Normal Aproximada"),
+fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+opt<- par(mfrow=c(2,1))
+sim_and_plot_Poisson (lambda = 10, n_sim=10000)
+sim_and_plot_Poisson (lambda = 100, n_sim=10000)
+par(opt)
+# Parámetros
+lambda <- 150
+n_sim <- 100000
+sim_and_plot_Poisson <- function(lambda, n_sim){
+# Generar muestras de Poisson
+set.seed(123)
+poisson_samples <- rpois(n_sim, lambda)
+# Gráfico comparativo
+hist(poisson_samples, breaks = 30, probability = TRUE, col = rgb(0.2, 0.4, 0.6, 0.7),
+main = paste0("Aproximación de Poisson a Normal\n  lambda = ", lambda, ")"), cex.main=0.9, xlab = "Valores")
+curve(dnorm(x, mean = lambda, sd = sqrt(lambda)), col = "red", lwd = 2, add = TRUE)
+legend("topright", legend = c("Poisson", "Normal Aproximada"),
+fill = c(rgb(0.2, 0.4, 0.6, 0.7), "red"))
+}
+opt<- par(mfrow=c(2,2))
+sim_and_plot_Poisson (lambda = 11, n_sim=10000)
+sim_and_plot_Poisson (lambda = 10, n_sim=10000)
+sim_and_plot_Poisson (lambda = 25, n_sim=10000)
+sim_and_plot_Poisson (lambda = 100, n_sim=10000)
+par(opt)
+bookdown:::serve_book()
+bookdown::render_book(output_format = "all")
+bookdown::preview_chapter("index.rmd")
+bookdown::preview_chapter("01-probabilidad.Rmd")
+bookdown::render_book(output_format = "all")
+bookdown::render_book(output_format = "all")
+bookdown::render_book(output_format = "all")
+bookdown::render_book(output_format = "all")
+bookdown::render_book(output_format = "all")
+bookdown::render_book(output_format = "all")
+bookdown::render_book(output_format = "all")
+bookdown::render_book(output_format = "all")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")
+bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")
+bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::clean_book(TRUE)
+unlink("_bookdown_files", recursive = TRUE)
+unlink("_main_files", recursive = TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::clean_book(TRUE)
+unlink("_bookdown_files", recursive = TRUE)
+unlink("_main_files", recursive = TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+unlink("_bookdown_files", recursive = TRUE)
+unlink("_main_files", recursive = TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+unlink("_bookdown_files", recursive = TRUE)
+unlink("_main_files", recursive = TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("test_download.Rmd", "bookdown::gitbook")
+bookdown::render_book("test_download.Rmd", "bookdown::pdf_book")
+install.packages("bookdown")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::clean_book(TRUE)
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+bookdown::render_book("index.Rmd", "bookdown::pdf_book")
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+dir ("*.Rmd")
+dir("*.Rmd")
+dir()
+bookdown::clean_book()
+bookdown::render_book("index.Rmd")
+bookdown::render_book("06-introInferencia-b.Rmd")
+bookdown::render_book("index.Rmd")
+quarto::quarto_render("06-intoinferencia-animaciones.Rmd")
+knitr::render_html("06-intoinferencia-animaciones.Rmd")
+knitr::render_markdown("06-intoinferencia-animaciones.Rmd")
+knitr::render_markdown("06-intoInferencia-animaciones.Rmd")
+bookdown::render_book("index.Rmd")
+bookdown::clean_book()
+library(specmine.datasets)
+dataset(cachexia)
+cachexia
+dim(cachexia.data)
+dim(cachexia$data)
+? cachexia
+bookdown::render_book("index.Rmd")
+bookdown::render_book()
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+readLines("06-introInferenciaExsR.Rmd", n = 30)
+readLines("_output.yml", n = 30)
+readLines("_bookdown.yml.Rmd", n = 30)
+readLines("_bookdown.yml", n = 30)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
+grep(":\\s*$", readLines("06-introInferenciaExsR.Rmd"), value = TRUE)
+grep(":\\s*$", readLines("06-introInferencia.Rmd"), value = TRUE)
+grep("^[A-Za-zÁÉÍÓÚÑáéíóúñ ].*:\\s*$",
+readLines("06-introInferenciaExsR.Rmd"),
+value = TRUE)
+grep(":\\s*$", readLines("06-introInferencia.Rmd"), value = TRUE)
+bookdown::render_book("index.Rmd", quiet = FALSE)
+bookdown::clean_book()
+bookdown::render_book("index.Rmd", quiet = FALSE)
