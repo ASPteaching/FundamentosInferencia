@@ -4,7 +4,7 @@
 
 ## Introducción: Precisión de un estimador
 
-Los métodos bootstrap que se expondrán a continuación son un conjunto de técnicas introducidas por Bradley Efron de la universidad de Stanford a finales de los años 70 ([7,9,12]) y que se han revelado como una poderosa herramienta de gran utilidad en diversos campos de la estadística.
+Los métodos bootstrap que se expondrán a continuación son un conjunto de técnicas introducidas por Bradley Efron de la universidad de Stanford a finales de los años 70 ([7,9,12]) que se han revelado como una poderosa herramienta de gran utilidad en diversos campos de la estadística.
 
 ### Ejemplos de introducción
 
