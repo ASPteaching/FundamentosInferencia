@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica</title>
+  <meta name="description" content="Capítulo 4 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica" />
+  
+  
+  
+
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos" />
+
+
+<meta name="date" content="2025-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="distribuciones-notables.html"/>
+<link rel="next" href="grandes-muestras.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="blocks.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf" title="Version en PDF" target="_blank"><img alt="Versión en pdf" src="./images(pdf.png)" width="12" height="15" />    </a>
+</li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path=""><a href="#presentaci%C3%B3n"><i class="fa fa-check"></i>Presentación</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Objetivo</a></li>
+<li class="chapter" data-level="" data-path=""><a href="#prerequisitos-y-organizaci%C3%B3n-del-material"><i class="fa fa-check"></i>Prerequisitos y organización del material</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="agradecimiento-y-fuentes-utilizadas.html"><a href="agradecimiento-y-fuentes-utilizadas.html"><i class="fa fa-check"></i>Agradecimiento y fuentes utilizadas</a>
+<ul>
+<li class="chapter" data-level="" data-path="agradecimiento-y-fuentes-utilizadas.html"><a href="agradecimiento-y-fuentes-utilizadas.html#el-proyecto-statmedia"><i class="fa fa-check"></i>El proyecto Statmedia</a></li>
+<li class="chapter" data-level="" data-path="agradecimiento-y-fuentes-utilizadas.html"><a href="agradecimiento-y-fuentes-utilizadas.html#otros-materiales-utilizados"><i class="fa fa-check"></i>Otros materiales utilizados</a></li>
+<li class="chapter" data-level="" data-path="agradecimiento-y-fuentes-utilizadas.html"><a href="agradecimiento-y-fuentes-utilizadas.html#materiales-complementarios"><i class="fa fa-check"></i>Materiales complementarios</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#complementos-matem%C3%A1ticos"><i class="fa fa-check"></i>Complementos matemáticos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html"><i class="fa fa-check"></i><b>1</b> Probabilidad y Experimentos aleatorios</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="04-vectoresAleatorios.html"><a href="#introducci%C3%B3n"><i class="fa fa-check"></i><b>1.1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="04-vectoresAleatorios.html"><a href="#fen%C3%B3menos-deterministas-y-fen%C3%B3menos-aleatorios"><i class="fa fa-check"></i><b>1.1.1</b> Fenómenos deterministas y fenómenos aleatorios</a></li>
+<li class="chapter" data-level="1.1.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos"><i class="fa fa-check"></i><b>1.1.2</b> Sucesos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="04-vectoresAleatorios.html"><a href="#funci%C3%B3n-de-probabilidad"><i class="fa fa-check"></i><b>1.2</b> Función de probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#diferentes-funciones-de-probabilidad-para-una-misma-experiencia-aleatoria"><i class="fa fa-check"></i><b>1.2.1</b> ¿Diferentes funciones de probabilidad para una misma experiencia aleatoria?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="04-vectoresAleatorios.html"><a href="#c%C3%B3mo-se-calculan-las-probabilidades"><i class="fa fa-check"></i><b>1.3</b> ¿Cómo se calculan las probabilidades?</a></li>
+<li class="chapter" data-level="1.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-elementales-y-sucesos-observables"><i class="fa fa-check"></i><b>1.4</b> Sucesos elementales y sucesos observables</a></li>
+<li class="chapter" data-level="1.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#propiedades-inmediatas-de-la-probabilidad"><i class="fa fa-check"></i><b>1.5</b> Propiedades inmediatas de la probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#succeso-imposible"><i class="fa fa-check"></i><b>1.5.1</b> Succeso imposible</a></li>
+<li class="chapter" data-level="1.5.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#suceso-implicado"><i class="fa fa-check"></i><b>1.5.2</b> Suceso implicado</a></li>
+<li class="chapter" data-level="1.5.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#complementario-de-un-suceso"><i class="fa fa-check"></i><b>1.5.3</b> Complementario de un suceso</a></li>
+<li class="chapter" data-level="1.5.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#ocurrencia-de-algun-suceso"><i class="fa fa-check"></i><b>1.5.4</b> Ocurrencia de algun suceso</a></li>
+<li class="chapter" data-level="1.5.5" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-de-que-ocurra-algun-suceso"><i class="fa fa-check"></i><b>1.5.5</b> Probabilidad de que ocurra algun suceso</a></li>
+<li class="chapter" data-level="1.5.6" data-path="04-vectoresAleatorios.html"><a href="#probabilidad-de-que-ocurran-dos-o-m%C3%A1s-sucesos-a-la-vez"><i class="fa fa-check"></i><b>1.5.6</b> Probabilidad de que ocurran dos (o más) sucesos a la vez</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#espacios-de-probabilidad"><i class="fa fa-check"></i><b>1.6</b> Espacios de probabilidad</a></li>
+<li class="chapter" data-level="1.7" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#probabilidad-condicionada"><i class="fa fa-check"></i><b>1.7</b> Probabilidad condicionada</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#la-probabilidad-condicionada-es-una-medida-de-probabilidad"><i class="fa fa-check"></i><b>1.7.1</b> La probabilidad condicionada es una medida de probabilidad</a></li>
+<li class="chapter" data-level="1.7.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#sucesos-dependientes-y-sucesos-independientes"><i class="fa fa-check"></i><b>1.7.2</b> Sucesos dependientes y sucesos independientes</a></li>
+<li class="chapter" data-level="1.7.3" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#incompatibilidad-e-independencia"><i class="fa fa-check"></i><b>1.7.3</b> Incompatibilidad e independencia</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#dos-teoremas-importantes"><i class="fa fa-check"></i><b>1.8</b> Dos Teoremas importantes</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-las-probabilidades-totales"><i class="fa fa-check"></i><b>1.8.1</b> Teorema de las probabilidades totales</a></li>
+<li class="chapter" data-level="1.8.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#teorema-de-bayes"><i class="fa fa-check"></i><b>1.8.2</b> Teorema de Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="04-vectoresAleatorios.html"><a href="#introducci%C3%B3n-a-los-experimentos-m%C3%BAltiples"><i class="fa fa-check"></i><b>1.9</b> Introducción a los experimentos múltiples</a></li>
+<li class="chapter" data-level="1.10" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinatoria"><i class="fa fa-check"></i><b>1.10</b> Combinatoria</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#permutaciones"><i class="fa fa-check"></i><b>1.10.1</b> Permutaciones</a></li>
+<li class="chapter" data-level="1.10.2" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#variaciones"><i class="fa fa-check"></i><b>1.10.2</b> Variaciones</a></li>
+<li class="chapter" data-level="1.10.3" data-path="04-vectoresAleatorios.html"><a href="#variaciones-con-repetici%C3%B3n"><i class="fa fa-check"></i><b>1.10.3</b> Variaciones con repetición</a></li>
+<li class="chapter" data-level="1.10.4" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#combinaciones"><i class="fa fa-check"></i><b>1.10.4</b> Combinaciones</a></li>
+<li class="chapter" data-level="1.10.5" data-path="04-vectoresAleatorios.html"><a href="#permutaciones-con-repetici%C3%B3n"><i class="fa fa-check"></i><b>1.10.5</b> Permutaciones con repetición</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="probabilidad-y-experimentos-aleatorios.html"><a href="probabilidad-y-experimentos-aleatorios.html#frecuencia-relativa-y-probabilidad"><i class="fa fa-check"></i><b>1.11</b> Frecuencia relativa y probabilidad</a>
+<ul>
+<li class="chapter" data-level="1.11.1" data-path="04-vectoresAleatorios.html"><a href="#ilustraci%C3%B3n-por-simulaci%C3%B3n"><i class="fa fa-check"></i><b>1.11.1</b> Ilustración por simulación</a></li>
+</ul></li>
+<li class="chapter" data-level="1.12" data-path="04-vectoresAleatorios.html"><a href="#caso-de-estudio-eficacia-de-una-prueba-diagn%C3%B3stica"><i class="fa fa-check"></i><b>1.12</b> Caso de Estudio: Eficacia de una prueba diagnóstica</a>
+<ul>
+<li class="chapter" data-level="1.12.1" data-path="04-vectoresAleatorios.html"><a href="#aplicaci%C3%B3n-del-teorema-de-bayes"><i class="fa fa-check"></i><b>1.12.1</b> Aplicación del Teorema de Bayes</a></li>
+<li class="chapter" data-level="1.12.2" data-path="04-vectoresAleatorios.html"><a href="#ejemplo-num%C3%A9rico"><i class="fa fa-check"></i><b>1.12.2</b> Ejemplo numérico</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><i class="fa fa-check"></i><b>2</b> Variables aleatorias y Distribuciones de probabilidad</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#el-espacio-muestral-y-sus-elementos"><i class="fa fa-check"></i><b>2.1</b> El espacio muestral y sus elementos</a></li>
+<li class="chapter" data-level="2.2" data-path="04-vectoresAleatorios.html"><a href="#representaci%C3%B3n-num%C3%A9rica-de-los-sucesos-elementales.-variables-aleatorias"><i class="fa fa-check"></i><b>2.2</b> Representación numérica de los sucesos elementales. Variables aleatorias</a></li>
+<li class="chapter" data-level="2.3" data-path="04-vectoresAleatorios.html"><a href="#caracterizaci%C3%B3n-de-una-variable-aleatoria-a-trav%C3%A9s-de-la-probabilidad.-funci%C3%B3n-de-distribuci%C3%B3n"><i class="fa fa-check"></i><b>2.3</b> Caracterización de una variable aleatoria a través de la probabilidad. Función de distribución</a></li>
+<li class="chapter" data-level="2.4" data-path="04-vectoresAleatorios.html"><a href="#propiedades-de-la-funci%C3%B3n-de-distribuci%C3%B3n"><i class="fa fa-check"></i><b>2.4</b> Propiedades de la función de distribución</a></li>
+<li class="chapter" data-level="2.5" data-path="04-vectoresAleatorios.html"><a href="#clasificaci%C3%B3n-de-las-variables-aleatorias"><i class="fa fa-check"></i><b>2.5</b> Clasificación de las variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-discretas"><i class="fa fa-check"></i><b>2.5.1</b> Variables aleatorias discretas</a></li>
+<li class="chapter" data-level="2.5.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-continuas"><i class="fa fa-check"></i><b>2.5.2</b> Variables aleatorias continuas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variable-aleatoria-discretas"><i class="fa fa-check"></i><b>2.6</b> Variable aleatoria discretas</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="04-vectoresAleatorios.html"><a href="#caracterizaci%C3%B3n-de-las-v.a.-discretas"><i class="fa fa-check"></i><b>2.6.1</b> Caracterización de las v.a. discretas</a></li>
+<li class="chapter" data-level="2.6.2" data-path="04-vectoresAleatorios.html"><a href="#propiedades-de-la-funci%C3%B3n-de-densidad-discreta"><i class="fa fa-check"></i><b>2.6.2</b> Propiedades de la función de densidad discreta</a></li>
+<li class="chapter" data-level="2.6.3" data-path="04-vectoresAleatorios.html"><a href="#relaciones-entre-la-funci%C3%B3n-de-distribuci%C3%B3n-y-la-funci%C3%B3n-de-densidad-discreta.-probabilidad-de-intervalos."><i class="fa fa-check"></i><b>2.6.3</b> Relaciones entre la función de distribución y la función de densidad discreta. <br> Probabilidad de intervalos.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#variables-aleatorias-continuas-1"><i class="fa fa-check"></i><b>2.7</b> Variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="04-vectoresAleatorios.html"><a href="#funci%C3%B3n-de-densidad-continua"><i class="fa fa-check"></i><b>2.7.1</b> Función de densidad continua</a></li>
+<li class="chapter" data-level="2.7.2" data-path="04-vectoresAleatorios.html"><a href="#relaciones-entre-la-funci%C3%B3n-de-distribuci%C3%B3n-y-la-funci%C3%B3n-de-densidad."><i class="fa fa-check"></i><b>2.7.2</b> Relaciones entre la función de distribución y la función de densidad.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="04-vectoresAleatorios.html"><a href="#caracterizaci%C3%B3n-de-una-variable-aleatoria-a-trav%C3%A9s-de-par%C3%A1metros"><i class="fa fa-check"></i><b>2.8</b> Caracterización de una variable aleatoria a través de parámetros</a></li>
+<li class="chapter" data-level="2.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-una-variable-aleatoria-discreta"><i class="fa fa-check"></i><b>2.9</b> Esperanza de una variable aleatoria discreta</a></li>
+<li class="chapter" data-level="2.10" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-una-variable-aleatoria-continua"><i class="fa fa-check"></i><b>2.10</b> Esperanza de una variable aleatoria continua</a></li>
+<li class="chapter" data-level="2.11" data-path="04-vectoresAleatorios.html"><a href="#propiedades-de-la-esperanza-matem%C3%A1tica"><i class="fa fa-check"></i><b>2.11</b> Propiedades de la esperanza matemática</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="04-vectoresAleatorios.html"><a href="#linealidad-de-la-esperanza-matem%C3%A1tica"><i class="fa fa-check"></i><b>2.11.1</b> Linealidad de la esperanza matemática</a></li>
+<li class="chapter" data-level="2.11.2" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-del-producto"><i class="fa fa-check"></i><b>2.11.2</b> Esperanza del producto</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#varianza-de-una-variable-aleatoria"><i class="fa fa-check"></i><b>2.12</b> Varianza de una variable aleatoria</a>
+<ul>
+<li class="chapter" data-level="2.12.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#propiedades-de-la-varianza"><i class="fa fa-check"></i><b>2.12.1</b> Propiedades de la varianza</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#momentos-de-orden-k-de-una-variable-aleatoria"><i class="fa fa-check"></i><b>2.13</b> Momentos (de orden <span class="math inline">\(k\)</span>) de una variable aleatoria</a></li>
+<li class="chapter" data-level="2.14" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3n-formal-de-variable-aleatoria"><i class="fa fa-check"></i><b>2.14</b> Definición formal de variable aleatoria</a></li>
+<li class="chapter" data-level="2.15" data-path="04-vectoresAleatorios.html"><a href="#caso-pr%C3%A1ctico-lanzamiento-de-dos-dados"><i class="fa fa-check"></i><b>2.15</b> Caso práctico: Lanzamiento de dos dados</a>
+<ul>
+<li class="chapter" data-level="2.15.1" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#espacio-muestral"><i class="fa fa-check"></i><b>2.15.1</b> Espacio muestral</a></li>
+<li class="chapter" data-level="2.15.2" data-path="04-vectoresAleatorios.html"><a href="#representaci%C3%B3n-num%C3%A9rica"><i class="fa fa-check"></i><b>2.15.2</b> Representación numérica</a></li>
+<li class="chapter" data-level="2.15.3" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#algunas-probabilidades"><i class="fa fa-check"></i><b>2.15.3</b> Algunas probabilidades</a></li>
+<li class="chapter" data-level="2.15.4" data-path="04-vectoresAleatorios.html"><a href="#funci%C3%B3n-de-distribuci%C3%B3n"><i class="fa fa-check"></i><b>2.15.4</b> Función de distribución</a></li>
+<li class="chapter" data-level="2.15.5" data-path="04-vectoresAleatorios.html"><a href="#clasificaci%C3%B3n-de-las-variables"><i class="fa fa-check"></i><b>2.15.5</b> Clasificación de las variables</a></li>
+<li class="chapter" data-level="2.15.6" data-path="04-vectoresAleatorios.html"><a href="#funci%C3%B3n-de-densidad-discreta"><i class="fa fa-check"></i><b>2.15.6</b> Función de densidad discreta</a></li>
+<li class="chapter" data-level="2.15.7" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#probabilidad-de-intervalos-1"><i class="fa fa-check"></i><b>2.15.7</b> Probabilidad de intervalos</a></li>
+<li class="chapter" data-level="2.15.8" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza"><i class="fa fa-check"></i><b>2.15.8</b> Esperanza</a></li>
+<li class="chapter" data-level="2.15.9" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-de-un-juego"><i class="fa fa-check"></i><b>2.15.9</b> Esperanza de un juego</a></li>
+<li class="chapter" data-level="2.15.10" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-con-recorrido-infinito"><i class="fa fa-check"></i><b>2.15.10</b> Esperanza con recorrido infinito</a></li>
+<li class="chapter" data-level="2.15.11" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#esperanza-infinita"><i class="fa fa-check"></i><b>2.15.11</b> Esperanza infinita</a></li>
+<li class="chapter" data-level="2.15.12" data-path="variables-aleatorias-y-distribuciones-de-probabilidad.html"><a href="variables-aleatorias-y-distribuciones-de-probabilidad.html#varianza"><i class="fa fa-check"></i><b>2.15.12</b> Varianza</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html"><i class="fa fa-check"></i><b>3</b> Distribuciones Notables</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-discretas"><i class="fa fa-check"></i><b>3.1</b> Distribuciones discretas</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-de-bernouilli"><i class="fa fa-check"></i><b>3.1.1</b> La distribución de Bernouilli</a></li>
+<li class="chapter" data-level="3.1.2" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-binomial"><i class="fa fa-check"></i><b>3.1.2</b> La distribución Binomial</a></li>
+<li class="chapter" data-level="3.1.3" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-de-poisson"><i class="fa fa-check"></i><b>3.1.3</b> La distribución de Poisson</a></li>
+<li class="chapter" data-level="3.1.4" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-uniforme-discreta"><i class="fa fa-check"></i><b>3.1.4</b> La distribución Uniforme discreta</a></li>
+<li class="chapter" data-level="3.1.5" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-hipergeom%C3%A9trica"><i class="fa fa-check"></i><b>3.1.5</b> La distribución Hipergeométrica</a></li>
+<li class="chapter" data-level="3.1.6" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-geom%C3%A9trica-o-de-pascal"><i class="fa fa-check"></i><b>3.1.6</b> La distribución Geométrica o de Pascal</a></li>
+<li class="chapter" data-level="3.1.7" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-binomial-negativa"><i class="fa fa-check"></i><b>3.1.7</b> La distribución Binomial negativa</a></li>
+<li class="chapter" data-level="3.1.8" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#tabla-resumen-de-las-distribuciones-discretas-principales"><i class="fa fa-check"></i><b>3.1.8</b> Tabla resumen de las distribuciones discretas principales</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-continuas"><i class="fa fa-check"></i><b>3.2</b> Distribuciones Continuas</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-uniforme"><i class="fa fa-check"></i><b>3.2.1</b> La distribución Uniforme</a></li>
+<li class="chapter" data-level="3.2.2" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-exponencial"><i class="fa fa-check"></i><b>3.2.2</b> La distribución Exponencial</a></li>
+<li class="chapter" data-level="3.2.3" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-normal"><i class="fa fa-check"></i><b>3.2.3</b> La distribución Normal</a></li>
+<li class="chapter" data-level="3.2.4" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-gamma"><i class="fa fa-check"></i><b>3.2.4</b> La distribución Gamma</a></li>
+<li class="chapter" data-level="3.2.5" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-de-cauchy"><i class="fa fa-check"></i><b>3.2.5</b> La distribución de Cauchy</a></li>
+<li class="chapter" data-level="3.2.6" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-de-weibull"><i class="fa fa-check"></i><b>3.2.6</b> La distribución de Weibull</a></li>
+<li class="chapter" data-level="3.2.7" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#tabla-resumen-de-las-principales-distribuciones-continuas"><i class="fa fa-check"></i><b>3.2.7</b> Tabla resumen de las principales distribuciones continuas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#distribuciones-con-r-y-python"><i class="fa fa-check"></i><b>3.3</b> Distribuciones con R (y Python)</a></li>
+<li class="chapter" data-level="3.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#la-familia-exponencial-de-distribuciones"><i class="fa fa-check"></i><b>3.4</b> La familia exponencial de distribuciones</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#ejemplos-de-distribuciones-de-esta-familia"><i class="fa fa-check"></i><b>3.4.1</b> Ejemplos de distribuciones de esta familia</a></li>
+<li class="chapter" data-level="3.4.2" data-path="04-vectoresAleatorios.html"><a href="#distribuci%C3%B3n-binomial"><i class="fa fa-check"></i><b>3.4.2</b> Distribución Binomial</a></li>
+<li class="chapter" data-level="3.4.3" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#importancia-y-utilidad-de-la-familia-exponencial"><i class="fa fa-check"></i><b>3.4.3</b> Importancia y utilidad de la familia exponencial</a></li>
+<li class="chapter" data-level="3.4.4" data-path="distribuciones-notables.html"><a href="distribuciones-notables.html#los-modelos-lineales-generalizados-glms"><i class="fa fa-check"></i><b>3.4.4</b> Los modelos lineales generalizados (GLMs)</a></li>
+<li class="chapter" data-level="3.4.5" data-path="04-vectoresAleatorios.html"><a href="#estimaci%C3%B3n-en-la-familia-exponencial"><i class="fa fa-check"></i><b>3.4.5</b> Estimación en la familia exponencial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html"><i class="fa fa-check"></i><b>4</b> Distribuciones de probabilidad multidimensionales</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-conjuntas-de-probabilidades"><i class="fa fa-check"></i><b>4.1</b> Distribuciones conjuntas de probabilidades</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#variable-aleatoria-bivariante"><i class="fa fa-check"></i><b>4.1.1</b> Variable aleatoria bivariante</a></li>
+<li class="chapter" data-level="4.1.2" data-path="04-vectoresAleatorios.html"><a href="#funci%C3%B3n-de-distribuci%C3%B3n-bivariante"><i class="fa fa-check"></i><b>4.1.2</b> Función de distribución bivariante</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#variable-aleatorias-bivariantes-discretas"><i class="fa fa-check"></i><b>4.2</b> Variable aleatorias bivariantes discretas</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="04-vectoresAleatorios.html"><a href="#funci%C3%B3n-de-masa-de-probabilidad-discreta-fmp"><i class="fa fa-check"></i><b>4.2.1</b> Función de masa de probabilidad discreta (fmp)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-la-fmp-bivariante"><i class="fa fa-check"></i><b>4.2.2</b> Propiedades de la fmp bivariante</a></li>
+<li class="chapter" data-level="4.2.3" data-path="04-vectoresAleatorios.html"><a href="#ejemplo-de-distribuci%C3%B3n-bivariante-discreta"><i class="fa fa-check"></i><b>4.2.3</b> Ejemplo de distribución bivariante discreta</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-multinomial"><i class="fa fa-check"></i><b>4.3</b> La distribución multinomial</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="04-vectoresAleatorios.html"><a href="#generaci%C3%B3n-de-las-observaciones"><i class="fa fa-check"></i><b>4.3.1</b> Generación de las observaciones</a></li>
+<li class="chapter" data-level="4.3.2" data-path="04-vectoresAleatorios.html"><a href="#funcion-de-masa-de-probabilidad-de-la-distribuci%C3%B3n-multinomial"><i class="fa fa-check"></i><b>4.3.2</b> Funcion de masa de probabilidad de la distribución multinomial</a></li>
+<li class="chapter" data-level="4.3.3" data-path="04-vectoresAleatorios.html"><a href="#relaci%C3%B3n-con-la-distribuci%C3%B3n-binomial"><i class="fa fa-check"></i><b>4.3.3</b> Relación con la distribución binomial</a></li>
+<li class="chapter" data-level="4.3.4" data-path="04-vectoresAleatorios.html"><a href="#un-caso-particular-la-distribuci%C3%B3n-trinomial"><i class="fa fa-check"></i><b>4.3.4</b> Un caso particular: La distribución trinomial</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-marginales"><i class="fa fa-check"></i><b>4.4</b> Distribuciones marginales</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="04-vectoresAleatorios.html"><a href="#las-marginales-est%C3%A1n-en-los-m%C3%A1rgenes"><i class="fa fa-check"></i><b>4.4.1</b> Las marginales están en los márgenes</a></li>
+<li class="chapter" data-level="4.4.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidades-marginales-discretas"><i class="fa fa-check"></i><b>4.4.2</b> Densidades marginales discretas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#trinomial-m5-0.6-0.2-distribuciones-marginales"><i class="fa fa-check"></i><b>4.4.3</b> Trinomial M(5; 0.6, 0.2): Distribuciones marginales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales"><i class="fa fa-check"></i><b>4.5</b> Distribuciones condicionales</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidad-condicional"><i class="fa fa-check"></i><b>4.5.1</b> Densidad condicional</a></li>
+<li class="chapter" data-level="4.5.2" data-path="04-vectoresAleatorios.html"><a href="#trinomial-m5-0.6-0.2-distribuci%C3%B3n-condicional"><i class="fa fa-check"></i><b>4.5.2</b> Trinomial M(5; 0.6, 0.2): Distribución condicional</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#vectores-aleatorios-absolutamente-continuos"><i class="fa fa-check"></i><b>4.6</b> Vectores aleatorios absolutamente continuos</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="04-vectoresAleatorios.html"><a href="#propiedades-de-la-funci%C3%B3n-de-densidad-conjunta"><i class="fa fa-check"></i><b>4.6.1</b> Propiedades de la función de densidad conjunta</a></li>
+<li class="chapter" data-level="4.6.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidades-marginales-en-el-caso-continuo"><i class="fa fa-check"></i><b>4.6.2</b> Densidades marginales en el caso continuo</a></li>
+<li class="chapter" data-level="4.6.3" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#densidad-condicional-en-el-caso-continuo"><i class="fa fa-check"></i><b>4.6.3</b> Densidad condicional en el caso continuo</a></li>
+<li class="chapter" data-level="4.6.4" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-normal-bivariante"><i class="fa fa-check"></i><b>4.6.4</b> La Distribución Normal Bivariante</a></li>
+<li class="chapter" data-level="4.6.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales-1"><i class="fa fa-check"></i><b>4.6.5</b> Distribuciones Condicionales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#independencia-de-variables-aleatorias"><i class="fa fa-check"></i><b>4.7</b> Independencia de variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="04-vectoresAleatorios.html"><a href="#primera-caracterizaci%C3%B3n-de-la-independencia"><i class="fa fa-check"></i><b>4.7.1</b> Primera caracterización de la independencia</a></li>
+<li class="chapter" data-level="4.7.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-las-variables-independientes"><i class="fa fa-check"></i><b>4.7.2</b> Propiedades de las variables independientes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#momentos-de-vectores-aleatorios"><i class="fa fa-check"></i><b>4.8</b> Momentos de vectores aleatorios</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#esperanza-de-un-vector-aleatorio-o-vector-de-medias"><i class="fa fa-check"></i><b>4.8.1</b> Esperanza de un vector aleatorio o vector de medias</a></li>
+<li class="chapter" data-level="4.8.2" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#covarianza-entre-dos-variables-aleatorias"><i class="fa fa-check"></i><b>4.8.2</b> Covarianza entre dos variables aleatorias</a></li>
+<li class="chapter" data-level="4.8.3" data-path="04-vectoresAleatorios.html"><a href="#covarianza-y-correlaci%C3%B3n"><i class="fa fa-check"></i><b>4.8.3</b> Covarianza y correlación</a></li>
+<li class="chapter" data-level="4.8.4" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#matriz-de-varianzas-covarianzas"><i class="fa fa-check"></i><b>4.8.4</b> Matriz de varianzas-covarianzas</a></li>
+<li class="chapter" data-level="4.8.5" data-path="distribuciones-de-probabilidad-multidimensionales.html"><a href="distribuciones-de-probabilidad-multidimensionales.html#matriz-de-correlaciones"><i class="fa fa-check"></i><b>4.8.5</b> Matriz de correlaciones</a></li>
+<li class="chapter" data-level="4.8.6" data-path="04-vectoresAleatorios.html"><a href="#segunda-caracterizaci%C3%B3n-de-la-independencia"><i class="fa fa-check"></i><b>4.8.6</b> Segunda caracterización de la independencia</a></li>
+<li class="chapter" data-level="4.8.7" data-path="04-vectoresAleatorios.html"><a href="#relaci%C3%B3n-entre-incorrelaci%C3%B3n-e-independencia"><i class="fa fa-check"></i><b>4.8.7</b> Relación entre incorrelación e independencia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="grandes-muestras.html"><a href="grandes-muestras.html"><i class="fa fa-check"></i><b>5</b> Grandes muestras</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="04-vectoresAleatorios.html"><a href="#introducci%C3%B3n-aproximaciones-asint%C3%B3ticas"><i class="fa fa-check"></i><b>5.1</b> Introducción: Aproximaciones asintóticas</a></li>
+<li class="chapter" data-level="5.2" data-path="04-vectoresAleatorios.html"><a href="#ley-de-los-grandes-n%C3%BAmeros-ley-d%C3%A9bil"><i class="fa fa-check"></i><b>5.2</b> Ley de los Grandes Números (Ley débil)</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#ejemplo-3"><i class="fa fa-check"></i><b>5.2.1</b> Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="04-vectoresAleatorios.html"><a href="#el-teorema-central-del-l%C3%ADmite"><i class="fa fa-check"></i><b>5.3</b> El teorema central del límite</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="grandes-muestras.html"><a href="grandes-muestras.html#sumas-de-variables-aleatorias"><i class="fa fa-check"></i><b>5.3.1</b> Sumas de variables aleatorias</a></li>
+<li class="chapter" data-level="5.3.2" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3n-de-convergencia-en-ley"><i class="fa fa-check"></i><b>5.3.2</b> Definición de convergencia en ley</a></li>
+<li class="chapter" data-level="5.3.3" data-path="04-vectoresAleatorios.html"><a href="#enunciado-del-teorema-central-del-l%C3%ADmite"><i class="fa fa-check"></i><b>5.3.3</b> Enunciado del teorema central del límite</a></li>
+<li class="chapter" data-level="5.3.4" data-path="04-vectoresAleatorios.html"><a href="#algunos-ejemplos-de-aplicaci%C3%B3n-del-tcl"><i class="fa fa-check"></i><b>5.3.4</b> Algunos ejemplos de aplicación del TCL</a></li>
+<li class="chapter" data-level="5.3.5" data-path="04-vectoresAleatorios.html"><a href="#casos-particulares-m%C3%A1s-notables"><i class="fa fa-check"></i><b>5.3.5</b> Casos particulares más notables</a></li>
+<li class="chapter" data-level="5.3.6" data-path="04-vectoresAleatorios.html"><a href="#interpretaci%C3%B3n-del-teorema-central-del-l%C3%ADmite"><i class="fa fa-check"></i><b>5.3.6</b> Interpretación del teorema central del límite</a></li>
+<li class="chapter" data-level="5.3.7" data-path="grandes-muestras.html"><a href="grandes-muestras.html#acerca-de-las-variables-aproximadamente-normales"><i class="fa fa-check"></i><b>5.3.7</b> Acerca de las variables aproximadamente normales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="04-vectoresAleatorios.html"><a href="#introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica"><i class="fa fa-check"></i><b>6</b> Introducción a la inferencia estadística</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="04-vectoresAleatorios.html"><a href="#inferencia-estad%C3%ADstica"><i class="fa fa-check"></i><b>6.1</b> Inferencia estadística</a></li>
+<li class="chapter" data-level="6.2" data-path="04-vectoresAleatorios.html"><a href="#problemas-de-inferencia-estad%C3%ADstica"><i class="fa fa-check"></i><b>6.2</b> Problemas de inferencia estadística</a></li>
+<li class="chapter" data-level="6.3" data-path="04-vectoresAleatorios.html"><a href="#distribuci%C3%B3n-de-la-poblaci%C3%B3n"><i class="fa fa-check"></i><b>6.3</b> Distribución de la población</a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html"><i class="fa fa-check"></i><b>6.4</b> Muestra aleatoria simple</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3n"><i class="fa fa-check"></i><b>6.4.1</b> Definición</a></li>
+<li class="chapter" data-level="6.4.2" data-path="04-vectoresAleatorios.html"><a href="#distribuci%C3%B3n-de-la-muestra"><i class="fa fa-check"></i><b>6.4.2</b> Distribución de la muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="04-vectoresAleatorios.html"><a href="#estad%C3%ADsticos"><i class="fa fa-check"></i><b>6.5</b> Estadísticos</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3n-1"><i class="fa fa-check"></i><b>6.5.1</b> Definición</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="04-vectoresAleatorios.html"><a href="#distribuci%C3%B3n-en-el-muestreo-de-un-estad%C3%ADstico"><i class="fa fa-check"></i><b>6.6</b> Distribución en el muestreo de un estadístico</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="04-vectoresAleatorios.html"><a href="#demostraci%C3%B3n"><i class="fa fa-check"></i><b>6.6.1</b> Demostración:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-emp%C3%ADrica"><i class="fa fa-check"></i><b>6.7</b> La distribución empírica</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3n-2"><i class="fa fa-check"></i><b>6.7.1</b> Definición</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#los-momentos-muestrales"><i class="fa fa-check"></i><b>6.8</b> Los momentos muestrales</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3n-3"><i class="fa fa-check"></i><b>6.8.1</b> Definición</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="04-vectoresAleatorios.html"><a href="#distribuci%C3%B3n-en-el-muestreo-de-los-momentos-muestrales"><i class="fa fa-check"></i><b>6.9</b> Distribución en el muestreo de los momentos muestrales</a></li>
+<li class="chapter" data-level="6.10" data-path="04-vectoresAleatorios.html"><a href="#propiedades-asint%C3%B3ticas-de-los-momentos-muestrales"><i class="fa fa-check"></i><b>6.10</b> Propiedades asintóticas de los momentos muestrales</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#convergencia-de-los-momentos-muestrales"><i class="fa fa-check"></i><b>6.10.1</b> Convergencia de los momentos muestrales</a></li>
+<li class="chapter" data-level="6.10.2" data-path="04-vectoresAleatorios.html"><a href="#distribuci%C3%B3n-asint%C3%B3tica"><i class="fa fa-check"></i><b>6.10.2</b> Distribución asintótica</a></li>
+</ul></li>
+<li class="chapter" data-level="6.11" data-path="introducción-a-la-inferencia-estadística.html"><a href="introducción-a-la-inferencia-estadística.html#muestreo-en-poblaciones-normales"><i class="fa fa-check"></i><b>6.11</b> Muestreo en poblaciones normales</a>
+<ul>
+<li class="chapter" data-level="6.11.1" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-chi-cuadrado"><i class="fa fa-check"></i><b>6.11.1</b> La distribución chi-cuadrado</a></li>
+<li class="chapter" data-level="6.11.2" data-path="04-vectoresAleatorios.html"><a href="#distribuci%C3%B3n-t-de-student"><i class="fa fa-check"></i><b>6.11.2</b> Distribución <span class="math inline">\(t\)</span> de Student</a></li>
+<li class="chapter" data-level="6.11.3" data-path="04-vectoresAleatorios.html"><a href="#la-distribuci%C3%B3n-f-de-fisher"><i class="fa fa-check"></i><b>6.11.3</b> La distribución <span class="math inline">\(F\)</span> de Fisher</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="04-vectoresAleatorios.html"><a href="#estimaci%C3%B3n-puntual"><i class="fa fa-check"></i><b>7</b> Estimación puntual</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="04-vectoresAleatorios.html"><a href="#el-problema-de-la-estimaci%C3%B3n-puntual"><i class="fa fa-check"></i><b>7.1</b> El problema de la estimación puntual</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html"><i class="fa fa-check"></i><b>7.1.1</b> Criterios de optimalidad de estimadores. El Riesgo</a></li>
+<li class="chapter" data-level="7.1.2" data-path="04-vectoresAleatorios.html"><a href="#el-error-cuadr%C3%A1tico-medio"><i class="fa fa-check"></i><b>7.1.2</b> El error cuadrático medio</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#estudio-de-las-propiedades-deseables-de-los-estimadores"><i class="fa fa-check"></i><b>7.2</b> Estudio de las propiedades deseables de los estimadores</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#el-sesgo"><i class="fa fa-check"></i><b>7.2.1</b> El sesgo</a></li>
+<li class="chapter" data-level="7.2.2" data-path="estimación-puntual.html"><a href="estimación-puntual.html#consistencia"><i class="fa fa-check"></i><b>7.2.2</b> Consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="estimación-puntual.html"><a href="estimación-puntual.html#propiedades-de-los-estimadores-consistentes"><i class="fa fa-check"></i><b>7.3</b> Propiedades de los estimadores consistentes</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#eficiencia"><i class="fa fa-check"></i><b>7.3.1</b> Eficiencia</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="04-vectoresAleatorios.html"><a href="#informaci%C3%B3n-de-fisher-y-cota-de-cramerrao"><i class="fa fa-check"></i><b>7.4</b> Información de Fisher y cota de CramerRao</a></li>
+<li class="chapter" data-level="7.5" data-path="04-vectoresAleatorios.html"><a href="#informaci%C3%B3n-y-verosimilitud-de-un-modelo-estad%C3%ADstico"><i class="fa fa-check"></i><b>7.5</b> Información y verosimilitud de un modelo estadístico</a></li>
+<li class="chapter" data-level="7.6" data-path="04-vectoresAleatorios.html"><a href="#informaci%C3%B3n-de-fisher"><i class="fa fa-check"></i><b>7.6</b> Información de Fisher</a></li>
+<li class="chapter" data-level="7.7" data-path="estimación-puntual.html"><a href="estimación-puntual.html#la-desigualdad-de-cramer-rao"><i class="fa fa-check"></i><b>7.7</b> La desigualdad de Cramer-Rao</a></li>
+<li class="chapter" data-level="7.8" data-path="04-vectoresAleatorios.html"><a href="#caracterizaci%C3%B3n-del-estimador-eficiente"><i class="fa fa-check"></i><b>7.8</b> Caracterización del estimador eficiente</a></li>
+<li class="chapter" data-level="7.9" data-path="04-vectoresAleatorios.html"><a href="#estad%C3%ADsticos-suficientes"><i class="fa fa-check"></i><b>7.9</b> Estadísticos suficientes</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3-de-estad%C3%ADsticop-suficiente"><i class="fa fa-check"></i><b>7.9.1</b> Definició de estadísticop suficiente</a></li>
+<li class="chapter" data-level="7.9.2" data-path="04-vectoresAleatorios.html"><a href="#teorema-de-factorizaci%C3%B3n"><i class="fa fa-check"></i><b>7.9.2</b> Teorema de factorización</a></li>
+<li class="chapter" data-level="7.9.3" data-path="04-vectoresAleatorios.html"><a href="#propiedades-de-los-estad%C3%ADsticos-suficientes"><i class="fa fa-check"></i><b>7.9.3</b> Propiedades de los estadísticos suficientes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="04-vectoresAleatorios.html"><a href="#obtenci%C3%B3n-de-estimadores"><i class="fa fa-check"></i><b>7.10</b> Obtención de estimadores</a></li>
+<li class="chapter" data-level="7.11" data-path="04-vectoresAleatorios.html"><a href="#el-m%C3%A9todo-de-los-momentos"><i class="fa fa-check"></i><b>7.11</b> El método de los momentos</a>
+<ul>
+<li class="chapter" data-level="7.11.1" data-path="estimación-puntual.html"><a href="estimación-puntual.html#observaciones"><i class="fa fa-check"></i><b>7.11.1</b> Observaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="7.12" data-path="04-vectoresAleatorios.html"><a href="#el-m%C3%A9todo-del-m%C3%A1ximo-de-verosimilitud"><i class="fa fa-check"></i><b>7.12</b> El método del máximo de verosimilitud</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="04-vectoresAleatorios.html"><a href="#estimaci%C3%B3n-por-int%C3%A9rvalos"><i class="fa fa-check"></i><b>8</b> Estimación por intérvalos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="04-vectoresAleatorios.html"><a href="#motivaci%C3%B3n-de-los-intervalos-de-confianza-la-estimaci%C3%B3n-puntual-casi-siempre-es-falsa"><i class="fa fa-check"></i><b>8.1</b> Motivación de los intervalos de confianza: la estimación puntual casi siempre es falsa</a></li>
+<li class="chapter" data-level="8.2" data-path="04-vectoresAleatorios.html"><a href="#definici%C3%B3n-formal-de-intervalo-de-confianza"><i class="fa fa-check"></i><b>8.2</b> Definición formal de intervalo de confianza</a></li>
+<li class="chapter" data-level="8.3" data-path="04-vectoresAleatorios.html"><a href="#un-ejemplo-de-construcci%C3%B3n-de-un-intervalo-de-confianza"><i class="fa fa-check"></i><b>8.3</b> Un ejemplo de construcción de un intervalo de confianza</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html"><i class="fa fa-check"></i><b>8.3.1</b> Planteamiento</a></li>
+<li class="chapter" data-level="8.3.2" data-path="04-vectoresAleatorios.html"><a href="#desarrollo-de-la-construcci%C3%B3n"><i class="fa fa-check"></i><b>8.3.2</b> Desarrollo de la construcción</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="04-vectoresAleatorios.html"><a href="#por-qu%C3%A9-hablamos-de-confianza-y-no-de-probabilidad"><i class="fa fa-check"></i><b>8.4</b> ¿Por qué hablamos de confianza y no de probabilidad?</a></li>
+<li class="chapter" data-level="8.5" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#elementos-de-un-intervalo-de-confianza"><i class="fa fa-check"></i><b>8.5</b> Elementos de un intervalo de confianza</a></li>
+<li class="chapter" data-level="8.6" data-path="04-vectoresAleatorios.html"><a href="#m%C3%A9todo-del-pivote"><i class="fa fa-check"></i><b>8.6</b> Método del pivote</a></li>
+<li class="chapter" data-level="8.7" data-path="04-vectoresAleatorios.html"><a href="#algunos-estad%C3%ADsticos-pivote"><i class="fa fa-check"></i><b>8.7</b> Algunos estadísticos pivote</a></li>
+<li class="chapter" data-level="8.8" data-path="04-vectoresAleatorios.html"><a href="#intervalo-de-confianza-para-la-media-de-una-distribuci%C3%B3n-normal"><i class="fa fa-check"></i><b>8.8</b> Intervalo de confianza para la media de una distribución Normal</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-de-varianza-conocida"><i class="fa fa-check"></i><b>8.8.1</b> Caso de varianza conocida</a></li>
+<li class="chapter" data-level="8.8.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-de-varianza-desconocida"><i class="fa fa-check"></i><b>8.8.2</b> Caso de varianza desconocida</a></li>
+<li class="chapter" data-level="8.8.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#calculo-con-r"><i class="fa fa-check"></i><b>8.8.3</b> Calculo con R</a></li>
+<li class="chapter" data-level="8.8.4" data-path="04-vectoresAleatorios.html"><a href="#tama%C3%B1o-de-muestra-para-la-media-de-una-distribuci%C3%B3n-normal"><i class="fa fa-check"></i><b>8.8.4</b> Tamaño de muestra para la media de una distribución Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="04-vectoresAleatorios.html"><a href="#intervalo-de-confianza-para-la-varianza-de-una-distribuci%C3%B3n-normal"><i class="fa fa-check"></i><b>8.9</b> Intervalo de confianza para la varianza de una distribución Normal</a></li>
+<li class="chapter" data-level="8.10" data-path="04-vectoresAleatorios.html"><a href="#intervalo-de-confianza-para-una-proporci%C3%B3n"><i class="fa fa-check"></i><b>8.10</b> Intervalo de confianza para una proporción</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="04-vectoresAleatorios.html"><a href="#aproximaci%C3%B3n-asint%C3%B3tica"><i class="fa fa-check"></i><b>8.10.1</b> Aproximación asintótica</a></li>
+<li class="chapter" data-level="8.10.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-exacto"><i class="fa fa-check"></i><b>8.10.2</b> Intervalo exacto</a></li>
+<li class="chapter" data-level="8.10.3" data-path="04-vectoresAleatorios.html"><a href="#tama%C3%B1o-muestral-para-una-proporci%C3%B3n"><i class="fa fa-check"></i><b>8.10.3</b> Tamaño muestral para una proporción</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="04-vectoresAleatorios.html"><a href="#intervalo-de-confianza-para-el-par%C3%A1metro-de-una-distribuci%C3%B3n-de-poisson"><i class="fa fa-check"></i><b>8.11</b> Intervalo de confianza para el parámetro de una distribución de Poisson</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="04-vectoresAleatorios.html"><a href="#aproximaci%C3%B3n-asint%C3%B3tica-1"><i class="fa fa-check"></i><b>8.11.1</b> Aproximación asintótica</a></li>
+<li class="chapter" data-level="8.11.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-exacto-1"><i class="fa fa-check"></i><b>8.11.2</b> Intervalo exacto</a></li>
+<li class="chapter" data-level="8.11.3" data-path="04-vectoresAleatorios.html"><a href="#tama%C3%B1o-de-muestra-para-el-par%C3%A1metro-de-una-distribuci%C3%B3n-de-poisson"><i class="fa fa-check"></i><b>8.11.3</b> Tamaño de muestra para el parámetro de una distribución de Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-la-diferencia-de-medias-de-distribuciones-normales-independientes."><i class="fa fa-check"></i><b>8.12</b> Intervalo de confianza para la diferencia de medias de distribuciones normales independientes.</a>
+<ul>
+<li class="chapter" data-level="8.12.1" data-path="04-vectoresAleatorios.html"><a href="#varianza-com%C3%BAn"><i class="fa fa-check"></i><b>8.12.1</b> Varianza común</a></li>
+</ul></li>
+<li class="chapter" data-level="8.13" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-la-diferencia-de-medias-de-distribuciones-normales-independientes.-1"><i class="fa fa-check"></i><b>8.13</b> Intervalo de confianza para la diferencia de medias de distribuciones normales independientes.</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#varianza-diferente"><i class="fa fa-check"></i><b>8.13.1</b> Varianza diferente</a></li>
+<li class="chapter" data-level="8.13.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#caso-de-varianzas-desconocidas-y-diferentes"><i class="fa fa-check"></i><b>8.13.2</b> Caso de varianzas desconocidas y diferentes</a></li>
+<li class="chapter" data-level="8.13.3" data-path="04-vectoresAleatorios.html"><a href="#int%C3%A9rvalos-de-confianza-y-decisiones-estad%C3%ADsticas"><i class="fa fa-check"></i><b>8.13.3</b> Intérvalos de confianza y decisiones estadísticas</a></li>
+</ul></li>
+<li class="chapter" data-level="8.14" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalo-de-confianza-para-el-cociente-de-varianzas-de-distribuciones-normales-independientes"><i class="fa fa-check"></i><b>8.14</b> Intervalo de confianza para el cociente de varianzas de distribuciones normales independientes</a></li>
+<li class="chapter" data-level="8.15" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#complementos"><i class="fa fa-check"></i><b>8.15</b> Complementos</a>
+<ul>
+<li class="chapter" data-level="8.15.1" data-path="04-vectoresAleatorios.html"><a href="#interpretaci%C3%B3n-geom%C3%A9trica-de-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>8.15.1</b> Interpretación geométrica de los intervalos de confianza</a></li>
+<li class="chapter" data-level="8.15.2" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-para-muestras-grandes"><i class="fa fa-check"></i><b>8.15.2</b> Intervalos para muestras grandes</a></li>
+<li class="chapter" data-level="8.15.3" data-path="estimación-por-intérvalos.html"><a href="estimación-por-intérvalos.html#intervalos-exactos-para-distribuciones-discretas"><i class="fa fa-check"></i><b>8.15.3</b> Intervalos exactos para distribuciones discretas</a></li>
+<li class="chapter" data-level="8.15.4" data-path="04-vectoresAleatorios.html"><a href="#una-aproximaci%C3%B3n-diferente-para-la-distribuci%C3%B3n-de-poisson"><i class="fa fa-check"></i><b>8.15.4</b> Una aproximación diferente para la distribución de Poisson</a></li>
+<li class="chapter" data-level="8.15.5" data-path="04-vectoresAleatorios.html"><a href="#aproximaci%C3%B3n-mediante-ch%C3%A9bishev"><i class="fa fa-check"></i><b>8.15.5</b> Aproximación mediante Chébishev</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="04-vectoresAleatorios.html"><a href="#pruebas-de-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9</b> Pruebas de hipótesis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="04-vectoresAleatorios.html"><a href="#introducci%C3%B3n-2"><i class="fa fa-check"></i><b>9.1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="04-vectoresAleatorios.html"><a href="#de-las-hip%C3%B3tesis-cient%C3%ADficas-a-las-hip%C3%B3tesis-estad%C3%ADsticas"><i class="fa fa-check"></i><b>9.1.1</b> De las hipótesis científicas a las hipótesis estadísticas</a></li>
+<li class="chapter" data-level="9.1.2" data-path="04-vectoresAleatorios.html"><a href="#del-lenguaje-natural-a-la-hip%C3%B3tesis-estad%C3%ADstica"><i class="fa fa-check"></i><b>9.1.2</b> Del lenguaje natural a la hipótesis estadística</a></li>
+<li class="chapter" data-level="9.1.3" data-path="04-vectoresAleatorios.html"><a href="#caso-1-presentaci%C3%B3n"><i class="fa fa-check"></i><b>9.1.3</b> Caso 1: Presentación</a></li>
+<li class="chapter" data-level="9.1.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>9.1.4</b> Caso 1: Modelo de probabilidad</a></li>
+<li class="chapter" data-level="9.1.5" data-path="04-vectoresAleatorios.html"><a href="#caso-2-presentaci%C3%B3n"><i class="fa fa-check"></i><b>9.1.5</b> Caso 2: Presentación</a></li>
+<li class="chapter" data-level="9.1.6" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-modelo-de-probabilidad"><i class="fa fa-check"></i><b>9.1.6</b> Caso 2: Modelo de probabilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="04-vectoresAleatorios.html"><a href="#las-hip%C3%B3tesis-del-contraste-de-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.2</b> Las hipótesis del contraste de hipótesis</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-hip%C3%B3tesis-para-dirimir-la-controversia-sobre-el-n%C3%BAmero-de-hembras"><i class="fa fa-check"></i><b>9.2.1</b> Caso 1: Hipótesis para dirimir la controversia sobre el número de hembras</a></li>
+<li class="chapter" data-level="9.2.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-hip%C3%B3tesis-a-contrastar-en-el-problema-de-la-tasa-de-statdrolona"><i class="fa fa-check"></i><b>9.2.2</b> Caso 2: Hipótesis a contrastar en el problema de la tasa de statdrolona</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="04-vectoresAleatorios.html"><a href="#compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.3</b> Compatibilidad de resultados e hipótesis</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.3.1</b> Caso 1: Compatibilidad de resultados e hipótesis</a></li>
+<li class="chapter" data-level="9.3.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-compatibilidad-de-resultados-e-hip%C3%B3tesis"><i class="fa fa-check"></i><b>9.3.2</b> Caso 2: Compatibilidad de resultados e hipótesis</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#no-todo-es-igualmente-probable"><i class="fa fa-check"></i><b>9.4</b> No todo es igualmente probable…</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-una-regi%C3%B3n-con-n.%C2%BA-de-hembras-con-baja-probabilidad-bajo-mathrmh_0"><i class="fa fa-check"></i><b>9.4.1</b> Caso 1: Una región con n.º de hembras con baja probabilidad bajo <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+<li class="chapter" data-level="9.4.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-medias-de-las-tasas-de-statdrolona-improbables-si-se-cumple-mathrmh_0"><i class="fa fa-check"></i><b>9.4.2</b> Caso 2: Medias de las tasas de statdrolona improbables si se cumple <span class="math inline">\(\mathrm{H}_{0}\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="04-vectoresAleatorios.html"><a href="#el-papel-privilegiado-de-la-hip%C3%B3tesis-nula-criterio-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>9.5</b> El papel privilegiado de la hipótesis nula: criterio de decisión</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-n.%C2%BA-de-nidos-propuestos-ad-hoc-como-inicio-de-regi%C3%B3n-cr%C3%ADtica.-regla-de-decisi%C3%B3n-resultante"><i class="fa fa-check"></i><b>9.5.1</b> Caso 1: N.º de nidos propuestos ad hoc como inicio de región crítica. Regla de decisión resultante</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="04-vectoresAleatorios.html"><a href="#hip%C3%B3tesis-nula-y-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>9.6</b> Hipótesis nula y nivel de significación</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>9.6.1</b> Caso 1: Nivel de significación</a></li>
+<li class="chapter" data-level="9.6.2" data-path="04-vectoresAleatorios.html"><a href="#caso-1-elecci%C3%B3n-de-la-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>9.6.2</b> Caso 1: Elección de la región crítica</a></li>
+<li class="chapter" data-level="9.6.3" data-path="04-vectoresAleatorios.html"><a href="#caso-2-elecci%C3%B3n-de-la-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>9.6.3</b> Caso 2: Elección de la región crítica</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="04-vectoresAleatorios.html"><a href="#regi%C3%B3n-cr%C3%ADtica-y-formalizaci%C3%B3n-del-contraste"><i class="fa fa-check"></i><b>9.7</b> Región crítica y formalización del contraste</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-resumen-de-conceptos-asociados-al-contraste.-regi%C3%B3n-cr%C3%ADtica"><i class="fa fa-check"></i><b>9.7.1</b> Caso 1: Resumen de conceptos asociados al contraste. Región crítica</a></li>
+<li class="chapter" data-level="9.7.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-tabla-resumen-de-la-regi%C3%B3n-cr%C3%ADtica-el-estad%C3%ADstico-de-test-y-del-criterio-de-decisi%C3%B3n"><i class="fa fa-check"></i><b>9.7.2</b> Caso 2: Tabla resumen de la región crítica, el estadístico de test y del criterio de decisión</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="04-vectoresAleatorios.html"><a href="#tabla-de-decisi%C3%B3n-del-contraste"><i class="fa fa-check"></i><b>9.8</b> Tabla de decisión del contraste</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-evaluaci%C3%B3n-de-los-dos-errores-asociados-al-contraste"><i class="fa fa-check"></i><b>9.8.1</b> Caso 1: Evaluación de los dos errores asociados al contraste</a></li>
+<li class="chapter" data-level="9.8.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-c%C3%A1lculo-expl%C3%ADcito-de-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><i class="fa fa-check"></i><b>9.8.2</b> Caso 2: Cálculo explícito de los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="04-vectoresAleatorios.html"><a href="#relaci%C3%B3n-entre-el-error-de-tipo-i-y-el-de-tipo-ii"><i class="fa fa-check"></i><b>9.9</b> Relación entre el error de tipo I y el de tipo II</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-evaluaci%C3%B3n-de-alpha-y-1--beta-para-diferentes-regiones-cr%C3%ADticas"><i class="fa fa-check"></i><b>9.9.1</b> Caso 1: Evaluación de <span class="math inline">\(\alpha\)</span> y 1- <span class="math inline">\(\beta\)</span> para diferentes regiones críticas</a></li>
+<li class="chapter" data-level="9.9.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-relaci%C3%B3n-entre-los-errores-de-primera-alpha-y-segunda-especie-1--beta"><i class="fa fa-check"></i><b>9.9.2</b> Caso 2: Relación entre los errores de primera ( <span class="math inline">\(\alpha\)</span> ) y segunda especie (1- <span class="math inline">\(\beta\)</span> )</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="04-vectoresAleatorios.html"><a href="#potencia-y-test-m%C3%A1s-potente"><i class="fa fa-check"></i><b>9.10</b> Potencia y test más potente</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-potencia-en-hip%C3%B3tesis-simple-vs-simple"><i class="fa fa-check"></i><b>9.10.1</b> Caso 1: Potencia en hipótesis simple vs simple</a></li>
+<li class="chapter" data-level="9.10.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-potencia-en-hip%C3%B3tesis-simple-vs-simple"><i class="fa fa-check"></i><b>9.10.2</b> Caso 2: Potencia en hipótesis simple vs simple</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="04-vectoresAleatorios.html"><a href="#efecto-del-tama%C3%B1o-muestral"><i class="fa fa-check"></i><b>9.11</b> Efecto del tamaño muestral</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1"><i class="fa fa-check"></i><b>9.11.1</b> Caso 1</a></li>
+<li class="chapter" data-level="9.11.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2"><i class="fa fa-check"></i><b>9.11.2</b> Caso 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="04-vectoresAleatorios.html"><a href="#hip%C3%B3tesis-simples-vs.-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>9.12</b> Hipótesis simples vs. hipótesis compuestas</a>
+<ul>
+<li class="chapter" data-level="9.12.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>9.12.1</b> Caso 1: Hipótesis compuestas</a></li>
+<li class="chapter" data-level="9.12.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-hip%C3%B3tesis-compuestas"><i class="fa fa-check"></i><b>9.12.2</b> Caso 2: Hipótesis compuestas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.13" data-path="04-vectoresAleatorios.html"><a href="#funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>9.13</b> Función de potencia</a>
+<ul>
+<li class="chapter" data-level="9.13.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>9.13.1</b> Caso 1: Función de potencia</a></li>
+<li class="chapter" data-level="9.13.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-funci%C3%B3n-de-potencia"><i class="fa fa-check"></i><b>9.13.2</b> Caso 2: Función de potencia</a></li>
+</ul></li>
+<li class="chapter" data-level="9.14" data-path="04-vectoresAleatorios.html"><a href="#tests-%C3%B3ptimos"><i class="fa fa-check"></i><b>9.14</b> Tests óptimos</a></li>
+<li class="chapter" data-level="9.15" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#pruebas-bilaterales-y-pruebas-unilaterales"><i class="fa fa-check"></i><b>9.15</b> Pruebas bilaterales y pruebas unilaterales</a>
+<ul>
+<li class="chapter" data-level="9.15.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-1-prueba-unilateral"><i class="fa fa-check"></i><b>9.15.1</b> Caso 1: Prueba unilateral</a></li>
+<li class="chapter" data-level="9.15.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-prueba-unilateral"><i class="fa fa-check"></i><b>9.15.2</b> Caso 2: Prueba unilateral</a></li>
+</ul></li>
+<li class="chapter" data-level="9.16" data-path="04-vectoresAleatorios.html"><a href="#elecci%C3%B3n-del-nivel-de-significaci%C3%B3n"><i class="fa fa-check"></i><b>9.16</b> Elección del nivel de significación</a></li>
+<li class="chapter" data-level="9.17" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#el-p-valor"><i class="fa fa-check"></i><b>9.17</b> El p-valor</a>
+<ul>
+<li class="chapter" data-level="9.17.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-c%C3%A1lculo-del-p-valor-prueba-unilateral"><i class="fa fa-check"></i><b>9.17.1</b> Caso 1: Cálculo del p-valor (prueba unilateral)</a></li>
+<li class="chapter" data-level="9.17.2" data-path="04-vectoresAleatorios.html"><a href="#caso-2-c%C3%A1lculo-del-p-valor-prueba-unilateral"><i class="fa fa-check"></i><b>9.17.2</b> Caso 2: Cálculo del p-valor (prueba unilateral)</a></li>
+<li class="chapter" data-level="9.17.3" data-path="04-vectoresAleatorios.html"><a href="#caso-2-c%C3%A1lculo-del-p-valor-prueba-bilateral"><i class="fa fa-check"></i><b>9.17.3</b> Caso 2: Cálculo del p-valor (prueba bilateral)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.18" data-path="04-vectoresAleatorios.html"><a href="#pruebas-exactas-y-pruebas-asint%C3%B3ticas"><i class="fa fa-check"></i><b>9.18</b> Pruebas exactas y pruebas asintóticas</a>
+<ul>
+<li class="chapter" data-level="9.18.1" data-path="04-vectoresAleatorios.html"><a href="#caso-1-test-asint%C3%B3tico"><i class="fa fa-check"></i><b>9.18.1</b> Caso 1: Test asintótico</a></li>
+<li class="chapter" data-level="9.18.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#caso-2-test-exacto"><i class="fa fa-check"></i><b>9.18.2</b> Caso 2: Test exacto</a></li>
+</ul></li>
+<li class="chapter" data-level="9.19" data-path="04-vectoresAleatorios.html"><a href="#relaci%C3%B3n-con-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.19</b> Relación con los intervalos de confianza</a>
+<ul>
+<li class="chapter" data-level="9.19.1" data-path="04-vectoresAleatorios.html"><a href="#caso-2-relaci%C3%B3n-con-los-intervalos-de-confianza"><i class="fa fa-check"></i><b>9.19.1</b> Caso 2: Relación con los intervalos de confianza</a></li>
+</ul></li>
+<li class="chapter" data-level="9.20" data-path="04-vectoresAleatorios.html"><a href="#tama%C3%B1os-de-muestra.-diferencia-m%C3%ADnima-significativa"><i class="fa fa-check"></i><b>9.20</b> Tamaños de muestra. Diferencia mínima significativa</a>
+<ul>
+<li class="chapter" data-level="9.20.1" data-path="04-vectoresAleatorios.html"><a href="#caso-2-c%C3%A1lculo-del-tama%C3%B1o-de-la-muestra"><i class="fa fa-check"></i><b>9.20.1</b> Caso 2: Cálculo del tamaño de la muestra</a></li>
+</ul></li>
+<li class="chapter" data-level="9.21" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#esquema-de-un-contraste-correctamente-planteado"><i class="fa fa-check"></i><b>9.21</b> Esquema de un contraste correctamente planteado</a></li>
+<li class="chapter" data-level="9.22" data-path="04-vectoresAleatorios.html"><a href="#significaci%C3%B3n-estad%C3%ADstica-y-significaci%C3%B3n-aplicada"><i class="fa fa-check"></i><b>9.22</b> Significación estadística y significación aplicada</a>
+<ul>
+<li class="chapter" data-level="9.22.1" data-path="04-vectoresAleatorios.html"><a href="#caso-2-significaci%C3%B3n-estad%C3%ADstica-y-aplicada"><i class="fa fa-check"></i><b>9.22.1</b> Caso 2: Significación estadística y aplicada</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inferencia-aplicada.html"><a href="inferencia-aplicada.html"><i class="fa fa-check"></i><b>10</b> Inferencia Aplicada</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="04-vectoresAleatorios.html"><a href="#pruebas-de-normalidad.pruebas-gr%C3%A1ficas.-el-test-de-shapiro-wilks"><i class="fa fa-check"></i><b>10.1</b> Pruebas de normalidad.Pruebas gráficas. El test de Shapiro-Wilks</a></li>
+<li class="chapter" data-level="10.2" data-path="04-vectoresAleatorios.html"><a href="#pruebas-de-hip%C3%B3tesis-para-constrastar-variables-cuantitativas-pruebas-param%C3%A8tricas-t-test-y-anova"><i class="fa fa-check"></i><b>10.2</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas paramètricas t-test y Anova</a></li>
+<li class="chapter" data-level="10.3" data-path="04-vectoresAleatorios.html"><a href="#pruebas-de-hip%C3%B3tesis-para-constrastar-variables-cuantitativas-pruebas-de-hip%C3%B3tesis-no-param%C3%A9tricas-de-wilcoxon-y-kruskal-wallis"><i class="fa fa-check"></i><b>10.3</b> Pruebas de hipótesis para constrastar variables cuantitativas: pruebas de hipótesis no paramétricas de Wilcoxon y Kruskal-Wallis</a></li>
+<li class="chapter" data-level="10.4" data-path="04-vectoresAleatorios.html"><a href="#contrastes-para-datos-categ%C3%B3ricos.-pruebas-binomiales-ji-cuadrado-y-test-de-fisher."><i class="fa fa-check"></i><b>10.4</b> Contrastes para datos categóricos. Pruebas binomiales, ji cuadrado y test de Fisher.</a></li>
+<li class="chapter" data-level="10.5" data-path="04-vectoresAleatorios.html"><a href="#riesgo-relativo-y-raz%C3%B3n-de-odds"><i class="fa fa-check"></i><b>10.5</b> Riesgo relativo y razón de «odds»</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="04-vectoresAleatorios.html"><a href="#computaci%C3%B3n-intensiva-y-multiple-testing"><i class="fa fa-check"></i><b>11</b> Computación Intensiva y <em>Multiple Testing</em></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="04-vectoresAleatorios.html"><a href="#tests-de-permutaciones-qu%C3%A9-cu%C3%A1ndo-c%C3%B3mo"><i class="fa fa-check"></i><b>11.1</b> Tests de permutaciones; ¿Qué?, ¿Cuándo?, ¿Cómo?</a></li>
+<li class="chapter" data-level="11.2" data-path="04-vectoresAleatorios.html"><a href="#el-bootstrap-en-contraste-de-hip%C3%B3tesis"><i class="fa fa-check"></i><b>11.2</b> El bootstrap en contraste de hipótesis</a></li>
+<li class="chapter" data-level="11.3" data-path="04-vectoresAleatorios.html"><a href="#el-problema-de-las-comparaciones-m%C3%BAltiples"><i class="fa fa-check"></i><b>11.3</b> El problema de las comparaciones múltiples</a></li>
+<li class="chapter" data-level="11.4" data-path="04-vectoresAleatorios.html"><a href="#m%C3%A9todos-de-control-de-error-fwer-y-fdr"><i class="fa fa-check"></i><b>11.4</b> Métodos de control de error: FWER y FDR</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Fundamentos de Inferencia Estadistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distribuciones-de-probabilidad-multidimensionales" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Distribuciones de probabilidad multidimensionales<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-de-probabilidad-multidimensionales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- :::: {.calloutBox .important} -->
+<!-- Este capítulo está en curso de ser introducido en los apuntes. -->
+<!-- La versión actualizada estará disponible en el momento de inicio de la actividad, durante el semestre actual (2024-25-S1). -->
+<!-- :::: -->
+<p>En este capítulo se extiende el concepto de variable aleatoria a un conjunto de variables que pueden interpretarse asociadas a un conjunto de medidas distintas y que pueden estar, o no relacionadas.</p>
+<p>Tras introducir los conceptos de distribuciones multidimensionales, condicionales y marginales, se pasa a considerar el caso más habitual en inferencia estadística en el que las componentes de los vectrores son independientes entre ellas.</p>
+<p>Este es, de hecho, el punto de partida de muchos modelos y métodos en estadística.</p>
+<div id="distribuciones-conjuntas-de-probabilidades" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Distribuciones conjuntas de probabilidades<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-conjuntas-de-probabilidades" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>A menudo nos interesa estudiar múltiples características de un fenómeno aleatorio:</p>
+<ul>
+<li>La altura, el peso y el sexo de un individuo.</li>
+<li>La expresión coordinada de los genes que participan en una determinada via metabólica.</li>
+<li>El número de nucleótidos A, C, G, T en una región del genoma de tamaño <span class="math inline">\(n\)</span>.</li>
+</ul></li>
+<li><p>Estas características numéricas que, de forma análoga al caso univariante, podemos suponer asociadas a los resultados de experimentos aleatorios se denominan <em>variables aleatorias multidimensionales</em> o, atendiendo a sus componentes, <strong>vectores aleatorios</strong>.</p></li>
+</ul>
+<p>Las distribuciones de probabilidad que, siguiendo con la analogía, asociaremos a los vectores aleatorios se denominan <strong>distribuciones de probabilidades conjuntas</strong> o <strong>multivariantes</strong>.</p>
+<p>Antes de desarrollar el tema es importante remarcar que consideraremos dos escenarios:</p>
+<ul>
+<li><p>El primero, el “natural” es considerar que si trabajamos con distintas variables asociadas a un mismo fenómeno, es razonable suponer que varien de alguna forma coordinada. De ahí la expresión <em>distribución conjnta</em>.</p></li>
+<li><p>En ocasiones, sin embargo, dispondremos de vectores aleatorios que varian independientemente los unos de los otros. En este caso su distribución conjunta será de un tipo especial que se conoce <em>independencia</em>.</p></li>
+</ul>
+<div id="variable-aleatoria-bivariante" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Variable aleatoria bivariante<a href="distribuciones-de-probabilidad-multidimensionales.html#variable-aleatoria-bivariante" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Empezaremos por el caso más sencillo que, sin embargo permite estudiar la mayoría de los conceptos quenos interesas: Las distribuciones conjuntas de dos variables aleatorias.</p>
+<p>Una <strong>variable aleatoria bivariante</strong> es una aplicación que, a cada resultado de un experimento, le asocia dos números:</p>
+<p><span class="math display">\[
+(X, Y): \Omega \to \mathbb{R}^2
+\]</span></p>
+<p><span class="math display">\[
+w \mapsto (X(w), Y(w))
+\]</span></p>
+<p>De modo que, para todo par de valores numéricos, <span class="math inline">\((x, y) \in \mathbb{R}^2\)</span>, se tiene</p>
+<p><span class="math display">\[
+\{w \in \Omega \mid X(w) \leq x,\quad Y(w) \leq y\} \in \mathcal{A}
+\]</span>
+donde <span class="math inline">\(\mathcal{A}\)</span> representa el conjunto de <em>sucesos observables</em> definido en el capítulo 1.</p>
+<p>Lo que viene a significar esta definición es que una variable aleatoria bidimensional es un conjunto de medidas (números reales) a los que, por el ehecho de poderse asociar con sucesos observables a traves de los intérvalos <span class="math inline">\(X(w) \leq x,\quad Y(w) \leq y\)</span> se les puede asociar (calcular) una probabilidad.</p>
+<p>Fijémonos también que, como en el caso univariante, la función que <em>transporta</em> la probabilidad, del espació de probabilidad al conjunto de los reales, será la función de distribución, que se define a continuación.</p>
+</div>
+<div id="función-de-distribución-bivariante" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Función de distribución bivariante<a href="#funci%C3%B3n-de-distribuci%C3%B3n-bivariante" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La función de distribución conjunta de <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>, <span class="math inline">\(F\)</span>, es una generalización inmediata del caso univariado y se define como:</p>
+<p><span class="math display">\[
+F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y]
+\]</span></p>
+<p>Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.</p>
+</div>
+<div class="ejemplo">
+<div id="ejemplo-distribución-conjunta-del-estado-de-infección-y-activación-de-células" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Ejemplo: Distribución conjunta del estado de infección y activación de células<a href="#ejemplo-distribuci%C3%B3n-conjunta-del-estado-de-infecci%C3%B3n-y-activaci%C3%B3n-de-c%C3%A9lulas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos que estamos observando dos características de células en un experimento de inmunología. Las variables que describen las células son:</p>
+<ul>
+<li><span class="math inline">\(X\)</span>: La célula está infectada (<span class="math inline">\(X = 1\)</span>) o no infectada (<span class="math inline">\(X = 0\)</span>).</li>
+<li><span class="math inline">\(Y\)</span>: La célula está activada (<span class="math inline">\(Y = 1\)</span>) o no activada (<span class="math inline">\(Y = 0\)</span>).</li>
+</ul>
+<p>La siguiente tabla muestra la probabilidad conjunta de observar cada combinación de infección y activación en una célula:</p>
+<table>
+<colgroup>
+<col width="29%" />
+<col width="36%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(X \backslash Y\)</span></th>
+<th><span class="math inline">\(Y = 0\)</span> (No activada)</th>
+<th><span class="math inline">\(Y = 1\)</span> (Activada)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X = 0\)</span> (No infectada)</td>
+<td>0.4</td>
+<td>0.2</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X = 1\)</span> (Infectada)</td>
+<td>0.1</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
+<div id="función-de-distribución-conjunta" class="section level4 hasAnchor" number="4.1.3.1">
+<h4><span class="header-section-number">4.1.3.1</span> 1. Función de distribución conjunta<a href="#funci%C3%B3n-de-distribuci%C3%B3n-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La función de distribución conjunta <span class="math inline">\(F(x, y)\)</span> para esta situación se calcula como:</p>
+<p><span class="math display">\[
+F(x, y) = P(X \leq x, Y \leq y)
+\]</span></p>
+<p>Los valores para los pares posibles de <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> son:</p>
+<ul>
+<li><span class="math inline">\(F(0, 0) = P(X = 0, Y = 0) = 0.4\)</span></li>
+<li><span class="math inline">\(F(0, 1) = P(X = 0, Y \leq 1) = P(X = 0, Y = 0) + P(X = 0, Y = 1) = 0.4 + 0.2 = 0.6\)</span></li>
+<li><span class="math inline">\(F(1, 0) = P(X \leq 1, Y = 0) = P(X = 0, Y = 0) + P(X = 1, Y = 0) = 0.4 + 0.1 = 0.5\)</span></li>
+<li><span class="math inline">\(F(1, 1) = P(X \leq 1, Y \leq 1) = 1\)</span></li>
+</ul>
+</div>
+<div id="cálculo-de-la-probabilidad-de-eventos-específicos" class="section level4 hasAnchor" number="4.1.3.2">
+<h4><span class="header-section-number">4.1.3.2</span> 2. Cálculo de la probabilidad de eventos específicos<a href="#c%C3%A1lculo-de-la-probabilidad-de-eventos-espec%C3%ADficos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Por ejemplo, la probabilidad de que una célula esté infectada pero no activada es:</p>
+<p><span class="math display">\[
+P(X = 1, Y = 0) = 0.1
+\]</span></p>
+</div>
+</div>
+<div id="implementación-en-r" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Implementación en R<a href="#implementaci%C3%B3n-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Podemos visualizar esta distribución conjunta con un gráfico en R.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-2" tabindex="-1"></a><span class="do">## Warning: package &#39;ggplot2&#39; was built under R version 4.4.3</span></span>
+<span id="cb1-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-4" tabindex="-1"></a><span class="co"># Crear los datos de la distribución conjunta</span></span>
+<span id="cb1-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-6" tabindex="-1"></a>data<span class="sc">$</span>Prob <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>)</span>
+<span id="cb1-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-8" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
+<span id="cb1-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-9" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(X, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No infectada&quot;</span>, <span class="st">&quot;Infectada&quot;</span>)),</span>
+<span id="cb1-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-10" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">factor</span>(Y, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No activada&quot;</span>, <span class="st">&quot;Activada&quot;</span>)))) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-11" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prob), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-12" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;white&quot;</span>, <span class="at">high =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-13" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Prob, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Estado de infección (X)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Estado de activación (Y)&quot;</span>, </span>
+<span id="cb1-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-15" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Distribución Conjunta de Infección y Activación Celular&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-16" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-18" tabindex="-1"></a><span class="co"># Guardar el gráfico en el subdirectorio imagenes</span></span>
+<span id="cb1-19"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb1-19" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb2-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/distribucion_conjunta.png&quot;</span>)</span></code></pre></div>
+<p><img src="images/distribucion_conjunta.png" width="80%" /></p>
+</div>
+</div>
+</div>
+<div id="variable-aleatorias-bivariantes-discretas" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Variable aleatorias bivariantes discretas<a href="distribuciones-de-probabilidad-multidimensionales.html#variable-aleatorias-bivariantes-discretas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una vez introducidos los conceptos de forma general pasamos a estudiar el problema en el caso discreto, que es muy intuitivo y, a la vez permite introducir todos los conceptos relevantes.</p>
+<div class="definicion">
+<p>Un <strong>vector aleatorio discreto</strong>, <span class="math inline">\((X, Y)\)</span> es aquel cuyo recorrido o conjunto de valores posibles es finito o numerable.</p>
+</div>
+<p>En este caso, toda probabilidad</p>
+<p><span class="math display">\[
+P\{(X, Y) \in B\}, \quad \text{donde } B \text{ es un conjunto de posibles valores de } X, Y,
+\]</span></p>
+<p>se puede calcular a partir de la <strong>función de masa de probabilidad discreta bivariante</strong>.</p>
+<div id="función-de-masa-de-probabilidad-discreta-fmp" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Función de masa de probabilidad discreta (fmp)<a href="#funci%C3%B3n-de-masa-de-probabilidad-discreta-fmp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La funcion de masa de probabilidad de los vectores aleatorios generaliza la función del mismo nombre en el caso univariante, es decir, es una función:</p>
+<p><span class="math display">\[
+f: \mathbb{R}^2 \to [0, 1]
+\]</span></p>
+<p>Que asigna la probabilidad a cada punto del plano: para todo <span class="math inline">\((x, y) \in \mathbb{R}^{2}\)</span>:</p>
+<p><span class="math display">\[
+f(x, y) = P\{w \in \Omega \mid X(w) = x, Y(w) = y\} = P[X = x, Y = y]
+\]</span></p>
+</div>
+<div id="propiedades-de-la-fmp-bivariante" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Propiedades de la fmp bivariante<a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-la-fmp-bivariante" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>La masa total de probabilidad sobre el plano es 1:</li>
+</ul>
+<p><span class="math display">\[
+\sum_{(x_i, y_j) \in \mathbb{R}^{2}} f(x_i, y_j) = 1
+\]</span></p>
+<ul>
+<li>Para todo subconjunto <span class="math inline">\(B \subseteq \mathbb{R}^2\)</span>, se verifica:</li>
+</ul>
+<p><span class="math display">\[
+F(x, y) = P[X \leq x, Y \leq y] = \sum_{x_i \leq x, y_j \leq y} f(x_i, y_j)
+\]</span></p>
+<p>Es decir, como en el caso univariante <em>la función de distribución se puede calcular a partir de la función de masa de probabilidad</em>.</p>
+<div id="intuición-frente-a-construcción" class="section level4 hasAnchor" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Intuición frente a construcción<a href="#intuici%C3%B3n-frente-a-construcci%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La presentación de los conceptos anteriores suele generar cierto desasosiego entre los estudiantes que afrontan estos conceptos por primera (o siguientes) vez.</p>
+<p>El motivo de este desasosiego es que el papel de la función de distribución no suele ser tan intuitivo como el de la función de masa de probabilidad.</p>
+<p>Es decir, es más intuitivo pensar en como calcular lña probabilidad que la variable tome un valor concreto (<span class="math inline">\(P[X=x]\)</span>) , que la probabilidad de que no alcance cierto valor (<span class="math inline">\(P[X\leq x]\)</span>).</p>
+<p>Sin embargo, la función que realmente permite transportar la probabilidad no es la función de masa de probabilidad (fmp) sino la función de distribución (fdd). De ahí el contraste entre intuición (fmp) y construcción (fdd)</p>
+</div>
+</div>
+<div id="ejemplo-de-distribución-bivariante-discreta" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Ejemplo de distribución bivariante discreta<a href="#ejemplo-de-distribuci%C3%B3n-bivariante-discreta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="ejemplo">
+<p>Supongamos que un estudio mide el número de células infectadas y el número de linfocitos activados en un campo microscópico. Dado el tamaño del campo y el grado de infección los valores observados de cada variables son:</p>
+<ul>
+<li><span class="math inline">\(X\)</span>: Número de células infectadas (<span class="math inline">\(X \in \{0, 1, 2, 3, 4, 5\}\)</span>)).</li>
+<li><span class="math inline">\(Y\)</span>: Número de linfocitos activados (<span class="math inline">\(Y \in \{0, 1, 2, 3\}\)</span>)).</li>
+</ul>
+<p>La distribución conjunta se refleja en la siguiente tabla de probabilidades conjuntas:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(P[X=x]\)</span></th>
+<th align="center"><span class="math inline">\(P[Y = 0]\)</span></th>
+<th align="center"><span class="math inline">\(P[Y = 1]\)</span></th>
+<th align="center"><span class="math inline">\(P[Y = 2]\)</span></th>
+<th align="center"><span class="math inline">\(P[Y = 3]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">0.12</td>
+<td align="center">0.06</td>
+<td align="center">0.02</td>
+<td align="center">0.00</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0.10</td>
+<td align="center">0.10</td>
+<td align="center">0.04</td>
+<td align="center">0.01</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">0.06</td>
+<td align="center">0.12</td>
+<td align="center">0.08</td>
+<td align="center">0.02</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">0.03</td>
+<td align="center">0.12</td>
+<td align="center">0.10</td>
+<td align="center">0.05</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">0.01</td>
+<td align="center">0.08</td>
+<td align="center">0.12</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">0.00</td>
+<td align="center">0.03</td>
+<td align="center">0.10</td>
+<td align="center">0.07</td>
+</tr>
+</tbody>
+</table>
+<p>Puede comprobarse como la suma de todos los valores de la tabla es 1, y calcular probabilidades de sucesos como</p>
+<p><strong>Probabilidad de que hayan dos células infectadas y un linfocito:</strong></p>
+<p>Para calcular la probabilidad de que haya exactamente 2 células infectadas y 1 linfocito activado, se puede usar el valor directamente de la tabla.</p>
+<p><span class="math display">\[
+P(X = 2, Y = 1) = 0.12
+\]</span></p>
+<p><strong>Probabilidad de que hayan menos de tres celulas infectadas y menos de dos linfocitos:</strong></p>
+<p>Esta probabilidad es la suma de todas las combinaciones de <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>) que cumplen con la condición de <span class="math inline">\(X &lt; 3\)</span>) y <span class="math inline">\(Y &lt; 2\)</span>). Es decir, sumamos las probabilidades de los casos</p>
+<p><span class="math inline">\((X = 0, Y = 0)\)</span>), <span class="math inline">\((X = 0, Y = 1)\)</span>), <span class="math inline">\((X = 1, Y = 0)\)</span>), <span class="math inline">\((X = 1, Y = 1)\)</span>), <span class="math inline">\((X = 2, Y = 0)\)</span>), y <span class="math inline">\((X = 2, Y = 1)\)</span>).</p>
+<p><span class="math display">\[
+P(X &lt; 3, Y &lt; 2) = P(X = 0, Y = 0) + P(X = 0, Y = 1) + P(X = 1, Y = 0) + P(X = 1, Y = 1) + P(X = 2, Y = 0) + P(X = 2, Y = 1)
+\]</span></p>
+<p><span class="math display">\[
+P(X &lt; 3, Y &lt; 2) = 0.12 + 0.06 + 0.10 + 0.10 + 0.06 + 0.12 = 0.56
+\]</span></p>
+<p>Recordemos que, al tratarse de variables discretas, no es lo mismo <span class="math inline">\(P[X &lt; x]\)</span> que <span class="math inline">\(P[X \leq x]\)</span>, por lo que si la pregunta fuera “Probabilidad de que hayan al menos tres celulas infectadas y al menos dos linfocitos” deberíamos calcular:</p>
+<p><span class="math display">\[
+P(X \leq 3, Y \leq 2)
+\]</span>
+Esta última expresión se corresponde con la función de distribución evaluada en <span class="math inline">\((3,2)\)</span>.</p>
+</div>
+<div id="código-r-para-el-cálculo-de-la-pmf" class="section level4 hasAnchor" number="4.2.3.1">
+<h4><span class="header-section-number">4.2.3.1</span> Código R para el cálculo de la pmf<a href="#c%C3%B3digo-r-para-el-c%C3%A1lculo-de-la-pmf" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Podemos hacer los cálculos usando R:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-1" tabindex="-1"></a>prob_table <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.02</span>, <span class="fl">0.00</span>,</span>
+<span id="cb3-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-2" tabindex="-1"></a>                       <span class="fl">0.10</span>, <span class="fl">0.10</span>, <span class="fl">0.04</span>, <span class="fl">0.01</span>,</span>
+<span id="cb3-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-3" tabindex="-1"></a>                       <span class="fl">0.06</span>, <span class="fl">0.12</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>,</span>
+<span id="cb3-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-4" tabindex="-1"></a>                       <span class="fl">0.03</span>, <span class="fl">0.12</span>, <span class="fl">0.10</span>, <span class="fl">0.05</span>,</span>
+<span id="cb3-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-5" tabindex="-1"></a>                       <span class="fl">0.01</span>, <span class="fl">0.08</span>, <span class="fl">0.12</span>, <span class="fl">0.06</span>,</span>
+<span id="cb3-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-6" tabindex="-1"></a>                       <span class="fl">0.00</span>, <span class="fl">0.03</span>, <span class="fl">0.10</span>, <span class="fl">0.07</span>), </span>
+<span id="cb3-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-7" tabindex="-1"></a>                     <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-8" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-9" tabindex="-1"></a><span class="co"># Asignar nombres a las filas y columnas</span></span>
+<span id="cb3-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-10" tabindex="-1"></a><span class="fu">rownames</span>(prob_table) <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb3-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-11" tabindex="-1"></a><span class="fu">colnames</span>(prob_table) <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb3-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-12" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-13" tabindex="-1"></a><span class="co"># Mostrar la tabla</span></span>
+<span id="cb3-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-14" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb3-15" tabindex="-1"></a>prob_table</span></code></pre></div>
+<pre><code>##      0    1    2    3
+## 0 0.12 0.06 0.02 0.00
+## 1 0.10 0.10 0.04 0.01
+## 2 0.06 0.12 0.08 0.02
+## 3 0.03 0.12 0.10 0.05
+## 4 0.01 0.08 0.12 0.06
+## 5 0.00 0.03 0.10 0.07</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb5-1" tabindex="-1"></a><span class="co"># Calcular la probabilidad de (X = 2, Y = 1)</span></span>
+<span id="cb5-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb5-2" tabindex="-1"></a>prob_X2_Y1 <span class="ot">&lt;-</span> prob_table[<span class="st">&quot;2&quot;</span>, <span class="st">&quot;1&quot;</span>]</span>
+<span id="cb5-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb5-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;P(X = 2, Y = 1) =&quot;</span>, prob_X2_Y1, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## P(X = 2, Y = 1) = 0.12</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-1" tabindex="-1"></a><span class="co"># Calcular la probabilidad de (X &lt; 3, Y &lt; 2)</span></span>
+<span id="cb7-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-2" tabindex="-1"></a>prob_X_lt_3_Y_lt_2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(prob_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb7-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb7-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;P(X &lt; 3, Y &lt; 2) =&quot;</span>, prob_X_lt_3_Y_lt_2, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## P(X &lt; 3, Y &lt; 2) = 0.56</code></pre>
+</div>
+<div id="código-r-para-visualizar-la-distribución-conjunta" class="section level4 hasAnchor" number="4.2.3.2">
+<h4><span class="header-section-number">4.2.3.2</span> Código R para visualizar la distribución conjunta<a href="#c%C3%B3digo-r-para-visualizar-la-distribuci%C3%B3n-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Para visualizar la distribución conjunta, podemos usar el código siguiente;</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-1" tabindex="-1"></a><span class="co"># Es preciso instalar y cargar el paquete scatterplot3d si no lo tienes instalado</span></span>
+<span id="cb9-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-2" tabindex="-1"></a><span class="co"># install.packages(&quot;scatterplot3d&quot;)</span></span>
+<span id="cb9-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-3" tabindex="-1"></a><span class="fu">library</span>(scatterplot3d)</span>
+<span id="cb9-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-5" tabindex="-1"></a><span class="co"># Crear una matriz con los datos de la tabla de probabilidades</span></span>
+<span id="cb9-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-6" tabindex="-1"></a>X_vals <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">rownames</span>(prob_table))</span>
+<span id="cb9-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-7" tabindex="-1"></a>Y_vals <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">colnames</span>(prob_table))</span>
+<span id="cb9-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-9" tabindex="-1"></a><span class="co"># Crear un grid de valores X e Y</span></span>
+<span id="cb9-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-10" tabindex="-1"></a>X_grid <span class="ot">&lt;-</span> <span class="fu">rep</span>(X_vals, <span class="at">each =</span> <span class="fu">length</span>(Y_vals))</span>
+<span id="cb9-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-11" tabindex="-1"></a>Y_grid <span class="ot">&lt;-</span> <span class="fu">rep</span>(Y_vals, <span class="at">times =</span> <span class="fu">length</span>(X_vals))</span>
+<span id="cb9-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-13" tabindex="-1"></a><span class="co"># Extraer las probabilidades como un vector</span></span>
+<span id="cb9-14"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-14" tabindex="-1"></a>Z_vals <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(prob_table)</span>
+<span id="cb9-15"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-15" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-16" tabindex="-1"></a><span class="co"># Enviar el gráfico 3D de barras simuladas a pdf</span></span>
+<span id="cb9-17"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-17" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;images/pmfTrinomial.png&quot;</span>)</span>
+<span id="cb9-18"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-18" tabindex="-1"></a><span class="fu">scatterplot3d</span>(X_grid, Y_grid, Z_vals,</span>
+<span id="cb9-19"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-19" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;h&quot;</span>, <span class="at">color =</span> <span class="st">&quot;lightblue&quot;</span>, </span>
+<span id="cb9-20"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-20" tabindex="-1"></a>                     <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lwd =</span> <span class="dv">5</span>, </span>
+<span id="cb9-21"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-21" tabindex="-1"></a>                     <span class="at">cex.symbols =</span> <span class="dv">1</span>,</span>
+<span id="cb9-22"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-22" tabindex="-1"></a>                     <span class="at">angle=</span><span class="dv">60</span>,</span>
+<span id="cb9-23"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-23" tabindex="-1"></a>                     <span class="at">xlab =</span> <span class="st">&quot;Celulas Infectadas (X)&quot;</span>, </span>
+<span id="cb9-24"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-24" tabindex="-1"></a>                     <span class="at">ylab =</span> <span class="st">&quot;Linfocitos Activados (Y)&quot;</span>, </span>
+<span id="cb9-25"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-25" tabindex="-1"></a>                     <span class="at">zlab =</span> <span class="st">&quot;Probabilidad&quot;</span>,</span>
+<span id="cb9-26"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-26" tabindex="-1"></a>                     <span class="at">main =</span> <span class="st">&quot;Distribución Conjunta de </span><span class="sc">\n</span><span class="st"> Celulas Infectadas y Linfocitos Activados&quot;</span>)</span>
+<span id="cb9-27"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb9-27" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>## png 
+##   2</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb11-1" tabindex="-1"></a><span class="co"># Añadir texto con los valores de las probabilidades en la parte superior de las barras</span></span>
+<span id="cb11-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb11-2" tabindex="-1"></a><span class="co"># s3d$text(X_grid, Y_grid, Z_vals, labels = round(Z_vals, 2), pos = 3, col = &quot;black&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb12-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;images/pmfTrinomial.png&quot;</span>, <span class="at">rel_path =</span> <span class="cn">TRUE</span> )</span></code></pre></div>
+<p><img src="images/pmfTrinomial.png" width="90%" /></p>
+</div>
+</div>
+</div>
+<div id="la-distribución-multinomial" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> La distribución multinomial<a href="#la-distribuci%C3%B3n-multinomial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Antes de seguir con el estudio de las distribuciones discretas presentamos un caso importante de distribucion multivariante discreta, la <strong>distribución multinomial</strong>.</p>
+<div id="generación-de-las-observaciones" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Generación de las observaciones<a href="#generaci%C3%B3n-de-las-observaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Supongamos un experimentoaleatorio que puede producir <span class="math inline">\(k\)</span> resultados posibles <span class="math inline">\(A_1, A_2, \dots, A_k\)</span> con probabilidades <span class="math inline">\(p_1, p_2, \dots, p_k\)</span>, tales que <span class="math inline">\(p_1 + p_2 + \dots + p_k = 1\)</span>.</p>
+<p>Repetimos el experimento <span class="math inline">\(n\)</span> veces y llamamos <span class="math inline">\(X_1, X_2, \dots, X_k\)</span> al número de veces que se presenta <span class="math inline">\(A_1, A_2, \dots, A_k\)</span>.</p>
+<p>La distribución conjunta de <span class="math inline">\(X_1, X_2, \dots, X_k\)</span> recibe el nombre de <strong>multinomial</strong>.</p>
+</div>
+<div id="funcion-de-masa-de-probabilidad-de-la-distribución-multinomial" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Funcion de masa de probabilidad de la distribución multinomial<a href="#funcion-de-masa-de-probabilidad-de-la-distribuci%C3%B3n-multinomial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El vector <span class="math inline">\(\mathbf{X} = (X_1, \dots, X_k)\)</span> tiene distribución multinomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(\mathbf{p} = (p_1, \dots, p_k),\)</span> denotado por <span class="math inline">\(\mathbf{X} \sim \mathrm{M}(n, \mathbf{p})\)</span>, con <span class="math inline">\(n\)</span> entero positivo, <span class="math inline">\(p_i \geq 0\)</span> y <span class="math inline">\(\sum_{i=1}^{k} p_i = 1\)</span>.</p>
+<p>Su función de densidad conjunta es:</p>
+<p><span class="math display">\[
+f(\mathbf{x}) = P[\mathbf{X} = \mathbf{x}] = \frac{n!}{x_1!x_2!\cdots x_k!} p_1^{x_1} p_2^{x_2} \dots p_k^{x_k}
+\]</span></p>
+<p>donde <span class="math inline">\(x_i\)</span> son enteros no negativos tales que <span class="math inline">\(\sum_{i=1}^{k} x_i = n\)</span>.</p>
+</div>
+<div id="relación-con-la-distribución-binomial" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Relación con la distribución binomial<a href="#relaci%C3%B3n-con-la-distribuci%C3%B3n-binomial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Esta distribución puede verse como una generalización de la distribución binomial en el que, en lugar de tener dos posibles resultados, tenemos <span class="math inline">\(r\)</span> resultados posibles.</p>
+</div>
+<div id="un-caso-particular-la-distribución-trinomial" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Un caso particular: La distribución trinomial<a href="#un-caso-particular-la-distribuci%C3%B3n-trinomial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Veamos un ejemplo propio del análisis de secuencias en el que se aplica esta distribución:</p>
+<p>Si consideramos el alineamiento de dos secuencias <span class="math inline">\(x, y\)</span> de tamaño <span class="math inline">\(n\)</span>, podemos observar:</p>
+<ul>
+<li>$A_1 $: <span class="math inline">\(x_i\)</span> alineado con $y_i $, con $P(A_1) = p_1 $</li>
+<li>$A_2 $: <span class="math inline">\(x_i\)</span> alineado con “-”, con $P(A_2) = p_2 $</li>
+<li>$A_3 $: “-” alineado con $y_i $, con $P(A_3) = 1 - p_1 - p_2 $</li>
+</ul>
+<p>La variable $(X_1, X_2) $, que cuenta el número de veces que se observa <span class="math inline">\(A_1, A_2\)</span> (con $X_3 = n - X_1 - X_2 $), sigue una distribución trinomial de parámetros <span class="math inline">\(n\)</span>, $p_1 $, $p_2 $.</p>
+<p>Obsérvese que, dado que el total de observaciones <span class="math inline">\(n\)</span> está prefijado, aunque haya tres categorías, <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_3\)</span> el número de observaciones de <span class="math inline">\(A_3\)</span> es el total menos la suma de las observaciones de <span class="math inline">\(A_1+A_2\)</span>. O dicho de otra forma el número de probabilidades que són parámetros de la distribución es <span class="math inline">\(n-1=2\)</span>, lo que junto con <span class="math inline">\(n\)</span> que es otyro parámetro determina que “trinomial” se refiera tanto al total de categorías como al número de parámetros, aunque, en realidad tan sólo hay dos componentes <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> independientes (concepto este que se definirá con precisión más adelante).</p>
+<div class="ejemplo">
+<p>Estudiamos los posibles alineamientos de dos secuencias de 5 nucleótidos, en un contexto en el que las probabilidades de <span class="math inline">\(A_1\)</span> y <span class="math inline">\(A_2\)</span> son, respectivamente 0.6 y 0.2, es decir una Trinomial M(5; 0.6, 0.2) que dan lugar a la tabla siguiente.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(X_{1} \backslash X_{2}\)</span></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">(0,0,5)</td>
+<td align="center">(0,1,4)</td>
+<td align="center">(0,2,3)</td>
+<td align="center">(0,3,2)</td>
+<td align="center">(0,4,1)</td>
+<td align="center">(0,5,0)</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">(1,0,4)</td>
+<td align="center">(1,1,3)</td>
+<td align="center">(1,2,2)</td>
+<td align="center">(1,3,1)</td>
+<td align="center">(1,4,0)</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">(2,0,3)</td>
+<td align="center">(2,1,2)</td>
+<td align="center">(2,2,1)</td>
+<td align="center">(2,3,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">(3,0,2)</td>
+<td align="center">(3,1,1)</td>
+<td align="center">(3,2,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">(4,0,1)</td>
+<td align="center">(4,1,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">(5,0,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>A partir de la tabla anterior podemos determinar las probabilidades conjuntas:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(X_{1} \backslash X_{2}\)</span></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">0.0003</td>
+<td align="center">0.0016</td>
+<td align="center">0.0032</td>
+<td align="center">0.0032</td>
+<td align="center">0.0016</td>
+<td align="center">0.0003</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0.0048</td>
+<td align="center">0.0192</td>
+<td align="center">0.0288</td>
+<td align="center">0.0192</td>
+<td align="center">0.0048</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">0.0288</td>
+<td align="center">0.0864</td>
+<td align="center">0.0864</td>
+<td align="center">0.0288</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">0.0864</td>
+<td align="center">0.1728</td>
+<td align="center">0.0864</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">0.1296</td>
+<td align="center">0.1296</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">0.0778</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="distribuciones-marginales" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Distribuciones marginales<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Dado un vector aleatorio, puede interesar el comportamiento individual de una o cada una de sus componentes <span class="math inline">\(X_i\)</span>.</p></li>
+<li><p>La distribución de la componente <span class="math inline">\(i\)</span>-ésima se denomina <strong>distribución marginal</strong> de <span class="math inline">\(X_i\)</span>.</p></li>
+<li><p>Representa el comportamiento de <span class="math inline">\(X_i\)</span> sin tener en cuenta las otras componentes, es decir, como si fuera una variable aleatoria unidimensional.</p></li>
+</ul>
+<div id="las-marginales-están-en-los-márgenes" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Las marginales están en los márgenes<a href="#las-marginales-est%C3%A1n-en-los-m%C3%A1rgenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>El nombre de <strong>distribución marginal</strong> proviene del hecho de que en una distribución bivariada discreta como la trinomial, los valores de una fila coinciden con los valores de <span class="math inline">\(X_2\)</span>, y todos los de una columna con los de <span class="math inline">\(X_1\)</span>. Los valores en la fila 0 o columna 0 (los márgenes) representan precisamente las distribuciones marginales.</li>
+</ul>
+</div>
+<div id="densidades-marginales-discretas" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Densidades marginales discretas<a href="distribuciones-de-probabilidad-multidimensionales.html#densidades-marginales-discretas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>La densidad marginal de <span class="math inline">\(X\)</span> es:</li>
+</ul>
+<p><span class="math display">\[
+f_X(x) = f_1(x) = \sum_j f(x, y_j)
+\]</span></p>
+<p>y la de <span class="math inline">\(Y\)</span> es:</p>
+<p><span class="math display">\[
+f_Y(y) = f_2(y) = \sum_i f(x_i, y)
+\]</span></p>
+</div>
+<div id="trinomial-m5-0.6-0.2-distribuciones-marginales" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Trinomial M(5; 0.6, 0.2): Distribuciones marginales<a href="distribuciones-de-probabilidad-multidimensionales.html#trinomial-m5-0.6-0.2-distribuciones-marginales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="ejemplo">
+<table style="width:100%;">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(X_1 \backslash X_2\)</span></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center"><span class="math inline">\(X_2\)</span></th>
+<th align="center"><span class="math inline">\(P[X_2 = x]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">(0,0,5)</td>
+<td align="center">(0,1,4)</td>
+<td align="center">(0,2,3)</td>
+<td align="center">(0,3,2)</td>
+<td align="center">(0,4,1)</td>
+<td align="center">(0,5,0)</td>
+<td align="center">0</td>
+<td align="center">0.0102</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">(1,0,4)</td>
+<td align="center">(1,1,3)</td>
+<td align="center">(1,2,2)</td>
+<td align="center">(1,3,1)</td>
+<td align="center">(1,4,0)</td>
+<td align="center"></td>
+<td align="center">1</td>
+<td align="center">0.0768</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">(2,0,3)</td>
+<td align="center">(2,1,2)</td>
+<td align="center">(2,2,1)</td>
+<td align="center">(2,3,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">2</td>
+<td align="center">0.2304</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">(3,0,2)</td>
+<td align="center">(3,1,1)</td>
+<td align="center">(3,2,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">3</td>
+<td align="center">0.3456</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">(4,0,1)</td>
+<td align="center">(4,1,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">4</td>
+<td align="center">0.2592</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">(5,0,0)</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">5</td>
+<td align="center">0.0778</td>
+</tr>
+<tr class="odd">
+<td align="center">X_2</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="center"></td>
+<td align="center">1.0000</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(P[X_2 = x]\)</span></td>
+<td align="center">0.3277</td>
+<td align="center">0.4096</td>
+<td align="center">0.2048</td>
+<td align="center">0.0512</td>
+<td align="center">0.0064</td>
+<td align="center">0.0003</td>
+<td align="center">1.0000</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="distribuciones-condicionales" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Distribuciones condicionales<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>A veces nos interesa la distribución de una componente si conocemos que la otra ha tomado un valor determinado.</p></li>
+<li><p>En el ejemplo de los alineamientos, podríamos querer conocer los posibles valores y probabilidades de un alineamiento, si sabemos que hay exactamente un “gap” en la secuencia de prueba.</p></li>
+</ul>
+<div id="densidad-condicional" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Densidad condicional<a href="distribuciones-de-probabilidad-multidimensionales.html#densidad-condicional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>¿Qué podemos decir de la distribución de <span class="math inline">\(Y\)</span> si conocemos el valor de <span class="math inline">\(X\)</span>?</p>
+<p><span class="math display">\[
+f(y \mid X = x) = P[Y = y \mid X = x] = \frac{P[X = x, Y = y]}{P[X = x]} = \frac{f(x, y)}{f_X(x)}
+\]</span></p>
+<p>siempre que <span class="math inline">\(f_X(x) &gt; 0\)</span>.</p>
+</div>
+<div id="trinomial-m5-0.6-0.2-distribución-condicional" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Trinomial M(5; 0.6, 0.2): Distribución condicional<a href="#trinomial-m5-0.6-0.2-distribuci%C3%B3n-condicional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="ejemplo">
+<p>Distribución de <span class="math inline">\(X_1\)</span> condicionada a que <span class="math inline">\(X_2 = 1\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\((X_1, 1)\)</span></th>
+<th align="right"><span class="math inline">\(P(X_1, 1)\)</span></th>
+<th align="right"><span class="math inline">\(P_{X_2}(1)\)</span></th>
+<th align="right"><span class="math inline">\(P(X_1 \mid X_2 = 1)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(0,1,4)</td>
+<td align="right">0.002</td>
+<td align="right">0.41</td>
+<td align="right">0.004</td>
+</tr>
+<tr class="even">
+<td align="left">(1,1,3)</td>
+<td align="right">0.019</td>
+<td align="right">0.41</td>
+<td align="right">0.047</td>
+</tr>
+<tr class="odd">
+<td align="left">(2,1,2)</td>
+<td align="right">0.086</td>
+<td align="right">0.41</td>
+<td align="right">0.211</td>
+</tr>
+<tr class="even">
+<td align="left">(3,1,1)</td>
+<td align="right">0.173</td>
+<td align="right">0.41</td>
+<td align="right">0.422</td>
+</tr>
+<tr class="odd">
+<td align="left">(4,1,0)</td>
+<td align="right">0.13</td>
+<td align="right">0.41</td>
+<td align="right">0.316</td>
+</tr>
+<tr class="even">
+<td align="left">Total</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="vectores-aleatorios-absolutamente-continuos" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Vectores aleatorios absolutamente continuos<a href="distribuciones-de-probabilidad-multidimensionales.html#vectores-aleatorios-absolutamente-continuos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Diremos que <span class="math inline">\((X, Y)\)</span> es absolutamente continua si existe una función <span class="math inline">\(f(x, y)\)</span>, llamada <strong>función de densidad conjunta absolutamente continua</strong> o <strong>bivariada</strong>, tal que, para todo <span class="math inline">\((x, y) \in \mathbb{R}^2\)</span>,</li>
+</ul>
+<p><span class="math display">\[
+F(x, y) = \int_{-\infty}^{x} \int_{-\infty}^{y} f(u, v)\, du \, dv
+\]</span></p>
+<ul>
+<li>Si existe, la función de densidad absolutamente continua es única.</li>
+</ul>
+<div id="propiedades-de-la-función-de-densidad-conjunta" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Propiedades de la función de densidad conjunta<a href="#propiedades-de-la-funci%C3%B3n-de-densidad-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><span class="math inline">\(f(x, y) \geq 0\)</span></p></li>
+<li><p>La masa total de probabilidad es 1:</p></li>
+</ul>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x, y)\, dx\,dy = 1
+\]</span></p>
+<ul>
+<li>Para cualquier conjunto <span class="math inline">\(S\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+P\{(X, Y) \in S\} = \int_S f(x, y) \, dx \, dy
+\]</span></p>
+<p>En particular, la probabilidad de que <span class="math inline">\((X, Y)\)</span> esté en un rectángulo:</p>
+<p><span class="math display">\[
+P(a_1 &lt; X \leq a_2, b_1 &lt; Y \leq b_2) = \int_{a_1}^{a_2} \int_{b_1}^{b_2} f(x, y) \, dx \, dy
+\]</span></p>
+</div>
+<div id="densidades-marginales-en-el-caso-continuo" class="section level3 hasAnchor" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Densidades marginales en el caso continuo<a href="distribuciones-de-probabilidad-multidimensionales.html#densidades-marginales-en-el-caso-continuo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Las densidades marginales son:</li>
+</ul>
+<p><span class="math display">\[
+f_X(x) = \int_{-\infty}^{\infty} f(x, y) \, dy
+\]</span></p>
+<p><span class="math display">\[
+f_Y(y) = \int_{-\infty}^{\infty} f(x, y) \, dx
+\]</span></p>
+</div>
+<div id="densidad-condicional-en-el-caso-continuo" class="section level3 hasAnchor" number="4.6.3">
+<h3><span class="header-section-number">4.6.3</span> Densidad condicional en el caso continuo<a href="distribuciones-de-probabilidad-multidimensionales.html#densidad-condicional-en-el-caso-continuo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>La densidad de <span class="math inline">\(Y\)</span> condicionada a un valor de <span class="math inline">\(X\)</span> es:</li>
+</ul>
+<p><span class="math display">\[
+f(y \mid X = x) = \frac{f(x, y)}{f_X(x)}
+\]</span></p>
+<p>siempre que <span class="math inline">\(f_X(x) &gt; 0\)</span>.</p>
+</div>
+<div id="la-distribución-normal-bivariante" class="section level3 hasAnchor" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> La Distribución Normal Bivariante<a href="#la-distribuci%C3%B3n-normal-bivariante" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El ejemplo más importante de una distribución de probabilidad absolutamente continua para vectores aleatorios es la <strong>distribución normal bivariante</strong>. Esta distribución describe dos variables aleatorias continuas, <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>, cuya relación está modelada por una correlación lineal y tiene forma de campana (gaussiana) en dos dimensiones.</p>
+<div id="función-de-densidad-conjunta" class="section level4 hasAnchor" number="4.6.4.1">
+<h4><span class="header-section-number">4.6.4.1</span> Función de Densidad Conjunta<a href="#funci%C3%B3n-de-densidad-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La función de densidad conjunta de la distribución normal bivariante con medias <span class="math inline">\(\mu_X\)</span>, <span class="math inline">\(\mu_Y\)</span>, desviaciones estándar <span class="math inline">\(\sigma_X\)</span>, <span class="math inline">\(\sigma_Y\)</span> y coeficiente de correlación <span class="math inline">\(\rho\)</span> es:</p>
+<p><span class="math display">\[
+f(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+\]</span></p>
+<p>Esta expresión se generaliza fácilmente de la distribución normal univariante, pero en este caso incluye términos adicionales que representan la interacción entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="ejemplo" class="section level4 hasAnchor ejemplo" number="4.6.4.2">
+<h4><span class="header-section-number">4.6.4.2</span> Ejemplo<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En vez de proporcionar un código para visualizar la distribución normal bivariante podéis seguir este enlace: <a href="https://datasciencegenie.com/3d-contour-plots-of-bivariate-normal-distribution/">https://datasciencegenie.com/3d-contour-plots-of-bivariate-normal-distribution/</a> en donde se extiende lo que acabamos de discutir y se proporciona algunos ejemplos con R.</p>
+</div>
+<div id="distribuciones-marginales-1" class="section level4 hasAnchor" number="4.6.4.3">
+<h4><span class="header-section-number">4.6.4.3</span> Distribuciones Marginales<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-marginales-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Para obtener las <strong>distribuciones marginales</strong> a partir de una <strong>normal bivariante</strong>, debemos integrar la densidad conjunta sobre una de las variables. Dado que estamos trabajando con una distribución normal bivariante, su densidad conjunta está dada por:</p>
+<p><span class="math display">\[
+f_{X,Y}(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp\left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+\]</span></p>
+<p>Para obtener la <strong>marginal de <span class="math inline">\(X\)</span></strong>, debemos integrar sobre <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dy
+\]</span></p>
+<p>Al realizar esta integral, se obtiene que la distribución marginal de <span class="math inline">\(X\)</span> es:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{\sqrt{2 \pi \sigma_X^2}} \exp\left( -\frac{(x - \mu_X)^2}{2 \sigma_X^2} \right)
+\]</span></p>
+<p>Esto muestra que <span class="math inline">\(X\)</span> sigue una distribución normal con media <span class="math inline">\(\mu_X\)</span> y varianza <span class="math inline">\(\sigma_X^2\)</span>, es decir, <span class="math inline">\(X \sim N(\mu_X, \sigma_X^2)\)</span>.</p>
+<p>Del mismo modo, para la <strong>marginal de <span class="math inline">\(Y\)</span></strong>, integramos sobre <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dx
+\]</span></p>
+<p>La solución de esta integral da:</p>
+<p><span class="math display">\[
+f_Y(y) = \frac{1}{\sqrt{2 \pi \sigma_Y^2}} \exp\left( -\frac{(y - \mu_Y)^2}{2 \sigma_Y^2} \right)
+\]</span></p>
+<p>Lo que significa que <span class="math inline">\(Y\)</span> sigue una distribución normal con media <span class="math inline">\(\mu_Y\)</span> y varianza <span class="math inline">\(\sigma_Y^2\)</span>, es decir, <span class="math inline">\(Y \sim N(\mu_Y, \sigma_Y^2)\)</span>.</p>
+</div>
+<div id="ejemplo-1" class="section level4 hasAnchor ejemplo" number="4.6.4.4">
+<h4><span class="header-section-number">4.6.4.4</span> Ejemplo<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Supongamos que tenemos una distribución normal bivariante con los siguientes parámetros:</p>
+<ul>
+<li><span class="math inline">\(\mu_X = 100\)</span>, <span class="math inline">\(\sigma_X = 15\)</span></li>
+<li><span class="math inline">\(\mu_Y = 50\)</span>, <span class="math inline">\(\sigma_Y = 10\)</span></li>
+<li><span class="math inline">\(\rho = 0.5\)</span></li>
+</ul>
+<p>La densidad conjunta es:</p>
+<p><span class="math display">\[
+f_{X,Y}(x, y) = \frac{1}{2 \pi (15)(10) \sqrt{1 - 0.5^2}} \exp\left( -\frac{1}{2(1 - 0.5^2)} \left[ \frac{(x - 100)^2}{15^2} +
+       \frac{(y - 50)^2}{10^2} - \frac{2(0.5)(x - 100)(y - 50)}{(15)(10)} \right] \right)
+\]</span></p>
+<p>Integrando sobre <span class="math inline">\(Y\)</span>, obtenemos la distribución marginal de <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{\sqrt{2 \pi (15^2)}} \exp\left( -\frac{(x - 100)^2}{2 \cdot 15^2} \right)
+\]</span></p>
+<p>De manera análoga, la marginal de <span class="math inline">\(Y\)</span> es:</p>
+<p><span class="math display">\[
+f_Y(y) = \frac{1}{\sqrt{2 \pi (10^2)}} \exp\left( -\frac{(y - 50)^2}{2 \cdot 10^2} \right)
+\]</span></p>
+</div>
+</div>
+<div id="distribuciones-condicionales-1" class="section level3 hasAnchor" number="4.6.5">
+<h3><span class="header-section-number">4.6.5</span> Distribuciones Condicionales<a href="distribuciones-de-probabilidad-multidimensionales.html#distribuciones-condicionales-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La distribución condicional de una variable dado un valor específico de la otra también es normal univariante. Por ejemplo, la distribución condicional de <span class="math inline">\(X\)</span> dado <span class="math inline">\(Y = y\)</span> es:</p>
+<p><span class="math display">\[
+X \mid Y = y \sim N \left( \mu_X + \rho \frac{\sigma_X}{\sigma_Y} (y - \mu_Y), (1 - \rho^2)\sigma_X^2 \right)
+\]</span></p>
+<p>De forma análoga, la distribución condicional de <span class="math inline">\(Y\)</span> dado <span class="math inline">\(X = x\)</span> es:</p>
+<p><span class="math display">\[
+Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (1 - \rho^2)\sigma_Y^2 \right)
+\]</span></p>
+<div id="ejemplo-2" class="section level4 hasAnchor ejemplo" number="4.6.5.1">
+<h4><span class="header-section-number">4.6.5.1</span> Ejemplo<a href="distribuciones-de-probabilidad-multidimensionales.html#ejemplo-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Podemos calcular la distribución condicional de <span class="math inline">\(X\)</span> dado que <span class="math inline">\(Y = 180\)</span> cm, y mostrar cómo cambia la distribución de <span class="math inline">\(X\)</span> bajo esta condición:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-1" tabindex="-1"></a><span class="co"># Valores originales</span></span>
+<span id="cb13-2"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-2" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">50</span>)</span>
+<span id="cb13-3"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-3" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">10</span>)</span>
+<span id="cb13-4"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-4" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb13-5"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-6" tabindex="-1"></a><span class="co"># Condicionar X dado Y = 180</span></span>
+<span id="cb13-7"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-7" tabindex="-1"></a>y_cond <span class="ot">&lt;-</span> <span class="dv">180</span></span>
+<span id="cb13-8"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-8" tabindex="-1"></a>mu_cond <span class="ot">&lt;-</span> mu[<span class="dv">1</span>] <span class="sc">+</span> <span class="fl">0.6</span> <span class="sc">*</span> (<span class="dv">10</span><span class="sc">/</span><span class="dv">7</span>) <span class="sc">*</span> (y_cond <span class="sc">-</span> mu[<span class="dv">2</span>])</span>
+<span id="cb13-9"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-9" tabindex="-1"></a>sigma_cond <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.6</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb13-10"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-10" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-11" tabindex="-1"></a><span class="co"># Mostrar la media y desviación estándar condicionales</span></span>
+<span id="cb13-12"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb13-12" tabindex="-1"></a>mu_cond</span></code></pre></div>
+<pre><code>## [1] 211.4286</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="distribuciones-de-probabilidad-multidimensionales.html#cb15-1" tabindex="-1"></a>sigma_cond</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>Esto nos dice que el peso medio de una persona con altura de 180 cm es mayor que el peso medio de la población total, y su desviación estándar es menor debido a la correlación positiva entre peso y altura.</p>
+</div>
+</div>
+</div>
+<div id="independencia-de-variables-aleatorias" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Independencia de variables aleatorias<a href="distribuciones-de-probabilidad-multidimensionales.html#independencia-de-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una vez introducido el concepto de distribución conjunta pasamos a estudiar un caso particularmente importante de distribución conjunta, la independencia.
+De forma aparentemente contradictoria, en este caso, las variables se caracterizan por el hecho de que <em>no varían conjuntamente</em> sino que lo hacen <em>independientemente</em> las unas de las otras.</p>
+<p>De manera intuitiva podemos decir que dos variables aleatorias son independientes si los valores que toma una de ellas no afectan a los de la otra ni a sus probabilidades.</p>
+<p>En muchas ocasiones la independencia será evidente a partir del experimento, por ejemplo, es independiente el resultado del lanzamiento de un dado y el de una moneda tres veces. Por tanto las variables:</p>
+<ul>
+<li><span class="math inline">\(X_1\)</span>: “Puntuación obtenida con el dado” y</li>
+<li><span class="math inline">\(X_2\)</span>: “Número de caras obtenidas al lanzar tres veces una moneda” serán variables independientes.</li>
+</ul>
+<p>En otras ocasiones tenemos una dependencia clara, por ejemplo, al lanzar un dado consideremos las variables</p>
+<ul>
+<li><span class="math inline">\(Y_1=\)</span>: puntuación del dado,</li>
+<li><span class="math inline">\(Y_2=\)</span>: variable indicadora de puntuación par.</li>
+</ul>
+<p>Es evidente que existe una clara dependencia, si sabemos que <span class="math inline">\(Y=1\)</span>, la variable <span class="math inline">\(X\)</span> sólo puede tomar los valores 2 , 4 o 6 ; si sabemos que <span class="math inline">\(X=3\)</span>, entonces, <span class="math inline">\(Y=0\)</span> forzosamente.</p>
+<p>Algunas veces podemos suponer la existencia de una cierta relación entre variables, aunque sea en forma algo abstracta y sin concretar. Por ejemplo si realizamos unas mediciones sobre unos individuos, las variables altura en cm y peso en Kg probablemente estarán relacionadas, los valores de una influirán en los valores de la otra. Intentar determinar la naturaleza exacta de la relación entre ambas es lo que en estadística conocemos como un problema de correlación (si nos interesa unicamente la asociación) o de regresión (si uqeremos modelizar una variable en función d ela otra).</p>
+<p>Si queremos una definición algo más formal, basta con que recordemos que dos sucesos son independientes si la probabilidad de la intersección es igual al producto de probabilidades, aplicando esta definición a sucesos del tipo <span class="math inline">\(X \leq a\)</span> tenemos la definición siguiente:</p>
+<div id="primera-caracterización-de-la-independencia" class="section level3 hasAnchor" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Primera caracterización de la independencia<a href="#primera-caracterizaci%C3%B3n-de-la-independencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definicion">
+<p>Diremos que dos variables aleatorias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes si y sólo si su función de distribución conjunta puede expresarse como el producto de las funciones de distribución marginales, es decir si</p>
+<p><span class="math display">\[
+F_{X,Y}(x,y)= P\left( (X \leq x) \cap (Y \leq b)\right)=P(X \leq x) \times P(Y \leq y)=F_{X}(x) \times F_{Y}(y)
+\]</span></p>
+</div>
+<p>Fijémonos que, como en otros casos, la función que nos permite caracterizar una condición de forma general es la función de distribución.</p>
+<div id="variables-discretas-independientes" class="section level4 hasAnchor" number="4.7.1.1">
+<h4><span class="header-section-number">4.7.1.1</span> Variables discretas independientes<a href="distribuciones-de-probabilidad-multidimensionales.html#variables-discretas-independientes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En el caso de las variables discretas la caracterización de la independencia puede hacerse, además, por las funciones de masa de probabilidad:</p>
+<div class="definicion">
+<p>Diremos que dos variables aleatorias <strong>discretas</strong> <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes si y sólo si su función de masa de probabilidad conjunta puede expresarse como el producto de las funciones de masa de probabilidad marginales, es decir si</p>
+<p><span class="math display">\[
+f_{X,Y}(x,y)= P\left( (X = x) \cap (Y = y)\right)=P(X = x) \times P(Y = y)=f_{X}(x) \times f_{Y}(y)
+\]</span></p>
+</div>
+</div>
+</div>
+<div id="propiedades-de-las-variables-independientes" class="section level3 hasAnchor" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Propiedades de las variables independientes<a href="distribuciones-de-probabilidad-multidimensionales.html#propiedades-de-las-variables-independientes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como consecuencia inmediata de la independencia de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, se cumple lo siguiente:</p>
+<p><span class="math display">\[
+P(a&lt;X \leq c \cap b&lt;Y \leq d)=P(a&lt;X \leq c) \cdot P(b&lt;Y \leq d)
+\]</span>
+Que podría re-enunciarse diciendo que la probabilidad conjunta en un rectangulo definido por los valores “a, c, b, d” es el producto de las probabilidades marginales en los segmentos “ac”, para <span class="math inline">\(X\)</span> y “bd” para <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
+<div id="momentos-de-vectores-aleatorios" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Momentos de vectores aleatorios<a href="distribuciones-de-probabilidad-multidimensionales.html#momentos-de-vectores-aleatorios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una vez hemos introducido los vectores aleatorios, que como hemos señalado, son variables aleatorias bi, tri o <span class="math inline">\(n\)</span>-dimensionales tiene sentido preguntarse como se extienden a dichos vectores los conceptos y propiedades que introdujimos para variables aleatorias unidimensionales.</p>
+<p>Ya hemos visto como, para las funciones de probabilidad, la función de densidad o la función de distribución, existen extensiones imediatas, la función de densidad conjunta o la función de distribución conjunmta.</p>
+<p>Hemos visto también que, además de dichas extensiones, aparecen nuevos conceptos, que sólo tienen sentido en dos o más dimensiones, como las funciones de densidad condicionales o funciones de densidad marginales.</p>
+<p>Al considerar conceptos como la media o la varianza veremos que sucede algo similar:</p>
+<ul>
+<li>Por un lado conceptos como el de esperanza se extiende imediatamente al vector de medias.</li>
+<li>Por otro, conceptos como la varianza, han de tener en cuenta ahora, la posibilidad de variación conjunta entre dos o más variables lo que lleva a introducir magnitudes como la covarianza y la correlación.
+<ul>
+<li>La extensión del concepto de varianza pasa ahora a combinar extensiones y conceptos nuevos en lo que se conoce como matriz de varianzas-covarianzas.</li>
+</ul></li>
+</ul>
+<div id="esperanza-de-un-vector-aleatorio-o-vector-de-medias" class="section level3 hasAnchor" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> Esperanza de un vector aleatorio o vector de medias<a href="distribuciones-de-probabilidad-multidimensionales.html#esperanza-de-un-vector-aleatorio-o-vector-de-medias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La <strong>esperanza matemática</strong> de un vector aleatorio es un vector que contiene las esperanzas matemáticas de cada una de las componentes de dicho vector.</p>
+<p>Si tenemos un vector aleatorio bivariante <span class="math inline">\(\mathbf{X}=(X_1,X_2)\)</span>, su esperanza <span class="math inline">\(\mathbb{E}(\mathbf{X})\)</span> está dada por:</p>
+<p><span class="math display">\[
+\mathbb{E}(\mathbf{X})=
+\begin{pmatrix}
+\mathbb{E}(X_1)\\
+\mathbb{E}(X_2)
+\end{pmatrix}
+\]</span></p>
+<div class="ejemplo">
+<p>Consideremos un experimento en el que estamos midiendo el nivel de expresión génica de dos genes <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> en una muestra de células. Si los niveles promedio de expresión son <span class="math inline">\(\mu_1=5\)</span> y <span class="math inline">\(\mu_2=8\)</span>, entonces la esperanza del vector aleatorio sería:</p>
+<p><span class="math display">\[
+\mathbb{E}(\mathbf{X})=
+\begin{pmatrix}
+5\\
+8
+\end{pmatrix}
+\]</span></p>
+</div>
+</div>
+<div id="covarianza-entre-dos-variables-aleatorias" class="section level3 hasAnchor" number="4.8.2">
+<h3><span class="header-section-number">4.8.2</span> Covarianza entre dos variables aleatorias<a href="distribuciones-de-probabilidad-multidimensionales.html#covarianza-entre-dos-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La <strong>covarianza</strong> entre dos variables aleatorias <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> es una medida del grado de dependencia <em>lineal</em> entre ellas.</p>
+<div class="definicion">
+<p>La covarianza se define como</p>
+<p><span class="math display">\[
+\text{Cov}(X_1,X_2)=\mathbb{E}[(X_1-\mathbb{E}(X_1))(X_2-\mathbb{E}(X_2))]
+\]</span></p>
+</div>
+<div class="ejemplo">
+<p>Supongamos que estamos midiendo la cantidad de dos metabolitos <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> en una muestra, y queremos saber si sus concentraciones tienden a aumentar o disminuir juntas. Si obtenemos una covarianza de 0.5, y conocemos la escala en que varían los datos, podemos concluir que existe ligera tendencia a que los aumentos en <span class="math inline">\(X_1\)</span> estén asociados con aumentos en <span class="math inline">\(X_2\)</span>.</p>
+</div>
+</div>
+<div id="covarianza-y-correlación" class="section level3 hasAnchor" number="4.8.3">
+<h3><span class="header-section-number">4.8.3</span> Covarianza y correlación<a href="#covarianza-y-correlaci%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El ejemplo anterior es claramente insatisfactorio, puesto que valores de 0.5 pueden sugerir una gran dependencia o cas ninguna, segun cual sea la escala o el rango de variación de los valores que se consideran.</p>
+<p>Para evitar esta arbitrariedad se introduce la correlación lineal.</p>
+<div class="definicion">
+<p>La <strong>correlación</strong> entre dos variables aleatorias es una medida estandarizada del grado de dependencia lineal entre dos variables (es decir de lacovarianza), que toma valores entre -1 y 1 y que se define como:</p>
+<p><span class="math display">\[
+\text{Corr}(X_1,X_2)=\frac{\text{Cov}(X_1,X_2)}{\sqrt{\text{Var}(X_1)\text{Var}(X_2)}}
+\]</span></p>
+</div>
+<div class="ejemplo">
+<p>En el caso de los metabolitos mencionados anteriormente, si <span class="math inline">\(\text{Cov}(X_1,X_2)=0.5\)</span>, <span class="math inline">\(\text{Var}(X_1)=2\)</span> y <span class="math inline">\(\text{Var}(X_2)=3\)</span>, podemos calcular la correlación, que valdría:</p>
+<p><span class="math display">\[
+\text{Corr}(X_1,X_2)=\frac{0.5}{\sqrt{2\times 3}}=\frac{0.5}{\sqrt{6}}\approx 0.204
+\]</span></p>
+<p>Esto indica una correlación positiva débil entre las concentraciones de los dos metabolitos.</p>
+</div>
+<p>Obsérvese, sin embargo que si en vez de los valores anteriores para las varianzas de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> hubiéramos tenido <span class="math inline">\(\text{Var}(X_1)=1\)</span> y <span class="math inline">\(\text{Var}(X_2)=.5\)</span> el valor de la correlación habría sido:</p>
+<p><span class="math display">\[
+\text{Corr}(X_1,X_2)=\frac{0.5}{\sqrt{1\times 0.5}}=\frac{0.5}{\sqrt{0.5}}\approx 0.7071
+\]</span>
+Este ejemplo muestra como la correlación aporta más información sobre la dependencia lineal, puesto que, además de tener en cuenta la variación conjunta, tiene en cuenta la variabilidad individual de cada componente.</p>
+</div>
+<div id="matriz-de-varianzas-covarianzas" class="section level3 hasAnchor" number="4.8.4">
+<h3><span class="header-section-number">4.8.4</span> Matriz de varianzas-covarianzas<a href="distribuciones-de-probabilidad-multidimensionales.html#matriz-de-varianzas-covarianzas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definicion">
+<p>La <strong>matriz de varianzas-covarianzas</strong> de un vector aleatorio <span class="math inline">\(\mathbf{X}=(X_1,X_2)\)</span> es una matriz que contiene las varianzas de las componentes en la diagonal y las covarianzas fuera de la diagonal. Está definida como:</p>
+<p><span class="math display">\[
+\text{Cov}(\mathbf{X})=
+\begin{pmatrix}
+\text{Var}(X_1)&amp;\text{Cov}(X_1,X_2)\\
+\text{Cov}(X_2,X_1)&amp;\text{Var}(X_2)
+\end{pmatrix}
+\]</span></p>
+</div>
+<div class="ejemplo">
+<p>Siguiendo con el ejemplo de los metabolitos, si <span class="math inline">\(\text{Var}(X_1)=2\)</span>, <span class="math inline">\(\text{Var}(X_2)=3\)</span>, y la covarianza es <span class="math inline">\(0.5\)</span>, la matriz de covarianzas sería:</p>
+<p><span class="math display">\[
+\text{Cov}(\mathbf{X})=
+\begin{pmatrix}
+2&amp;0.5\\
+0.5&amp;3
+\end{pmatrix}
+\]</span></p>
+<p>Esto nos indica la dispersión de cada variable y la relación entre ambas.</p>
+</div>
+<div class="ejemplo">
+<p><strong>La distribución normal bivariante</strong></p>
+<p>Una de las distribuciones más importantes que describe el comportamiento conjunto de dos variables aleatorias es la <strong>distribución normal bivariante</strong>.</p>
+<p>Un vector aleatorio <span class="math inline">\(\mathbf{X}=(X_1,X_2)\)</span> tiene una distribución normal bivariante si su función de densidad conjunta está dada por:</p>
+<p><span class="math display">\[
+f(x_1,x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\frac{1}{2(1-\rho^2)}\left[\frac{(x_1-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}\right]\right)
+\]</span></p>
+<p>Aquí, <span class="math inline">\(\mu_1\)</span> y <span class="math inline">\(\mu_2\)</span> son las medias de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>, <span class="math inline">\(\sigma_1^2\)</span> y <span class="math inline">\(\sigma_2^2\)</span> son las varianzas, y <span class="math inline">\(\rho\)</span> es el coeficiente de correlación.</p>
+</div>
+</div>
+<div id="matriz-de-correlaciones" class="section level3 hasAnchor" number="4.8.5">
+<h3><span class="header-section-number">4.8.5</span> Matriz de correlaciones<a href="distribuciones-de-probabilidad-multidimensionales.html#matriz-de-correlaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definicion">
+<p>La <strong>matriz de correlaciones</strong> de un vector aleatorio bivariante <span class="math inline">\(\mathbf{X}=(X_1,X_2)\)</span> es una matriz simétrica <span class="math inline">\(2\times 2\)</span> que contiene los coeficientes de correlación entre las componentes <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>. La correlación mide la relación lineal entre las variables y se define como:</p>
+<p><span class="math display">\[
+\text{Corr}(X_1,X_2)=\frac{\text{Cov}(X_1,X_2)}{\sqrt{\text{Var}(X_1)\text{Var}(X_2)}}
+\]</span></p>
+<p>La matriz de correlaciones <span class="math inline">\(\text{Corr}(\mathbf{X})\)</span> está dada por:</p>
+<p><span class="math display">\[
+\text{Corr}(\mathbf{X})=
+\begin{pmatrix}
+1 &amp; \text{Corr}(X_1,X_2)\\
+\text{Corr}(X_2,X_1) &amp; 1
+\end{pmatrix}
+\]</span></p>
+</div>
+<p>Dado que <span class="math inline">\(\text{Corr}(X_1,X_2)=\text{Corr}(X_2,X_1)\)</span>, la matriz es simétrica, y los elementos diagonales son siempre <span class="math inline">\(1\)</span> porque la correlación de una variable consigo misma es <span class="math inline">\(1\)</span>.</p>
+<div id="relación-con-la-matriz-de-covarianzas" class="section level4 hasAnchor" number="4.8.5.1">
+<h4><span class="header-section-number">4.8.5.1</span> Relación con la matriz de covarianzas<a href="#relaci%C3%B3n-con-la-matriz-de-covarianzas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La matriz de correlaciones está relacionada con la <strong>matriz de covarianzas</strong> de la forma siguiente:</p>
+<p>Si <span class="math inline">\(\Sigma\)</span> es la matriz de covarianzas de <span class="math inline">\(\mathbf{X}=(X_1,X_2)\)</span>, con <span class="math inline">\(\Sigma=\begin{pmatrix} \text{Var}(X_1) &amp; \text{Cov}(X_1,X_2)\\ \text{Cov}(X_2,X_1) &amp; \text{Var}(X_2) \end{pmatrix}\)</span>, la matriz de correlaciones se obtiene “normalizando” cada covarianza dividiendo por el producto de las desviaciones estándar de las respectivas variables:</p>
+<p><span class="math display">\[
+\text{Corr}(\mathbf{X})=
+\begin{pmatrix}
+1 &amp; \frac{\text{Cov}(X_1,X_2)}{\sigma_1\sigma_2}\\
+\frac{\text{Cov}(X_2,X_1)}{\sigma_1\sigma_2} &amp; 1
+\end{pmatrix}
+\]</span></p>
+<p>donde <span class="math inline">\(\sigma_1=\sqrt{\text{Var}(X_1)}\)</span> y <span class="math inline">\(\sigma_2=\sqrt{\text{Var}(X_2)}\)</span>.</p>
+<div class="ejemplo">
+<p>Supongamos que medimos dos variables, como la altura <span class="math inline">\(X_1\)</span> y el peso <span class="math inline">\(X_2\)</span> de un grupo de personas. Sabemos que:</p>
+<ul>
+<li><span class="math inline">\(\text{Var}(X_1)=25\)</span> (varianza de la altura),</li>
+<li><span class="math inline">\(\text{Var}(X_2)=100\)</span> (varianza del peso),</li>
+<li><span class="math inline">\(\text{Cov}(X_1,X_2)=40\)</span> (covarianza entre altura y peso).</li>
+</ul>
+<p>La <strong>matriz de covarianzas</strong> sería:</p>
+<p><span class="math display">\[
+\Sigma=
+\begin{pmatrix}
+25 &amp; 40\\
+40 &amp; 100
+\end{pmatrix}
+\]</span></p>
+<p>La correlación entre <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> se calcula como:</p>
+<p><span class="math display">\[
+\text{Corr}(X_1,X_2)=\frac{40}{\sqrt{25 \times 100}}=\frac{40}{50}=0.8
+\]</span></p>
+<p>Por lo tanto, la <strong>matriz de correlaciones</strong> será:</p>
+<p><span class="math display">\[
+\text{Corr}(\mathbf{X})=
+\begin{pmatrix}
+1 &amp; 0.8\\
+0.8 &amp; 1
+\end{pmatrix}
+\]</span></p>
+<p>Esto indica una fuerte correlación positiva entre la altura y el peso de las personas en este grupo. La matriz de correlaciones nos proporciona una forma normalizada de comparar la dependencia entre las variables, sin depender de las unidades de medida.</p>
+</div>
+</div>
+</div>
+<div id="segunda-caracterización-de-la-independencia" class="section level3 hasAnchor" number="4.8.6">
+<h3><span class="header-section-number">4.8.6</span> Segunda caracterización de la independencia<a href="#segunda-caracterizaci%C3%B3n-de-la-independencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La <strong>independencia</strong> entre dos variables aleatorias <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> puede caracterizarse también a través de sus <strong>esperanzas</strong> de la siguiente manera:</p>
+<p>Dos variables son <strong>independientes</strong> si la esperanza del producto de ambas es igual al producto de las esperanzas de cada una por separado. Es decir si se verifica que:</p>
+<p><span class="math display">\[
+\mathbb{E}[X_1 X_2] = \mathbb{E}[X_1] \mathbb{E}[X_2]
+\]</span></p>
+<p>Esta propiedad refleja que, cuando las variables son independientes, el valor esperado del producto no se ve afectado por la interacción entre ellas, lo que implica que no hay dependencia entre las dos.</p>
+<p>Una consecuencia importante de esta propiedad es cómo afecta a la <strong>covarianza</strong> entre <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>.</p>
+<p>Si <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son <strong>independientes</strong>, entonces, por la propiedad anterior, <span class="math inline">\(\mathbb{E}[X_1 X_2] = \mathbb{E}[X_1] \mathbb{E}[X_2]\)</span> lo que, a su vez, significa que la covarianza es cero:</p>
+<p><span class="math display">\[
+\text{Cov}(X_1, X_2) = \mathbb{E}[X_1]\mathbb{E}[X_2] - \mathbb{E}[X_1]\mathbb{E}[X_2] = 0
+\]</span></p>
+<p>Por lo tanto, <strong>si dos variables son independientes, necesariamente su covarianza es cero</strong>.</p>
+<p>Sin embargo, la inversa no es cierta: el hecho de que la covarianza sea cero no implica que las variables sean independientes.</p>
+</div>
+<div id="relación-entre-incorrelación-e-independencia" class="section level3 hasAnchor" number="4.8.7">
+<h3><span class="header-section-number">4.8.7</span> Relación entre incorrelación e independencia<a href="#relaci%C3%B3n-entre-incorrelaci%C3%B3n-e-independencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cuando la covarianza entre dos variables es cero, se dice que las variables son <strong>incorreladas</strong>.
+Aunque la <strong>independencia</strong> implica que las variables son incorreladas, lo contrario no siempre es verdad: dos variables pueden ser incorreladas (tener covarianza cero) pero <strong>no independientes</strong>.</p>
+<div class="ejemplo">
+<p>Un ejemplo clásico es el siguiente: si consideramos una variable aleatoria <span class="math inline">\(X\)</span> y definimos <span class="math inline">\(Y = X^2\)</span>, entonces, aunque la covarianza entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> puede ser cero (especialmente si <span class="math inline">\(X\)</span> tiene una distribución simétrica alrededor de 0, como la normal estándar), <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> no son independientes, porque el valor de <span class="math inline">\(Y\)</span> está completamente determinado por <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="ejemplo">
+<p>Consideremos dos variables aleatorias <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> que siguen una distribución normal conjunta bivariante con media cero:</p>
+<p><span class="math display">\[
+(X_1, X_2) \sim \mathcal{N}\left(\mathbf{0}, \Sigma \right)
+\]</span></p>
+<p>Si la <strong>matriz de covarianzas</strong> <span class="math inline">\(\Sigma\)</span> es diagonal, es decir, <span class="math inline">\(\text{Cov}(X_1, X_2) = 0\)</span>, entonces <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son incorreladas.</p>
+<p>En este caso particular, cuando las variables son normales, la incorrelación <strong>sí</strong> implica independencia, porque en distribuciones normales la ausencia de correlación (covarianza cero) también implica que no hay ninguna dependencia entre las variables.</p>
+<p>Sin embargo, en otras distribuciones que no son normales, la incorrelación no garantiza la independencia, lo que subraya la importancia de distinguir entre los dos conceptos.</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distribuciones-notables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="grandes-muestras.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia/edit/BRANCH/04-vectoresAleatorios.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/04-vectoresAleatorios.Rmd",
+    "text": null
+  },
+  "download": "https://github.com/ASPteaching/FundamentosInferencia-Bookdown/blob/main/docs/_main.pdf",
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

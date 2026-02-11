@@ -1,6 +1,6 @@
 \newpage
 
-Pruebas de hipótesis
+# Pruebas de hipótesis
 
 ## Introducción
 
