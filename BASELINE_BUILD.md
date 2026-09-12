@@ -1,11 +1,14 @@
 # Phase 0 — Safety, reproducibility and baseline
 
-Data: 2026-09-12. Resultat: **NOT READY** per començar Phase 1.
+Data: 2026-09-12. Resultat final: **READY WITH ENVIRONMENT EXCEPTION**.
 
-Els quatre renders generen els artefactes esperats, però el procés R acaba amb
-un error natiu després de completar-los. Per tant, aquest és un baseline
-d'artefactes verificats amb una incidència d'entorn pendent, no un build
-automatitzat satisfactori. No s'ha iniciat la fusió ni publicat res.
+Els quatre outputs s'han generat i validat correctament, amb les incidències
+preexistents detallades en aquest informe. El procés R acaba amb un error natiu
+reproduïble fora dels llibres carregant paquets R. Per decisió de projecte,
+`0xC00000FF` d'R x64 sobre Windows ARM64 s'accepta com una excepció de plataforma,
+no com un bloqueig del projecte. No s'instal·larà ara R ARM64 experimental.
+Queda pendent validar exit code 0 en un entorn R natiu compatible si més endavant
+es considera necessari. Aquesta acceptació no converteix el codi observat en 0.
 
 ## Environment
 
@@ -51,6 +54,64 @@ no una causa demostrada ni una atribució a un paquet concret. Hi ha un
 [cas relacionat reportat al projecte Quarto](https://github.com/quarto-dev/quarto-cli/issues/14642).
 Cal validar una instal·lació/entorn R compatible abans d'acceptar un build amb
 sortida 0; no s'ha canviat la instal·lació en aquesta fase.
+
+### Revalidació específica de l'entorn — 2026-09-12
+
+S'han repetit proves independents amb l'executable x64 anterior, `--vanilla`,
+les biblioteques de l'usuari i `LC_ALL=English_United States.utf8` temporal.
+Cada fila correspon a un procés nou; el locale anterior s'ha restaurat.
+
+| Expressió R | Resultat abans de sortir | Codi de procés Windows |
+| --- | --- | --- |
+| `cat(R.version.string, R.version$arch)` | R 4.4.3, x86_64 | 0 |
+| `library(bookdown); cat("LOADED bookdown")` | LOADED bookdown | -1073741569 |
+| `library(ggplot2); cat("LOADED ggplot2")` | LOADED ggplot2 | -1073741569 |
+| `library(dplyr); cat("LOADED dplyr")` | LOADED dplyr | -1073741569 |
+
+La càrrega arriba a completar-se; l'error natiu apareix després. No es pot
+atribuir a un chunk ni demostrar encara que ARM64 el resolgui.
+
+**R ARM64 disponible: no s'ha trobat.** La cerca recursiva de `Rscript.exe`
+a Program Files, Program Files (x86), programes locals de l'usuari, possibles
+ubicacions R/Rtools/Scoop i Documents/Downloads només localitza els dos
+executables de R 4.4.3 x64 (`bin/Rscript.exe` i `bin/x64/Rscript.exe`).
+El registre consultat apunta a aquesta instal·lació. No existeixen les rutes
+`C:/Program Files/R-aarch64`, `C:/Users/sanpl/AppData/Local/Programs/R-aarch64`
+ni la biblioteca local `R/aarch64-library`. No és una garantia sobre còpies
+no registrades en ubicacions arbitràries. `C:/rtools44` conté el toolchain
+`x86_64-w64-mingw32.static.posix`; una carpeta Msys2 anomenada `clangarm64`
+no acredita tenir R ni el toolchain Rtools ARM64 complet.
+
+**Instal·lació proposada, no executada:** R **4.4.3 per Windows aarch64**,
+`R-4.4.3-aarch64.exe`, per mantenir la versió del baseline i variar només
+l'arquitectura inicialment. Figura a l'[índex oficial de builds signades](https://www.r-project.org/nosvn/winutf8/aarch64/R-4-signed/).
+L'índex indexat confirma el nom, però tant l'accés directe al directori com
+la petició HEAD al fitxer han retornat **HTTP 403** en aquesta sessió: no s'ha
+pogut confirmar una descàrrega accessible, ni s'ha descarregat cap instal·lador.
+
+Passos pendents, que requereixen una instal·lació posterior autoritzada:
+
+1. Obtenir aquest instal·lador des del projecte R quan sigui accessible i
+   instal·lar-lo en un directori separat, per exemple
+   `C:/Users/sanpl/AppData/Local/Programs/R-aarch64/R-4.4.3`.
+   Conservar R x64; no canviar PATH, associacions de fitxers ni selecció global
+   de R/RStudio. Invocar després explícitament `bin/Rscript.exe` d'ARM64.
+2. Preparar una biblioteca de paquets ARM64 separada; no reutilitzar les DLL
+   de `win-library/4.4` x64. Per compilar dependències cal
+   [Rtools44 per ARM64](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html),
+   corresponent a R 4.4.x, separat del Rtools x64 existent. La documentació
+   oficial indica que aquesta plataforma és experimental i que els paquets
+   amb codi natiu s'han d'instal·lar des de fonts. Caldrà verificar-ne la
+   compatibilitat, sense actualitzacions massives de la biblioteca actual.
+3. Repetir les proves mínimes i, quan funcionin les dependències necessàries,
+   els quatre renders scratch amb el path ARM64 explícit i capturant el codi
+   real de procés. La convivència d'ambdues arquitectures està
+   [prevista pel projecte R](https://cran.r-project.org/bin/windows/base/rw-FAQ.html).
+
+No s'han repetit A HTML, A PDF, B HTML ni B PDF: falta l'entorn ARM64 executable
+i les seves dependències. Es conserva l'evidència x64 anterior (artefactes
+complets però codi no zero) i la conclusió **NOT READY**. No s'ha instal·lat,
+desinstal·lat ni canviat configuració global, i no s'ha començat Phase 1.
 
 ## Protecció inicial
 
@@ -228,8 +289,8 @@ executa cada format separadament per aïllar-ne errors; no introdueix perfils fu
 
 ## Known issues
 
-1. **Bloqueig de reproduïbilitat automatitzada:** sortida nativa no zero de R.
-   Els artefactes existeixen, però no es pot declarar el pipeline satisfactori.
+1. **Excepció d'entorn acceptada:** sortida nativa no zero de R, reproduïble fora
+   dels llibres. S'accepten els artefactes validats; es conserva el codi real.
 2. Literals `??`, taula solapada de B, captions antigues i avisos LaTeX/gràfics
    descrits més amunt. Cal conservar-los com a incidències anteriors a la fusió.
 3. Dos links R-Tutor d'A són rutes relatives malformades. La cerca i navegació
@@ -245,11 +306,14 @@ executa cada format separadament per aïllar-ne errors; no introdueix perfils fu
 
 ## Phase 1 readiness
 
-**NOT READY.** No recomano començar Phase 1 fins a resoldre la sortida nativa
-de R i tornar a obtenir els quatre renders amb codi de procés 0, en scratch.
-La configuració mínima i els artefactes de comparació ja estan disponibles;
-no cal repetir l'auditoria ni les correccions fetes. Les incidències editorials
-preexistents no s'han de confondre amb regressions de la futura fusió.
+**READY WITH ENVIRONMENT EXCEPTION.** La decisió de projecte substitueix la
+conclusió anterior NOT READY que consta al registre històric de proves.
+Phase 0 queda tancada i es pot iniciar la fusió controlada amb GitBook, comprovant
+els artefactes en scratch. Els quatre outputs del baseline estan generats i
+validats; la incidència de sortida de plataforma no bloqueja Phase 1. Validar
+exit code 0 en un entorn R natiu compatible queda ajornat i no s'instal·larà
+R ARM64 experimental ara. Les incidències editorials preexistents continuen
+separades de les possibles regressions d'integració.
 
 Els commits es divideixen en documentació/scripts a A, configuració a B i
 eliminació del render redundant a cada repositori. `AUDIT_FORMAT.md` i els tres
