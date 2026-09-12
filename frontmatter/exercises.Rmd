@@ -1,0 +1,6 @@
+# (PART) Ejercicios {-}
+
+```{r phase1-exercise-options, include=FALSE}
+# Restore the original exercise defaults after the theory setup.
+knitr::opts_chunk$set(echo = TRUE, message = TRUE, warning = TRUE)
+```

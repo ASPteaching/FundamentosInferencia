@@ -1,4 +1,4 @@
-book_filename: "FundamentosInferencia-completo"
+book_filename: "FundamentosInferencia"
 output_dir: docs
 delete_merged_file: true
 language:
@@ -6,7 +6,6 @@ language:
     chapter_name: "Capítulo "
 rmd_files:
   - index.Rmd
-  - frontmatter/theory.Rmd
   - 01-probabilidad.Rmd
   - 02-variablesAleatorias.Rmd
   - 03-distribucionesNotables.Rmd
@@ -21,15 +20,4 @@ rmd_files:
   - 12-Pruebas_Ji-cuadrado.Rmd
   - 13-NoParametrica.Rmd
   - 14-MetodosBootstrap.Rmd
-  - frontmatter/exercises.Rmd
-  - exercises/presentacion.Rmd
-  - exercises/01-Probabilidad.Rmd
-  - exercises/02-VariablesAleatorias_y_Distribuciones.Rmd
-  - exercises/03-Distribuciones_multivariantes.Rmd
-  - exercises/04-Muestreo.Rmd
-  - exercises/05-Estimacion.Rmd
-  - exercises/06-IntervalosDeConfianza.Rmd
-  - exercises/07-Contrastes_de_Hipotesis.Rmd
-  - exercises/08-Inferencia_Aplicada.Rmd
-  - exercises/09-Computacion_Intensiva.Rmd
   - bibliografia.Rmd

@@ -1,0 +1,18 @@
+book_filename: "FundamentosInferencia-Ejercicios"
+output_dir: docs
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Capítulo "
+rmd_files:
+  - index.Rmd
+  - exercises/presentacion.Rmd
+  - exercises/01-Probabilidad.Rmd
+  - exercises/02-VariablesAleatorias_y_Distribuciones.Rmd
+  - exercises/03-Distribuciones_multivariantes.Rmd
+  - exercises/04-Muestreo.Rmd
+  - exercises/05-Estimacion.Rmd
+  - exercises/06-IntervalosDeConfianza.Rmd
+  - exercises/07-Contrastes_de_Hipotesis.Rmd
+  - exercises/08-Inferencia_Aplicada.Rmd
+  - exercises/09-Computacion_Intensiva.Rmd
