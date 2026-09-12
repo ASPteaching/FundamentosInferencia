@@ -1,0 +1,258 @@
+# Contrastes de Hipótesis {#ex-contrastes}
+
+## Ejercicio 1. 
+<!-- W-M-10.2 -->
+
+Un investigador ha preparado un nivel de dosis de droga que según él, inducirá el sueño en $80 \%$ de las personas que sufren de insomnio. Después de examinar la dosis, pensamos que lo dicho por él respecto a la efectividad de la dosis es exagerado. En un intento por refutar su dicho, administramos la dosis prescrita a 20 personas que padecen de insomnio y observamos $Y$, el número de individuos a quienes la dosis induce el sueño. Deseamos probar la hipótesis $H_{0}: p=.8$ contra la alternativa, $H_{a}: p<.8$. Suponga que se usa la región de rechazo $\{y \leq 12\}$.
+
+a. De acuerdo con la información de este problema, ¿qué es un error tipo I?
+b. Encuentre $\alpha$.
+c. Con base en la información de este problema, ¿qué es un error tipo II?
+d. Encuentre $\beta$ cuando $p=.6$.
+e. Encuentre $\beta$ cuando $p=.4$.
+
+
+### SOLUCIÓN
+
+### a. ¿Qué es un error tipo I?
+
+Un **error tipo I** ocurre cuando rechazamos la hipótesis nula $H_0$ cuando esta es verdadera. En este caso, sería concluir que la proporción de individuos para los que la dosis induce el sueño es menor al 80% ($p<0.8$), cuando en realidad $p=0.8$.
+
+### b. Encuentre $\alpha$
+
+La probabilidad de cometer un error tipo I es $\alpha$. En este caso, $\alpha = P(Y \leq 12 \mid p = 0.8)$, donde $Y$ sigue una distribución binomial con parámetros $n = 20$ y $p = 0.8$.
+
+Calculamos $\alpha$:
+
+```{r}
+# Parámetros
+n <- 20
+p0 <- 0.8
+c <- 12
+
+# Cálculo de alpha
+alpha <- pbinom(c, size = n, prob = p0)
+alpha
+```
+
+**Resultado:**
+
+$\alpha = P(Y \leq 12 \mid p = 0.8) \approx \texttt{`r alpha`}$ 
+
+### c. ¿Qué es un error tipo II?
+
+Un **error tipo II** ocurre cuando no rechazamos la hipótesis nula $H_0$ cuando esta es falsa. En este caso, sería no rechazar que $p = 0.8$ cuando en realidad $p < 0.8$.
+
+### d. Encuentre $\beta$ cuando $p = 0.6$
+
+La probabilidad de cometer un error tipo II es $\beta = P(Y > 12 \mid p = 0.6)$. Como $Y$ sigue una distribución binomial con $n = 20$ y $p = 0.6$, calculamos:
+
+```{r}
+# Parámetros para p = 0.6
+p1 <- 0.6
+
+# Cálculo de beta para p = 0.6
+beta_06 <- 1 - pbinom(c, size = n, prob = p1)
+beta_06
+```
+
+**Resultado:**
+
+$\beta = P(Y > 12 \mid p = 0.6) \approx \texttt{`r beta_06`}$
+
+### e. Encuentre $\beta$ cuando $p = 0.4$
+
+Repetimos el cálculo para $p = 0.4$:
+
+```{r}
+# Parámetros para p = 0.4
+p2 <- 0.4
+
+# Cálculo de beta para p = 0.4
+beta_04 <- 1 - pbinom(c, size = n, prob = p2)
+beta_04
+```
+
+**Resultado:**
+$$\beta = P(Y > 12 \mid p = 0.4) \approx \texttt{`r beta_04`}$$
+
+
+## Ejercicio 2
+<!-- W-M-10.3 -->
+
+Continuando con el ejercicio 1
+
+a. Defina la región de rechazo de la forma $\{y \leq c\}$ de modo que $\alpha \approx .01$.
+b. Para la región de rechazo del inciso a, encuentre $\beta$ cuando $p=.6$.
+c. Para la región de rechazo del inciso a, encuentre $\beta$ cuando $p=.4$.
+
+
+
+### SOLUCIÓN
+
+### a. Defina la región de rechazo de la forma $\{y \leq c\}$ de modo que $\alpha \approx 0.01$
+
+Queremos encontrar el valor crítico $c$ tal que $\alpha = P(Y \leq c \mid p = 0.8) \approx 0.01$. Para esto, usamos una búsqueda iterativa:
+
+```{r}
+# Buscar el valor crítico c para alpha ≈ 0.01
+c_new <- qbinom(0.01, size = n, prob = p0)
+c_new
+alpha_new <- pbinom(c_new, size = n, prob = p0)
+alpha_new
+```
+
+**Resultado:**
+
+El valor crítico es $c = \texttt{`r c_new`}$, con:
+$$\alpha = P(Y \leq 10 \mid p = 0.8) \approx \texttt{`r alpha_new`}$$
+
+### b. Para la región de rechazo del inciso a, encuentre $\beta$ cuando $p = 0.6$
+
+Calculamos $\beta = P(Y > 10 \mid p = 0.6)$:
+
+```{r}
+# Cálculo de beta para p = 0.6 con c = 10
+beta_06_new <- 1 - pbinom(c_new, size = n, prob = p1)
+beta_06_new
+```
+
+**Resultado:**
+$$\beta = P(Y > 10 \mid p = 0.6) \approx \texttt{`r beta_06_new`}$$
+
+### c. Para la región de rechazo del inciso a, encuentre $\beta$ cuando $p = 0.4$
+
+Repetimos el cálculo para $p = 0.4$:
+
+```{r}
+# Cálculo de beta para p = 0.4 con c = 10
+beta_04_new <- 1 - pbinom(c_new, size = n, prob = p2)
+beta_04_new
+```
+
+**Resultado:**
+$$\beta = P(Y > 10 \mid p = 0.4) \approx \texttt{`r beta_04_new`}$$
+
+## Ejercicio 3. 
+<!-- W-M-10.6 -->
+
+Nos interesa probar si una moneda está o no balanceada, con base en el número de caras $Y$ en 36 tiros de la moneda. ( $H_{0}: p=.5$ contra $H_{a}: p \neq .5$ ). Si usamos la región de rechazo $|y-18| \geq 4$, ¿cuál es
+
+a. el valor de $\alpha$ ?
+b. el valor de $\beta$ si $p=.7$ ?
+
+
+### SOLUCIÓN
+
+### a. Valor de $\alpha$
+
+La probabilidad de cometer un error tipo I, $\alpha$, se calcula como:
+
+$$\alpha = P(|Y - 18| \geq 4 \mid p = 0.5)$$
+
+Esto equivale a:
+
+$$\alpha = P(Y \leq 14 \mid p = 0.5) + P(Y \geq 22 \mid p = 0.5)$$
+
+Dado que $Y \sim \text{Binomial}(n = 36, p = 0.5)$, calculamos $\alpha$ con R:
+
+```{r}
+# Parámetros
+n <- 36
+p0 <- 0.5
+c_lower <- 14
+c_upper <- 22
+
+# Cálculo de alpha
+alpha <- pbinom(c_lower, size = n, prob = p0) + (1 - pbinom(c_upper - 1, size = n, prob = p0))
+alpha
+```
+
+Por lo tanto,
+$$\alpha = P(|Y - 18| \geq 4 \mid p = 0.5) \approx \texttt{`r alpha`}$$
+
+### b. Valor de $\beta$ si $p = 0.7$
+
+La probabilidad de cometer un error tipo II, $\beta$, se calcula como:
+
+$$\beta = P(|Y - 18| < 4 \mid p = 0.7)$$
+
+Esto equivale a:
+
+$$\beta = P(15 \leq Y \leq 21 \mid p = 0.7)$$
+
+Calculamos $\beta$ con R:
+
+```{r}
+# Parámetros para p = 0.7
+p1 <- 0.7
+beta <- pbinom(c_upper - 1, size = n, prob = p1) - pbinom(c_lower - 1, size = n, prob = p1)
+beta
+```
+
+Por lo tanto,
+$$\beta = P(|Y - 18| < 4 \mid p = 0.7) \approx \texttt{`r beta`}$$
+
+
+## Ejercicio 4. 
+<!-- W-M-10.7 -->
+
+Verdadero o falso Consulte el Ejercicio 3
+
+a. El nivel de la prueba calculado en el Ejercicio 3(a) es la probabilidad de que $H_{0}$ sea verdadera.
+b. El valor de $\beta$ calculado en el Ejercicio 3(b) es la probabilidad de que $H_{a}$ sea verdadera.
+c. En el Ejercicio 3(b), $\beta$ se calculó suponiendo que la hipótesis nula era falsa.
+d. Si $\beta$ se calculó cuando $p=0.55$, el valor sería más grande que el valor de $\beta$ obtenido en el Ejercicio 3(b).
+e. La probabilidad de que la prueba equivocadamente rechace $H_{0}$ es $\beta$.
+f. Suponga que la región de rechazo (RR) se cambió a $|y-18| \geq 2$.
+
+    1. Esta RR llevaría a rechazar la hipótesis nula con más frecuencia que la RR empleada en el Ejercicio 3
+    2. Si $\alpha$ se calculó usando esta nueva RR, el valor sería más grande que el valor obtenido en el Ejercicio 3(a)
+    3. Si $\beta$ se calculó cuando $p=.7$ y usando esta nueva RR , el valor sería más grande que el valor obtenido en el Ejercicio 3(b).
+
+### SOLUCIÓN
+
+#### a. Verdadero o falso: El nivel de la prueba calculado en el Ejercicio 3(a) es la probabilidad de que $H_0$ sea verdadera.
+
+**Falso.** El nivel de la prueba $\alpha$ es la probabilidad de rechazar $H_0$ cuando esta es verdadera, no la probabilidad de que $H_0$ sea verdadera.
+
+#### b. Verdadero o falso: El valor de $\beta$ calculado en el Ejercicio 3(b) es la probabilidad de que $H_a$ sea verdadera.
+
+**Falso.** El valor de $\beta$ es la probabilidad de no rechazar $H_0$ cuando esta es falsa. No está relacionado con la probabilidad de que $H_a$ sea verdadera.
+
+#### c. Verdadero o falso: En el Ejercicio 3(b), $\beta$ se calculó suponiendo que la hipótesis nula era falsa.
+
+**Verdadero.** Por definición, $\beta$ se calcula bajo la suposición de que $H_0$ es falsa.
+
+#### d. Verdadero o falso: Si $\beta$ se calculó cuando $p=0.55$, el valor sería más grande que el valor de $\beta$ obtenido en el Ejercicio 3(b).
+
+**Verdadero.** Cuando $p$ está más cerca de $0.5$, la probabilidad de observar valores dentro de la región de aceptación es mayor, lo que incrementa $\beta$.
+
+#### e. Verdadero o falso: La probabilidad de que la prueba equivocadamente rechace $H_0$ es $\beta$.
+
+**Falso.** La probabilidad de equivocadamente rechazar $H_0$ es $\alpha$, no $\beta$.
+
+#### f. Suponga que la región de rechazo (RR) se cambió a $|y - 18| \geq 2$.
+
+1.  Esta RR llevaría a rechazar la hipótesis nula con más frecuencia que la RR empleada en el Ejercicio 3.
+
+**Verdadero.** Esta nueva región de rechazo incluye más valores, por lo que $H_0$ será rechazada con mayor frecuencia.
+
+2.  Si $\alpha$ se calculó usando esta nueva RR, el valor sería más grande que el valor obtenido en el Ejercicio 3(a)
+
+    **Verdadero.** Como la nueva región de rechazo es más amplia, $\alpha$ será mayor.
+
+3. Si $\beta$ se calculó cuando $p=.7$ y usando esta nueva RR , el valor sería más grande que el valor obtenido en el Ejercicio 3(b).
+
+**Falso.** Si $p = 0.7$, la nueva región de rechazo reducirá $\beta$, ya que más valores caerán fuera de la región de aceptación.
+
+
+## Ejercicio 5. 
+<!-- W-M-10.8 -->
+
+Una prueba clínica en dos etapas está planeada para probar $H_{0}: p=.10$ contra $H_{a}: p>.10$, donde $p$ es la proporción de pacientes que responden a un tratamiento y que fueron tratados según el protocolo. En la primera etapa, 15 pacientes se acumularon y trataron. Si 4 o más de los que responden se observan entre los (primeros) 15 pacientes, $H_{0}$ es rechazada, el estudio se termina y no se acumulan más pacientes. De otro modo, otros 15 pacientes se acumularán y tratarán en la segunda etapa. Si un total de 6 o más de los que responden se observan entre los 30 pacientes acumulados en las dos etapas ( 15 en la primera etapa y 15 más en la segunda etapa), entonces $H_{0}$ es rechazada. Por ejemplo, si 5 de los que responden se encuentran entre los pacientes de la primera etapa, $H_{0}$ es rechazada y el estudio se termina. No obstante, si 2 de los que responden se encuentran entre los pacientes de la primera etapa, se acumulan 15 pacientes de la segunda etapa y se identifican otros 4 o más de los que responden (para un total de 6 o más entre $\operatorname{los} 30$ ), $H_{0}$ es rechazada y el estudio termina. ${ }^{1}$
+
+a. Utilice la tabla binomial para hallar el valor numérico de $\alpha$ para este procedimiento de prueba.
+b. Utilice la tabla binomial para determinar la probabilidad de rechazar la hipótesis nula cuando use esta región de rechazo si $p=.30$.
+c. Para la región de rechazo definida líneas antes, encuentre $\beta$ si $p=.30$.
+

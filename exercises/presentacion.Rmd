@@ -1,0 +1,21 @@
+# Presentación {- #ex-presentacion}
+
+## Objetivo {- #ex-objetivo}
+
+El objetivo de estos ejercicios es proporcionar unos materiales de soporte para la asignatura de "Inferencia Estadística" del [Máster interuniversitario de Bioiestadística y Bioinformática](https://www.uoc.edu/es/estudios/masters/master-universitario-bioinformatica-bioestadistica) impartido conjuntamente por la [Universitat Oberta de Catalunya (UOC)](https://www.uoc.edu) y la [Universidad de Barcelona (UB)](https://www.ub.edu).
+
+Esta asignatura adolece de las características habituales de las asignaturas de posgrado, y especialmente de un posgrado de estadística (y bioinformática), que muestran algunas de las cosas que no debe de ser esta asignatura:
+
+Tal como se indica en la introducción a las notas de soporte del curso, este debería:
+
+- Servir para repasar y consolidar los conceptos básicos que la mayoría de estudiantes traerán consigo.
+- Además, y sobretodo, debe proporcionar una visión general, lo más completa posible dentro de las limitaciones de tiempo, del campo de la inferencia estadística
+
+Y, naturalmente, una de las formas de consolidar conocimientos, como en cualquier disciplina cuantitatva,es a traves de la resolución de ejercicios que permiten reflexionar, comprender y ver como se aplican los conceptos teóricos introducidos.
+
+Para ello, estos materiales contienen una serie de ejercicios similares a los que se proponen en las actividades y pruebas de evaluación continua de la asignatura.
+
+La mayoría de los ejercicios estan resueltos, pero _es importante intentar resolverlos de forma autónoma antes de consultar la solución_.
+
+En general los ejercicios no presuponen ningún conocimiento especial de matemáticas, más allá de las habilidades básicas que se adquieren durante los estudios de una carrera de ciencias o de ingeniería. 
+

@@ -1,0 +1,5 @@
+---
+title: "Fundamentos de Inferencia Estadística. Ejercicios"
+author: "Alex Sanchez Pla y Santiago Pérez Hoyos"
+site: bookdown::bookdown_site
+---

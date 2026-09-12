@@ -1,0 +1,105 @@
+# Bootstrap y tests de permutación {#ex-computacion-intensiva}
+
+## Ejercicio 1 (Hesterberg et alt[^1]., 18.4)
+
+[^1]: Hesterberg, Tim & Monaghan, Shaun & Moore, David & Clipson, Ashley & Epstein, Rachel & Freeman, W & York, Company. (2005). Bootstrap Methods and Permutation Tests. Introduction to the Practice of Statistics. 14.
+
+Las vidas útiles de máquinas antes de una avería y los tiempos de supervivencia de pacientes con cáncer tras un tratamiento suelen estar fuertemente sesgados a la derecha. A continuación se muestran los tiempos de supervivencia (en días) de 72 cobayas en un ensayo médico:
+
+| 43  | 45  | 53  | 56  | 56  | 57  | 58  | 66  | 67  | 73  |
+|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+| 74  | 79  | 80  | 80  | 81  | 81  | 81  | 82  | 83  | 83  |
+| 84  | 88  | 89  | 91  | 91  | 92  | 92  | 97  | 99  | 99  |
+| 100 | 100 | 101 | 102 | 102 | 102 | 103 | 104 | 107 | 108 |
+| 109 | 113 | 114 | 118 | 121 | 123 | 126 | 128 | 137 | 138 |
+| 139 | 144 | 145 | 147 | 156 | 162 | 174 | 178 | 179 | 184 |
+| 191 | 198 | 211 | 214 | 243 | 249 | 329 | 380 | 403 | 511 |
+| 522 | 598 |     |     |     |     |     |     |     |     |
+
+(a) Realiza un histograma de los tiempos de supervivencia. La distribución está fuertemente sesgada.
+
+(b) El teorema central del límite establece que la distribución muestral de la media muestral $\bar{x}$ se aproxima a una Normal cuando el tamaño muestral aumenta. ¿Es la distribución muestral aproximadamente Normal para $n=72$?
+
+Para comprobarlo, aplica bootstrap a estos datos e inspecciona la distribución bootstrap de la media (utiliza un gráfico cuantílico Normal). ¿En qué difiere la distribución respecto a la Normalidad? ¿La distribución bootstrap está más o menos sesgada que la distribución de los datos?
+
+
+## Ejercicio 2 (Hesterberg et al., 18.21)
+
+Una empresa vende ropa y equipamiento deportivo por Internet. Para diseñar la ropa, se recopilan datos sobre las características físicas de los clientes. A continuación se muestran los pesos en kilogramos de una muestra de 25 corredores varones. Supón que estos corredores constituyen una muestra aleatoria de tus potenciales clientes masculinos.
+
+| 67.8 | 61.9 | 63.0 | 53.1 | 62.3 | 59.7 | 55.4 | 58.9 | 60.9 |
+|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
+| 69.2 | 63.7 | 68.3 | 92.3 | 64.7 | 65.6 | 56.0 | 57.8 | 66.0 |
+| 62.9 | 53.6 | 65.0 | 55.8 | 60.4 | 69.3 | 61.7 |      |      |
+
+Dado que los productos están orientados al "varón medio", estás interesado en ver cuánto varían los sujetos de la muestra respecto al peso medio.
+
+(a) Calcula la desviación estándar muestral $s$ para estos pesos.
+
+(b) No disponemos de una fórmula para el error estándar de $s$. Encuentra el error estándar bootstrap de $s$.
+
+(c) ¿Qué indica el error estándar sobre la precisión de la desviación estándar muestral como estimador de la desviación estándar poblacional?
+
+(d) ¿Sería apropiado dar un intervalo $t$ bootstrap para la desviación estándar poblacional? ¿Por qué sí o por qué no?
+
+## Ejercicio 3 (Hesterberg et al., 18.37)
+
+Los datos de CLEC están fuertemente sesgados a la derecha. Los 23 tiempos de reparación de CLEC (en horas) son
+
+| 26.62 |  8.60 |   0   | 21.15 |  8.33 | 20.28 | 96.32 | 17.97 |
+|:-----:|------:|:-----:|------:|------:|------:|------:|------:|
+| 3.42  |  0.07 | 24.38 | 19.88 | 14.33 |  5.45 |  5.40 |  2.68 |
+|   0   | 24.20 | 22.13 | 18.57 | 20.00 | 14.13 |  5.80 |       |
+
+<!-- ![](https://cdn.mathpix.com/cropped/bb3b0e3e-888f-475f-b2d9-74c499025515-2.jpg?height=159&width=163&top_left_y=127&top_left_x=1503) -->
+
+(a) Realiza un histograma y un gráfico cuantílico Normal de los datos muestrales, y calcula la media muestral.
+
+(b) Aplica bootstrap a la media de los datos. Representa la distribución bootstrap. ¿Es Normal? ¿Esperas que alguno de los intervalos de confianza sea inexacto? ¿Por qué sí o por qué no?
+
+(c) Encuentra el error estándar bootstrap y utilízalo para construir un intervalo de confianza $t$ del $95%$.
+
+(d) Encuentra los intervalos del $95%$ percentil, BCa y de *tilting*.
+
+(e) ¿Cómo se comparan los intervalos? Explica brevemente las razones de las posibles diferencias.
+
+(f) Supón que utilizas estos datos y los intervalos de confianza para determinar los niveles de personal para el próximo año, de modo que estés seguro de que se ajustarán a la demanda. ¿Qué tipo de errores cometerías al usar un intervalo $t$ o un intervalo percentil en lugar de un intervalo de *tilting* o BCa?
+
+## Ejercicio 4. (Hesterberg et al., 18.78)
+
+Cambios en el desempleo urbano. A continuación se muestran las tasas de desempleo (porcentaje de la población activa) en julio de 2001 y 2002 para una muestra aleatoria de 19 de las 331 áreas metropolitanas para las cuales la Oficina de Estadísticas Laborales publica datos:
+
+| Area | 2001 | 2002 | Area | 2001 | 2002 |
+|:----:|:----:|:----:|:----:|:----:|:----:|
+|  1   | 4.7  | 6.0  |  11  | 2.6  | 2.3  |
+|  2   | 4.1  | 4.0  |  12  | 5.2  | 5.2  |
+|  3   | 3.9  | 4.1  |  13  | 2.6  | 2.9  |
+|  4   | 5.0  | 5.3  |  14  | 3.2  | 3.7  |
+|  5   | 5.0  | 5.6  |  15  | 4.6  | 5.5  |
+|  6   | 4.3  | 5.2  |  16  | 3.5  | 4.6  |
+|  7   | 4.4  | 5.6  |  17  | 4.6  | 5.8  |
+|  8   | 5.6  | 6.9  |  18  | 4.1  | 5.9  |
+|  9   | 5.3  | 7.2  |  19  | 5.6  | 7.7  |
+|  10  | 6.3  | 8.7  |      |      |      |
+
+(a) Representa los datos para cada año y compara ambos gráficos.
+
+(b) Realiza un test $t$ apareado para la diferencia de medias y calcula el valor $P$.
+
+(c) Realiza un test de permutación para muestras apareadas y calcula el valor $P$. Compara este resultado con el obtenido en el apartado (b).
+
+## Ejercicio 5
+
+Importa los datos del conjunto *Flight Delays* en R. Aunque los datos corresponden a todos los vuelos de UA y AA realizados en mayo y junio de 2009, asumiremos que representan una muestra de una población mayor de vuelos de UA y AA realizados en circunstancias similares. Consideraremos el cociente de medias de las duraciones de los retrasos de vuelo, $\mu_{UA} / \mu_{AA}$.
+
+(a) Realiza un análisis exploratorio de los datos de las duraciones de los retrasos de vuelo para cada una de las aerolíneas UA y AA.
+
+(b) Aplica bootstrap a la media de las duraciones de los retrasos de vuelo para cada aerolínea por separado y describe la distribución.
+
+(c) Aplica bootstrap al cociente de medias. Proporciona gráficos de la distribución bootstrap y describe dicha distribución.
+
+(d) Encuentra el error estándar bootstrap del cociente de medias. ¿Cómo podrías relacionarlo con el problema uno?
+
+(e) Encuentra el intervalo percentil bootstrap del $95%$ para el cociente de medias. Interpreta este intervalo.
+
+(f) ¿Cuál es la estimación bootstrap del sesgo? ¿Qué fracción del error estándar bootstrap representa?

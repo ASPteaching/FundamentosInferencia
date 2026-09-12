@@ -1,0 +1,358 @@
+# Intervalos de confianza {#ex-intervalos}
+
+## EJERCICIO 1
+<!-- Bioestadística UB. Exercici 4.1 (2024-25) -->
+
+La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35 huevos con una desviación estándar de 18.2. Supongamos que un grupo de investigadores recoge una muestra aleatoria de 45 gallinas de esta especie, cuenta el número de huevos establecidos durante el período de reproducción y registra la media de la muestra. Repiten estas muestras 1.000 veces, y construyen una distribución de las medias de la muestra.
+
+a) ¿Cómo se llama esta distribución?  
+b) ¿Esperaríamos que la forma de esta distribución fuera simétrica, sesgada o no sesgada? Razona la respuesta.  
+c) Calcula la variabilidad de esta distribución y di cómo se llama el parámetro que la mide.  
+d) Supongamos que el presupuesto de los investigadores se reduce y solo pueden recoger muestras aleatorias de 10 gallinas. Se registra la media de las muestras del número de huevos y se repite 1.000 veces, construyendo una nueva distribución de las medias de la muestra. ¿Cómo será la variabilidad de esta nueva distribución comparada con la variabilidad de la distribución original?
+
+## EJERCICIO 2
+<!-- Bioestadística UB. Exercici 4.2 (2024-25) -->
+
+Un administrador de hospital con la esperanza de mejorar los tiempos de espera decide estimar el tiempo de espera medio de la sala de urgencias (ER) de su hospital. Recopila una muestra aleatoria simple de 64 pacientes y determina el tiempo (en minutos) entre cuando ingresaron al ER hasta que fueron visitados por un médico. Un intervalo de confianza del 95% basado en esta muestra es (128 minutos, 147 minutos), basado en una distribución normal para la media. Determina y razona si las siguientes afirmaciones son verdaderas o falsas.
+
+a) Este intervalo de confianza no es válido, ya que no sabemos si la distribución en la población de los tiempos de espera de ER es normal.  
+b) Tenemos una confianza del 95% de que el tiempo de espera medio de estos 64 pacientes en una sala de emergencias está entre 128 y 147 minutos.  
+c) Tenemos una confianza del 95% de que el tiempo de espera medio de todos los pacientes en la sala de emergencias de este hospital está entre 128 y 147 minutos.  
+d) El 95% de las muestras aleatorias tienen una media muestral entre 128 y 147 minutos.  
+e) Un intervalo de confianza del 99% sería más estrecho que el intervalo de confianza del 95%, ya que debemos estar más seguros de nuestra estimación.  
+f) El margen de error es de 9,5 y la media de la muestra es de 137,5.  
+g) Para reducir el margen de error de un intervalo de confianza del 95% a la mitad de lo que es ahora, tendremos que duplicar el tamaño de la muestra.
+
+### SOLUCIÓN
+
+a) Falso. El tamaño muestral permite aceptar la normalidad por el TLC.
+
+b) Falso. La inferencia se realiza sobre el parámetro poblacional, no sobre el parámetro muestral, que siempre estará dentro del intervalo.
+
+c) Cierto.
+
+d) Falso. No hacemos inferencia sobre las muestras.
+
+e) Falso. Sería más amplio.
+
+f) Cierto. La media es el punto medio del intervalo.
+
+g) Falso. Deberíamos cuadruplicar el tamaño de la muestra.
+
+## EJERCICIO 3
+<!-- Bioestadística UB. Exercici 4.4 (2024-25) -->
+
+Las autoridades sanitarias fijan la cantidad de 14 UFP/100ml (UFP=unidades formadoras de placas) como la concentración máxima de un determinado virus entérico en aguas residuales de cualquier punto del estado. Se realiza un control en aguas depuradas de 10 granjas que generan purines. La concentración del virus entérico corresponde a un número muy grande, de forma que podemos asumir que sigue una distribución Normal. Por otro lado, las granjas están suficientemente alejadas como para asumir que los resultados individuales son mutuamente independientes.
+
+Los valores obtenidos han sido:
+
+| 14.3 | 15.3 | 13.8 | 15.4 | 15.5 | 14.6 | 13.9 | 15 | 14 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+1. Calcula el intervalo de confianza al 95% de la concentración media del virus en las aguas que vierten las granjas.  
+2. Interpreta el resultado en función del valor fijado por la administración.
+
+### SOLUCIÓN
+
+
+#### Cálculo del intervalo de confianza al 95% para la concentración media del virus
+
+El intervalo de confianza (IC) para la media de una población normal con varianza desconocida se calcula como:
+
+$$ \bar{x} \pm t_{n-1, 1-\alpha/2} \cdot \frac{s}{\sqrt{n}} $$
+
+Donde:
+- $\bar{x}$ es la media muestral.
+- $t_{n-1, 1-\alpha/2}$ es el valor crítico de la distribución $t$ de Student con $n-1$ grados de libertad y nivel de confianza $1-\alpha$.
+- $s$ es la desviación estándar muestral.
+- $n$ es el tamaño de la muestra.
+
+Los datos proporcionados son:
+
+$$ \text{concentración} = \{14.3, 15.3, 13.8, 15.4, 15.5, 14.6, 13.9, 15.0, 14.6, 13.8\} $$
+
+El tamaño muestral es $n=10$. Calculamos la media ($\bar{x}$) y la desviación estándar ($s$) con R y usamos la función `t.test` para obtener el intervalo de confianza.
+
+```{r}
+# Datos
+conc_virus <- c(14.3, 15.3, 13.8, 15.4, 15.5, 14.6, 13.9, 15.0, 14.6, 13.8)
+
+# Intervalo de confianza al 95%
+res <- t.test(conc_virus)
+res$conf.int
+```
+
+Resultados obtenidos:
+- Límite inferior del IC: 14.1457
+- Límite superior del IC: 15.0943
+
+Por lo tanto, el intervalo de confianza al 95% es:
+
+$$ (14.146, 15.094) $$
+
+---
+
+#### Interpretación del resultado
+
+  El valor fijado por la administración como límite máximo aceptable para la concentración de virus es 14 UFP/100ml. Observamos que **todo el intervalo de confianza calculado está por encima de este valor (14.146, 15.094)**. Esto implica que:
+  
+  - Es razonable concluir que la media poblacional de la concentración del virus está por encima de 14 UFP/100ml.
+- Solo el 5% de los intervalos que construimos a partir de muestras no contiene la verdadera media poblacional, y el intervalo que hemos construido no incluye el valor fijado por la administración.
+
+**Conclusión**: Existe evidencia estadística para sugerir, con una alta confianza, que las granjas exceden, en promedio, el límite permitido por las autoridades sanitarias.
+
+## EJERCICIO 4
+<!-- Bioestadística UB. Exercici 4.6 (2024-25) -->
+
+En un estudio sobre los efectos fisiológicos del alcohol se midió el tiempo que se tarda en reaccionar a un estímulo en un conjunto de seis individuos antes y después de consumir una fuerte dosis de alcohol. El tiempo de latencia medido en milisegundos fue el siguiente:
+
+| Individuo | 1 | 2 | 3 | 4 | 5 | 6 |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Antes | 3.85 | 3.81 | 3.60 | 3.68 | 3.78 | 3.83 |
+| Después | 3.82 | 3.95 | 3.80 | 3.87 | 3.88 | 3.94 |
+
+a) Calcula un intervalo de confianza del 95% para la diferencia de medias: _Después - Antes_.  
+¿Podríamos afirmar que la media después es superior a la media antes?  
+
+b) ¿Cómo cambiará el intervalo si reducimos el nivel de confianza al 90%?  
+¿Será más amplio? ¿Será más estrecho? ¿O no cambiará?
+
+### SOLUCIÓN
+
+#### Cálculo del intervalo de confianza al 95% para la diferencia de medias: _Después - Antes_
+
+Estamos trabajando con datos apareados, ya que se trata de mediciones realizadas en los mismos individuos antes y después de consumir alcohol. Por lo tanto, calculamos las diferencias entre los valores _Después - Antes_ para cada individuo, y procedemos como si fuera un problema de una sola muestra con las diferencias.
+
+El intervalo de confianza para la media de las diferencias se calcula como:
+
+$$ \bar{d} \pm t_{n-1, 1-\alpha/2} \cdot \frac{s_d}{\sqrt{n}} $$
+
+Donde:
+- $\bar{d}$ es la media de las diferencias.
+- $t_{n-1, 1-\alpha/2}$ es el valor crítico de la distribución $t$ de Student con $n-1$ grados de libertad y nivel de confianza $1-\alpha$.
+- $s_d$ es la desviación estándar de las diferencias.
+- $n$ es el número de pares.
+
+Los datos son:
+- Antes: $[3.85, 3.81, 3.60, 3.68, 3.78, 3.83]$
+- Después: $[3.82, 3.95, 3.80, 3.87, 3.88, 3.94]$
+
+Calculemos el intervalo de confianza al 95% con R.
+
+```{r}
+# Datos
+antes <- c(3.85, 3.81, 3.60, 3.68, 3.78, 3.83)
+despues <- c(3.82, 3.95, 3.80, 3.87, 3.88, 3.94)
+
+# Intervalo de confianza al 95% para las diferencias pareadas
+res_95 <- t.test(despues, antes, paired = TRUE)
+res_95$conf.int
+```
+
+Resultados:
+- Límite inferior del IC: 0.03093
+- Límite superior del IC: 0.20574
+
+El intervalo de confianza al 95% para la diferencia de medias es:
+
+$$ (0.031, 0.206) $$
+
+**Interpretación**: Como todo el intervalo está en la parte positiva de la recta real, podemos afirmar con un 95% de confianza que la media después de consumir alcohol es superior a la media antes de consumir alcohol.
+
+#### Cambio del intervalo al reducir el nivel de confianza al 90%
+
+Al reducir el nivel de confianza al 90%, el valor crítico $t_{n-1, 1-\alpha/2}$ disminuye, lo que hace que el intervalo de confianza sea más estrecho. Calculemos el nuevo intervalo con R.
+
+```{r}
+# Intervalo de confianza al 90% para las diferencias pareadas
+res_90 <- t.test(despues, antes, paired = TRUE, conf.level = 0.9)
+res_90$conf.int
+```
+
+Resultados:
+- Límite inferior del IC: 0.04982
+- Límite superior del IC: 0.18685
+
+El intervalo de confianza al 90% es:
+
+$$ (0.050, 0.187) $$
+
+**Conclusión**: Como esperábamos, el intervalo al 90% es más estrecho que el intervalo al 95%. Esto ocurre porque reducimos el nivel de confianza, lo que implica un menor margen de error.
+
+## EJERCICIO 5
+<!-- Bioestadística UB. Exercici 4.7 (2024-25) -->
+
+El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento total de 200 glóbulos blancos. Se pide:
+
+1. Encuentra una estimación puntual para la proporción de neutrófilos.  
+2. Encuentra un intervalo de confianza al 90% para la anterior proporción.  
+3. En un individuo sano, el porcentaje de neutrófilos se encuentra entre el 60% y el 70% del total de glóbulos blancos. Según el intervalo del apartado anterior, ¿hay alguna evidencia de desequilibrio de neutrófilos en la muestra de sangre analizada?
+
+### SOLUCIÓN
+
+#### Estimación puntual para la proporción de neutrófilos
+
+El estimador (por momentos y por máxima verosimilitud) de la proporción poblacional es la frecuencia relativa ($\hat{p}$) que se calcula como:
+
+$$ \hat{p} = \frac{x}{n} $$
+
+Donde:
+- $x = 125$ es el número de neutrófilos.
+- $n = 200$ es el total de glóbulos blancos.
+
+Calculamos $\hat{p}$:
+
+```{r}
+# Datos
+x <- 125
+n <- 200
+
+# Proporción muestral
+p_hat <- x / n
+p_hat
+```
+
+Resultado:
+$$ \hat{p} = 0.625 $$
+
+La estimación puntual para la proporción de neutrófilos es **0.625** o **62.5%**.
+
+#### Intervalo de confianza al 90% para la proporción
+
+El intervalo de confianza asintótico para una proporción se calcula como:
+
+$$ \hat{p} \pm z_{1-\alpha/2} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
+
+Donde:
+
+- $z_{1-\alpha/2}$ es el valor crítico de la distribución normal estándar para un nivel de confianza del 90%.
+- $\hat{p}$ es la proporción muestral.
+- $n$ es el tamaño de la muestra.
+
+Usamos R para calcular este intervalo:
+
+```{r}
+# Nivel de confianza
+alpha <- 0.1
+z <- qnorm(1 - alpha / 2)
+
+# Error estándar
+se <- sqrt(p_hat * (1 - p_hat) / n)
+
+# Intervalo de confianza
+lower <- p_hat - z * se
+upper <- p_hat + z * se
+c(lower, upper)
+```
+
+Resultado:
+- Límite inferior: **0.569**
+- Límite superior: **0.681**
+
+El intervalo de confianza al 90% para la proporción de neutrófilos es:
+
+$$ (0.569, 0.681) $$
+
+#### Evidencia de desequilibrio de neutrófilos
+
+Un individuo sano tiene una proporción de neutrófilos entre 60% y 70% ($0.6 \leq p \leq 0.7$). Observamos que:
+
+- El intervalo de confianza calculado es $(0.569, 0.681)$.
+
+- Dado que hay una considerable superposición entre ambos intervalos no podemos concluir que haya evidencia de desequilibrio de neutrófilos.
+
+
+## EJERCICIO 6
+
+Un proceso químico se lleva a cabo usando un catalizador del que se quiere estimar el rendimiento medio. Una muestra piloto de tamaño 8 estima la desviación típica con un valor de 2.
+
+Decide el tamaño de muestra necesario para obtener intervalos de confianza para la media con un 90% y un 95% de confianza de anchura igual a 3 (precisión 1.5), suponiendo que dicha variable sigue un modelo normal.
+
+### SOLUCIÓN
+
+
+Queremos determinar el tamaño de muestra necesario para obtener intervalos de confianza para la media con anchura igual a 3 (precisión de 1.5), considerando niveles de confianza del 90% y 95%. Se sabe que la desviación estándar estimada del proceso químico es $\sigma = 2$ y que la variable sigue una distribución normal.
+
+Dado que la desviación estándar es estimada, nos basaremos en la distribución $t$ de Student en lugar de la normal estándar.
+
+La amplitud del intervalo de confianza para la media basado en la distribución $t$ se calcula como:
+
+$$ \text{Amplitud} = 2 \cdot t_{n-1, 1-\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} $$
+
+Resolviendo para $n$, a partir de la precisión, es decir la mitad de la amplitud se tiene:
+
+$$ n = \left( \frac{t_{n-1, 1-\alpha/2} \cdot \sigma}{\text{Precisión}} \right)^2 $$
+
+Donde:
+- $\text{Precisión} = \frac{\text{Anchura}}{2} = 1.5$.
+- $t_{n-1, 1-\alpha/2}$ es el valor crítico de la distribución $t$ con $n-1$ grados de libertad y nivel de confianza $1-\alpha$.
+- $\sigma = 2$ es la desviación estándar estimada.
+
+Como $t_{n-1, 1-\alpha/2}$ depende de $n$, este cálculo requiere iteración. 
+
+Realizaremos manualmente la iteración aunque también es posible usar algun paquete como `DescTools` para confirmar los resultados.
+
+#### Cálculo manual con iteración
+
+Dado que para un valor fijo de $\alpha$ el valor de $t$ depende de $n$ podemos iterar para calcular $n$, ajustando el valor de $t_{n-1, 1-\alpha/2}$ en cada paso según el tamaño de muestra estimado.
+
+Podemos empezar con un valor bien bajo de $n$ y, a partir de éste ir aumentando el tamaño.
+
+```{r}
+s <- 2          # Desviación estándar
+precision <- 1.5  # Precisión deseada
+
+find_n <- function(conf_level) {
+  n <- 4  # Tamaño inicial
+  repeat {
+    t_value <- qt(1 - (1 - conf_level) / 2, df = n - 1)
+    n_new <- ceiling((t_value * s / precision)^2)
+    if (n_new == n) break
+    n <- n_new
+  }
+  return(n)
+}
+
+# Tamaños de muestra para 90% y 95%
+n_90_iter <- find_n(0.90)
+n_95_iter <- find_n(0.95)
+c(n_90_iter, n_95_iter)
+```
+
+Resultados del cálculo iterativo:
+1. Para un nivel de confianza del **90%**, $n =$ `r n_90_iter`.
+2. Para un nivel de confianza del **95%**, $n =$ `r n_95_iter`.
+
+
+Al aumentar el nivel de confianza del 90% al 95%, el tamaño de muestra necesario aumenta debido al incremento del valor crítico $t$, lo que refleja una mayor necesidad de datos para reducir la incertidumbre del intervalo.
+
+## EJERCICIO 7
+
+En un estudio sobre las alteraciones hormonales que se presentan durante la práctica deportiva se ha medido el aumento de cortisol al realizar una prueba específica de resistencia de 30 minutos. El trabajo se ha realizado con voluntarios de edad y peso similares, pero diferenciados según sus hábitos, separando en dos grupos a los participantes: sedentarios y practicantes habituales de algún deporte. Se supone que la variable medida sigue el modelo normal con varianza común. Se han medido 8 personas de cada grupo.
+
+Se han publicado los siguientes intervalos de confianza (con nivel de confianza del 90%):
+
+- Sedentarios: $(2.85,4.40)$  
+- Practicantes de deporte: $(3.52,5.23)$  
+
+a) Calcula las medias muestrales de cada grupo.  
+b) Si la concentración está expresada en $\mu \mu \mathrm{g} / \mathrm{dl}$ (microgramos por decilitro) y suponemos que se prefiere finalmente presentar los resultados en $\mathrm{ng} / \mathrm{ml}$ (nanogramos por mililitro), ¿cómo quedarían afectados los intervalos de confianza iniciales?
+
+## EJERCICIO 8
+
+Se reporta el siguiente listado del análisis del nivel de colesterol en una muestra de 30 individuos obesos. Desafortunadamente, algunas partes del listado se han vuelto ilegibles y su valor se ha sustituido por 9999.
+
+```{r eval=FALSE}
+
+One Sample t-test
+data: x
+t $=301.49$, df $=9999, \mathrm{p}$-value $<2.2 \mathrm{e}-16$
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+246.8329999 .000
+sample estimates:
+mean of x
+248.5179
+```
+
+Reconstruye los valores incorrectos del listado.

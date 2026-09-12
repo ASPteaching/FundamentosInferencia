@@ -1,0 +1,641 @@
+# Muestreo y Distribuciones en el Muestreo {#ex-muestreo}
+
+## Ejercicio 1 
+<!-- [W_M 7.11]  -->
+
+Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de área de la base de los pinos. Al estudiar áreas basales de pinos similares durante muchos años, descubrió que estas mediciones (en pulgadas cuadradas) están distribuidas normalmente con desviación estándar aproximaa de 4 pulgadas cuadradas. 
+
+Encuentre la probabilidad de que la media muestral se encuentre a no más de 2 pulgadas cuadradas de la media poblacional si se muestrean $n=9$ árboles
+
+### Solución
+
+El problema indica que las áreas basales de los pinos están distribuidas normalmente con desviación estándar conocida ($\sigma=4$ pulgadas cuadradas). Deseamos calcular la probabilidad de que la media muestral de $n=9$ árboles difiera en no más de 2 pulgadas cuadradas de la media poblacional $\mu$. Esto implica que queremos encontrar la probabilidad:
+
+$$
+P(|\bar{X} - \mu| \leq 2)
+$$
+
+o, de manera equivalente:
+
+$$
+P(\mu - 2 \leq \bar{X} \leq \mu + 2)
+$$
+
+Dado que la distribución de las áreas basales de los pinos es normal, la distribución de la media muestral $\bar{X}$ también es normal, con media igual a $\mu$ y desviación estándar igual a $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$. En este caso:
+
+$$
+\sigma_{\bar{X}} = \frac{4}{\sqrt{9}} = \frac{4}{3} \approx 1.333
+$$
+
+La probabilidad se puede reescribir en términos de la variable tipificada:
+
+$$
+P(\mu - 2 \leq \bar{X} \leq \mu + 2) = P\left(\frac{\mu - 2 - \mu}{\sigma_{\bar{X}}} \leq Z \leq \frac{\mu + 2 - \mu}{\sigma_{\bar{X}}}\right)
+$$
+
+Esto simplifica a:
+
+$$
+P\left(-\frac{2}{\sigma_{\bar{X}}} \leq Z \leq \frac{2}{\sigma_{\bar{X}}}\right)
+$$
+
+Sustituyendo $\sigma_{\bar{X}} = 1.333$, tenemos:
+
+$$
+P\left(-\frac{2}{1.333} \leq Z \leq \frac{2}{1.333}\right) = P(-1.5 \leq Z \leq 1.5)
+$$
+
+
+La probabilidad de un intervalo para $Z$ en una distribución normal estándar se obtiene mediante la función de distribución acumulada $F_Z(z)$. El cálculo es:
+
+$$
+P(-1.5 \leq Z \leq 1.5) = F_Z(1.5) - F_Z(-1.5)
+$$
+
+Dado que $F_Z(-1.5) = 1 - F_Z(1.5)$ debido a la simetría de la distribución normal estándar:
+
+$$
+P(-1.5 \leq Z \leq 1.5) = 2 \cdot F_Z(1.5) - 1
+$$
+
+Procedemos a calcular $F_Z(1.5)$ en R.
+
+```{r}
+# Cálculo de la probabilidad
+p_upper <- pnorm(1.5) # CDF para Z = 1.5
+p_interval <- 2 * p_upper - 1
+p_interval
+```
+
+
+El resultado obtenido indica que, si se selecciona una muestra aleatoria de 9 árboles, la probabilidad de que la media muestral $\bar{X}$ se encuentre dentro de 2 pulgadas cuadradas de la media poblacional $\mu$. La probabilidad calculada es aproximadamente:
+
+$$
+P(-1.5 \leq Z \leq 1.5) \approx 0.8664
+$$
+
+## Ejercicio 2 
+<!-- [W_M 7.12-16] -->
+
+Suponga que al guardabosque del 1 le gustaría que la media muestral estuviera a no más de 1 pulgada cuadrada de la media poblacional, con probabilidad 90%. ¿Cuántos árboles debe medir para asegurar este grado de precisión?
+
+### Solución
+
+El guardabosque desea encontrar el tamaño de la muestra $n$ necesario para que la probabilidad de que la media muestral $\bar{X}$ esté a no más de 1 pulgada cuadrada de la media poblacional $\mu$ sea al menos del 90%. Esto significa que queremos garantizar que:
+
+$$
+P(|\bar{X} - \mu| \leq 1) \geq 0.90
+$$
+
+Reescribiendo la probabilidad:
+
+$$
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) \geq 0.90
+$$
+
+La media muestral $\bar{X}$ sigue una distribución normal con media $\mu$ y desviación estándar $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$. Esto nos permite transformar la probabilidad a una escala estándar:
+
+$$
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) = P\left(-\frac{1}{\sigma_{\bar{X}}} \leq Z \leq \frac{1}{\sigma_{\bar{X}}}\right)
+$$
+
+Donde $Z$ es la variable normal "estándar", $N(0,1)$.. Sustituyendo $\sigma_{\bar{X}} = \frac{4}{\sqrt{n}}$, la probabilidad se convierte en:
+
+$$
+P\left(-\frac{1 \cdot \sqrt{n}}{4} \leq Z \leq \frac{1 \cdot \sqrt{n}}{4}\right) \geq 0.90
+$$
+
+Sea $z^*$ el valor crítico de la distribución normal estándar tal que $P(-z^* \leq Z \leq z^*) = 0.90$. Esto implica que $z^* = F_Z^{-1}(0.95)$, ya que 90% de la probabilidad está centrada simétricamente, dejando 5% en cada cola.
+
+El intervalo estándar nos lleva a:
+
+$$
+\frac{\sqrt{n}}{4} = z^*
+$$
+
+Resolviendo para $n$:
+
+$$
+n = (4z^*)^2
+$$
+
+
+Usaremos R para calcular $z^*$ y el tamaño de la muestra.
+
+```{r}
+# Cálculo de z* y tamaño de muestra
+z_star <- qnorm(0.95) # Valor crítico para 90% de probabilidad centrada
+n <- (4 * z_star)^2
+z_star
+n
+```
+
+### Resultado
+
+El valor crítico $z^*$ es aproximadamente:
+
+$$
+z^* \approx 1.645
+$$
+
+Sustituyendo en la fórmula para $n$:
+
+$$
+n = (4 \cdot 1.645)^2 = 43.29
+$$
+
+Como el tamaño de muestra debe ser un número entero, redondeamos hacia arriba:
+
+$$
+n = 44
+$$
+
+### Interpretación del resultado
+
+El guardabosque debe medir al menos **44 árboles** para asegurarse de que la media muestral esté a no más de 1 pulgada cuadrada de la media poblacional con una probabilidad de al menos el 90%.
+
+Obervese que, intuitivamente tiene sentido: Con 9 árboles y una diferencia de 1.5 pulgadas cuadradas la probabilidad era inferior a 0.9. Si se desea una probabilidad más alta y un error inferior, razonablemente, necesitaremos una muestra mayor.
+
+## Ejercicio 3 
+<!-- [W_M 7.13] -->
+
+La Agencia de Protección Ambiental  se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce. 
+
+Una medida común de toxicidad para cualquier contaminante es la concentración de éste que mataría a la mitad de la especie de prueba en un tiempo determinado (por lo general 96 horas para especies de peces).
+
+Esta medida se denomina CL50 (concentración letal que mata 50% de la especie de prueba). En muchos estudios, los valores contenidos en el logaritmo natural de mediciones del CL50 están distribuidos normalmente y, en consecuencia, el análisis está basado en datos del $\ln(CL50)$.
+
+Estudios de los efectos del cobre en cierta especie de peces (por ejemplo la especie A) muestran que la varianza de mediciones de $\ln(CL50)$ es alrededor de 0.4 con mediciones de concentración en miligramos por litro.
+
+Si han de completarse $n=10$ estudios sobre el CL50 para cobre, encuentre la probabilidad de que la media muestral de $\ln(CL50)$ difiera de la verdadera media poblacional en no más de 0.5.
+
+
+
+### Solución
+
+El problema plantea una distribución normal para el logaritmo natural de las mediciones de CL50 con una varianza poblacional conocida ($\sigma^2 = 0.4$) y un tamaño muestral de $n=10$. El objetivo es encontrar la probabilidad de que la media muestral $\bar{X}$ difiera de la verdadera media poblacional $\mu$ en no más de 0.5, es decir:
+
+$$
+P(|\bar{X} - \mu| \leq 0.5)
+$$
+
+
+#### Propiedades de la media muestral
+
+Dado que $\ln(CL50)$ sigue una distribución normal, la media muestral $\bar{X}$ también se distribuye normalmente con:
+
+- Media: $\mu$
+- Varianza: $\sigma^2 / n$
+
+Por tanto, la desviación estándar de la media muestral es:
+
+$$
+\sigma_{\bar{X}} = \sqrt{\frac{\sigma^2}{n}} = \sqrt{\frac{0.4}{10}}
+$$
+
+#### Normalización de la variable aleatoria
+
+Queremos calcular la probabilidad $P(|\bar{X} - \mu| \leq 0.5)$. Esto se puede expresar como:
+
+$$
+P(-0.5 \leq \bar{X} - \mu \leq 0.5)
+$$
+
+Dividimos por la desviación estándar $\sigma_{\bar{X}}$ para normalizar:
+
+$$
+P\left(-\frac{0.5}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.5}{\sigma_{\bar{X}}}\right)
+$$
+
+donde $Z$ es una variable aleatoria normal estándar.
+
+#### Cálculo numérico
+
+A continuación, calculamos $\sigma_{\bar{X}}$ y la probabilidad utilizando R.
+
+```{r}
+# Parámetros
+sigma2 <- 0.4
+n <- 10
+sigma_barX <- sqrt(sigma2 / n)
+threshold <- 0.5
+
+# Límites en la escala normal estándar
+z <- threshold / sigma_barX
+
+# Probabilidad
+p <- pnorm(z) - pnorm(-z)
+p
+```
+
+#### Interpretación del resultado
+
+El resultado de $p$ nos da la probabilidad de que la media muestral difiera de la verdadera media poblacional en no más de 0.5.
+
+### Resultado final
+
+El valor calculado es aproximadamente:
+
+$$
+P(|\bar{X} - \mu| \leq 0.5) = 0.9875807
+$$
+
+Esto significa que hay un **99% de probabilidad** de que la media muestral se encuentre dentro de un rango de 0.5 alrededor de la verdadera media poblacional.
+
+
+## Ejercicio 5 
+<!-- [W_M 7.15] -->
+
+Si en el Ejercicio anterior deseamos que la media muestral difiera de la media poblacional en no más de 0.5 con probabilidad .95 , ¿cuántas pruebas deben realizarse?
+
+### Solución
+
+En este caso, se desea determinar el tamaño muestral $n$ necesario para que la media muestral $\bar{X}$ difiera de la media poblacional $\mu$ en no más de 0.5 con una probabilidad de al menos 0.95, es decir:
+
+$$
+P(|\bar{X} - \mu| \leq 0.5) = 0.95
+$$
+que, es la misma pregunta que la del ejercicio anterior. 
+
+#### Condición para la probabilidad
+
+Dado que la distancia es la misma (0.5) la única forma de que cambie la probabilidad es que se modifique el valor de  $\sigma_{\bar{X}}$, lo que sólo es posible cambiando el valor de $n$.
+
+Es decir, nos preguntan para que valor de $n$ se verificará que:
+
+$$
+P\left(-\frac{0.5}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.5}{\sigma_{\bar{X}}}\right) = \\ = P\left(-\frac{0.5}{\sigma\sqrt{n}} \leq Z \leq \frac{0.5}{\sigma/\sqrt{n}}\right)  = 0.95
+$$
+
+Dado que $Z$ sigue una distribución normal estándar, la probabilidad acumulada de 0.95 implica que los límites se encuentran en los percentiles 2.5% y 97.5%. Esto se traduce en un valor crítico de:
+
+$$
+z = 1.96
+$$
+
+####  Relación entre $n$, $z$, y $\sigma_{\bar{X}}$
+
+La desviación estándar de la media muestral es:
+
+$$
+\sigma_{\bar{X}} = \sqrt{\frac{\sigma^2}{n}}
+$$
+
+Reemplazando en la desigualdad $0.5 / \sigma_{\bar{X}} = z$, tenemos:
+
+$$
+\frac{0.5}{\sqrt{\frac{\sigma^2}{n}}} = z
+$$
+
+Elevamos al cuadrado ambos lados para despejar $n$:
+
+$$
+n = \frac{\sigma^2 z^2}{0.5^2}
+$$
+
+#### Sustitución de valores conocidos
+
+Utilizamos $\sigma^2 = 0.4$ y $z = 1.96$. Realizamos los cálculos en R para obtener el tamaño muestral mínimo.
+
+```{r}
+# Parámetros
+sigma2 <- 0.4
+z <- 1.96
+threshold <- 0.5
+
+# Cálculo de n
+n <- (sigma2 * z^2) / threshold^2
+ceiling(n) # Tamaño muestral mínimo entero
+```
+
+#### Interpretación del resultado
+
+El valor calculado de $n$ indica que deben realizarse al menos **7 estudios** para  garantizar que la media muestral difiera de la media poblacional en no más de 0.5 con una probabilidad de, como mínimo, 0.95.
+
+## Ejercicio 6
+
+Suponga que $X_{1}, X_{2}, \ldots, X_{m}$ y $Y_{1}, Y_{2}, \ldots, Y_{n}$ son muestras aleatorias independientes, con las variables $X_{i}$ distribuidas normalmente con media $\mu_{1} \mathrm{y}$ varianza $\sigma_{1}^{2} \mathrm{y}$ las variables $Y_{i}$ distribuidas normalmente con media $\mu_{2}$ y varianza $\sigma_{2}^{2}$. La diferencia entre las medias muestrales, $\bar{X}-\bar{Y}$, es entonces una combinación lineal de $m+n$ variables aleatorias distribuidas normalmente y, por el las propiedades de las distribuciones normales, tiene una distribución normal.
+
+a. Encuentre $E(\bar{X}-\bar{Y})$.
+b. Encuentre $V(\bar{X}-\bar{Y})$.
+c. Suponga que $\sigma_{1}^{2}=2, \sigma_{2}^{2}=2.5$ y $m=n$. Encuentre los tamaños muestrales para que $(\bar{X}-\bar{Y})$ se encuentre a no más de 1 unidad de $\left(\mu_{1}-\mu_{2}\right)$ con probabilidad .95 .
+
+
+### Solución
+
+Tenemos dos muestras aleatorias independientes de tamaños $m$ y $n$, donde $X_i$ se distribuyen como $N(\mu_1, \sigma_1^2)$ y $Y_i$ se distribuyen como $N(\mu_2, \sigma_2^2)$. La variable $\bar{X} - \bar{Y}$ es una _combinación lineal de variables normales_ y, por tanto, también sigue una distribución normal.
+
+#### $E(\bar{X} - \bar{Y})$
+
+Por la linealidad de la esperanza, tenemos:
+
+$$
+E(\bar{X} - \bar{Y}) = E(\bar{X}) - E(\bar{Y})
+$$
+
+Las medias muestrales $\bar{X}$ y $\bar{Y}$ son estimadores insesgados de sus respectivas medias poblacionales $\mu_1$ y $\mu_2$. Por lo tanto:
+
+$$
+E(\bar{X}) = \mu_1, \quad E(\bar{Y}) = \mu_2
+$$
+
+Sustituyendo, obtenemos:
+
+$$
+E(\bar{X} - \bar{Y}) = \mu_1 - \mu_2
+$$
+
+
+#### $V(\bar{X} - \bar{Y})$
+
+La varianza de la suma o la resta de dos variables aleatorias independientes es la suma de sus respectivas varianzas.
+
+Si $X$ e $Y$ son independientes entonces también lo son $\bar{X}$ y $\bar{Y}$  _(piense como lo justificaría!)_ por lo que se tendré:
+
+$$
+V(\bar{X} - \bar{Y}) = V(\bar{X}) + V(\bar{Y})
+$$
+
+Las varianzas muestrales son:
+
+$$
+V(\bar{X}) = \frac{\sigma_1^2}{m}, \quad V(\bar{Y}) = \frac{\sigma_2^2}{n}
+$$
+
+Sustituyendo, obtenemos:
+
+$$
+V(\bar{X} - \bar{Y}) = \frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}
+$$
+
+#### Cálculo de los tamaños muestrales
+
+Queremos que $\bar{X} - \bar{Y}$ se encuentre a no más de 1 unidad de $\mu_1 - \mu_2$ con una probabilidad de 0.95:
+
+$$
+P\left(\left|\bar{X} - \bar{Y} - (\mu_1 - \mu_2)\right| \leq 1\right) = 0.95
+$$
+
+Esto se puede reescribir como:
+
+$$
+P\left(-1 \leq \bar{X} - \bar{Y} - (\mu_1 - \mu_2) \leq 1\right) = 0.95
+$$
+
+Estandarizamos usando la desviación estándar $\sigma_{\bar{X} - \bar{Y}} = \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}$, lo que nos da:
+
+$$
+P\left(-\frac{1}{\sigma_{\bar{X} - \bar{Y}}} \leq Z \leq \frac{1}{\sigma_{\bar{X} - \bar{Y}}}\right) = 0.95
+$$
+
+Sabemos que para una distribución normal estándar, un intervalo de probabilidad de 0.95 corresponde a $z_{0.95} = 1.96$. Por tanto, tenemos:
+
+$$
+\frac{1}{\sigma_{\bar{X} - \bar{Y}}} = z_{0.95} \quad \text{o bien} \quad \sigma_{\bar{X} - \bar{Y}} = \frac{1}{z_{0.95}}
+$$
+
+Sustituyendo $\sigma_{\bar{X} - \bar{Y}}$ con su expresión:
+
+$$
+\sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}} = \frac{1}{z_{0.95}}
+$$
+
+Con $n = m$ y los valores dados $\sigma_1^2 = 2$ y $\sigma_2^2 = 2.5$, la ecuación se convierte en:
+
+$$
+\sqrt{\frac{2}{n} + \frac{2.5}{n}} = \frac{1}{1.96}
+$$
+
+Simplificamos:
+
+$$
+\sqrt{\frac{4.5}{n}} = \frac{1}{1.96}
+$$
+
+Elevamos al cuadrado ambos lados:
+
+$$
+\frac{4.5}{n} = \frac{1}{1.96^2}
+$$
+
+Resolvemos para $n$:
+
+$$
+n = \frac{4.5 \cdot 1.96^2}{1}
+$$
+
+Realizamos el cálculo en R para obtener el tamaño muestral mínimo.
+
+```{r}
+# Parámetros
+sigma1_sq <- 2
+sigma2_sq <- 2.5
+z <- 1.96
+
+# Cálculo de n
+numerator <- (sigma1_sq + sigma2_sq)
+denominator <- (1 / z)^2
+n <- numerator / denominator
+ceiling(n) # Tamaño muestral mínimo entero
+```
+#### Resultado final
+
+El tamaño muestral necesario para que $\bar{X} - \bar{Y}$ esté a no más de 1 unidad de $\mu_1 - \mu_2$ con una probabilidad de 0.95 es:
+
+$$
+n = 18
+$$
+
+Esto significa que se requieren al menos **18 observaciones en cada muestra** para satisfacer el criterio.
+
+## Ejercicio 7
+
+Refiriéndose al Ejercicio 3, suponga que los efectos del cobre en una segunda especie (por ejemplo la especie B) de peces muestran la varianza de mediciones de $\ln(CL50)$ que son de .8 . 
+
+Si las medias poblacionales del $\ln(CL50)$ para las dos especies son iguales, encuentre la probabilidad de que, con muestras aleatorias de diez mediciones de cada especie, la media muestral para la especie A sea mayor a la media muestral para la especie B en al menos 1 unidad.
+
+## Ejercicio 8
+
+La acidez de los suelos se mide mediante una cantidad llamada pH , que varía de 0 (acidez alta) a 14 (alcalinidad alta). Un edafólogo desea calcular el promedio de pH para un campo de grandes dimensiones al seleccionar aleatoriamente $n$ muestras de núcleos y medir el pH de cada muestra. 
+
+Aun cuando la desviación estándar poblacional de mediciones de pH no se conoce, la experiencia del pasado indica que casi todos los suelos tienen un valor de pH de entre 5 y 8. Si el científico selecciona $n=40$ muestras, encuentre la probabilidad aproximada de que la media muestral de las 40 mediciones de pH esté a .2 unidades del verdadero promedio de pH para el campo. 
+
+*INDICACIÓN: El rango de un conjunto de mediciones es la diferencia entre los valores máximo y mínimo. Una regla empírica sugiere que la desviación  estándar de un conjunto de mediciones puede ser aproximada en un cuarto de la amplitud (esto es, amplitud/4). Esto puede justifcarse si se considera que, de forma aproximada:$\mbox{Rango} \simeq 4\sigma$, de donde con el mismo grado de aproximación, $\sigma \simeq \mbox{Rango} / 4$*
+
+
+### Solución
+
+Queremos determinar la probabilidad de que la media muestral $\bar{X}$ de $n = 40$ mediciones de pH esté a 0.2 unidades del verdadero promedio poblacional $\mu$. 
+
+El rango esperado de valores de pH (de 5 a 8) nos permite estimar la desviación estándar poblacional mediante la regla empírica de la indicación. Una vez hecho esto utilizaremos una aproximación normal para calcular la probabilidad.
+
+
+#### Aproximación de la desviación estándar poblacional
+
+La desviación estándar aproximada $\sigma$ de una distribución es proporcional al rango dividido por 4.
+
+Dado que los valores de pH se encuentran típicamente entre 5 y 8, estimamos:
+
+$$
+\sigma \approx \frac{\text{rango}}{4} = \frac{8 - 5}{4} = 0.75
+$$
+
+La media muestral $\bar{X}$ se distribuye normalmente con:
+
+- Media: $\mu$
+- Desviación estándar: 
+
+$$
+\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{0.75}{\sqrt{40}}
+$$
+
+
+#### Cálculo de la Probabilidad 
+
+Queremos calcular:
+
+$$
+P(|\bar{X} - \mu| \leq 0.2)
+$$
+
+Esto es equivalente a:
+
+$$
+P\left(-0.2 \leq \bar{X} - \mu \leq 0.2\right)
+$$
+
+Normalizando con $\sigma_{\bar{X}}$, se transforma en:
+
+$$
+P\left(-\frac{0.2}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.2}{\sigma_{\bar{X}}}\right)
+$$
+
+donde $Z$ es una variable normal estándar. Sustituyendo $\sigma_{\bar{X}}$, calculamos los valores críticos y la probabilidad asociada usando R.
+
+#### Cálculo numérico en R
+
+```{r}
+# Parámetros
+sigma <- 0.75
+n <- 40
+threshold <- 0.2
+
+# Desviación estándar de la media muestral
+sigma_barX <- sigma / sqrt(n)
+
+# Valores críticos
+z <- threshold / sigma_barX
+
+# Probabilidad
+p <- pnorm(z) - pnorm(-z)
+p
+```
+
+#### Resultado final
+
+El valor de la probabilidad calculada es aproximadamente:
+
+$$
+P(|\bar{X} - \mu| \leq 0.2) \approx 0.9083097
+$$
+
+Esto significa que existe una probabilidad aproximada de **0.908** de que la media muestral esté a 0.2 unidades del verdadero promedio poblacional de pH.
+
+## Ejercicio 9 
+
+<!-- [W-M 7.68] -->
+
+En 1998, el estado de Florida resultó afectado por cuatro huracanes de gran intensidad. En 2005 un estudio indicó que en 2004, $48 \%$ de las familias en Florida no tenían planes para escapar de un huracán que se aproximaba. 
+
+Suponga que una muestra aleatoria reciente de 50 familias se seleccionó en Gainesville y que los miembros de 29 de las familias indicaron que tenían un plan de escape en caso de huracán.
+
+a. Si los porcentajes estatales de 2004 todavía fueran válidos para las familias recientes de Gainesville. Use R para calcular las probabilidades siguiendo una distribución binomial y también una aproximación Normal a la Binomial para determinar los valores exacto y aproximado de la probabilidad que 29 o más de las familias muestreadas tengan un plan de escape para el huracán.
+
+b. ¿La aproximación normal es cercana a la probabilidad binomial exacta? Explique por qué.
+
+## Ejercicio 10
+
+Para verificar la abundancia relativa de cierta especie de peces en dos lagos, se toman $n=50$ observaciones relacionadas con los resultados de la captura en cada uno de los lagos. Para cada observación, el experimentador sólo registra si la especie deseada estaba presente en la trampa. 
+
+La experiencia del pasado ha demostrado que esta especie aparece en trampas del lago A aproximadamente $10 \%$ del tiempo y en trampas del lago B, alrededor de $20 \%$ del tiempo. Use estos resultados para aproximar la probabilidad de que la diferencia entre las proporciones muestrales sea de no más de .1 de la diferencia entre las proporciones reales.
+
+### Solución
+
+Se toman $n = 50$ observaciones en dos lagos, y el interés está en calcular la probabilidad de que la diferencia entre las proporciones muestrales de presencia de una especie en las trampas sea de no más de 0.1 de la diferencia entre las proporciones reales. La proporción de presencia en el lago A es $p_1 = 0.1$ y en el lago B es $p_2 = 0.2$.
+
+para resolver el problema nos basaremos en la normalidad aproximada de la diferencia entre proporciones muestrales de proporciones que se deriva del Teorema Central del Límite (TCL).
+
+
+#### Propiedades de las  proporciones muestrales y sus diferencias.
+
+Sean $p_1$ y $p_2$ las proporciones reales en los lagos A y B, respectivamente, y $n_1 = n_2 = 50$ el tamaño muestral en cada caso. Las proporciones muestrales $\hat{p}_1 = Y_1 / n_1$ y $\hat{p}_2 = Y_2 / n_2$ tienen las siguientes propiedades:
+
+- Media de $\hat{p}_1 - \hat{p}_2$: 
+  $$
+  E(\hat{p}_1 - \hat{p}_2) = p_1 - p_2
+  $$
+
+- Varianza de $\hat{p}_1 - \hat{p}_2$: 
+  $$
+  V(\hat{p}_1 - \hat{p}_2) = \frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)}{n_2}
+  $$
+
+Dado que las muestras son grandes, el TCL nos permite aproximar la distribución de $\hat{p}_1 - \hat{p}_2$ por una distribución normal con:
+
+- Media: $p_1 - p_2$
+- Desviación estándar: 
+  $$
+  \sigma_{\hat{p}_1 - \hat{p}_2} = \sqrt{\frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)}{n_2}}
+  $$
+
+#### Cálculo de la probabilidad
+
+Queremos calcular:
+
+$$
+P(|\hat{p}_1 - \hat{p}_2 - (p_1 - p_2)| \leq 0.1)
+$$
+
+Reescribimos como:
+
+$$
+P\left(-0.1 \leq \hat{p}_1 - \hat{p}_2 - (p_1 - p_2) \leq 0.1\right)
+$$
+
+Estandarizamos usando $\sigma_{\hat{p}_1 - \hat{p}_2}$ para obtener:
+
+$$
+P\left(-\frac{0.1}{\sigma_{\hat{p}_1 - \hat{p}_2}} \leq Z \leq \frac{0.1}{\sigma_{\hat{p}_1 - \hat{p}_2}}\right)
+$$
+
+donde $Z$ es una variable normal estándar.
+
+### Cálculo numérico
+
+Sustituimos los valores dados:
+
+- $p_1 = 0.1$, $p_2 = 0.2$, $n_1 = n_2 = 50$
+
+Calculamos la varianza y la probabilidad asociada en R:
+
+```{r}
+# Parámetros
+p1 <- 0.1
+p2 <- 0.2
+n1 <- 50
+n2 <- 50
+threshold <- 0.1
+
+# Desviación estándar de la diferencia
+sigma_diff <- sqrt((p1 * (1 - p1) / n1) + (p2 * (1 - p2) / n2))
+
+# Valores críticos
+z <- threshold / sigma_diff
+
+# Probabilidad
+p <- pnorm(z) - pnorm(-z)
+p
+```
+### Conclusión
+
+La probabilidad de que la diferencia entre las proporciones muestrales esté dentro de 0.1 de la diferencia entre las proporciones reales es aproximadamente **0.8427**.
