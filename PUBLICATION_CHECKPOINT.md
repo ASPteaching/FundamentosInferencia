@@ -4,6 +4,9 @@ Data: 2026-09-13. Aquesta publicació correspon exactament a l'estat validat de
 Phase 3A a `bs4-integration`; no incorpora canvis visuals, editorials ni de
 fonts posteriors.
 
+Commit de publicació: `7f98e8c docs: publish phase 3a checkpoint`, integrat a
+`main` per fast-forward i publicat a `origin/main`.
+
 ## Outputs publicats
 
 - HTML combinat `bookdown::bs4_book`: 29 pàgines a `docs/`, amb la navegació
