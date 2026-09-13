@@ -1,14 +1,16 @@
 # Phase 3A — layout i tipografia
 
-Data: 2026-09-13. Estat: **PHASE 3A NEEDS FIXES**. El CSS i el render són
-correctes, però falta una inspecció visual efectiva en navegador abans de
-declarar la revisió preparada.
+Data: 2026-09-13. Estat: **READY FOR PHASE 3B**. La revisió visual humana de
+desktop i responsive s'ha realitzat i ha estat satisfactòria.
 
 ## Fitxers modificats o creats
 
 - `_output.yml`: el perfil `bookdown::bs4_book` carrega ara `blocks.css` i el
   nou full específic `bs4-style.css`.
 - `bs4-style.css`: estil exclusiu de l'HTML `bs4_book`.
+- `profiles/bs4-book-es.html`: plantilla localitzada de `bs4_book`.
+- `scripts/build.ps1`: inclou la plantilla localitzada entre els inputs del
+  scratch HTML.
 
 No s'han modificat fonts `.Rmd`, manifests PDF, contingut, numeració, IDs,
 chunks, CSS de les caixes existents, `docs/`, GitHub Pages ni el repositori B.
@@ -42,16 +44,23 @@ MathJax (29), exercicis, bibliografia i navegació de descàrregues en les pàgi
 representatives comprovades. No s'han repetit les validacions funcionals
 exhaustives de Phase 2.
 
-## Incidència bloquejant la revisió visual
+## Tancament i enllaços PDF
 
-La política del navegador disponible ha bloquejat l'obertura del preview local
-`file://`; no s'ha intentat eludir-la amb un altre navegador ni servidor. Per
-tant, encara no hi ha una comprovació visual real de desktop ni responsive:
-només s'ha verificat la presència dels breakpoints i selectors en el CSS/HTML.
+Les etiquetes natives de la plantilla s'han localitzat a `Tabla de contenidos`
+i `En esta página` mitjançant `template:` del perfil `bookdown::bs4_book`; no
+s'han fet substitucions de l'HTML generat. S'ha preservat la plantilla oficial
+excepte per aquestes dues etiquetes i els atributs `aria-label` corresponents.
+
+El preview final és
+`../_phase3a-scratch/html-localized/work/docs/`: 29 pàgines, 405 chunks i
+`EXIT_STATUS: 0`. S'hi han muntat, sense rerenderitzar-los, els PDFs selectius
+validats de Phase 1: `FundamentosInferencia.pdf` (8.671.006 bytes) i
+`FundamentosInferencia-Ejercicios.pdf` (428.384 bytes). Els dos fitxers són al
+mateix directori que les pàgines HTML i coincideixen amb els `href` de la
+navegació de descàrregues; per tant funcionen en aquest preview assemblat.
 
 ## Per a Phase 3B/3C
 
-Quan es pugui obrir el preview local en un navegador autoritzat, cal fer la
-revisió desktop i mòbil d'aquest lot abans d'iniciar Phase 3B. Phase 3B podrà
-considerar ajustos visuals derivats d'aquella revisió; Phase 3C és on s'hauran
-de tractar les caixes pedagògiques, sense barrejar-les amb aquest lot.
+Phase 3B podrà considerar ajustos visuals derivats de la revisió humana; Phase
+3C és on s'hauran de tractar les caixes pedagògiques, sense barrejar-les amb
+aquest lot.

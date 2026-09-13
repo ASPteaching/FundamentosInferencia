@@ -28,7 +28,7 @@ if (!$chapters.Count -or $chapters[0] -ne 'index.Rmd') { throw 'Expected explici
 $inputs = @($manifestName, '_output.yml') + $chapters
 if ($Profile -eq 'exercises') { $inputs += 'profiles/exercises-index.Rmd' }
 if ($Profile -eq 'html' -and $HtmlRenderer -eq 'bs4_book') {
-    $inputs += @('scripts/prepare-bs4.R', 'profiles/bs4-downloads.html')
+    $inputs += @('scripts/prepare-bs4.R', 'profiles/bs4-downloads.html', 'profiles/bs4-book-es.html')
 }
 $inputs += @(Get-ChildItem -LiteralPath $sourceRoot -File | Where-Object { $_.Extension -in '.css','.bib' } | ForEach-Object Name)
 foreach ($relative in $inputs) {

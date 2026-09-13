@@ -4,6 +4,7 @@ bookdown::bs4_book:
     - bs4-style.css
   footnotes_inline: false
   split_bib: true
+  template: profiles/bs4-book-es.html
   includes:
     before_body: profiles/bs4-downloads.html
 
