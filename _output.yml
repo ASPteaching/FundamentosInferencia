@@ -1,3 +1,10 @@
+bookdown::bs4_book:
+  css: blocks.css
+  footnotes_inline: false
+  split_bib: true
+  includes:
+    before_body: profiles/bs4-downloads.html
+
 bookdown::gitbook:
   css: blocks.css
   config:

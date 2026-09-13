@@ -5,7 +5,8 @@ param(
     [Parameter(Mandatory)][ValidateSet('html','theory','exercises')][string]$Profile,
     [Parameter(Mandatory)][string]$ScratchDirectory,
     [Parameter(Mandatory)][string]$Rscript,
-    [Parameter(Mandatory)][string]$PandocDirectory
+    [Parameter(Mandatory)][string]$PandocDirectory,
+    [ValidateSet('bs4_book','gitbook')][string]$HtmlRenderer = 'bs4_book'
 )
 $ErrorActionPreference = 'Stop'
 $sourceRoot = (Resolve-Path -LiteralPath $Repository).Path
@@ -26,6 +27,9 @@ $chapters = @(Get-Content -LiteralPath (Join-Path $sourceRoot $manifestName) |
 if (!$chapters.Count -or $chapters[0] -ne 'index.Rmd') { throw 'Expected explicit rmd_files starting with index.Rmd.' }
 $inputs = @($manifestName, '_output.yml') + $chapters
 if ($Profile -eq 'exercises') { $inputs += 'profiles/exercises-index.Rmd' }
+if ($Profile -eq 'html' -and $HtmlRenderer -eq 'bs4_book') {
+    $inputs += @('scripts/prepare-bs4.R', 'profiles/bs4-downloads.html')
+}
 $inputs += @(Get-ChildItem -LiteralPath $sourceRoot -File | Where-Object { $_.Extension -in '.css','.bib' } | ForEach-Object Name)
 foreach ($relative in $inputs) {
     if (![IO.File]::Exists((Join-Path $sourceRoot $relative))) { throw "Missing input: $relative" }
@@ -66,7 +70,7 @@ try {
     $env:RSTUDIO_PANDOC = (Resolve-Path -LiteralPath $PandocDirectory).Path
     # C.UTF-8 inherited from the host is not a valid Windows R locale.
     $env:LC_ALL = 'English_United States.utf8'
-    & $Rscript --vanilla (Join-Path $PSScriptRoot 'build-render.R') $work $Format *> (Join-Path $scratchRoot 'render.log')
+    & $Rscript --vanilla (Join-Path $PSScriptRoot 'build-render.R') $work $Format $HtmlRenderer *> (Join-Path $scratchRoot 'render.log')
     $renderExit = $LASTEXITCODE
 } finally {
     $env:RSTUDIO_PANDOC = $oldPandoc
