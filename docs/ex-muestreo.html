@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 19 Muestreo y Distribuciones en el Muestreo | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 19 Muestreo y Distribuciones en el Muestreo | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 19 Muestreo y Distribuciones en el Muestreo | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)   19.1 Ejercicio 1  Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de...">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)   19.1 Ejercicio 1  Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de...">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)   19.1 Ejercicio 1  Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="active" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-muestreo" class="section level1" number="19">
+<h1>
+<span class="header-section-number">Capítulo 19</span> Muestreo y Distribuciones en el Muestreo<a class="anchor" aria-label="anchor" href="#ex-muestreo"><i class="fas fa-link"></i></a>
+</h1>
+<div id="ejercicio-1-1" class="section level2" number="19.1">
+<h2>
+<span class="header-section-number">19.1</span> Ejercicio 1<a class="anchor" aria-label="anchor" href="#ejercicio-1-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W_M 7.11]  -->
+<p>Un guardabosque, que estudia los efectos de la fertilización en ciertos bosques de pinos en el sureste, está interesado en estimar el promedio de área de la base de los pinos. Al estudiar áreas basales de pinos similares durante muchos años, descubrió que estas mediciones (en pulgadas cuadradas) están distribuidas normalmente con desviación estándar aproximaa de 4 pulgadas cuadradas.</p>
+<p>Encuentre la probabilidad de que la media muestral se encuentre a no más de 2 pulgadas cuadradas de la media poblacional si se muestrean <span class="math inline">\(n=9\)</span> árboles</p>
+<div id="solución-6" class="section level3" number="19.1.1">
+<h3>
+<span class="header-section-number">19.1.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-6"><i class="fas fa-link"></i></a>
+</h3>
+<p>El problema indica que las áreas basales de los pinos están distribuidas normalmente con desviación estándar conocida (<span class="math inline">\(\sigma=4\)</span> pulgadas cuadradas). Deseamos calcular la probabilidad de que la media muestral de <span class="math inline">\(n=9\)</span> árboles difiera en no más de 2 pulgadas cuadradas de la media poblacional <span class="math inline">\(\mu\)</span>. Esto implica que queremos encontrar la probabilidad:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 2)
+\]</span></p>
+<p>o, de manera equivalente:</p>
+<p><span class="math display">\[
+P(\mu - 2 \leq \bar{X} \leq \mu + 2)
+\]</span></p>
+<p>Dado que la distribución de las áreas basales de los pinos es normal, la distribución de la media muestral <span class="math inline">\(\bar{X}\)</span> también es normal, con media igual a <span class="math inline">\(\mu\)</span> y desviación estándar igual a <span class="math inline">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\)</span>. En este caso:</p>
+<p><span class="math display">\[
+\sigma_{\bar{X}} = \frac{4}{\sqrt{9}} = \frac{4}{3} \approx 1.333
+\]</span></p>
+<p>La probabilidad se puede reescribir en términos de la variable tipificada:</p>
+<p><span class="math display">\[
+P(\mu - 2 \leq \bar{X} \leq \mu + 2) = P\left(\frac{\mu - 2 - \mu}{\sigma_{\bar{X}}} \leq Z \leq \frac{\mu + 2 - \mu}{\sigma_{\bar{X}}}\right)
+\]</span></p>
+<p>Esto simplifica a:</p>
+<p><span class="math display">\[
+P\left(-\frac{2}{\sigma_{\bar{X}}} \leq Z \leq \frac{2}{\sigma_{\bar{X}}}\right)
+\]</span></p>
+<p>Sustituyendo <span class="math inline">\(\sigma_{\bar{X}} = 1.333\)</span>, tenemos:</p>
+<p><span class="math display">\[
+P\left(-\frac{2}{1.333} \leq Z \leq \frac{2}{1.333}\right) = P(-1.5 \leq Z \leq 1.5)
+\]</span></p>
+<p>La probabilidad de un intervalo para <span class="math inline">\(Z\)</span> en una distribución normal estándar se obtiene mediante la función de distribución acumulada <span class="math inline">\(F_Z(z)\)</span>. El cálculo es:</p>
+<p><span class="math display">\[
+P(-1.5 \leq Z \leq 1.5) = F_Z(1.5) - F_Z(-1.5)
+\]</span></p>
+<p>Dado que <span class="math inline">\(F_Z(-1.5) = 1 - F_Z(1.5)\)</span> debido a la simetría de la distribución normal estándar:</p>
+<p><span class="math display">\[
+P(-1.5 \leq Z \leq 1.5) = 2 \cdot F_Z(1.5) - 1
+\]</span></p>
+<p>Procedemos a calcular <span class="math inline">\(F_Z(1.5)\)</span> en R.</p>
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Cálculo de la probabilidad</span></span>
+<span><span class="va">p_upper</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1.5</span><span class="op">)</span> <span class="co"># CDF para Z = 1.5</span></span>
+<span><span class="va">p_interval</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">p_upper</span> <span class="op">-</span> <span class="fl">1</span></span>
+<span><span class="va">p_interval</span></span></code></pre></div>
+<pre><code>## [1] 0.8663856</code></pre>
+<p>El resultado obtenido indica que, si se selecciona una muestra aleatoria de 9 árboles, la probabilidad de que la media muestral <span class="math inline">\(\bar{X}\)</span> se encuentre dentro de 2 pulgadas cuadradas de la media poblacional <span class="math inline">\(\mu\)</span>. La probabilidad calculada es aproximadamente:</p>
+<p><span class="math display">\[
+P(-1.5 \leq Z \leq 1.5) \approx 0.8664
+\]</span></p>
+</div>
+</div>
+<div id="ejercicio-2-1" class="section level2" number="19.2">
+<h2>
+<span class="header-section-number">19.2</span> Ejercicio 2<a class="anchor" aria-label="anchor" href="#ejercicio-2-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W_M 7.12-16] -->
+<p>Suponga que al guardabosque del 1 le gustaría que la media muestral estuviera a no más de 1 pulgada cuadrada de la media poblacional, con probabilidad 90%. ¿Cuántos árboles debe medir para asegurar este grado de precisión?</p>
+<div id="solución-7" class="section level3" number="19.2.1">
+<h3>
+<span class="header-section-number">19.2.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-7"><i class="fas fa-link"></i></a>
+</h3>
+<p>El guardabosque desea encontrar el tamaño de la muestra <span class="math inline">\(n\)</span> necesario para que la probabilidad de que la media muestral <span class="math inline">\(\bar{X}\)</span> esté a no más de 1 pulgada cuadrada de la media poblacional <span class="math inline">\(\mu\)</span> sea al menos del 90%. Esto significa que queremos garantizar que:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 1) \geq 0.90
+\]</span></p>
+<p>Reescribiendo la probabilidad:</p>
+<p><span class="math display">\[
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) \geq 0.90
+\]</span></p>
+<p>La media muestral <span class="math inline">\(\bar{X}\)</span> sigue una distribución normal con media <span class="math inline">\(\mu\)</span> y desviación estándar <span class="math inline">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\)</span>. Esto nos permite transformar la probabilidad a una escala estándar:</p>
+<p><span class="math display">\[
+P(\mu - 1 \leq \bar{X} \leq \mu + 1) = P\left(-\frac{1}{\sigma_{\bar{X}}} \leq Z \leq \frac{1}{\sigma_{\bar{X}}}\right)
+\]</span></p>
+<p>Donde <span class="math inline">\(Z\)</span> es la variable normal “estándar”, <span class="math inline">\(N(0,1)\)</span>.. Sustituyendo <span class="math inline">\(\sigma_{\bar{X}} = \frac{4}{\sqrt{n}}\)</span>, la probabilidad se convierte en:</p>
+<p><span class="math display">\[
+P\left(-\frac{1 \cdot \sqrt{n}}{4} \leq Z \leq \frac{1 \cdot \sqrt{n}}{4}\right) \geq 0.90
+\]</span></p>
+<p>Sea <span class="math inline">\(z^*\)</span> el valor crítico de la distribución normal estándar tal que <span class="math inline">\(P(-z^* \leq Z \leq z^*) = 0.90\)</span>. Esto implica que <span class="math inline">\(z^* = F_Z^{-1}(0.95)\)</span>, ya que 90% de la probabilidad está centrada simétricamente, dejando 5% en cada cola.</p>
+<p>El intervalo estándar nos lleva a:</p>
+<p><span class="math display">\[
+\frac{\sqrt{n}}{4} = z^*
+\]</span></p>
+<p>Resolviendo para <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[
+n = (4z^*)^2
+\]</span></p>
+<p>Usaremos R para calcular <span class="math inline">\(z^*\)</span> y el tamaño de la muestra.</p>
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Cálculo de z* y tamaño de muestra</span></span>
+<span><span class="va">z_star</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.95</span><span class="op">)</span> <span class="co"># Valor crítico para 90% de probabilidad centrada</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">4</span> <span class="op">*</span> <span class="va">z_star</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span>
+<span><span class="va">z_star</span></span></code></pre></div>
+<pre><code>## [1] 1.644854</code></pre>
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">n</span></span></code></pre></div>
+<pre><code>## [1] 43.2887</code></pre>
+</div>
+<div id="resultado-2" class="section level3" number="19.2.2">
+<h3>
+<span class="header-section-number">19.2.2</span> Resultado<a class="anchor" aria-label="anchor" href="#resultado-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>El valor crítico <span class="math inline">\(z^*\)</span> es aproximadamente:</p>
+<p><span class="math display">\[
+z^* \approx 1.645
+\]</span></p>
+<p>Sustituyendo en la fórmula para <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[
+n = (4 \cdot 1.645)^2 = 43.29
+\]</span></p>
+<p>Como el tamaño de muestra debe ser un número entero, redondeamos hacia arriba:</p>
+<p><span class="math display">\[
+n = 44
+\]</span></p>
+</div>
+<div id="interpretación-del-resultado" class="section level3" number="19.2.3">
+<h3>
+<span class="header-section-number">19.2.3</span> Interpretación del resultado<a class="anchor" aria-label="anchor" href="#interpretaci%C3%B3n-del-resultado"><i class="fas fa-link"></i></a>
+</h3>
+<p>El guardabosque debe medir al menos <strong>44 árboles</strong> para asegurarse de que la media muestral esté a no más de 1 pulgada cuadrada de la media poblacional con una probabilidad de al menos el 90%.</p>
+<p>Obervese que, intuitivamente tiene sentido: Con 9 árboles y una diferencia de 1.5 pulgadas cuadradas la probabilidad era inferior a 0.9. Si se desea una probabilidad más alta y un error inferior, razonablemente, necesitaremos una muestra mayor.</p>
+</div>
+</div>
+<div id="ejercicio-3-1" class="section level2" number="19.3">
+<h2>
+<span class="header-section-number">19.3</span> Ejercicio 3<a class="anchor" aria-label="anchor" href="#ejercicio-3-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W_M 7.13] -->
+<p>La Agencia de Protección Ambiental se ocupa del problema de establecer criterios para las cantidades de sustancias químicas tóxicas permitidas en lagos y ríos de agua dulce.</p>
+<p>Una medida común de toxicidad para cualquier contaminante es la concentración de éste que mataría a la mitad de la especie de prueba en un tiempo determinado (por lo general 96 horas para especies de peces).</p>
+<p>Esta medida se denomina CL50 (concentración letal que mata 50% de la especie de prueba). En muchos estudios, los valores contenidos en el logaritmo natural de mediciones del CL50 están distribuidos normalmente y, en consecuencia, el análisis está basado en datos del <span class="math inline">\(\ln(CL50)\)</span>.</p>
+<p>Estudios de los efectos del cobre en cierta especie de peces (por ejemplo la especie A) muestran que la varianza de mediciones de <span class="math inline">\(\ln(CL50)\)</span> es alrededor de 0.4 con mediciones de concentración en miligramos por litro.</p>
+<p>Si han de completarse <span class="math inline">\(n=10\)</span> estudios sobre el CL50 para cobre, encuentre la probabilidad de que la media muestral de <span class="math inline">\(\ln(CL50)\)</span> difiera de la verdadera media poblacional en no más de 0.5.</p>
+<div id="solución-8" class="section level3" number="19.3.1">
+<h3>
+<span class="header-section-number">19.3.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-8"><i class="fas fa-link"></i></a>
+</h3>
+<p>El problema plantea una distribución normal para el logaritmo natural de las mediciones de CL50 con una varianza poblacional conocida (<span class="math inline">\(\sigma^2 = 0.4\)</span>) y un tamaño muestral de <span class="math inline">\(n=10\)</span>. El objetivo es encontrar la probabilidad de que la media muestral <span class="math inline">\(\bar{X}\)</span> difiera de la verdadera media poblacional <span class="math inline">\(\mu\)</span> en no más de 0.5, es decir:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 0.5)
+\]</span></p>
+<div id="propiedades-de-la-media-muestral" class="section level4" number="19.3.1.1">
+<h4>
+<span class="header-section-number">19.3.1.1</span> Propiedades de la media muestral<a class="anchor" aria-label="anchor" href="#propiedades-de-la-media-muestral"><i class="fas fa-link"></i></a>
+</h4>
+<p>Dado que <span class="math inline">\(\ln(CL50)\)</span> sigue una distribución normal, la media muestral <span class="math inline">\(\bar{X}\)</span> también se distribuye normalmente con:</p>
+<ul>
+<li>Media: <span class="math inline">\(\mu\)</span>
+</li>
+<li>Varianza: <span class="math inline">\(\sigma^2 / n\)</span>
+</li>
+</ul>
+<p>Por tanto, la desviación estándar de la media muestral es:</p>
+<p><span class="math display">\[
+\sigma_{\bar{X}} = \sqrt{\frac{\sigma^2}{n}} = \sqrt{\frac{0.4}{10}}
+\]</span></p>
+</div>
+<div id="normalización-de-la-variable-aleatoria" class="section level4" number="19.3.1.2">
+<h4>
+<span class="header-section-number">19.3.1.2</span> Normalización de la variable aleatoria<a class="anchor" aria-label="anchor" href="#normalizaci%C3%B3n-de-la-variable-aleatoria"><i class="fas fa-link"></i></a>
+</h4>
+<p>Queremos calcular la probabilidad <span class="math inline">\(P(|\bar{X} - \mu| \leq 0.5)\)</span>. Esto se puede expresar como:</p>
+<p><span class="math display">\[
+P(-0.5 \leq \bar{X} - \mu \leq 0.5)
+\]</span></p>
+<p>Dividimos por la desviación estándar <span class="math inline">\(\sigma_{\bar{X}}\)</span> para normalizar:</p>
+<p><span class="math display">\[
+P\left(-\frac{0.5}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.5}{\sigma_{\bar{X}}}\right)
+\]</span></p>
+<p>donde <span class="math inline">\(Z\)</span> es una variable aleatoria normal estándar.</p>
+</div>
+<div id="cálculo-numérico" class="section level4" number="19.3.1.3">
+<h4>
+<span class="header-section-number">19.3.1.3</span> Cálculo numérico<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-num%C3%A9rico"><i class="fas fa-link"></i></a>
+</h4>
+<p>A continuación, calculamos <span class="math inline">\(\sigma_{\bar{X}}\)</span> y la probabilidad utilizando R.</p>
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="va">sigma2</span> <span class="op">&lt;-</span> <span class="fl">0.4</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">sigma_barX</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">sigma2</span> <span class="op">/</span> <span class="va">n</span><span class="op">)</span></span>
+<span><span class="va">threshold</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
+<span></span>
+<span><span class="co"># Límites en la escala normal estándar</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="va">threshold</span> <span class="op">/</span> <span class="va">sigma_barX</span></span>
+<span></span>
+<span><span class="co"># Probabilidad</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="op">-</span><span class="va">z</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<pre><code>## [1] 0.9875807</code></pre>
+</div>
+<div id="interpretación-del-resultado-1" class="section level4" number="19.3.1.4">
+<h4>
+<span class="header-section-number">19.3.1.4</span> Interpretación del resultado<a class="anchor" aria-label="anchor" href="#interpretaci%C3%B3n-del-resultado-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>El resultado de <span class="math inline">\(p\)</span> nos da la probabilidad de que la media muestral difiera de la verdadera media poblacional en no más de 0.5.</p>
+</div>
+</div>
+<div id="resultado-final" class="section level3" number="19.3.2">
+<h3>
+<span class="header-section-number">19.3.2</span> Resultado final<a class="anchor" aria-label="anchor" href="#resultado-final"><i class="fas fa-link"></i></a>
+</h3>
+<p>El valor calculado es aproximadamente:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 0.5) = 0.9875807
+\]</span></p>
+<p>Esto significa que hay un <strong>99% de probabilidad</strong> de que la media muestral se encuentre dentro de un rango de 0.5 alrededor de la verdadera media poblacional.</p>
+</div>
+</div>
+<div id="ejercicio-5-1" class="section level2" number="19.4">
+<h2>
+<span class="header-section-number">19.4</span> Ejercicio 5<a class="anchor" aria-label="anchor" href="#ejercicio-5-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W_M 7.15] -->
+<p>Si en el Ejercicio anterior deseamos que la media muestral difiera de la media poblacional en no más de 0.5 con probabilidad .95 , ¿cuántas pruebas deben realizarse?</p>
+<div id="solución-9" class="section level3" number="19.4.1">
+<h3>
+<span class="header-section-number">19.4.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-9"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este caso, se desea determinar el tamaño muestral <span class="math inline">\(n\)</span> necesario para que la media muestral <span class="math inline">\(\bar{X}\)</span> difiera de la media poblacional <span class="math inline">\(\mu\)</span> en no más de 0.5 con una probabilidad de al menos 0.95, es decir:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 0.5) = 0.95
+\]</span>
+que, es la misma pregunta que la del ejercicio anterior.</p>
+<div id="condición-para-la-probabilidad" class="section level4" number="19.4.1.1">
+<h4>
+<span class="header-section-number">19.4.1.1</span> Condición para la probabilidad<a class="anchor" aria-label="anchor" href="#condici%C3%B3n-para-la-probabilidad"><i class="fas fa-link"></i></a>
+</h4>
+<p>Dado que la distancia es la misma (0.5) la única forma de que cambie la probabilidad es que se modifique el valor de <span class="math inline">\(\sigma_{\bar{X}}\)</span>, lo que sólo es posible cambiando el valor de <span class="math inline">\(n\)</span>.</p>
+<p>Es decir, nos preguntan para que valor de <span class="math inline">\(n\)</span> se verificará que:</p>
+<p><span class="math display">\[
+P\left(-\frac{0.5}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.5}{\sigma_{\bar{X}}}\right) = \\ = P\left(-\frac{0.5}{\sigma\sqrt{n}} \leq Z \leq \frac{0.5}{\sigma/\sqrt{n}}\right)  = 0.95
+\]</span></p>
+<p>Dado que <span class="math inline">\(Z\)</span> sigue una distribución normal estándar, la probabilidad acumulada de 0.95 implica que los límites se encuentran en los percentiles 2.5% y 97.5%. Esto se traduce en un valor crítico de:</p>
+<p><span class="math display">\[
+z = 1.96
+\]</span></p>
+</div>
+<div id="relación-entre-n-z-y-sigma_barx" class="section level4" number="19.4.1.2">
+<h4>
+<span class="header-section-number">19.4.1.2</span> Relación entre <span class="math inline">\(n\)</span>, <span class="math inline">\(z\)</span>, y <span class="math inline">\(\sigma_{\bar{X}}\)</span><a class="anchor" aria-label="anchor" href="#relaci%C3%B3n-entre-n-z-y-sigma_barx"><i class="fas fa-link"></i></a>
+</h4>
+<p>La desviación estándar de la media muestral es:</p>
+<p><span class="math display">\[
+\sigma_{\bar{X}} = \sqrt{\frac{\sigma^2}{n}}
+\]</span></p>
+<p>Reemplazando en la desigualdad <span class="math inline">\(0.5 / \sigma_{\bar{X}} = z\)</span>, tenemos:</p>
+<p><span class="math display">\[
+\frac{0.5}{\sqrt{\frac{\sigma^2}{n}}} = z
+\]</span></p>
+<p>Elevamos al cuadrado ambos lados para despejar <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[
+n = \frac{\sigma^2 z^2}{0.5^2}
+\]</span></p>
+</div>
+<div id="sustitución-de-valores-conocidos" class="section level4" number="19.4.1.3">
+<h4>
+<span class="header-section-number">19.4.1.3</span> Sustitución de valores conocidos<a class="anchor" aria-label="anchor" href="#sustituci%C3%B3n-de-valores-conocidos"><i class="fas fa-link"></i></a>
+</h4>
+<p>Utilizamos <span class="math inline">\(\sigma^2 = 0.4\)</span> y <span class="math inline">\(z = 1.96\)</span>. Realizamos los cálculos en R para obtener el tamaño muestral mínimo.</p>
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="va">sigma2</span> <span class="op">&lt;-</span> <span class="fl">0.4</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fl">1.96</span></span>
+<span><span class="va">threshold</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
+<span></span>
+<span><span class="co"># Cálculo de n</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sigma2</span> <span class="op">*</span> <span class="va">z</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">/</span> <span class="va">threshold</span><span class="op">^</span><span class="fl">2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="co"># Tamaño muestral mínimo entero</span></span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+</div>
+<div id="interpretación-del-resultado-2" class="section level4" number="19.4.1.4">
+<h4>
+<span class="header-section-number">19.4.1.4</span> Interpretación del resultado<a class="anchor" aria-label="anchor" href="#interpretaci%C3%B3n-del-resultado-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>El valor calculado de <span class="math inline">\(n\)</span> indica que deben realizarse al menos <strong>7 estudios</strong> para garantizar que la media muestral difiera de la media poblacional en no más de 0.5 con una probabilidad de, como mínimo, 0.95.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-6-1" class="section level2" number="19.5">
+<h2>
+<span class="header-section-number">19.5</span> Ejercicio 6<a class="anchor" aria-label="anchor" href="#ejercicio-6-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Suponga que <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{m}\)</span> y <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> son muestras aleatorias independientes, con las variables <span class="math inline">\(X_{i}\)</span> distribuidas normalmente con media <span class="math inline">\(\mu_{1} \mathrm{y}\)</span> varianza <span class="math inline">\(\sigma_{1}^{2} \mathrm{y}\)</span> las variables <span class="math inline">\(Y_{i}\)</span> distribuidas normalmente con media <span class="math inline">\(\mu_{2}\)</span> y varianza <span class="math inline">\(\sigma_{2}^{2}\)</span>. La diferencia entre las medias muestrales, <span class="math inline">\(\bar{X}-\bar{Y}\)</span>, es entonces una combinación lineal de <span class="math inline">\(m+n\)</span> variables aleatorias distribuidas normalmente y, por el las propiedades de las distribuciones normales, tiene una distribución normal.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Encuentre <span class="math inline">\(E(\bar{X}-\bar{Y})\)</span>.</li>
+<li>Encuentre <span class="math inline">\(V(\bar{X}-\bar{Y})\)</span>.</li>
+<li>Suponga que <span class="math inline">\(\sigma_{1}^{2}=2, \sigma_{2}^{2}=2.5\)</span> y <span class="math inline">\(m=n\)</span>. Encuentre los tamaños muestrales para que <span class="math inline">\((\bar{X}-\bar{Y})\)</span> se encuentre a no más de 1 unidad de <span class="math inline">\(\left(\mu_{1}-\mu_{2}\right)\)</span> con probabilidad .95 .</li>
+</ol>
+<div id="solución-10" class="section level3" number="19.5.1">
+<h3>
+<span class="header-section-number">19.5.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-10"><i class="fas fa-link"></i></a>
+</h3>
+<p>Tenemos dos muestras aleatorias independientes de tamaños <span class="math inline">\(m\)</span> y <span class="math inline">\(n\)</span>, donde <span class="math inline">\(X_i\)</span> se distribuyen como <span class="math inline">\(N(\mu_1, \sigma_1^2)\)</span> y <span class="math inline">\(Y_i\)</span> se distribuyen como <span class="math inline">\(N(\mu_2, \sigma_2^2)\)</span>. La variable <span class="math inline">\(\bar{X} - \bar{Y}\)</span> es una <em>combinación lineal de variables normales</em> y, por tanto, también sigue una distribución normal.</p>
+<div id="ebarx---bary" class="section level4" number="19.5.1.1">
+<h4>
+<span class="header-section-number">19.5.1.1</span> <span class="math inline">\(E(\bar{X} - \bar{Y})\)</span><a class="anchor" aria-label="anchor" href="#ebarx---bary"><i class="fas fa-link"></i></a>
+</h4>
+<p>Por la linealidad de la esperanza, tenemos:</p>
+<p><span class="math display">\[
+E(\bar{X} - \bar{Y}) = E(\bar{X}) - E(\bar{Y})
+\]</span></p>
+<p>Las medias muestrales <span class="math inline">\(\bar{X}\)</span> y <span class="math inline">\(\bar{Y}\)</span> son estimadores insesgados de sus respectivas medias poblacionales <span class="math inline">\(\mu_1\)</span> y <span class="math inline">\(\mu_2\)</span>. Por lo tanto:</p>
+<p><span class="math display">\[
+E(\bar{X}) = \mu_1, \quad E(\bar{Y}) = \mu_2
+\]</span></p>
+<p>Sustituyendo, obtenemos:</p>
+<p><span class="math display">\[
+E(\bar{X} - \bar{Y}) = \mu_1 - \mu_2
+\]</span></p>
+</div>
+<div id="vbarx---bary" class="section level4" number="19.5.1.2">
+<h4>
+<span class="header-section-number">19.5.1.2</span> <span class="math inline">\(V(\bar{X} - \bar{Y})\)</span><a class="anchor" aria-label="anchor" href="#vbarx---bary"><i class="fas fa-link"></i></a>
+</h4>
+<p>La varianza de la suma o la resta de dos variables aleatorias independientes es la suma de sus respectivas varianzas.</p>
+<p>Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes entonces también lo son <span class="math inline">\(\bar{X}\)</span> y <span class="math inline">\(\bar{Y}\)</span> <em>(piense como lo justificaría!)</em> por lo que se tendré:</p>
+<p><span class="math display">\[
+V(\bar{X} - \bar{Y}) = V(\bar{X}) + V(\bar{Y})
+\]</span></p>
+<p>Las varianzas muestrales son:</p>
+<p><span class="math display">\[
+V(\bar{X}) = \frac{\sigma_1^2}{m}, \quad V(\bar{Y}) = \frac{\sigma_2^2}{n}
+\]</span></p>
+<p>Sustituyendo, obtenemos:</p>
+<p><span class="math display">\[
+V(\bar{X} - \bar{Y}) = \frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}
+\]</span></p>
+</div>
+<div id="cálculo-de-los-tamaños-muestrales" class="section level4" number="19.5.1.3">
+<h4>
+<span class="header-section-number">19.5.1.3</span> Cálculo de los tamaños muestrales<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-de-los-tama%C3%B1os-muestrales"><i class="fas fa-link"></i></a>
+</h4>
+<p>Queremos que <span class="math inline">\(\bar{X} - \bar{Y}\)</span> se encuentre a no más de 1 unidad de <span class="math inline">\(\mu_1 - \mu_2\)</span> con una probabilidad de 0.95:</p>
+<p><span class="math display">\[
+P\left(\left|\bar{X} - \bar{Y} - (\mu_1 - \mu_2)\right| \leq 1\right) = 0.95
+\]</span></p>
+<p>Esto se puede reescribir como:</p>
+<p><span class="math display">\[
+P\left(-1 \leq \bar{X} - \bar{Y} - (\mu_1 - \mu_2) \leq 1\right) = 0.95
+\]</span></p>
+<p>Estandarizamos usando la desviación estándar <span class="math inline">\(\sigma_{\bar{X} - \bar{Y}} = \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}\)</span>, lo que nos da:</p>
+<p><span class="math display">\[
+P\left(-\frac{1}{\sigma_{\bar{X} - \bar{Y}}} \leq Z \leq \frac{1}{\sigma_{\bar{X} - \bar{Y}}}\right) = 0.95
+\]</span></p>
+<p>Sabemos que para una distribución normal estándar, un intervalo de probabilidad de 0.95 corresponde a <span class="math inline">\(z_{0.95} = 1.96\)</span>. Por tanto, tenemos:</p>
+<p><span class="math display">\[
+\frac{1}{\sigma_{\bar{X} - \bar{Y}}} = z_{0.95} \quad \text{o bien} \quad \sigma_{\bar{X} - \bar{Y}} = \frac{1}{z_{0.95}}
+\]</span></p>
+<p>Sustituyendo <span class="math inline">\(\sigma_{\bar{X} - \bar{Y}}\)</span> con su expresión:</p>
+<p><span class="math display">\[
+\sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}} = \frac{1}{z_{0.95}}
+\]</span></p>
+<p>Con <span class="math inline">\(n = m\)</span> y los valores dados <span class="math inline">\(\sigma_1^2 = 2\)</span> y <span class="math inline">\(\sigma_2^2 = 2.5\)</span>, la ecuación se convierte en:</p>
+<p><span class="math display">\[
+\sqrt{\frac{2}{n} + \frac{2.5}{n}} = \frac{1}{1.96}
+\]</span></p>
+<p>Simplificamos:</p>
+<p><span class="math display">\[
+\sqrt{\frac{4.5}{n}} = \frac{1}{1.96}
+\]</span></p>
+<p>Elevamos al cuadrado ambos lados:</p>
+<p><span class="math display">\[
+\frac{4.5}{n} = \frac{1}{1.96^2}
+\]</span></p>
+<p>Resolvemos para <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[
+n = \frac{4.5 \cdot 1.96^2}{1}
+\]</span></p>
+<p>Realizamos el cálculo en R para obtener el tamaño muestral mínimo.</p>
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="va">sigma1_sq</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span><span class="va">sigma2_sq</span> <span class="op">&lt;-</span> <span class="fl">2.5</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fl">1.96</span></span>
+<span></span>
+<span><span class="co"># Cálculo de n</span></span>
+<span><span class="va">numerator</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sigma1_sq</span> <span class="op">+</span> <span class="va">sigma2_sq</span><span class="op">)</span></span>
+<span><span class="va">denominator</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="va">z</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="va">numerator</span> <span class="op">/</span> <span class="va">denominator</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="co"># Tamaño muestral mínimo entero</span></span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+</div>
+<div id="resultado-final-1" class="section level4" number="19.5.1.4">
+<h4>
+<span class="header-section-number">19.5.1.4</span> Resultado final<a class="anchor" aria-label="anchor" href="#resultado-final-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>El tamaño muestral necesario para que <span class="math inline">\(\bar{X} - \bar{Y}\)</span> esté a no más de 1 unidad de <span class="math inline">\(\mu_1 - \mu_2\)</span> con una probabilidad de 0.95 es:</p>
+<p><span class="math display">\[
+n = 18
+\]</span></p>
+<p>Esto significa que se requieren al menos <strong>18 observaciones en cada muestra</strong> para satisfacer el criterio.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-7-1" class="section level2" number="19.6">
+<h2>
+<span class="header-section-number">19.6</span> Ejercicio 7<a class="anchor" aria-label="anchor" href="#ejercicio-7-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Refiriéndose al Ejercicio 3, suponga que los efectos del cobre en una segunda especie (por ejemplo la especie B) de peces muestran la varianza de mediciones de <span class="math inline">\(\ln(CL50)\)</span> que son de .8 .</p>
+<p>Si las medias poblacionales del <span class="math inline">\(\ln(CL50)\)</span> para las dos especies son iguales, encuentre la probabilidad de que, con muestras aleatorias de diez mediciones de cada especie, la media muestral para la especie A sea mayor a la media muestral para la especie B en al menos 1 unidad.</p>
+</div>
+<div id="ejercicio-8-1" class="section level2" number="19.7">
+<h2>
+<span class="header-section-number">19.7</span> Ejercicio 8<a class="anchor" aria-label="anchor" href="#ejercicio-8-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>La acidez de los suelos se mide mediante una cantidad llamada pH , que varía de 0 (acidez alta) a 14 (alcalinidad alta). Un edafólogo desea calcular el promedio de pH para un campo de grandes dimensiones al seleccionar aleatoriamente <span class="math inline">\(n\)</span> muestras de núcleos y medir el pH de cada muestra.</p>
+<p>Aun cuando la desviación estándar poblacional de mediciones de pH no se conoce, la experiencia del pasado indica que casi todos los suelos tienen un valor de pH de entre 5 y 8. Si el científico selecciona <span class="math inline">\(n=40\)</span> muestras, encuentre la probabilidad aproximada de que la media muestral de las 40 mediciones de pH esté a .2 unidades del verdadero promedio de pH para el campo.</p>
+<p><em>INDICACIÓN: El rango de un conjunto de mediciones es la diferencia entre los valores máximo y mínimo. Una regla empírica sugiere que la desviación estándar de un conjunto de mediciones puede ser aproximada en un cuarto de la amplitud (esto es, amplitud/4). Esto puede justifcarse si se considera que, de forma aproximada:<span class="math inline">\(\mbox{Rango} \simeq 4\sigma\)</span>, de donde con el mismo grado de aproximación, <span class="math inline">\(\sigma \simeq \mbox{Rango} / 4\)</span></em></p>
+<div id="solución-11" class="section level3" number="19.7.1">
+<h3>
+<span class="header-section-number">19.7.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-11"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos determinar la probabilidad de que la media muestral <span class="math inline">\(\bar{X}\)</span> de <span class="math inline">\(n = 40\)</span> mediciones de pH esté a 0.2 unidades del verdadero promedio poblacional <span class="math inline">\(\mu\)</span>.</p>
+<p>El rango esperado de valores de pH (de 5 a 8) nos permite estimar la desviación estándar poblacional mediante la regla empírica de la indicación. Una vez hecho esto utilizaremos una aproximación normal para calcular la probabilidad.</p>
+<div id="aproximación-de-la-desviación-estándar-poblacional" class="section level4" number="19.7.1.1">
+<h4>
+<span class="header-section-number">19.7.1.1</span> Aproximación de la desviación estándar poblacional<a class="anchor" aria-label="anchor" href="#aproximaci%C3%B3n-de-la-desviaci%C3%B3n-est%C3%A1ndar-poblacional"><i class="fas fa-link"></i></a>
+</h4>
+<p>La desviación estándar aproximada <span class="math inline">\(\sigma\)</span> de una distribución es proporcional al rango dividido por 4.</p>
+<p>Dado que los valores de pH se encuentran típicamente entre 5 y 8, estimamos:</p>
+<p><span class="math display">\[
+\sigma \approx \frac{\text{rango}}{4} = \frac{8 - 5}{4} = 0.75
+\]</span></p>
+<p>La media muestral <span class="math inline">\(\bar{X}\)</span> se distribuye normalmente con:</p>
+<ul>
+<li>Media: <span class="math inline">\(\mu\)</span>
+</li>
+<li>Desviación estándar:</li>
+</ul>
+<p><span class="math display">\[
+\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}} = \frac{0.75}{\sqrt{40}}
+\]</span></p>
+</div>
+<div id="cálculo-de-la-probabilidad-1" class="section level4" number="19.7.1.2">
+<h4>
+<span class="header-section-number">19.7.1.2</span> Cálculo de la Probabilidad<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-de-la-probabilidad-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Queremos calcular:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 0.2)
+\]</span></p>
+<p>Esto es equivalente a:</p>
+<p><span class="math display">\[
+P\left(-0.2 \leq \bar{X} - \mu \leq 0.2\right)
+\]</span></p>
+<p>Normalizando con <span class="math inline">\(\sigma_{\bar{X}}\)</span>, se transforma en:</p>
+<p><span class="math display">\[
+P\left(-\frac{0.2}{\sigma_{\bar{X}}} \leq Z \leq \frac{0.2}{\sigma_{\bar{X}}}\right)
+\]</span></p>
+<p>donde <span class="math inline">\(Z\)</span> es una variable normal estándar. Sustituyendo <span class="math inline">\(\sigma_{\bar{X}}\)</span>, calculamos los valores críticos y la probabilidad asociada usando R.</p>
+</div>
+<div id="cálculo-numérico-en-r" class="section level4" number="19.7.1.3">
+<h4>
+<span class="header-section-number">19.7.1.3</span> Cálculo numérico en R<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-num%C3%A9rico-en-r"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fl">0.75</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">40</span></span>
+<span><span class="va">threshold</span> <span class="op">&lt;-</span> <span class="fl">0.2</span></span>
+<span></span>
+<span><span class="co"># Desviación estándar de la media muestral</span></span>
+<span><span class="va">sigma_barX</span> <span class="op">&lt;-</span> <span class="va">sigma</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Valores críticos</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="va">threshold</span> <span class="op">/</span> <span class="va">sigma_barX</span></span>
+<span></span>
+<span><span class="co"># Probabilidad</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="op">-</span><span class="va">z</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<pre><code>## [1] 0.9083097</code></pre>
+</div>
+<div id="resultado-final-2" class="section level4" number="19.7.1.4">
+<h4>
+<span class="header-section-number">19.7.1.4</span> Resultado final<a class="anchor" aria-label="anchor" href="#resultado-final-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>El valor de la probabilidad calculada es aproximadamente:</p>
+<p><span class="math display">\[
+P(|\bar{X} - \mu| \leq 0.2) \approx 0.9083097
+\]</span></p>
+<p>Esto significa que existe una probabilidad aproximada de <strong>0.908</strong> de que la media muestral esté a 0.2 unidades del verdadero promedio poblacional de pH.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-9" class="section level2" number="19.8">
+<h2>
+<span class="header-section-number">19.8</span> Ejercicio 9<a class="anchor" aria-label="anchor" href="#ejercicio-9"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W-M 7.68] -->
+<p>En 1998, el estado de Florida resultó afectado por cuatro huracanes de gran intensidad. En 2005 un estudio indicó que en 2004, <span class="math inline">\(48 \%\)</span> de las familias en Florida no tenían planes para escapar de un huracán que se aproximaba.</p>
+<p>Suponga que una muestra aleatoria reciente de 50 familias se seleccionó en Gainesville y que los miembros de 29 de las familias indicaron que tenían un plan de escape en caso de huracán.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Si los porcentajes estatales de 2004 todavía fueran válidos para las familias recientes de Gainesville. Use R para calcular las probabilidades siguiendo una distribución binomial y también una aproximación Normal a la Binomial para determinar los valores exacto y aproximado de la probabilidad que 29 o más de las familias muestreadas tengan un plan de escape para el huracán.</p></li>
+<li><p>¿La aproximación normal es cercana a la probabilidad binomial exacta? Explique por qué.</p></li>
+</ol>
+</div>
+<div id="ejercicio-10" class="section level2" number="19.9">
+<h2>
+<span class="header-section-number">19.9</span> Ejercicio 10<a class="anchor" aria-label="anchor" href="#ejercicio-10"><i class="fas fa-link"></i></a>
+</h2>
+<p>Para verificar la abundancia relativa de cierta especie de peces en dos lagos, se toman <span class="math inline">\(n=50\)</span> observaciones relacionadas con los resultados de la captura en cada uno de los lagos. Para cada observación, el experimentador sólo registra si la especie deseada estaba presente en la trampa.</p>
+<p>La experiencia del pasado ha demostrado que esta especie aparece en trampas del lago A aproximadamente <span class="math inline">\(10 \%\)</span> del tiempo y en trampas del lago B, alrededor de <span class="math inline">\(20 \%\)</span> del tiempo. Use estos resultados para aproximar la probabilidad de que la diferencia entre las proporciones muestrales sea de no más de .1 de la diferencia entre las proporciones reales.</p>
+<div id="solución-12" class="section level3" number="19.9.1">
+<h3>
+<span class="header-section-number">19.9.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-12"><i class="fas fa-link"></i></a>
+</h3>
+<p>Se toman <span class="math inline">\(n = 50\)</span> observaciones en dos lagos, y el interés está en calcular la probabilidad de que la diferencia entre las proporciones muestrales de presencia de una especie en las trampas sea de no más de 0.1 de la diferencia entre las proporciones reales. La proporción de presencia en el lago A es <span class="math inline">\(p_1 = 0.1\)</span> y en el lago B es <span class="math inline">\(p_2 = 0.2\)</span>.</p>
+<p>para resolver el problema nos basaremos en la normalidad aproximada de la diferencia entre proporciones muestrales de proporciones que se deriva del Teorema Central del Límite (TCL).</p>
+<div id="propiedades-de-las-proporciones-muestrales-y-sus-diferencias." class="section level4" number="19.9.1.1">
+<h4>
+<span class="header-section-number">19.9.1.1</span> Propiedades de las proporciones muestrales y sus diferencias.<a class="anchor" aria-label="anchor" href="#propiedades-de-las-proporciones-muestrales-y-sus-diferencias."><i class="fas fa-link"></i></a>
+</h4>
+<p>Sean <span class="math inline">\(p_1\)</span> y <span class="math inline">\(p_2\)</span> las proporciones reales en los lagos A y B, respectivamente, y <span class="math inline">\(n_1 = n_2 = 50\)</span> el tamaño muestral en cada caso. Las proporciones muestrales <span class="math inline">\(\hat{p}_1 = Y_1 / n_1\)</span> y <span class="math inline">\(\hat{p}_2 = Y_2 / n_2\)</span> tienen las siguientes propiedades:</p>
+<ul>
+<li><p>Media de <span class="math inline">\(\hat{p}_1 - \hat{p}_2\)</span>:
+<span class="math display">\[
+E(\hat{p}_1 - \hat{p}_2) = p_1 - p_2
+\]</span></p></li>
+<li><p>Varianza de <span class="math inline">\(\hat{p}_1 - \hat{p}_2\)</span>:
+<span class="math display">\[
+V(\hat{p}_1 - \hat{p}_2) = \frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)}{n_2}
+\]</span></p></li>
+</ul>
+<p>Dado que las muestras son grandes, el TCL nos permite aproximar la distribución de <span class="math inline">\(\hat{p}_1 - \hat{p}_2\)</span> por una distribución normal con:</p>
+<ul>
+<li>Media: <span class="math inline">\(p_1 - p_2\)</span>
+</li>
+<li>Desviación estándar:
+<span class="math display">\[
+\sigma_{\hat{p}_1 - \hat{p}_2} = \sqrt{\frac{p_1(1 - p_1)}{n_1} + \frac{p_2(1 - p_2)}{n_2}}
+\]</span>
+</li>
+</ul>
+</div>
+<div id="cálculo-de-la-probabilidad-2" class="section level4" number="19.9.1.2">
+<h4>
+<span class="header-section-number">19.9.1.2</span> Cálculo de la probabilidad<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-de-la-probabilidad-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>Queremos calcular:</p>
+<p><span class="math display">\[
+P(|\hat{p}_1 - \hat{p}_2 - (p_1 - p_2)| \leq 0.1)
+\]</span></p>
+<p>Reescribimos como:</p>
+<p><span class="math display">\[
+P\left(-0.1 \leq \hat{p}_1 - \hat{p}_2 - (p_1 - p_2) \leq 0.1\right)
+\]</span></p>
+<p>Estandarizamos usando <span class="math inline">\(\sigma_{\hat{p}_1 - \hat{p}_2}\)</span> para obtener:</p>
+<p><span class="math display">\[
+P\left(-\frac{0.1}{\sigma_{\hat{p}_1 - \hat{p}_2}} \leq Z \leq \frac{0.1}{\sigma_{\hat{p}_1 - \hat{p}_2}}\right)
+\]</span></p>
+<p>donde <span class="math inline">\(Z\)</span> es una variable normal estándar.</p>
+</div>
+</div>
+<div id="cálculo-numérico-1" class="section level3" number="19.9.2">
+<h3>
+<span class="header-section-number">19.9.2</span> Cálculo numérico<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-num%C3%A9rico-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sustituimos los valores dados:</p>
+<ul>
+<li>
+<span class="math inline">\(p_1 = 0.1\)</span>, <span class="math inline">\(p_2 = 0.2\)</span>, <span class="math inline">\(n_1 = n_2 = 50\)</span>
+</li>
+</ul>
+<p>Calculamos la varianza y la probabilidad asociada en R:</p>
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fl">0.1</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fl">0.2</span></span>
+<span><span class="va">n1</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
+<span><span class="va">n2</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
+<span><span class="va">threshold</span> <span class="op">&lt;-</span> <span class="fl">0.1</span></span>
+<span></span>
+<span><span class="co"># Desviación estándar de la diferencia</span></span>
+<span><span class="va">sigma_diff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">(</span><span class="va">p1</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">p1</span><span class="op">)</span> <span class="op">/</span> <span class="va">n1</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="va">p2</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">p2</span><span class="op">)</span> <span class="op">/</span> <span class="va">n2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Valores críticos</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="va">threshold</span> <span class="op">/</span> <span class="va">sigma_diff</span></span>
+<span></span>
+<span><span class="co"># Probabilidad</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="op">-</span><span class="va">z</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<pre><code>## [1] 0.8427008</code></pre>
+</div>
+<div id="conclusión-3" class="section level3" number="19.9.3">
+<h3>
+<span class="header-section-number">19.9.3</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>La probabilidad de que la diferencia entre las proporciones muestrales esté dentro de 0.1 de la diferencia entre las proporciones reales es aproximadamente <strong>0.8427</strong>.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></div>
+<div class="next"><a href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-muestreo"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-1-1"><span class="header-section-number">19.1</span> Ejercicio 1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-6"><span class="header-section-number">19.1.1</span> Solución</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-2-1"><span class="header-section-number">19.2</span> Ejercicio 2</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-7"><span class="header-section-number">19.2.1</span> Solución</a></li>
+<li><a class="nav-link" href="#resultado-2"><span class="header-section-number">19.2.2</span> Resultado</a></li>
+<li><a class="nav-link" href="#interpretaci%C3%B3n-del-resultado"><span class="header-section-number">19.2.3</span> Interpretación del resultado</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-3-1"><span class="header-section-number">19.3</span> Ejercicio 3</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-8"><span class="header-section-number">19.3.1</span> Solución</a></li>
+<li><a class="nav-link" href="#resultado-final"><span class="header-section-number">19.3.2</span> Resultado final</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-5-1"><span class="header-section-number">19.4</span> Ejercicio 5</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-9"><span class="header-section-number">19.4.1</span> Solución</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-6-1"><span class="header-section-number">19.5</span> Ejercicio 6</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-10"><span class="header-section-number">19.5.1</span> Solución</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-7-1"><span class="header-section-number">19.6</span> Ejercicio 7</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-8-1"><span class="header-section-number">19.7</span> Ejercicio 8</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-11"><span class="header-section-number">19.7.1</span> Solución</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-9"><span class="header-section-number">19.8</span> Ejercicio 9</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-10"><span class="header-section-number">19.9</span> Ejercicio 10</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-12"><span class="header-section-number">19.9.1</span> Solución</a></li>
+<li><a class="nav-link" href="#c%C3%A1lculo-num%C3%A9rico-1"><span class="header-section-number">19.9.2</span> Cálculo numérico</a></li>
+<li><a class="nav-link" href="#conclusi%C3%B3n-3"><span class="header-section-number">19.9.3</span> Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>

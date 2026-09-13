@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 18 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 18 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 18 Distribuciones de probabilidad multidimensionales | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)   18.1 Ejercicio 1 Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios,...">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)   18.1 Ejercicio 1 Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios,...">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)   18.1 Ejercicio 1 Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios,...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="active" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-distribuciones-multivariantes" class="section level1" number="18">
+<h1>
+<span class="header-section-number">Capítulo 18</span> Distribuciones de probabilidad multidimensionales<a class="anchor" aria-label="anchor" href="#ex-distribuciones-multivariantes"><i class="fas fa-link"></i></a>
+</h1>
+<div id="ejercicio-1" class="section level2" number="18.1">
+<h2>
+<span class="header-section-number">18.1</span> Ejercicio 1<a class="anchor" aria-label="anchor" href="#ejercicio-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios, <span class="math inline">\(\mathrm{A}, \mathrm{B}\)</span> y C . Denote con <span class="math inline">\(Y_{1}\)</span> el número de estudios asignados al laboratorio A y con <span class="math inline">\(Y_{2}\)</span> el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0,1 o 2 estudios.
+a. Encuentre la función de probabilidad conjunta para <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span>.
+b. Encuentre <span class="math inline">\(F(1,0)\)</span>, es decir, la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.</p>
+<div id="parte-a-función-de-probabilidad-conjunta-para-y_1-y-y_2" class="section level3" number="18.1.1">
+<h3>
+<span class="header-section-number">18.1.1</span> Parte a: Función de probabilidad conjunta para <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span><a class="anchor" aria-label="anchor" href="#parte-a-funci%C3%B3n-de-probabilidad-conjunta-para-y_1-y-y_2"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este ejercicio, se nos indica que existen tres laboratorios (A, B y C) a los cuales se pueden asignar los estudios de forma aleatoria. Denotamos con <span class="math inline">\(Y_1\)</span> el número de estudios asignados al laboratorio A y con <span class="math inline">\(Y_2\)</span> el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir entre 0 y 2 estudios.</p>
+<p>Vamos a analizar el espacio muestral, <span class="math inline">\(S\)</span>, que representa las posibles combinaciones de asignación de estudios a los laboratorios. Los resultados posibles son:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="25%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+</colgroup>
+<thead><tr class="header">
+<th><span class="math inline">\(S\)</span></th>
+<th align="center">AA</th>
+<th align="center">AB</th>
+<th align="center">AC</th>
+<th align="center">BA</th>
+<th align="center">BB</th>
+<th align="center">BC</th>
+<th align="center">CA</th>
+<th align="center">CB</th>
+<th align="center">CC</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td><span class="math inline">\((y_1, y_2)\)</span></td>
+<td align="center">(2,0)</td>
+<td align="center">(1,1)</td>
+<td align="center">(1,0)</td>
+<td align="center">(1,1)</td>
+<td align="center">(0,2)</td>
+<td align="center">(1,0)</td>
+<td align="center">(1,0)</td>
+<td align="center">(0,1)</td>
+<td align="center">(0,0)</td>
+</tr></tbody>
+</table></div>
+<p>Cada punto muestral es igualmente probable, con una probabilidad de <span class="math inline">\(\frac{1}{9}\)</span>, ya que existen 9 combinaciones posibles.</p>
+<p>La función de probabilidad conjunta para <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span> queda entonces representada en la siguiente tabla:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th></th>
+<th><span class="math inline">\(y_1 = 0\)</span></th>
+<th><span class="math inline">\(y_1 = 1\)</span></th>
+<th><span class="math inline">\(y_1 = 2\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(y_2 = 0\)</span></td>
+<td><span class="math inline">\(\frac{1}{9}\)</span></td>
+<td><span class="math inline">\(\frac{2}{9}\)</span></td>
+<td><span class="math inline">\(\frac{1}{9}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(y_2 = 1\)</span></td>
+<td><span class="math inline">\(\frac{2}{9}\)</span></td>
+<td><span class="math inline">\(\frac{2}{9}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(y_2 = 2\)</span></td>
+<td><span class="math inline">\(\frac{1}{9}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="parte-b-cálculo-de-f10" class="section level3" number="18.1.2">
+<h3>
+<span class="header-section-number">18.1.2</span> Parte b: Cálculo de <span class="math inline">\(F(1,0)\)</span><a class="anchor" aria-label="anchor" href="#parte-b-c%C3%A1lculo-de-f10"><i class="fas fa-link"></i></a>
+</h3>
+<p>Nos piden encontrar la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno, es decir, <span class="math inline">\(F(1,0) = P(Y_1 \leq 1, Y_2 = 0)\)</span>.</p>
+<p>Para resolverlo, sumamos las probabilidades de los eventos en los cuales <span class="math inline">\(Y_1 \leq 1\)</span> y <span class="math inline">\(Y_2 = 0\)</span>, que son <span class="math inline">\((Y_1 = 0, Y_2 = 0)\)</span> y <span class="math inline">\((Y_1 = 1, Y_2 = 0)\)</span>:</p>
+<p><span class="math display">\[
+F(1,0) = P(Y_1 = 0, Y_2 = 0) + P(Y_1 = 1, Y_2 = 0)
+\]</span></p>
+<p>Sustituyendo con las probabilidades correspondientes de la tabla obtenemos:</p>
+<p><span class="math display">\[
+F(1,0) = \frac{1}{9} + \frac{2}{9} = \frac{3}{9} = \frac{1}{3}
+\]</span></p>
+</div>
+<div id="resumen" class="section level3" number="18.1.3">
+<h3>
+<span class="header-section-number">18.1.3</span> Resumen<a class="anchor" aria-label="anchor" href="#resumen"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>La función de probabilidad conjunta ha sido obtenida en función de todas las combinaciones posibles de asignación, considerando que cada una es igualmente probable.</li>
+<li>La probabilidad solicitada, <span class="math inline">\(F(1,0)\)</span>, es de <span class="math inline">\(\frac{1}{3}\)</span>, que representa la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.</li>
+</ol>
+</div>
+</div>
+<div id="ejercicio-2" class="section level2" number="18.2">
+<h2>
+<span class="header-section-number">18.2</span> Ejercicio 2<a class="anchor" aria-label="anchor" href="#ejercicio-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Tres monedas balanceadas se lanzan en forma independiente al aire. Una de las variables de interés es <span class="math inline">\(Y_{1}\)</span>, el número de caras. Denote con <span class="math inline">\(Y_{2}\)</span> la cantidad de dinero ganado en una apuesta colateral en la siguiente forma. Si la primera cara aparece en el primer tiro, usted gana 1€. Si la primera cara aparece en el tiro segundo o en el tercero gana 2€ o 3€, respectivamente. Si no aparece una cara, usted pierde 1€ (esto es, gana - 1€ ).</p>
+<ol style="list-style-type: decimal">
+<li>Encuentre la función de probabilidad conjunta para <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span>.</li>
+<li>¿Cuál es la probabilidad de que haya menos de tres caras y usted gane 1€ o menos? [Esto es, encuentre <span class="math inline">\(F(2,1)\)</span>.</li>
+</ol>
+<p><strong>Solución</strong></p>
+<div id="función-de-probabilidad-conjunta-para-y_1-y-y_2" class="section level3" number="18.2.1">
+<h3>
+<span class="header-section-number">18.2.1</span> 1. Función de probabilidad conjunta para <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span><a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-probabilidad-conjunta-para-y_1-y-y_2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Dado que se lanzan tres monedas balanceadas de manera independiente, cada lanzamiento puede resultar en cara (C) o cruz (+) con probabilidad <span class="math inline">\(0.5\)</span>.</p>
+<p>Listamos todas las posibles secuencias de resultados en los tres lanzamientos y calculamos los valores de <span class="math inline">\(Y_1\)</span> (número de caras obtenidas) y <span class="math inline">\(Y_2\)</span> (cantidad de dinero ganado) para cada caso.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Secuencia</th>
+<th>
+<span class="math inline">\(Y_1\)</span> (Número de Caras)</th>
+<th>
+<span class="math inline">\(Y_2\)</span> (Ganancia en €)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>CCC</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>CC+</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>C+C</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>C++</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>+CC</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>+C+</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>++C</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>+++</td>
+<td>0</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Para calcular la función de probabilidad conjunta <span class="math inline">\(P(Y_1 = y_1, Y_2 = y_2)\)</span>, obtenemos las probabilidades de cada combinación de <span class="math inline">\((Y_1, Y_2)\)</span> a partir de la cantidad de secuencias que cumplen con esos valores específicos.</p>
+<div id="probabilidad-de-cada-combinación-de-y_1-y_2" class="section level4" number="18.2.1.1">
+<h4>
+<span class="header-section-number">18.2.1.1</span> Probabilidad de cada combinación de <span class="math inline">\((Y_1, Y_2)\)</span>:<a class="anchor" aria-label="anchor" href="#probabilidad-de-cada-combinaci%C3%B3n-de-y_1-y_2"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>
+<span class="math inline">\(P(Y_1 = 3, Y_2 = 1) = \frac{1}{8}\)</span>, secuencia: CCC</li>
+<li>
+<span class="math inline">\(P(Y_1 = 2, Y_2 = 1) = \frac{2}{8}\)</span>, secuencias: CC+, C+C</li>
+<li>
+<span class="math inline">\(P(Y_1 = 2, Y_2 = 2) = \frac{1}{8}\)</span>, secuencia: +CC</li>
+<li>
+<span class="math inline">\(P(Y_1 = 1, Y_2 = 1) = \frac{1}{8}\)</span>, secuencia: C++</li>
+<li>
+<span class="math inline">\(P(Y_1 = 1, Y_2 = 2) = \frac{1}{8}\)</span>, secuencia: +C+</li>
+<li>
+<span class="math inline">\(P(Y_1 = 1, Y_2 = 3) = \frac{1}{8}\)</span>, secuencia: ++C</li>
+<li>
+<span class="math inline">\(P(Y_1 = 0, Y_2 = -1) = \frac{1}{8}\)</span>, secuencia: +++</li>
+</ul>
+<p>Con esto, la función de probabilidad conjunta <span class="math inline">\(P(Y_1 = y_1, Y_2 = y_2)\)</span> se define por:</p>
+<p><span class="math display">\[
+P(Y_1 = y_1, Y_2 = y_2) =
+\begin{cases}
+\frac{1}{8}, &amp; (y_1, y_2) = (3, 1), (2, 1), (2, 2), (1, 1), (1, 2), (1, 3), (0, -1) \\
+0, &amp; \text{en cualquier otro caso}
+\end{cases}
+\]</span></p>
+</div>
+</div>
+<div id="cálculo-de-f2-1" class="section level3" number="18.2.2">
+<h3>
+<span class="header-section-number">18.2.2</span> 2. Cálculo de <span class="math inline">\(F(2, 1)\)</span><a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-de-f2-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Buscamos <span class="math inline">\(F(2, 1) = P(Y_1 \leq 2, Y_2 \leq 1)\)</span>, es decir, la probabilidad de obtener menos de tres caras y ganar un máximo de 1€.</p>
+<p>Para calcular esta probabilidad, sumamos <span class="math inline">\(P(Y_1 = y_1, Y_2 = y_2)\)</span> para todos los pares <span class="math inline">\((y_1, y_2)\)</span> que cumplen <span class="math inline">\(Y_1 \leq 2\)</span> y <span class="math inline">\(Y_2 \leq 1\)</span>. De la tabla anterior, vemos que cumplen esta condición las siguientes combinaciones:</p>
+<ul>
+<li>
+<span class="math inline">\((Y_1 = 2, Y_2 = 1)\)</span> con probabilidad <span class="math inline">\(\frac{2}{8}\)</span>
+</li>
+<li>
+<span class="math inline">\((Y_1 = 1, Y_2 = 1)\)</span> con probabilidad <span class="math inline">\(\frac{1}{8}\)</span>
+</li>
+<li>
+<span class="math inline">\((Y_1 = 0, Y_2 = -1)\)</span> con probabilidad <span class="math inline">\(\frac{1}{8}\)</span>
+</li>
+</ul>
+<p>Entonces:</p>
+<p><span class="math display">\[
+F(2, 1) = P(Y_1 \leq 2, Y_2 \leq 1) = \frac{2}{8} + \frac{1}{8} + \frac{1}{8} = \frac{4}{8} = \frac{1}{2}
+\]</span></p>
+</div>
+<div id="resumen-de-resultados-1" class="section level3" number="18.2.3">
+<h3>
+<span class="header-section-number">18.2.3</span> Resumen de resultados<a class="anchor" aria-label="anchor" href="#resumen-de-resultados-1"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>La función de probabilidad conjunta <span class="math inline">\(P(Y_1 = y_1, Y_2 = y_2)\)</span> se ha especificado para todos los valores posibles.</li>
+<li>La probabilidad de que haya menos de tres caras y se gane 1€ o menos es <span class="math inline">\(F(2, 1) = \frac{1}{2}\)</span>.</li>
+</ol>
+</div>
+</div>
+<div id="ejercicio-3" class="section level2" number="18.3">
+<h2>
+<span class="header-section-number">18.3</span> Ejercicio 3<a class="anchor" aria-label="anchor" href="#ejercicio-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>En el Ejercicio 1 determinamos que la distribución conjunta de <span class="math inline">\(Y_{1}\)</span>, el número de análisis asignados al laboratorio A , y <span class="math inline">\(Y_{2}\)</span>, el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center"><span class="math inline">\(y_{1}\)</span></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(y_{2}\)</span></td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table></div>
+<ol style="list-style-type: lower-alpha">
+<li>Encuentre la distribución de probabilidad marginal de <span class="math inline">\(Y_{1}\)</span>.</li>
+<li>De acuerdo con los resultados vistos anteriormente <span class="math inline">\(Y_{1}\)</span> tiene una distribución binomial con <span class="math inline">\(n=2\)</span> y <span class="math inline">\(p=1 / 3\)</span>. ¿Hay algún conflicto entre este resultado y la respuesta dada en el punto a?</li>
+</ol>
+<p><strong>Solución</strong></p>
+<div id="parte-a-distribución-de-probabilidad-marginal-de-y_1" class="section level3" number="18.3.1">
+<h3>
+<span class="header-section-number">18.3.1</span> Parte a: Distribución de probabilidad marginal de <span class="math inline">\(Y_1\)</span><a class="anchor" aria-label="anchor" href="#parte-a-distribuci%C3%B3n-de-probabilidad-marginal-de-y_1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para encontrar la distribución marginal de <span class="math inline">\(Y_1\)</span>, debemos sumar las probabilidades conjuntas de <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span> para cada valor posible de <span class="math inline">\(Y_1\)</span>. A continuación, mostramos la tabla de probabilidades conjuntas de la solución anterior:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th><span class="math inline">\(y_1 \backslash y_2\)</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(y_1 = 0\)</span></td>
+<td><span class="math inline">\(1/9\)</span></td>
+<td><span class="math inline">\(2/9\)</span></td>
+<td><span class="math inline">\(1/9\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(y_1 = 1\)</span></td>
+<td><span class="math inline">\(2/9\)</span></td>
+<td><span class="math inline">\(2/9\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(y_1 = 2\)</span></td>
+<td><span class="math inline">\(1/9\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>La distribución marginal de <span class="math inline">\(Y_1\)</span> se calcula sumando las probabilidades de cada fila (fijando <span class="math inline">\(y_1\)</span> y sumando sobre los valores de <span class="math inline">\(y_2\)</span>):</p>
+<ol style="list-style-type: decimal">
+<li><p>Para <span class="math inline">\(y_1 = 0\)</span>:
+<span class="math display">\[
+P(Y_1 = 0) = \frac{1}{9} + \frac{2}{9} + \frac{1}{9} = \frac{4}{9}
+\]</span></p></li>
+<li><p>Para <span class="math inline">\(y_1 = 1\)</span>:
+<span class="math display">\[
+P(Y_1 = 1) = \frac{2}{9} + \frac{2}{9} + 0 = \frac{4}{9}
+\]</span></p></li>
+<li><p>Para <span class="math inline">\(y_1 = 2\)</span>:
+<span class="math display">\[
+P(Y_1 = 2) = \frac{1}{9} + 0 + 0 = \frac{1}{9}
+\]</span></p></li>
+</ol>
+<p>Por lo tanto, la distribución marginal de <span class="math inline">\(Y_1\)</span> es:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th><span class="math inline">\(y_1\)</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td><span class="math inline">\(p_{Y_1}(y_1)\)</span></td>
+<td><span class="math inline">\(\frac{4}{9}\)</span></td>
+<td><span class="math inline">\(\frac{4}{9}\)</span></td>
+<td><span class="math inline">\(\frac{1}{9}\)</span></td>
+</tr></tbody>
+</table></div>
+</div>
+<div id="parte-b-comparación-con-la-distribución-binomial" class="section level3" number="18.3.2">
+<h3>
+<span class="header-section-number">18.3.2</span> Parte b: Comparación con la distribución binomial<a class="anchor" aria-label="anchor" href="#parte-b-comparaci%C3%B3n-con-la-distribuci%C3%B3n-binomial"><i class="fas fa-link"></i></a>
+</h3>
+<p>Se sugiere que <span class="math inline">\(Y_1\)</span> sigue una distribución binomial con parámetros <span class="math inline">\(n = 2\)</span> y <span class="math inline">\(p = \frac{1}{3}\)</span>. Veamos si esta afirmación concuerda con los resultados obtenidos en la parte a.</p>
+<p>Para una variable aleatoria binomial <span class="math inline">\(Y_1 \sim \text{Binomial}(n=2, p=1/3)\)</span>, la función de probabilidad es:</p>
+<p><span class="math display">\[
+P(Y_1 = k) = \binom{n}{k} p^k (1 - p)^{n - k}
+\]</span></p>
+<p>Calculamos las probabilidades para cada valor de <span class="math inline">\(k\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Para <span class="math inline">\(k = 0\)</span>:
+<span class="math display">\[
+P(Y_1 = 0) = \binom{2}{0} \left(\frac{1}{3}\right)^0 \left(\frac{2}{3}\right)^2 = 1 \cdot 1 \cdot \frac{4}{9} = \frac{4}{9}
+\]</span></p></li>
+<li><p>Para <span class="math inline">\(k = 1\)</span>:
+<span class="math display">\[
+P(Y_1 = 1) = \binom{2}{1} \left(\frac{1}{3}\right)^1 \left(\frac{2}{3}\right)^1 = 2 \cdot \frac{1}{3} \cdot \frac{2}{3} = \frac{4}{9}
+\]</span></p></li>
+<li><p>Para <span class="math inline">\(k = 2\)</span>:
+<span class="math display">\[
+P(Y_1 = 2) = \binom{2}{2} \left(\frac{1}{3}\right)^2 \left(\frac{2}{3}\right)^0 = 1 \cdot \frac{1}{9} \cdot 1 = \frac{1}{9}
+\]</span></p></li>
+</ol>
+<p>Las probabilidades obtenidas para la binomial son exactamente las mismas que encontramos en la distribución marginal de <span class="math inline">\(Y_1\)</span>, lo que confirma que <span class="math inline">\(Y_1 \sim \text{Binomial}(2, 1/3)\)</span>.</p>
+</div>
+<div id="conclusión-2" class="section level3" number="18.3.3">
+<h3>
+<span class="header-section-number">18.3.3</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>No hay conflicto entre la distribución marginal de <span class="math inline">\(Y_1\)</span> obtenida en la parte a y el hecho de que <span class="math inline">\(Y_1\)</span> tenga una distribución binomial con parámetros <span class="math inline">\(n = 2\)</span> y <span class="math inline">\(p = \frac{1}{3}\)</span>.</p>
+</div>
+</div>
+<div id="ejercicio-4" class="section level2" number="18.4">
+<h2>
+<span class="header-section-number">18.4</span> Ejercicio 4<a class="anchor" aria-label="anchor" href="#ejercicio-4"><i class="fas fa-link"></i></a>
+</h2>
+<p>Un ingeniero ambiental mide la cantidad (en peso) de partículas contaminantes en muestras de aire de cierto volumen recolectado en dos chimeneas en una planta de energía alimentada con carbón. Una de las chimeneas está equipada con un aparato limpiador. Denote con <span class="math inline">\(Y_{1}\)</span> la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tiene aparato limpiador y denote con <span class="math inline">\(Y_{2}\)</span> la cantidad de contaminante por muestra recolectada arriba de la chimenea que está equipada con el aparato limpiador.</p>
+<p>Suponga que el comportamiento de frecuencia relativa de <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> puede ser modelado por</p>
+<p><span class="math display">\[
+f\left(y_{1}, y_{2}\right)=\left\{\begin{array}{l}
+k, \quad 0 \leq y_{1} \leq 2, \quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\
+0, \quad \text { en cualquier otro punto. }
+\end{array}\right.
+\]</span></p>
+<p>Esto es, <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> están uniformemente distribuidas sobre la región dentro del triángulo limitado por <span class="math inline">\(y_{1}=2, y_{2}=0\)</span> y <span class="math inline">\(2 y_{2}=y_{1}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Encuentre el valor de <span class="math inline">\(k\)</span> que haga de ésta una función de densidad de probabilidad.</li>
+<li>Encuentre <span class="math inline">\(P\left(Y_{1} \geq 3 Y_{2}\right)\)</span>. Esto es, encuentre la probabilidad de que el aparato limpiador reduzca la cantidad de contaminante en un tercio o más.</li>
+</ol>
+<p><strong>Solución</strong></p>
+<div id="encontrar-el-valor-de-k-que-haga-de-ésta-una-función-de-densidad-de-probabilidad" class="section level3" number="18.4.1">
+<h3>
+<span class="header-section-number">18.4.1</span> 1. Encontrar el valor de <span class="math inline">\(k\)</span> que haga de ésta una función de densidad de probabilidad<a class="anchor" aria-label="anchor" href="#encontrar-el-valor-de-k-que-haga-de-%C3%A9sta-una-funci%C3%B3n-de-densidad-de-probabilidad"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para que <span class="math inline">\(f(y_1, y_2)\)</span> sea una función de densidad de probabilidad válida, la integral de <span class="math inline">\(f(y_1, y_2)\)</span> sobre toda la región de soporte debe ser igual a 1:</p>
+<p><span class="math display">\[
+\iint_{\text{región de soporte}} f(y_1, y_2) \, dy_1 \, dy_2 = 1
+\]</span></p>
+<p>La función de densidad es constante y toma el valor <span class="math inline">\(k\)</span> sobre la región triangular definida por <span class="math inline">\(0 \leq y_1 \leq 2\)</span>, <span class="math inline">\(0 \leq y_2 \leq 1\)</span> y <span class="math inline">\(2 y_2 \leq y_1\)</span>. Esta región corresponde a un triángulo en el plano <span class="math inline">\(y_1\)</span>-<span class="math inline">\(y_2\)</span> con los vértices en <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((2,0)\)</span>, y <span class="math inline">\((2,1)\)</span>.</p>
+<div id="paso-1-determinar-el-área-de-la-región-triangular" class="section level4" number="18.4.1.1">
+<h4>
+<span class="header-section-number">18.4.1.1</span> Paso 1: Determinar el área de la región triangular<a class="anchor" aria-label="anchor" href="#paso-1-determinar-el-%C3%A1rea-de-la-regi%C3%B3n-triangular"><i class="fas fa-link"></i></a>
+</h4>
+<p>La región triangular tiene una base de longitud 2 (a lo largo del eje <span class="math inline">\(y_1\)</span>) y una altura de 1 (a lo largo del eje <span class="math inline">\(y_2\)</span>). El área del triángulo es:</p>
+<p><span class="math display">\[
+\text{Área} = \frac{1}{2} \times \text{base} \times \text{altura} = \frac{1}{2} \times 2 \times 1 = 1
+\]</span></p>
+</div>
+<div id="paso-2-integrar-fy_1-y_2-sobre-la-región-triangular" class="section level4" number="18.4.1.2">
+<h4>
+<span class="header-section-number">18.4.1.2</span> Paso 2: Integrar <span class="math inline">\(f(y_1, y_2)\)</span> sobre la región triangular<a class="anchor" aria-label="anchor" href="#paso-2-integrar-fy_1-y_2-sobre-la-regi%C3%B3n-triangular"><i class="fas fa-link"></i></a>
+</h4>
+<p>Dado que <span class="math inline">\(f(y_1, y_2) = k\)</span> en esta región y la función de densidad es uniforme, la integral sobre esta área es simplemente <span class="math inline">\(k\)</span> multiplicado por el área:</p>
+<p><span class="math display">\[
+\iint_{\text{región}} f(y_1, y_2) \, dy_1 \, dy_2 = k \times \text{Área} = k \times 1 = k
+\]</span></p>
+<p>Para que <span class="math inline">\(f(y_1, y_2)\)</span> sea una función de densidad, necesitamos que esta integral sea igual a 1, entonces:</p>
+<p><span class="math display">\[
+k = 1
+\]</span></p>
+</div>
+</div>
+<div id="encontrar-py_1-geq-3-y_2" class="section level3" number="18.4.2">
+<h3>
+<span class="header-section-number">18.4.2</span> 2. Encontrar <span class="math inline">\(P(Y_{1} \geq 3 Y_{2})\)</span><a class="anchor" aria-label="anchor" href="#encontrar-py_1-geq-3-y_2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos encontrar la probabilidad de que <span class="math inline">\(Y_{1} \geq 3 Y_{2}\)</span> en la región triangular donde <span class="math inline">\(f(y_1, y_2) = k = 1\)</span>.</p>
+<div id="paso-1-identificar-la-subregión-definida-por-y_1-geq-3-y_2" class="section level4" number="18.4.2.1">
+<h4>
+<span class="header-section-number">18.4.2.1</span> Paso 1: Identificar la subregión definida por <span class="math inline">\(Y_{1} \geq 3 Y_{2}\)</span><a class="anchor" aria-label="anchor" href="#paso-1-identificar-la-subregi%C3%B3n-definida-por-y_1-geq-3-y_2"><i class="fas fa-link"></i></a>
+</h4>
+<p>La desigualdad <span class="math inline">\(Y_{1} \geq 3 Y_{2}\)</span> corresponde a la recta <span class="math inline">\(y_1 = 3 y_2\)</span>. Para encontrar la intersección de esta recta con la región triangular, notamos que:
+- En <span class="math inline">\(y_1 = 2\)</span>, al sustituir en <span class="math inline">\(y_1 = 3 y_2\)</span>, tenemos <span class="math inline">\(y_2 = \frac{2}{3}\)</span>.</p>
+<p>Por lo tanto, la subregión de interés es el triángulo delimitado por los puntos <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((2,0)\)</span> y <span class="math inline">\((2, \frac{2}{3})\)</span>.</p>
+</div>
+<div id="paso-2-calcular-el-área-de-la-subregión" class="section level4" number="18.4.2.2">
+<h4>
+<span class="header-section-number">18.4.2.2</span> Paso 2: Calcular el área de la subregión<a class="anchor" aria-label="anchor" href="#paso-2-calcular-el-%C3%A1rea-de-la-subregi%C3%B3n"><i class="fas fa-link"></i></a>
+</h4>
+<p>La base de este subtriángulo es 2 (a lo largo de <span class="math inline">\(y_1\)</span>), y la altura es <span class="math inline">\(\frac{2}{3}\)</span> (a lo largo de <span class="math inline">\(y_2\)</span>). Su área es:</p>
+<p><span class="math display">\[
+\text{Área del subtriángulo} = \frac{1}{2} \times \text{base} \times \text{altura} = \frac{1}{2} \times 2 \times \frac{2}{3} = \frac{2}{3}
+\]</span></p>
+</div>
+<div id="paso-3-calcular-la-probabilidad" class="section level4" number="18.4.2.3">
+<h4>
+<span class="header-section-number">18.4.2.3</span> Paso 3: Calcular la probabilidad<a class="anchor" aria-label="anchor" href="#paso-3-calcular-la-probabilidad"><i class="fas fa-link"></i></a>
+</h4>
+<p>La probabilidad buscada es la proporción del área del subtriángulo respecto al área total de la región de soporte:</p>
+<p><span class="math display">\[
+P(Y_{1} \geq 3 Y_{2}) = \frac{\text{Área del subtriángulo}}{\text{Área de la región total}} = \frac{\frac{2}{3}}{1} = \frac{2}{3}
+\]</span></p>
+</div>
+</div>
+<div id="respuesta-final" class="section level3" number="18.4.3">
+<h3>
+<span class="header-section-number">18.4.3</span> Respuesta final<a class="anchor" aria-label="anchor" href="#respuesta-final"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>El valor de <span class="math inline">\(k\)</span> que hace de <span class="math inline">\(f(y_1, y_2)\)</span> una función de densidad de probabilidad es <span class="math inline">\(k = 1\)</span>.</li>
+<li>La probabilidad de que <span class="math inline">\(Y_{1} \geq 3 Y_{2}\)</span> es:</li>
+</ol>
+<p><span class="math display">\[
+P(Y_{1} \geq 3 Y_{2}) = \frac{2}{3}
+\]</span></p>
+</div>
+</div>
+<div id="ejercicio-5" class="section level2" number="18.5">
+<h2>
+<span class="header-section-number">18.5</span> Ejercicio 5<a class="anchor" aria-label="anchor" href="#ejercicio-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>En el Ejercicio 4 hemos establecido que</p>
+<p><span class="math display">\[
+f\left(y_{1}, y_{2}\right)=\left\{\begin{array}{l}
+k, \quad 0 \leq y_{1} \leq 2, \quad 0 \leq y_{2} \leq 1, \quad 2 y_{2} \leq y_{1} \\
+0, \quad \text { en cualquier otro punto. }
+\end{array}\right.
+\]</span></p>
+<p>es una función de densidad de probabilidad conjunta válida para <span class="math inline">\(Y_{1}\)</span>, la cantidad de contaminante por muestra recolectada arriba de la chimenea que no tenía el aparato limpiador, y para <span class="math inline">\(Y_{2}\)</span>, la cantidad recolectada arriba de la chimenea con el aparato limpiador.</p>
+<ol style="list-style-type: decimal">
+<li>Si consideramos la chimenea con el limpiador instalado, encuentre la probabilidad de que la cantidad de contaminante en una muestra determinada sea mayor que 0.5.</li>
+</ol>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Dado que se observa que la cantidad de contaminante en una muestra tomada arriba de la chimenea con el limpiador es 0.5 , encuentre la probabilidad de que la cantidad de contaminante exceda de 1.5 arriba de la otra chimenea (la que no tiene limpiador).</li>
+</ol>
+<p><strong>Solución</strong></p>
+<div id="probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5" class="section level3" number="18.5.1">
+<h3>
+<span class="header-section-number">18.5.1</span> 1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5<a class="anchor" aria-label="anchor" href="#probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos encontrar la probabilidad de que <span class="math inline">\(Y_2 &gt; 0.5\)</span>, donde <span class="math inline">\(Y_2\)</span> representa la cantidad de contaminante en la chimenea con el aparato limpiador. Recordando que <span class="math inline">\(f(y_1, y_2)\)</span> es la función de densidad conjunta y que hemos hallado <span class="math inline">\(k = 1\)</span>, calcularemos la probabilidad integrando sobre la región correspondiente a <span class="math inline">\(y_2 &gt; 0.5\)</span> y <span class="math inline">\(y_1\)</span> dentro de su rango definido por la condición <span class="math inline">\(2y_2 \leq y_1 \leq 2\)</span>.</p>
+<p>La probabilidad se calcula como:</p>
+<p><span class="math display">\[
+P(Y_2 &gt; 0.5) = \iint_{\{y_2 &gt; 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \, dy_1 \, dy_2
+\]</span></p>
+<div id="paso-1-establecer-los-límites-de-integración" class="section level4" number="18.5.1.1">
+<h4>
+<span class="header-section-number">18.5.1.1</span> Paso 1: Establecer los límites de integración<a class="anchor" aria-label="anchor" href="#paso-1-establecer-los-l%C3%ADmites-de-integraci%C3%B3n"><i class="fas fa-link"></i></a>
+</h4>
+<p>Para <span class="math inline">\(y_2 &gt; 0.5\)</span>, los límites de <span class="math inline">\(y_1\)</span> están restringidos por la región triangular dada:
+- <span class="math inline">\(2 y_2 \leq y_1 \leq 2\)</span></p>
+<p>Entonces, los límites de integración son:
+- <span class="math inline">\(y_2\)</span>: desde 0.5 hasta 1
+- <span class="math inline">\(y_1\)</span>: desde <span class="math inline">\(2 y_2\)</span> hasta 2</p>
+</div>
+<div id="paso-2-integrar-la-función-de-densidad-conjunta" class="section level4" number="18.5.1.2">
+<h4>
+<span class="header-section-number">18.5.1.2</span> Paso 2: Integrar la función de densidad conjunta<a class="anchor" aria-label="anchor" href="#paso-2-integrar-la-funci%C3%B3n-de-densidad-conjunta"><i class="fas fa-link"></i></a>
+</h4>
+<p>Dado que <span class="math inline">\(f(y_1, y_2) = 1\)</span> en esta región, la probabilidad es la integral de 1 sobre el área triangular correspondiente:</p>
+<p><span class="math display">\[
+P(Y_2 &gt; 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
+\]</span></p>
+<p>Evaluamos esta integral en dos pasos.</p>
+<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Calculo de la probabilidad con R</span></span>
+<span></span>
+<span><span class="co">## Definir la función de integración para y1</span></span>
+<span><span class="va">integrate_y1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">y2</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">y1</span><span class="op">)</span> <span class="fl">1</span>, lower <span class="op">=</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">y2</span>, upper <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">## Integrar respecto a y2</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">y2</span><span class="op">)</span> <span class="fu">integrate_y1</span><span class="op">(</span><span class="va">y2</span><span class="op">)</span>, lower <span class="op">=</span> <span class="fl">0.5</span>, upper <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">result</span><span class="op">$</span><span class="va">value</span></span></code></pre></div>
+</div>
+<div id="resultado" class="section level4" number="18.5.1.3">
+<h4>
+<span class="header-section-number">18.5.1.3</span> Resultado<a class="anchor" aria-label="anchor" href="#resultado"><i class="fas fa-link"></i></a>
+</h4>
+<p>Al resolver esta integral, obtenemos la probabilidad:</p>
+<p><span class="math display">\[
+P(Y_2 &gt; 0.5) \approx 0.25
+\]</span></p>
+</div>
+</div>
+<div id="probabilidad-condicional-dada-una-observación-de-y_2-0.5" class="section level3" number="18.5.2">
+<h3>
+<span class="header-section-number">18.5.2</span> 2. Probabilidad condicional dada una observación de <span class="math inline">\(Y_2 = 0.5\)</span><a class="anchor" aria-label="anchor" href="#probabilidad-condicional-dada-una-observaci%C3%B3n-de-y_2-0.5"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos calcular <span class="math inline">\(P(Y_1 &gt; 1.5 \mid Y_2 = 0.5)\)</span>, la probabilidad de que la cantidad de contaminante en la chimenea sin limpiador (representada por <span class="math inline">\(Y_1\)</span>) sea mayor que 1.5, dado que en la chimenea con limpiador se observó <span class="math inline">\(Y_2 = 0.5\)</span>.</p>
+<div id="paso-1-identificar-la-función-de-densidad-condicional" class="section level4" number="18.5.2.1">
+<h4>
+<span class="header-section-number">18.5.2.1</span> Paso 1: Identificar la función de densidad condicional<a class="anchor" aria-label="anchor" href="#paso-1-identificar-la-funci%C3%B3n-de-densidad-condicional"><i class="fas fa-link"></i></a>
+</h4>
+<p>Para la función de densidad condicional <span class="math inline">\(f_{Y_1|Y_2}(y_1 | y_2)\)</span>, aplicamos:</p>
+<p><span class="math display">\[
+f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = \frac{f(y_1, 0.5)}{f_{Y_2}(0.5)}
+\]</span></p>
+<p>Calcularemos <span class="math inline">\(f_{Y_2}(0.5)\)</span> integrando <span class="math inline">\(f(y_1, y_2)\)</span> sobre los valores de <span class="math inline">\(y_1\)</span> en la región donde <span class="math inline">\(Y_2 = 0.5\)</span>:</p>
+<p><span class="math display">\[
+f_{Y_2}(0.5) = \int_{y_1 = 2 \cdot 0.5}^{2} f(y_1, 0.5) \, dy_1 = \int_{1}^{2} 1 \, dy_1
+\]</span></p>
+<p>Evaluamos la integral:</p>
+<p><span class="math display">\[
+f_{Y_2}(0.5) = \int_{1}^{2} 1 \, dy_1 = (2 - 1) = 1
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(f_{Y_2}(0.5) = 1\)</span>.</p>
+</div>
+<div id="paso-2-calcular-la-probabilidad-condicional" class="section level4" number="18.5.2.2">
+<h4>
+<span class="header-section-number">18.5.2.2</span> Paso 2: Calcular la probabilidad condicional<a class="anchor" aria-label="anchor" href="#paso-2-calcular-la-probabilidad-condicional"><i class="fas fa-link"></i></a>
+</h4>
+<p>La probabilidad de interés es:</p>
+<p><span class="math display">\[
+P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) \, dy_1
+\]</span></p>
+<p>Como <span class="math inline">\(f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = 1\)</span> para <span class="math inline">\(1 \leq y_1 \leq 2\)</span>, tenemos:</p>
+<p><span class="math display">\[
+P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
+\]</span></p>
+</div>
+</div>
+<div id="respuesta-final-1" class="section level3" number="18.5.3">
+<h3>
+<span class="header-section-number">18.5.3</span> Respuesta final<a class="anchor" aria-label="anchor" href="#respuesta-final-1"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5 es aproximadamente 0.25.</li>
+<li>La probabilidad de que la cantidad de contaminante en la chimenea sin limpiador exceda 1.5, dado que en la otra chimenea se observó 0.5, es 0.5.</li>
+</ol>
+</div>
+</div>
+<div id="ejercicio-6" class="section level2" number="18.6">
+<h2>
+<span class="header-section-number">18.6</span> Ejercicio 6<a class="anchor" aria-label="anchor" href="#ejercicio-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>En el ejercicio 1 determinamos que la distribución conjunta de <span class="math inline">\(Y_{1}\)</span>, el número de análisis asignados al laboratorio A, y <span class="math inline">\(Y_{2}\)</span>, el número de análisis asignados al laboratorio B , está dada por las entradas en la siguiente tabla.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center"><span class="math inline">\(y_{1}\)</span></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(y_{2}\)</span></td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center"><span class="math inline">\(2 / 9\)</span></td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(1 / 9\)</span></td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table></div>
+<ol style="list-style-type: lower-alpha">
+<li>Encuentre <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right) \cdot{ }_{i}\)</span>
+</li>
+<li>Le sorprende que <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\)</span> sea negativa? <span class="math inline">\({ }_{\text {¿Por qué? }}\)</span>
+</li>
+</ol>
+<p><strong>Solución</strong></p>
+<div id="parte-a-cálculo-de-la-covarianza-operatornamecovy_1-y_2" class="section level3" number="18.6.1">
+<h3>
+<span class="header-section-number">18.6.1</span> Parte a: Cálculo de la covarianza <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span><a class="anchor" aria-label="anchor" href="#parte-a-c%C3%A1lculo-de-la-covarianza-operatornamecovy_1-y_2"><i class="fas fa-link"></i></a>
+</h3>
+<p>La covarianza entre dos variables aleatorias <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span> se define como:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2)
+\]</span></p>
+<p>Para calcular la covarianza, necesitamos obtener los valores de <span class="math inline">\(E(Y_1)\)</span>, <span class="math inline">\(E(Y_2)\)</span> y <span class="math inline">\(E(Y_1 Y_2)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Cálculo de <span class="math inline">\(E(Y_1)\)</span> y <span class="math inline">\(E(Y_2)\)</span></strong></p>
+<p>A partir de la distribución conjunta dada en la tabla, podemos calcular la esperanza de <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span> sumando las posibles combinaciones de valores ponderadas por sus probabilidades.</p>
+<p><span class="math display">\[ E(Y_1) = \sum_{y_1} y_1 \cdot P(Y_1 = y_1) \]</span>
+<span class="math display">\[ E(Y_2) = \sum_{y_2} y_2 \cdot P(Y_2 = y_2) \]</span></p>
+<p>Usamos la tabla para estos cálculos:</p>
+</li>
+</ol>
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>   <span class="co">## Probabilidades conjuntas</span></span>
+<span>   <span class="va">probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">2</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">2</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">2</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>   </span>
+<span>   <span class="co">## Valores de Y1 y Y2</span></span>
+<span>   <span class="va">y1_values</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span></span>
+<span>   <span class="va">y2_values</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span></span>
+<span>   </span>
+<span>   <span class="co">## Esperanza de Y1</span></span>
+<span>   <span class="va">E_Y1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">y1_values</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">probs</span><span class="op">)</span><span class="op">)</span></span>
+<span>   <span class="co">## Esperanza de Y2</span></span>
+<span>   <span class="va">E_Y2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">y2_values</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">probs</span><span class="op">)</span><span class="op">)</span></span>
+<span>   </span>
+<span>   <span class="va">E_Y1</span></span></code></pre></div>
+<pre><code>## [1] 0.6666667</code></pre>
+<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>   <span class="va">E_Y2</span></span></code></pre></div>
+<pre><code>## [1] 0.6666667</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<p><strong>Cálculo de <span class="math inline">\(E(Y_1 Y_2)\)</span></strong></p>
+<p>Para calcular <span class="math inline">\(E(Y_1 Y_2)\)</span>, sumamos el producto <span class="math inline">\(y_1 \cdot y_2\)</span> ponderado por la probabilidad conjunta <span class="math inline">\(p(y_1, y_2)\)</span>.</p>
+</li>
+</ol>
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>   <span class="co">## Producto de Y1 * Y2 * probabilidad conjunta</span></span>
+<span>   <span class="va">E_Y1Y2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/outer.html">outer</a></span><span class="op">(</span><span class="va">y1_values</span>, <span class="va">y2_values</span>, <span class="st">"*"</span><span class="op">)</span> <span class="op">*</span> <span class="va">probs</span><span class="op">)</span></span>
+<span>   </span>
+<span>   <span class="va">E_Y1Y2</span></span></code></pre></div>
+<pre><code>## [1] 0.2222222</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<p><strong>Calcular la covarianza</strong></p>
+<p>Sustituyendo los valores obtenidos:</p>
+<p><span class="math display">\[ \operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2) \]</span></p>
+</li>
+</ol>
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span>   <span class="va">Cov_Y1Y2</span> <span class="op">&lt;-</span> <span class="va">E_Y1Y2</span> <span class="op">-</span> <span class="va">E_Y1</span> <span class="op">*</span> <span class="va">E_Y2</span></span>
+<span>   <span class="va">Cov_Y1Y2</span></span></code></pre></div>
+<pre><code>## [1] -0.2222222</code></pre>
+</div>
+<div id="parte-b-interpretación-de-la-covarianza-negativa" class="section level3" number="18.6.2">
+<h3>
+<span class="header-section-number">18.6.2</span> Parte b: Interpretación de la covarianza negativa<a class="anchor" aria-label="anchor" href="#parte-b-interpretaci%C3%B3n-de-la-covarianza-negativa"><i class="fas fa-link"></i></a>
+</h3>
+<p>La covarianza calculada es negativa. Este resultado tiene sentido en el contexto del problema. Dado que los estudios se asignan a tres laboratorios y cada laboratorio recibe un número limitado de estudios, un incremento en el número de estudios asignados a un laboratorio reduce la cantidad disponible para los otros. Así, si <span class="math inline">\(Y_1\)</span> aumenta, <span class="math inline">\(Y_2\)</span> tiende a disminuir, lo que explica una relación inversa entre ambas variables y resulta en una covarianza negativa.</p>
+<p><strong>Solución</strong></p>
+</div>
+<div id="ejercicio" class="section level3" number="18.6.3">
+<h3>
+<span class="header-section-number">18.6.3</span> Ejercicio<a class="anchor" aria-label="anchor" href="#ejercicio"><i class="fas fa-link"></i></a>
+</h3>
+<div id="probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5-1" class="section level4" number="18.6.3.1">
+<h4>
+<span class="header-section-number">18.6.3.1</span> 1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5<a class="anchor" aria-label="anchor" href="#probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Queremos encontrar la probabilidad de que <span class="math inline">\(Y_2 &gt; 0.5\)</span>, donde <span class="math inline">\(Y_2\)</span> representa la cantidad de contaminante en la chimenea con el aparato limpiador. Recordando que <span class="math inline">\(f(y_1, y_2)\)</span> es la función de densidad conjunta y que hemos hallado <span class="math inline">\(k = 1\)</span>, calcularemos la probabilidad integrando sobre la región correspondiente a <span class="math inline">\(y_2 &gt; 0.5\)</span> y <span class="math inline">\(y_1\)</span> dentro de su rango definido por la condición <span class="math inline">\(2y_2 \leq y_1 \leq 2\)</span>.</p>
+<p>La probabilidad se calcula como:</p>
+<p><span class="math display">\[
+P(Y_2 &gt; 0.5) = \iint_{\{y_2 &gt; 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \, dy_1 \, dy_2
+\]</span></p>
+<div id="paso-1-establecer-los-límites-de-integración-1" class="section level5" number="18.6.3.1.1">
+<h5>
+<span class="header-section-number">18.6.3.1.1</span> Paso 1: Establecer los límites de integración<a class="anchor" aria-label="anchor" href="#paso-1-establecer-los-l%C3%ADmites-de-integraci%C3%B3n-1"><i class="fas fa-link"></i></a>
+</h5>
+<p>Para <span class="math inline">\(y_2 &gt; 0.5\)</span>, los límites de <span class="math inline">\(y_1\)</span> están restringidos por la región triangular dada:
+- <span class="math inline">\(2 y_2 \leq y_1 \leq 2\)</span></p>
+<p>Entonces, los límites de integración son:
+- <span class="math inline">\(y_2\)</span>: desde 0.5 hasta 1
+- <span class="math inline">\(y_1\)</span>: desde <span class="math inline">\(2 y_2\)</span> hasta 2</p>
+</div>
+<div id="paso-2-integrar-la-función-de-densidad-conjunta-1" class="section level5" number="18.6.3.1.2">
+<h5>
+<span class="header-section-number">18.6.3.1.2</span> Paso 2: Integrar la función de densidad conjunta<a class="anchor" aria-label="anchor" href="#paso-2-integrar-la-funci%C3%B3n-de-densidad-conjunta-1"><i class="fas fa-link"></i></a>
+</h5>
+<p>Dado que <span class="math inline">\(f(y_1, y_2) = 1\)</span> en esta región, la probabilidad es la integral de 1 sobre el área triangular correspondiente:</p>
+<p><span class="math display">\[
+P(Y_2 &gt; 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
+\]</span></p>
+<p>Evaluamos esta integral en dos pasos.</p>
+<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Calculo de la probabilidad con R</span></span>
+<span></span>
+<span><span class="co">## Definir la función de integración para y1</span></span>
+<span><span class="va">integrate_y1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">y2</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">y1</span><span class="op">)</span> <span class="fl">1</span>, lower <span class="op">=</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">y2</span>, upper <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">## Integrar respecto a y2</span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">y2</span><span class="op">)</span> <span class="fu">integrate_y1</span><span class="op">(</span><span class="va">y2</span><span class="op">)</span>, lower <span class="op">=</span> <span class="fl">0.5</span>, upper <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">result</span><span class="op">$</span><span class="va">value</span></span></code></pre></div>
+</div>
+<div id="resultado-1" class="section level5" number="18.6.3.1.3">
+<h5>
+<span class="header-section-number">18.6.3.1.3</span> Resultado<a class="anchor" aria-label="anchor" href="#resultado-1"><i class="fas fa-link"></i></a>
+</h5>
+<p>Al resolver esta integral, obtenemos la probabilidad:</p>
+<p><span class="math display">\[
+P(Y_2 &gt; 0.5) \approx 0.25
+\]</span></p>
+</div>
+</div>
+<div id="probabilidad-condicional-dada-una-observación-de-y_2-0.5-1" class="section level4" number="18.6.3.2">
+<h4>
+<span class="header-section-number">18.6.3.2</span> 2. Probabilidad condicional dada una observación de <span class="math inline">\(Y_2 = 0.5\)</span><a class="anchor" aria-label="anchor" href="#probabilidad-condicional-dada-una-observaci%C3%B3n-de-y_2-0.5-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Queremos calcular <span class="math inline">\(P(Y_1 &gt; 1.5 \mid Y_2 = 0.5)\)</span>, la probabilidad de que la cantidad de contaminante en la chimenea sin limpiador (representada por <span class="math inline">\(Y_1\)</span>) sea mayor que 1.5, dado que en la chimenea con limpiador se observó <span class="math inline">\(Y_2 = 0.5\)</span>.</p>
+<div id="paso-1-identificar-la-función-de-densidad-condicional-1" class="section level5" number="18.6.3.2.1">
+<h5>
+<span class="header-section-number">18.6.3.2.1</span> Paso 1: Identificar la función de densidad condicional<a class="anchor" aria-label="anchor" href="#paso-1-identificar-la-funci%C3%B3n-de-densidad-condicional-1"><i class="fas fa-link"></i></a>
+</h5>
+<p>Para la función de densidad condicional <span class="math inline">\(f_{Y_1|Y_2}(y_1 | y_2)\)</span>, aplicamos:</p>
+<p><span class="math display">\[
+f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = \frac{f(y_1, 0.5)}{f_{Y_2}(0.5)}
+\]</span></p>
+<p>Calcularemos <span class="math inline">\(f_{Y_2}(0.5)\)</span> integrando <span class="math inline">\(f(y_1, y_2)\)</span> sobre los valores de <span class="math inline">\(y_1\)</span> en la región donde <span class="math inline">\(Y_2 = 0.5\)</span>:</p>
+<p><span class="math display">\[
+f_{Y_2}(0.5) = \int_{y_1 = 2 \cdot 0.5}^{2} f(y_1, 0.5) \, dy_1 = \int_{1}^{2} 1 \, dy_1
+\]</span></p>
+<p>Evaluamos la integral:</p>
+<p><span class="math display">\[
+f_{Y_2}(0.5) = \int_{1}^{2} 1 \, dy_1 = (2 - 1) = 1
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(f_{Y_2}(0.5) = 1\)</span>.</p>
+</div>
+<div id="paso-2-calcular-la-probabilidad-condicional-1" class="section level5" number="18.6.3.2.2">
+<h5>
+<span class="header-section-number">18.6.3.2.2</span> Paso 2: Calcular la probabilidad condicional<a class="anchor" aria-label="anchor" href="#paso-2-calcular-la-probabilidad-condicional-1"><i class="fas fa-link"></i></a>
+</h5>
+<p>La probabilidad de interés es:</p>
+<p><span class="math display">\[
+P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) \, dy_1
+\]</span></p>
+<p>Como <span class="math inline">\(f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = 1\)</span> para <span class="math inline">\(1 \leq y_1 \leq 2\)</span>, tenemos:</p>
+<p><span class="math display">\[
+P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
+\]</span></p>
+</div>
+</div>
+<div id="respuesta-final-2" class="section level4" number="18.6.3.3">
+<h4>
+<span class="header-section-number">18.6.3.3</span> Respuesta final<a class="anchor" aria-label="anchor" href="#respuesta-final-2"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5 es aproximadamente 0.25.</li>
+<li>La probabilidad de que la cantidad de contaminante en la chimenea sin limpiador exceda 1.5, dado que en la otra chimenea se observó 0.5, es 0.5.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="ejercicio-7" class="section level2" number="18.7">
+<h2>
+<span class="header-section-number">18.7</span> Ejercicio 7<a class="anchor" aria-label="anchor" href="#ejercicio-7"><i class="fas fa-link"></i></a>
+</h2>
+<p>Las variables aleatorias <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> son tales que <span class="math inline">\(E\left(Y_{1}\right)=4, E\left(Y_{2}\right)=-1, V\left(Y_{1}\right)=2\)</span> y <span class="math inline">\(V\left(Y_{2}\right)=8\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>¿Cuál es <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{1}\right)\)</span> ?</li>
+<li>Suponiendo que las medias y las varianzas sean correctas, ¿es posible que <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\)</span> ? [Sugerencia: si <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)=7\)</span>, ¿cuál es el valor de <span class="math inline">\(\rho\)</span>, el coeficiente de correlación?]</li>
+<li>Suponiendo que las medias y las varianzas sean correctas, ¿cuál es el máximo valor posible para <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\)</span> ? Si <span class="math inline">\(\operatorname{Cov}\left(Y_{1}, Y_{2}\right)\)</span> alcanza este valor máximo, ¿qué implica eso acerca de la relación entre <span class="math inline">\(Y_{1}\)</span> y <span class="math inline">\(Y_{2}\)</span> ?</li>
+</ol>
+<p><strong>Solución</strong></p>
+<div id="parte-a-cálculo-de-operatornamecovy_1-y_1" class="section level3" number="18.7.1">
+<h3>
+<span class="header-section-number">18.7.1</span> Parte a: Cálculo de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_1)\)</span><a class="anchor" aria-label="anchor" href="#parte-a-c%C3%A1lculo-de-operatornamecovy_1-y_1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para cualquier variable aleatoria <span class="math inline">\(Y\)</span>, la covarianza de <span class="math inline">\(Y\)</span> consigo misma es igual a su varianza. Es decir:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(Y_1, Y_1) = V(Y_1)
+\]</span></p>
+<p>Dado que <span class="math inline">\(V(Y_1) = 2\)</span>, tenemos que:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(Y_1, Y_1) = 2
+\]</span></p>
+</div>
+<div id="parte-b-verificación-de-operatornamecovy_1-y_2-7" class="section level3" number="18.7.2">
+<h3>
+<span class="header-section-number">18.7.2</span> Parte b: Verificación de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2) = 7\)</span><a class="anchor" aria-label="anchor" href="#parte-b-verificaci%C3%B3n-de-operatornamecovy_1-y_2-7"><i class="fas fa-link"></i></a>
+</h3>
+<p>Si se supone que <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2) = 7\)</span>, podemos calcular el coeficiente de correlación <span class="math inline">\(\rho\)</span>, que se define como:</p>
+<p><span class="math display">\[
+\rho = \frac{\operatorname{Cov}(Y_1, Y_2)}{\sqrt{V(Y_1) \cdot V(Y_2)}}
+\]</span></p>
+<p>Sustituyendo los valores dados:</p>
+<p><span class="math display">\[
+\rho = \frac{7}{\sqrt{2 \cdot 8}} = \frac{7}{4} = 1.75
+\]</span></p>
+<p>Dado que el coeficiente de correlación <span class="math inline">\(\rho\)</span> debe estar en el rango de <span class="math inline">\(-1 \leq \rho \leq 1\)</span>, obtener <span class="math inline">\(\rho = 1.75\)</span> es imposible. Esto implica que no es posible que <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2) = 7\)</span> con los valores de varianza y media proporcionados.</p>
+</div>
+<div id="parte-c-valor-máximo-posible-de-operatornamecovy_1-y_2-y-su-interpretación" class="section level3" number="18.7.3">
+<h3>
+<span class="header-section-number">18.7.3</span> Parte c: Valor máximo posible de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span> y su interpretación<a class="anchor" aria-label="anchor" href="#parte-c-valor-m%C3%A1ximo-posible-de-operatornamecovy_1-y_2-y-su-interpretaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para determinar el valor máximo posible de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span>, consideramos que el valor absoluto del coeficiente de correlación <span class="math inline">\(\rho\)</span> puede ser como máximo <span class="math inline">\(1\)</span>. Esto ocurre en los casos de correlación lineal perfecta (positiva o negativa). Entonces, el valor máximo de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span> es:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(Y_1, Y_2) = \rho \cdot \sqrt{V(Y_1) \cdot V(Y_2)}
+\]</span></p>
+<p>Si <span class="math inline">\(\rho = 1\)</span>, lo cual indica una asociación lineal positiva perfecta, obtenemos:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(Y_1, Y_2) = 1 \cdot \sqrt{2 \cdot 8} = 4
+\]</span></p>
+<p>Esto significa que el valor máximo posible de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span> es <span class="math inline">\(4\)</span>. De manera similar, si <span class="math inline">\(\rho = -1\)</span>, el valor mínimo posible de <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2)\)</span> sería <span class="math inline">\(-4\)</span>, indicando una asociación lineal negativa perfecta.</p>
+<p>Cuando <span class="math inline">\(\operatorname{Cov}(Y_1, Y_2) = 4\)</span>, significa que <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span> están perfectamente correlacionadas en forma positiva, es decir, existe una relación lineal exacta en la que un aumento en <span class="math inline">\(Y_1\)</span> siempre corresponde a un aumento proporcional en <span class="math inline">\(Y_2\)</span>.</p>
+</div>
+</div>
+<div id="ejercicio-8" class="section level2" number="18.8">
+<h2>
+<span class="header-section-number">18.8</span> Ejercicio 8<a class="anchor" aria-label="anchor" href="#ejercicio-8"><i class="fas fa-link"></i></a>
+</h2>
+<p>Un experimento de aprendizaje requiere que una rata corra por un laberinto (una red de pasillos) hasta que localice una de tres posibles salidas. La salida 1 presenta una recompensa de alimento, no así las salidas 2 y 3. (Si la rata finalmente selecciona la salida 1 casi siempre, puede tener lugar el aprendizaje.) Denote con <span class="math inline">\(Y_{i}\)</span> el número de veces que la salida <span class="math inline">\(i\)</span> es seleccionada en corridas sucesivas. Para lo siguiente, suponga que la rata escoge una salida aleatoriamente en cada corrida.</p>
+<ol style="list-style-type: decimal">
+<li>Encuentre la probabilidad de que <span class="math inline">\(n=6\)</span> corridas resulte en <span class="math inline">\(Y_{1}=3, Y_{2}=1\)</span> y <span class="math inline">\(Y_{3}=2\)</span>.</li>
+<li>Para <span class="math inline">\(n\)</span> general, encuentre <span class="math inline">\(E\left(Y_{1}\right)\)</span> y <span class="math inline">\(V\left(Y_{1}\right)\)</span>.</li>
+<li>Encuentre <span class="math inline">\(\operatorname{Cov}\left(Y_{2}, Y_{3}\right)\)</span> para <span class="math inline">\(n\)</span> general.</li>
+<li>Para comprobar la preferencia de la rata entre las salidas 2 y 3 , podemos buscar en <span class="math inline">\(Y_{2}-Y_{3}\)</span>. Encuentre <span class="math inline">\(E\left(Y_{2}-Y_{3}\right)\)</span> y <span class="math inline">\(V\left(Y_{2}-Y_{3}\right)\)</span> para <span class="math inline">\(n\)</span> general.</li>
+</ol>
+<p><strong>Solución</strong></p>
+<div id="parte-a-probabilidad-de-obtener-y_1-3-y_2-1-y-y_3-2-en-n-6-corridas" class="section level3" number="18.8.1">
+<h3>
+<span class="header-section-number">18.8.1</span> Parte a: Probabilidad de obtener <span class="math inline">\(Y_1 = 3\)</span>, <span class="math inline">\(Y_2 = 1\)</span> y <span class="math inline">\(Y_3 = 2\)</span> en <span class="math inline">\(n = 6\)</span> corridas<a class="anchor" aria-label="anchor" href="#parte-a-probabilidad-de-obtener-y_1-3-y_2-1-y-y_3-2-en-n-6-corridas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Este problema puede resolverse utilizando la <strong>distribución multinomial</strong>, ya que describe el número de veces que ocurre cada posible resultado en un número fijo de ensayos independientes. Aquí, cada una de las tres salidas tiene la misma probabilidad de ser seleccionada en cada corrida, es decir, <span class="math inline">\(p_1 = p_2 = p_3 = \frac{1}{3}\)</span>, y el número total de corridas es <span class="math inline">\(n = 6\)</span>. Por lo tanto, estamos interesados en calcular:</p>
+<p><span class="math display">\[
+P(Y_1 = 3, Y_2 = 1, Y_3 = 2) = \frac{6!}{3! \, 1! \, 2!} \left( \frac{1}{3} \right)^6
+\]</span></p>
+<p>Calculando esta expresión:</p>
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">6</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">3</span></span>
+<span><span class="va">prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="va">p</span><span class="op">^</span><span class="va">n</span></span>
+<span><span class="va">prob</span></span></code></pre></div>
+<pre><code>## [1] 0.08230453</code></pre>
+<p>El resultado de esta probabilidad es aproximadamente 0.0823.</p>
+</div>
+<div id="parte-b-esperanza-y-varianza-de-y_1-para-un-n-general" class="section level3" number="18.8.2">
+<h3>
+<span class="header-section-number">18.8.2</span> Parte b: Esperanza y varianza de <span class="math inline">\(Y_1\)</span> para un <span class="math inline">\(n\)</span> general<a class="anchor" aria-label="anchor" href="#parte-b-esperanza-y-varianza-de-y_1-para-un-n-general"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para una variable aleatoria multinomial, la esperanza y la varianza de cada conteo se puede calcular usando las propiedades de esta distribución. En particular, para <span class="math inline">\(Y_1\)</span>, tenemos que:</p>
+<ul>
+<li>La <strong>esperanza</strong> es <span class="math inline">\(E(Y_1) = n \cdot p_1\)</span>.</li>
+<li>La <strong>varianza</strong> es <span class="math inline">\(V(Y_1) = n \cdot p_1 \cdot (1 - p_1)\)</span>.</li>
+</ul>
+<p>Como <span class="math inline">\(p_1 = \frac{1}{3}\)</span>, obtenemos:</p>
+<p><span class="math display">\[
+E(Y_1) = \frac{n}{3}, \quad V(Y_1) = n \cdot \frac{1}{3} \cdot \frac{2}{3} = \frac{2n}{9}
+\]</span></p>
+</div>
+<div id="parte-c-covarianza-entre-y_2-y-y_3-para-un-n-general" class="section level3" number="18.8.3">
+<h3>
+<span class="header-section-number">18.8.3</span> Parte c: Covarianza entre <span class="math inline">\(Y_2\)</span> y <span class="math inline">\(Y_3\)</span> para un <span class="math inline">\(n\)</span> general<a class="anchor" aria-label="anchor" href="#parte-c-covarianza-entre-y_2-y-y_3-para-un-n-general"><i class="fas fa-link"></i></a>
+</h3>
+<p>La <strong>covarianza</strong> entre dos variables en una distribución multinomial, <span class="math inline">\(Y_2\)</span> y <span class="math inline">\(Y_3\)</span>, se puede calcular como:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(Y_2, Y_3) = -n \cdot p_2 \cdot p_3
+\]</span></p>
+<p>Dado que <span class="math inline">\(p_2 = p_3 = \frac{1}{3}\)</span>, tenemos:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(Y_2, Y_3) = -n \cdot \frac{1}{3} \cdot \frac{1}{3} = -\frac{n}{9}
+\]</span></p>
+</div>
+<div id="parte-d-esperanza-y-varianza-de-y_2---y_3-para-un-n-general" class="section level3" number="18.8.4">
+<h3>
+<span class="header-section-number">18.8.4</span> Parte d: Esperanza y varianza de <span class="math inline">\(Y_2 - Y_3\)</span> para un <span class="math inline">\(n\)</span> general<a class="anchor" aria-label="anchor" href="#parte-d-esperanza-y-varianza-de-y_2---y_3-para-un-n-general"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para evaluar la preferencia de la rata entre las salidas 2 y 3, podemos observar la diferencia <span class="math inline">\(Y_2 - Y_3\)</span>. Calcularemos su esperanza y varianza.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Esperanza de <span class="math inline">\(Y_2 - Y_3\)</span></strong>:</p>
+<p>Usamos la linealidad de la esperanza:</p>
+<p><span class="math display">\[
+E(Y_2 - Y_3) = E(Y_2) - E(Y_3) = \frac{n}{3} - \frac{n}{3} = 0
+\]</span></p>
+</li>
+<li>
+<p><strong>Varianza de <span class="math inline">\(Y_2 - Y_3\)</span></strong>:</p>
+<p>Para calcular la varianza de <span class="math inline">\(Y_2 - Y_3\)</span>, usamos la fórmula de la varianza de una diferencia:</p>
+<p><span class="math display">\[
+V(Y_2 - Y_3) = V(Y_2) + V(Y_3) - 2 \operatorname{Cov}(Y_2, Y_3)
+\]</span></p>
+<p>Sabemos que <span class="math inline">\(V(Y_2) = V(Y_3) = \frac{2n}{9}\)</span> y que <span class="math inline">\(\operatorname{Cov}(Y_2, Y_3) = -\frac{n}{9}\)</span>, por lo que:</p>
+<p><span class="math display">\[
+V(Y_2 - Y_3) = \frac{2n}{9} + \frac{2n}{9} - 2 \cdot \left(-\frac{n}{9}\right) = \frac{6n}{9} = \frac{2n}{3}
+\]</span></p>
+</li>
+</ol>
+</div>
+<div id="resumen-de-resultados-2" class="section level3" number="18.8.5">
+<h3>
+<span class="header-section-number">18.8.5</span> Resumen de Resultados<a class="anchor" aria-label="anchor" href="#resumen-de-resultados-2"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de observar <span class="math inline">\(Y_1 = 3\)</span>, <span class="math inline">\(Y_2 = 1\)</span> y <span class="math inline">\(Y_3 = 2\)</span> en 6 corridas es 0.0823.</li>
+<li>La esperanza y varianza de <span class="math inline">\(Y_1\)</span> para <span class="math inline">\(n\)</span> corridas son <span class="math inline">\(E(Y_1) = \frac{n}{3}\)</span> y <span class="math inline">\(V(Y_1) = \frac{2n}{9}\)</span>.</li>
+<li>La covarianza entre <span class="math inline">\(Y_2\)</span> y <span class="math inline">\(Y_3\)</span> es <span class="math inline">\(\operatorname{Cov}(Y_2, Y_3) = -\frac{n}{9}\)</span>.</li>
+<li>La esperanza y varianza de <span class="math inline">\(Y_2 - Y_3\)</span> son <span class="math inline">\(E(Y_2 - Y_3) = 0\)</span> y <span class="math inline">\(V(Y_2 - Y_3) = \frac{2n}{3}\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></div>
+<div class="next"><a href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-distribuciones-multivariantes"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-1"><span class="header-section-number">18.1</span> Ejercicio 1</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#parte-a-funci%C3%B3n-de-probabilidad-conjunta-para-y_1-y-y_2"><span class="header-section-number">18.1.1</span> Parte a: Función de probabilidad conjunta para \(Y_1\) y \(Y_2\)</a></li>
+<li><a class="nav-link" href="#parte-b-c%C3%A1lculo-de-f10"><span class="header-section-number">18.1.2</span> Parte b: Cálculo de \(F(1,0)\)</a></li>
+<li><a class="nav-link" href="#resumen"><span class="header-section-number">18.1.3</span> Resumen</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-2"><span class="header-section-number">18.2</span> Ejercicio 2</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#funci%C3%B3n-de-probabilidad-conjunta-para-y_1-y-y_2"><span class="header-section-number">18.2.1</span> 1. Función de probabilidad conjunta para \(Y_1\) y \(Y_2\)</a></li>
+<li><a class="nav-link" href="#c%C3%A1lculo-de-f2-1"><span class="header-section-number">18.2.2</span> 2. Cálculo de \(F(2, 1)\)</a></li>
+<li><a class="nav-link" href="#resumen-de-resultados-1"><span class="header-section-number">18.2.3</span> Resumen de resultados</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-3"><span class="header-section-number">18.3</span> Ejercicio 3</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#parte-a-distribuci%C3%B3n-de-probabilidad-marginal-de-y_1"><span class="header-section-number">18.3.1</span> Parte a: Distribución de probabilidad marginal de \(Y_1\)</a></li>
+<li><a class="nav-link" href="#parte-b-comparaci%C3%B3n-con-la-distribuci%C3%B3n-binomial"><span class="header-section-number">18.3.2</span> Parte b: Comparación con la distribución binomial</a></li>
+<li><a class="nav-link" href="#conclusi%C3%B3n-2"><span class="header-section-number">18.3.3</span> Conclusión</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-4"><span class="header-section-number">18.4</span> Ejercicio 4</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#encontrar-el-valor-de-k-que-haga-de-%C3%A9sta-una-funci%C3%B3n-de-densidad-de-probabilidad"><span class="header-section-number">18.4.1</span> 1. Encontrar el valor de \(k\) que haga de ésta una función de densidad de probabilidad</a></li>
+<li><a class="nav-link" href="#encontrar-py_1-geq-3-y_2"><span class="header-section-number">18.4.2</span> 2. Encontrar \(P(Y_{1} \geq 3 Y_{2})\)</a></li>
+<li><a class="nav-link" href="#respuesta-final"><span class="header-section-number">18.4.3</span> Respuesta final</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-5"><span class="header-section-number">18.5</span> Ejercicio 5</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#probabilidad-de-que-la-cantidad-de-contaminante-en-la-chimenea-con-limpiador-sea-mayor-que-0.5"><span class="header-section-number">18.5.1</span> 1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5</a></li>
+<li><a class="nav-link" href="#probabilidad-condicional-dada-una-observaci%C3%B3n-de-y_2-0.5"><span class="header-section-number">18.5.2</span> 2. Probabilidad condicional dada una observación de \(Y_2 = 0.5\)</a></li>
+<li><a class="nav-link" href="#respuesta-final-1"><span class="header-section-number">18.5.3</span> Respuesta final</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-6"><span class="header-section-number">18.6</span> Ejercicio 6</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#parte-a-c%C3%A1lculo-de-la-covarianza-operatornamecovy_1-y_2"><span class="header-section-number">18.6.1</span> Parte a: Cálculo de la covarianza \(\operatorname{Cov}(Y_1, Y_2)\)</a></li>
+<li><a class="nav-link" href="#parte-b-interpretaci%C3%B3n-de-la-covarianza-negativa"><span class="header-section-number">18.6.2</span> Parte b: Interpretación de la covarianza negativa</a></li>
+<li><a class="nav-link" href="#ejercicio"><span class="header-section-number">18.6.3</span> Ejercicio</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-7"><span class="header-section-number">18.7</span> Ejercicio 7</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#parte-a-c%C3%A1lculo-de-operatornamecovy_1-y_1"><span class="header-section-number">18.7.1</span> Parte a: Cálculo de \(\operatorname{Cov}(Y_1, Y_1)\)</a></li>
+<li><a class="nav-link" href="#parte-b-verificaci%C3%B3n-de-operatornamecovy_1-y_2-7"><span class="header-section-number">18.7.2</span> Parte b: Verificación de \(\operatorname{Cov}(Y_1, Y_2) = 7\)</a></li>
+<li><a class="nav-link" href="#parte-c-valor-m%C3%A1ximo-posible-de-operatornamecovy_1-y_2-y-su-interpretaci%C3%B3n"><span class="header-section-number">18.7.3</span> Parte c: Valor máximo posible de \(\operatorname{Cov}(Y_1, Y_2)\) y su interpretación</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-8"><span class="header-section-number">18.8</span> Ejercicio 8</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#parte-a-probabilidad-de-obtener-y_1-3-y_2-1-y-y_3-2-en-n-6-corridas"><span class="header-section-number">18.8.1</span> Parte a: Probabilidad de obtener \(Y_1 = 3\), \(Y_2 = 1\) y \(Y_3 = 2\) en \(n = 6\) corridas</a></li>
+<li><a class="nav-link" href="#parte-b-esperanza-y-varianza-de-y_1-para-un-n-general"><span class="header-section-number">18.8.2</span> Parte b: Esperanza y varianza de \(Y_1\) para un \(n\) general</a></li>
+<li><a class="nav-link" href="#parte-c-covarianza-entre-y_2-y-y_3-para-un-n-general"><span class="header-section-number">18.8.3</span> Parte c: Covarianza entre \(Y_2\) y \(Y_3\) para un \(n\) general</a></li>
+<li><a class="nav-link" href="#parte-d-esperanza-y-varianza-de-y_2---y_3-para-un-n-general"><span class="header-section-number">18.8.4</span> Parte d: Esperanza y varianza de \(Y_2 - Y_3\) para un \(n\) general</a></li>
+<li><a class="nav-link" href="#resumen-de-resultados-2"><span class="header-section-number">18.8.5</span> Resumen de Resultados</a></li>
+</ul>
+</li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>

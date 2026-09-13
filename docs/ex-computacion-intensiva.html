@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 24 Bootstrap y tests de permutación | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 24 Bootstrap y tests de permutación | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 24 Bootstrap y tests de permutación | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)   24.1 Ejercicio 1 (Hesterberg et alt4., 18.4) Las vidas útiles de máquinas antes de una avería y los tiempos de supervivencia de pacientes con cáncer tras un...">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)   24.1 Ejercicio 1 (Hesterberg et alt4., 18.4) Las vidas útiles de máquinas antes de una avería y los tiempos de supervivencia de pacientes con cáncer tras un...">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)   24.1 Ejercicio 1 (Hesterberg et alt4., 18.4) Las vidas útiles de máquinas antes de una avería y los tiempos de supervivencia de pacientes con cáncer tras un...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="active" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-computacion-intensiva" class="section level1" number="24">
+<h1>
+<span class="header-section-number">Capítulo 24</span> Bootstrap y tests de permutación<a class="anchor" aria-label="anchor" href="#ex-computacion-intensiva"><i class="fas fa-link"></i></a>
+</h1>
+<div id="ejercicio-1-hesterberg-et-alt1.-18.4" class="section level2" number="24.1">
+<h2>
+<span class="header-section-number">24.1</span> Ejercicio 1 (Hesterberg et alt<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>., 18.4)<a class="anchor" aria-label="anchor" href="#ejercicio-1-hesterberg-et-alt1.-18.4"><i class="fas fa-link"></i></a>
+</h2>
+<p>Las vidas útiles de máquinas antes de una avería y los tiempos de supervivencia de pacientes con cáncer tras un tratamiento suelen estar fuertemente sesgados a la derecha. A continuación se muestran los tiempos de supervivencia (en días) de 72 cobayas en un ensayo médico:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">43</th>
+<th align="left">45</th>
+<th align="left">53</th>
+<th align="left">56</th>
+<th align="left">56</th>
+<th align="left">57</th>
+<th align="left">58</th>
+<th align="left">66</th>
+<th align="left">67</th>
+<th align="left">73</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">74</td>
+<td align="left">79</td>
+<td align="left">80</td>
+<td align="left">80</td>
+<td align="left">81</td>
+<td align="left">81</td>
+<td align="left">81</td>
+<td align="left">82</td>
+<td align="left">83</td>
+<td align="left">83</td>
+</tr>
+<tr class="even">
+<td align="left">84</td>
+<td align="left">88</td>
+<td align="left">89</td>
+<td align="left">91</td>
+<td align="left">91</td>
+<td align="left">92</td>
+<td align="left">92</td>
+<td align="left">97</td>
+<td align="left">99</td>
+<td align="left">99</td>
+</tr>
+<tr class="odd">
+<td align="left">100</td>
+<td align="left">100</td>
+<td align="left">101</td>
+<td align="left">102</td>
+<td align="left">102</td>
+<td align="left">102</td>
+<td align="left">103</td>
+<td align="left">104</td>
+<td align="left">107</td>
+<td align="left">108</td>
+</tr>
+<tr class="even">
+<td align="left">109</td>
+<td align="left">113</td>
+<td align="left">114</td>
+<td align="left">118</td>
+<td align="left">121</td>
+<td align="left">123</td>
+<td align="left">126</td>
+<td align="left">128</td>
+<td align="left">137</td>
+<td align="left">138</td>
+</tr>
+<tr class="odd">
+<td align="left">139</td>
+<td align="left">144</td>
+<td align="left">145</td>
+<td align="left">147</td>
+<td align="left">156</td>
+<td align="left">162</td>
+<td align="left">174</td>
+<td align="left">178</td>
+<td align="left">179</td>
+<td align="left">184</td>
+</tr>
+<tr class="even">
+<td align="left">191</td>
+<td align="left">198</td>
+<td align="left">211</td>
+<td align="left">214</td>
+<td align="left">243</td>
+<td align="left">249</td>
+<td align="left">329</td>
+<td align="left">380</td>
+<td align="left">403</td>
+<td align="left">511</td>
+</tr>
+<tr class="odd">
+<td align="left">522</td>
+<td align="left">598</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Realiza un histograma de los tiempos de supervivencia. La distribución está fuertemente sesgada.</p></li>
+<li><p>El teorema central del límite establece que la distribución muestral de la media muestral <span class="math inline">\(\bar{x}\)</span> se aproxima a una Normal cuando el tamaño muestral aumenta. ¿Es la distribución muestral aproximadamente Normal para <span class="math inline">\(n=72\)</span>?</p></li>
+</ol>
+<p>Para comprobarlo, aplica bootstrap a estos datos e inspecciona la distribución bootstrap de la media (utiliza un gráfico cuantílico Normal). ¿En qué difiere la distribución respecto a la Normalidad? ¿La distribución bootstrap está más o menos sesgada que la distribución de los datos?</p>
+</div>
+<div id="ejercicio-2-hesterberg-et-al.-18.21" class="section level2" number="24.2">
+<h2>
+<span class="header-section-number">24.2</span> Ejercicio 2 (Hesterberg et al., 18.21)<a class="anchor" aria-label="anchor" href="#ejercicio-2-hesterberg-et-al.-18.21"><i class="fas fa-link"></i></a>
+</h2>
+<p>Una empresa vende ropa y equipamiento deportivo por Internet. Para diseñar la ropa, se recopilan datos sobre las características físicas de los clientes. A continuación se muestran los pesos en kilogramos de una muestra de 25 corredores varones. Supón que estos corredores constituyen una muestra aleatoria de tus potenciales clientes masculinos.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">67.8</th>
+<th align="left">61.9</th>
+<th align="left">63.0</th>
+<th align="left">53.1</th>
+<th align="left">62.3</th>
+<th align="left">59.7</th>
+<th align="left">55.4</th>
+<th align="left">58.9</th>
+<th align="left">60.9</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">69.2</td>
+<td align="left">63.7</td>
+<td align="left">68.3</td>
+<td align="left">92.3</td>
+<td align="left">64.7</td>
+<td align="left">65.6</td>
+<td align="left">56.0</td>
+<td align="left">57.8</td>
+<td align="left">66.0</td>
+</tr>
+<tr class="even">
+<td align="left">62.9</td>
+<td align="left">53.6</td>
+<td align="left">65.0</td>
+<td align="left">55.8</td>
+<td align="left">60.4</td>
+<td align="left">69.3</td>
+<td align="left">61.7</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+<p>Dado que los productos están orientados al “varón medio”, estás interesado en ver cuánto varían los sujetos de la muestra respecto al peso medio.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calcula la desviación estándar muestral <span class="math inline">\(s\)</span> para estos pesos.</p></li>
+<li><p>No disponemos de una fórmula para el error estándar de <span class="math inline">\(s\)</span>. Encuentra el error estándar bootstrap de <span class="math inline">\(s\)</span>.</p></li>
+<li><p>¿Qué indica el error estándar sobre la precisión de la desviación estándar muestral como estimador de la desviación estándar poblacional?</p></li>
+<li><p>¿Sería apropiado dar un intervalo <span class="math inline">\(t\)</span> bootstrap para la desviación estándar poblacional? ¿Por qué sí o por qué no?</p></li>
+</ol>
+</div>
+<div id="ejercicio-3-hesterberg-et-al.-18.37" class="section level2" number="24.3">
+<h2>
+<span class="header-section-number">24.3</span> Ejercicio 3 (Hesterberg et al., 18.37)<a class="anchor" aria-label="anchor" href="#ejercicio-3-hesterberg-et-al.-18.37"><i class="fas fa-link"></i></a>
+</h2>
+<p>Los datos de CLEC están fuertemente sesgados a la derecha. Los 23 tiempos de reparación de CLEC (en horas) son</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">26.62</th>
+<th align="right">8.60</th>
+<th align="center">0</th>
+<th align="right">21.15</th>
+<th align="right">8.33</th>
+<th align="right">20.28</th>
+<th align="right">96.32</th>
+<th align="right">17.97</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">3.42</td>
+<td align="right">0.07</td>
+<td align="center">24.38</td>
+<td align="right">19.88</td>
+<td align="right">14.33</td>
+<td align="right">5.45</td>
+<td align="right">5.40</td>
+<td align="right">2.68</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="right">24.20</td>
+<td align="center">22.13</td>
+<td align="right">18.57</td>
+<td align="right">20.00</td>
+<td align="right">14.13</td>
+<td align="right">5.80</td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table></div>
+<!-- ![](https://cdn.mathpix.com/cropped/bb3b0e3e-888f-475f-b2d9-74c499025515-2.jpg?height=159&width=163&top_left_y=127&top_left_x=1503) --><ol style="list-style-type: lower-alpha">
+<li><p>Realiza un histograma y un gráfico cuantílico Normal de los datos muestrales, y calcula la media muestral.</p></li>
+<li><p>Aplica bootstrap a la media de los datos. Representa la distribución bootstrap. ¿Es Normal? ¿Esperas que alguno de los intervalos de confianza sea inexacto? ¿Por qué sí o por qué no?</p></li>
+<li><p>Encuentra el error estándar bootstrap y utilízalo para construir un intervalo de confianza <span class="math inline">\(t\)</span> del <span class="math inline">\(95%\)</span>.</p></li>
+<li><p>Encuentra los intervalos del <span class="math inline">\(95%\)</span> percentil, BCa y de <em>tilting</em>.</p></li>
+<li><p>¿Cómo se comparan los intervalos? Explica brevemente las razones de las posibles diferencias.</p></li>
+<li><p>Supón que utilizas estos datos y los intervalos de confianza para determinar los niveles de personal para el próximo año, de modo que estés seguro de que se ajustarán a la demanda. ¿Qué tipo de errores cometerías al usar un intervalo <span class="math inline">\(t\)</span> o un intervalo percentil en lugar de un intervalo de <em>tilting</em> o BCa?</p></li>
+</ol>
+</div>
+<div id="ejercicio-4.-hesterberg-et-al.-18.78" class="section level2" number="24.4">
+<h2>
+<span class="header-section-number">24.4</span> Ejercicio 4. (Hesterberg et al., 18.78)<a class="anchor" aria-label="anchor" href="#ejercicio-4.-hesterberg-et-al.-18.78"><i class="fas fa-link"></i></a>
+</h2>
+<p>Cambios en el desempleo urbano. A continuación se muestran las tasas de desempleo (porcentaje de la población activa) en julio de 2001 y 2002 para una muestra aleatoria de 19 de las 331 áreas metropolitanas para las cuales la Oficina de Estadísticas Laborales publica datos:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Area</th>
+<th align="center">2001</th>
+<th align="center">2002</th>
+<th align="center">Area</th>
+<th align="center">2001</th>
+<th align="center">2002</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">4.7</td>
+<td align="center">6.0</td>
+<td align="center">11</td>
+<td align="center">2.6</td>
+<td align="center">2.3</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">4.1</td>
+<td align="center">4.0</td>
+<td align="center">12</td>
+<td align="center">5.2</td>
+<td align="center">5.2</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">3.9</td>
+<td align="center">4.1</td>
+<td align="center">13</td>
+<td align="center">2.6</td>
+<td align="center">2.9</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">5.0</td>
+<td align="center">5.3</td>
+<td align="center">14</td>
+<td align="center">3.2</td>
+<td align="center">3.7</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">5.0</td>
+<td align="center">5.6</td>
+<td align="center">15</td>
+<td align="center">4.6</td>
+<td align="center">5.5</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">4.3</td>
+<td align="center">5.2</td>
+<td align="center">16</td>
+<td align="center">3.5</td>
+<td align="center">4.6</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">4.4</td>
+<td align="center">5.6</td>
+<td align="center">17</td>
+<td align="center">4.6</td>
+<td align="center">5.8</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">5.6</td>
+<td align="center">6.9</td>
+<td align="center">18</td>
+<td align="center">4.1</td>
+<td align="center">5.9</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">5.3</td>
+<td align="center">7.2</td>
+<td align="center">19</td>
+<td align="center">5.6</td>
+<td align="center">7.7</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">6.3</td>
+<td align="center">8.7</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Representa los datos para cada año y compara ambos gráficos.</p></li>
+<li><p>Realiza un test <span class="math inline">\(t\)</span> apareado para la diferencia de medias y calcula el valor <span class="math inline">\(P\)</span>.</p></li>
+<li><p>Realiza un test de permutación para muestras apareadas y calcula el valor <span class="math inline">\(P\)</span>. Compara este resultado con el obtenido en el apartado (b).</p></li>
+</ol>
+</div>
+<div id="ejercicio-5-5" class="section level2" number="24.5">
+<h2>
+<span class="header-section-number">24.5</span> Ejercicio 5<a class="anchor" aria-label="anchor" href="#ejercicio-5-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>Importa los datos del conjunto <em>Flight Delays</em> en R. Aunque los datos corresponden a todos los vuelos de UA y AA realizados en mayo y junio de 2009, asumiremos que representan una muestra de una población mayor de vuelos de UA y AA realizados en circunstancias similares. Consideraremos el cociente de medias de las duraciones de los retrasos de vuelo, <span class="math inline">\(\mu_{UA} / \mu_{AA}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Realiza un análisis exploratorio de los datos de las duraciones de los retrasos de vuelo para cada una de las aerolíneas UA y AA.</p></li>
+<li><p>Aplica bootstrap a la media de las duraciones de los retrasos de vuelo para cada aerolínea por separado y describe la distribución.</p></li>
+<li><p>Aplica bootstrap al cociente de medias. Proporciona gráficos de la distribución bootstrap y describe dicha distribución.</p></li>
+<li><p>Encuentra el error estándar bootstrap del cociente de medias. ¿Cómo podrías relacionarlo con el problema uno?</p></li>
+<li><p>Encuentra el intervalo percentil bootstrap del <span class="math inline">\(95%\)</span> para el cociente de medias. Interpreta este intervalo.</p></li>
+<li><p>¿Cuál es la estimación bootstrap del sesgo? ¿Qué fracción del error estándar bootstrap representa?</p></li>
+</ol>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="footnotes">
+<hr>
+<ol start="4">
+<li id="fn4"><p>Hesterberg, Tim &amp; Monaghan, Shaun &amp; Moore, David &amp; Clipson, Ashley &amp; Epstein, Rachel &amp; Freeman, W &amp; York, Company. (2005). Bootstrap Methods and Permutation Tests. Introduction to the Practice of Statistics. 14.<a href="ex-computacion-intensiva.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></div>
+<div class="next"><a href="bibliografia.html">Bibliografia</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-computacion-intensiva"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="nav-link" href="#ejercicio-1-hesterberg-et-alt1.-18.4"><span class="header-section-number">24.1</span> Ejercicio 1 (Hesterberg et alt4., 18.4)</a></li>
+<li><a class="nav-link" href="#ejercicio-2-hesterberg-et-al.-18.21"><span class="header-section-number">24.2</span> Ejercicio 2 (Hesterberg et al., 18.21)</a></li>
+<li><a class="nav-link" href="#ejercicio-3-hesterberg-et-al.-18.37"><span class="header-section-number">24.3</span> Ejercicio 3 (Hesterberg et al., 18.37)</a></li>
+<li><a class="nav-link" href="#ejercicio-4.-hesterberg-et-al.-18.78"><span class="header-section-number">24.4</span> Ejercicio 4. (Hesterberg et al., 18.78)</a></li>
+<li><a class="nav-link" href="#ejercicio-5-5"><span class="header-section-number">24.5</span> Ejercicio 5</a></li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>

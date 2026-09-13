@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 21 Intervalos de confianza | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 21 Intervalos de confianza | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 21 Intervalos de confianza | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)   21.1 EJERCICIO 1  La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35...">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)   21.1 EJERCICIO 1  La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35...">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)   21.1 EJERCICIO 1  La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="active" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-intervalos" class="section level1" number="21">
+<h1>
+<span class="header-section-number">Capítulo 21</span> Intervalos de confianza<a class="anchor" aria-label="anchor" href="#ex-intervalos"><i class="fas fa-link"></i></a>
+</h1>
+<div id="ejercicio-1-3" class="section level2" number="21.1">
+<h2>
+<span class="header-section-number">21.1</span> EJERCICIO 1<a class="anchor" aria-label="anchor" href="#ejercicio-1-3"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Bioestadística UB. Exercici 4.1 (2024-25) -->
+<p>La distribución del número de huevos puestos por una determinada especie de gallina durante su período de reproducción tiene una media de 35 huevos con una desviación estándar de 18.2. Supongamos que un grupo de investigadores recoge una muestra aleatoria de 45 gallinas de esta especie, cuenta el número de huevos establecidos durante el período de reproducción y registra la media de la muestra. Repiten estas muestras 1.000 veces, y construyen una distribución de las medias de la muestra.</p>
+<ol style="list-style-type: lower-alpha">
+<li>¿Cómo se llama esta distribución?<br>
+</li>
+<li>¿Esperaríamos que la forma de esta distribución fuera simétrica, sesgada o no sesgada? Razona la respuesta.<br>
+</li>
+<li>Calcula la variabilidad de esta distribución y di cómo se llama el parámetro que la mide.<br>
+</li>
+<li>Supongamos que el presupuesto de los investigadores se reduce y solo pueden recoger muestras aleatorias de 10 gallinas. Se registra la media de las muestras del número de huevos y se repite 1.000 veces, construyendo una nueva distribución de las medias de la muestra. ¿Cómo será la variabilidad de esta nueva distribución comparada con la variabilidad de la distribución original?</li>
+</ol>
+</div>
+<div id="ejercicio-2-3" class="section level2" number="21.2">
+<h2>
+<span class="header-section-number">21.2</span> EJERCICIO 2<a class="anchor" aria-label="anchor" href="#ejercicio-2-3"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Bioestadística UB. Exercici 4.2 (2024-25) -->
+<p>Un administrador de hospital con la esperanza de mejorar los tiempos de espera decide estimar el tiempo de espera medio de la sala de urgencias (ER) de su hospital. Recopila una muestra aleatoria simple de 64 pacientes y determina el tiempo (en minutos) entre cuando ingresaron al ER hasta que fueron visitados por un médico. Un intervalo de confianza del 95% basado en esta muestra es (128 minutos, 147 minutos), basado en una distribución normal para la media. Determina y razona si las siguientes afirmaciones son verdaderas o falsas.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Este intervalo de confianza no es válido, ya que no sabemos si la distribución en la población de los tiempos de espera de ER es normal.<br>
+</li>
+<li>Tenemos una confianza del 95% de que el tiempo de espera medio de estos 64 pacientes en una sala de emergencias está entre 128 y 147 minutos.<br>
+</li>
+<li>Tenemos una confianza del 95% de que el tiempo de espera medio de todos los pacientes en la sala de emergencias de este hospital está entre 128 y 147 minutos.<br>
+</li>
+<li>El 95% de las muestras aleatorias tienen una media muestral entre 128 y 147 minutos.<br>
+</li>
+<li>Un intervalo de confianza del 99% sería más estrecho que el intervalo de confianza del 95%, ya que debemos estar más seguros de nuestra estimación.<br>
+</li>
+<li>El margen de error es de 9,5 y la media de la muestra es de 137,5.<br>
+</li>
+<li>Para reducir el margen de error de un intervalo de confianza del 95% a la mitad de lo que es ahora, tendremos que duplicar el tamaño de la muestra.</li>
+</ol>
+<div id="solución-17" class="section level3" number="21.2.1">
+<h3>
+<span class="header-section-number">21.2.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-17"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: lower-alpha">
+<li><p>Falso. El tamaño muestral permite aceptar la normalidad por el TLC.</p></li>
+<li><p>Falso. La inferencia se realiza sobre el parámetro poblacional, no sobre el parámetro muestral, que siempre estará dentro del intervalo.</p></li>
+<li><p>Cierto.</p></li>
+<li><p>Falso. No hacemos inferencia sobre las muestras.</p></li>
+<li><p>Falso. Sería más amplio.</p></li>
+<li><p>Cierto. La media es el punto medio del intervalo.</p></li>
+<li><p>Falso. Deberíamos cuadruplicar el tamaño de la muestra.</p></li>
+</ol>
+</div>
+</div>
+<div id="ejercicio-3-3" class="section level2" number="21.3">
+<h2>
+<span class="header-section-number">21.3</span> EJERCICIO 3<a class="anchor" aria-label="anchor" href="#ejercicio-3-3"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Bioestadística UB. Exercici 4.4 (2024-25) -->
+<p>Las autoridades sanitarias fijan la cantidad de 14 UFP/100ml (UFP=unidades formadoras de placas) como la concentración máxima de un determinado virus entérico en aguas residuales de cualquier punto del estado. Se realiza un control en aguas depuradas de 10 granjas que generan purines. La concentración del virus entérico corresponde a un número muy grande, de forma que podemos asumir que sigue una distribución Normal. Por otro lado, las granjas están suficientemente alejadas como para asumir que los resultados individuales son mutuamente independientes.</p>
+<p>Los valores obtenidos han sido:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">14.3</th>
+<th align="left">15.3</th>
+<th align="left">13.8</th>
+<th align="left">15.4</th>
+<th align="left">15.5</th>
+<th align="left">14.6</th>
+<th align="left">13.9</th>
+<th align="left">15</th>
+<th align="left">14</th>
+</tr></thead>
+<tbody></tbody>
+</table></div>
+<ol style="list-style-type: decimal">
+<li>Calcula el intervalo de confianza al 95% de la concentración media del virus en las aguas que vierten las granjas.<br>
+</li>
+<li>Interpreta el resultado en función del valor fijado por la administración.</li>
+</ol>
+<div id="solución-18" class="section level3" number="21.3.1">
+<h3>
+<span class="header-section-number">21.3.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-18"><i class="fas fa-link"></i></a>
+</h3>
+<div id="cálculo-del-intervalo-de-confianza-al-95-para-la-concentración-media-del-virus" class="section level4" number="21.3.1.1">
+<h4>
+<span class="header-section-number">21.3.1.1</span> Cálculo del intervalo de confianza al 95% para la concentración media del virus<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-del-intervalo-de-confianza-al-95-para-la-concentraci%C3%B3n-media-del-virus"><i class="fas fa-link"></i></a>
+</h4>
+<p>El intervalo de confianza (IC) para la media de una población normal con varianza desconocida se calcula como:</p>
+<p><span class="math display">\[ \bar{x} \pm t_{n-1, 1-\alpha/2} \cdot \frac{s}{\sqrt{n}} \]</span></p>
+<p>Donde:
+- <span class="math inline">\(\bar{x}\)</span> es la media muestral.
+- <span class="math inline">\(t_{n-1, 1-\alpha/2}\)</span> es el valor crítico de la distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(n-1\)</span> grados de libertad y nivel de confianza <span class="math inline">\(1-\alpha\)</span>.
+- <span class="math inline">\(s\)</span> es la desviación estándar muestral.
+- <span class="math inline">\(n\)</span> es el tamaño de la muestra.</p>
+<p>Los datos proporcionados son:</p>
+<p><span class="math display">\[ \text{concentración} = \{14.3, 15.3, 13.8, 15.4, 15.5, 14.6, 13.9, 15.0, 14.6, 13.8\} \]</span></p>
+<p>El tamaño muestral es <span class="math inline">\(n=10\)</span>. Calculamos la media (<span class="math inline">\(\bar{x}\)</span>) y la desviación estándar (<span class="math inline">\(s\)</span>) con R y usamos la función <code>t.test</code> para obtener el intervalo de confianza.</p>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Datos</span></span>
+<span><span class="va">conc_virus</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">14.3</span>, <span class="fl">15.3</span>, <span class="fl">13.8</span>, <span class="fl">15.4</span>, <span class="fl">15.5</span>, <span class="fl">14.6</span>, <span class="fl">13.9</span>, <span class="fl">15.0</span>, <span class="fl">14.6</span>, <span class="fl">13.8</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Intervalo de confianza al 95%</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">conc_virus</span><span class="op">)</span></span>
+<span><span class="va">res</span><span class="op">$</span><span class="va">conf.int</span></span></code></pre></div>
+<pre><code>## [1] 14.14573 15.09427
+## attr(,"conf.level")
+## [1] 0.95</code></pre>
+<p>Resultados obtenidos:
+- Límite inferior del IC: 14.1457
+- Límite superior del IC: 15.0943</p>
+<p>Por lo tanto, el intervalo de confianza al 95% es:</p>
+<p><span class="math display">\[ (14.146, 15.094) \]</span></p>
+<hr>
+</div>
+<div id="interpretación-del-resultado-3" class="section level4" number="21.3.1.2">
+<h4>
+<span class="header-section-number">21.3.1.2</span> Interpretación del resultado<a class="anchor" aria-label="anchor" href="#interpretaci%C3%B3n-del-resultado-3"><i class="fas fa-link"></i></a>
+</h4>
+<p>El valor fijado por la administración como límite máximo aceptable para la concentración de virus es 14 UFP/100ml. Observamos que <strong>todo el intervalo de confianza calculado está por encima de este valor (14.146, 15.094)</strong>. Esto implica que:</p>
+<ul>
+<li>Es razonable concluir que la media poblacional de la concentración del virus está por encima de 14 UFP/100ml.</li>
+<li>Solo el 5% de los intervalos que construimos a partir de muestras no contiene la verdadera media poblacional, y el intervalo que hemos construido no incluye el valor fijado por la administración.</li>
+</ul>
+<p><strong>Conclusión</strong>: Existe evidencia estadística para sugerir, con una alta confianza, que las granjas exceden, en promedio, el límite permitido por las autoridades sanitarias.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-4-2" class="section level2" number="21.4">
+<h2>
+<span class="header-section-number">21.4</span> EJERCICIO 4<a class="anchor" aria-label="anchor" href="#ejercicio-4-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Bioestadística UB. Exercici 4.6 (2024-25) -->
+<p>En un estudio sobre los efectos fisiológicos del alcohol se midió el tiempo que se tarda en reaccionar a un estímulo en un conjunto de seis individuos antes y después de consumir una fuerte dosis de alcohol. El tiempo de latencia medido en milisegundos fue el siguiente:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">Individuo</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Antes</td>
+<td align="right">3.85</td>
+<td align="right">3.81</td>
+<td align="right">3.60</td>
+<td align="right">3.68</td>
+<td align="right">3.78</td>
+<td align="right">3.83</td>
+</tr>
+<tr class="even">
+<td align="left">Después</td>
+<td align="right">3.82</td>
+<td align="right">3.95</td>
+<td align="right">3.80</td>
+<td align="right">3.87</td>
+<td align="right">3.88</td>
+<td align="right">3.94</td>
+</tr>
+</tbody>
+</table></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calcula un intervalo de confianza del 95% para la diferencia de medias: <em>Después - Antes</em>.<br>
+¿Podríamos afirmar que la media después es superior a la media antes?</p></li>
+<li><p>¿Cómo cambiará el intervalo si reducimos el nivel de confianza al 90%?<br>
+¿Será más amplio? ¿Será más estrecho? ¿O no cambiará?</p></li>
+</ol>
+<div id="solución-19" class="section level3" number="21.4.1">
+<h3>
+<span class="header-section-number">21.4.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-19"><i class="fas fa-link"></i></a>
+</h3>
+<div id="cálculo-del-intervalo-de-confianza-al-95-para-la-diferencia-de-medias-después---antes" class="section level4" number="21.4.1.1">
+<h4>
+<span class="header-section-number">21.4.1.1</span> Cálculo del intervalo de confianza al 95% para la diferencia de medias: <em>Después - Antes</em><a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-del-intervalo-de-confianza-al-95-para-la-diferencia-de-medias-despu%C3%A9s---antes"><i class="fas fa-link"></i></a>
+</h4>
+<p>Estamos trabajando con datos apareados, ya que se trata de mediciones realizadas en los mismos individuos antes y después de consumir alcohol. Por lo tanto, calculamos las diferencias entre los valores <em>Después - Antes</em> para cada individuo, y procedemos como si fuera un problema de una sola muestra con las diferencias.</p>
+<p>El intervalo de confianza para la media de las diferencias se calcula como:</p>
+<p><span class="math display">\[ \bar{d} \pm t_{n-1, 1-\alpha/2} \cdot \frac{s_d}{\sqrt{n}} \]</span></p>
+<p>Donde:
+- <span class="math inline">\(\bar{d}\)</span> es la media de las diferencias.
+- <span class="math inline">\(t_{n-1, 1-\alpha/2}\)</span> es el valor crítico de la distribución <span class="math inline">\(t\)</span> de Student con <span class="math inline">\(n-1\)</span> grados de libertad y nivel de confianza <span class="math inline">\(1-\alpha\)</span>.
+- <span class="math inline">\(s_d\)</span> es la desviación estándar de las diferencias.
+- <span class="math inline">\(n\)</span> es el número de pares.</p>
+<p>Los datos son:
+- Antes: <span class="math inline">\([3.85, 3.81, 3.60, 3.68, 3.78, 3.83]\)</span>
+- Después: <span class="math inline">\([3.82, 3.95, 3.80, 3.87, 3.88, 3.94]\)</span></p>
+<p>Calculemos el intervalo de confianza al 95% con R.</p>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Datos</span></span>
+<span><span class="va">antes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3.85</span>, <span class="fl">3.81</span>, <span class="fl">3.60</span>, <span class="fl">3.68</span>, <span class="fl">3.78</span>, <span class="fl">3.83</span><span class="op">)</span></span>
+<span><span class="va">despues</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3.82</span>, <span class="fl">3.95</span>, <span class="fl">3.80</span>, <span class="fl">3.87</span>, <span class="fl">3.88</span>, <span class="fl">3.94</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Intervalo de confianza al 95% para las diferencias pareadas</span></span>
+<span><span class="va">res_95</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">despues</span>, <span class="va">antes</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">res_95</span><span class="op">$</span><span class="va">conf.int</span></span></code></pre></div>
+<pre><code>## [1] 0.03092935 0.20573732
+## attr(,"conf.level")
+## [1] 0.95</code></pre>
+<p>Resultados:
+- Límite inferior del IC: 0.03093
+- Límite superior del IC: 0.20574</p>
+<p>El intervalo de confianza al 95% para la diferencia de medias es:</p>
+<p><span class="math display">\[ (0.031, 0.206) \]</span></p>
+<p><strong>Interpretación</strong>: Como todo el intervalo está en la parte positiva de la recta real, podemos afirmar con un 95% de confianza que la media después de consumir alcohol es superior a la media antes de consumir alcohol.</p>
+</div>
+<div id="cambio-del-intervalo-al-reducir-el-nivel-de-confianza-al-90" class="section level4" number="21.4.1.2">
+<h4>
+<span class="header-section-number">21.4.1.2</span> Cambio del intervalo al reducir el nivel de confianza al 90%<a class="anchor" aria-label="anchor" href="#cambio-del-intervalo-al-reducir-el-nivel-de-confianza-al-90"><i class="fas fa-link"></i></a>
+</h4>
+<p>Al reducir el nivel de confianza al 90%, el valor crítico <span class="math inline">\(t_{n-1, 1-\alpha/2}\)</span> disminuye, lo que hace que el intervalo de confianza sea más estrecho. Calculemos el nuevo intervalo con R.</p>
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Intervalo de confianza al 90% para las diferencias pareadas</span></span>
+<span><span class="va">res_90</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">despues</span>, <span class="va">antes</span>, paired <span class="op">=</span> <span class="cn">TRUE</span>, conf.level <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span>
+<span><span class="va">res_90</span><span class="op">$</span><span class="va">conf.int</span></span></code></pre></div>
+<pre><code>## [1] 0.0498184 0.1868483
+## attr(,"conf.level")
+## [1] 0.9</code></pre>
+<p>Resultados:
+- Límite inferior del IC: 0.04982
+- Límite superior del IC: 0.18685</p>
+<p>El intervalo de confianza al 90% es:</p>
+<p><span class="math display">\[ (0.050, 0.187) \]</span></p>
+<p><strong>Conclusión</strong>: Como esperábamos, el intervalo al 90% es más estrecho que el intervalo al 95%. Esto ocurre porque reducimos el nivel de confianza, lo que implica un menor margen de error.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-5-3" class="section level2" number="21.5">
+<h2>
+<span class="header-section-number">21.5</span> EJERCICIO 5<a class="anchor" aria-label="anchor" href="#ejercicio-5-3"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Bioestadística UB. Exercici 4.7 (2024-25) -->
+<p>El estudio sanguíneo de un individuo presenta 125 neutrófilos de un recuento total de 200 glóbulos blancos. Se pide:</p>
+<ol style="list-style-type: decimal">
+<li>Encuentra una estimación puntual para la proporción de neutrófilos.<br>
+</li>
+<li>Encuentra un intervalo de confianza al 90% para la anterior proporción.<br>
+</li>
+<li>En un individuo sano, el porcentaje de neutrófilos se encuentra entre el 60% y el 70% del total de glóbulos blancos. Según el intervalo del apartado anterior, ¿hay alguna evidencia de desequilibrio de neutrófilos en la muestra de sangre analizada?</li>
+</ol>
+<div id="solución-20" class="section level3" number="21.5.1">
+<h3>
+<span class="header-section-number">21.5.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-20"><i class="fas fa-link"></i></a>
+</h3>
+<div id="estimación-puntual-para-la-proporción-de-neutrófilos" class="section level4" number="21.5.1.1">
+<h4>
+<span class="header-section-number">21.5.1.1</span> Estimación puntual para la proporción de neutrófilos<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-puntual-para-la-proporci%C3%B3n-de-neutr%C3%B3filos"><i class="fas fa-link"></i></a>
+</h4>
+<p>El estimador (por momentos y por máxima verosimilitud) de la proporción poblacional es la frecuencia relativa (<span class="math inline">\(\hat{p}\)</span>) que se calcula como:</p>
+<p><span class="math display">\[ \hat{p} = \frac{x}{n} \]</span></p>
+<p>Donde:
+- <span class="math inline">\(x = 125\)</span> es el número de neutrófilos.
+- <span class="math inline">\(n = 200\)</span> es el total de glóbulos blancos.</p>
+<p>Calculamos <span class="math inline">\(\hat{p}\)</span>:</p>
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Datos</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">125</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">200</span></span>
+<span></span>
+<span><span class="co"># Proporción muestral</span></span>
+<span><span class="va">p_hat</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">/</span> <span class="va">n</span></span>
+<span><span class="va">p_hat</span></span></code></pre></div>
+<pre><code>## [1] 0.625</code></pre>
+<p>Resultado:
+<span class="math display">\[ \hat{p} = 0.625 \]</span></p>
+<p>La estimación puntual para la proporción de neutrófilos es <strong>0.625</strong> o <strong>62.5%</strong>.</p>
+</div>
+<div id="intervalo-de-confianza-al-90-para-la-proporción" class="section level4" number="21.5.1.2">
+<h4>
+<span class="header-section-number">21.5.1.2</span> Intervalo de confianza al 90% para la proporción<a class="anchor" aria-label="anchor" href="#intervalo-de-confianza-al-90-para-la-proporci%C3%B3n"><i class="fas fa-link"></i></a>
+</h4>
+<p>El intervalo de confianza asintótico para una proporción se calcula como:</p>
+<p><span class="math display">\[ \hat{p} \pm z_{1-\alpha/2} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</span></p>
+<p>Donde:</p>
+<ul>
+<li>
+<span class="math inline">\(z_{1-\alpha/2}\)</span> es el valor crítico de la distribución normal estándar para un nivel de confianza del 90%.</li>
+<li>
+<span class="math inline">\(\hat{p}\)</span> es la proporción muestral.</li>
+<li>
+<span class="math inline">\(n\)</span> es el tamaño de la muestra.</li>
+</ul>
+<p>Usamos R para calcular este intervalo:</p>
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Nivel de confianza</span></span>
+<span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fl">0.1</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">alpha</span> <span class="op">/</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Error estándar</span></span>
+<span><span class="va">se</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">p_hat</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">p_hat</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Intervalo de confianza</span></span>
+<span><span class="va">lower</span> <span class="op">&lt;-</span> <span class="va">p_hat</span> <span class="op">-</span> <span class="va">z</span> <span class="op">*</span> <span class="va">se</span></span>
+<span><span class="va">upper</span> <span class="op">&lt;-</span> <span class="va">p_hat</span> <span class="op">+</span> <span class="va">z</span> <span class="op">*</span> <span class="va">se</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lower</span>, <span class="va">upper</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.5686923 0.6813077</code></pre>
+<p>Resultado:
+- Límite inferior: <strong>0.569</strong>
+- Límite superior: <strong>0.681</strong></p>
+<p>El intervalo de confianza al 90% para la proporción de neutrófilos es:</p>
+<p><span class="math display">\[ (0.569, 0.681) \]</span></p>
+</div>
+<div id="evidencia-de-desequilibrio-de-neutrófilos" class="section level4" number="21.5.1.3">
+<h4>
+<span class="header-section-number">21.5.1.3</span> Evidencia de desequilibrio de neutrófilos<a class="anchor" aria-label="anchor" href="#evidencia-de-desequilibrio-de-neutr%C3%B3filos"><i class="fas fa-link"></i></a>
+</h4>
+<p>Un individuo sano tiene una proporción de neutrófilos entre 60% y 70% (<span class="math inline">\(0.6 \leq p \leq 0.7\)</span>). Observamos que:</p>
+<ul>
+<li><p>El intervalo de confianza calculado es <span class="math inline">\((0.569, 0.681)\)</span>.</p></li>
+<li><p>Dado que hay una considerable superposición entre ambos intervalos no podemos concluir que haya evidencia de desequilibrio de neutrófilos.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="ejercicio-6-2" class="section level2" number="21.6">
+<h2>
+<span class="header-section-number">21.6</span> EJERCICIO 6<a class="anchor" aria-label="anchor" href="#ejercicio-6-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Un proceso químico se lleva a cabo usando un catalizador del que se quiere estimar el rendimiento medio. Una muestra piloto de tamaño 8 estima la desviación típica con un valor de 2.</p>
+<p>Decide el tamaño de muestra necesario para obtener intervalos de confianza para la media con un 90% y un 95% de confianza de anchura igual a 3 (precisión 1.5), suponiendo que dicha variable sigue un modelo normal.</p>
+<div id="solución-21" class="section level3" number="21.6.1">
+<h3>
+<span class="header-section-number">21.6.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-21"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos determinar el tamaño de muestra necesario para obtener intervalos de confianza para la media con anchura igual a 3 (precisión de 1.5), considerando niveles de confianza del 90% y 95%. Se sabe que la desviación estándar estimada del proceso químico es <span class="math inline">\(\sigma = 2\)</span> y que la variable sigue una distribución normal.</p>
+<p>Dado que la desviación estándar es estimada, nos basaremos en la distribución <span class="math inline">\(t\)</span> de Student en lugar de la normal estándar.</p>
+<p>La amplitud del intervalo de confianza para la media basado en la distribución <span class="math inline">\(t\)</span> se calcula como:</p>
+<p><span class="math display">\[ \text{Amplitud} = 2 \cdot t_{n-1, 1-\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \]</span></p>
+<p>Resolviendo para <span class="math inline">\(n\)</span>, a partir de la precisión, es decir la mitad de la amplitud se tiene:</p>
+<p><span class="math display">\[ n = \left( \frac{t_{n-1, 1-\alpha/2} \cdot \sigma}{\text{Precisión}} \right)^2 \]</span></p>
+<p>Donde:
+- <span class="math inline">\(\text{Precisión} = \frac{\text{Anchura}}{2} = 1.5\)</span>.
+- <span class="math inline">\(t_{n-1, 1-\alpha/2}\)</span> es el valor crítico de la distribución <span class="math inline">\(t\)</span> con <span class="math inline">\(n-1\)</span> grados de libertad y nivel de confianza <span class="math inline">\(1-\alpha\)</span>.
+- <span class="math inline">\(\sigma = 2\)</span> es la desviación estándar estimada.</p>
+<p>Como <span class="math inline">\(t_{n-1, 1-\alpha/2}\)</span> depende de <span class="math inline">\(n\)</span>, este cálculo requiere iteración.</p>
+<p>Realizaremos manualmente la iteración aunque también es posible usar algun paquete como <code>DescTools</code> para confirmar los resultados.</p>
+<div id="cálculo-manual-con-iteración" class="section level4" number="21.6.1.1">
+<h4>
+<span class="header-section-number">21.6.1.1</span> Cálculo manual con iteración<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-manual-con-iteraci%C3%B3n"><i class="fas fa-link"></i></a>
+</h4>
+<p>Dado que para un valor fijo de <span class="math inline">\(\alpha\)</span> el valor de <span class="math inline">\(t\)</span> depende de <span class="math inline">\(n\)</span> podemos iterar para calcular <span class="math inline">\(n\)</span>, ajustando el valor de <span class="math inline">\(t_{n-1, 1-\alpha/2}\)</span> en cada paso según el tamaño de muestra estimado.</p>
+<p>Podemos empezar con un valor bien bajo de <span class="math inline">\(n\)</span> y, a partir de éste ir aumentando el tamaño.</p>
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fl">2</span>          <span class="co"># Desviación estándar</span></span>
+<span><span class="va">precision</span> <span class="op">&lt;-</span> <span class="fl">1.5</span>  <span class="co"># Precisión deseada</span></span>
+<span></span>
+<span><span class="va">find_n</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">conf_level</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">4</span>  <span class="co"># Tamaño inicial</span></span>
+<span>  <span class="kw">repeat</span> <span class="op">{</span></span>
+<span>    <span class="va">t_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">conf_level</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>    <span class="va">n_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="op">(</span><span class="va">t_value</span> <span class="op">*</span> <span class="va">s</span> <span class="op">/</span> <span class="va">precision</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">n_new</span> <span class="op">==</span> <span class="va">n</span><span class="op">)</span> <span class="kw">break</span></span>
+<span>    <span class="va">n</span> <span class="op">&lt;-</span> <span class="va">n_new</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># Tamaños de muestra para 90% y 95%</span></span>
+<span><span class="va">n_90_iter</span> <span class="op">&lt;-</span> <span class="fu">find_n</span><span class="op">(</span><span class="fl">0.90</span><span class="op">)</span></span>
+<span><span class="va">n_95_iter</span> <span class="op">&lt;-</span> <span class="fu">find_n</span><span class="op">(</span><span class="fl">0.95</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">n_90_iter</span>, <span class="va">n_95_iter</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1]  7 10</code></pre>
+<p>Resultados del cálculo iterativo:
+1. Para un nivel de confianza del <strong>90%</strong>, <span class="math inline">\(n =\)</span> 7.
+2. Para un nivel de confianza del <strong>95%</strong>, <span class="math inline">\(n =\)</span> 10.</p>
+<p>Al aumentar el nivel de confianza del 90% al 95%, el tamaño de muestra necesario aumenta debido al incremento del valor crítico <span class="math inline">\(t\)</span>, lo que refleja una mayor necesidad de datos para reducir la incertidumbre del intervalo.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-7-3" class="section level2" number="21.7">
+<h2>
+<span class="header-section-number">21.7</span> EJERCICIO 7<a class="anchor" aria-label="anchor" href="#ejercicio-7-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>En un estudio sobre las alteraciones hormonales que se presentan durante la práctica deportiva se ha medido el aumento de cortisol al realizar una prueba específica de resistencia de 30 minutos. El trabajo se ha realizado con voluntarios de edad y peso similares, pero diferenciados según sus hábitos, separando en dos grupos a los participantes: sedentarios y practicantes habituales de algún deporte. Se supone que la variable medida sigue el modelo normal con varianza común. Se han medido 8 personas de cada grupo.</p>
+<p>Se han publicado los siguientes intervalos de confianza (con nivel de confianza del 90%):</p>
+<ul>
+<li>Sedentarios: <span class="math inline">\((2.85,4.40)\)</span><br>
+</li>
+<li>Practicantes de deporte: <span class="math inline">\((3.52,5.23)\)</span>
+</li>
+</ul>
+<ol style="list-style-type: lower-alpha">
+<li>Calcula las medias muestrales de cada grupo.<br>
+</li>
+<li>Si la concentración está expresada en <span class="math inline">\(\mu \mu \mathrm{g} / \mathrm{dl}\)</span> (microgramos por decilitro) y suponemos que se prefiere finalmente presentar los resultados en <span class="math inline">\(\mathrm{ng} / \mathrm{ml}\)</span> (nanogramos por mililitro), ¿cómo quedarían afectados los intervalos de confianza iniciales?</li>
+</ol>
+</div>
+<div id="ejercicio-8-3" class="section level2" number="21.8">
+<h2>
+<span class="header-section-number">21.8</span> EJERCICIO 8<a class="anchor" aria-label="anchor" href="#ejercicio-8-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Se reporta el siguiente listado del análisis del nivel de colesterol en una muestra de 30 individuos obesos. Desafortunadamente, algunas partes del listado se han vuelto ilegibles y su valor se ha sustituido por 9999.</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="ex-intervalos.html#cb342-1" tabindex="-1"></a>One Sample t<span class="sc">-</span>test</span>
+<span id="cb342-2"><a href="ex-intervalos.html#cb342-2" tabindex="-1"></a>data<span class="sc">:</span> x</span>
+<span id="cb342-3"><a href="ex-intervalos.html#cb342-3" tabindex="-1"></a>t <span class="sc">$</span><span class="er">=</span><span class="fl">301.49</span><span class="sc">$</span>, df <span class="sc">$</span><span class="er">=</span><span class="dv">9999</span>, \mathrm{p}<span class="sc">$-</span>value <span class="sc">$</span><span class="er">&lt;</span><span class="fl">2.2</span> \mathrm{e}<span class="sc">-</span><span class="dv">16</span><span class="sc">$</span></span>
+<span id="cb342-4"><a href="ex-intervalos.html#cb342-4" tabindex="-1"></a>alternative hypothesis<span class="sc">:</span> true mean is not equal to <span class="dv">0</span></span>
+<span id="cb342-5"><a href="ex-intervalos.html#cb342-5" tabindex="-1"></a><span class="dv">95</span> percent confidence interval<span class="sc">:</span></span>
+<span id="cb342-6"><a href="ex-intervalos.html#cb342-6" tabindex="-1"></a><span class="fl">246.8329999</span> .<span class="dv">000</span></span>
+<span id="cb342-7"><a href="ex-intervalos.html#cb342-7" tabindex="-1"></a>sample estimates<span class="sc">:</span></span>
+<span id="cb342-8"><a href="ex-intervalos.html#cb342-8" tabindex="-1"></a>mean of x</span>
+<span id="cb342-9"><a href="ex-intervalos.html#cb342-9" tabindex="-1"></a><span class="fl">248.5179</span></span></code></pre></div>
+<p>Reconstruye los valores incorrectos del listado.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></div>
+<div class="next"><a href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-intervalos"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="nav-link" href="#ejercicio-1-3"><span class="header-section-number">21.1</span> EJERCICIO 1</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-2-3"><span class="header-section-number">21.2</span> EJERCICIO 2</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-17"><span class="header-section-number">21.2.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-3-3"><span class="header-section-number">21.3</span> EJERCICIO 3</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-18"><span class="header-section-number">21.3.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-4-2"><span class="header-section-number">21.4</span> EJERCICIO 4</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-19"><span class="header-section-number">21.4.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-5-3"><span class="header-section-number">21.5</span> EJERCICIO 5</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-20"><span class="header-section-number">21.5.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-6-2"><span class="header-section-number">21.6</span> EJERCICIO 6</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-21"><span class="header-section-number">21.6.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-7-3"><span class="header-section-number">21.7</span> EJERCICIO 7</a></li>
+<li><a class="nav-link" href="#ejercicio-8-3"><span class="header-section-number">21.8</span> EJERCICIO 8</a></li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>

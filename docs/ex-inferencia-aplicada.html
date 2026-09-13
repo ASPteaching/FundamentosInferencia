@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 23 Aplicaciones de los contrastes de hipótesis | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 23 Aplicaciones de los contrastes de hipótesis | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 23 Aplicaciones de los contrastes de hipótesis | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)  Elección del tipo de test Estos ejercicios representan situaciones típicas en los que se puede utilizar un contraste de hipótesis para decidir entre dos hipótesis...">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)  Elección del tipo de test Estos ejercicios representan situaciones típicas en los que se puede utilizar un contraste de hipótesis para decidir entre dos hipótesis...">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)  Elección del tipo de test Estos ejercicios representan situaciones típicas en los que se puede utilizar un contraste de hipótesis para decidir entre dos hipótesis...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="active" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-inferencia-aplicada" class="section level1" number="23">
+<h1>
+<span class="header-section-number">Capítulo 23</span> Aplicaciones de los contrastes de hipótesis<a class="anchor" aria-label="anchor" href="#ex-inferencia-aplicada"><i class="fas fa-link"></i></a>
+</h1>
+<div id="elección-del-tipo-de-test" class="section level2 unnumbered">
+<h2>Elección del tipo de test<a class="anchor" aria-label="anchor" href="#elecci%C3%B3n-del-tipo-de-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>Estos ejercicios representan situaciones típicas en los que se puede utilizar un contraste de hipótesis para decidir entre dos hipótesis relativas a un problema.</p>
+<p>En una situación real debemos (solemos) empezar con una visualización de los datos y, eventualmente, cuando procede (en variables cuantitativas) un test de normalidad que nos sirve para decidir que tipo de contraste utilizar.</p>
+<p>Estos ejercicios se han adaptado del excelente libro de Baron y otros (Bioestadística) de la Universidad de Málaga, pero por su naturaleza más académica, no vienen acompañados de conjuntos de datos mínimamente grandes, como para poder hacer dichas visualizaciones y pruebas de normalidad.</p>
+<p>En consecuencia, la “decisión” sobre si utilizar un test paramétrico o no paramétrico puede ser más difícil de tomar.</p>
+<p>A título de pista podemos decir que los ejercicios 1 al 9 están tomados del capítulo de pruebas paramétricas, del 10 al 13 del capítulo de pruebas de la ji cuadrado y del 14 al 18 del capítulo de pruebas no paramétricas de dicho documento.</p>
+<p>Sin embargo, y con el fin de motivar un trabajo reflexivo, os animo a justificar en cada caso porque decidís aplicar el tests que aplicáis. Y, de hecho, cuando sea posible, os animo también a aplicar tanto la versión paramétrica como la no paramétrica de un test y valorar, aparte de cual es el adecuado, si os llevan o no ala misma conclusión.</p>
+</div>
+<div id="procedimiento-del-test" class="section level2 unnumbered">
+<h2>Procedimiento del test<a class="anchor" aria-label="anchor" href="#procedimiento-del-test"><i class="fas fa-link"></i></a>
+</h2>
+<div id="enfoque-de-neymann-pearson" class="section level3 unnumbered">
+<h3>Enfoque de Neymann-Pearson<a class="anchor" aria-label="anchor" href="#enfoque-de-neymann-pearson"><i class="fas fa-link"></i></a>
+</h3>
+<p>Recordad que la aplicación de un contraste no consiste en escribir un código de R, mirar un p-valor y decidir si rechazamos o no la hipótesis.</p>
+<p>Aunque no es bueno adherirse a un esquema rígido si que resulta útil tener una mínima pauta que podemos considerar común a la mayoría de los problemas en los que aplicamos el contraste de hipótesis.</p>
+<p>Esta pauta puede describirse de la forma siguiente:</p>
+<p><em>I: <strong>ANTES DE OBTENER LOS DATOS</strong> deberíamos:</em></p>
+<ol start="0" style="list-style-type: decimal">
+<li><p>Definir el modelo probabilístico sobre el que realizaremos el contraste</p></li>
+<li><p>Definir el tamaño del efecto a detectar en la población (en estos ejercicios suele ser cero)</p></li>
+<li><p>Reformular la pregunta de investigación en términos de las hipótesis nula y alternativa (<span class="math inline">\(H_0\)</span> y <span class="math inline">\(H_1\)</span>)</p></li>
+<li><p>Elegir el nivel de significación <span class="math inline">\(\alpha\)</span> (e, idealmente la potencia <span class="math inline">\(1-\beta\)</span>) con los que controlaremos el error de tipo I y de tipo II (<span class="math inline">\(\beta\)</span>) respectivamente. Habitualmente tan sólo podemos prefijar <span class="math inline">\(\alpha\)</span></p></li>
+<li><p>Escoger el estadístico de test adecuado al problema, el modelo y las hipótesis. Idealmente desearemos que sea un test <em>óptimo</em></p></li>
+<li><p>Calcular el tamaño de la muestra necesario para alcanzar la potencia deseada.</p></li>
+<li><p>Obtener el valor crítico <span class="math inline">\(t_{\alpha}\)</span> asociado al estadístico de test seleccionado. Esto equivale a definir la región crítica del test.</p></li>
+</ol>
+<p><em>II: Proceder a recoger los datos</em></p>
+<p><em>III: <strong>UNA VEZ SE HAN OBTENIDO LOS DATOS</strong></em></p>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Calcular el valor del estadístico de test en la muestra, <span class="math inline">\(t^{obs}\)</span></p></li>
+<li><p>Decidir si, a la vista de la comparación entre <span class="math inline">\(t_{\alpha}\)</span> y <span class="math inline">\(t^{obs}\)</span> nos inclinamos por la hipótesis nula o la alternativa.</p></li>
+<li><p>Interpretar la decisión en términos de la hipótesis científica que ha generado el problema. Diferenciar cuando sea posible si hay significación estadística, clínica/biológica o ambas</p></li>
+</ol>
+<p>En la práctica, y en los ejercicios que siguen, podemos encontrarnos con los datos recogidos y desear llevar a cabo el contraste.</p>
+<p>En este caso, omitiremos el cálculo del tamaño muestral y la potencia.</p>
+<p>Esta lista no es una plantilla para resolver cualquier problema de contraste de hipótesis, pero sí que debe ayudarnos a ver que un test no es tan solo un cálculo y una decisión basada en un p-valor sino un proceso de toma de decisión que, para que tenga sentido debe de realizarse teniendo en cuenta los elementos que se han descrito.</p>
+</div>
+<div id="y-que-hay-del-p-valor-fisher" class="section level3 unnumbered">
+<h3>¿Y que hay del p-valor? (Fisher)<a class="anchor" aria-label="anchor" href="#y-que-hay-del-p-valor-fisher"><i class="fas fa-link"></i></a>
+</h3>
+<p>Obsérvese que el procedimiento descrito no ha hecho referencia al p-valor, <a href="https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf">concepto particularmente discutido en la estadística actual</a>.</p>
+<p>El p-valor, de hecho, no forma parte del esquema presentado, basado en la teoría de contraste de hipótesis de Neymann-Pearson sino de la teoría de las pruebas de significación estadística introducida por R.A. Fisher.</p>
+<p>Dichas pruebas de significación iban principalmente encaminadas a decidir si se rechazaba o no una hipótesis (no había hipótesis alternativa) e, informalmente los pasos a realizar eran:</p>
+<ol style="list-style-type: decimal">
+<li><p>Seleccionar un estadístico de test que mida adecuadamente la discrepancia entre la hipótesis y las observaciones.</p></li>
+<li><p>Construir la hipótesis nula</p></li>
+<li><p>Calcular la probabilidad teórica del resultado observado <span class="math inline">\(t^{obs}\)</span>, bajo la hipótesis nula, es decir el p-valor.</p></li>
+<li><p>Decidir sobre la significación de los resultados, si la probabilidad de los mismos <em>bajo <span class="math inline">\(H_0\)</span></em> era “pequeña” (Fisher no imponía puntos de corte). Es decir rechazar la hipótesis nula si el p-valor es pequeño.</p></li>
+<li><p>Interpretar los resultados.</p></li>
+</ol>
+</div>
+<div id="combinando-ambas-aproximaciones" class="section level3 unnumbered">
+<h3>Combinando ambas aproximaciones<a class="anchor" aria-label="anchor" href="#combinando-ambas-aproximaciones"><i class="fas fa-link"></i></a>
+</h3>
+<p>Fisher y Neymann-Pearson debatieron duramente, hace casi un siglo, sobre cual de las dos aproximaciones era la adecuada.</p>
+<p>Sin entrar en la polémica entre ambas, el hecho es que con el tiempo, muchos autores tendieron a fundir (y a confundir!) ambas aproximaciones, lo que llevó a combinar las hipótesis nula y alternativa de Neymann-pearson con el p-valor de Fisher.</p>
+<p>En la actualidad, en la que la mayoría de los cálculos se llevan a cabo con ordenador, es inmediato, tras calcular el valor del estadístico de test, obtener el p-valor de la prueba por lo que la decisión sobre si se acepta la hipótesis nula o la alternativa se realiza a menudo comparando el p-valor con la probabilidad de error de tipo I (<span class="math inline">\(\alpha\)</span>) en vez de comparar el valor observado del estadístico de test (<span class="math inline">\(t^{obs}\)</span>) con el valor crítico (<span class="math inline">\(t_\alpha\)</span>). En la práctica, <em>esta sustitución puede considerarse adecuada si no va más allá de cambiar un criterio de decisión por otro.</em></p>
+</div>
+<div id="referencias" class="section level3 unnumbered">
+<h3>Referencias<a class="anchor" aria-label="anchor" href="#referencias"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4347431/">Fisher, Neyman-Pearson or NHST? A tutorial for teaching data testing</a></li>
+</ul>
+</div>
+</div>
+<div id="ejercicio-1-4" class="section level2" number="23.1">
+<h2>
+<span class="header-section-number">23.1</span> Ejercicio 1<a class="anchor" aria-label="anchor" href="#ejercicio-1-4"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.1 -->
+<p>El calcio se presenta normalmente en la sangre de los mamíferos en concentraciones de alrededor de 6 mg por cada 100 ml del total de sangre. La desviación típica normal de ésta variable es 1 mg de calcio por cada 100 ml del volumen total de sangre. Una variabilidad mayor a ésta puede ocasionar graves trastornos en la coagulación de la sangre. Una serie de nueve pruebas sobre un paciente revelaron una media muestral de <span class="math inline">\(6,2 \mathrm{mg}\)</span> de calcio por 100 ml del volumen total de sangre, y una desviación típica muestral de 2 mg de calcio por cada 100 ml de sangre. ¿Hay alguna evidencia, para un nivel <span class="math inline">\(\alpha=0,05\)</span>, de que el nivel medio de calcio para este paciente sea más alto del normal?</p>
+</div>
+<div id="ejercicio-2-5" class="section level2" number="23.2">
+<h2>
+<span class="header-section-number">23.2</span> Ejercicio 2<a class="anchor" aria-label="anchor" href="#ejercicio-2-5"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.4 -->
+<p>Las guías médicas recomiendan realizar una campaña de educación e higiene dental si el porcentaje de niños con dientes cariados es superior al <span class="math inline">\(15 \%\)</span>.
+En una población con 12.637 niños, ¿debe hacerse la campaña si, de 387 de ellos, 70 tenían algún diente cariado?</p>
+<div id="solución-26" class="section level3" number="23.2.1">
+<h3>
+<span class="header-section-number">23.2.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-26"><i class="fas fa-link"></i></a>
+</h3>
+<p>Fijémonos que el objetivo del problema es decidir si a partir de la muestra se puede afirmar que más del 15% de la población tiene dientes cariados.</p>
+<p>Dado que “más de 15%” no se corresponde con ningún valor concreto, replanteamos el problema como un contraste de hipótesis, con una hipótesis nula, que en realidad no nos interesa, y una alternativa que es el objeto de nuestro estudio.</p>
+<ul>
+<li>Hipótesis nula: la proporción de niños con dientes cariados es igual a 0.15 (<span class="math inline">\(H_0: p = 0.15\)</span>),</li>
+<li>Hipótesis alternativa: esta proporción es mayor de 0.15 (<span class="math inline">\(H_1: p &gt; 0.15\)</span>).</li>
+</ul>
+<p>Se trata, por tanto, de un contraste unilateral a la derecha.</p>
+<p>Podemos estimar la proporción a partir de la muestra y utilizar el test para decidir hasta que punto los datos son compatibles con la hipótesis nula.</p>
+<p>Para ello utilizamos la proporción muestral que se calcula como el cociente entre el número de niños con dientes cariados en la muestra y el tamaño total de la muestra.</p>
+<p><span class="math display">\[ \hat{p} = \frac{x}{n} \]</span></p>
+<p>Para este contraste, dado el tamaño muestral considerable, podemos utilizar una aproximación normal a la distribución de la proporción muestral, con lo que el estadístico de test será:</p>
+<p><span class="math display">\[ z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0 (1 - p_0)}{n}}} \]</span></p>
+<p>donde <span class="math inline">\(p_0 = 0.15\)</span> es la proporción bajo la hipótesis nula.</p>
+<p>Fijamos un nivel de significación de <span class="math inline">\(\alpha = 0.05\)</span> y determinamos el valor <span class="math inline">\(z_\alpha\)</span> que nos permitirá decidir si el valor de <span class="math inline">\(z\)</span> nos lleva a rechazar <span class="math inline">\(H_0\)</span> o no.</p>
+<p>Dado que la hipótesis alternativa es unilateral por la derecha (<span class="math inline">\(p&gt; p_0\)</span>) el criterio de decsión será: <strong>rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(z &gt; Z_\alpha\)</span></strong>.</p>
+<p>Alternativamente podemos utilizar el p-valor para fundamentar nuestra decisión. El p-valor, que es la probabilidad de que el estadístico de test supere el valor en la muestra bajo <span class="math inline">\(H_0,\)</span> se calcula buscando la probabilidad de obtener valores superiores a <code>z0</code> con una <span class="math inline">\(N(0,1)\)</span> que es la distribución del estadístico de test bajo <span class="math inline">\(H_0\)</span>:</p>
+<p>Si nos basamos en el p-valor, el criterio de decisiónserá **rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\alpha &gt; pval\)</span></p>
+<p>Podemos ahora realizar los cálculos:</p>
+<p>El valor crítico es:</p>
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">alpha</span><span class="op">&lt;-</span> <span class="fl">0.05</span></span>
+<span><span class="va">zalpha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">alpha</span><span class="op">)</span></span>
+<span><span class="va">zalpha</span></span></code></pre></div>
+<pre><code>## [1] 1.644854</code></pre>
+<p>La proporción muestral, <span class="math inline">\(\hat{p}\)</span></p>
+<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Datos del problema</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">70</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">387</span></span>
+<span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="fl">0.15</span></span>
+<span></span>
+<span><span class="co"># Proporción muestral</span></span>
+<span><span class="va">phat</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">/</span> <span class="va">n</span></span>
+<span><span class="va">phat</span></span></code></pre></div>
+<pre><code>## [1] 0.1808786</code></pre>
+<p>El valor del estadístico de test, calculado sobre la muestra será:</p>
+<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Estadístico z0</span></span>
+<span><span class="va">z0</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">phat</span> <span class="op">-</span> <span class="va">p0</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">p0</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">p0</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span><span class="op">)</span></span>
+<span><span class="va">z0</span></span></code></pre></div>
+<pre><code>## [1] 1.701208</code></pre>
+<p>El p-valor se calcula como:</p>
+<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">z0</span>, lower.tail<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">pval</span></span></code></pre></div>
+<pre><code>## [1] 0.044452</code></pre>
+<p>Finalmente, para tomar la decisión comparamos</p>
+<ul>
+<li><p><code>z0</code>con <span class="math inline">\(z_\alpha\)</span>: Si <span class="math inline">\(z0 &gt; z_\alpha\)</span> rechazamos <span class="math inline">\(H_0\)</span></p></li>
+<li><p><code>pval</code>con <span class="math inline">\(\alpha\)</span>: Si <span class="math inline">\(pval &lt; \alpha\)</span> rechazamos <span class="math inline">\(H_0\)</span></p></li>
+</ul>
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"zalpha vale: "</span>, <span class="va">zalpha</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## zalpha vale:  1.644854</code></pre>
+<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"z0 vale    : "</span>, <span class="va">z0</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## z0 vale    :  1.701208</code></pre>
+<p>Es decir <span class="math inline">\(Z0 &gt; Z_\alpha\)</span> lo que nos lleva a rechazar la hipótesis nula y</p>
+<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"alpha vale : "</span>, <span class="va">alpha</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## alpha vale :  0.05</code></pre>
+<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"pval vale  : "</span>, <span class="va">pval</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## pval vale  :  0.044452</code></pre>
+<p>El pvalor es <span class="math inline">\(pval &lt; \alpha\)</span> lo que también lleva a rechazar <span class="math inline">\(H_0\)</span>.</p>
+<p>Ambos criterios nos llevan a rechazar la hipótesis nula, es decir
+a concluir que la proporción de niños con dientes cariados en la población es significativamente mayor que el 15%, con una probabilidad de error de tipo I igual a 0.05.</p>
+<p>En los términos del enunciado, esta decisión nos llevará a que recomendemos llevar a cabo la campaña de educación e higiene dental, ya que los datos sugieren que el porcentaje de niños con dientes cariados supera el límite del 15%. Si no rechazamos <span class="math inline">\(H_0\)</span>, no sería justificable iniciar la campaña basándonos en estos datos.</p>
+</div>
+</div>
+<div id="ejercicio-3-4" class="section level2" number="23.3">
+<h2>
+<span class="header-section-number">23.3</span> Ejercicio 3<a class="anchor" aria-label="anchor" href="#ejercicio-3-4"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.10 -->
+<p>Muchos autores afirman que los pacientes con depresión tienen una función cortical por debajo de lo normal debido a un riego sanguíneo cerebral por debajo de lo normal. A dos muestras de individuos, unos con depresión y otros normales, se les midió un índice que indica el flujo sanguíneo en la materia gris (dado en <span class="math inline">\(\mathrm{mg} /(100 \mathrm{~g} / \mathrm{min})\)</span>) obteniéndose:</p>
+<p><span class="math display">\[
+\begin{array}{l|ccc}
+\text { Depresivos } &amp; n_{1}=19 &amp; \bar{x}_{1}=47 &amp; \hat{\mathcal{S}}_{1}=7^{\prime} 8 \\
+\hline \text { Normales } &amp; n_{2}=22 &amp; \bar{x}_{2}=53^{\prime} 8 &amp; \hat{\mathcal{S}}_{2}=6^{\prime} 1
+\end{array}
+\]</span></p>
+<p>¿Hay evidencia significativa a favor de la afirmación de los autores?</p>
+</div>
+<div id="ejercicio-4-3" class="section level2" number="23.4">
+<h2>
+<span class="header-section-number">23.4</span> Ejercicio 4<a class="anchor" aria-label="anchor" href="#ejercicio-4-3"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.11 -->
+<p>La prueba de la d-xilosa permite la diferenciación entre una esteatorrea originada por una mala absorción intestinal y la debida a una insuficiencia pancreática, de modo que cifras inferiores a 4 grs. de d-xilosa, indican una mala absorción intestinal. Se realiza dicha prueba a 10 individuos, obteniéndose una media de 3,5 grs. y una desviación típica de 0,5 grs. ¿Se puede decir que esos pacientes padecen una mala absorción intestinal?</p>
+<div id="solución-27" class="section level3" number="23.4.1">
+<h3>
+<span class="header-section-number">23.4.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-27"><i class="fas fa-link"></i></a>
+</h3>
+<p>El objetivo del problema es determinar si los pacientes de la muestra padecen una mala absorción intestinal, lo que ocurre si el promedio de d-xilosa es inferior a 4 gramos. Esto se puede plantear como un contraste de hipótesis donde:</p>
+<ul>
+<li>La hipótesis nula establece que la media es igual a 4 (<span class="math inline">\(H_0: \mu = 4\)</span>).</li>
+<li>La hipótesis alternativa plantea que la media es menor de 4 (<span class="math inline">\(H_1: \mu &lt; 4\)</span>).</li>
+</ul>
+<p>Como la hipotesis alternativa es que la media poblacional es inferior a un valor, el contraste se plantea como un <em>contraste unilateral por la izquierda</em>.</p>
+<p>Una vez más, observemos que, aunque nos interesa determinar si la media es inferior a 4, la hipótesis nula no es esta inferioridad, sino una igualdad a 4. Esto es así porque necesitamos un valor concreto para poder hacer los cálculos “bajo la hipótesis nula”, por ejemplo para calcular el valor del estadístico de test, o el p-valor.</p>
+<p>Dado que no disponemos de los datos, tan sólo podemos realizar un test asumiendo normalidad de los mismos. Aunque esto es una suposición que deberíamos comprobar, tampoco es muy disparatado, por no decir que al basarnos en la media, que por el Teorema Central del Límite, tiende a la normalidad, es bastante razonable utilizar un test basado en el estadístico t de Student. Esta “flexibilidad” del test se describe afirmando que <em>“el test t de student es robusto frente a la falta de normalidad”</em>.</p>
+<p>El estadístico de test es:</p>
+<p><span class="math display">\[ t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \]</span></p>
+<p>donde:
+- <span class="math inline">\(\bar{x} = 3.5\)</span> es la media muestral,
+- <span class="math inline">\(\mu_0 = 4\)</span> es la media bajo la hipótesis nula,
+- <span class="math inline">\(s = 0.5\)</span> es la desviación estándar muestral (asumimos que la desviación estandar corregida, resultante de dividir por <span class="math inline">\(n-1\)</span>).
+- <span class="math inline">\(n = 10\)</span> es el tamaño de la muestra.</p>
+<p>Fijaremos el nivel de significación <span class="math inline">\(\alpha = 0.05\)</span> y determinaremos el valor crítico <span class="math inline">\(t_\alpha\)</span>, que será el cuantil correspondiente en una <span class="math inline">\(t\)</span> con <span class="math inline">\(n - 1 = 9\)</span> grados de libertad. Alternativamente, calcularemos el p-valor para decidir si rechazamos <span class="math inline">\(H_0\)</span>, en caso que éste sea inferior al nivel de significación del test.</p>
+<p>Procedemos a realizar los cálculos:</p>
+<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Datos</span></span>
+<span><span class="va">xbar</span> <span class="op">&lt;-</span> <span class="fl">3.5</span></span>
+<span><span class="va">mu0</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
+<span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fl">0.05</span></span>
+<span></span>
+<span><span class="co"># Estadístico  de test</span></span>
+<span><span class="va">t_stat</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">xbar</span> <span class="op">-</span> <span class="va">mu0</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">s</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Valor crítico t_alpha</span></span>
+<span><span class="va">t_alpha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span><span class="va">alpha</span>, df <span class="op">=</span> <span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># P-valor</span></span>
+<span><span class="va">p_value</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">pt</a></span><span class="op">(</span><span class="va">t_stat</span>, df <span class="op">=</span> <span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>t_stat <span class="op">=</span> <span class="va">t_stat</span>, t_alpha <span class="op">=</span> <span class="va">t_alpha</span>, p_value <span class="op">=</span> <span class="va">p_value</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## $t_stat
+## [1] -3.162278
+## 
+## $t_alpha
+## [1] -1.833113
+## 
+## $p_value
+## [1] 0.005753993</code></pre>
+<p>A la vista de los resultados dado que el valor del estadístico de test es <span class="math inline">\(t_{stat}&lt; t_\alpha\)</span> podemos rechazar <span class="math inline">\(H_0\)</span>.</p>
+<p>Llegamos a la misma conclusión si comparamos el p-valor con <span class="math inline">\(\alpha\)</span>: <span class="math inline">\(pval &lt; \alpha\)</span>.</p>
+<p>Podemos concluir que los datos proporcionan suficiente evidencia para afirmar que la media de d-xilosa en los pacientes es menor de 4 gramos lo que implica, con una probabilidad de error de tipo I del 0.05, que los pacientes sufren de mala absorción intestinal.</p>
+<p>Desde el punto de vista práctico esto indicaría que los pacientes analizados podrían beneficiarse de un diagnóstico de mala absorción intestinal para guiar el tratamiento adecuado.</p>
+</div>
+</div>
+<div id="ejercicio-5-4" class="section level2" number="23.5">
+<h2>
+<span class="header-section-number">23.5</span> Ejercicio 5<a class="anchor" aria-label="anchor" href="#ejercicio-5-4"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.13 -->
+<p>La tabla siguiente muestra los efectos de un placebo y de la hidroclorotiacida sobre la presión sanguínea sistólica de 11 pacientes.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Placebo</th>
+<th align="left">211</th>
+<th align="left">210</th>
+<th align="left">210</th>
+<th align="left">203</th>
+<th align="left">196</th>
+<th align="left">190</th>
+<th align="left">191</th>
+<th align="left">177</th>
+<th align="left">173</th>
+<th align="left">170</th>
+<th align="left">163</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">H-cloro</td>
+<td align="left">181</td>
+<td align="left">172</td>
+<td align="left">196</td>
+<td align="left">191</td>
+<td align="left">167</td>
+<td align="left">161</td>
+<td align="left">178</td>
+<td align="left">160</td>
+<td align="left">149</td>
+<td align="left">119</td>
+<td align="left">156</td>
+</tr></tbody>
+</table></div>
+<p>Según estos datos experimentales, ¿podemos afirmar que el tratamiento con hidroclorotiacida disminuye la tensión arterial al menos en 10 unidades?</p>
+<div id="solución-28" class="section level3" number="23.5.1">
+<h3>
+<span class="header-section-number">23.5.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-28"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos determinar si el tratamiento con hidroclorotiacida hace bajar la tensión arterial, y si este descenso es, como mínimo de 10 unidades (menos que esto puede considerarse variación aleatoria segun el estándar clínico utilizado).</p>
+<p>Este problema se puede abordar con un contraste de hipótesis que compare los valores medias de dos muestras apareadas (dependientes), ya que las mediciones provienen de los mismos pacientes bajo dos condiciones diferentes.</p>
+<p>No disponemos de infomación sobre la normalidad de los datos y con 11 observaciones no tienen mucho sentido hacer un test de normalidad.</p>
+<p>Así pues podemos optar, segun que hipótesis asumamos, por dos contrastes distintos:</p>
+<ul>
+<li><p>Si asumimos normalidad o basándonos en la robustez del test t podemos realizar unn test t- de Student</p></li>
+<li><p>Si no realizamos la suposición anterior podemos realizar un test no paramétrico como el test de los rangos con signo de Wilcoxon.</p></li>
+</ul>
+<p>Estrictamente hablando, ambos contrastes comparan la tendecia central pero el test t se basa en la media de las diferencias mientras que el test de rangos se basa en la mediana de las diferencias.</p>
+<p>Si para simplificar llamamos <span class="math inline">\(m_d\)</span> a ambas:</p>
+<ul>
+<li>Hipótesis nula (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(m_d = 10\)</span>.</li>
+<li>Hipótesis alternativa (<span class="math inline">\(H_1\)</span>): <span class="math inline">\(m_d &lt; 10\)</span>.</li>
+</ul>
+<p>Obsérvese que, en este caso el valor de la hipótesis nula es 10, aunque el complementario de la alternativa seria <span class="math inline">\(m_d \leq 10\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Aproximación paramétrica</strong>: Usaremos el test t de Student para muestras emparejadas. El estadístico de prueba es:</p>
+<p><span class="math display">\[ t = \frac{\bar{d}}{s_d / \sqrt{n}} \]</span></p>
+<p>donde:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{d}\)</span> es la media de las diferencias,</li>
+<li>
+<span class="math inline">\(s_d\)</span> es la desviación estándar de las diferencias,</li>
+<li>
+<span class="math inline">\(n\)</span> es el número de pares.</li>
+</ul>
+</li>
+<li><p><strong>Aproximación no paramétrica</strong>: Usaremos el test de rangos con signo de Wilcoxon, que evalúa si la mediana de las diferencias es distinta de cero.</p></li>
+</ol>
+<p>El estadístico de prueba del test de Wilcoxon para datos emparejados se define como:</p>
+<p><span class="math display">\[ W = \min\left(W^+, W^-\right) \]</span></p>
+<p>donde:
+- <span class="math display">\[ W^+ = \sum_{i \in \{d_i &gt; 0\}} R_i \]</span> es la suma de los rangos correspondientes a las diferencias positivas,
+- <span class="math display">\[ W^- = \sum_{i \in \{d_i &lt; 0\}} R_i \]</span> es la suma de los rangos correspondientes a las diferencias negativas,
+- <span class="math display">\[ R_i \]</span> es el rango absoluto asignado a la diferencia <span class="math display">\[ |d_i| \]</span>, ordenada en valor absoluto.</p>
+<p>El valor observado de <span class="math display">\[ W \]</span> se compara con su distribución teórica bajo la hipótesis nula para calcular el p-valor. Dicha distribución puede ser exacta o aproximada, pero aquí no profundizaremos en ello.</p>
+<p>Procedemos a realizar los cálculos con R:</p>
+<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Datos</span></span>
+<span><span class="va">placebo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">211</span>, <span class="fl">210</span>, <span class="fl">210</span>, <span class="fl">203</span>, <span class="fl">196</span>, <span class="fl">190</span>, <span class="fl">191</span>, <span class="fl">177</span>, <span class="fl">173</span>, <span class="fl">170</span>, <span class="fl">163</span><span class="op">)</span></span>
+<span><span class="va">h_cloro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">181</span>, <span class="fl">172</span>, <span class="fl">196</span>, <span class="fl">191</span>, <span class="fl">167</span>, <span class="fl">161</span>, <span class="fl">178</span>, <span class="fl">160</span>, <span class="fl">149</span>, <span class="fl">119</span>, <span class="fl">156</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Diferencias</span></span>
+<span><span class="va">meandiff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">h_cloro</span> <span class="op">-</span> <span class="va">placebo</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Paramétrico: Test t de Student</span></span>
+<span><span class="va">t_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">h_cloro</span>, <span class="va">placebo</span>, mu <span class="op">=</span> <span class="op">-</span><span class="fl">10</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># No paramétrico: Test de Wilcoxon</span></span>
+<span><span class="va">wilcoxon_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">h_cloro</span>, <span class="va">placebo</span>, mu <span class="op">=</span> <span class="op">-</span><span class="fl">10</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Warning in wilcox.test.default(h_cloro, placebo, mu = -10, alternative =
+## "less", : cannot compute exact p-value with ties</code></pre>
+<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  mean_difference <span class="op">=</span> <span class="va">meandiff</span>,</span>
+<span>  t_test_statistic <span class="op">=</span> <span class="va">t_test</span><span class="op">$</span><span class="va">statistic</span>,</span>
+<span>  t_test_p_value <span class="op">=</span> <span class="va">t_test</span><span class="op">$</span><span class="va">p.value</span>,</span>
+<span>  wilcoxon_statistic <span class="op">=</span> <span class="va">wilcoxon_test</span><span class="op">$</span><span class="va">statistic</span>,</span>
+<span>  wilcoxon_p_value <span class="op">=</span> <span class="va">wilcoxon_test</span><span class="op">$</span><span class="va">p.value</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<pre><code>## $mean_difference
+## [1] -24
+## 
+## $t_test_statistic
+##         t 
+## -3.546655 
+## 
+## $t_test_p_value
+## [1] 0.00264884
+## 
+## $wilcoxon_statistic
+##   V 
+## 2.5 
+## 
+## $wilcoxon_p_value
+## [1] 0.003792958</code></pre>
+<p>En ambos casos, el p-valor del test es muy) inferior al nivel de significación pre-fijado <span class="math inline">\(\alpha=0.05\)</span> por lo que concluiremos que hay evidencia suficiente para afirmar que existe una diferencia significativa entre el tratamiento y el placebo.</p>
+<p>Ambos tests nos llevan a concluir que la presión arterial sistólica media ha descendido en más de 10 unidades entre los pacientes que han recibido el tratamiento frente a los que tan sólo recibieron el placebo. `</p>
+<p>NOTA: Obsérves como se realiza el test de datos pareados. R no indica explícitamente el orden en que realiza la diferencia por lo que, en caso de duda lo mejor es verificar si el signo del estadístico de test concuerda con el de la diferencia de medias que se ha añadido como verificación.</p>
+<p>En este caso la diferencia ha sido entre el primer vector y el segundo por lo que, si <span class="math inline">\(H_0\)</span> es cierta y la diferencia es, como mínimo de 10 unidades el valor de la diferencia media será de -10, porque hemos substraido la cntidad grande (“placebo”) de la pequeña (“hidroclorotiazida”).</p>
+<p>Un diagrama de lineas para datos apareados sirve para reforzar la conclusión:</p>
+<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Datos</span></span>
+<span><span class="va">placebo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">211</span>, <span class="fl">210</span>, <span class="fl">210</span>, <span class="fl">203</span>, <span class="fl">196</span>, <span class="fl">190</span>, <span class="fl">191</span>, <span class="fl">177</span>, <span class="fl">173</span>, <span class="fl">170</span>, <span class="fl">163</span><span class="op">)</span></span>
+<span><span class="va">h_cloro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">181</span>, <span class="fl">172</span>, <span class="fl">196</span>, <span class="fl">191</span>, <span class="fl">167</span>, <span class="fl">161</span>, <span class="fl">178</span>, <span class="fl">160</span>, <span class="fl">149</span>, <span class="fl">119</span>, <span class="fl">156</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Crear un data frame para los valores emparejados</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  Paciente <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">placebo</span><span class="op">)</span>,</span>
+<span>  Placebo <span class="op">=</span> <span class="va">placebo</span>,</span>
+<span>  Hidroclorotiacida <span class="op">=</span> <span class="va">h_cloro</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Transformar a formato largo para ggplot</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span>
+<span><span class="va">data_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">data</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Placebo"</span>, <span class="st">"Hidroclorotiacida"</span><span class="op">)</span>, </span>
+<span>                          names_to <span class="op">=</span> <span class="st">"Tratamiento"</span>, values_to <span class="op">=</span> <span class="st">"Presión"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generar el gráfico</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data_long</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Tratamiento</span>, y <span class="op">=</span> <span class="va">Presión</span>, group <span class="op">=</span> <span class="va">Paciente</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Tratamiento</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Paciente</span><span class="op">)</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Presión Arterial por Paciente y Tratamiento"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Tratamiento"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Presión Arterial (mmHg)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="FundamentosInferencia-completo_files/figure-html/unnamed-chunk-169-1.png" alt="" width="672"></div>
+<p>Como vemos, y comoparece razonable en un tratamiento para la tensión, los pacientes tratados con hidroclorotiacida presentan un descenso de la tensión.</p>
+</div>
+</div>
+<div id="ejercicio-6-3" class="section level2" number="23.6">
+<h2>
+<span class="header-section-number">23.6</span> Ejercicio 6<a class="anchor" aria-label="anchor" href="#ejercicio-6-3"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.15 -->
+<p>De un estudio sobre la incidencia de la hipertensión en la provincia de Málaga, se sabe que en la zona rural el porcentaje de hipertensos es del <span class="math inline">\(27,7 \%\)</span>. Tras una encuesta a 400 personas de una zona urbana, se obtuvo un <span class="math inline">\(24 \%\)</span> de hipertensos.</p>
+<ol style="list-style-type: decimal">
+<li>¿Se puede decir que el porcentaje de hipertensos en la zona urbana es distinto que en la zona rural?</li>
+<li>¿Es menor el porcentaje de hipertensos en la zona urbana que en la zona rural?</li>
+</ol>
+</div>
+<div id="ejercicio-7-4" class="section level2" number="23.7">
+<h2>
+<span class="header-section-number">23.7</span> Ejercicio 7<a class="anchor" aria-label="anchor" href="#ejercicio-7-4"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.17 -->
+<p>Se desea comparar la actividad motora espontánea de un grupo de 25 ratas control y otro de 36 ratas desnutridas. Se midió el número de veces que pasaban delante de una célula fotoeléctrica durante 24 horas. Los datos obtenidos fueron los siguientes:</p>
+<p><span class="math display">\[
+\begin{array}{l|ccc}
+\text { Ratas de control } &amp; n_{1}=25 &amp; \bar{x}_{1}=869,8 &amp; \mathcal{S}_{1}=106,7 \\
+\hline \text { Ratas desnutridas } &amp; n_{2}=36 &amp; \bar{x}_{2}=465 &amp; \mathcal{S}_{2}=153,7
+\end{array}
+\]</span></p>
+<p>¿Se observan diferencias significativas entre el grupo control y el grupo desnutrido?</p>
+</div>
+<div id="ejercicio-8-4" class="section level2" number="23.8">
+<h2>
+<span class="header-section-number">23.8</span> Ejercicio 8<a class="anchor" aria-label="anchor" href="#ejercicio-8-4"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.18 -->
+<p>Se pretende comprobar la hipótesis expuesta en algunos trabajos de investigación acerca de que la presencia del antígeno AG-4 está relacionada con un desenlace fatal. Con éste fin, se hizo una revisión sobre las historias clínicas de 21 mujeres muertas por carcinoma de cuello uterino, observando que 6 de ellas presentaban el citado antígeno. Por otro lado y con fines de comparación se tomó otra muestra de 42 personas, con edades similares a las del grupo anterior y que reaccionaron bien al tratamiento del carcinoma de cuello uterino, en 28 de las cuales se observó la presencia del citado antígeno. ¿Puede pues afirmarse que la presencia del antígeno se relaciona con una efectividad del tratamiento?</p>
+</div>
+<div id="ejercicio-9-2" class="section level2" number="23.9">
+<h2>
+<span class="header-section-number">23.9</span> Ejercicio 9<a class="anchor" aria-label="anchor" href="#ejercicio-9-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 9.21 -->
+<p>Para comprobar si la tolerancia a la glucosa en sujetos sanos tiende a decrecer con la edad se realizó un test oral de glucosa a dos muestras de pacientes sanos, unos jóvenes y otros adultos. El test consistió en medir el nivel de glucosa en sangre en el momento de la ingestión (nivel basal) de 100 grs. de glucosa y a los 60 minutos de la toma. Los resultados fueron los siguientes:</p>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="7%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Jóvenes:</th>
+<th align="center">Basal</th>
+<th align="center">81</th>
+<th align="center">89</th>
+<th align="center">80</th>
+<th align="center">75</th>
+<th align="center">74</th>
+<th align="center">97</th>
+<th align="center">76</th>
+<th align="center">89</th>
+<th align="center">83</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">60 minutos</td>
+<td align="center">136</td>
+<td align="center">150</td>
+<td align="center">149</td>
+<td align="center">141</td>
+<td align="center">138</td>
+<td align="center">154</td>
+<td align="center">141</td>
+<td align="center">155</td>
+<td align="center">145</td>
+<td align="center">147</td>
+</tr></tbody>
+</table></div>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="7%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Adultos:</th>
+<th align="center">Basal</th>
+<th align="center">98</th>
+<th align="center">94</th>
+<th align="center">93</th>
+<th align="center">88</th>
+<th align="center">79</th>
+<th align="center">90</th>
+<th align="center">86</th>
+<th align="center">89</th>
+<th align="center">81</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">60 minutos</td>
+<td align="center">196</td>
+<td align="center">190</td>
+<td align="center">191</td>
+<td align="center">189</td>
+<td align="center">159</td>
+<td align="center">185</td>
+<td align="center">182</td>
+<td align="center">190</td>
+<td align="center">170</td>
+<td align="center">197</td>
+</tr></tbody>
+</table></div>
+<ol style="list-style-type: decimal">
+<li>¿Se detecta una variación significativa del nivel de glucosa en sangre en cada grupo?</li>
+<li>¿Es mayor la concentración de glucosa en sangre a los 60 minutos, en adultos que en jóvenes?</li>
+<li>El contenido basal de glucosa en sangre, ¿es menor en jóvenes que en adultos?</li>
+<li>¿Se detecta a los 60 minutos una variación del nivel de glucosa en sangre diferente de los adultos, en los jóvenes?</li>
+</ol>
+</div>
+<div id="ejercicio-10-2" class="section level2" number="23.10">
+<h2>
+<span class="header-section-number">23.10</span> Ejercicio 10<a class="anchor" aria-label="anchor" href="#ejercicio-10-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 10.1 -->
+<p>Ante la sospecha de que el hábito de fumar de una embarazada puede influir en el peso de su hijo al nacer, se tomaron dos muestras, una de fumadoras y otra de no fumadoras, y se clasificó a sus hijos en tres categorías en función de su peso en relación con los percentiles <span class="math inline">\(\mathcal{P}_{10}\)</span> y <span class="math inline">\(\mathcal{P}_{90}\)</span> de la población. El resultado se expresa en la tabla siguiente:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Peso del niño</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">¿Madre fumadora?</td>
+<td align="center">Menor de <span class="math inline">\(\mathcal{P}_{10}\)</span>
+</td>
+<td align="center">Entre <span class="math inline">\(\mathcal{P}_{10}\)</span> y <span class="math inline">\(\mathcal{P}_{90}\)</span>
+</td>
+<td align="center">Mayor de <span class="math inline">\(\mathcal{P}_{90}\)</span>
+</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">117</td>
+<td align="center">529</td>
+<td align="center">19</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center">124</td>
+<td align="center">1147</td>
+<td align="center">117</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+<p>¿Hay una evidencia significativa a favor de la sospecha a la vista de los resultados de la muestra?</p>
+</div>
+<div id="ejercicio-11" class="section level2" number="23.11">
+<h2>
+<span class="header-section-number">23.11</span> Ejercicio 11<a class="anchor" aria-label="anchor" href="#ejercicio-11"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 10.3 -->
+<p>Varios libros de Medicina Interna recomiendan al médico la palpación de la arteria radial con el fin de evaluar el estado de la pared arterial. Se tomaron 215 pacientes y se les clasificó según la palpabilidad de dicha arteria (grados 0,1 y 2 para no palpable, palpable y muy palpable o dura, respectivamente) y según una puntuación de 0 a 4 en orden creciente de degeneración arterial (evaluada tras la muerte del paciente y su análisis anatomo-patológico). Los datos son los de la tabla siguiente:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">Palpabilidad</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Degeneración</td>
+<td align="center"><span class="math inline">\(\mathbf{0}\)</span></td>
+<td align="center"><span class="math inline">\(\mathbf{1}\)</span></td>
+<td align="center"><span class="math inline">\(\mathbf{2}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mathbf{0}\)</span></td>
+<td align="center">20</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mathbf{1}\)</span></td>
+<td align="center">60</td>
+<td align="center">20</td>
+<td align="center">10</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mathbf{2}\)</span></td>
+<td align="center">45</td>
+<td align="center">15</td>
+<td align="center">15</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mathbf{3}\)</span></td>
+<td align="center">10</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+<p>¿Existe relación entre el grado de palpabilidad y el análisis anatomopatológico?</p>
+</div>
+<div id="ejercicio-12" class="section level2" number="23.12">
+<h2>
+<span class="header-section-number">23.12</span> Ejercicio 12<a class="anchor" aria-label="anchor" href="#ejercicio-12"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 10.3 -->
+<p>Con el fin de conocer si un cierto tipo de bacterias se distribuyen al azar en un determinado cultivo o si, por el contrario, lo hacen con algún tipo de preferencia (el centro, los extremos, etc…), se divide un cultivo en 576 áreas iguales y se cuenta el número de bacterias en cada área. Los resultados son los siguientes:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">
+<span class="math inline">\(n^{o}\)</span> de bacterias</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center"><span class="math inline">\(\geq 5\)</span></th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="center"></td>
+<td align="center">
+<span class="math inline">\(n^{o}\)</span> de áreas</td>
+<td align="center">229</td>
+<td align="center">211</td>
+<td align="center">93</td>
+<td align="center">35</td>
+<td align="center">7</td>
+</tr></tbody>
+</table></div>
+<p>¿Obedecen los datos a una distribución de Poisson?</p>
+</div>
+<div id="ejercicio-13" class="section level2" number="23.13">
+<h2>
+<span class="header-section-number">23.13</span> Ejercicio 13<a class="anchor" aria-label="anchor" href="#ejercicio-13"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 10.9 -->
+<p>Deseamos conocer, si las distribuciones atendiendo al grupo sanguíneo, en tres muestras referidas atendiendo al tipo de tensión arterial, se distribuyen de igual manera. Para lo cual, se reunió una muestra de 1500 sujetos a los que se les determinó su grupo sanguíneo y se les tomó la tensión arterial, clasificándose ésta en baja, normal, y alta. Obteniéndose los siguientes resultados:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">Grupo sanguíneo</th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">Tensión arterial</td>
+<td align="center">A</td>
+<td align="center">B</td>
+<td align="center">AB</td>
+<td align="center">O</td>
+<td align="center">Total</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Baja</td>
+<td align="center">28</td>
+<td align="center">9</td>
+<td align="center">7</td>
+<td align="center">31</td>
+<td align="center">75</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Normal</td>
+<td align="center">543</td>
+<td align="center">211</td>
+<td align="center">90</td>
+<td align="center">476</td>
+<td align="center">1.320</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Alta</td>
+<td align="center">44</td>
+<td align="center">22</td>
+<td align="center">8</td>
+<td align="center">31</td>
+<td align="center">105</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="center">615</td>
+<td align="center">242</td>
+<td align="center">105</td>
+<td align="center">538</td>
+<td align="center">1.500</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="ejercicio-14" class="section level2" number="23.14">
+<h2>
+<span class="header-section-number">23.14</span> Ejercicio 14<a class="anchor" aria-label="anchor" href="#ejercicio-14"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 12.3 -->
+<p>Se realiza un estudio para determinar los efectos de poner fin a un bloqueo renal en pacientes cuya función renal está deteriorada a causa de una metástasis maligna avanzada de causa no urológica. Se mide la tensión arterial de cada paciente antes y después de la operación. Se obtienen los siguientes resultados:</p>
+<blockquote>
+<p>Tensión arterial</p>
+</blockquote>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Antes</th>
+<th align="center">150</th>
+<th align="center">132</th>
+<th align="center">130</th>
+<th align="center">116</th>
+<th align="center">107</th>
+<th align="center">100</th>
+<th align="center">101</th>
+<th align="center">96</th>
+<th align="center">90</th>
+<th align="center">78</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="center">Después</td>
+<td align="center">90</td>
+<td align="center">102</td>
+<td align="center">80</td>
+<td align="center">82</td>
+<td align="center">90</td>
+<td align="center">94</td>
+<td align="center">84</td>
+<td align="center">93</td>
+<td align="center">89</td>
+<td align="center"><span class="math inline">\(8 ? ? ? ? ?\)</span></td>
+</tr></tbody>
+</table></div>
+<p>¿Se puede concluir que la intervención quirúrgica tiende a disminuir la tensión arterial?</p>
+</div>
+<div id="ejercicio-15" class="section level2" number="23.15">
+<h2>
+<span class="header-section-number">23.15</span> Ejercicio 15<a class="anchor" aria-label="anchor" href="#ejercicio-15"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 12.3 -->
+<p>Se ensayaron dos tratamientos antirreumáticos administrados al azar, sobre dos grupos de 10 pacientes, con referencia a una escala convencional (a mayor puntuación, mayor eficacia), valorada después del tratamiento. Los resultados fueron:</p>
+<p>Nivel de eficacia del tratamiento</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Tratamiento primero</th>
+<th align="left">12</th>
+<th align="left">15</th>
+<th align="left">21</th>
+<th align="left">17</th>
+<th align="left">38</th>
+<th align="left">42</th>
+<th align="left">10</th>
+<th align="left">23</th>
+<th align="left">35</th>
+<th align="left">28</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">Tratamiento segundo</td>
+<td align="left">21</td>
+<td align="left">18</td>
+<td align="left">25</td>
+<td align="left">14</td>
+<td align="left">52</td>
+<td align="left">65</td>
+<td align="left">40</td>
+<td align="left">43</td>
+<td align="left">35</td>
+<td align="left">42</td>
+</tr></tbody>
+</table></div>
+<p>Decidir si existe diferencia entre los tratamientos.</p>
+</div>
+<div id="ejercicio-16" class="section level2" number="23.16">
+<h2>
+<span class="header-section-number">23.16</span> Ejercicio 16<a class="anchor" aria-label="anchor" href="#ejercicio-16"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 12.9 -->
+<p>Los siguientes datos nos dan el peso de comida (en Kg.) consumidos por adulto y día en diferentes momentos en un año. Usar un contraste no paramétrico para comprobar si el consumo de comida es el mismo en los 4 meses considerados.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Febrero</th>
+<th align="center">Mayo</th>
+<th align="center">Agosto</th>
+<th align="center">Noviembre</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(4^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 8\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 9\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(4^{\prime} 9\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 4\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(5^{\prime} 2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(5^{\prime} 0\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 3\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 6\)</span></td>
+<td align="center"><span class="math inline">\(5^{\prime} 4\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(4^{\prime} 8\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 4\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 4\)</span></td>
+<td align="center"><span class="math inline">\(5^{\prime} 1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(4^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 1\)</span></td>
+<td align="center"><span class="math inline">\(4^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(5^{\prime} 6\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="ejercicio-17" class="section level2" number="23.17">
+<h2>
+<span class="header-section-number">23.17</span> Ejercicio 17<a class="anchor" aria-label="anchor" href="#ejercicio-17"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 12.10 -->
+<p>Se hizo un estudio neurofisiológico sobre la conducción motora tibial posterior en dos grupos de pacientes embarazadas con las siguientes determinaciones:</p>
+<p>Conducción motora tibial posterior</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">Primer grupo</th>
+<th align="left">51</th>
+<th align="left">40</th>
+<th align="left">41</th>
+<th align="left">53</th>
+<th align="left">48</th>
+<th align="left">50</th>
+<th align="left">45</th>
+<th align="left">58</th>
+<th align="left">45</th>
+<th align="left">44</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">Segundo grupo</td>
+<td align="left">58</td>
+<td align="left">43</td>
+<td align="left">40</td>
+<td align="left">45</td>
+<td align="left">41</td>
+<td align="left">42</td>
+<td align="left">44</td>
+<td align="left">52</td>
+<td align="left">56</td>
+<td align="left">48</td>
+</tr></tbody>
+</table></div>
+<p>Comprobar la igualdad o no de ambas muestras.</p>
+</div>
+<div id="ejercicio-18" class="section level2" number="23.18">
+<h2>
+<span class="header-section-number">23.18</span> Ejercicio 18<a class="anchor" aria-label="anchor" href="#ejercicio-18"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 12.11 -->
+<p>En un experimento diseñado para estimar los efectos de la inhalación prolongada de óxido de cadmio, 15 animales de laboratorio sirvieron de sujetos para el experimento, mientras que 10 animales similares sirvieron de controles. La variable de interés fue el nivel de hemoglobina después del experimento. Se desea saber si puede concluirse que la inhalación prolongada de óxido de cadmio disminuye el nivel de hemoglobina según los siguientes datos que presentamos:</p>
+<p>Nivel de hemoglobina</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Expuestos</th>
+<th align="center"><span class="math inline">\(14^{\prime} 4\)</span></th>
+<th align="center"><span class="math inline">\(14^{\prime} 2\)</span></th>
+<th align="center"><span class="math inline">\(13^{\prime} 8\)</span></th>
+<th align="center"><span class="math inline">\(16^{\prime} 5\)</span></th>
+<th align="center"><span class="math inline">\(14^{\prime} 1\)</span></th>
+<th align="center"><span class="math inline">\(16^{\prime} 6\)</span></th>
+<th align="center"><span class="math inline">\(15^{\prime} 9\)</span></th>
+<th align="center"><span class="math inline">\(15^{\prime} 6\)</span></th>
+<th align="center"><span class="math inline">\(14^{\prime} 1\)</span></th>
+<th align="center"><span class="math inline">\(15^{\prime} 3\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(15^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(16^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(13^{\prime} 7\)</span></td>
+<td align="center"><span class="math inline">\(15^{\prime} 3\)</span></td>
+<td align="center"><span class="math inline">\(14^{\prime} 0\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">No expuestos</td>
+<td align="center"><span class="math inline">\(17^{\prime} 4\)</span></td>
+<td align="center"><span class="math inline">\(16^{\prime} 2\)</span></td>
+<td align="center"><span class="math inline">\(17^{\prime} 1\)</span></td>
+<td align="center"><span class="math inline">\(17^{\prime} 5\)</span></td>
+<td align="center"><span class="math inline">\(15^{\prime} 0\)</span></td>
+<td align="center"><span class="math inline">\(16^{\prime} 0\)</span></td>
+<td align="center"><span class="math inline">\(16^{\prime} 9\)</span></td>
+<td align="center"><span class="math inline">\(15^{\prime} 0\)</span></td>
+<td align="center"><span class="math inline">\(16^{\prime} 3\)</span></td>
+<td align="center"><span class="math inline">\(16^{\prime} 8\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="ejercicio-19" class="section level2" number="23.19">
+<h2>
+<span class="header-section-number">23.19</span> Ejercicio 19<a class="anchor" aria-label="anchor" href="#ejercicio-19"><i class="fas fa-link"></i></a>
+</h2>
+<!-- Barón 12.12 -->
+<p>A 11 ratas tratadas crónicamente con alcohol se les midió la presión sanguínea sistólica antes y después de 30 minutos de administrarles a todas ellas una cantidad fija de etanol, obteniéndose los datos siguientes:</p>
+<p>Presión sanguínea sistólica</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+</colgroup>
+<thead><tr class="header">
+<th align="center">Antes</th>
+<th align="center">126</th>
+<th align="center">120</th>
+<th align="center">124</th>
+<th align="center">122</th>
+<th align="center">130</th>
+<th align="center">129</th>
+<th align="center">114</th>
+<th align="center">116</th>
+<th align="center">119</th>
+<th align="center">112</th>
+<th align="center">118</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="center">Después</td>
+<td align="center">119</td>
+<td align="center">116</td>
+<td align="center">117</td>
+<td align="center">122</td>
+<td align="center">127</td>
+<td align="center">122</td>
+<td align="center">110</td>
+<td align="center">120</td>
+<td align="center">112</td>
+<td align="center">110</td>
+<td align="center">111</td>
+</tr></tbody>
+</table></div>
+<p>¿Hay un descenso significativo de la presión sanguínea sistólica tras la ingestión de etanol?</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></div>
+<div class="next"><a href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-inferencia-aplicada"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="nav-link" href="#elecci%C3%B3n-del-tipo-de-test">Elección del tipo de test</a></li>
+<li>
+<a class="nav-link" href="#procedimiento-del-test">Procedimiento del test</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#enfoque-de-neymann-pearson">Enfoque de Neymann-Pearson</a></li>
+<li><a class="nav-link" href="#y-que-hay-del-p-valor-fisher">¿Y que hay del p-valor? (Fisher)</a></li>
+<li><a class="nav-link" href="#combinando-ambas-aproximaciones">Combinando ambas aproximaciones</a></li>
+<li><a class="nav-link" href="#referencias">Referencias</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-1-4"><span class="header-section-number">23.1</span> Ejercicio 1</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-2-5"><span class="header-section-number">23.2</span> Ejercicio 2</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-26"><span class="header-section-number">23.2.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-3-4"><span class="header-section-number">23.3</span> Ejercicio 3</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-4-3"><span class="header-section-number">23.4</span> Ejercicio 4</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-27"><span class="header-section-number">23.4.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-5-4"><span class="header-section-number">23.5</span> Ejercicio 5</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-28"><span class="header-section-number">23.5.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-6-3"><span class="header-section-number">23.6</span> Ejercicio 6</a></li>
+<li><a class="nav-link" href="#ejercicio-7-4"><span class="header-section-number">23.7</span> Ejercicio 7</a></li>
+<li><a class="nav-link" href="#ejercicio-8-4"><span class="header-section-number">23.8</span> Ejercicio 8</a></li>
+<li><a class="nav-link" href="#ejercicio-9-2"><span class="header-section-number">23.9</span> Ejercicio 9</a></li>
+<li><a class="nav-link" href="#ejercicio-10-2"><span class="header-section-number">23.10</span> Ejercicio 10</a></li>
+<li><a class="nav-link" href="#ejercicio-11"><span class="header-section-number">23.11</span> Ejercicio 11</a></li>
+<li><a class="nav-link" href="#ejercicio-12"><span class="header-section-number">23.12</span> Ejercicio 12</a></li>
+<li><a class="nav-link" href="#ejercicio-13"><span class="header-section-number">23.13</span> Ejercicio 13</a></li>
+<li><a class="nav-link" href="#ejercicio-14"><span class="header-section-number">23.14</span> Ejercicio 14</a></li>
+<li><a class="nav-link" href="#ejercicio-15"><span class="header-section-number">23.15</span> Ejercicio 15</a></li>
+<li><a class="nav-link" href="#ejercicio-16"><span class="header-section-number">23.16</span> Ejercicio 16</a></li>
+<li><a class="nav-link" href="#ejercicio-17"><span class="header-section-number">23.17</span> Ejercicio 17</a></li>
+<li><a class="nav-link" href="#ejercicio-18"><span class="header-section-number">23.18</span> Ejercicio 18</a></li>
+<li><a class="nav-link" href="#ejercicio-19"><span class="header-section-number">23.19</span> Ejercicio 19</a></li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>

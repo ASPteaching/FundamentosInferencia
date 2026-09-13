@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 22 Contrastes de Hipótesis | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 22 Contrastes de Hipótesis | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 22 Contrastes de Hipótesis | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)   22.1 Ejercicio 1.  Un investigador ha preparado un nivel de dosis de droga que según él, inducirá el sueño en \(80 \%\) de las personas que sufren de insomnio....">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)   22.1 Ejercicio 1.  Un investigador ha preparado un nivel de dosis de droga que según él, inducirá el sueño en \(80 \%\) de las personas que sufren de insomnio....">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)   22.1 Ejercicio 1.  Un investigador ha preparado un nivel de dosis de droga que según él, inducirá el sueño en \(80 \%\) de las personas que sufren de insomnio....">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="active" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-contrastes" class="section level1" number="22">
+<h1>
+<span class="header-section-number">Capítulo 22</span> Contrastes de Hipótesis<a class="anchor" aria-label="anchor" href="#ex-contrastes"><i class="fas fa-link"></i></a>
+</h1>
+<div id="ejercicio-1." class="section level2" number="22.1">
+<h2>
+<span class="header-section-number">22.1</span> Ejercicio 1.<a class="anchor" aria-label="anchor" href="#ejercicio-1."><i class="fas fa-link"></i></a>
+</h2>
+<!-- W-M-10.2 -->
+<p>Un investigador ha preparado un nivel de dosis de droga que según él, inducirá el sueño en <span class="math inline">\(80 \%\)</span> de las personas que sufren de insomnio. Después de examinar la dosis, pensamos que lo dicho por él respecto a la efectividad de la dosis es exagerado. En un intento por refutar su dicho, administramos la dosis prescrita a 20 personas que padecen de insomnio y observamos <span class="math inline">\(Y\)</span>, el número de individuos a quienes la dosis induce el sueño. Deseamos probar la hipótesis <span class="math inline">\(H_{0}: p=.8\)</span> contra la alternativa, <span class="math inline">\(H_{a}: p&lt;.8\)</span>. Suponga que se usa la región de rechazo <span class="math inline">\(\{y \leq 12\}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>De acuerdo con la información de este problema, ¿qué es un error tipo I?</li>
+<li>Encuentre <span class="math inline">\(\alpha\)</span>.</li>
+<li>Con base en la información de este problema, ¿qué es un error tipo II?</li>
+<li>Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p=.6\)</span>.</li>
+<li>Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p=.4\)</span>.</li>
+</ol>
+<div id="solución-22" class="section level3" number="22.1.1">
+<h3>
+<span class="header-section-number">22.1.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-22"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="a.-qué-es-un-error-tipo-i" class="section level3" number="22.1.2">
+<h3>
+<span class="header-section-number">22.1.2</span> a. ¿Qué es un error tipo I?<a class="anchor" aria-label="anchor" href="#a.-qu%C3%A9-es-un-error-tipo-i"><i class="fas fa-link"></i></a>
+</h3>
+<p>Un <strong>error tipo I</strong> ocurre cuando rechazamos la hipótesis nula <span class="math inline">\(H_0\)</span> cuando esta es verdadera. En este caso, sería concluir que la proporción de individuos para los que la dosis induce el sueño es menor al 80% (<span class="math inline">\(p&lt;0.8\)</span>), cuando en realidad <span class="math inline">\(p=0.8\)</span>.</p>
+</div>
+<div id="b.-encuentre-alpha" class="section level3" number="22.1.3">
+<h3>
+<span class="header-section-number">22.1.3</span> b. Encuentre <span class="math inline">\(\alpha\)</span><a class="anchor" aria-label="anchor" href="#b.-encuentre-alpha"><i class="fas fa-link"></i></a>
+</h3>
+<p>La probabilidad de cometer un error tipo I es <span class="math inline">\(\alpha\)</span>. En este caso, <span class="math inline">\(\alpha = P(Y \leq 12 \mid p = 0.8)\)</span>, donde <span class="math inline">\(Y\)</span> sigue una distribución binomial con parámetros <span class="math inline">\(n = 20\)</span> y <span class="math inline">\(p = 0.8\)</span>.</p>
+<p>Calculamos <span class="math inline">\(\alpha\)</span>:</p>
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
+<span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="fl">0.8</span></span>
+<span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
+<span></span>
+<span><span class="co"># Cálculo de alpha</span></span>
+<span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p0</span><span class="op">)</span></span>
+<span><span class="va">alpha</span></span></code></pre></div>
+<pre><code>## [1] 0.03214266</code></pre>
+<p><strong>Resultado:</strong></p>
+<p><span class="math inline">\(\alpha = P(Y \leq 12 \mid p = 0.8) \approx \texttt{0.0321427}\)</span></p>
+</div>
+<div id="c.-qué-es-un-error-tipo-ii" class="section level3" number="22.1.4">
+<h3>
+<span class="header-section-number">22.1.4</span> c. ¿Qué es un error tipo II?<a class="anchor" aria-label="anchor" href="#c.-qu%C3%A9-es-un-error-tipo-ii"><i class="fas fa-link"></i></a>
+</h3>
+<p>Un <strong>error tipo II</strong> ocurre cuando no rechazamos la hipótesis nula <span class="math inline">\(H_0\)</span> cuando esta es falsa. En este caso, sería no rechazar que <span class="math inline">\(p = 0.8\)</span> cuando en realidad <span class="math inline">\(p &lt; 0.8\)</span>.</p>
+</div>
+<div id="d.-encuentre-beta-cuando-p-0.6" class="section level3" number="22.1.5">
+<h3>
+<span class="header-section-number">22.1.5</span> d. Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.6\)</span><a class="anchor" aria-label="anchor" href="#d.-encuentre-beta-cuando-p-0.6"><i class="fas fa-link"></i></a>
+</h3>
+<p>La probabilidad de cometer un error tipo II es <span class="math inline">\(\beta = P(Y &gt; 12 \mid p = 0.6)\)</span>. Como <span class="math inline">\(Y\)</span> sigue una distribución binomial con <span class="math inline">\(n = 20\)</span> y <span class="math inline">\(p = 0.6\)</span>, calculamos:</p>
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros para p = 0.6</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fl">0.6</span></span>
+<span></span>
+<span><span class="co"># Cálculo de beta para p = 0.6</span></span>
+<span><span class="va">beta_06</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p1</span><span class="op">)</span></span>
+<span><span class="va">beta_06</span></span></code></pre></div>
+<pre><code>## [1] 0.4158929</code></pre>
+<p><strong>Resultado:</strong></p>
+<p><span class="math inline">\(\beta = P(Y &gt; 12 \mid p = 0.6) \approx \texttt{0.4158929}\)</span></p>
+</div>
+<div id="e.-encuentre-beta-cuando-p-0.4" class="section level3" number="22.1.6">
+<h3>
+<span class="header-section-number">22.1.6</span> e. Encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.4\)</span><a class="anchor" aria-label="anchor" href="#e.-encuentre-beta-cuando-p-0.4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Repetimos el cálculo para <span class="math inline">\(p = 0.4\)</span>:</p>
+<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros para p = 0.4</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fl">0.4</span></span>
+<span></span>
+<span><span class="co"># Cálculo de beta para p = 0.4</span></span>
+<span><span class="va">beta_04</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p2</span><span class="op">)</span></span>
+<span><span class="va">beta_04</span></span></code></pre></div>
+<pre><code>## [1] 0.02102893</code></pre>
+<p><strong>Resultado:</strong>
+<span class="math display">\[\beta = P(Y &gt; 12 \mid p = 0.4) \approx \texttt{0.0210289}\]</span></p>
+</div>
+</div>
+<div id="ejercicio-2-4" class="section level2" number="22.2">
+<h2>
+<span class="header-section-number">22.2</span> Ejercicio 2<a class="anchor" aria-label="anchor" href="#ejercicio-2-4"><i class="fas fa-link"></i></a>
+</h2>
+<!-- W-M-10.3 -->
+<p>Continuando con el ejercicio 1</p>
+<ol style="list-style-type: lower-alpha">
+<li>Defina la región de rechazo de la forma <span class="math inline">\(\{y \leq c\}\)</span> de modo que <span class="math inline">\(\alpha \approx .01\)</span>.</li>
+<li>Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p=.6\)</span>.</li>
+<li>Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p=.4\)</span>.</li>
+</ol>
+<div id="solución-23" class="section level3" number="22.2.1">
+<h3>
+<span class="header-section-number">22.2.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-23"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="a.-defina-la-región-de-rechazo-de-la-forma-y-leq-c-de-modo-que-alpha-approx-0.01" class="section level3" number="22.2.2">
+<h3>
+<span class="header-section-number">22.2.2</span> a. Defina la región de rechazo de la forma <span class="math inline">\(\{y \leq c\}\)</span> de modo que <span class="math inline">\(\alpha \approx 0.01\)</span><a class="anchor" aria-label="anchor" href="#a.-defina-la-regi%C3%B3n-de-rechazo-de-la-forma-y-leq-c-de-modo-que-alpha-approx-0.01"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos encontrar el valor crítico <span class="math inline">\(c\)</span> tal que <span class="math inline">\(\alpha = P(Y \leq c \mid p = 0.8) \approx 0.01\)</span>. Para esto, usamos una búsqueda iterativa:</p>
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Buscar el valor crítico c para alpha ≈ 0.01</span></span>
+<span><span class="va">c_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">qbinom</a></span><span class="op">(</span><span class="fl">0.01</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p0</span><span class="op">)</span></span>
+<span><span class="va">c_new</span></span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">alpha_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c_new</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p0</span><span class="op">)</span></span>
+<span><span class="va">alpha_new</span></span></code></pre></div>
+<pre><code>## [1] 0.03214266</code></pre>
+<p><strong>Resultado:</strong></p>
+<p>El valor crítico es <span class="math inline">\(c = \texttt{12}\)</span>, con:
+<span class="math display">\[\alpha = P(Y \leq 10 \mid p = 0.8) \approx \texttt{0.0321427}\]</span></p>
+</div>
+<div id="b.-para-la-región-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.6" class="section level3" number="22.2.3">
+<h3>
+<span class="header-section-number">22.2.3</span> b. Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.6\)</span><a class="anchor" aria-label="anchor" href="#b.-para-la-regi%C3%B3n-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Calculamos <span class="math inline">\(\beta = P(Y &gt; 10 \mid p = 0.6)\)</span>:</p>
+<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Cálculo de beta para p = 0.6 con c = 10</span></span>
+<span><span class="va">beta_06_new</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c_new</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p1</span><span class="op">)</span></span>
+<span><span class="va">beta_06_new</span></span></code></pre></div>
+<pre><code>## [1] 0.4158929</code></pre>
+<p><strong>Resultado:</strong>
+<span class="math display">\[\beta = P(Y &gt; 10 \mid p = 0.6) \approx \texttt{0.4158929}\]</span></p>
+</div>
+<div id="c.-para-la-región-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.4" class="section level3" number="22.2.4">
+<h3>
+<span class="header-section-number">22.2.4</span> c. Para la región de rechazo del inciso a, encuentre <span class="math inline">\(\beta\)</span> cuando <span class="math inline">\(p = 0.4\)</span><a class="anchor" aria-label="anchor" href="#c.-para-la-regi%C3%B3n-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Repetimos el cálculo para <span class="math inline">\(p = 0.4\)</span>:</p>
+<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Cálculo de beta para p = 0.4 con c = 10</span></span>
+<span><span class="va">beta_04_new</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c_new</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p2</span><span class="op">)</span></span>
+<span><span class="va">beta_04_new</span></span></code></pre></div>
+<pre><code>## [1] 0.02102893</code></pre>
+<p><strong>Resultado:</strong>
+<span class="math display">\[\beta = P(Y &gt; 10 \mid p = 0.4) \approx \texttt{0.0210289}\]</span></p>
+</div>
+</div>
+<div id="ejercicio-3." class="section level2" number="22.3">
+<h2>
+<span class="header-section-number">22.3</span> Ejercicio 3.<a class="anchor" aria-label="anchor" href="#ejercicio-3."><i class="fas fa-link"></i></a>
+</h2>
+<!-- W-M-10.6 -->
+<p>Nos interesa probar si una moneda está o no balanceada, con base en el número de caras <span class="math inline">\(Y\)</span> en 36 tiros de la moneda. ( <span class="math inline">\(H_{0}: p=.5\)</span> contra <span class="math inline">\(H_{a}: p \neq .5\)</span> ). Si usamos la región de rechazo <span class="math inline">\(|y-18| \geq 4\)</span>, ¿cuál es</p>
+<ol style="list-style-type: lower-alpha">
+<li>el valor de <span class="math inline">\(\alpha\)</span> ?</li>
+<li>el valor de <span class="math inline">\(\beta\)</span> si <span class="math inline">\(p=.7\)</span> ?</li>
+</ol>
+<div id="solución-24" class="section level3" number="22.3.1">
+<h3>
+<span class="header-section-number">22.3.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-24"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="a.-valor-de-alpha" class="section level3" number="22.3.2">
+<h3>
+<span class="header-section-number">22.3.2</span> a. Valor de <span class="math inline">\(\alpha\)</span><a class="anchor" aria-label="anchor" href="#a.-valor-de-alpha"><i class="fas fa-link"></i></a>
+</h3>
+<p>La probabilidad de cometer un error tipo I, <span class="math inline">\(\alpha\)</span>, se calcula como:</p>
+<p><span class="math display">\[\alpha = P(|Y - 18| \geq 4 \mid p = 0.5)\]</span></p>
+<p>Esto equivale a:</p>
+<p><span class="math display">\[\alpha = P(Y \leq 14 \mid p = 0.5) + P(Y \geq 22 \mid p = 0.5)\]</span></p>
+<p>Dado que <span class="math inline">\(Y \sim \text{Binomial}(n = 36, p = 0.5)\)</span>, calculamos <span class="math inline">\(\alpha\)</span> con R:</p>
+<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">36</span></span>
+<span><span class="va">p0</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
+<span><span class="va">c_lower</span> <span class="op">&lt;-</span> <span class="fl">14</span></span>
+<span><span class="va">c_upper</span> <span class="op">&lt;-</span> <span class="fl">22</span></span>
+<span></span>
+<span><span class="co"># Cálculo de alpha</span></span>
+<span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c_lower</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p0</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c_upper</span> <span class="op">-</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p0</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">alpha</span></span></code></pre></div>
+<pre><code>## [1] 0.242985</code></pre>
+<p>Por lo tanto,
+<span class="math display">\[\alpha = P(|Y - 18| \geq 4 \mid p = 0.5) \approx \texttt{0.242985}\]</span></p>
+</div>
+<div id="b.-valor-de-beta-si-p-0.7" class="section level3" number="22.3.3">
+<h3>
+<span class="header-section-number">22.3.3</span> b. Valor de <span class="math inline">\(\beta\)</span> si <span class="math inline">\(p = 0.7\)</span><a class="anchor" aria-label="anchor" href="#b.-valor-de-beta-si-p-0.7"><i class="fas fa-link"></i></a>
+</h3>
+<p>La probabilidad de cometer un error tipo II, <span class="math inline">\(\beta\)</span>, se calcula como:</p>
+<p><span class="math display">\[\beta = P(|Y - 18| &lt; 4 \mid p = 0.7)\]</span></p>
+<p>Esto equivale a:</p>
+<p><span class="math display">\[\beta = P(15 \leq Y \leq 21 \mid p = 0.7)\]</span></p>
+<p>Calculamos <span class="math inline">\(\beta\)</span> con R:</p>
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros para p = 0.7</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fl">0.7</span></span>
+<span><span class="va">beta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c_upper</span> <span class="op">-</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p1</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">c_lower</span> <span class="op">-</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p1</span><span class="op">)</span></span>
+<span><span class="va">beta</span></span></code></pre></div>
+<pre><code>## [1] 0.09163513</code></pre>
+<p>Por lo tanto,
+<span class="math display">\[\beta = P(|Y - 18| &lt; 4 \mid p = 0.7) \approx \texttt{0.0916351}\]</span></p>
+</div>
+</div>
+<div id="ejercicio-4." class="section level2" number="22.4">
+<h2>
+<span class="header-section-number">22.4</span> Ejercicio 4.<a class="anchor" aria-label="anchor" href="#ejercicio-4."><i class="fas fa-link"></i></a>
+</h2>
+<!-- W-M-10.7 -->
+<p>Verdadero o falso Consulte el Ejercicio 3</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>El nivel de la prueba calculado en el Ejercicio 3(a) es la probabilidad de que <span class="math inline">\(H_{0}\)</span> sea verdadera.</p></li>
+<li><p>El valor de <span class="math inline">\(\beta\)</span> calculado en el Ejercicio 3(b) es la probabilidad de que <span class="math inline">\(H_{a}\)</span> sea verdadera.</p></li>
+<li><p>En el Ejercicio 3(b), <span class="math inline">\(\beta\)</span> se calculó suponiendo que la hipótesis nula era falsa.</p></li>
+<li><p>Si <span class="math inline">\(\beta\)</span> se calculó cuando <span class="math inline">\(p=0.55\)</span>, el valor sería más grande que el valor de <span class="math inline">\(\beta\)</span> obtenido en el Ejercicio 3(b).</p></li>
+<li><p>La probabilidad de que la prueba equivocadamente rechace <span class="math inline">\(H_{0}\)</span> es <span class="math inline">\(\beta\)</span>.</p></li>
+<li>
+<p>Suponga que la región de rechazo (RR) se cambió a <span class="math inline">\(|y-18| \geq 2\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Esta RR llevaría a rechazar la hipótesis nula con más frecuencia que la RR empleada en el Ejercicio 3</li>
+<li>Si <span class="math inline">\(\alpha\)</span> se calculó usando esta nueva RR, el valor sería más grande que el valor obtenido en el Ejercicio 3(a)</li>
+<li>Si <span class="math inline">\(\beta\)</span> se calculó cuando <span class="math inline">\(p=.7\)</span> y usando esta nueva RR , el valor sería más grande que el valor obtenido en el Ejercicio 3(b).</li>
+</ol>
+</li>
+</ol>
+<div id="solución-25" class="section level3" number="22.4.1">
+<h3>
+<span class="header-section-number">22.4.1</span> SOLUCIÓN<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-25"><i class="fas fa-link"></i></a>
+</h3>
+<div id="a.-verdadero-o-falso-el-nivel-de-la-prueba-calculado-en-el-ejercicio-3a-es-la-probabilidad-de-que-h_0-sea-verdadera." class="section level4" number="22.4.1.1">
+<h4>
+<span class="header-section-number">22.4.1.1</span> a. Verdadero o falso: El nivel de la prueba calculado en el Ejercicio 3(a) es la probabilidad de que <span class="math inline">\(H_0\)</span> sea verdadera.<a class="anchor" aria-label="anchor" href="#a.-verdadero-o-falso-el-nivel-de-la-prueba-calculado-en-el-ejercicio-3a-es-la-probabilidad-de-que-h_0-sea-verdadera."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Falso.</strong> El nivel de la prueba <span class="math inline">\(\alpha\)</span> es la probabilidad de rechazar <span class="math inline">\(H_0\)</span> cuando esta es verdadera, no la probabilidad de que <span class="math inline">\(H_0\)</span> sea verdadera.</p>
+</div>
+<div id="b.-verdadero-o-falso-el-valor-de-beta-calculado-en-el-ejercicio-3b-es-la-probabilidad-de-que-h_a-sea-verdadera." class="section level4" number="22.4.1.2">
+<h4>
+<span class="header-section-number">22.4.1.2</span> b. Verdadero o falso: El valor de <span class="math inline">\(\beta\)</span> calculado en el Ejercicio 3(b) es la probabilidad de que <span class="math inline">\(H_a\)</span> sea verdadera.<a class="anchor" aria-label="anchor" href="#b.-verdadero-o-falso-el-valor-de-beta-calculado-en-el-ejercicio-3b-es-la-probabilidad-de-que-h_a-sea-verdadera."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Falso.</strong> El valor de <span class="math inline">\(\beta\)</span> es la probabilidad de no rechazar <span class="math inline">\(H_0\)</span> cuando esta es falsa. No está relacionado con la probabilidad de que <span class="math inline">\(H_a\)</span> sea verdadera.</p>
+</div>
+<div id="c.-verdadero-o-falso-en-el-ejercicio-3b-beta-se-calculó-suponiendo-que-la-hipótesis-nula-era-falsa." class="section level4" number="22.4.1.3">
+<h4>
+<span class="header-section-number">22.4.1.3</span> c. Verdadero o falso: En el Ejercicio 3(b), <span class="math inline">\(\beta\)</span> se calculó suponiendo que la hipótesis nula era falsa.<a class="anchor" aria-label="anchor" href="#c.-verdadero-o-falso-en-el-ejercicio-3b-beta-se-calcul%C3%B3-suponiendo-que-la-hip%C3%B3tesis-nula-era-falsa."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Verdadero.</strong> Por definición, <span class="math inline">\(\beta\)</span> se calcula bajo la suposición de que <span class="math inline">\(H_0\)</span> es falsa.</p>
+</div>
+<div id="d.-verdadero-o-falso-si-beta-se-calculó-cuando-p0.55-el-valor-sería-más-grande-que-el-valor-de-beta-obtenido-en-el-ejercicio-3b." class="section level4" number="22.4.1.4">
+<h4>
+<span class="header-section-number">22.4.1.4</span> d. Verdadero o falso: Si <span class="math inline">\(\beta\)</span> se calculó cuando <span class="math inline">\(p=0.55\)</span>, el valor sería más grande que el valor de <span class="math inline">\(\beta\)</span> obtenido en el Ejercicio 3(b).<a class="anchor" aria-label="anchor" href="#d.-verdadero-o-falso-si-beta-se-calcul%C3%B3-cuando-p0.55-el-valor-ser%C3%ADa-m%C3%A1s-grande-que-el-valor-de-beta-obtenido-en-el-ejercicio-3b."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Verdadero.</strong> Cuando <span class="math inline">\(p\)</span> está más cerca de <span class="math inline">\(0.5\)</span>, la probabilidad de observar valores dentro de la región de aceptación es mayor, lo que incrementa <span class="math inline">\(\beta\)</span>.</p>
+</div>
+<div id="e.-verdadero-o-falso-la-probabilidad-de-que-la-prueba-equivocadamente-rechace-h_0-es-beta." class="section level4" number="22.4.1.5">
+<h4>
+<span class="header-section-number">22.4.1.5</span> e. Verdadero o falso: La probabilidad de que la prueba equivocadamente rechace <span class="math inline">\(H_0\)</span> es <span class="math inline">\(\beta\)</span>.<a class="anchor" aria-label="anchor" href="#e.-verdadero-o-falso-la-probabilidad-de-que-la-prueba-equivocadamente-rechace-h_0-es-beta."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Falso.</strong> La probabilidad de equivocadamente rechazar <span class="math inline">\(H_0\)</span> es <span class="math inline">\(\alpha\)</span>, no <span class="math inline">\(\beta\)</span>.</p>
+</div>
+<div id="f.-suponga-que-la-región-de-rechazo-rr-se-cambió-a-y---18-geq-2." class="section level4" number="22.4.1.6">
+<h4>
+<span class="header-section-number">22.4.1.6</span> f. Suponga que la región de rechazo (RR) se cambió a <span class="math inline">\(|y - 18| \geq 2\)</span>.<a class="anchor" aria-label="anchor" href="#f.-suponga-que-la-regi%C3%B3n-de-rechazo-rr-se-cambi%C3%B3-a-y---18-geq-2."><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>Esta RR llevaría a rechazar la hipótesis nula con más frecuencia que la RR empleada en el Ejercicio 3.</li>
+</ol>
+<p><strong>Verdadero.</strong> Esta nueva región de rechazo incluye más valores, por lo que <span class="math inline">\(H_0\)</span> será rechazada con mayor frecuencia.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<p>Si <span class="math inline">\(\alpha\)</span> se calculó usando esta nueva RR, el valor sería más grande que el valor obtenido en el Ejercicio 3(a)</p>
+<p><strong>Verdadero.</strong> Como la nueva región de rechazo es más amplia, <span class="math inline">\(\alpha\)</span> será mayor.</p>
+</li>
+<li><p>Si <span class="math inline">\(\beta\)</span> se calculó cuando <span class="math inline">\(p=.7\)</span> y usando esta nueva RR , el valor sería más grande que el valor obtenido en el Ejercicio 3(b).</p></li>
+</ol>
+<p><strong>Falso.</strong> Si <span class="math inline">\(p = 0.7\)</span>, la nueva región de rechazo reducirá <span class="math inline">\(\beta\)</span>, ya que más valores caerán fuera de la región de aceptación.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-5." class="section level2" number="22.5">
+<h2>
+<span class="header-section-number">22.5</span> Ejercicio 5.<a class="anchor" aria-label="anchor" href="#ejercicio-5."><i class="fas fa-link"></i></a>
+</h2>
+<!-- W-M-10.8 -->
+<p>Una prueba clínica en dos etapas está planeada para probar <span class="math inline">\(H_{0}: p=.10\)</span> contra <span class="math inline">\(H_{a}: p&gt;.10\)</span>, donde <span class="math inline">\(p\)</span> es la proporción de pacientes que responden a un tratamiento y que fueron tratados según el protocolo. En la primera etapa, 15 pacientes se acumularon y trataron. Si 4 o más de los que responden se observan entre los (primeros) 15 pacientes, <span class="math inline">\(H_{0}\)</span> es rechazada, el estudio se termina y no se acumulan más pacientes. De otro modo, otros 15 pacientes se acumularán y tratarán en la segunda etapa. Si un total de 6 o más de los que responden se observan entre los 30 pacientes acumulados en las dos etapas ( 15 en la primera etapa y 15 más en la segunda etapa), entonces <span class="math inline">\(H_{0}\)</span> es rechazada. Por ejemplo, si 5 de los que responden se encuentran entre los pacientes de la primera etapa, <span class="math inline">\(H_{0}\)</span> es rechazada y el estudio se termina. No obstante, si 2 de los que responden se encuentran entre los pacientes de la primera etapa, se acumulan 15 pacientes de la segunda etapa y se identifican otros 4 o más de los que responden (para un total de 6 o más entre <span class="math inline">\(\operatorname{los} 30\)</span> ), <span class="math inline">\(H_{0}\)</span> es rechazada y el estudio termina. <span class="math inline">\({ }^{1}\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Utilice la tabla binomial para hallar el valor numérico de <span class="math inline">\(\alpha\)</span> para este procedimiento de prueba.</li>
+<li>Utilice la tabla binomial para determinar la probabilidad de rechazar la hipótesis nula cuando use esta región de rechazo si <span class="math inline">\(p=.30\)</span>.</li>
+<li>Para la región de rechazo definida líneas antes, encuentre <span class="math inline">\(\beta\)</span> si <span class="math inline">\(p=.30\)</span>.</li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></div>
+<div class="next"><a href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-contrastes"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-1."><span class="header-section-number">22.1</span> Ejercicio 1.</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-22"><span class="header-section-number">22.1.1</span> SOLUCIÓN</a></li>
+<li><a class="nav-link" href="#a.-qu%C3%A9-es-un-error-tipo-i"><span class="header-section-number">22.1.2</span> a. ¿Qué es un error tipo I?</a></li>
+<li><a class="nav-link" href="#b.-encuentre-alpha"><span class="header-section-number">22.1.3</span> b. Encuentre \(\alpha\)</a></li>
+<li><a class="nav-link" href="#c.-qu%C3%A9-es-un-error-tipo-ii"><span class="header-section-number">22.1.4</span> c. ¿Qué es un error tipo II?</a></li>
+<li><a class="nav-link" href="#d.-encuentre-beta-cuando-p-0.6"><span class="header-section-number">22.1.5</span> d. Encuentre \(\beta\) cuando \(p = 0.6\)</a></li>
+<li><a class="nav-link" href="#e.-encuentre-beta-cuando-p-0.4"><span class="header-section-number">22.1.6</span> e. Encuentre \(\beta\) cuando \(p = 0.4\)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-2-4"><span class="header-section-number">22.2</span> Ejercicio 2</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-23"><span class="header-section-number">22.2.1</span> SOLUCIÓN</a></li>
+<li><a class="nav-link" href="#a.-defina-la-regi%C3%B3n-de-rechazo-de-la-forma-y-leq-c-de-modo-que-alpha-approx-0.01"><span class="header-section-number">22.2.2</span> a. Defina la región de rechazo de la forma \(\{y \leq c\}\) de modo que \(\alpha \approx 0.01\)</a></li>
+<li><a class="nav-link" href="#b.-para-la-regi%C3%B3n-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.6"><span class="header-section-number">22.2.3</span> b. Para la región de rechazo del inciso a, encuentre \(\beta\) cuando \(p = 0.6\)</a></li>
+<li><a class="nav-link" href="#c.-para-la-regi%C3%B3n-de-rechazo-del-inciso-a-encuentre-beta-cuando-p-0.4"><span class="header-section-number">22.2.4</span> c. Para la región de rechazo del inciso a, encuentre \(\beta\) cuando \(p = 0.4\)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-3."><span class="header-section-number">22.3</span> Ejercicio 3.</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-24"><span class="header-section-number">22.3.1</span> SOLUCIÓN</a></li>
+<li><a class="nav-link" href="#a.-valor-de-alpha"><span class="header-section-number">22.3.2</span> a. Valor de \(\alpha\)</a></li>
+<li><a class="nav-link" href="#b.-valor-de-beta-si-p-0.7"><span class="header-section-number">22.3.3</span> b. Valor de \(\beta\) si \(p = 0.7\)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-4."><span class="header-section-number">22.4</span> Ejercicio 4.</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-25"><span class="header-section-number">22.4.1</span> SOLUCIÓN</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-5."><span class="header-section-number">22.5</span> Ejercicio 5.</a></li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>

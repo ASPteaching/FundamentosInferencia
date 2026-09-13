@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 16 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 16 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 16 Probabilidad y Experimentos aleatorios | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)   16.1 Problema 1  Sean \(A\) y \(B\) dos sucesos. Suponiendo que \(P(A)=0.3, P(B)=0.6\), y \(P(A \cap B)=0.1\), calcula las siguientes probabilidades: \(P(A \cup...">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)   16.1 Problema 1  Sean \(A\) y \(B\) dos sucesos. Suponiendo que \(P(A)=0.3, P(B)=0.6\), y \(P(A \cap B)=0.1\), calcula las siguientes probabilidades: \(P(A \cup...">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)   16.1 Problema 1  Sean \(A\) y \(B\) dos sucesos. Suponiendo que \(P(A)=0.3, P(B)=0.6\), y \(P(A \cap B)=0.1\), calcula las siguientes probabilidades: \(P(A \cup...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="active" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-probabilidad" class="section level1" number="16">
+<h1>
+<span class="header-section-number">Capítulo 16</span> Probabilidad y Experimentos aleatorios<a class="anchor" aria-label="anchor" href="#ex-probabilidad"><i class="fas fa-link"></i></a>
+</h1>
+<div id="problema-1" class="section level2" number="16.1">
+<h2>
+<span class="header-section-number">16.1</span> Problema 1<a class="anchor" aria-label="anchor" href="#problema-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- (Bioestadística UB, problema 2) -->
+<p>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos sucesos. Suponiendo que <span class="math inline">\(P(A)=0.3, P(B)=0.6\)</span>, y <span class="math inline">\(P(A \cap B)=0.1\)</span>, calcula las siguientes probabilidades:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(P(A \cup B)\)</span></p></li>
+<li><p><span class="math inline">\(P(A^c)\)</span></p></li>
+<li><p><span class="math inline">\(P(A^c \cap B)\)</span></p></li>
+<li><p><span class="math inline">\(P(A \cap B^c)\)</span></p></li>
+<li><p><span class="math inline">\(P(A^c \cap B^c)\)</span></p></li>
+</ol>
+<div id="solución-1" class="section level3" number="16.1.1">
+<h3>
+<span class="header-section-number">16.1.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para entender la solución de este ejercicio y otros similares debemos recordar que, como regla básica, si dos conjuntos no tienen ningún elemento común, podemos determinar el número de elementos de su unión (los que estan en uno <strong>u</strong> en otro) mediante la suma de los elements da uno.</p>
+<p>En cambio, si dichos conjuntos tienen algún elemento en común, es decir si su <em>intersección</em> no está vacía, sucedería que, si sumamos los elementos de ambos conjuntos, los elementos de dicha intersección se añadirían dos veces, por lo que para determinar el total de elementos de la unión debemos sumar los elementos de cada conjunto y restarle una vez los de la intersección.</p>
+<p>Los diagramas de Venn nos ayudan a visualizar las diversas situaciones con que nos podemos encontrar.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(P(A \cup B)=P(A)+P(B)-P(A \cap B)=0.3+0.6-0.1=0.8\)</span></p></li>
+<li><p><span class="math inline">\(P\left(A^{c}\right)=1-P(A)=1-0.3=0.7\)</span></p></li>
+<li><p><span class="math inline">\(P\left(A^{c} \cap B\right)=P(B)-P(A \cap B)=0.6-0.1=0.5\)</span></p></li>
+<li><p><span class="math inline">\(P\left(A \cap B^{c}\right)=P(A)-P(A \cap B)=0.3-0.1=0.2\)</span></p></li>
+<li><p><span class="math inline">\(P\left(A^{c} \cap B^{c}\right)=1-P(A \cup B)=1-0.8=0.2\)</span></p></li>
+</ol>
+</div>
+</div>
+<div id="problema-2" class="section level2" number="16.2">
+<h2>
+<span class="header-section-number">16.2</span> Problema 2<a class="anchor" aria-label="anchor" href="#problema-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- (Bioestadística UB, problema 3) -->
+<p>Una población está afectada por tres enfermedades diferentes A, B i C. La probabilidad de que una persona sufra <span class="math inline">\(A\)</span> es 0.30 , la probabilidad de que sufra <span class="math inline">\(B\)</span> es 0.20 y la probabilidad de que sufra <span class="math inline">\(C\)</span> es 0.15 . La probabilidad de que una persona sufra <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> es 0.12 , la que sufra <span class="math inline">\(A\)</span> y <span class="math inline">\(C\)</span> es 0.09 y la que sufra <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> es 0.06 . La probabilidad de que una persona sufra las tres enfermedades es 0.03 . Se piden las probabilidades de que una persona escogida al azar:</p>
+<div id="solución-2" class="section level3" number="16.2.1">
+<h3>
+<span class="header-section-number">16.2.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-2"><i class="fas fa-link"></i></a>
+</h3>
+<!-- a. $P(A \cup B \cup C)=0.41$ -->
+<!-- b. $P\left(A \cap B^{c} \cap C^{c}\right)=0.12$ -->
+<!-- c. $P\left(\left(A^{c} \cap(B \cup C)\right)=0.11\right.$ -->
+<!-- d. $P\left(A \cup\left(B^{c} \cap C^{c}\right)\right)=0.89$ -->
+<hr>
+<ol style="list-style-type: lower-alpha">
+<li><strong>¿Cuál es la probabilidad de que una persona padezca al menos una enfermedad?</strong></li>
+</ol>
+<p>Queremos calcular la probabilidad de que una persona sufra al menos una de las tres enfermedades, es decir, <span class="math inline">\(P(A \cup B \cup C)\)</span>.</p>
+<p>Para calcular <span class="math inline">\(P(A \cup B \cup C)\)</span>, usamos la regla de inclusión-exclusión:</p>
+<p><span class="math display">\[
+P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)
+\]</span></p>
+<p>Sustituyendo los valores dados en el enunciado:</p>
+<p><span class="math display">\[
+P(A \cup B \cup C) = 0.30 + 0.20 + 0.15 - 0.12 - 0.09 - 0.06 + 0.03 = 0.41
+\]</span></p>
+<p>Por lo tanto, la probabilidad de que una persona padezca al menos una enfermedad es <strong>0.41</strong>.</p>
+<hr>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><strong>¿Cuál es la probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span>?</strong></li>
+</ol>
+<p>Para resolver esto, necesitamos calcular la probabilidad de que la persona sufra <span class="math inline">\(A\)</span>, pero no <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>, es decir, <span class="math inline">\(P(A \cap B^c \cap C^c)\)</span>.</p>
+<p>Podemos calcular <span class="math inline">\(P(A \cap B^c \cap C^c)\)</span> restando de <span class="math inline">\(P(A)\)</span> la probabilidad de que la persona sufra <span class="math inline">\(A\)</span> junto con alguna de las otras dos enfermedades:</p>
+<p><span class="math display">\[
+P(A \cap B^c \cap C^c) = P(A) - P(A \cap B) - P(A \cap C) + P(A \cap B \cap C)
+\]</span></p>
+<p>Sustituyendo los valores:</p>
+<p><span class="math display">\[
+P(A \cap B^c \cap C^c) = 0.30 - 0.12 - 0.09 + 0.03 = 0.12
+\]</span></p>
+<p>Por lo tanto, la probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span> es <strong>0.12</strong>.</p>
+<hr>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><strong>¿Cuál es la probabilidad de que una persona sufra <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, pero no sufra <span class="math inline">\(A\)</span>?</strong></li>
+</ol>
+<p>Aquí buscamos la probabilidad <span class="math inline">\(P(A^c \cap (B \cup C))\)</span>, es decir, la probabilidad de que la persona no tenga <span class="math inline">\(A\)</span>, pero tenga <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>.</p>
+<p>Primero, calculamos <span class="math inline">\(P(B \cup C)\)</span> utilizando la regla de inclusión-exclusión:</p>
+<p><span class="math display">\[
+P(B \cup C) = P(B) + P(C) - P(B \cap C)
+\]</span></p>
+<p>Sustituyendo los valores:</p>
+<p><span class="math display">\[
+P(B \cup C) = 0.20 + 0.15 - 0.06 = 0.29
+\]</span></p>
+<p>Ahora, para calcular <span class="math inline">\(P(A^c \cap (B \cup C))\)</span>, restamos de <span class="math inline">\(P(B \cup C)\)</span> la probabilidad de que la persona tenga <span class="math inline">\(A\)</span> y alguna de las enfermedades <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, es decir, <span class="math inline">\(P(A \cap (B \cup C))\)</span>:</p>
+<p><span class="math display">\[
+P(A \cap (B \cup C)) = P(A \cap B) + P(A \cap C) - P(A \cap B \cap C)
+\]</span></p>
+<p>Sustituyendo los valores:</p>
+<p><span class="math display">\[
+P(A \cap (B \cup C)) = 0.12 + 0.09 - 0.03 = 0.18
+\]</span></p>
+<p>Finalmente, restamos:</p>
+<p><span class="math display">\[
+P(A^c \cap (B \cup C)) = P(B \cup C) - P(A \cap (B \cup C)) = 0.29 - 0.18 = 0.11
+\]</span></p>
+<p>Por lo tanto, la probabilidad de que una persona sufra <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, pero no <span class="math inline">\(A\)</span>, es <strong>0.11</strong>.</p>
+<hr>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><strong>¿Cuál es la probabilidad de que una persona sufra <span class="math inline">\(A\)</span> o no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>?</strong></li>
+</ol>
+<p>Aquí buscamos la probabilidad <span class="math inline">\(P(A \cup (B^c \cap C^c))\)</span>, es decir, que la persona sufra <span class="math inline">\(A\)</span> o que no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>.</p>
+<p>Primero, calculamos <span class="math inline">\(P(B^c \cap C^c)\)</span>, que es la probabilidad de que la persona no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span>. Esto es simplemente <span class="math inline">\(1 - P(B \cup C)\)</span>, que ya calculamos previamente:</p>
+<p><span class="math display">\[
+P(B^c \cap C^c) = 1 - P(B \cup C) = 1 - 0.29 = 0.71
+\]</span></p>
+<p>Ahora, aplicamos la regla de la unión para calcular <span class="math inline">\(P(A \cup (B^c \cap C^c))\)</span>:</p>
+<p><span class="math display">\[
+P(A \cup (B^c \cap C^c)) = P(A) + P(B^c \cap C^c) - P(A \cap B^c \cap C^c)
+\]</span></p>
+<p>Ya calculamos <span class="math inline">\(P(B^c \cap C^c)\)</span>, y sabemos que <span class="math inline">\(P(A \cap B^c \cap C^c)\)</span> es la probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span>, que también calculamos previamente:</p>
+<p><span class="math display">\[
+P(A \cap B^c \cap C^c) = 0.12
+\]</span></p>
+<p>Sustituyendo los valores:</p>
+<p><span class="math display">\[
+P(A \cup (B^c \cap C^c)) = 0.30 + 0.71 - 0.12 = 0.89
+\]</span></p>
+<p>Por lo tanto, la probabilidad de que una persona sufra <span class="math inline">\(A\)</span> o no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span> es <strong>0.89</strong>.</p>
+<p><strong>Resumiendo:</strong></p>
+<ol style="list-style-type: decimal">
+<li>La probabilidad de que una persona padezca al menos una enfermedad es <strong>0.41</strong>.</li>
+<li>La probabilidad de que una persona solo sufra <span class="math inline">\(A\)</span> es <strong>0.12</strong>.</li>
+<li>La probabilidad de que una persona sufra <span class="math inline">\(B\)</span> o <span class="math inline">\(C\)</span>, pero no <span class="math inline">\(A\)</span>, es <strong>0.11</strong>.</li>
+<li>La probabilidad de que una persona sufra <span class="math inline">\(A\)</span> o no sufra ni <span class="math inline">\(B\)</span> ni <span class="math inline">\(C\)</span> es <strong>0.89</strong>.</li>
+</ol>
+</div>
+</div>
+<div id="problema-3" class="section level2" number="16.3">
+<h2>
+<span class="header-section-number">16.3</span> Problema 3<a class="anchor" aria-label="anchor" href="#problema-3"><i class="fas fa-link"></i></a>
+</h2>
+<!-- (Bioestadística UB, problema 8) -->
+<p>Por los síntomas observados en un enfermo, y según la experiencia acumulada en un gran número de situaciones similares, se deduce que ha podido coger la enfermedad <span class="math inline">\(A\)</span> con probabilidad <span class="math inline">\(1 / 3\)</span>, o la enfermedad <span class="math inline">\(B\)</span> con probabilidad <span class="math inline">\(2 / 3\)</span>. Con el fin de precisar el diagnóstico, se hace un análisis clínico al enfermo con dos resultados posibles, positivo o negativo. Se sabe, también por experiencia, que en los pacientes que tienen la enfermedad En el análisis es positiva con probabilidad 0.99 , y en los que padecen la enfermedad B lo es con probabilidad 0.06</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>¿Cuál es la probabilidad de que el análisis dé un
+resultado negativo?</p></li>
+<li><p>Si el resultado ha sido positivo, ¿cuál es la probabilidad de que el paciente sufra la enfermedad A? ¿Y la probabilidad de que padezca la enfermedad B?</p></li>
+</ol>
+<div id="solución-3" class="section level3" number="16.3.1">
+<h3>
+<span class="header-section-number">16.3.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-3"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math display">\[
+\begin{aligned}
+P(Neg)&amp;=P(Neg|A) \cdot  P(A)+P(Neg|B) \cdot  P(B)=
+\\&amp;= 0.01 \cdot 1 / 3+0.94 \cdot 2 / 3=0.63
+\end{aligned}
+\]</span></p></li>
+<li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{P}(\mathrm{A} | Pos )&amp;=\frac{P(\text { Pos } | A) P(A)}{P(\text { Pos})}=0.8919, \quad \text{para A},\\
+\mathrm{P}(\mathrm{B} | Pos)&amp;=1-\mathrm{P}(\mathrm{A} / Positiu )=0.1081, \quad \text{para $B$}.
+\end{aligned}
+\]</span></p>
+<p>Las probabilidades las hemos calculado con R a partir de la información del enunciado:</p>
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pA</span><span class="op">&lt;-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span></span>
+<span><span class="va">pB</span><span class="op">&lt;-</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span></span>
+<span><span class="va">ppA</span><span class="op">&lt;-</span><span class="fl">0.99</span></span>
+<span><span class="va">ppB</span><span class="op">&lt;-</span><span class="fl">0.06</span></span>
+<span><span class="va">pn</span><span class="op">&lt;-</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">ppA</span><span class="op">)</span><span class="op">*</span><span class="va">pA</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">ppB</span><span class="op">)</span><span class="op">*</span><span class="va">pB</span></span>
+<span><span class="va">pn</span></span></code></pre></div>
+<pre><code>## [1] 0.63</code></pre>
+</div>
+</div>
+<div id="problema-4" class="section level2" number="16.4">
+<h2>
+<span class="header-section-number">16.4</span> Problema 4<a class="anchor" aria-label="anchor" href="#problema-4"><i class="fas fa-link"></i></a>
+</h2>
+<!-- (Santi, Cosecha propia) -->
+<p>El embolismo pulmonar es una condición relativamente común que necesita hospitalización y que a menudo ocurre en pacientes hospitalizados. La presión arterial menor de 90 mm HG es uno de los criterios importantes para diagnosticar esta condición. Supongamos que la sensibilidad del test es del 95% y la especificidad del test es del 75% y la prevalencia es del 20%.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Calcula el valor predictivo positivo del test.</p></li>
+<li><p>Calcula el valor predictivo negativo del test.</p></li>
+<li><p>Responde a las preguntas anteriores si la prevalencia fuera del <span class="math inline">\(80 \%\)</span>.</p></li>
+</ol>
+<div id="solución-4" class="section level3" number="16.4.1">
+<h3>
+<span class="header-section-number">16.4.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-4"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: lower-alpha">
+<li>Calcula el valor predictivo positivo del test</li>
+</ol>
+<p><span class="math display">\[
+V P+=P(\text { Embolismo } / \text { Test }+)=\frac{\text { Sens}\times\text{Prev }}{\text { Sens}\times\text{Prev }+(1-\text { Esp })(1-\text { Prev })}
+\]</span></p>
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sens</span><span class="op">&lt;-</span><span class="fl">0.95</span></span>
+<span><span class="va">esp</span><span class="op">&lt;-</span><span class="fl">0.75</span></span>
+<span><span class="va">prev</span><span class="op">&lt;-</span><span class="fl">0.20</span></span>
+<span><span class="va">vpp</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">sens</span><span class="op">*</span><span class="va">prev</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">sens</span><span class="op">*</span><span class="va">prev</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">esp</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">vpp</span></span></code></pre></div>
+<pre><code>## [1] 0.4871795</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Calcula el valor predictivo negativo del test</li>
+</ol>
+<p><span class="math display">\[
+V P-=\frac{\operatorname{Esp}(1-\operatorname{Prev})}{\operatorname{Esp}(1-\operatorname{Prev})+(1-\text { Sens }) \operatorname{Prev}}
+\]</span></p>
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vpn</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">sens</span><span class="op">)</span><span class="op">*</span><span class="va">prev</span><span class="op">)</span></span>
+<span><span class="va">vpn</span></span></code></pre></div>
+<pre><code>## [1] 0.9836066</code></pre>
+<p>Como se observa al tratarse de una prueba muy sensible y poco específica hay pocos falsos negativos y cuando el test da negativo hay una probabilidad muy alta (0.98) de que el individuo sea sano. No así cuando da positivo. Sólo el <span class="math inline">\(48 \%\)</span> serán verdaderos enfermos.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Responde a las preguntas anteriores si la prevalencia fuera del 80%</li>
+</ol>
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">prev</span><span class="op">&lt;-</span><span class="fl">0.80</span></span>
+<span><span class="va">vpp</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">sens</span><span class="op">*</span><span class="va">prev</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">sens</span><span class="op">*</span><span class="va">prev</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">esp</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">vpp</span></span></code></pre></div>
+<pre><code>## [1] 0.9382716</code></pre>
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vpn</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">sens</span><span class="op">)</span><span class="op">*</span><span class="va">prev</span><span class="op">)</span></span>
+<span><span class="va">vpn</span></span></code></pre></div>
+<pre><code>## [1] 0.7894737</code></pre>
+<p>Si la prevalencia es más alta, el VP- sigue siendo alto, aunque no tanto pero hemos aumentado el VP+ hasta el 93% y no habrá tantos falsos positivos. Lo que está claro es el VPN y el VPP dependen de la prevalencia de la enfermedad.</p>
+</div>
+</div>
+<div id="problema-5" class="section level2" number="16.5">
+<h2>
+<span class="header-section-number">16.5</span> Problema 5<a class="anchor" aria-label="anchor" href="#problema-5"><i class="fas fa-link"></i></a>
+</h2>
+<!--  (Bioestadística UB, problema 12) -->
+<p>Un índice que evalúa el síndrome de la muerte súbita (SMS) tiene una sensibilidad del <span class="math inline">\(68 \%\)</span> y una especificidad del <span class="math inline">\(82 \%\)</span>. ¿Cuáles son los valores predictivos positivo y negativo del índice si se aplica a una población donde se producen un <span class="math inline">\(0,21 \%\)</span> de muertes súbitas sobre el total de nacimientos?</p>
+<div id="solución-5" class="section level3" number="16.5.1">
+<h3>
+<span class="header-section-number">16.5.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-5"><i class="fas fa-link"></i></a>
+</h3>
+<p>La prevalencia del síndrome de la muerte súbita en la población es del 0.21%, es decir 0.0021.</p>
+<p>Nos piden que calculemos respectivamente los valores predictivos positivo y negativo del test. Es decir, que tan bien funciona el test para detectar la enfermedad (<span class="math inline">\(SMS\)</span>) cuando da un resultado positivo (<span class="math inline">\(T+\)</span>) y para indicar su ausencia (<span class="math inline">\(SMS^c\)</span>), mediante un resultado negativo (<span class="math inline">\(T-\)</span>).</p>
+<p><span class="math display">\[
+VP+ = P[SMS | T+],\qquad VP- = P[SMS^c | T-],
+\]</span></p>
+<p>Puede hacerse el cálculo directamente a partir de las probabilidades condicionadas.</p>
+<p><span class="math display">\[
+\begin{aligned}
+VP+ &amp; = P[SMS | T+]= \frac {P[T+ | SMS]\times P[SMS]}{P[T+]} =\\
+&amp; = \frac {P[T+ | SMS]\times P[SMS]}
+{P[T+|SMS]\times P[SMS]+ P[T+|SMS^c]\times P[SMS^c]}=\\
+&amp; = \frac{\text {Sensibilidad}\times \text{Prevalencia}}
+{\text {Sensibilidad}\times \text{Prevalencia}+
+(\text {1-Especificidad})\times (\text{1-Prevalencia})}
+\end{aligned}
+\]</span></p>
+<p>De forma análoga:</p>
+<p><span class="math display">\[
+\begin{aligned}
+VP- &amp; = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
+&amp; = \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T- | SMS^c]\times P[SMS^c] + P[T- | SMS]\times P[SMS]}=\\
+&amp; = \frac{\text {Especificidad}\times (\text{1-Prevalencia})}
+{\text {Especificidad}\times (\text{1-Prevalencia})+
+(\text {1-Sensibilidad})\times \text{Prevalencia}}
+\end{aligned}
+\]</span></p>
+<p>Estos cálculos se reañlizan de forma imediata usando R:</p>
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sensi</span> <span class="op">&lt;-</span> <span class="fl">0.68</span></span>
+<span><span class="va">espec</span> <span class="op">&lt;-</span> <span class="fl">0.82</span></span>
+<span><span class="va">prev</span> <span class="op">&lt;-</span> <span class="fl">0.0021</span></span>
+<span><span class="va">vp.pos</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sensi</span> <span class="op">*</span> <span class="va">prev</span> <span class="op">)</span><span class="op">/</span> <span class="op">(</span><span class="va">sensi</span> <span class="op">*</span> <span class="va">prev</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">espec</span><span class="op">)</span><span class="op">*</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span> <span class="op">(</span><span class="st">"El valor predictivo positivo es: "</span>, <span class="va">vp.pos</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## El valor predictivo positivo es:  0.007887324</code></pre>
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vp.neg</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">espec</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span> <span class="op">)</span><span class="op">/</span> <span class="op">(</span><span class="va">espec</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">sensi</span><span class="op">)</span><span class="op">*</span> <span class="op">(</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span> <span class="op">(</span><span class="st">"El valor predictivo negativo es: "</span>, <span class="va">vp.neg</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## El valor predictivo negativo es:  0.9991794</code></pre>
+<p>Como en el caso anterior, podemos ver que. al ser la prevalencia muy baja, el valor predicpositivo del test también lo es puesto que un test + tan solo indica en un 0,79% de veces la presencia del síndrome, correctamente.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-presentacion.html">Presentación</a></div>
+<div class="next"><a href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-probabilidad"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li>
+<a class="nav-link" href="#problema-1"><span class="header-section-number">16.1</span> Problema 1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-1"><span class="header-section-number">16.1.1</span> Solución</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#problema-2"><span class="header-section-number">16.2</span> Problema 2</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-2"><span class="header-section-number">16.2.1</span> Solución</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#problema-3"><span class="header-section-number">16.3</span> Problema 3</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-3"><span class="header-section-number">16.3.1</span> Solución</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#problema-4"><span class="header-section-number">16.4</span> Problema 4</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-4"><span class="header-section-number">16.4.1</span> Solución</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#problema-5"><span class="header-section-number">16.5</span> Problema 5</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-5"><span class="header-section-number">16.5.1</span> Solución</a></li></ul>
+</li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>

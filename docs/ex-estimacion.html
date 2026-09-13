@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 20 Estimación puntual | Fundamentos de Inferencia Estadistica</title>
+<meta name="author" content="Alex Sanchez Pla y Santiago Pérez Hoyos">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 20 Estimación puntual | Fundamentos de Inferencia Estadistica">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 20 Estimación puntual | Fundamentos de Inferencia Estadistica">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<link rel="stylesheet" href="blocks.css">
+<link rel="stylesheet" href="bs4-style.css">
+<meta name="description" content="Teoría (PDF)  Ejercicios (PDF)   20.1 Ejercicio 1  Suponga que \(Y_{1}, Y_{2}, Y_{3}\) denotan una muestra aleatoria de una distribución exponencial con función de densidad \[ f(y)=...">
+<meta property="og:description" content="Teoría (PDF)  Ejercicios (PDF)   20.1 Ejercicio 1  Suponga que \(Y_{1}, Y_{2}, Y_{3}\) denotan una muestra aleatoria de una distribución exponencial con función de densidad \[ f(y)=...">
+<meta name="twitter:description" content="Teoría (PDF)  Ejercicios (PDF)   20.1 Ejercicio 1  Suponga que \(Y_{1}, Y_{2}, Y_{3}\) denotan una muestra aleatoria de una distribución exponencial con función de densidad \[ f(y)=...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1><a href="index.html" title="">Fundamentos de Inferencia Estadistica</a></h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search"><input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search"></form>
+      <nav aria-label="Tabla de contenidos"><h2>Tabla de contenidos</h2>
+<ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Presentación</a></li>
+<li><a class="" href="agradecimiento-y-fuentes-utilizadas.html">Agradecimiento y fuentes utilizadas</a></li>
+<li class="book-part">Teoría</li>
+<li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
+<li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
+<li><a class="" href="estimaci%C3%B3n-puntual.html"><span class="header-section-number">7</span> Estimación puntual</a></li>
+<li><a class="" href="estimaci%C3%B3n-por-int%C3%A9rvalos.html"><span class="header-section-number">8</span> Estimación por intérvalos</a></li>
+<li><a class="" href="pruebas-de-hip%C3%B3tesis.html"><span class="header-section-number">9</span> Pruebas de hipótesis</a></li>
+<li><a class="" href="construcci%C3%B3n-de-contrastes-de-hip%C3%B3tesis.html"><span class="header-section-number">10</span> Construcción de contrastes de hipótesis</a></li>
+<li><a class="" href="pruebas-de-una-muestra.html"><span class="header-section-number">11</span> Pruebas de una muestra</a></li>
+<li><a class="" href="contrastes-con-dos-muestras.html"><span class="header-section-number">12</span> Contrastes con dos muestras</a></li>
+<li><a class="" href="las-pruebas-chi-cuadrado.html"><span class="header-section-number">13</span> Las pruebas “Chi-cuadrado”</a></li>
+<li><a class="" href="estad%C3%ADstica-no-param%C3%A9trica.html"><span class="header-section-number">14</span> Estadística no paramétrica</a></li>
+<li><a class="" href="m%C3%A9todos-de-computaci%C3%B3n-intensiva-el-bootstrap.html"><span class="header-section-number">15</span> Métodos de computación intensiva: El Bootstrap</a></li>
+<li class="book-part">Ejercicios</li>
+<li><a class="" href="ex-presentacion.html">Presentación</a></li>
+<li><a class="" href="ex-probabilidad.html"><span class="header-section-number">16</span> Probabilidad y Experimentos aleatorios</a></li>
+<li><a class="" href="ex-variables-aleatorias.html"><span class="header-section-number">17</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
+<li><a class="" href="ex-distribuciones-multivariantes.html"><span class="header-section-number">18</span> Distribuciones de probabilidad multidimensionales</a></li>
+<li><a class="" href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></li>
+<li><a class="active" href="ex-estimacion.html"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li><a class="" href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></li>
+<li><a class="" href="ex-contrastes.html"><span class="header-section-number">22</span> Contrastes de Hipótesis</a></li>
+<li><a class="" href="ex-inferencia-aplicada.html"><span class="header-section-number">23</span> Aplicaciones de los contrastes de hipótesis</a></li>
+<li><a class="" href="ex-computacion-intensiva.html"><span class="header-section-number">24</span> Bootstrap y tests de permutación</a></li>
+<li><a class="" href="bibliografia.html">Bibliografia</a></li>
+</ul>
+<div class="book-extra"></div></nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><nav aria-label="Descargas PDF"><a href="FundamentosInferencia.pdf">Teoría (PDF)</a>
+  <a href="FundamentosInferencia-Ejercicios.pdf">Ejercicios (PDF)</a>
+</nav><div id="ex-estimacion" class="section level1" number="20">
+<h1>
+<span class="header-section-number">Capítulo 20</span> Estimación puntual<a class="anchor" aria-label="anchor" href="#ex-estimacion"><i class="fas fa-link"></i></a>
+</h1>
+<div id="ejercicio-1-2" class="section level2" number="20.1">
+<h2>
+<span class="header-section-number">20.1</span> Ejercicio 1<a class="anchor" aria-label="anchor" href="#ejercicio-1-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W_M 8.8]  -->
+<p>Suponga que <span class="math inline">\(Y_{1}, Y_{2}, Y_{3}\)</span> denotan una muestra aleatoria de una distribución exponencial con función de densidad</p>
+<p><span class="math display">\[
+f(y)= \begin{cases}\left(\frac{1}{\theta}\right) e^{-y / \theta}, &amp; y&gt;0 \\ 0, &amp; \text { en cualquier otro punto. }\end{cases}
+\]</span></p>
+<p>Considere los siguientes cinco estimadores de <span class="math inline">\(\theta\)</span> :</p>
+<p><span class="math display">\[
+\hat{\theta}_{1}=Y_{1}, \quad \hat{\theta}_{2}=\frac{Y_{1}+Y_{2}}{2}, \quad \hat{\theta}_{3}=\frac{Y_{1}+2 Y_{2}}{3}, \quad \hat{\theta}_{4}=min\left(Y_{1}, Y_{2}, Y_{3}\right), \quad \hat{\theta}_{5}=\bar{Y}
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>¿Cuáles de estos estimadores son insesgados?</li>
+<li>Entre los estimadores insesgados, ¿cuál tiene la varianza más pequeña?</li>
+</ol>
+<p><strong>Nota</strong>: <em>La esperanza de la distribución exponencial, tal como se define aquí es <span class="math inline">\(E(Y)= \theta\)</span></em>.</p>
+<p><strong>SOLUCIÓN</strong></p>
+<p>Para resolver este problema, evaluaremos el sesgo y la varianza de cada uno de los estimadores propuestos.</p>
+<p>Se sabe que para una variable aleatoria <span class="math inline">\(Y\)</span> que sigue una distribución exponencial con parámetro <span class="math inline">\(\theta\)</span>, <span class="math inline">\(E(Y) = \theta\)</span> y <span class="math inline">\(\text{Var}(Y) = \theta^2\)</span>.</p>
+<div id="a.-insesgadez-de-los-estimadores" class="section level3" number="20.1.1">
+<h3>
+<span class="header-section-number">20.1.1</span> a. Insesgadez de los estimadores<a class="anchor" aria-label="anchor" href="#a.-insesgadez-de-los-estimadores"><i class="fas fa-link"></i></a>
+</h3>
+<p>Un estimador <span class="math inline">\(\hat{\theta}\)</span> es insesgado si <span class="math inline">\(E(\hat{\theta}) = \theta\)</span>. Evaluamos la esperanza de cada estimador:</p>
+<div id="hattheta_1-y_1" class="section level4" number="20.1.1.1">
+<h4>
+<span class="header-section-number">20.1.1.1</span> <span class="math inline">\(\hat{\theta}_1 = Y_1\)</span><a class="anchor" aria-label="anchor" href="#hattheta_1-y_1"><i class="fas fa-link"></i></a>
+</h4>
+<p><span class="math display">\[
+E(\hat{\theta}_1) = E(Y_1) = \theta
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat{\theta}_1\)</span> es insesgado.</p>
+</div>
+<div id="hattheta_2-fracy_1-y_22" class="section level4" number="20.1.1.2">
+<h4>
+<span class="header-section-number">20.1.1.2</span> <span class="math inline">\(\hat{\theta}_2 = \frac{Y_1 + Y_2}{2}\)</span><a class="anchor" aria-label="anchor" href="#hattheta_2-fracy_1-y_22"><i class="fas fa-link"></i></a>
+</h4>
+<p><span class="math display">\[
+E(\hat{\theta}_2) = E\left(\frac{Y_1 + Y_2}{2}\right) = \frac{1}{2}(E(Y_1) + E(Y_2)) = \frac{1}{2}(\theta + \theta) = \theta
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat{\theta}_2\)</span> es insesgado.</p>
+</div>
+<div id="hattheta_3-fracy_1-2y_23" class="section level4" number="20.1.1.3">
+<h4>
+<span class="header-section-number">20.1.1.3</span> <span class="math inline">\(\hat{\theta}_3 = \frac{Y_1 + 2Y_2}{3}\)</span><a class="anchor" aria-label="anchor" href="#hattheta_3-fracy_1-2y_23"><i class="fas fa-link"></i></a>
+</h4>
+<p><span class="math display">\[
+E(\hat{\theta}_3) = E\left(\frac{Y_1 + 2Y_2}{3}\right) = \frac{1}{3}(E(Y_1) + 2E(Y_2)) = \frac{1}{3}(\theta + 2\theta) = \theta
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat{\theta}_3\)</span> es insesgado.</p>
+</div>
+<div id="hattheta_4-miny_1-y_2-y_3" class="section level4" number="20.1.1.4">
+<h4>
+<span class="header-section-number">20.1.1.4</span> <span class="math inline">\(\hat{\theta}_4 = \min(Y_1, Y_2, Y_3)\)</span><a class="anchor" aria-label="anchor" href="#hattheta_4-miny_1-y_2-y_3"><i class="fas fa-link"></i></a>
+</h4>
+<p>El valor esperado de <span class="math inline">\(\min(Y_1, Y_2, Y_3)\)</span> para una muestra de tamaño 3 de una distribución exponencial no es <span class="math inline">\(\theta\)</span>, sino <span class="math inline">\(\frac{\theta}{3}\)</span> (Ver apendice 1 al final del problema).</p>
+<p>Por lo tanto:</p>
+<p><span class="math display">\[
+E(\hat{\theta}_4) = \frac{\theta}{3} \neq \theta
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat{\theta}_4\)</span> no es insesgado.</p>
+</div>
+<div id="hattheta_5-bary" class="section level4" number="20.1.1.5">
+<h4>
+<span class="header-section-number">20.1.1.5</span> <span class="math inline">\(\hat{\theta}_5 = \bar{Y}\)</span><a class="anchor" aria-label="anchor" href="#hattheta_5-bary"><i class="fas fa-link"></i></a>
+</h4>
+<p>El promedio muestral <span class="math inline">\(\bar{Y} = \frac{1}{3}(Y_1 + Y_2 + Y_3)\)</span>. Entonces:</p>
+<p><span class="math display">\[
+E(\hat{\theta}_5) = E\left(\frac{1}{3}(Y_1 + Y_2 + Y_3)\right) = \frac{1}{3}(E(Y_1) + E(Y_2) + E(Y_3)) = \frac{1}{3}(3\theta) = \theta
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat{\theta}_5\)</span> es insesgado.</p>
+<p><strong>Conclusión</strong>: Los estimadores insesgados son <span class="math inline">\(\hat{\theta}_1\)</span>, <span class="math inline">\(\hat{\theta}_2\)</span>, <span class="math inline">\(\hat{\theta}_3\)</span>, y <span class="math inline">\(\hat{\theta}_5\)</span>.</p>
+</div>
+</div>
+<div id="comparación-de-varianzas" class="section level3" number="20.1.2">
+<h3>
+<span class="header-section-number">20.1.2</span> Comparación de varianzas<a class="anchor" aria-label="anchor" href="#comparaci%C3%B3n-de-varianzas"><i class="fas fa-link"></i></a>
+</h3>
+<p>Recordemos que para una variable <span class="math inline">\(Y\)</span> que sigue una distribución exponencial con parámetro <span class="math inline">\(\theta\)</span>:</p>
+<ul>
+<li><span class="math inline">\(E(Y) = \theta\)</span></li>
+<li><span class="math inline">\(\text{Var}(Y) = \theta^2\)</span></li>
+</ul>
+<p>Las varianzas de los estimadores insesgados son:</p>
+<div id="hattheta_1-y_1-1" class="section level4" number="20.1.2.1">
+<h4>
+<span class="header-section-number">20.1.2.1</span> <span class="math inline">\(\hat{\theta}_1 = Y_1\)</span><a class="anchor" aria-label="anchor" href="#hattheta_1-y_1-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Como <span class="math inline">\(\hat{\theta}_1\)</span> es simplemente una observación de la muestra:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{\theta}_1) = \text{Var}(Y_1) = \theta^2.
+\]</span></p>
+</div>
+<div id="hattheta_2-fracy_1-y_22-1" class="section level4" number="20.1.2.2">
+<h4>
+<span class="header-section-number">20.1.2.2</span> <span class="math inline">\(\hat{\theta}_2 = \frac{Y_1 + Y_2}{2}\)</span><a class="anchor" aria-label="anchor" href="#hattheta_2-fracy_1-y_22-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Dado que <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span> son independientes, <span class="math inline">\(\text{Var}(Y_1 + Y_2) = \text{Var}(Y_1) + \text{Var}(Y_2) = \theta^2 + \theta^2 = 2\theta^2\)</span>. Por lo tanto:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{\theta}_2) = \text{Var}\left(\frac{Y_1 + Y_2}{2}\right) = \frac{1}{4}\text{Var}(Y_1 + Y_2) = \frac{1}{4}(2\theta^2) = \frac{\theta^2}{2}.
+\]</span></p>
+</div>
+<div id="hattheta_3-fracy_1-2y_23-1" class="section level4" number="20.1.2.3">
+<h4>
+<span class="header-section-number">20.1.2.3</span> <span class="math inline">\(\hat{\theta}_3 = \frac{Y_1 + 2Y_2}{3}\)</span><a class="anchor" aria-label="anchor" href="#hattheta_3-fracy_1-2y_23-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>De nuevo, dado que <span class="math inline">\(Y_1\)</span> y <span class="math inline">\(Y_2\)</span> son independientes:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{\theta}_3) = \text{Var}\left(\frac{Y_1 + 2Y_2}{3}\right) = \frac{1}{9}(\text{Var}(Y_1) + 4\text{Var}(Y_2)) = \frac{1}{9}(\theta^2 + 4\theta^2) = \frac{5\theta^2}{9}.
+\]</span></p>
+</div>
+<div id="hattheta_5-bary-1" class="section level4" number="20.1.2.4">
+<h4>
+<span class="header-section-number">20.1.2.4</span> <span class="math inline">\(\hat{\theta}_5 = \bar{Y}\)</span><a class="anchor" aria-label="anchor" href="#hattheta_5-bary-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>La media muestral está definida como:</p>
+<p><span class="math display">\[
+\bar{Y} = \frac{1}{3}(Y_1 + Y_2 + Y_3).
+\]</span></p>
+<p>Dado que <span class="math inline">\(Y_1, Y_2, Y_3\)</span> son independientes:</p>
+<p><span class="math display">\[
+\text{Var}(\bar{Y}) = \text{Var}\left(\frac{1}{3}(Y_1 + Y_2 + Y_3)\right) = \frac{1}{9}(\text{Var}(Y_1) + \text{Var}(Y_2) + \text{Var}(Y_3)).
+\]</span></p>
+<p>Sustituyendo <span class="math inline">\(\text{Var}(Y_i) = \theta^2\)</span>:</p>
+<p><span class="math display">\[
+\text{Var}(\bar{Y}) = \frac{1}{9}(3\theta^2) = \frac{\theta^2}{3}.
+\]</span></p>
+</div>
+<div id="comparación-de-varianzas-1" class="section level4" number="20.1.2.5">
+<h4>
+<span class="header-section-number">20.1.2.5</span> Comparación de varianzas<a class="anchor" aria-label="anchor" href="#comparaci%C3%B3n-de-varianzas-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Resumimos las varianzas calculadas:</p>
+<ul>
+<li><span class="math inline">\(\text{Var}(\hat{\theta}_1) = \theta^2\)</span></li>
+<li><span class="math inline">\(\text{Var}(\hat{\theta}_2) = \frac{\theta^2}{2}\)</span></li>
+<li><span class="math inline">\(\text{Var}(\hat{\theta}_3) = \frac{5\theta^2}{9}\)</span></li>
+<li><span class="math inline">\(\text{Var}(\hat{\theta}_5) = \frac{\theta^2}{3}\)</span></li>
+</ul>
+<p>La varianza de <span class="math inline">\(\hat{\theta}_5 = \bar{Y}\)</span> es la menor entre los estimadores insesgados.</p>
+<p>De hecho, desde un punto de vista teórico este es el resultado que cabría esperar (haciendo otros cálculos, que no hemos introducido aquí) porque, al tratarse de un estimador insesgado y función del estadístico suficiente (la suma de todas las observaciones) la media muestral, <span class="math inline">\(\bar{Y}\)</span>, es el estimador de varianza mínima para <span class="math inline">\(\theta\)</span> en la familia exponencial
+### Apéndice 1: Distribución del mínimo</p>
+<p>Para justificar que el valor esperado de <span class="math inline">\(\min(Y_1, Y_2, Y_3)\)</span> para una muestra de tamaño 3 de una distribución exponencial es <span class="math inline">\(\frac{\theta}{3}\)</span>, necesitamos considerar las propiedades de la distribución exponencial y cómo se comporta el mínimo de variables independientes e idénticamente distribuidas.</p>
+</div>
+<div id="mínimo-de-3-variables-independientes" class="section level4" number="20.1.2.6">
+<h4>
+<span class="header-section-number">20.1.2.6</span> Mínimo de 3 variables independientes<a class="anchor" aria-label="anchor" href="#m%C3%ADnimo-de-3-variables-independientes"><i class="fas fa-link"></i></a>
+</h4>
+<p>Sea <span class="math inline">\(Y_1, Y_2, Y_3\)</span> una muestra aleatoria independiente de una distribución exponencial con parámetro <span class="math inline">\(\theta\)</span> y función de densidad:</p>
+<p><span class="math display">\[
+f_Y(y) = \frac{1}{\theta} e^{-y/\theta}, \quad y &gt; 0.
+\]</span></p>
+<p>El mínimo de estas variables, <span class="math inline">\(M = \min(Y_1, Y_2, Y_3)\)</span>, también es una variable aleatoria. Su función de distribución acumulativa (CDF) <span class="math inline">\(F_M(m)\)</span> es la probabilidad de que todos los valores <span class="math inline">\(Y_i\)</span> sean mayores que <span class="math inline">\(m\)</span>:</p>
+<p><span class="math display">\[
+F_M(m) = P(M \leq m) = 1 - P(Y_1 &gt; m \text{ y } Y_2 &gt; m \text{ y } Y_3 &gt; m).
+\]</span></p>
+<p>Dado que las variables son independientes:</p>
+<p><span class="math display">\[
+P(M \leq m) = 1 - P(Y_1 &gt; m) P(Y_2 &gt; m) P(Y_3 &gt; m).
+\]</span></p>
+<p>La probabilidad de que <span class="math inline">\(Y_i &gt; m\)</span> es:</p>
+<p><span class="math display">\[
+P(Y_i &gt; m) = 1 - F_Y(m) = 1 - \left(1 - e^{-m/\theta}\right) = e^{-m/\theta}.
+\]</span></p>
+<p>Por tanto:</p>
+<p><span class="math display">\[
+F_M(m) = 1 - (e^{-m/\theta})^3 = 1 - e^{-3m/\theta}.
+\]</span></p>
+<p>La función de densidad (pdf) del mínimo <span class="math inline">\(M\)</span> se obtiene derivando <span class="math inline">\(F_M(m)\)</span>:</p>
+<p><span class="math display">\[
+f_M(m) = \frac{d}{dm} F_M(m) = 3 \cdot \frac{1}{\theta} e^{-3m/\theta}, \quad m &gt; 0.
+\]</span></p>
+</div>
+<div id="esperanza-del-mínimo" class="section level4" number="20.1.2.7">
+<h4>
+<span class="header-section-number">20.1.2.7</span> Esperanza del mínimo<a class="anchor" aria-label="anchor" href="#esperanza-del-m%C3%ADnimo"><i class="fas fa-link"></i></a>
+</h4>
+<p>La esperanza de <span class="math inline">\(M = \min(Y_1, Y_2, Y_3)\)</span> se calcula como:</p>
+<p><span class="math display">\[
+E(M) = \int_0^\infty m f_M(m) \, dm.
+\]</span></p>
+<p>Sustituyendo <span class="math inline">\(f_M(m)\)</span>:</p>
+<p><span class="math display">\[
+E(M) = \int_0^\infty m \cdot 3 \cdot \frac{1}{\theta} e^{-3m/\theta} \, dm.
+\]</span></p>
+<p>Factorizando las constantes:</p>
+<p><span class="math display">\[
+E(M) = \frac{3}{\theta} \int_0^\infty m e^{-3m/\theta} \, dm.
+\]</span></p>
+<p>Hacemos el cambio de variable <span class="math inline">\(u = \frac{3m}{\theta} \implies m = \frac{\theta u}{3}, \, dm = \frac{\theta}{3} du\)</span>:</p>
+<p><span class="math display">\[
+E(M) = \frac{3}{\theta} \int_0^\infty \frac{\theta u}{3} e^{-u} \cdot \frac{\theta}{3} du.
+\]</span></p>
+<p>Simplificamos:</p>
+<p><span class="math display">\[
+E(M) = \frac{3}{\theta} \cdot \frac{\theta^2}{9} \int_0^\infty u e^{-u} \, du = \frac{\theta}{3} \int_0^\infty u e^{-u} \, du.
+\]</span></p>
+<p>El valor esperado de <span class="math inline">\(u\)</span> para <span class="math inline">\(u \sim \text{Exp}(1)\)</span> es conocido: <span class="math inline">\(\int_0^\infty u e^{-u} \, du = 1\)</span>.</p>
+<p>Por tanto:</p>
+<p><span class="math display">\[
+E(M) = \frac{\theta}{3}.
+\]</span></p>
+</div>
+<div id="en-resumen" class="section level4" number="20.1.2.8">
+<h4>
+<span class="header-section-number">20.1.2.8</span> En resumen<a class="anchor" aria-label="anchor" href="#en-resumen"><i class="fas fa-link"></i></a>
+</h4>
+<p>El valor esperado del mínimo de <span class="math inline">\(Y_1, Y_2, Y_3\)</span>, que son independientes y siguen una distribución exponencial con parámetro <span class="math inline">\(\theta\)</span>, es <span class="math inline">\(\frac{\theta}{3}\)</span>.</p>
+<p>Observemos que esta dependencia del tamaño de la muestra se puede interpretar como que, aunque para muestras finitas, es imposible que se alcance el mínimo valor posible de la distribución, a medida que la muestra sea más grande la esperanza del mínimo disminuirá, y con ella el sesgo, por lo que se trata de un estimador _asintóticamente insesgado.</p>
+</div>
+</div>
+</div>
+<div id="ejercicio-2-2" class="section level2" number="20.2">
+<h2>
+<span class="header-section-number">20.2</span> Ejercicio 2<a class="anchor" aria-label="anchor" href="#ejercicio-2-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [Propi] -->
+<p>Considere una distribución uniforme en el intervalo <span class="math inline">\((0, \theta)\)</span>. Para estimar <span class="math inline">\(\theta\)</span> se consideran dos estimadores <span class="math inline">\(\theta_1 = max(X1,...X_n)\)</span> y <span class="math inline">\(\theta_2 = 2 \overline{X}\)</span> donde <span class="math inline">\(\overline{X}\)</span> es la media aritmética.</p>
+<ol style="list-style-type: lower-alpha">
+<li>¿Alguno de estos estimadores es insesgado?</li>
+<li>Simula 1000 muestras de una distribución uniforme <span class="math inline">\((0,1)\)</span> y a partir de estas estima <span class="math inline">\(E[\hat \theta_1]\)</span> y <span class="math inline">\(E[\hat \theta_2 ]\)</span> mediante la media aritmética de los valores de los estimadores sobre las 1000 réplicas de simulación. Que puedes decir en este caso del sesgo de cada estimador?</li>
+<li>¿Como podríamos utilizar las simulaciones anteriores para estimar la varianza de cada estimador? ¿Cual de los dos resulta más eficiente?</li>
+</ol>
+<p><strong>SOLUCIÓN</strong></p>
+<div id="a.-insesgadez-de-los-estimadores-1" class="section level3" number="20.2.1">
+<h3>
+<span class="header-section-number">20.2.1</span> a. Insesgadez de los estimadores<a class="anchor" aria-label="anchor" href="#a.-insesgadez-de-los-estimadores-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Dado que <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> es una muestra aleatoria de una distribución uniforme <span class="math inline">\((0, \theta)\)</span>:</p>
+<ul>
+<li>La función de densidad es <span class="math display">\[f(x) = \frac{1}{\theta}, \, 0 \leq x \leq \theta.\]</span>
+</li>
+</ul>
+<p>Calculamos la esperanza de los estimadores <span class="math inline">\(\hat{\theta}_1\)</span> y <span class="math inline">\(\hat{\theta}_2\)</span> para verificar su insesgadez.</p>
+<div id="estimador-hattheta_1-maxx_1-dots-x_n" class="section level4" number="20.2.1.1">
+<h4>
+<span class="header-section-number">20.2.1.1</span> Estimador <span class="math inline">\(\hat{\theta}_1 = \max(X_1, \dots, X_n)\)</span><a class="anchor" aria-label="anchor" href="#estimador-hattheta_1-maxx_1-dots-x_n"><i class="fas fa-link"></i></a>
+</h4>
+<p>El valor esperado del máximo de <span class="math inline">\(n\)</span> variables independientes uniformemente distribuidas es conocido:</p>
+<p><span class="math display">\[
+E[\hat{\theta}_1] = \frac{n}{n+1} \theta.
+\]</span></p>
+<p>Dado que <span class="math inline">\(E[\hat{\theta}_1] \neq \theta\)</span>, el estimador <span class="math inline">\(\hat{\theta}_1\)</span> es sesgado. Podemos corregir este sesgo multiplicándolo por <span class="math inline">\(\frac{n+1}{n}\)</span>, resultando en un estimador insesgado <span class="math inline">\(\frac{n+1}{n} \hat{\theta}_1\)</span>.</p>
+</div>
+<div id="estimador-hattheta_2-2overlinex" class="section level4" number="20.2.1.2">
+<h4>
+<span class="header-section-number">20.2.1.2</span> Estimador <span class="math inline">\(\hat{\theta}_2 = 2\overline{X}\)</span><a class="anchor" aria-label="anchor" href="#estimador-hattheta_2-2overlinex"><i class="fas fa-link"></i></a>
+</h4>
+<p>La esperanza de la media muestral <span class="math inline">\(\overline{X}\)</span> de <span class="math inline">\(n\)</span> variables uniformes es:</p>
+<p><span class="math display">\[
+E[\overline{X}] = \frac{\theta}{2}.
+\]</span></p>
+<p>Por lo tanto:</p>
+<p><span class="math display">\[
+E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
+\]</span></p>
+<p>El estimador <span class="math inline">\(\hat{\theta}_2\)</span> es insesgado.</p>
+</div>
+</div>
+<div id="b.-simulación-para-evaluar-el-sesgo" class="section level3" number="20.2.2">
+<h3>
+<span class="header-section-number">20.2.2</span> b. Simulación para evaluar el sesgo<a class="anchor" aria-label="anchor" href="#b.-simulaci%C3%B3n-para-evaluar-el-sesgo"><i class="fas fa-link"></i></a>
+</h3>
+<div id="objetivo-1" class="section level4" number="20.2.2.1">
+<h4>
+<span class="header-section-number">20.2.2.1</span> Objetivo<a class="anchor" aria-label="anchor" href="#objetivo-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Simularemos 1000 muestras de tamaño <span class="math inline">\(n = 10\)</span> de una distribución uniforme <span class="math inline">\((0, 1)\)</span> y calcularemos los valores promedio de <span class="math inline">\(\hat{\theta}_1\)</span> y <span class="math inline">\(\hat{\theta}_2\)</span> para aproximar sus esperanzas y analizar el sesgo.</p>
+</div>
+<div id="código-en-r" class="section level4" number="20.2.2.2">
+<h4>
+<span class="header-section-number">20.2.2.2</span> Código en R<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-en-r"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>  <span class="co"># Fijar la semilla para reproducibilidad</span></span>
+<span></span>
+<span><span class="co"># Parámetros</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">10</span>  <span class="co"># Tamaño de la muestra</span></span>
+<span><span class="va">replicas</span> <span class="op">&lt;-</span> <span class="fl">1000</span>  <span class="co"># Número de simulaciones</span></span>
+<span></span>
+<span><span class="co"># Simulaciones</span></span>
+<span><span class="va">simulaciones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">replicas</span>, <span class="op">{</span></span>
+<span>  <span class="va">muestra</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="va">n</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">muestra</span><span class="op">)</span>, <span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">muestra</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Calculamos los dos estimadores</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Convertimos simulaciones en una matriz</span></span>
+<span><span class="va">simulaciones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">simulaciones</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculamos los valores promedio de los estimadores</span></span>
+<span><span class="va">promedios</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">simulaciones</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Mostramos los resultados</span></span>
+<span><span class="va">promedios</span></span></code></pre></div>
+<pre><code>## [1] 0.9051482 0.9950987</code></pre>
+</div>
+<div id="resultados-de-las-simulaciones" class="section level4" number="20.2.2.3">
+<h4>
+<span class="header-section-number">20.2.2.3</span> Resultados de las simulaciones<a class="anchor" aria-label="anchor" href="#resultados-de-las-simulaciones"><i class="fas fa-link"></i></a>
+</h4>
+<p>De las simulaciones obtenemos:</p>
+<ul>
+<li><span class="math inline">\(E[\hat{\theta}_1] \approx 0.91\)</span></li>
+<li><span class="math inline">\(E[\hat{\theta}_2] \approx 1.00\)</span></li>
+</ul>
+</div>
+<div id="interpretación" class="section level4" number="20.2.2.4">
+<h4>
+<span class="header-section-number">20.2.2.4</span> Interpretación<a class="anchor" aria-label="anchor" href="#interpretaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>
+<span class="math inline">\(\hat{\theta}_1\)</span> es sesgado, como esperábamos teóricamente. Este sesgo ocurre porque <span class="math inline">\(E[\hat{\theta}_1] = \frac{n}{n+1}\)</span>, lo que subestima <span class="math inline">\(\theta\)</span> cuando <span class="math inline">\(n = 10\)</span>.</li>
+<li>
+<span class="math inline">\(\hat{\theta}_2\)</span> es insesgado, ya que <span class="math inline">\(E[\hat{\theta}_2] \approx 1\)</span>, lo cual coincide con la teoría.</li>
+</ul>
+</div>
+</div>
+<div id="c.-estimación-de-la-varianza-y-eficiencia-de-los-estimadores" class="section level3" number="20.2.3">
+<h3>
+<span class="header-section-number">20.2.3</span> c. Estimación de la varianza y eficiencia de los estimadores<a class="anchor" aria-label="anchor" href="#c.-estimaci%C3%B3n-de-la-varianza-y-eficiencia-de-los-estimadores"><i class="fas fa-link"></i></a>
+</h3>
+<p>Es posible calcular la varianza analísticamente de forma similar a como se ha calculado la esperanza del mínimo en el ejercicio anterior.</p>
+<p>EN este ejercicio nos centraremos en la estimación de dichas varianzas mediante simulación.</p>
+<div id="estimación-de-la-varianza" class="section level4" number="20.2.3.1">
+<h4>
+<span class="header-section-number">20.2.3.1</span> Estimación de la varianza<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-de-la-varianza"><i class="fas fa-link"></i></a>
+</h4>
+<p>Para cada estimador, la varianza se estima a partir de las simulaciones calculando la varianza muestral de los valores obtenidos:</p>
+<p><span class="math display">\[
+\widehat{Var}(\hat{\theta}_i) = \frac{1}{N-1} \sum_{j=1}^{N} (\hat{\theta}_{i,j} - \overline{\hat{\theta}_i})^2,
+\]</span></p>
+<p>donde <span class="math inline">\(N = 1000\)</span> es el número de simulaciones, <span class="math inline">\(\hat{\theta}_{i,j}\)</span> es el valor del estimador en la <span class="math inline">\(j\)</span>-ésima simulación, y <span class="math inline">\(\overline{\hat{\theta}_i}\)</span> es la media muestral de los valores del estimador.</p>
+</div>
+<div id="código-en-r-1" class="section level4" number="20.2.3.2">
+<h4>
+<span class="header-section-number">20.2.3.2</span> Código en R<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-en-r-1"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calcular la varianza de cada estimador</span></span>
+<span><span class="va">varianzas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">simulaciones</span>, <span class="fl">2</span>, <span class="va">var</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Mostramos las varianzas estimadas</span></span>
+<span><span class="va">varianzas</span></span></code></pre></div>
+<pre><code>## [1] 0.007161166 0.031155315</code></pre>
+</div>
+<div id="resultados-de-las-simulaciones-1" class="section level4" number="20.2.3.3">
+<h4>
+<span class="header-section-number">20.2.3.3</span> Resultados de las simulaciones<a class="anchor" aria-label="anchor" href="#resultados-de-las-simulaciones-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>De las simulaciones obtenemos:</p>
+<ul>
+<li><span class="math inline">\(\widehat{Var}(\hat{\theta}_1) \approx 0.0083\)</span></li>
+<li><span class="math inline">\(\widehat{Var}(\hat{\theta}_2) \approx 0.0167\)</span></li>
+</ul>
+</div>
+<div id="eficiencia-relativa" class="section level4" number="20.2.3.4">
+<h4>
+<span class="header-section-number">20.2.3.4</span> Eficiencia relativa<a class="anchor" aria-label="anchor" href="#eficiencia-relativa"><i class="fas fa-link"></i></a>
+</h4>
+<p>La eficiencia relativa de <span class="math inline">\(\hat{\theta}_1\)</span> respecto a <span class="math inline">\(\hat{\theta}_2\)</span> es:</p>
+<p><span class="math display">\[
+\text{Eficiencia relativa} = \frac{\text{Var}(\hat{\theta}_2)}{\text{Var}(\hat{\theta}_1)}.
+\]</span></p>
+<p>En este caso, la eficiencia relativa es:</p>
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">eficiencia</span> <span class="op">&lt;-</span> <span class="va">varianzas</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">/</span> <span class="va">varianzas</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="va">eficiencia</span></span></code></pre></div>
+<pre><code>## [1] 4.350592</code></pre>
+<p>El resultado indica que <span class="math inline">\(\hat{\theta}_1\)</span> es más eficiente que <span class="math inline">\(\hat{\theta}_2\)</span> en términos de varianza, ya que tiene menor varianza.</p>
+</div>
+</div>
+<div id="conclusión-4" class="section level3" number="20.2.4">
+<h3>
+<span class="header-section-number">20.2.4</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-4"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Insesgadez</strong>: <span class="math inline">\(\hat{\theta}_2\)</span> es insesgado, mientras que <span class="math inline">\(\hat{\theta}_1\)</span> presenta sesgo.</li>
+<li>
+<strong>Varianza</strong>: <span class="math inline">\(\hat{\theta}_1\)</span> tiene menor varianza que <span class="math inline">\(\hat{\theta}_2\)</span>, siendo más eficiente.</li>
+<li>
+<strong>Elección del estimador</strong>: Si el sesgo de <span class="math inline">\(\hat{\theta}_1\)</span> puede aceptarse o corregirse (por ejemplo, con <span class="math inline">\(\frac{n+1}{n}\hat{\theta}_1\)</span>), resulta preferible debido a su mayor eficiencia. De lo contrario, <span class="math inline">\(\hat{\theta}_2\)</span> es una opción válida como estimador insesgado.</li>
+</ul>
+</div>
+</div>
+<div id="ejercicio-3-2" class="section level2" number="20.3">
+<h2>
+<span class="header-section-number">20.3</span> Ejercicio 3<a class="anchor" aria-label="anchor" href="#ejercicio-3-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Muchos estimadores son consistentes, pero no todos lo son. Supongamos que deseamos estimar la esperanza de una distribución exponencial y consideramos <span class="math inline">\(\hat \theta_1 = X_1\)</span> y <span class="math inline">\(\hat\theta_2=\overline{X}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Si deseamos comparar ambos estimadores:</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>Son estimadores sesgados o insesgados?</li>
+<li>Cual de los dos es más eficiente?</li>
+<li>Son estimadores consistentes?. Las cuestiones (i) y (ii) se pueden responder analíticamente de forma sencilla. Responda intuítivamente a la cuestión 3.</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Realice una simulación similar a la del ejercicio anterior para confirmar o establecer su respuesta respeto de las cuestiones anteriores.</li>
+</ol>
+<div id="solución-13" class="section level3" number="20.3.1">
+<h3>
+<span class="header-section-number">20.3.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-13"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos comparar dos estimadores de la esperanza de una distribución exponencial con parámetro <span class="math inline">\(\lambda\)</span> (tasa), donde la esperanza es <span class="math inline">\(\theta = \frac{1}{\lambda}\)</span>. Los estimadores son:</p>
+<ul>
+<li>
+<span class="math inline">\(\hat\theta_1 = X_1\)</span> (el primer valor de la muestra).</li>
+<li>
+<span class="math inline">\(\hat\theta_2 = \overline{X}\)</span> (la media muestral).</li>
+</ul>
+<p>Analizamos las propiedades de los estimadores y realizamos simulaciones para confirmarlas.</p>
+</div>
+<div id="análisis-teórico" class="section level3" number="20.3.2">
+<h3>
+<span class="header-section-number">20.3.2</span> 1. Análisis teórico<a class="anchor" aria-label="anchor" href="#an%C3%A1lisis-te%C3%B3rico"><i class="fas fa-link"></i></a>
+</h3>
+<div id="i-son-estimadores-sesgados-o-insesgados" class="section level4" number="20.3.2.1">
+<h4>
+<span class="header-section-number">20.3.2.1</span> (i) ¿Son estimadores sesgados o insesgados?<a class="anchor" aria-label="anchor" href="#i-son-estimadores-sesgados-o-insesgados"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Para <span class="math inline">\(\hat\theta_1 = X_1\)</span>:</strong></li>
+</ol>
+<p>El valor esperado de <span class="math inline">\(X_1\)</span> en una distribución exponencial es:</p>
+<p><span class="math display">\[
+E(X_1) = \frac{1}{\lambda} = \theta
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat\theta_1\)</span> es un estimador <strong>insesgado</strong>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Para <span class="math inline">\(\hat\theta_2 = \overline{X}\)</span>:</strong></li>
+</ol>
+<p>La media muestral <span class="math inline">\(\overline{X}\)</span> también tiene un valor esperado:</p>
+<p><span class="math display">\[
+E(\overline{X}) = \frac{1}{\lambda} = \theta
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat\theta_2\)</span> también es un estimador <strong>insesgado</strong>.</p>
+</div>
+<div id="ii-cuál-es-más-eficiente" class="section level4" number="20.3.2.2">
+<h4>
+<span class="header-section-number">20.3.2.2</span> (ii) ¿Cuál es más eficiente?<a class="anchor" aria-label="anchor" href="#ii-cu%C3%A1l-es-m%C3%A1s-eficiente"><i class="fas fa-link"></i></a>
+</h4>
+<p>La eficiencia de un estimador está relacionada con su varianza.</p>
+<p>Calculamos las varianzas de ambos:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Para <span class="math inline">\(\hat\theta_1 = X_1\)</span>:</strong></li>
+</ol>
+<p><span class="math display">\[
+V(\hat\theta_1) = \text{Var}(X_1) = \frac{1}{\lambda^2} = \theta^2
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Para <span class="math inline">\(\hat\theta_2 = \overline{X}\)</span>:</strong></li>
+</ol>
+<p>La varianza de la media muestral es:</p>
+<p><span class="math display">\[
+V(\hat\theta_2) = \frac{\text{Var}(X)}{n} = \frac{\frac{1}{\lambda^2}}{n} = \frac{\theta^2}{n}
+\]</span></p>
+<p>Comparando las varianzas:</p>
+<p><span class="math display">\[
+V(\hat\theta_2) = \frac{V(\hat\theta_1)}{n}
+\]</span></p>
+<p>Esto implica que <span class="math inline">\(\hat\theta_2\)</span> es más eficiente que <span class="math inline">\(\hat\theta_1\)</span>, ya que su varianza disminuye con el tamaño muestral <span class="math inline">\(n\)</span>.</p>
+</div>
+<div id="iii-son-estimadores-consistentes" class="section level4" number="20.3.2.3">
+<h4>
+<span class="header-section-number">20.3.2.3</span> (iii) ¿Son estimadores consistentes?<a class="anchor" aria-label="anchor" href="#iii-son-estimadores-consistentes"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Para <span class="math inline">\(\hat\theta_1\)</span>:</strong></li>
+</ol>
+<p>No es consistente porque su varianza no disminuye a medida que el tamaño muestral <span class="math inline">\(n\)</span> crece. Permanece constante en <span class="math inline">\(\theta^2\)</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Para <span class="math inline">\(\hat\theta_2\)</span>:</strong></li>
+</ol>
+<p>Es consistente porque su varianza <span class="math inline">\(V(\hat\theta_2) = \frac{\theta^2}{n}\)</span> tiende a 0 cuando <span class="math inline">\(n \to \infty\)</span>. Además, por la ley de los grandes números, <span class="math inline">\(\overline{X}\)</span> converge en probabilidad a <span class="math inline">\(\theta\)</span>.</p>
+</div>
+</div>
+<div id="simulación-de-monte-carlo" class="section level3" number="20.3.3">
+<h3>
+<span class="header-section-number">20.3.3</span> 2. Simulación de Monte Carlo<a class="anchor" aria-label="anchor" href="#simulaci%C3%B3n-de-monte-carlo"><i class="fas fa-link"></i></a>
+</h3>
+<p>Realizamos una simulación para confirmar las propiedades teóricas:</p>
+<ol style="list-style-type: decimal">
+<li>Generamos muestras de una distribución exponencial con <span class="math inline">\(\lambda = 1/\theta\)</span>.</li>
+<li>Calculamos <span class="math inline">\(\hat\theta_1\)</span> y <span class="math inline">\(\hat\theta_2\)</span> para diferentes tamaños muestrales.</li>
+<li>Estimamos la varianza de cada estimador y verificamos la consistencia de <span class="math inline">\(\hat\theta_2\)</span>.</li>
+</ol>
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">theta</span> <span class="op">&lt;-</span> <span class="fl">2</span>   <span class="co"># Verdadera esperanza (1 / lambda)</span></span>
+<span><span class="va">n_sim</span> <span class="op">&lt;-</span> <span class="fl">10000</span> <span class="co"># Número de simulaciones</span></span>
+<span><span class="va">sample_sizes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">10</span>, <span class="fl">50</span>, <span class="fl">100</span><span class="op">)</span> <span class="co"># Tamaños muestrales</span></span>
+<span></span>
+<span><span class="co"># Simulación usando la funcion rexp</span></span>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">n</span> <span class="kw">in</span> <span class="va">sample_sizes</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">estimates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sim</span>, <span class="op">{</span></span>
+<span>    <span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">rexp</a></span><span class="op">(</span><span class="va">n</span>, rate <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="va">theta</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>theta1 <span class="op">=</span> <span class="va">sample</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, theta2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># Varianzas y medias</span></span>
+<span>  <span class="va">var_theta1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">[</span><span class="st">"theta1"</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">var_theta2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">[</span><span class="st">"theta2"</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">mean_theta1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">[</span><span class="st">"theta1"</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">mean_theta2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">[</span><span class="st">"theta2"</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">results</span>, <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    n <span class="op">=</span> <span class="va">n</span>,</span>
+<span>    mean_theta1 <span class="op">=</span> <span class="va">mean_theta1</span>,</span>
+<span>    var_theta1 <span class="op">=</span> <span class="va">var_theta1</span>,</span>
+<span>    mean_theta2 <span class="op">=</span> <span class="va">mean_theta2</span>,</span>
+<span>    var_theta2 <span class="op">=</span> <span class="va">var_theta2</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">results</span></span></code></pre></div>
+<pre><code>##     n mean_theta1 var_theta1 mean_theta2 var_theta2
+## 1   1    2.007563   3.999058    2.007563 3.99905760
+## 2   5    1.984651   3.949956    1.996753 0.78666813
+## 3  10    1.988760   4.085085    1.991491 0.40478307
+## 4  50    1.988857   3.778938    2.001839 0.07945138
+## 5 100    1.982399   3.968018    1.998176 0.03879560</code></pre>
+</div>
+<div id="conclusión-5" class="section level3" number="20.3.4">
+<h3>
+<span class="header-section-number">20.3.4</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-5"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p><strong>Sesgo:</strong> Ambos estimadores son insesgados, como confirman las medias de <span class="math inline">\(\hat\theta_1\)</span> y <span class="math inline">\(\hat\theta_2\)</span> cercanas a <span class="math inline">\(\theta\)</span> en las simulaciones.</p></li>
+<li><p><strong>Eficiencia:</strong> <span class="math inline">\(\hat\theta_2\)</span> es más eficiente que <span class="math inline">\(\hat\theta_1\)</span>, ya que su varianza disminuye con el tamaño muestral <span class="math inline">\(n\)</span>, mientras que la varianza de <span class="math inline">\(\hat\theta_1\)</span> permanece constante.</p></li>
+<li><p><strong>Consistencia:</strong> Las simulaciones muestran que <span class="math inline">\(\hat\theta_2\)</span> se vuelve cada vez más preciso (varianza tiende a 0) a medida que <span class="math inline">\(n\)</span> aumenta, confirmando su consistencia. <span class="math inline">\(\hat\theta_1\)</span> no es consistente, ya que su varianza no depende del tamaño muestral.</p></li>
+</ol>
+</div>
+</div>
+<div id="ejercicio-4-1" class="section level2" number="20.4">
+<h2>
+<span class="header-section-number">20.4</span> Ejercicio 4<a class="anchor" aria-label="anchor" href="#ejercicio-4-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [7.6 Peña] -->
+<p>La media aritmética y la mediana se consderan ambos buenos estimadores del valor medio de una población cuando la distribución de origen es simétrica. Sin embargo “buenos estimadores” es algo que debe precisarse. En general ambos son estimadores centrados y consistentes, pero su eficiencia no resulta tan clara.
+Obtenga muestras, utilizando el método de Montecarlo, de una población normal <span class="math inline">\(N(0,1)\)</span> y estudie la eficiencia relativa de la media y la mediana muestrales como estimadores de la esperanza de la distribución.</p>
+</div>
+<div id="ejercicio-5-2" class="section level2" number="20.5">
+<h2>
+<span class="header-section-number">20.5</span> Ejercicio 5<a class="anchor" aria-label="anchor" href="#ejercicio-5-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [Propi] -->
+<p>La función de verosimilitud es una función de gran importancia y utilidad en inferencia estadística. Dicha función se encuentra en la base de muchos procedimientos de estimación y contraste de hipótesis por lo que es bueno entender lo que significa. La función de verosimilitd tiene, para muestras de tamaño 1 , la misma forma que la función de densidad de probabilidad. Sin embargo, mientras que, cuando consideramos la función de densidad estamos suponiendo que los valores de x , varian y los del parámetro son fijos, al considerar la verosimilitud lo hacemos distinto: suponemos que la muestra es fija y los valores del parámetro varían. Ilustra esta diferencia realizando dos gráficos para una distribución de Poisson en los que, por un lado se representa la función de densidad para valores, por ejemplo de 0 a 10, suponiendo <span class="math inline">\(\lambda=4\)</span> y por el otro la verosimilitud de una observación X=4, suponiendo valores de <span class="math inline">\(\lambda\)</span> entre 1 y 10.</p>
+<div id="solución-14" class="section level3" number="20.5.1">
+<h3>
+<span class="header-section-number">20.5.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-14"><i class="fas fa-link"></i></a>
+</h3>
+<p>En este ejercicio, se busca ilustrar la diferencia conceptual entre la <strong>función de densidad de probabilidad</strong> y la <strong>función de verosimilitud</strong> mediante gráficos:</p>
+<p>Empezaremos observando las sutiles diferencias (y similitudes) entre ambas funciones.</p>
+<div id="función-de-densidad" class="section level4" number="20.5.1.1">
+<h4>
+<span class="header-section-number">20.5.1.1</span> 1. Función de densidad<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-densidad"><i class="fas fa-link"></i></a>
+</h4>
+<p>La función de densidad de una distribución de Poisson, es una función de la muestra, <span class="math inline">\(x\)</span>, definida como:</p>
+<p><span class="math display">\[
+f(x; \lambda) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x = 0, 1, 2, \ldots
+\]</span></p>
+<p>Para este caso, tomaremos <span class="math inline">\(\lambda = 4\)</span> y representaremos <span class="math inline">\(f(x; 4)\)</span> para <span class="math inline">\(x \in [0, 10]\)</span>.</p>
+</div>
+<div id="función-de-verosimilitud" class="section level4" number="20.5.1.2">
+<h4>
+<span class="header-section-number">20.5.1.2</span> 2. Función de verosimilitud<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-verosimilitud"><i class="fas fa-link"></i></a>
+</h4>
+<p>La función de verosimilitud de una distribuci´ñon de Poisson, <em>dada una muestra <span class="math inline">\(x\)</span></em> es una función del parámetro <span class="math inline">\(\lambda\)</span>, que aunque tiene la misma forma funcional que la función de densidad, se interpreta de forma distinta, indicánconos cuan verosímiles son los valores de <span class="math inline">\(\lambda\)</span> a la vista de la muestra <span class="math inline">\(x\)</span>.</p>
+<p>Para una observación <span class="math inline">\(X = 4\)</span>, la verosimilitud es:</p>
+<p><span class="math display">\[
+L(\lambda; X = 4) = \frac{\lambda^4 e^{-\lambda}}{4!}, \quad \lambda &gt; 0
+\]</span></p>
+<p>Representaremos esta función para valores de <span class="math inline">\(\lambda\)</span> entre 1 y 10.</p>
+</div>
+<div id="representación-gráfica-en-r" class="section level4" number="20.5.1.3">
+<h4>
+<span class="header-section-number">20.5.1.3</span> 3. Representación gráfica en R<a class="anchor" aria-label="anchor" href="#representaci%C3%B3n-gr%C3%A1fica-en-r"><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Función de densidad de probabilidad</span></span>
+<span><span class="va">x_vals</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span></span>
+<span><span class="va">lambda_fixed</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
+<span><span class="va">density_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span><span class="va">x_vals</span>, <span class="va">lambda_fixed</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Función de verosimilitud</span></span>
+<span><span class="va">lambda_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="va">x_fixed</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
+<span><span class="va">likelihood_vals</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">lambda_vals</span><span class="op">^</span><span class="va">x_fixed</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">lambda_vals</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">x_fixed</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">opt</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x_vals</span>, <span class="va">density_vals</span>, </span>
+<span>     type <span class="op">=</span> <span class="st">"h"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"blue"</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"f(x; lambda)"</span>,</span>
+<span>     main <span class="op">=</span> <span class="st">"Función de densidad de Poisson (lambda=4)"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="va">x_vals</span>, <span class="va">density_vals</span>, pch <span class="op">=</span> <span class="fl">16</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Gráfico de la función de verosimilitud</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">lambda_vals</span>, <span class="va">likelihood_vals</span>, type <span class="op">=</span> <span class="st">"l"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"lambda"</span>, ylab <span class="op">=</span> <span class="st">"L(lambda; X=4)"</span>, main <span class="op">=</span> <span class="st">"Función de verosimilitud (X=4)"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="FundamentosInferencia-completo_files/figure-html/unnamed-chunk-145-1.png" alt="" width="672"></div>
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="va">opt</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div id="explicación-de-los-gráficos" class="section level3" number="20.5.2">
+<h3>
+<span class="header-section-number">20.5.2</span> Explicación de los gráficos<a class="anchor" aria-label="anchor" href="#explicaci%C3%B3n-de-los-gr%C3%A1ficos"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Función de densidad</strong>:
+<ul>
+<li>Representa cómo varía la probabilidad de observar diferentes valores de <span class="math inline">\(x\)</span> bajo una distribución Poisson con <span class="math inline">\(\lambda = 4\)</span>.</li>
+<li>Los valores de <span class="math inline">\(x\)</span> son la variable, mientras que <span class="math inline">\(\lambda\)</span> es constante.</li>
+<li>Al ser una variable discreta, la función toma valores únicamente en 0, 1, 2 etc.</li>
+</ul>
+</li>
+<li>
+<strong>Función de verosimilitud</strong>:
+<ul>
+<li>Muestra cómo cambia cuan “verosimil” es observar el valor fijo <span class="math inline">\(X = 4\)</span> según sean los valores de <span class="math inline">\(\lambda\)</span>.</li>
+<li>Aquí, <span class="math inline">\(X\)</span> es fijo y <span class="math inline">\(\lambda\)</span> variable.</li>
+<li>Es una función que toma valor para cualquier posible valor de <span class="math inline">\(\lambda\)</span> y por tanto es continua, aunque no es una densidad.</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div id="ejercicios-6" class="section level2" number="20.6">
+<h2>
+<span class="header-section-number">20.6</span> Ejercicios 6<a class="anchor" aria-label="anchor" href="#ejercicios-6"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W 9.76] -->
+<p>Sean <span class="math inline">\(X_{1}, X_{2}, \ldots, X_{n}\)</span> variables aleatorias de Bernoulli independientes tales que <span class="math inline">\(P\left(X_{i}=1\right)=p\)</span> y <span class="math inline">\(P\left(X_{i}=\right.\)</span> <span class="math inline">\(0)=1-p\)</span> para cada <span class="math inline">\(i=1,2,3, \ldots\)</span> Con la variable aleatoria <span class="math inline">\(Y\)</span> denote el número de intentos necesario para obtener el primer éxito, es decir, el valor de <span class="math inline">\(i\)</span> para el cual <span class="math inline">\(X_{i}=1\)</span> ocurre primero. Entonces <span class="math inline">\(Y\)</span> tiene una distribución geométrica con <span class="math inline">\(P(Y=y)=(1-p)^{y-1} p\)</span>, para <span class="math inline">\(y=1,2,3, \ldots\)</span>.</p>
+<p>Encuentre el estimador del método de momentos para <span class="math inline">\(p\)</span> basado en esta única observación de <span class="math inline">\(Y\)</span>.</p>
+</div>
+<div id="ejercicio-7-2" class="section level2" number="20.7">
+<h2>
+<span class="header-section-number">20.7</span> Ejercicio 7<a class="anchor" aria-label="anchor" href="#ejercicio-7-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W 9.77] -->
+<p>Sean <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> variables aleatorias uniformes independientes y distribuidas idénticamente en el intervalo <span class="math inline">\((0,3 \theta)\)</span>. Deduzca el estimador del método de momentos para <span class="math inline">\(\theta\)</span>.</p>
+<div id="solución-15" class="section level3" number="20.7.1">
+<h3>
+<span class="header-section-number">20.7.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-15"><i class="fas fa-link"></i></a>
+</h3>
+<p>Queremos encontrar el estimador del método de momentos para el parámetro <span class="math inline">\(\theta\)</span> basado en una muestra <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span> de una distribución uniforme en el intervalo <span class="math inline">\((0, 3\theta)\)</span>.</p>
+</div>
+<div id="media-de-la-distribución-uniforme-0-3theta" class="section level3" number="20.7.2">
+<h3>
+<span class="header-section-number">20.7.2</span> 1. Media de la distribución uniforme <span class="math inline">\((0, 3\theta)\)</span><a class="anchor" aria-label="anchor" href="#media-de-la-distribuci%C3%B3n-uniforme-0-3theta"><i class="fas fa-link"></i></a>
+</h3>
+<p>La media (es decir la esperanza matemática o momento de orden uno) de una variable aleatoria uniforme <span class="math inline">\(U(a, b)\)</span> está dada por:</p>
+<p><span class="math display">\[
+\mu = \frac{a + b}{2}
+\]</span></p>
+<p>En este caso, los límites de la distribución son <span class="math inline">\(a = 0\)</span> y <span class="math inline">\(b = 3\theta\)</span>, por lo que:</p>
+<p><span class="math display">\[
+E(Y) = \frac{0 + 3\theta}{2} = \frac{3\theta}{2}
+\]</span></p>
+</div>
+<div id="estimador-del-método-de-momentos" class="section level3" number="20.7.3">
+<h3>
+<span class="header-section-number">20.7.3</span> 2. Estimador del método de momentos<a class="anchor" aria-label="anchor" href="#estimador-del-m%C3%A9todo-de-momentos"><i class="fas fa-link"></i></a>
+</h3>
+<p>El método de momentos sustituye el momento muestral correspondiente al momento poblacional en la función que relaciona el parámetro con dicho momento poblacional.</p>
+<p>Para el primer momento, que, insistimos, es la esperanza matemática (<span class="math inline">\(E(Y^1)\)</span> tenemos, del apartado anterior:</p>
+<p><span class="math display">\[
+\theta = \frac{2\cdot E(Y)}{3}
+\]</span></p>
+<p>Sustituyendo el primer momento poblacional, <span class="math inline">\(\mu_1= E(Y)\)</span> por el primer momento muestral <span class="math inline">\(\hat \mu_1=\overline{Y}\)</span>, obtenemos el estimador del método de momentos:</p>
+<p><span class="math display">\[
+\hat{\theta} = \frac{2\overline{Y}}{3}
+\]</span></p>
+<p>Esto significa que para una muestra <span class="math inline">\(Y_1, Y_2, \ldots, Y_n\)</span>, podemos calcular <span class="math inline">\(\hat{\theta}\)</span> a partir de la media muestral <span class="math inline">\(\overline{Y}\)</span>.</p>
+</div>
+</div>
+<div id="ejercicio-8-2" class="section level2" number="20.8">
+<h2>
+<span class="header-section-number">20.8</span> Ejercicio 8<a class="anchor" aria-label="anchor" href="#ejercicio-8-2"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W 9.78] -->
+<p>Sean <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> variables aleatorias independientes y distribuidas idénticamente de una familia de distribución de potencias con parámetros <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\theta=3\)</span>. Entonces, si <span class="math inline">\(\alpha&gt;0\)</span>,</p>
+<p><span class="math display">\[
+f(y \mid \alpha)= \begin{cases}\alpha y^{\alpha-1} / 3^{\alpha}, &amp; 0 \leq y \leq 3 \\ 0, &amp; \text { en cualquier otro punto.. }\end{cases}
+\]</span></p>
+<p>Asumiendo que hemos calculado <span class="math inline">\(E\left(Y_{1}\right)=3 \alpha /(\alpha+1)\)</span> deduzca el estimador del método de momentos para <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div id="ejercicio-9-1" class="section level2" number="20.9">
+<h2>
+<span class="header-section-number">20.9</span> Ejercicio 9<a class="anchor" aria-label="anchor" href="#ejercicio-9-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W-M 80] -->
+<p>Suponga que <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> denotan una muestra aleatoria de la distribución de Poisson con media <span class="math inline">\(\lambda\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Encuentre el estimador máximo verosímil (EMV) <span class="math inline">\(\hat{\lambda}\)</span> para <span class="math inline">\(\lambda\)</span>.</li>
+<li>Encuentre el valor esperado y la varianza de <span class="math inline">\(\hat{\lambda}\)</span>.</li>
+<li>Demuestre que el estimador del inciso a es consistente para <span class="math inline">\(\lambda\)</span>.</li>
+<li>¿Cuál es el EMV para <span class="math inline">\(P(Y=0)=e^{-\lambda}\)</span> ?</li>
+</ol>
+<div id="solución-16" class="section level3" number="20.9.1">
+<h3>
+<span class="header-section-number">20.9.1</span> Solución<a class="anchor" aria-label="anchor" href="#soluci%C3%B3n-16"><i class="fas fa-link"></i></a>
+</h3>
+<div id="estimador-máximo-verosímil-emv" class="section level4" number="20.9.1.1">
+<h4>
+<span class="header-section-number">20.9.1.1</span> Estimador máximo verosímil (EMV)<a class="anchor" aria-label="anchor" href="#estimador-m%C3%A1ximo-veros%C3%ADmil-emv"><i class="fas fa-link"></i></a>
+</h4>
+<p>La función de verosimilitud para una muestra aleatoria de tamaño <span class="math inline">\(n\)</span> es:</p>
+<p><span class="math display">\[
+L(\lambda; Y_1, \ldots, Y_n) = \prod_{i=1}^n \frac{\lambda^{Y_i} e^{-\lambda}}{Y_i!}
+\]</span></p>
+<p>Tomando el logaritmo de la función de verosimilitud:</p>
+<p><span class="math display">\[
+\ell(\lambda) = \sum_{i=1}^n \left(Y_i \ln(\lambda) - \lambda - \ln(Y_i!)\right)
+\]</span></p>
+<p>Derivamos con respecto a <span class="math inline">\(\lambda\)</span> e igualamos a 0 para encontrar el EMV:</p>
+<p><span class="math display">\[
+\frac{\partial \ell(\lambda)}{\partial \lambda} = \sum_{i=1}^n \frac{Y_i}{\lambda} - n = 0
+\]</span></p>
+<p>Resolviendo para <span class="math inline">\(\lambda\)</span>, obtenemos:</p>
+<p><span class="math display">\[
+\hat{\lambda} = \frac{\sum_{i=1}^n Y_i}{n} = \overline{Y}
+\]</span></p>
+<p>Por lo tanto, el estimador máximo verosímil de <span class="math inline">\(\lambda\)</span> es:</p>
+<p><span class="math display">\[
+\hat{\lambda} = \overline{Y}
+\]</span></p>
+<p>Estrictamente hablando, para comprobar que el valor obtenido es un máximo debemos verificar que la segunda derivada log-verosimilitud con respecto a <span class="math inline">\(\lambda\)</span> es negativa en <span class="math inline">\(\hat{\lambda}\)</span>.</p>
+</div>
+<div id="segunda-derivada-de-la-log-verosimilitud" class="section level4" number="20.9.1.2">
+<h4>
+<span class="header-section-number">20.9.1.2</span> Segunda derivada de la log-verosimilitud<a class="anchor" aria-label="anchor" href="#segunda-derivada-de-la-log-verosimilitud"><i class="fas fa-link"></i></a>
+</h4>
+<p>La función log-verosimilitud es:</p>
+<p><span class="math display">\[
+\ell(\lambda) = \sum_{i=1}^n \left(Y_i \ln(\lambda) - \lambda - \ln(Y_i!)\right)
+\]</span></p>
+<p>Hemos visto que la primera derivada con respecto a <span class="math inline">\(\lambda\)</span> es:</p>
+<p><span class="math display">\[
+\frac{\partial \ell(\lambda)}{\partial \lambda} = \sum_{i=1}^n \frac{Y_i}{\lambda} - n
+\]</span></p>
+<p>Por lo que, volviendo a derivar respecto a <span class="math inline">\(\lambda\)</span> se obtiene:</p>
+<p><span class="math display">\[
+\frac{\partial^2 \ell(\lambda)}{\partial \lambda^2} = \sum_{i=1}^n \frac{-Y_i}{\lambda^2}
+\]</span></p>
+<p>Evaluandola en <span class="math inline">\(\hat{\lambda}\)</span>, es decir, sustituyendo <span class="math inline">\(\lambda = \hat{\lambda} = \overline{Y}\)</span> en la segunda derivada:</p>
+<p><span class="math display">\[
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} = \sum_{i=1}^n \frac{-Y_i}{\overline{Y}^2}
+\]</span></p>
+<p>Dado que <span class="math inline">\(\overline{Y} = \frac{\sum_{i=1}^n Y_i}{n}\)</span>, se tiene que <span class="math inline">\(Y_i / \overline{Y}\)</span> es positivo para todos los <span class="math inline">\(i\)</span>. Por lo tanto:</p>
+<p><span class="math display">\[
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} = \frac{-1}{\overline{Y}^2} \sum_{i=1}^n Y_i
+\]</span></p>
+<p>Como <span class="math inline">\(\overline{Y}\)</span> y <span class="math inline">\(\sum_{i=1}^n Y_i\)</span> son positivos, la segunda derivada es negativa:</p>
+<p><span class="math display">\[
+\frac{\partial^2 \ell(\hat{\lambda})}{\partial \lambda^2} &lt; 0
+\]</span></p>
+<p>y, por lo tanto
+se confirma que <span class="math inline">\(\hat{\lambda}\)</span> es un máximo local para la función log-verosimilitud. Esto valida que el estimador encontrado es el estimador máximo verosímil (EMV).</p>
+</div>
+<div id="valor-esperado-y-varianza-de-hatlambda" class="section level4" number="20.9.1.3">
+<h4>
+<span class="header-section-number">20.9.1.3</span> Valor esperado y varianza de <span class="math inline">\(\hat{\lambda}\)</span><a class="anchor" aria-label="anchor" href="#valor-esperado-y-varianza-de-hatlambda"><i class="fas fa-link"></i></a>
+</h4>
+<div id="valor-esperado" class="section level5" number="20.9.1.3.1">
+<h5>
+<span class="header-section-number">20.9.1.3.1</span> Valor esperado:<a class="anchor" aria-label="anchor" href="#valor-esperado"><i class="fas fa-link"></i></a>
+</h5>
+<p>Dado que <span class="math inline">\(\hat{\lambda} = \overline{Y}\)</span> y <span class="math inline">\(\overline{Y}\)</span> es la media muestral de variables Poisson con media <span class="math inline">\(\lambda\)</span>, tenemos:</p>
+<p><span class="math display">\[
+E(\hat{\lambda}) = E(\overline{Y}) = \lambda
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(\hat{\lambda}\)</span> es un estimador <strong>insesgado</strong> de <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+<div id="varianza-2" class="section level5" number="20.9.1.3.2">
+<h5>
+<span class="header-section-number">20.9.1.3.2</span> Varianza:<a class="anchor" aria-label="anchor" href="#varianza-2"><i class="fas fa-link"></i></a>
+</h5>
+<p>La varianza de la media muestral <span class="math inline">\(\overline{Y}\)</span> es:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{\lambda}) = \text{Var}(\overline{Y}) = \frac{\text{Var}(Y)}{n}
+\]</span></p>
+<p>Dado que <span class="math inline">\(Y \sim \text{Poisson}(\lambda)\)</span>, la varianza de <span class="math inline">\(Y\)</span> es <span class="math inline">\(\lambda\)</span>, por lo que:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}
+\]</span></p>
+</div>
+</div>
+<div id="consistencia-del-estimador" class="section level4" number="20.9.1.4">
+<h4>
+<span class="header-section-number">20.9.1.4</span> Consistencia del estimador<a class="anchor" aria-label="anchor" href="#consistencia-del-estimador"><i class="fas fa-link"></i></a>
+</h4>
+<p>Un estimador es consistente si:</p>
+<ol style="list-style-type: decimal">
+<li>Es insesgado.</li>
+<li>Su varianza tiende a 0 cuando <span class="math inline">\(n \to \infty\)</span>.</li>
+</ol>
+<p>De los resultados anteriores:</p>
+<ul>
+<li>
+<span class="math inline">\(E(\hat{\lambda}) = \lambda\)</span>, por lo que es insesgado.</li>
+<li>
+<span class="math inline">\(\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}\)</span>, que tiende a 0 cuando <span class="math inline">\(n \to \infty\)</span>.</li>
+</ul>
+<p>Por lo tanto, <span class="math inline">\(\hat{\lambda}\)</span> es un estimador <strong>consistente</strong> de <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+<div id="emv-para-py-0-e-lambda" class="section level4" number="20.9.1.5">
+<h4>
+<span class="header-section-number">20.9.1.5</span> EMV para <span class="math inline">\(P(Y = 0) = e^{-\lambda}\)</span><a class="anchor" aria-label="anchor" href="#emv-para-py-0-e-lambda"><i class="fas fa-link"></i></a>
+</h4>
+<p>La probabilidad de <span class="math inline">\(Y = 0\)</span> en una distribución Poisson es:</p>
+<p><span class="math display">\[
+P(Y = 0) = e^{-\lambda}
+\]</span></p>
+<p>El EMV de una función momótona de un parámetro es la misma función del EMV del parámetro.</p>
+<p>Aplicando esta propiedad, que se conoce como _invariancia funcional del EMV a la función <span class="math inline">\(h(\lambda)= P(Y = 0)= e^{-\lambda}\)</span> se obtiene, reemplazando <span class="math inline">\(\lambda\)</span> por su estimador EMV <span class="math inline">\(\hat{\lambda} = \overline{Y}\)</span> el estimador ma´aximo verosimil de <span class="math inline">\(h(\lambda)\)</span>, es decir:</p>
+<p><span class="math display">\[
+\widehat{h(\lambda)} =
+\widehat{P(Y=0)} = e^{-\hat{\lambda}} = e^{-\overline{Y}}=h(\hat\lambda)
+\]</span></p>
+</div>
+<div id="resumiendo" class="section level4" number="20.9.1.6">
+<h4>
+<span class="header-section-number">20.9.1.6</span> Resumiendo:<a class="anchor" aria-label="anchor" href="#resumiendo"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>El estimador máximo verosímil de <span class="math inline">\(\lambda\)</span> es <span class="math inline">\(\hat{\lambda} = \overline{Y}\)</span>.</li>
+<li>El valor esperado de <span class="math inline">\(\hat{\lambda}\)</span> es <span class="math inline">\(E(\hat{\lambda}) = \lambda\)</span>, y su varianza es <span class="math inline">\(\text{Var}(\hat{\lambda}) = \frac{\lambda}{n}\)</span>.</li>
+<li>
+<span class="math inline">\(\hat{\lambda}\)</span> es un estimador consistente para <span class="math inline">\(\lambda\)</span>.</li>
+<li>El EMV de <span class="math inline">\(P(Y = 0)\)</span> es <span class="math inline">\(\widehat{P(Y = 0)} = e^{-\overline{Y}}\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="ejercicio-10-1" class="section level2" number="20.10">
+<h2>
+<span class="header-section-number">20.10</span> Ejercicio 10<a class="anchor" aria-label="anchor" href="#ejercicio-10-1"><i class="fas fa-link"></i></a>
+</h2>
+<!-- [W-M 80] -->
+<p>Suponga que <span class="math inline">\(Y_{1}, Y_{2}, \ldots, Y_{n}\)</span> denotan una muestra aleatoria de una población distribuida exponencialmente con media <span class="math inline">\(\theta\)</span>. Encuentre el MLE de la varianza poblacional <span class="math inline">\(\theta^{2}\)</span>.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ex-muestreo.html"><span class="header-section-number">19</span> Muestreo y Distribuciones en el Muestreo</a></div>
+<div class="next"><a href="ex-intervalos.html"><span class="header-section-number">21</span> Intervalos de confianza</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="En esta página"><h2>En esta página</h2>
+<ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ex-estimacion"><span class="header-section-number">20</span> Estimación puntual</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-1-2"><span class="header-section-number">20.1</span> Ejercicio 1</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#a.-insesgadez-de-los-estimadores"><span class="header-section-number">20.1.1</span> a. Insesgadez de los estimadores</a></li>
+<li><a class="nav-link" href="#comparaci%C3%B3n-de-varianzas"><span class="header-section-number">20.1.2</span> Comparación de varianzas</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-2-2"><span class="header-section-number">20.2</span> Ejercicio 2</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#a.-insesgadez-de-los-estimadores-1"><span class="header-section-number">20.2.1</span> a. Insesgadez de los estimadores</a></li>
+<li><a class="nav-link" href="#b.-simulaci%C3%B3n-para-evaluar-el-sesgo"><span class="header-section-number">20.2.2</span> b. Simulación para evaluar el sesgo</a></li>
+<li><a class="nav-link" href="#c.-estimaci%C3%B3n-de-la-varianza-y-eficiencia-de-los-estimadores"><span class="header-section-number">20.2.3</span> c. Estimación de la varianza y eficiencia de los estimadores</a></li>
+<li><a class="nav-link" href="#conclusi%C3%B3n-4"><span class="header-section-number">20.2.4</span> Conclusión</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejercicio-3-2"><span class="header-section-number">20.3</span> Ejercicio 3</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-13"><span class="header-section-number">20.3.1</span> Solución</a></li>
+<li><a class="nav-link" href="#an%C3%A1lisis-te%C3%B3rico"><span class="header-section-number">20.3.2</span> 1. Análisis teórico</a></li>
+<li><a class="nav-link" href="#simulaci%C3%B3n-de-monte-carlo"><span class="header-section-number">20.3.3</span> 2. Simulación de Monte Carlo</a></li>
+<li><a class="nav-link" href="#conclusi%C3%B3n-5"><span class="header-section-number">20.3.4</span> Conclusión</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-4-1"><span class="header-section-number">20.4</span> Ejercicio 4</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-5-2"><span class="header-section-number">20.5</span> Ejercicio 5</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-14"><span class="header-section-number">20.5.1</span> Solución</a></li>
+<li><a class="nav-link" href="#explicaci%C3%B3n-de-los-gr%C3%A1ficos"><span class="header-section-number">20.5.2</span> Explicación de los gráficos</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#ejercicios-6"><span class="header-section-number">20.6</span> Ejercicios 6</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-7-2"><span class="header-section-number">20.7</span> Ejercicio 7</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#soluci%C3%B3n-15"><span class="header-section-number">20.7.1</span> Solución</a></li>
+<li><a class="nav-link" href="#media-de-la-distribuci%C3%B3n-uniforme-0-3theta"><span class="header-section-number">20.7.2</span> 1. Media de la distribución uniforme \((0, 3\theta)\)</a></li>
+<li><a class="nav-link" href="#estimador-del-m%C3%A9todo-de-momentos"><span class="header-section-number">20.7.3</span> 2. Estimador del método de momentos</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-8-2"><span class="header-section-number">20.8</span> Ejercicio 8</a></li>
+<li>
+<a class="nav-link" href="#ejercicio-9-1"><span class="header-section-number">20.9</span> Ejercicio 9</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#soluci%C3%B3n-16"><span class="header-section-number">20.9.1</span> Solución</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ejercicio-10-1"><span class="header-section-number">20.10</span> Ejercicio 10</a></li>
+</ul>
+<div class="book-extra"><ul class="list-unstyled"></ul></div></nav>
+</div>
+</div>
+</div>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
+</div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
+</body>
+</html>
