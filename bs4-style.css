@@ -1,0 +1,207 @@
+/* Phase 3A: quiet, readable defaults for the bs4_book HTML profile. */
+:root {
+  --uocub-blue: #1f5b87;
+  --uocub-blue-dark: #164566;
+  --uocub-blue-soft: #edf4f8;
+  --uocub-ink: #252b33;
+  --uocub-muted: #65717c;
+  --uocub-rule: #d9e0e5;
+  --uocub-panel: #f7f9fa;
+  --uocub-code: #f4f6f8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  color: var(--uocub-ink);
+  background: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 17.5px;
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--uocub-blue);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.13em;
+}
+
+a:hover, a:focus {
+  color: var(--uocub-blue-dark);
+}
+
+a:focus-visible {
+  outline: 3px solid rgba(31, 91, 135, 0.3);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+main#content {
+  max-width: 46rem;
+  padding: 2.75rem 2.35rem 4rem;
+}
+
+main#content > .section:first-of-type > h1,
+main#content > h1 {
+  margin-top: 0;
+}
+
+h1, h2, h3, h4 {
+  color: #182d3d;
+  font-weight: 650;
+  letter-spacing: -0.018em;
+  line-height: 1.22;
+}
+
+h1 {
+  margin: 2.7rem 0 1.35rem;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+}
+
+h2 {
+  margin: 2.35rem 0 1rem;
+  padding-top: 0.25rem;
+  font-size: clamp(1.48rem, 2.2vw, 1.8rem);
+}
+
+h3 {
+  margin: 1.8rem 0 0.7rem;
+  font-size: 1.22rem;
+}
+
+p, ul, ol, dl { margin-bottom: 1.15rem; }
+li + li { margin-top: 0.3rem; }
+
+.sidebar-book {
+  background: var(--uocub-panel);
+  border-right: 1px solid var(--uocub-rule);
+  padding: 1.7rem 1.2rem;
+}
+
+.sidebar-book h1 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.3;
+  margin: 0 0 1.35rem;
+}
+
+.sidebar-book h1 a {
+  color: #1d3547;
+  text-decoration: none;
+}
+
+.sidebar-book .nav-link,
+.sidebar-chapter .nav-link {
+  border-radius: 0.25rem;
+  color: #4d5c68;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  padding: 0.31rem 0.48rem;
+}
+
+.sidebar-book .nav-link:hover,
+.sidebar-book .nav-link:focus,
+.sidebar-chapter .nav-link:hover,
+.sidebar-chapter .nav-link:focus {
+  background: var(--uocub-blue-soft);
+  color: var(--uocub-blue-dark);
+}
+
+.sidebar-book .nav-link.active,
+.sidebar-chapter .nav-link.active {
+  background: #dcebf3;
+  color: var(--uocub-blue-dark);
+  font-weight: 700;
+}
+
+.sidebar-chapter {
+  border-left: 1px solid var(--uocub-rule);
+  padding: 2.7rem 1rem;
+}
+
+.sidebar-chapter .nav-link { font-size: 0.82rem; }
+.sidebar-chapter .navbar-nav .navbar-nav { margin-left: 0.45rem; }
+
+nav[aria-label="Descargas PDF"] {
+  align-items: center;
+  border-bottom: 1px solid var(--uocub-rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin: 0 0 2.2rem;
+  padding: 0 0 1rem;
+}
+
+nav[aria-label="Descargas PDF"] a {
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+nav[aria-label="Descargas PDF"] a::before {
+  color: var(--uocub-muted);
+  content: "↓ ";
+}
+
+.sourceCode, pre:not(.sourceCode) {
+  background: var(--uocub-code);
+  border: 1px solid #e0e5e9;
+  border-left: 3px solid #b7cad8;
+  border-radius: 0.25rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 1.35rem 0;
+}
+
+.sourceCode pre, pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+}
+
+code, kbd, samp { font-size: 0.88em; }
+
+pre code { color: #273744; }
+
+table, .table {
+  border-color: var(--uocub-rule);
+  font-size: 0.92rem;
+  margin: 1.45rem 0;
+}
+
+table thead th, .table thead th {
+  background: var(--uocub-blue-soft);
+  border-bottom: 2px solid #bfd3e0;
+  color: #25445a;
+  font-weight: 700;
+}
+
+table td, table th, .table td, .table th { padding: 0.58rem 0.7rem; }
+table tbody tr:nth-of-type(even) { background: rgba(31, 91, 135, 0.035); }
+
+.caption, figcaption, p.caption {
+  color: var(--uocub-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin-top: 0.55rem;
+}
+
+img, svg { height: auto; max-width: 100%; }
+
+footer.bg-primary { background-color: #214e70 !important; }
+
+@media (max-width: 991.98px) {
+  main#content { max-width: 48rem; padding: 2.1rem 1.65rem 3.2rem; }
+  .sidebar-book { border-bottom: 1px solid var(--uocub-rule); border-right: 0; padding: 1.15rem 1.35rem; }
+}
+
+@media (max-width: 575.98px) {
+  body { font-size: 16px; line-height: 1.58; }
+  main#content { padding: 1.65rem 1rem 2.8rem; }
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.42rem; }
+  .sidebar-book { padding: 1rem; }
+  .sourceCode, pre:not(.sourceCode) { font-size: 0.78rem; }
+  table, .table { font-size: 0.82rem; }
+}

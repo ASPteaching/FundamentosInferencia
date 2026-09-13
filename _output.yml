@@ -1,5 +1,7 @@
 bookdown::bs4_book:
-  css: blocks.css
+  css:
+    - blocks.css
+    - bs4-style.css
   footnotes_inline: false
   split_bib: true
   includes:
