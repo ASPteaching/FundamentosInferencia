@@ -670,7 +670,7 @@ T(X)=\bar X_A-\bar X_B.
 <span class="header-section-number">10.5.3</span> Valor observado del estadístico<a class="anchor" aria-label="anchor" href="#valor-observado-del-estad%C3%ADstico"><i class="fas fa-link"></i></a>
 </h3>
 <p>Podemos evaluar el estadístico de test como:</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">xA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="va">xB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">8</span><span class="op">)</span></span>
 <span></span>
@@ -683,7 +683,7 @@ T(X)=\bar X_A-\bar X_B.
 <span class="header-section-number">10.5.4</span> Distribución exacta por permutaciones<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-exacta-por-permutaciones"><i class="fas fa-link"></i></a>
 </h3>
 <p>Bajo <span class="math inline">\(H_0\)</span>, cualquier asignación de dos observaciones al grupo A es igualmente probable. Existen exactamente <span class="math inline">\(\binom{4}{2}=6\)</span> permutaciones posibles.</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">xA</span>, <span class="va">xB</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/combn.html">combn</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span></span>
@@ -699,7 +699,7 @@ T(X)=\bar X_A-\bar X_B.
 <span class="header-section-number">10.5.4.1</span> Cálculo del p-valor<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-del-p-valor"><i class="fas fa-link"></i></a>
 </h4>
 <p>Para la alternativa unilateral considerada, el p-valor se calcula como</p>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">T_perm</span> <span class="op">&lt;=</span> <span class="va">T_obs</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.1666667</code></pre>
 <p>Este test es <strong>exacto</strong>, no depende de ninguna aproximación y es válido incluso con tamaños muestrales muy pequeños.</p>
@@ -711,7 +711,7 @@ T(X)=\bar X_A-\bar X_B.
 </h3>
 <p>En problemas más realistas, el número de permutaciones posibles es demasiado grande como para enumerarlas todas. En estos casos se utiliza una aproximación por simulación.</p>
 <p>Consideremos dos grupos con tamaños moderados:</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">xA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
@@ -721,7 +721,7 @@ T(X)=\bar X_A-\bar X_B.
 <h4>
 <span class="header-section-number">10.5.5.1</span> Implementación con el paquete <code>coin</code><a class="anchor" aria-label="anchor" href="#implementaci%C3%B3n-con-el-paquete-coin"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://coin.r-forge.r-project.org">coin</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
@@ -744,7 +744,7 @@ T(X)=\bar X_A-\bar X_B.
 <h4>
 <span class="header-section-number">10.5.5.2</span> Comparación con el test t clásico<a class="anchor" aria-label="anchor" href="#comparaci%C3%B3n-con-el-test-t-cl%C3%A1sico"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">xA</span>, <span class="va">xB</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
@@ -836,7 +836,7 @@ T(X)=\bar X_A-\bar X_B.
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

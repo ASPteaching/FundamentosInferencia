@@ -293,7 +293,7 @@ t=\frac{\bar{X}-\mu}{\hat{S} / \sqrt{n}}
 <h4>
 <span class="header-section-number">8.8.3.1</span> Paso a paso: Cálculo manual del intervalo de confianza<a class="anchor" aria-label="anchor" href="#paso-a-paso-c%C3%A1lculo-manual-del-intervalo-de-confianza"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generar datos simulados</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>  <span class="co"># Para reproducibilidad</span></span>
 <span><span class="va">muestra</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">30</span>, mean <span class="op">=</span> <span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>  <span class="co"># 30 observaciones con media 50 y desviación estándar 10</span></span>
@@ -327,13 +327,13 @@ t=\frac{\bar{X}-\mu}{\hat{S} / \sqrt{n}}
 <span><span class="co"># Mostrar resultados</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Cálculo manual:\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Cálculo manual:</code></pre>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Intervalo de confianza (95%): ["</span>, <span class="va">limite_inferior</span>, <span class="st">", "</span>, <span class="va">limite_superior</span>, <span class="st">"]\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Intervalo de confianza (95%): [ 45.86573 ,  53.19219 ]</code></pre>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Media muestral: "</span>, <span class="va">media</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Media muestral:  49.52896</code></pre>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Margen de error: "</span>, <span class="va">margen_error</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Margen de error:  3.663229</code></pre>
 </div>
@@ -342,7 +342,7 @@ t=\frac{\bar{X}-\mu}{\hat{S} / \sqrt{n}}
 <span class="header-section-number">8.8.3.2</span> Uso de la función <code>Calcula_IC_Media</code><a class="anchor" aria-label="anchor" href="#uso-de-la-funci%C3%B3n-calcula_ic_media"><i class="fas fa-link"></i></a>
 </h4>
 <p>Dado lo extenso del cálculo podemos definir una función para automatizar los pasos anteriores:</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Calcula_IC_Media</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">muestra</span>, <span class="va">nivel_confianza</span> <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># Tamaño de la muestra</span></span>
 <span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">muestra</span><span class="op">)</span></span>
@@ -377,20 +377,20 @@ t=\frac{\bar{X}-\mu}{\hat{S} / \sqrt{n}}
 <span>  <span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>Si ahora la aplicamos a los datos anteriores, obtendremos el mismo resultado con una llamada mucho más compacta.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular el intervalo con la función</span></span>
 <span><span class="va">resultado_funcion</span> <span class="op">&lt;-</span> <span class="fu">Calcula_IC_Media</span><span class="op">(</span><span class="va">muestra</span>, nivel_confianza <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Mostrar resultados</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Cálculo con la función:\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Cálculo con la función:</code></pre>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Intervalo de confianza (95%): ["</span>, <span class="va">resultado_funcion</span><span class="op">$</span><span class="va">limite_inferior</span>, <span class="st">", "</span>, <span class="va">resultado_funcion</span><span class="op">$</span><span class="va">limite_superior</span>, <span class="st">"]\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Intervalo de confianza (95%): [ 45.86573 ,  53.19219 ]</code></pre>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Media muestral: "</span>, <span class="va">resultado_funcion</span><span class="op">$</span><span class="va">media</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Media muestral:  49.52896</code></pre>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Margen de error: "</span>, <span class="va">resultado_funcion</span><span class="op">$</span><span class="va">margen_error</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Margen de error:  3.663229</code></pre>
 </div>
@@ -399,7 +399,7 @@ t=\frac{\bar{X}-\mu}{\hat{S} / \sqrt{n}}
 <span class="header-section-number">8.8.3.3</span> Uso del paquete <code>DesctTols</code><a class="anchor" aria-label="anchor" href="#uso-del-paquete-descttols"><i class="fas fa-link"></i></a>
 </h4>
 <p>El paquete <code>Desctools</code> simplifica el cálculo e interpretación de intervalos de confianza.</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Usar DescTools para intervalos de confianza</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://andrisignorell.github.io/DescTools/">DescTools</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://andrisignorell.github.io/DescTools/reference/MeanCI.html">MeanCI</a></span><span class="op">(</span><span class="va">muestra</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code></pre></div>
@@ -447,22 +447,22 @@ n=\frac{z_{\alpha / 2}^{2}}{K^{2}}
 </h4>
 <p>Como en el caso anterior es posible implementar las fórmulas directamente con R o usar algún paquete específico <code>samplesize</code>o el mismo <code>DescTools</code> que incorpora la función <code>MeanCIn</code> que, a partir del intérvalo de confianza centrado en la media y la desviación retorna el tamaño necesario para alcanzar una precisión determinada.</p>
 <p>Por ejemplo si en el ejemplo anterior, con una media de 49.53 y una desviación de 9,81 se desa una precisión (anchura del intérvalo entre dos) de 3 con confianza del 90%:</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://andrisignorell.github.io/DescTools/">DescTools</a></span><span class="op">)</span></span>
 <span><span class="va">prec</span><span class="op">&lt;-</span> <span class="fl">3</span></span>
 <span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fl">49.53</span></span>
 <span><span class="va">conf</span> <span class="op">=</span><span class="fl">0.9</span></span>
 <span><span class="fu"><a href="https://andrisignorell.github.io/DescTools/reference/MeanCIn.html">MeanCIn</a></span><span class="op">(</span>ci<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">m</span><span class="op">-</span><span class="va">prec</span>, <span class="va">m</span><span class="op">+</span><span class="va">prec</span><span class="op">)</span>, sd<span class="op">=</span><span class="fl">9.8</span>, conf.level<span class="op">=</span><span class="va">conf</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## [1] 30.75626</code></pre>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">conf</span> <span class="op">=</span><span class="fl">0.95</span></span>
 <span><span class="fu"><a href="https://andrisignorell.github.io/DescTools/reference/MeanCIn.html">MeanCIn</a></span><span class="op">(</span>ci<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">m</span><span class="op">-</span><span class="va">prec</span>, <span class="va">m</span><span class="op">+</span><span class="va">prec</span><span class="op">)</span>, sd<span class="op">=</span><span class="fl">9.8</span>, conf.level<span class="op">=</span><span class="va">conf</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## [1] 43.43345</code></pre>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">conf</span> <span class="op">=</span><span class="fl">0.99</span></span>
 <span><span class="fu"><a href="https://andrisignorell.github.io/DescTools/reference/MeanCIn.html">MeanCIn</a></span><span class="op">(</span>ci<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">m</span><span class="op">-</span><span class="va">prec</span>, <span class="va">m</span><span class="op">+</span><span class="va">prec</span><span class="op">)</span>, sd<span class="op">=</span><span class="fl">9.8</span>, conf.level<span class="op">=</span><span class="va">conf</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## [1] 74.61462</code></pre>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prec</span> <span class="op">&lt;-</span> <span class="fl">2</span>; <span class="va">conf</span> <span class="op">&lt;-</span> <span class="fl">0.95</span></span>
 <span><span class="fu"><a href="https://andrisignorell.github.io/DescTools/reference/MeanCIn.html">MeanCIn</a></span><span class="op">(</span>ci<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">m</span><span class="op">-</span><span class="va">prec</span>, <span class="va">m</span><span class="op">+</span><span class="va">prec</span><span class="op">)</span>, sd<span class="op">=</span><span class="fl">9.8</span>, conf.level<span class="op">=</span><span class="va">conf</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>## [1] 94.66357</code></pre>
@@ -558,7 +558,7 @@ p_{1}=\frac{X}{(n-X+1) F_{\alpha(2,2(n-X+1), 2 X}+X} ; p_{2}=\frac{(X+1) F_{\alp
 </h4>
 <p>En general los paquetes de R implementan múltiples métodos exactos. Este es el caso de <code>DescTools</code>que implementa más de una docena de métodos (podéis hacer <code><a href="https://andrisignorell.github.io/DescTools/reference/BinomCI.html">? DescTools::BinomCI</a></code> para aprender cuales son).</p>
 <p>Por ejemplo si hemos obtenido un valor de 37 con un tamaño muestral de 43 (es decir una estimación puntual de 37/43 = ``0.8604651) el intervalo de confianza se calculará como:</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://andrisignorell.github.io/DescTools/reference/BinomCI.html">BinomCI</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">37</span>, n<span class="op">=</span><span class="fl">43</span>, </span>
 <span>        method<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/eval.html">eval</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/formals.html">formals</a></span><span class="op">(</span><span class="va">BinomCI</span><span class="op">)</span><span class="op">$</span><span class="va">method</span><span class="op">)</span><span class="op">)</span>   <span class="co"># return all methods</span></span></code></pre></div>
 <pre><code>##                         est    lwr.ci    upr.ci
@@ -579,7 +579,7 @@ p_{1}=\frac{X}{(n-X+1) F_{\alpha(2,2(n-X+1), 2 X}+X} ; p_{2}=\frac{(X+1) F_{\alp
 ## lik               0.8604651 0.7372546 0.9420472
 ## blaker            0.8604651 0.7255152 0.9374534</code></pre>
 <p>Ante la duda de que método usar lo mejor es usar el métod por defecto (el primero de la lista anterior).</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://andrisignorell.github.io/DescTools/reference/BinomCI.html">BinomCI</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">37</span>, n<span class="op">=</span><span class="fl">43</span><span class="op">)</span> </span></code></pre></div>
 <pre><code>##            est    lwr.ci    upr.ci
 ## [1,] 0.8604651 0.7273641 0.9344428</code></pre>
@@ -983,7 +983,7 @@ h^{2}=\frac{\operatorname{Var}(X)}{1-\text { Probabilidad deseada del intervalo 
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

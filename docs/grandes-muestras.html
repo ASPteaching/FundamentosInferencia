@@ -105,7 +105,7 @@
 \]</span></p>
 <p>Ahora, supongamos que lanzamos el dado repetidamente y calculamos la media de los resultados. Al principio, con pocos lanzamientos, la media puede estar alejada de 3.5, pero a medida que aumentan los lanzamientos, la media se acercará más y más a 3.5, como lo predice la ley de los grandes números. Es decir, a medida que lanzamos más veces el dado, la probabilidad de que la media de los resultados se aleje de 3.5 por más de una cantidad arbitraria disminuye.</p>
 <p>Podemos ilustrarlo con el siguiente código de R</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Definir la función para simular lanzamientos de un dado</span></span>
 <span><span class="va">simular_dado</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">max_n</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">medias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="va">max_n</span><span class="op">)</span>  <span class="co"># Vector para almacenar las medias muestrales</span></span>
@@ -129,7 +129,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"images/LLN1.png"</span>,rel_path <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="images/LLN1.png" alt="" width="90%" style="display: block; margin: auto;"></div>
 <p>Este comportamiento es una manifestación intuitiva de la ley débil de los grandes números, ya que nos garantiza que la media muestral se acercará a la media poblacional a medida que el número de observaciones aumente.</p>
@@ -232,7 +232,7 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 <h4>
 <span class="header-section-number">5.3.4.1</span> Normalidad asintótica de la Binomial.<a class="anchor" aria-label="anchor" href="#normalidad-asint%C3%B3tica-de-la-binomial."><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Parámetros de la distribución binomial</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">1000</span>  <span class="co"># Número de ensayos</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fl">0.5</span>   <span class="co"># Probabilidad de éxito</span></span>
@@ -270,7 +270,7 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 <h4>
 <span class="header-section-number">5.3.4.2</span> Normalidad asintótica de la suma de puntuaciones de un dado<a class="anchor" aria-label="anchor" href="#normalidad-asint%C3%B3tica-de-la-suma-de-puntuaciones-de-un-dado"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Parámetros de la simulación</span></span>
 <span><span class="va">num_simulaciones</span> <span class="op">&lt;-</span> <span class="fl">10000</span>  <span class="co"># Número de simulaciones</span></span>
 <span><span class="va">num_lanzamientos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">100</span>, <span class="fl">1000</span>, <span class="fl">10000</span><span class="op">)</span>  <span class="co"># Diferentes tamaños de muestra</span></span>
@@ -398,7 +398,7 @@ S_{n}^{*} \xrightarrow{\mathrm{L}}
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

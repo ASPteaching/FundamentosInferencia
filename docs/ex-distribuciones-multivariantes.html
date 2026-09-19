@@ -592,7 +592,7 @@ P(Y_2 &gt; 0.5) = \iint_{\{y_2 &gt; 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \,
 P(Y_2 &gt; 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
 \]</span></p>
 <p>Evaluamos esta integral en dos pasos.</p>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Calculo de la probabilidad con R</span></span>
 <span></span>
 <span><span class="co">## Definir la función de integración para y1</span></span>
@@ -731,7 +731,7 @@ P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
 <p>Usamos la tabla para estos cálculos:</p>
 </li>
 </ol>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>   <span class="co">## Probabilidades conjuntas</span></span>
 <span>   <span class="va">probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">2</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">2</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">2</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">9</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>   </span>
@@ -746,7 +746,7 @@ P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
 <span>   </span>
 <span>   <span class="va">E_Y1</span></span></code></pre></div>
 <pre><code>## [1] 0.6666667</code></pre>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>   <span class="va">E_Y2</span></span></code></pre></div>
 <pre><code>## [1] 0.6666667</code></pre>
 <ol start="2" style="list-style-type: decimal">
@@ -755,7 +755,7 @@ P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
 <p>Para calcular <span class="math inline">\(E(Y_1 Y_2)\)</span>, sumamos el producto <span class="math inline">\(y_1 \cdot y_2\)</span> ponderado por la probabilidad conjunta <span class="math inline">\(p(y_1, y_2)\)</span>.</p>
 </li>
 </ol>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>   <span class="co">## Producto de Y1 * Y2 * probabilidad conjunta</span></span>
 <span>   <span class="va">E_Y1Y2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/outer.html">outer</a></span><span class="op">(</span><span class="va">y1_values</span>, <span class="va">y2_values</span>, <span class="st">"*"</span><span class="op">)</span> <span class="op">*</span> <span class="va">probs</span><span class="op">)</span></span>
 <span>   </span>
@@ -768,7 +768,7 @@ P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
 <p><span class="math display">\[ \operatorname{Cov}(Y_1, Y_2) = E(Y_1 Y_2) - E(Y_1)E(Y_2) \]</span></p>
 </li>
 </ol>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>   <span class="va">Cov_Y1Y2</span> <span class="op">&lt;-</span> <span class="va">E_Y1Y2</span> <span class="op">-</span> <span class="va">E_Y1</span> <span class="op">*</span> <span class="va">E_Y2</span></span>
 <span>   <span class="va">Cov_Y1Y2</span></span></code></pre></div>
 <pre><code>## [1] -0.2222222</code></pre>
@@ -812,7 +812,7 @@ P(Y_2 &gt; 0.5) = \iint_{\{y_2 &gt; 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \,
 P(Y_2 &gt; 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
 \]</span></p>
 <p>Evaluamos esta integral en dos pasos.</p>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Calculo de la probabilidad con R</span></span>
 <span></span>
 <span><span class="co">## Definir la función de integración para y1</span></span>
@@ -957,7 +957,7 @@ P(Y_1 &gt; 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
 P(Y_1 = 3, Y_2 = 1, Y_3 = 2) = \frac{6!}{3! \, 1! \, 2!} \left( \frac{1}{3} \right)^6
 \]</span></p>
 <p>Calculando esta expresión:</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">6</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">3</span></span>
 <span><span class="va">prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Special.html">factorial</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="va">p</span><span class="op">^</span><span class="va">n</span></span>
@@ -1102,7 +1102,7 @@ V(Y_2 - Y_3) = \frac{2n}{9} + \frac{2n}{9} - 2 \cdot \left(-\frac{n}{9}\right) =
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

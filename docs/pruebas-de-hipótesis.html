@@ -453,7 +453,7 @@ Los datos del estudio que ha obtenido la asociación ADG, y que según ellos res
 </tbody>
 </table></div>
 <!-- ![](https://cdn.mathpix.com/cropped/2024_12_15_dc401fd40c75e9888fdeg-09.jpg?height=507&width=838&top_left_y=386&top_left_x=615) --><p>Un sencillo código R puede calcular las probabilidades tienen los once resultados bajo otras hipótesis que se podrían formular sobre el verdadero valor de la probabilidad <span class="math inline">\(p\)</span> de la población.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_p</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="co"># p algun valor entre 0 y 1</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span>, size<span class="op">=</span><span class="fl">10</span>, prob<span class="op">=</span><span class="va">prob_p</span><span class="op">)</span></span></code></pre></div>
 <p>Podemos entender estas diferentes ” <span class="math inline">\(p\)</span> ” como hipótesis distintas que se podrían haber establecido como alternativa a <span class="math inline">\(\mathrm{H}_{0}\)</span>. Excepto en los casos triviales <span class="math inline">\(p=0\)</span> o <span class="math inline">\(p=1\)</span>, no hay ningún resultado que no pueda presentarse, aunque sea con probabilidades muy pequeñas.</p>
@@ -1987,7 +1987,7 @@ Supongamos que la población tuviera una desviación estándar de <span class="m
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

@@ -179,13 +179,13 @@ En una población con 12.637 niños, ¿debe hacerse la campaña si, de 387 de el
 <p>Si nos basamos en el p-valor, el criterio de decisiónserá **rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\alpha &gt; pval\)</span></p>
 <p>Podemos ahora realizar los cálculos:</p>
 <p>El valor crítico es:</p>
-<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">alpha</span><span class="op">&lt;-</span> <span class="fl">0.05</span></span>
 <span><span class="va">zalpha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">alpha</span><span class="op">)</span></span>
 <span><span class="va">zalpha</span></span></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
 <p>La proporción muestral, <span class="math inline">\(\hat{p}\)</span></p>
-<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Datos del problema</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">70</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">387</span></span>
@@ -196,13 +196,13 @@ En una población con 12.637 niños, ¿debe hacerse la campaña si, de 387 de el
 <span><span class="va">phat</span></span></code></pre></div>
 <pre><code>## [1] 0.1808786</code></pre>
 <p>El valor del estadístico de test, calculado sobre la muestra será:</p>
-<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb366"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Estadístico z0</span></span>
 <span><span class="va">z0</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">phat</span> <span class="op">-</span> <span class="va">p0</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">p0</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">p0</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span><span class="op">)</span></span>
 <span><span class="va">z0</span></span></code></pre></div>
 <pre><code>## [1] 1.701208</code></pre>
 <p>El p-valor se calcula como:</p>
-<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">z0</span>, lower.tail<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">pval</span></span></code></pre></div>
 <pre><code>## [1] 0.044452</code></pre>
@@ -211,17 +211,17 @@ En una población con 12.637 niños, ¿debe hacerse la campaña si, de 387 de el
 <li><p><code>z0</code>con <span class="math inline">\(z_\alpha\)</span>: Si <span class="math inline">\(z0 &gt; z_\alpha\)</span> rechazamos <span class="math inline">\(H_0\)</span></p></li>
 <li><p><code>pval</code>con <span class="math inline">\(\alpha\)</span>: Si <span class="math inline">\(pval &lt; \alpha\)</span> rechazamos <span class="math inline">\(H_0\)</span></p></li>
 </ul>
-<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"zalpha vale: "</span>, <span class="va">zalpha</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## zalpha vale:  1.644854</code></pre>
-<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"z0 vale    : "</span>, <span class="va">z0</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## z0 vale    :  1.701208</code></pre>
 <p>Es decir <span class="math inline">\(Z0 &gt; Z_\alpha\)</span> lo que nos lleva a rechazar la hipótesis nula y</p>
-<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"alpha vale : "</span>, <span class="va">alpha</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## alpha vale :  0.05</code></pre>
-<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"pval vale  : "</span>, <span class="va">pval</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## pval vale  :  0.044452</code></pre>
 <p>El pvalor es <span class="math inline">\(pval &lt; \alpha\)</span> lo que también lleva a rechazar <span class="math inline">\(H_0\)</span>.</p>
@@ -271,7 +271,7 @@ a concluir que la proporción de niños con dientes cariados en la población es
 - <span class="math inline">\(n = 10\)</span> es el tamaño de la muestra.</p>
 <p>Fijaremos el nivel de significación <span class="math inline">\(\alpha = 0.05\)</span> y determinaremos el valor crítico <span class="math inline">\(t_\alpha\)</span>, que será el cuantil correspondiente en una <span class="math inline">\(t\)</span> con <span class="math inline">\(n - 1 = 9\)</span> grados de libertad. Alternativamente, calcularemos el p-valor para decidir si rechazamos <span class="math inline">\(H_0\)</span>, en caso que éste sea inferior al nivel de significación del test.</p>
 <p>Procedemos a realizar los cálculos:</p>
-<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Datos</span></span>
 <span><span class="va">xbar</span> <span class="op">&lt;-</span> <span class="fl">3.5</span></span>
 <span><span class="va">mu0</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
@@ -397,7 +397,7 @@ a concluir que la proporción de niños con dientes cariados en la población es
 - <span class="math display">\[ R_i \]</span> es el rango absoluto asignado a la diferencia <span class="math display">\[ |d_i| \]</span>, ordenada en valor absoluto.</p>
 <p>El valor observado de <span class="math display">\[ W \]</span> se compara con su distribución teórica bajo la hipótesis nula para calcular el p-valor. Dicha distribución puede ser exacta o aproximada, pero aquí no profundizaremos en ello.</p>
 <p>Procedemos a realizar los cálculos con R:</p>
-<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Datos</span></span>
 <span><span class="va">placebo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">211</span>, <span class="fl">210</span>, <span class="fl">210</span>, <span class="fl">203</span>, <span class="fl">196</span>, <span class="fl">190</span>, <span class="fl">191</span>, <span class="fl">177</span>, <span class="fl">173</span>, <span class="fl">170</span>, <span class="fl">163</span><span class="op">)</span></span>
 <span><span class="va">h_cloro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">181</span>, <span class="fl">172</span>, <span class="fl">196</span>, <span class="fl">191</span>, <span class="fl">167</span>, <span class="fl">161</span>, <span class="fl">178</span>, <span class="fl">160</span>, <span class="fl">149</span>, <span class="fl">119</span>, <span class="fl">156</span><span class="op">)</span></span>
@@ -412,7 +412,7 @@ a concluir que la proporción de niños con dientes cariados en la población es
 <span><span class="va">wilcoxon_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">h_cloro</span>, <span class="va">placebo</span>, mu <span class="op">=</span> <span class="op">-</span><span class="fl">10</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Warning in wilcox.test.default(h_cloro, placebo, mu = -10, alternative =
 ## "less", : cannot compute exact p-value with ties</code></pre>
-<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>  mean_difference <span class="op">=</span> <span class="va">meandiff</span>,</span>
 <span>  t_test_statistic <span class="op">=</span> <span class="va">t_test</span><span class="op">$</span><span class="va">statistic</span>,</span>
@@ -441,7 +441,7 @@ a concluir que la proporción de niños con dientes cariados en la población es
 <p>NOTA: Obsérves como se realiza el test de datos pareados. R no indica explícitamente el orden en que realiza la diferencia por lo que, en caso de duda lo mejor es verificar si el signo del estadístico de test concuerda con el de la diferencia de medias que se ha añadido como verificación.</p>
 <p>En este caso la diferencia ha sido entre el primer vector y el segundo por lo que, si <span class="math inline">\(H_0\)</span> es cierta y la diferencia es, como mínimo de 10 unidades el valor de la diferencia media será de -10, porque hemos substraido la cntidad grande (“placebo”) de la pequeña (“hidroclorotiazida”).</p>
 <p>Un diagrama de lineas para datos apareados sirve para reforzar la conclusión:</p>
-<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Datos</span></span>
 <span><span class="va">placebo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">211</span>, <span class="fl">210</span>, <span class="fl">210</span>, <span class="fl">203</span>, <span class="fl">196</span>, <span class="fl">190</span>, <span class="fl">191</span>, <span class="fl">177</span>, <span class="fl">173</span>, <span class="fl">170</span>, <span class="fl">163</span><span class="op">)</span></span>
 <span><span class="va">h_cloro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">181</span>, <span class="fl">172</span>, <span class="fl">196</span>, <span class="fl">191</span>, <span class="fl">167</span>, <span class="fl">161</span>, <span class="fl">178</span>, <span class="fl">160</span>, <span class="fl">149</span>, <span class="fl">119</span>, <span class="fl">156</span><span class="op">)</span></span>
@@ -1167,7 +1167,7 @@ a concluir que la proporción de niños con dientes cariados en la población es
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

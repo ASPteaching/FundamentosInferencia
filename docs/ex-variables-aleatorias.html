@@ -159,7 +159,7 @@ P(X = x) =
 \end{cases}
 \]</span></p>
 <p>Podemos representarla gráficamente usando R:</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Valores de X y sus probabilidades</span></span>
 <span><span class="va">X_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">probabilities</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.30</span>, <span class="fl">0.20</span>, <span class="fl">0.50</span><span class="op">)</span></span>
@@ -198,7 +198,7 @@ E(X^2) = 0^2 \cdot 0.30 + 1^2 \cdot 0.20 + 2^2 \cdot 0.50 = 0 + 0.20 + 2.00 = 2.
 \text{Var}(X) = 2.20 - (1.20)^2 = 2.20 - 1.44 = 0.76
 \]</span></p>
 <p>Verificamos los cálculos con R:</p>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular esperanza y varianza</span></span>
 <span><span class="va">esperanza</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">X_values</span> <span class="op">*</span> <span class="va">probabilities</span><span class="op">)</span></span>
 <span><span class="va">esperanza_cuadrado</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">X_values</span><span class="op">^</span><span class="fl">2</span> <span class="op">*</span> <span class="va">probabilities</span><span class="op">)</span></span>
@@ -207,7 +207,7 @@ E(X^2) = 0^2 \cdot 0.30 + 1^2 \cdot 0.20 + 2^2 \cdot 0.50 = 0 + 0.20 + 2.00 = 2.
 <span></span>
 <span><span class="va">esperanza</span></span></code></pre></div>
 <pre><code>## [1] 1.2</code></pre>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">varianza</span></span></code></pre></div>
 <pre><code>## [1] 0.76</code></pre>
 <!-- ## Resultados -->
@@ -260,7 +260,7 @@ K \sum_{x=0}^{5} \frac{1}{2+x} = 1
 \sum_{x=0}^{5} \frac{1}{2+x} = \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7}
 \]</span></p>
 <p>Podemos calcular esta suma numéricamente en R:</p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Valores de la suma</span></span>
 <span><span class="va">suma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">0</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -286,7 +286,7 @@ E(X) = \sum_{x=0}^{5} x \cdot p(x) = \sum_{x=0}^{5} x \cdot \frac{K}{2+x}
 E(X^2) = \sum_{x=0}^{5} x^2 \cdot p(x) = \sum_{x=0}^{5} x^2 \cdot \frac{K}{2+x}
 \]</span></p>
 <p>Podemos calcular la esperanza y la varianza en R de la siguiente forma:</p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular la esperanza</span></span>
 <span><span class="va">esperanza</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="op">*</span> <span class="va">K</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">0</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -298,7 +298,7 @@ E(X^2) = \sum_{x=0}^{5} x^2 \cdot p(x) = \sum_{x=0}^{5} x^2 \cdot \frac{K}{2+x}
 <span></span>
 <span><span class="va">esperanza</span></span></code></pre></div>
 <pre><code>## [1] 1.766816</code></pre>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">varianza</span></span></code></pre></div>
 <pre><code>## [1] 2.761769</code></pre>
 </div>
@@ -312,7 +312,7 @@ E(X^2) = \sum_{x=0}^{5} x^2 \cdot p(x) = \sum_{x=0}^{5} x^2 \cdot \frac{K}{2+x}
 P(X = 3) = p(3) = \frac{K}{2+3}
 \]</span></p>
 <p>Podemos calcularlo en R:</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Probabilidad de X = 3</span></span>
 <span><span class="va">P_X_3</span> <span class="op">&lt;-</span> <span class="va">K</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">P_X_3</span></span></code></pre></div>
@@ -323,7 +323,7 @@ P(X = 3) = p(3) = \frac{K}{2+3}
 P(X \geq 1) = 1 - P(X = 0)
 \]</span></p>
 <p>Podemos calcularlo en R:</p>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Probabilidad de X &gt;= 1</span></span>
 <span><span class="va">P_X_1</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">K</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">0</span><span class="op">)</span></span>
 <span><span class="va">P_X_1</span></span></code></pre></div>
@@ -334,7 +334,7 @@ P(X \geq 1) = 1 - P(X = 0)
 P(X \leq 2) = P(X = 0) + P(X = 1) + P(X = 2)
 \]</span></p>
 <p>Podemos calcularlo en R:</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Probabilidad de X &lt;= 2</span></span>
 <span><span class="va">P_X_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">K</span> <span class="op">/</span> <span class="op">(</span><span class="fl">2</span> <span class="op">+</span> <span class="fl">0</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">P_X_2</span></span></code></pre></div>
@@ -397,7 +397,7 @@ g_{X}(x)=\exp (-k x), \text { dondex } \geq 0
 <h3>
 <span class="header-section-number">17.3.2</span> Gráfica de <span class="math inline">\(f_X(x)\)</span><a class="anchor" aria-label="anchor" href="#gr%C3%A1fica-de-f_xx"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># R code to plot the density function</span></span>
 <span><span class="va">f_x</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="va">f_x</span>, from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"blue"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, ylab <span class="op">=</span> <span class="st">"f_X(x)"</span>, xlab <span class="op">=</span> <span class="st">"x"</span>,</span>
@@ -419,7 +419,7 @@ F_X(x) = \left[-0.25 \cdot t^2 + t\right]_0^x = -0.25 \cdot x^2 + x
 \]</span></p>
 <p>Para <span class="math inline">\(x &lt; 0\)</span>, <span class="math inline">\(F_X(x) = 0\)</span>, y para <span class="math inline">\(x &gt; 2\)</span>, <span class="math inline">\(F_X(x) = 1\)</span>.</p>
 <p><strong>Gráfica de <span class="math inline">\(F_X(x)\)</span>ç</strong></p>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># R code to plot the CDF function</span></span>
 <span><span class="va">F_x</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">2</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">0.25</span> <span class="op">*</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="va">F_x</span>, from <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, to <span class="op">=</span> <span class="fl">3</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, ylab <span class="op">=</span> <span class="st">"F_X(x)"</span>, xlab <span class="op">=</span> <span class="st">"x"</span>,</span>
@@ -563,7 +563,7 @@ Esto puede calcularse:</p>
 P(X\geq k) = 1-P(X\leq k-1)
 \]</span>
 En primer lugar calculamos esta suma utilizando la función de masa de probabilidad:</p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Parámetros del problema</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fl">0.8</span></span>
@@ -578,7 +578,7 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <span><span class="va">prob_total</span></span></code></pre></div>
 <pre><code>## [1] 0.6777995</code></pre>
 <p>Si usamos la funcion de distribución, <code>pbinom</code></p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span> <span class="op">(</span><span class="fl">7</span>, size <span class="op">=</span> <span class="va">n</span>, prob <span class="op">=</span> <span class="va">p</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.6777995</code></pre>
 <p>Naturalmente ambos resultados coinciden. Obsérvese que al ser <span class="math inline">\(p=0.8\)</span> valores altos resultan bastante probables, con lo que la</p>
@@ -602,7 +602,7 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <p>La probabilidad de observar exactamente <span class="math inline">\(k = 10\)</span> muertes se puede calcular usando la PMF de la distribución de Poisson con <span class="math inline">\(\lambda = 12\)</span>:</p>
 <p><span class="math display">\[ P(X = 10) = \frac{12^{10} e^{-12}}{10!} \]</span></p>
 <p>Podemos calcular este valor con R.</p>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lambda</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
 <span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
 <span><span class="va">prob_10_muertes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span><span class="va">k</span>, <span class="va">lambda</span><span class="op">)</span></span>
@@ -616,7 +616,7 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <p>Para obtener la probabilidad de que 15 o más personas mueran, necesitamos calcular la probabilidad acumulada de <span class="math inline">\(X \geq 15\)</span>. Esto se puede obtener restando de 1 la probabilidad acumulada de <span class="math inline">\(X &lt; 15\)</span>, es decir:</p>
 <p><span class="math display">\[ P(X \geq 15) = 1 - P(X &lt; 15) = 1 - P(X \leq 14) \]</span></p>
 <p>Usamos la función de probabilidad acumulada (CDF) de la Poisson en R.</p>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">k_15</span> <span class="op">&lt;-</span> <span class="fl">14</span></span>
 <span><span class="va">prob_15_o_mas</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span><span class="va">k_15</span>, <span class="va">lambda</span><span class="op">)</span></span>
 <span><span class="va">prob_15_o_mas</span></span></code></pre></div>
@@ -629,7 +629,7 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <p>La probabilidad de que 10 o menos personas mueran es simplemente la probabilidad acumulada de <span class="math inline">\(X \leq 10\)</span>, que se puede calcular directamente con la CDF de la distribución de Poisson.</p>
 <p><span class="math display">\[ P(X \leq 10) \]</span></p>
 <p>Calculamos esto en R:</p>
-<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_10_o_menos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">ppois</a></span><span class="op">(</span><span class="va">k</span>, <span class="va">lambda</span><span class="op">)</span></span>
 <span><span class="va">prob_10_o_menos</span></span></code></pre></div>
 <pre><code>## [1] 0.3472294</code></pre>
@@ -641,19 +641,19 @@ En primer lugar calculamos esta suma utilizando la función de masa de probabili
 <ol style="list-style-type: decimal">
 <li>La probabilidad de que haya exactamente 10 muertes es:</li>
 </ol>
-<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_10_muertes</span></span></code></pre></div>
 <pre><code>## [1] 0.1048373</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>La probabilidad de que 15 o más personas mueran es:</li>
 </ol>
-<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_15_o_mas</span></span></code></pre></div>
 <pre><code>## [1] 0.2279755</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>La probabilidad de que 10 o menos personas mueran es:</li>
 </ol>
-<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_10_o_menos</span></span></code></pre></div>
 <pre><code>## [1] 0.3472294</code></pre>
 </div>
@@ -740,7 +740,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <p>La probabilidad de que exactamente 10 mutaciones se deban a radiaciones se puede calcular usando la PMF de la binomial:</p>
 <p><span class="math display">\[ P(X = 10) = \binom{150}{10} (0.1)^{10} (0.9)^{140} \]</span></p>
 <p>Usando R tenemos:</p>
-<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">150</span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fl">0.1</span></span>
 <span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
@@ -755,7 +755,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <p>La distribución de Poisson con <span class="math inline">\(\lambda = n \cdot p = 15\)</span> también se puede usar para aproximar esta probabilidad. La probabilidad de obtener exactamente 10 mutaciones se calcula como:</p>
 <p><span class="math display">\[ P(X = 10) = \frac{15^{10} e^{-15}}{10!} \]</span></p>
 <p>Con R:</p>
-<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lambda</span> <span class="op">&lt;-</span> <span class="fl">15</span></span>
 <span><span class="va">prob_pois_10</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">dpois</a></span><span class="op">(</span><span class="va">k</span>, <span class="va">lambda</span><span class="op">)</span></span>
 <span><span class="va">prob_pois_10</span></span></code></pre></div>
@@ -773,13 +773,13 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <ul>
 <li>Usando la distribución binomial:</li>
 </ul>
-<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_binom_10</span></span></code></pre></div>
 <pre><code>## [1] 0.04591681</code></pre>
 <ul>
 <li>Usando la aproximación de Poisson:</li>
 </ul>
-<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_pois_10</span></span></code></pre></div>
 <pre><code>## [1] 0.04861075</code></pre>
 </li>
@@ -807,7 +807,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <p>Sustituyendo los valores de <span class="math inline">\(\mu = 106\)</span> y <span class="math inline">\(\sigma = 8\)</span>:</p>
 <p><span class="math display">\[ Z = \frac{120 - 106}{8} = 1.75 \]</span></p>
 <p>Ahora calculamos <span class="math inline">\(P(Z \leq 1.75)\)</span>, es decir, la probabilidad de que la variable estándar normal sea menor o igual que 1.75. Esta probabilidad la obtenemos a partir de la tabla de la normal estándar o usando R.</p>
-<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calculamos la probabilidad con la función pnorm</span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1.75</span><span class="op">)</span></span>
 <span><span class="va">p1</span></span></code></pre></div>
@@ -823,7 +823,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <p><span class="math display">\[ Z_{120} = \frac{120 - 106}{8} = 1.75 \]</span>
 <span class="math display">\[ Z_{90} = \frac{90 - 106}{8} = -2.00 \]</span></p>
 <p>Ahora calculamos <span class="math inline">\(P(Z \leq 1.75)\)</span> y <span class="math inline">\(P(Z \leq -2.00)\)</span> usando R.</p>
-<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calculamos ambas probabilidades</span></span>
 <span><span class="va">p2_120</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">1.75</span><span class="op">)</span></span>
 <span><span class="va">p2_90</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2.00</span><span class="op">)</span></span>
@@ -840,7 +840,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 <p>Sabemos que <span class="math inline">\(X \sim N(106, 64)\)</span>, así que estandarizamos el valor <span class="math inline">\(p_{25}\)</span>:</p>
 <p><span class="math display">\[ Z_{p25} = \frac{p_{25} - 106}{8} \]</span></p>
 <p>Luego, encontramos el valor de <span class="math inline">\(Z_{p25}\)</span> que corresponde al percentil 25 de la distribución normal estándar, es decir, <span class="math inline">\(P(Z \leq Z_{p25}) = 0.25\)</span>. Esto lo obtenemos con la función inversa de la distribución normal estándar.</p>
-<div class="sourceCode" id="cb264"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calculamos el valor z correspondiente al percentil 25</span></span>
 <span><span class="va">z_p25</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.25</span><span class="op">)</span></span>
 <span><span class="co"># Calculamos el p25 en la escala original</span></span>
@@ -886,7 +886,7 @@ Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien
 P(X_d \leq x) = 0.02
 \]</span></p>
 <p>Esto corresponde al percentil 2% de la distribución normal de <span class="math inline">\(X_d\)</span>. Utilizamos la función cuantil de la distribución normal para calcularlo:</p>
-<div class="sourceCode" id="cb266"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Nivel de glucosa límite para clasificar como sano</span></span>
 <span><span class="va">percentil_sano</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.02</span>, mean <span class="op">=</span> <span class="fl">160</span>, sd <span class="op">=</span> <span class="fl">31.4</span><span class="op">)</span></span>
 <span><span class="va">percentil_sano</span></span></code></pre></div>
@@ -902,13 +902,13 @@ P(X_d \leq x) = 0.02
 P(X_s &gt; \text{percentil\_sano})
 \]</span></p>
 <p>Esto se puede hacer usando la función de distribución acumulada de la normal para la distribución de los sanos:</p>
-<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb269"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Probabilidad de que un sano sea clasificado como diabético</span></span>
 <span><span class="va">prob_sano_como_diabetico</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">percentil_sano</span>, mean <span class="op">=</span> <span class="fl">80</span>, sd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">prob_sano_como_diabetico</span></span></code></pre></div>
 <pre><code>## [1] 0.06042348</code></pre>
 <p>Esto nos dará la probabilidad de que un individuo sano sea clasificado erróneamente como diabético. Para encontrar el número de sanos clasificados como diabéticos en una población, multiplicamos esta probabilidad por el número total de sanos en la población.</p>
-<div class="sourceCode" id="cb270"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Parámetros de las distribuciones</span></span>
 <span><span class="va">mu_s</span> <span class="op">&lt;-</span> <span class="fl">80</span>;  <span class="va">sigma_s</span> <span class="op">&lt;-</span> <span class="fl">10</span>       <span class="co"># sanos</span></span>
 <span><span class="va">mu_d</span> <span class="op">&lt;-</span> <span class="fl">160</span>; <span class="va">sigma_d</span> <span class="op">&lt;-</span> <span class="fl">31.4</span>     <span class="co"># diabéticos</span></span>
@@ -922,11 +922,11 @@ P(X_s &gt; \text{percentil\_sano})
 <span><span class="co"># Mostrar resultados</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Punto de corte:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">corte</span>, <span class="fl">2</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Punto de corte: 95.51</code></pre>
-<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Proporción de sanos mal clasificados:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">100</span> <span class="op">*</span> <span class="va">p_error_sano</span>, <span class="fl">2</span><span class="op">)</span>, <span class="st">"%\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Proporción de sanos mal clasificados: 6.04 %</code></pre>
 <p>Podemos representar gráficamente la distribución de diabéticos y sanos lo que nos proporciona también una imagen de las probabilidades de clasificación erróneas.</p>
-<div class="sourceCode" id="cb274"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code>## Loading required package: dplyr</code></pre>
@@ -941,7 +941,7 @@ P(X_s &gt; \text{percentil\_sano})
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Datos para las curvas</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">240</span>, length.out <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -1004,20 +1004,20 @@ P(\text{diagnóstico}) = P(\text{diagnóstico} | D) P(D) + P(\text{diagnóstico}
 <li><p>Así pues <span class="math inline">\(P(S) = 0.90\)</span> es la probabilidad de que un individuo seleccionado al azar sea sano.</p></li>
 <li><p>La probabilidad de que un diabético sea diagnosticado como diabético es <span class="math inline">\(P(\text{diagnóstico} | D)\)</span> (<code>prob_diabetico_diagnosticado</code> en R), lo cual corresponde a la probabilidad de que un individuo con glucosa <span class="math inline">\(X_d \sim N(160, 31.4)\)</span> sea diagnosticado como diabético, es decir, que su nivel de glucosa sea superior al valor límite de clasificación (el valor con el que hemos definido que es “estar sano”).</p></li>
 </ul>
-<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Probabilidad de que un diabético sea diagnosticado como diabético</span></span>
 <span><span class="va">prob_diabetico_diagnosticado</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">percentil_sano</span>, mean <span class="op">=</span> <span class="fl">160</span>, sd <span class="op">=</span> <span class="fl">31.4</span><span class="op">)</span></span>
 <span><span class="va">prob_diabetico_diagnosticado</span></span></code></pre></div>
 <pre><code>## [1] 0.98</code></pre>
 <p>De forma análoga podemos calcular <span class="math inline">\(P(\text{diagnóstico} | S)\)</span> (<code>prob_sano_diagnosticado</code> en R), la probabilidad dwe que estando sano, un indivíduo sea diagnosticado como diabético, es decir que su glucosa supere el punto de corte que hemos denominado <code>percentil_sano</code>.</p>
-<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_sano_diagnosticado</span> <span class="op">&lt;-</span> </span>
 <span> <span class="fl">1</span><span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">percentil_sano</span>, mean <span class="op">=</span> <span class="fl">80</span>, sd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">prob_sano_diagnosticado</span></span></code></pre></div>
 <pre><code>## [1] 0.06042348</code></pre>
 <p>A partir de aquí podemos aplicar la fórmula de las probabilidades totales para calcular la probabilidad de ser diagnosticado.</p>
 <p><span class="math inline">\(P(\text{diagnóstico})\)</span>:</p>
-<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Probabilidad de diagnóstico en la población general</span></span>
 <span><span class="va">prob_diagnostico_total</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="va">prob_diabetico_diagnosticado</span> <span class="op">*</span> <span class="fl">0.10</span> <span class="op">+</span> </span>
@@ -1025,7 +1025,7 @@ P(\text{diagnóstico}) = P(\text{diagnóstico} | D) P(D) + P(\text{diagnóstico}
 <span><span class="va">prob_diagnostico_total</span></span></code></pre></div>
 <pre><code>## [1] 0.1523811</code></pre>
 <p>Luego, calculamos la probabilidad (condicional) de que un individuo diagnosticado como diabético realmente lo sea:</p>
-<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># </span></span>
 <span><span class="va">prob_diagnostico_given_diabetico</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="op">(</span><span class="va">prob_diabetico_diagnosticado</span> <span class="op">*</span> <span class="fl">0.10</span><span class="op">)</span> <span class="op">/</span> </span>
@@ -1065,7 +1065,7 @@ P(X = k) = \frac{\binom{M}{k} \binom{N-M}{n-k}}{\binom{N}{n}}
 <li><span class="math inline">\(k = 6\)</span></li>
 </ul>
 <p>Podemos calcular esta probabilidad utilizando la función <code>dhyper</code> en R, que calcula la probabilidad de un valor específico en una distribución hipergeométrica.</p>
-<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular la probabilidad usando la distribución hipergeométrica</span></span>
 <span><span class="va">probabilidad</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Hypergeometric.html">dhyper</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">12</span><span class="op">)</span></span>
 <span><span class="va">probabilidad</span></span></code></pre></div>
@@ -1148,7 +1148,7 @@ P(X = k) = \frac{\binom{M}{k} \binom{N-M}{n-k}}{\binom{N}{n}}
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

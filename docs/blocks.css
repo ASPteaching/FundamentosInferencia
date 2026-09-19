@@ -39,3 +39,11 @@ div.think {
     margin-bottom: 20px;
     border-radius: 10px;
 }
+
+/* Cajas pedagógicas reutilizables (compatibles con HTML y PDF sin CSS). */
+div.pedagogical-box { padding: 1em; margin: 1.25em 0; border-left: 5px solid #356a9a; border-radius: 4px; background-color: #f4f8fb; }
+div.pedagogical-box > p:first-child { margin-top: 0; }
+div.pedagogical-box.key { border-left-color: #356a9a; }
+div.pedagogical-box.example { border-left-color: #2f7d4a; background-color: #f3faf5; }
+div.pedagogical-box.attention { border-left-color: #b56b00; background-color: #fff8eb; }
+div.pedagogical-box.r { border-left-color: #6a3d8e; background-color: #faf5fd; }

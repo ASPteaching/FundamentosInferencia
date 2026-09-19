@@ -450,7 +450,7 @@ n=\left(\frac{t_{\alpha / 2}+t_{1-\beta}}{\Delta}\right)^{2} \widetilde{S}_{d}^{
 </h3>
 <p>Se estudia el efecto de una intervención destinada a aumentar el colesterol HDL en un grupo de <span class="math inline">\(n = 10\)</span> pacientes.
 En cada paciente se mide el nivel de HDL (en mg/dL) antes y después de la intervención.</p>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">HDL_antes</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">35</span>, sd <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span></span>
@@ -458,14 +458,14 @@ En cada paciente se mide el nivel de HDL (en mg/dL) antes y después de la inter
 <span></span>
 <span><span class="va">HDL_antes</span></span></code></pre></div>
 <pre><code>##  [1] 32.8 34.1 41.2 35.3 35.5 41.9 36.8 29.9 32.3 33.2</code></pre>
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">HDL_despues</span></span></code></pre></div>
 <pre><code>##  [1] 49.9 46.4 46.6 45.4 42.8 52.1 47.0 37.1 47.8 43.1</code></pre>
 <div id="definición-de-la-variable-diferencia" class="section level4" number="12.6.5.1">
 <h4>
 <span class="header-section-number">12.6.5.1</span> Definición de la variable diferencia<a class="anchor" aria-label="anchor" href="#definici%C3%B3n-de-la-variable-diferencia"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">D</span> <span class="op">&lt;-</span> <span class="va">HDL_despues</span> <span class="op">-</span> <span class="va">HDL_antes</span></span>
 <span><span class="va">D</span></span></code></pre></div>
 <pre><code>##  [1] 17.1 12.3  5.4 10.1  7.3 10.2 10.2  7.2 15.5  9.9</code></pre>
@@ -485,13 +485,13 @@ H_1: \mu_D \neq 0.
 <h4>
 <span class="header-section-number">12.6.5.3</span> Cálculo del estadístico de contraste<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-del-estad%C3%ADstico-de-contraste"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 10.52</code></pre>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 3.645941</code></pre>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="cn">T</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="cn">T</span></span></code></pre></div>
 <pre><code>## [1] 9.124436</code></pre>
@@ -501,11 +501,11 @@ H_1: \mu_D \neq 0.
 <h4>
 <span class="header-section-number">12.6.5.4</span> Decisión mediante el p-valor<a class="anchor" aria-label="anchor" href="#decisi%C3%B3n-mediante-el-p-valor"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">2</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">pt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="cn">T</span><span class="op">)</span>, df <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 7.629805e-06</code></pre>
 <p><strong>Uso de <code>t.test</code> sobre la variable diferencia</strong></p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">D</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
@@ -519,7 +519,7 @@ H_1: \mu_D \neq 0.
 ## mean of x 
 ##     10.52</code></pre>
 <p><strong>Uso de <code>t.test</code> con la opción <code>paired = TRUE</code></strong></p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">HDL_despues</span>, <span class="va">HDL_antes</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
@@ -895,13 +895,13 @@ T_{Y}=\frac{k \bar{X}_{1}-k \bar{X}_{2}-k d_{0}}{\sqrt{\frac{\left(n_{1}-1\right
 <ul>
 <li>Si queremos que los números se puedan repetir</li>
 </ul>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span>, <span class="fl">10</span>, replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##  [1] 15 10 13  7  9  9 10 23 21  7</code></pre>
 <ul>
 <li>Si queremos que sean aleatorios pero no puedan aparecer dos veces:</li>
 </ul>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span>, <span class="fl">10</span>, replace<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>##  [1] 21  6  2  5  8 12 13 18  1  9</code></pre>
 </div>
@@ -1044,7 +1044,7 @@ T_{Y}=\frac{k \bar{X}_{1}-k \bar{X}_{2}-k d_{0}}{\sqrt{\frac{\left(n_{1}-1\right
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

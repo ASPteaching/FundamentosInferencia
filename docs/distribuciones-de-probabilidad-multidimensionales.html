@@ -199,7 +199,7 @@ P(X = 1, Y = 0) = 0.1
 <span class="header-section-number">4.1.4</span> Implementación en R<a class="anchor" aria-label="anchor" href="#implementaci%C3%B3n-en-r"><i class="fas fa-link"></i></a>
 </h3>
 <p>Podemos visualizar esta distribución conjunta con un gráfico en R.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Crear los datos de la distribución conjunta</span></span>
@@ -218,7 +218,7 @@ P(X = 1, Y = 0) = 0.1
 <span></span>
 <span><span class="co"># Guardar el gráfico en el subdirectorio imagenes</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"images/distribucion_conjunta.png"</span>, plot <span class="op">=</span> <span class="va">p</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4</span>, dpi <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"images/distribucion_conjunta.png"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="images/distribucion_conjunta.png" alt="" width="80%"></div>
 </div>
@@ -369,7 +369,7 @@ Esta última expresión se corresponde con la función de distribución evaluada
 <span class="header-section-number">4.2.3.1</span> Código R para el cálculo de la pmf<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-r-para-el-c%C3%A1lculo-de-la-pmf"><i class="fas fa-link"></i></a>
 </h4>
 <p>Podemos hacer los cálculos usando R:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prob_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.02</span>, <span class="fl">0.00</span>,</span>
 <span>                       <span class="fl">0.10</span>, <span class="fl">0.10</span>, <span class="fl">0.04</span>, <span class="fl">0.01</span>,</span>
 <span>                       <span class="fl">0.06</span>, <span class="fl">0.12</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>,</span>
@@ -392,12 +392,12 @@ Esta última expresión se corresponde con la función de distribución evaluada
 ## 3 0.03 0.12 0.10 0.05
 ## 4 0.01 0.08 0.12 0.06
 ## 5 0.00 0.03 0.10 0.07</code></pre>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular la probabilidad de (X = 2, Y = 1)</span></span>
 <span><span class="va">prob_X2_Y1</span> <span class="op">&lt;-</span> <span class="va">prob_table</span><span class="op">[</span><span class="st">"2"</span>, <span class="st">"1"</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"P(X = 2, Y = 1) ="</span>, <span class="va">prob_X2_Y1</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## P(X = 2, Y = 1) = 0.12</code></pre>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular la probabilidad de (X &lt; 3, Y &lt; 2)</span></span>
 <span><span class="va">prob_X_lt_3_Y_lt_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"P(X &lt; 3, Y &lt; 2) ="</span>, <span class="va">prob_X_lt_3_Y_lt_2</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
@@ -408,7 +408,7 @@ Esta última expresión se corresponde con la función de distribución evaluada
 <span class="header-section-number">4.2.3.2</span> Código R para visualizar la distribución conjunta<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-r-para-visualizar-la-distribuci%C3%B3n-conjunta"><i class="fas fa-link"></i></a>
 </h4>
 <p>Para visualizar la distribución conjunta, podemos usar el código siguiente;</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Es preciso instalar y cargar el paquete scatterplot3d si no lo tienes instalado</span></span>
 <span><span class="co"># install.packages("scatterplot3d")</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">scatterplot3d</span><span class="op">)</span></span>
@@ -438,10 +438,10 @@ Esta última expresión se corresponde con la función de distribución evaluada
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Añadir texto con los valores de las probabilidades en la parte superior de las barras</span></span>
 <span><span class="co"># s3d$text(X_grid, Y_grid, Z_vals, labels = round(Z_vals, 2), pos = 3, col = "black")</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"images/pmfTrinomial.png"</span>, rel_path <span class="op">=</span> <span class="cn">TRUE</span> <span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="images/pmfTrinomial.png" alt="" width="90%"></div>
 </div>
@@ -1012,7 +1012,7 @@ Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (
 <span class="header-section-number">4.6.5.1</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>Podemos calcular la distribución condicional de <span class="math inline">\(X\)</span> dado que <span class="math inline">\(Y = 180\)</span> cm, y mostrar cómo cambia la distribución de <span class="math inline">\(X\)</span> bajo esta condición:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Valores originales</span></span>
 <span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">10</span><span class="op">)</span></span>
@@ -1026,7 +1026,7 @@ Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (
 <span><span class="co"># Mostrar la media y desviación estándar condicionales</span></span>
 <span><span class="va">mu_cond</span></span></code></pre></div>
 <pre><code>## [1] 211.4286</code></pre>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sigma_cond</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>Esto nos dice que el peso medio de una persona con altura de 180 cm es mayor que el peso medio de la población total, y su desviación estándar es menor debido a la correlación positiva entre peso y altura.</p>
@@ -1390,7 +1390,7 @@ Aunque la <strong>independencia</strong> implica que las variables son incorrela
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

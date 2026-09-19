@@ -1,3 +1,4 @@
+exm:unlabeled-div-1
 eq:pivote
 probabilidad-y-experimentos-aleatorios
 introducción
@@ -9,18 +10,17 @@ diferentes-funciones-de-probabilidad-para-una-misma-experiencia-aleatoria
 cómo-se-calculan-las-probabilidades
 sucesos-elementales-y-sucesos-observables
 propiedades-inmediatas-de-la-probabilidad
-succeso-imposible
+suceso-imposible
 suceso-implicado
 complementario-de-un-suceso
 ocurrencia-de-algun-suceso
 probabilidad-de-que-ocurra-algun-suceso
 probabilidad-de-que-ocurran-dos-o-más-sucesos-a-la-vez
-espacios-de-probabilidad
 probabilidad-condicionada
 la-probabilidad-condicionada-es-una-medida-de-probabilidad
 sucesos-dependientes-y-sucesos-independientes
 incompatibilidad-e-independencia
-dos-teoremas-importantes
+regla-del-producto-probabilidad-total-y-bayes
 teorema-de-las-probabilidades-totales
 teorema-de-bayes
 introducción-a-los-experimentos-múltiples

@@ -296,27 +296,27 @@ z=\frac{(23-0.5)-38 \cdot 0.5}{\sqrt{38 \cdot 0.5 \cdot 0.5}}=1.14
 <p>aceptamos la hipótesis de que la mediana es 66, al nivel 0.05.</p>
 <p>Podemos hacer lo mismo con R:</p>
 <p>Primero introducimos las notas y calculamos cuántos valores son superiores a 66, es decir, el número de signos positivos.</p>
-<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">notes</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span><span class="fl">71</span>,<span class="fl">67</span>,<span class="fl">55</span>,<span class="fl">64</span>,<span class="fl">82</span>,<span class="fl">66</span>,<span class="fl">74</span>,<span class="fl">58</span>,<span class="fl">79</span>,<span class="fl">61</span>,<span class="fl">78</span>,<span class="fl">46</span>,<span class="fl">84</span>,<span class="fl">93</span>,<span class="fl">72</span>,<span class="fl">54</span>,<span class="fl">78</span>,<span class="fl">86</span>,<span class="fl">48</span>,<span class="fl">52</span>,<span class="fl">67</span>,<span class="fl">95</span>,<span class="fl">70</span>,<span class="fl">43</span>,<span class="fl">70</span>,<span class="fl">73</span>,<span class="fl">57</span>,<span class="fl">64</span>,<span class="fl">60</span>,<span class="fl">83</span>,<span class="fl">73</span>,<span class="fl">40</span>,<span class="fl">78</span>,<span class="fl">70</span>,<span class="fl">64</span>,<span class="fl">86</span>,<span class="fl">76</span>,<span class="fl">62</span>,<span class="fl">95</span>,<span class="fl">66</span><span class="op">)</span></span>
 <span><span class="va">notes</span><span class="op">[</span><span class="va">notes</span><span class="op">&gt;</span><span class="fl">66</span><span class="op">]</span></span></code></pre></div>
 <pre><code>##  [1] 71 67 82 74 79 78 84 93 72 78 86 67 95 70 70 73 83 73 78 70 86 76 95</code></pre>
-<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">B</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">notes</span><span class="op">[</span><span class="va">notes</span><span class="op">&gt;</span><span class="fl">66</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">B</span></span></code></pre></div>
 <pre><code>## [1] 23</code></pre>
 <p>Y finalmente calculamos la aproximación normal del estadístico y su p-valor. Aplicaremos una <em>corrección por continuidad</em>, habitual en esta aproximación, restando 0.5 al estadístico B</p>
-<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">notes</span><span class="op">)</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">notes</span><span class="op">[</span><span class="va">notes</span><span class="op">==</span><span class="fl">66</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">n</span></span></code></pre></div>
 <pre><code>## [1] 38</code></pre>
-<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">z</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">B</span><span class="op">-</span><span class="fl">0.5</span><span class="op">-</span><span class="va">n</span><span class="op">*</span><span class="fl">0.5</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="fl">0.5</span><span class="op">*</span><span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">z</span>,<span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 1.14</code></pre>
-<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.256145</code></pre>
-<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">B</span><span class="op">-</span><span class="fl">0.5</span>,mean<span class="op">=</span><span class="va">n</span><span class="op">*</span><span class="fl">0.5</span>,sd<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="fl">0.5</span><span class="op">*</span><span class="fl">0.5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.256145</code></pre>
 <p>El p-valor, superior al nivel de significación, hace que aceptemos la hipótesis nula <span class="math inline">\(H_{0}: M=66\)</span>.</p>
@@ -403,19 +403,19 @@ P(B \geq 8)=\sum_{i=8}^{10}\binom{10}{i} 0.5^{10}=0.0547&lt;\alpha=0.06
 \]</span></p>
 <p>Dado que la frecuencia observada es 8 y pertenece a la región crítica, rechazamos la igualdad y podemos aceptar que la máquina 1 produce más piezas defectuosas.</p>
 <p>Para hacerlo con R introducimos los datos en dos vectores de la misma longitud. Calculamos la diferencia y el número de valores positivos. A partir de este número calculamos la probabilidad de la cola derecha de una binomial, ya que la hipótesis alternativa así lo requiere.</p>
-<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">maq1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">46</span>,<span class="fl">110</span>,<span class="fl">70</span>,<span class="fl">54</span>,<span class="fl">60</span>,<span class="fl">120</span>,<span class="fl">82</span>,<span class="fl">76</span>,<span class="fl">37</span>,<span class="fl">28</span><span class="op">)</span></span>
 <span><span class="va">maq2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">42</span>,<span class="fl">87</span>,<span class="fl">75</span>,<span class="fl">50</span>,<span class="fl">48</span>,<span class="fl">108</span>,<span class="fl">80</span>,<span class="fl">67</span>,<span class="fl">40</span>,<span class="fl">25</span><span class="op">)</span></span>
 <span><span class="va">dif</span><span class="op">&lt;-</span><span class="va">maq1</span><span class="op">-</span><span class="va">maq2</span></span>
 <span><span class="va">dif</span></span></code></pre></div>
 <pre><code>##  [1]  4 23 -5  4 12 12  2  9 -3  3</code></pre>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">B</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">dif</span><span class="op">[</span><span class="va">dif</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">]</span><span class="op">)</span>;<span class="va">B</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">8</span>,<span class="fl">10</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">9</span>,<span class="fl">10</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">10</span>,<span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.0546875</code></pre>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">B</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">10</span>,<span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.0546875</code></pre>
 <p>El p-valor es inferior al nivel de significación 0.06 y, por tanto, rechazamos la hipótesis nula y aceptamos que la máquina 1 produce más piezas defectuosas.</p>
@@ -561,7 +561,7 @@ T=\min \left(T^{+}, T^{-}\right) .
 <p><strong>Solución</strong>:</p>
 <p>Para calcular el estadístico <span class="math inline">\(T^{+}\)</span> debemos asignar los rangos correspondientes a los valores positivos de las diferencias entre las observaciones y el valor 66 propuesto en la hipótesis nula.</p>
 <p>En este ejemplo utilizaremos la función <code>wilcox.test</code> con el vector <code>notes</code> del ejemplo:</p>
-<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">notes</span>,mu<span class="op">=</span><span class="fl">66</span>,alternative<span class="op">=</span><span class="st">"two.sided"</span>,exact<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
@@ -570,16 +570,16 @@ T=\min \left(T^{+}, T^{-}\right) .
 ## V = 465, p-value = 0.1726
 ## alternative hypothesis: true location is not equal to 66</code></pre>
 <p>O bien, mediante una aproximación normal directa:</p>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">z</span><span class="op">&lt;-</span><span class="op">(</span><span class="fl">465</span><span class="op">-</span><span class="fl">0.5</span><span class="op">-</span><span class="fl">38</span><span class="op">*</span><span class="fl">39</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">38</span><span class="op">*</span><span class="fl">39</span><span class="op">*</span><span class="fl">77</span><span class="op">/</span><span class="fl">24</span><span class="op">)</span>;<span class="va">z</span></span></code></pre></div>
 <pre><code>## [1] 1.363214</code></pre>
-<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.17</code></pre>
 <p>Esta función calcula el estadístico <span class="math inline">\(T^{+}=465\)</span> y su p-valor con corrección por continuidad.</p>
 <p>En este problema existen, además de dos ceros, un número considerable de empates o <em>ligaduras</em> (del inglés “ties”), de modo que la función <code>wilcox.test</code> no puede calcular el p-valor exacto y por ello se le ha indicado <code>exact=F</code>.</p>
 <p>El estadístico <span class="math inline">\(z\)</span> que hemos calculado de forma directa y su p-valor, sin tener en cuenta las ligaduras, son bastante similares a los que calcula el algoritmo. Si no se indica nada sobre este parámetro, aparecen dos mensajes de advertencia relativos a este hecho.</p>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">notes</span>,mu<span class="op">=</span><span class="fl">66</span>,alternative<span class="op">=</span><span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
@@ -595,7 +595,7 @@ T=\min \left(T^{+}, T^{-}\right) .
 <p>Dado que en el ejemplo 2 las observaciones son numéricas y apareadas, podemos utilizar los valores de las diferencias con el test de los rangos con signo para contrastar si existen diferencias entre las dos máquinas.</p>
 <p><strong>Solución</strong>:</p>
 <p>En este ejemplo se utiliza también la función <code>wilcox.test</code> con los dos vectores de datos del ejemplo y la opción <code>paired=TRUE</code>.</p>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">maq1</span>,<span class="va">maq2</span>,mu<span class="op">=</span><span class="fl">0</span>,paired<span class="op">=</span><span class="cn">T</span>,alternative<span class="op">=</span><span class="st">"greater"</span>,exact<span class="op">=</span><span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
@@ -674,7 +674,7 @@ Proveedor B 221, 207, 185, 203, 187, 190, 195, 204, 212</p>
 <p>Con un nivel de significación del 0.05, indique si existen diferencias entre los materiales suministrados por los dos proveedores.</p>
 <p><strong>Solución</strong>:</p>
 <p>Ahora utilizaremos la función <code>wilcox.test</code> con los dos vectores de datos, teniendo en cuenta que son independientes, que es la opción por defecto.</p>
-<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pro.A</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">202</span>,<span class="fl">229</span>,<span class="fl">215</span>,<span class="fl">220</span>,<span class="fl">223</span>,<span class="fl">233</span>,<span class="fl">208</span>,<span class="fl">228</span>,<span class="fl">209</span><span class="op">)</span></span>
 <span><span class="va">pro.B</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">221</span>,<span class="fl">207</span>,<span class="fl">185</span>,<span class="fl">203</span>,<span class="fl">187</span>,<span class="fl">190</span>,<span class="fl">195</span>,<span class="fl">204</span>,<span class="fl">212</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">pro.A</span>,<span class="va">pro.B</span>,alternative<span class="op">=</span><span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
@@ -772,19 +772,19 @@ P(T=t)=\frac{\binom{p}{t}\binom{n_{1}+n_{2}-p}{n_{1}-t}}{\binom{n_{1}+n_{2}}{n_{
 <p>Con tamaños muestrales grandes, el test ji-cuadrado es preferible si no se tiene constancia de que la forma de ambas distribuciones sea la misma, ya que el test <span class="math inline">\(T\)</span> anterior tiende a aceptar la homogeneidad si <span class="math inline">\(M_{X}=M_{Y}\)</span> aunque la forma de las distribuciones sea diferente.
 Por la misma razón, es preferible el test de Kolmogorov-Smirnov que se explica en la sección siguiente.</p>
 <p>Observemos el cálculo de la mediana conjunta con <code>median(c(pro.A,pro.B))</code>.</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="cn">T</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">pro.A</span><span class="op">[</span><span class="va">pro.A</span><span class="op">&lt;</span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">pro.A</span>,<span class="va">pro.B</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="cn">T</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Hypergeometric.html">phyper</a></span><span class="op">(</span><span class="cn">T</span>,<span class="fl">9</span>,<span class="fl">9</span>,<span class="fl">9</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.02834225</code></pre>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fl">1</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/Hypergeometric.html">phyper</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">9</span>,<span class="fl">9</span>,<span class="fl">9</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## [1] 0.02834225</code></pre>
 <p>La distribución hipergeométrica permite encontrar los límites de la región crítica.</p>
 <p>Si queremos hacerlo mediante el test ji-cuadrado, en primer lugar debemos introducir las frecuencias de la tabla.</p>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">numero</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span>M<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"inferior a M"</span>,<span class="st">"superior a M"</span><span class="op">)</span>,</span>
 <span>grup<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>,<span class="st">"B"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">fr</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">7</span>,<span class="fl">7</span>,<span class="fl">2</span><span class="op">)</span></span>
@@ -796,7 +796,7 @@ Por la misma razón, es preferible el test de Kolmogorov-Smirnov que se explica 
 ##   inferior a M 2 7
 ##   superior a M 7 2</code></pre>
 <p>Y con esta tabla calculamos el test de homogeneidad.</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">taula</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Pearson's Chi-squared test with Yates' continuity correction
@@ -839,7 +839,7 @@ Q(\lambda)=\sum_{i=-\infty}^{\infty}(-1)^{i} e^{-2 i^{2} \lambda^{2}}
 <p>Con los datos del ejemplo 6, calcule el estadístico de Kolmogorov-Smirnov y compare las distribuciones de las dos muestras.</p>
 <p><strong>Solución</strong>:</p>
 <p>Los datos han sido introducidos en los vectores <code>pro.A</code> y <code>pro.B</code>, y el test se calcula mediante la función <code>ks.test</code>.</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/ks.test.html">ks.test</a></span><span class="op">(</span><span class="va">pro.A</span>,<span class="va">pro.B</span>,alternative<span class="op">=</span><span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Exact two-sample Kolmogorov-Smirnov test
@@ -925,7 +925,7 @@ H^{\prime}=\frac{H}{1-\frac{\sum_{j=1}^{r}\left(t_{j}^{3}-t_{j}\right)}{n^{3}-n}
 <p>Estudie si existen diferencias entre los tres fabricantes utilizando el test de Kruskal-Wallis.</p>
 <p><strong>Solución</strong>:</p>
 <p>Para realizar el test de Kruskal-Wallis utilizamos la función <code>kruskal.test</code>, que proporciona el estadístico <span class="math inline">\(H\)</span> o, si es necesario, como en este caso, el estadístico corregido <span class="math inline">\(H^{\prime}\)</span>.</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pes</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">251</span>,<span class="fl">250</span>,<span class="fl">249</span>,<span class="fl">255</span>,<span class="fl">258</span>,<span class="fl">258</span>,<span class="fl">247</span>,<span class="fl">246</span>,<span class="fl">250</span>,<span class="fl">241</span>,<span class="fl">240</span>,<span class="fl">242</span>,</span>
 <span><span class="fl">228</span>,<span class="fl">236</span>,<span class="fl">240</span>,<span class="fl">225</span>,<span class="fl">236</span>,<span class="fl">230</span><span class="op">)</span></span>
 <span><span class="va">fabr</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">6</span><span class="op">)</span><span class="op">)</span></span>
@@ -1147,7 +1147,7 @@ S^{\prime}=\frac{12 \sum_{j=1}^{k} R_{j}^{2}-3 n^{2} k(k+1)^{2}}{n k(k+1)-\frac{
 <p>Determine si existen diferencias significativas entre las puntuaciones otorgadas a los champús.</p>
 <p><strong>Solución</strong>:</p>
 <p>El test de Friedman se aplica mediante la función <code>friedman.test</code>.</p>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nota</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">1</span>,</span>
 <span><span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">5</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">2</span>,<span class="fl">1</span>,</span>
 <span><span class="fl">2</span>,<span class="fl">5</span>,<span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">2</span>,<span class="fl">1</span>,</span>
@@ -1299,7 +1299,7 @@ dond <span class="math inline">\(\displaystyle{\sigma_K^2 =\frac{2(2n+5)}{9n(n-1
 <p>Observemos, no obstante, que estrictamente esta función no sirve para calcular los coeficientes, sino para contrastar la hipótesis de que el coeficiente correspondiente es cero. Sin embargo, como el primer paso que realiza la función es el cálculo del coeficiente, se obtiene este como un efecto colateral.</p>
 <p>Otra cuestión <strong>muy importante</strong>, y que muchos usuarios suelen olvidar, es que si estos tests resultan significativos, únicamente indican que la correlación, del tipo que sea, no es cero; en ningún caso garantizan que sea suficientemente alta como para hablar de una “buena correlación”.</p>
 <p>Volviendo a los datos del ejemplo:</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">long</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6.60</span>,<span class="fl">7.11</span>,<span class="fl">9.80</span>,<span class="fl">6.62</span>,<span class="fl">7.10</span>,<span class="fl">6.83</span>,<span class="fl">6.54</span>,<span class="fl">7.14</span>,<span class="fl">7.13</span>,<span class="fl">12.52</span>,<span class="fl">10.41</span><span class="op">)</span></span>
 <span><span class="va">ampl</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4.24</span>,<span class="fl">5.41</span>,<span class="fl">5.26</span>,<span class="fl">5.53</span>,<span class="fl">3.25</span>,<span class="fl">4.22</span>,<span class="fl">3.98</span>,<span class="fl">3.29</span>,<span class="fl">3.43</span>,<span class="fl">5.57</span>,<span class="fl">6.01</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">long</span>, <span class="va">ampl</span>, method<span class="op">=</span><span class="st">'kendall'</span><span class="op">)</span></span></code></pre></div>
@@ -1356,7 +1356,7 @@ r_{S}=\frac{12}{n(n^{2}-1)}\sum_{i=1}^{n}(a_{i}-\bar a)(b_{i}-\bar b)
 </h5>
 <p>Calcule el coeficiente de correlación por rangos de Spearman para los datos del ejemplo 14 y estudie si es significativo.</p>
 <p><strong>Solución</strong>:</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">long</span>,<span class="va">ampl</span>,method<span class="op">=</span><span class="st">'spearman'</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ##  Spearman's rank correlation rho
@@ -1461,7 +1461,7 @@ t=\sqrt{n-2}\frac{r_S}{\sqrt{1-r_S^2}}
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-13.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>
