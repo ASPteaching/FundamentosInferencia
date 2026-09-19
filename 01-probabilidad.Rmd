@@ -8,7 +8,7 @@
 ### Fenómenos deterministas y fenómenos aleatorios
 
 Supongamos que disponemos de un dado regular con todas las caras
-pintadas de blanco y con un número, que irá de 1 a $6 \sin$ repetir
+pintadas de blanco y con un número, que irá de 1 a 6 sin repetir
 ninguno, en cada una de las seis caras.
 
 Definamos los dos experimentos siguientes: Experimento 1: Tirar el dado
@@ -25,9 +25,10 @@ experimento o fenómeno aleatorio.
 
 El conjunto de resultados se anotará con el símbolo: $\Omega$. En este
 caso, $\Omega=\{1,2,3,4,5,6\}$. En los fenómenos aleatorios, al hacer
-muchas veces la experiencia, la frecuencia relativa de cualquier
-elemento del conjunto de resultados debe aproximarse siempre hacia un
-mismo valor.
+muchas veces una misma experiencia en condiciones independientes e
+idénticamente distribuidas, la frecuencia relativa de un suceso fijo se
+aproxima a su probabilidad. Esta es una propiedad asintótica, no una
+definición general de probabilidad.
 
 ### Sucesos
 
@@ -48,10 +49,9 @@ habitualmente al suceso A.
 #### Sucesos y conjuntos
 
 Al conjunto de resultados $\Omega$, se le denomina suceso seguro. Al
-conjunto Ø ( conjunto sin elementos), se le denomina suceso imposible.
-Al complementario del conjunto
-$\mathrm{A}\left(\mathrm{A}^{\mathrm{c}}\right)$, se le denomina suceso
-contrario o complementario de $A$. A partir de dos sucesos A y B,
+conjunto $\varnothing$ (conjunto sin elementos), se le denomina suceso imposible.
+Al complementario del conjunto $A$, que se anota $A^c$, se le denomina suceso
+contrario o complementario de $A$. A partir de dos sucesos $A$ y $B$,
 podemos formar los sucesos siguientes:
 
 -   A intersección B, que anotaremos como:
@@ -66,7 +66,7 @@ $$
 A \cup B
 $$
 
-A intersección B, significa que se verifican a la vez A y B. A unión B,
+A intersección B significa que se verifican a la vez $A$ y $B$. A unión B,
 significa que se verifica $A$ o $B$ ( se pueden verificar a la vez).
 
 ## Función de probabilidad
@@ -78,12 +78,20 @@ verificado.
 Por lo tanto, sería interesante el tener alguna función que midiera el
 grado de confianza a depositar en que se verifique el suceso.
 
-A esta función la denominaremos función de probabilidad. La función de
-probabilidad será, pues, una aplicación entre el conjunto de resultados
-y el conjunto de números reales, que asignará a cada suceso la
-probabilidad de que se verifique.
+A esta función la denominaremos función de probabilidad. Formalmente,
+en un espacio probabilizable $(\Omega,\mathcal A)$ es una aplicación
 
-La notación: $\mathrm{P}(\mathrm{A})$ significará: probabilidad de que
+$$
+P:\mathcal A\longrightarrow [0,1].
+$$
+
+Aquí $\mathcal A$ es la colección de sucesos a los que se puede asignar
+probabilidad. Formalmente es una *sigma-álgebra*: contiene $\Omega$ y es
+estable frente a complementos y uniones numerables. En espacios finitos
+suele tomarse $\mathcal A=\mathcal P(\Omega)$, el conjunto de todos los
+subconjuntos de $\Omega$.
+
+La notación $P(A)$ significará: probabilidad de que
 se verifique el suceso A . Pero claro, de funciones de probabilidad
 asociadas a priori a una experiencia aleatoria podrían haber muchas.
 
@@ -92,15 +100,15 @@ es construir una serie de propiedades (denominadas axiomas) que se
 exigirán a una función para poder ser catalogada como función de
 probabilidad.
 
-Y, ¿cuáles son estos axiomas? Pues los siguientes: Sea S el conjunto de
-sucesos. 
+Y, ¿cuáles son estos axiomas? Pues los siguientes, para sucesos de
+$\mathcal A$:
 
 - Axioma 1: Para cualquier suceso A, la probabilidad debe ser
 mayor o igual que 0. 
 
-- Axioma 2: La probabilidad del _suceso seguro_ debe ser 1: $\mathrm{P}(\Omega)=1$ 
+- Axioma 2: La probabilidad del _suceso seguro_ debe ser 1: $P(\Omega)=1$.
 
-- Axioma 3: Para sucesos $\mathrm{A}_{\mathrm{i}}$, de modo que cada par de sucesos no
+- Axioma 3: Para sucesos $A_i$, de modo que cada par de sucesos no
 tengan ningún resultado común, se verifica que:
 
 $$
@@ -114,6 +122,13 @@ podrían asociar con la experiencia.
 El problema pasa entonces al investigador para decidir cual o cuales son
 las funciones de probabilidad más razonables asociadas con la
 experiencia que está manejando.
+
+:::: {.pedagogical-box .key}
+**Idea clave.** Un modelo probabilístico distingue los resultados posibles
+($\Omega$), los sucesos sobre los que tiene sentido preguntar ($\mathcal A$)
+y la regla que les asigna probabilidades ($P$). En el caso finito habitual,
+todos los subconjuntos de $\Omega$ pueden considerarse sucesos.
+::::
 
 ### ¿Diferentes funciones de probabilidad para una misma experiencia aleatoria?
 
@@ -198,11 +213,12 @@ experiencia en condiciones independientes.
 
 ## Sucesos elementales y sucesos observables
 
-En el contexto de la probabilidad, es fundamental diferenciar entre los **sucesos elementales** y los **sucesos observables**. 
-
-Los sucesos elementales son los resultados individuales que pueden ocurrir al realizar un experimento aleatorio, es decir, cada uno de los elementos que conforman el conjunto de resultados \(\Omega\). En nuestro ejemplo del dado, los sucesos elementales son los números \(1, 2, 3, 4, 5\) y \(6\). 
-
-Sin embargo, no todos los sucesos elementales son necesariamente observables. Un suceso observable es un subconjunto de estos sucesos elementales que permite formular afirmaciones verificables sobre el resultado del experimento.
+En el contexto de la probabilidad conviene distinguir los **resultados
+elementales**, que son los elementos de $\Omega$, de los **sucesos medibles**,
+que son los elementos de $\mathcal A$. En un dado ordinario podemos observar
+cada número y tomar todos sus subconjuntos como sucesos. Si el modo de
+observación es más limitado, no todos los subconjuntos tienen por qué estar en
+$\mathcal A$.
 
 :::: {.ejemplo}
 **Ejemplo**
@@ -214,7 +230,12 @@ Sin embargo tan solo "Par" ("blanco") o impar ("negro") se pueden observar.
 ::::
 
 
-Para formalizar estos conceptos, definimos el **espacio de probabilizable** como el par  de conjuntos formados por: $(\Omega, \mathcal{A})$
+Para formalizar estos conceptos, el par $(\Omega,\mathcal A)$ se denomina
+**espacio medible** (o espacio probabilizable). $\mathcal A$ recoge los
+sucesos medibles y debe ser una sigma-álgebra. En el dado pintado con tres
+colores, por ejemplo, los colores son átomos observables y la sigma-álgebra
+generada por ellos contiene $\varnothing$, los tres colores, sus uniones y
+$\Omega$; no contiene necesariamente el suceso «sale par».
 
 - $\Omega$ es el conjunto de todos los resultados posibles (el conjunto de resultados o sucesos elementales).
 - $\mathcal{A}$ es el conjunto de todos los sucesos observables, que vienen definidos por el _nivel de observación_ del experimento.
@@ -225,7 +246,7 @@ Para formalizar estos conceptos, definimos el **espacio de probabilizable** como
 Veremos a continuación una serie de propiedades que se deducen de manera
 inmediata de la axiomática de la probabilidad.
 
-### Succeso imposible
+### Suceso imposible
 
 El suceso imposible se identifica con el conjunto vacío, puesto que no hay ningún resultado asociado a él. La probabilidad del suceso imposible es:
 
@@ -235,21 +256,21 @@ $$
 
 ### Suceso implicado
 
-Decimos que un suceso, B, esta implicado por otro suceso A, si siempre que se presenta A, también lo hace B. Por ejemplo, si al tirar un dado se obtiene un dos (suceso A), ello implica que ha salido un número par (suceso B). En terminos de conjuntos, A es un suceso que está contenido en B (todos los resultados de A
+Decimos que un suceso $B$ está implicado por otro suceso $A$ si siempre que se presenta $A$, también lo hace $B$. Por ejemplo, si al tirar un dado se obtiene un dos, ello implica que ha salido un número par. En términos de conjuntos, $A$ está contenido en $B$ (todos los resultados de $A$
 también pertenecen a B ), por lo que:
 
 $$
-\mathrm{P}(\mathrm{A}) \leq \mathrm{P}(\mathrm{B})
+P(A) \leq P(B)
 $$
 
 ### Complementario de un suceso
 
-Sea $A^{\mathrm{c}}$ el suceso formado por todos los elementos de
-$\Omega$ que no pertenecen a A (Suceso complementario de A). La
+Sea $A^c$ el suceso formado por todos los elementos de
+$\Omega$ que no pertenecen a $A$ (suceso complementario de $A$). La
 probabilidad de dicho suceso es igual a:
 
 $$
-\mathrm{P}\left(\mathrm{A}^{\mathrm{c}}\right)=1-\mathrm{P}(\mathrm{A})
+P(A^c)=1-P(A)
 $$
 
 ### Ocurrencia de algun suceso
@@ -266,35 +287,39 @@ Si tenemos una colección de $k$ sucesos, la probabilidad de la unión de
 dichos sucesos será:
 
 $$
-P\left(\bigcup_{i=1}^{k} A_{i}\right)=\sum_{i=1}^{k} P\left(A_{i}\right)-\sum_{i<j} P\left(A_{i} \cap A_{j}\right)+\sum P\left(A_{i} \cap A_{j} \cap A_{k}\right)+\ldots+(-1)^{k+1} \cdot P\left(A_{1} \cap . . \cap A_{k}\right)
+P\left(\bigcup_{i=1}^{k} A_i\right)=\sum_{r=1}^{k}(-1)^{r+1}
+\sum_{1\leq i_1<\cdots<i_r\leq k}P(A_{i_1}\cap\cdots\cap A_{i_r}).
 $$
+
+:::: {.pedagogical-box .example}
+**Ejemplo.** Al lanzar un dado, sea $A=\{2,4,6\}$ («sale par») y
+$B=\{4,5,6\}$ («sale al menos 4»). Entonces $A^c=\{1,3,5\}$,
+$A\cap B=\{4,6\}$ y $A\cup B=\{2,4,5,6\}$. Por tanto,
+$P(A\cup B)=4/6=3/6+3/6-2/6$, que verifica inclusión-exclusión.
+::::
 
 ### Probabilidad de que ocurran dos (o más) sucesos a la vez
 
-No existe una expresión cerrada única para la probabilidad de que ocurran dos o más sucesos a la vez, pues esto depende de si los sucesos que consideramos son dependientes o independientes, conceptos éstos, que introduciremos en la próxima sección.
-
-Lo que si que existe es una cota para dicha probabilidad, es decir, podemos decir que valor alcanza dicha probabilidad, _como mínimo_.
+Para $P(B)>0$, la regla del producto da siempre
 
 $$
-P\left(\bigcap_{i=1}^{n} A_{i}\right) \geq 1-\sum_{i=1}^{n} P\left(\bar{A}_{i}\right)
+P(A\cap B)=P(A\mid B)P(B).
 $$
 
-## Espacios de probabilidad
+Para varios sucesos se aplica sucesivamente, siempre que las condicionales
+estén definidas. Si los sucesos son independientes, esta expresión se
+simplifica a $P(A\cap B)=P(A)P(B)$.
 
-Para concluir esta introducción introduciremos los **espacio de probabilidad** que, extienden los **espacios probabilizables** definidos en la sección anterior
+Además, la desigualdad de Bonferroni proporciona una cota inferior:
 
-La terna $(\Omega, \mathcal{A}, P)$ donde:
+$$
+P\left(\bigcap_{i=1}^{n} A_i\right) \geq 1-\sum_{i=1}^{n} P(A_i^c).
+$$
 
-- $Omega$ es el conjunto de todos los resultados posibles (el conjunto de resultados o sucesos elementales),
-- $\mathcal{A}$ es el conjunto de todos los sucesos observables, que vienen definidos por el _nivel de observación_ del experimento y 
-- $P$ es una función de probabilidad, que asigna a cada suceso observable $A \in \mathcal{A}$ un número real \(P(A)\) que representa la probabilidad de que ocurra dicho suceso
-
-se conoce como **espacio de probabilidad**.
-
-
-Es importante destacar que **la probabilidad se calcula exclusivamente para los sucesos observables**, lo que garantiza que la medida sea coherente y verificada a través de experimentos.
-
-Los espacios de probabilidad proporcionan una estructura fundamental para analizar y medir las incertidumbres asociadas a los fenómenos aleatorios, facilitando el estudio de sus propiedades, la construcción, sobre ellos de diversos conceptos fundamentales como el de variables aleatorias, y, en general, la aplicación de teorías de la probabilidad a diversas áreas de conocimiento.
+El lado derecho puede ser negativo; como una probabilidad nunca lo es, la
+cota útil puede truncarse en cero. La terna $(\Omega,\mathcal A,P)$ definida
+arriba es el **espacio de probabilidad**: $P$ solo se asigna a sucesos de
+$\mathcal A$.
 
 ## Probabilidad condicionada
 
@@ -309,24 +334,29 @@ cuatro se ha modificado. Evidentemente, ha pasado de ser $1 / 2$ (
 cuando no tenemos ninguna información previa) a ser $2 / 3$ (cuando
 sabemos que se ha verificado el suceso B). ¿Cómo podemos anotar esta
 última probabilidad $(2 / 3)$ ? Muy sencillo. Anotaremos
-$\mathrm{P}(\mathrm{A} / \mathrm{B})$, que se lee como probabilidad de A
+$P(A\mid B)$, que se lee como probabilidad de $A$
 condicionada a B . Así, en este ejemplo,
 
 $$
 \begin{gathered}
-\mathrm{P}(\mathrm{A} / \mathrm{B})=2 / 3 \\
-\mathrm{P}(\mathrm{A})=1 / 2
+P(A\mid B)=2 / 3 \\
+P(A)=1 / 2
 \end{gathered}
 $$
 
-En términos generales, estamos en condiciones de poder definir la
-probabilidad condicionada, y lo hacemos como:
+En términos generales, si $A,B\in\mathcal A$ y $P(B)>0$, definimos la
+probabilidad condicionada como:
 
 $$
-P(A / B)=\frac{P(A \cap B)}{P(B)}
+P(A\mid B)=\frac{P(A \cap B)}{P(B)}.
 $$
 
-El explorador interactivo que se encuentra a continuación (disponible en la versión en HTML del docuemnto) permite visualizar de una manera práctica el ejemplo
+:::: {.pedagogical-box .attention}
+**Atención.** La condición $P(B)>0$ es esencial: no se define
+$P(A\mid B)$ dividiendo por un suceso condicionante de probabilidad cero.
+::::
+
+El explorador interactivo que se encuentra a continuación (disponible en la versión HTML del documento) permite visualizar de una manera práctica el ejemplo
 anterior. 
 
 Siguiendo con la notación utilizada, el suceso A será lo que
@@ -352,46 +382,40 @@ if (knitr::is_html_output()) {
 
 ### La probabilidad condicionada es una medida de probabilidad
 
-Ejemplos como el anterior nos muestran que, efectivamente, la probabilidad condicionada se comporta como una función de probabilidad. Esto equivale, como ya hemos visto, a afirma que verifica los tres axiomas por los que se define la probabilidad:
+Para un $B$ fijo con $P(B)>0$, la aplicación $P_B(A)=P(A\mid B)$ es una
+medida de probabilidad sobre $\mathcal A$ y verifica los tres axiomas:
 
 Axioma 1:
 
 $$
-\mathrm{P}(\mathrm{A} / \mathrm{B}) \geq 0
+P(A\mid B) \geq 0
 $$
 
 Axioma 2:
 
 $$
-P(\Omega / B)=1
+P(\Omega\mid B)=1
 $$
 
 Axioma 3:
 
 $$
-P\left(\bigcup_{i=1}^{\infty} A_{i} / B\right)=\sum_{i=1}^{\infty} P\left(A_{i} / B\right)
+P\left(\bigcup_{i=1}^{\infty} A_i\mid B\right)=\sum_{i=1}^{\infty} P(A_i\mid B)
 $$
 
 para sucesos $\mathrm{A}_{\mathrm{i}}$ con intersección vacía dos a dos.
 
 ### Sucesos dependientes y sucesos independientes
 
-Sean A y B dos sucesos con probabilidad mayor que 0 . Evidentemente, si
+Dos sucesos $A$ y $B$ son **independientes** cuando
 
 $$
-\mathrm{P}(\mathrm{A} / \mathrm{B})=\mathrm{P}(\mathrm{A})
+P(A\cap B)=P(A)P(B).
 $$
 
-B no ha modificado la probabilidad de que suceda A. En este caso diremos
-que son sucesos independientes.
-
-En caso contrario diremos que son sucesos dependientes. En el ejemplo
-del apartado anterior, se observa que los sucesos son dependientes
-puesto que las probabilidades anteriores no coinciden.
-
-Se verifica que independencia de los sucesos A y B es equivalente a
-decir que la probabilidad de la intersección es igual a producto de
-probabilidades de los dos sucesos.
+Cuando $P(B)>0$, esto equivale a $P(A\mid B)=P(A)$ (y simétricamente si
+$P(A)>0$). En el ejemplo anterior los sucesos son dependientes. La
+dependencia probabilística no implica por sí misma una relación causal.
 
 Se verifica también que si A y B son independientes: a) El
 complementario del suceso A y el suceso B son independientes. b) El
@@ -418,15 +442,15 @@ deduce la dependencia.
 La única posibilidad de que se dé incompatibilidad e independencia a la
 vez, es que alguno de los dos sucesos tenga probabilidad igual a cero.
 
-## Dos Teoremas importantes
+## Regla del producto, probabilidad total y Bayes
 
 ### Teorema de las probabilidades totales
 
-Sea $\Omega$ el conjunto total formado por una partición (colección de
-sucesos con intersección vacía dos a dos):
+Sea $\{H_1,\ldots,H_n\}$ una partición de $\Omega$: sus sucesos son dos a
+dos disjuntos, su unión es $\Omega$ y $P(H_i)>0$.
 
 $$
-\Omega=H_{1} \cup \ldots \ldots \cup H_{n}
+\Omega=H_1\cup\cdots\cup H_n.
 $$
 
 La probabilidad de cualquier otro suceso A , se puede obtener a partir
@@ -435,20 +459,15 @@ probabilidades de A condicionado a los sucesos de la partición, de la
 manera siguiente:
 
 $$
-P(A)=\sum_{i=1}^{n} P\left(A / H_{i}\right) \cdot P\left(H_{i}\right)
+P(A)=\sum_{i=1}^{n} P(A\mid H_i)P(H_i).
 $$
 
 Esto es lo que se conoce como teorema de las probabilidades totales.
 
 ### Teorema de Bayes
 
-Es una consecuencia del teorema de las probabilidades totales. Sea
-$\Omega$ el conjunto total formado por una partición (colección de
-sucesos con intersección vacía dos a dos).
-
-$$
-\Omega=H_{1} \cup \ldots \ldots \cup H_{n}
-$$
+Es una consecuencia de la regla del producto y del teorema de las
+probabilidades totales. Para la misma partición, si $P(A)>0$,
 
 Ahora el interés se centrará en la obtención de la probabilidad de
 cualquier suceso de la partición condicionada a un suceso A cualquiera.
@@ -456,10 +475,18 @@ cualquier suceso de la partición condicionada a un suceso A cualquiera.
 El resultado será:
 
 $$
-P\left(\mathrm{H}_{\mathrm{i}} / \mathrm{A}\right)=\frac{\mathrm{P}\left(\mathrm{A} / \mathrm{H}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{H}_{\mathrm{i}}\right)}{\sum_{i=1}^{n} \mathrm{P}\left(\mathrm{A} / \mathrm{H}_{\mathrm{i}}\right) \cdot \mathrm{P}\left(\mathrm{H}_{\mathrm{i}}\right)}
+P(H_i\mid A)=\frac{P(A\mid H_i)P(H_i)}{P(A)}
+=\frac{P(A\mid H_i)P(H_i)}{\sum_{j=1}^{n}P(A\mid H_j)P(H_j)}.
 $$
 
 Esto es conocido como teorema o regla de Bayes.
+
+**Ejemplo.** Una urna procede de la máquina $H_1$ con probabilidad $0,6$ o de
+$H_2$ con probabilidad $0,4$. La probabilidad de una bola roja es $0,2$ en
+$H_1$ y $0,5$ en $H_2$. Por probabilidad total,
+$P(\text{roja})=0,2\cdot0,6+0,5\cdot0,4=0,32$. Tras observar una bola roja,
+Bayes da $P(H_2\mid\text{roja})=0,5\cdot0,4/0,32=0,625$: se actualiza la
+probabilidad a priori $0,4$ a la probabilidad a posteriori $0,625$.
 
 ## Introducción a los experimentos múltiples
 
@@ -478,37 +505,20 @@ $\Omega_{1} \times \Omega_{2}=\{(1$, cara $),(2$, cara $),(3$, cara
 $),(4$, cara $),(5$, cara $),(6$, cara $),(1$, cruz ), ( 2 , cruz ), (
 3, cruz ), (4, cruz $),(5$, cruz $),(6$, cruz $)\}$
 
-Si $\mathrm{P}_{1}$ y $\mathrm{P}_{2}$ son, respectivamente, las
-funciones de probabilidad asociadas a las experiencias 1 y 2 , ¿es
-posible calcular probabilidades de la experiencia múltiple a partir de
-$\mathrm{P}_{1}$ y $\mathrm{P}_{2}$ ?
+El producto $\Omega_1\times\Omega_2$ describe el **espacio producto**, pero
+todavía no especifica su distribución conjunta $P$. De esta se obtienen las
+distribuciones marginales $P_1$ y $P_2$; las marginales no determinan en
+general la distribución conjunta.
 
-Efectivamente! Pero hemos de distinguir dos situaciones:
-
--   Experiencias independientes: cuando el resultado de una no influya
-    en la otra.
--   Experiencias dependientes: cuando el resultado de una influya en la
-    otra.
-
-En nuestro caso se trata de experiencias independientes, puesto que el
-resultado que se obtenga al tirar el dado no influye sobre el resultado
-que se obtenga al lanzar la moneda y al revés. ¿Como se calculan, pues,
-las probabilidades de la experiencia múltiple? Sea un suceso de la
-experiencia múltiple: A x B.
+Para sucesos rectangulares $A\times B$, la regla general es
+$P(A\times B)=P(B\mid A)P(A)$, cuando la condicional esté definida. En el
+caso independiente se simplifica a:
 
 -   Caso de experiencias independientes:
 
 $$
-\mathrm{P}(\mathrm{A} \times \mathrm{B})=\mathrm{P}_{1}(\mathrm{~A}) \times \mathrm{P}_{2}(\mathrm{~B})
+P(A\times B)=P_1(A)P_2(B).
 $$
-
--   Caso de experiencias dependientes:
-
-$$
-\mathrm{P}(\mathrm{A} \times \mathrm{B})=\mathrm{P}_{1}(\mathrm{~A}) \times \mathrm{P}_{2}(\mathrm{~B} / \mathrm{A})
-$$
-
-Entendemos que existe una $\mathrm{P}_{2}$ para cada suceso A .
 
 Esto que hemos explicado se puede, lógicamente, generalizar a una
 experiencia múltiple formada por $n$ experiencias.
@@ -519,10 +529,19 @@ Veamos algunas fórmulas simples que se utilizan en combinatoria y que
 nos pueden ayudar a calcular el número de casos posibles o el número de
 casos favorables.
 
+La regla de Laplace basada en recuentos solo es aplicable cuando los
+resultados elementales que se cuentan son equiprobables.
+
+| ¿Importa el orden? | ¿Se permite repetición? | Recuento |
+|:--|:--|:--|
+| Sí | No | Variaciones $V_n^r$ |
+| Sí | Sí | Variaciones con repetición $RV_n^r$ |
+| No | No | Combinaciones $C_n^r$ |
+
 ### Permutaciones
 
 Sea un conjunto de $n$ elementos. A las ordenaciones que se pueden hacer
-con estos $n$ elementos $\sin$ repetir ningún elemento y utilizándolos
+con estos $n$ elementos sin repetir ningún elemento y utilizándolos
 todos se las denomina permutaciones. El número de permutaciones que se
 pueden realizar coincide con el factorial de $n$, y su cálculo es:
 
@@ -544,7 +563,7 @@ De $6!=6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1=720$ maneras
 
 Sea un conjunto de $n$ elementos. Supongamos que deseamos ordenar $r$
 elementos de entre los $n$. A cada una de estas ordenaciones la
-denominamos variación. El número de variaciones que se pueden hacer de
+denominamos variación. Para $0\leq r\leq n$, el número de variaciones que se pueden hacer de
 los $n$ elementos tomados de $r$ en $r$ es:
 
 $$
@@ -563,7 +582,7 @@ Cada podio posible es una variación de diez elementos tomado de tres en
 tres. Por tanto, el número posible de podios es:
 
 $$
-\mathrm{V}_{10}^{3}=10.9 .8=720
+V_{10}^{3}=10\cdot9\cdot8=720
 $$
 
 ### Variaciones con repetición
@@ -592,12 +611,12 @@ $$
 
 ### Combinaciones
 
-Cuando se trata de contar el número de subconjuntos de $x$ elementos en un conjunto de $n$ elementos tenemos lo que se denomina combinaciones de
-x elementos en un conjunto de n . El cálculo del contaje se hace
+Cuando se trata de contar el número de subconjuntos de $r$ elementos en un conjunto de $n$ elementos tenemos lo que se denomina combinaciones de
+$r$ elementos en un conjunto de $n$. Para $0\leq r\leq n$, el cálculo se hace
 mediante el número combinatorio, de la manera siguiente:
 
 $$
-\mathrm{C}_{\mathrm{n}}^{\mathrm{x}}=\binom{n}{\mathrm{x}}=\frac{\mathrm{n!}}{\mathrm{x}!.(\mathrm{n}-\mathrm{x})!}
+C_n^r=\binom{n}{r}=\frac{n!}{r!(n-r)!}
 $$
 
 Ejemplo
@@ -611,19 +630,19 @@ Serán combinaciones de cinco elementos tomados de tres en tres, por
 tanto, tendremos:
 
 $$
-\mathrm{C}_{5}^{3}=\binom{5}{3}=\frac{5!}{3!(5-3)!}=10
+C_5^3=\binom{5}{3}=\frac{5!}{3!(5-3)!}=10
 $$
 
 ### Permutaciones con repetición
 
 Sea un conjunto de $n$ elementos, de entre los cuales tenemos $a$
 elementos indistinguibles entre sí, $b$ elementos indistinguibles entre
-sí, $c$ elementos indistinguibles entre sí, etc. Cada ordenación de
+sí, $c$ elementos indistinguibles entre sí, etc., con $a+b+c+\cdots=n$. Cada ordenación de
 estos elementos se denominará permutación con repetición. El número de
 permutaciones con repetición es:
 
 $$
-R P{ }_{n}^{a, b, c, \ldots}=\frac{n!}{a!b!c!\ldots}
+RP_n^{a,b,c,\ldots}=\frac{n!}{a!b!c!\cdots}
 $$
 
 Ejemplo
@@ -635,7 +654,7 @@ Respuesta: Tenemos tres veces la letra A, dos veces la T y una vez la P.
 Por tanto, serán:
 
 $$
-\mathrm{RP}_{6}^{3,2,1}=\frac{6!}{3!2!!}=60
+RP_6^{3,2,1}=\frac{6!}{3!\,2!\,1!}=60
 $$
 
 ## Frecuencia relativa y probabilidad
@@ -653,7 +672,7 @@ un determinado suceso A se ha observado en $k$ de estas repeticiones, la
 frecuencia relativa $\mathrm{f}_{\mathrm{r}}$ del suceso A es:
 
 $$
-\mathrm{f}_{\mathrm{r}}=k / n
+f_r=k/n
 $$
 
 El interés por la frecuencia relativa y su relación con el concepto de
@@ -663,10 +682,10 @@ comportamiento de numerosas repeticiones de experimentos reales.
 A título de ejemplo de un experimento de este tipo, supongamos que se
 dispone de una moneda ideal perfectamente equilibrada. Aplicando
 directamente la regla de Laplace resulta claro que el suceso
-$\mathrm{A}=$ obtener cara tiene probabilidad:
+$A=$ obtener cara tiene probabilidad:
 
 $$
-\mathrm{p}(\mathrm{A})=1 / 2=0,5.
+P(A)=1/2=0,5.
 $$
 
 ### Ilustración por simulación
@@ -683,9 +702,11 @@ En la simulación podéis definir:
 - La verdadera probabilidad" de que al tirar la moneda salga cara,
 - EL número de tiradas.
 
-Como podréis comprobar, sea cual sea la probabilidad (una moneda justa es un 0.5) a la larga la frecuencia relativa converge hacia el valor que habéis fijado.
+Para un suceso fijo bajo repeticiones i.i.d., la ley de los grandes números
+expresa que la frecuencia relativa converge en probabilidad hacia su
+probabilidad. No implica una aproximación monótona en una trayectoria concreta.
 
-Eso sí, observad lo que sucede si fijais probabilidades cercanas a 0.5 o muy alejadas de ell.
+Eso sí, observad lo que sucede si fijáis probabilidades cercanas a 0,5 o muy alejadas de él.
 
 ¿La idea de lo que sucede a la larga es la misma? ¿En que encontráis diferencias? 
 
@@ -693,38 +714,57 @@ Aunque no deje de llamar la atención el carácter errático del comportamiento 
     número de lanzamientos $n$, más improbable es que $f_{r}$ se aleje
     mucho de $p(A)$.
 
+:::: {.pedagogical-box .r}
+**En R.** Esta simulación reproducible muestra una trayectoria de frecuencias
+acumuladas de una Bernoulli con $p=0,5$; las fluctuaciones finitas no
+desaparecen de forma monótona.
+
+```{r frecuencia-relativa, fig.width=7, fig.height=3.5}
+set.seed(20260919)
+n <- 1000
+x <- rbinom(n, size = 1, prob = 0.5)
+fr <- cumsum(x) / seq_len(n)
+plot(seq_len(n), fr, type = "l", ylim = c(0, 1), xlab = "Número de repeticiones",
+     ylab = "Frecuencia relativa acumulada")
+abline(h = 0.5, col = "firebrick", lty = 2)
+```
+::::
+
 La teoría moderna de la probabilidad enlaza formalmente estas ideas con
-el estudio de las leyes de los grandes números, que se discutiran con más detalle en el capítulo dedicado a las "Grandes muestras".
+el estudio de las leyes de los grandes números, que se discutirán con más detalle en el capítulo dedicado a las "Grandes muestras".
 
 ## Caso de Estudio: Eficacia de una prueba diagnóstica 
 
-Para decidir la presencia(E) o ausencia (A) de sordera profunda a la edad de seis meses, se está ensayando una batería de tests.
+Para decidir la presencia $D$ o ausencia $D^c$ de sordera profunda a la edad de seis meses, se está ensayando una batería de tests. Las cifras que siguen son **datos didácticos** para ilustrar los cálculos, no estimaciones atribuidas a una fuente concreta.
 
 Considerando el caso en que la prueba pueda dar positivo $(+)$ o negativo $(-)$, hay que tener en cuenta que en individuos con dicha sordera la prueba dará a veces positivo y a veces negativo, e igual ocurrirá con individuos que no presentan la sordera.
 
-En este contexto todas las probabilidades pueden ser interpretadas en terminos de resultados positivos o neghativos, correctamente o no y cada una ha recibe un nombre que la ha popularizado dentro de la literatura médica:
+En este contexto las probabilidades se interpretan en términos de resultados positivos o negativos, correctos o no, y reciben nombres habituales en la literatura médica:
 
 Así tenemos: 
 
-- $\mathrm{P}(+/ \mathrm{E})$
+- $P(+\mid D)$
 
   - Probabilidad de test positivo en individuos que padecen la sordera.
   - Este valor se conoce como _sensibilidad del test_.
 
-- $\mathrm{P}(+/ \mathrm{A})=$
+- $P(+\mid D^c)$
   - Probabilidad de test positivo en individuos que no padecen la sordera.
   - Este valor se conoce como _probabilidad de falso-positivo_.
   
-- $\mathrm{P}(-/ \mathrm{E})=$
+- $P(-\mid D)$
   - Probabilidad de test negativo en individuos que padecen la sordera
   - Este valor se conoce como  _probabilidad de falso-negativo_.
   
-- $P(-/ A)=$
+- $P(-\mid D^c)$
   - Probabilidad de test negativo en individuos que no padecen sordera.
   - Este valor se conoce como
 _especificidad del test_.
 
-- Finalmente a la probabilidad, $\mathrm{P}(\mathrm{E})$, de presentar la enfermedad se le conoce como _prevalencia_ de la enfermedad.
+- Finalmente, a $P(D)$ se le conoce como _prevalencia_.
+
+No son cinco cantidades independientes: $P(+\mid D^c)=1-$ especificidad
+(falso positivo) y $P(-\mid D)=1-$ sensibilidad (falso negativo).
 
 Lógicamente, en un "buen test" nos interesa que la sensibilidad y la especificidad sean elevadas, mientras que los falsos-positivos y falsos-negativos sean valores bajos.
 
@@ -732,18 +772,24 @@ Además no debemos olvidar que, el interés de aplicar el test, consiste en que 
 
 Por lo tanto, interesa que las probabilidades:
 
-- $\mathrm{P}(\mathrm{E} /+)=$ Probabilidad de padecer sordera si el test da positivo
+- $P(D\mid +)=$ Probabilidad de padecer sordera si el test da positivo
 
-- $\mathrm{P}(\mathrm{A} /-)=$ Probabilidad de no padecer sordera si el test da negativo
+- $P(D^c\mid -)=$ Probabilidad de no padecer sordera si el test da negativo
 
 sean realmente altas.
 
 A las probabilidades 
 anteriores se las conoce como: _valores predictivos_ del test, en concreto:
 
-- $\mathrm{P}(\mathrm{E} /+)=$ es el _valor predictivo positivo_ y 
+- $P(D\mid +)$ es el _valor predictivo positivo_ y
 
-- $\mathrm{P}(\mathrm{A} /-)=$ es el _valor predictivo negativo_
+- $P(D^c\mid -)$ es el _valor predictivo negativo_. Ambos dependen de la prevalencia.
+
+:::: {.pedagogical-box .attention}
+**Atención.** Sensibilidad y especificidad condicionan al estado de salud;
+VPP y VPN condicionan al resultado del test. Por ello, VPP y VPN cambian al
+cambiar la prevalencia, incluso con la misma sensibilidad y especificidad.
+::::
 
 ### Aplicación del Teorema de Bayes
 
@@ -768,12 +814,12 @@ Veamos como aplicar el teorema de Bayes a este problema:
 Si dividimos a la población global (en este caso, el conjunto de todos los bebés de seis meses) entre los que padecen sordera y los que no la padecen, aplicando el teorema de Bayes resulta que:
 
 $$
-\mathrm{P}(\mathrm{E} /+)=(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})) /(\mathrm{P}(+/ \mathrm{E}) \times \mathrm{P}(\mathrm{E})+\mathrm{P}(+/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A}))
+P(D\mid +)=\frac{P(+\mid D)P(D)}{P(+\mid D)P(D)+P(+\mid D^c)P(D^c)}
 $$
 y
 
 $$
-\mathrm{P}(\mathrm{~A} /-)=(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})) /(\mathrm{P}(-/ \mathrm{A}) \times \mathrm{P}(\mathrm{~A})+\mathrm{P}(-/ \mathrm{E}) \times \mathrm{P}(\mathrm{E}))
+P(D^c\mid -)=\frac{P(-\mid D^c)P(D^c)}{P(-\mid D^c)P(D^c)+P(-\mid D)P(D)}.
 $$
 
 ### Ejemplo numérico
@@ -794,15 +840,22 @@ Supongamos que en el ejemplo de la sordera, se sabe que:
 
 $$
 \begin{aligned}
-& \mathrm{P}(\mathrm{E} /+)=(0,98 \times 0,003) /(0,98 \times 0,003+0,05 \times 0,997)=0,00294 / 0,05279=0,055692 \\
-& \mathrm{P}(\mathrm{~A} /-)=(0,95 \times 0,997) /(0,95 \times 0,997+0,02 \times 0,003)=0,94715 / 0,94721=0,999936
+& P(D\mid +)=\frac{0,98 \times 0,003}{0,98 \times 0,003+0,05 \times 0,997}=0,055692 \\
+& P(D^c\mid -)=\frac{0,95 \times 0,997}{0,95 \times 0,997+0,02 \times 0,003}=0,999936
 \end{aligned}
 $$
 
 En conclusión,
-Podemos afirmar que se trata de un test muy válido para decidir que no hay sordera en caso de que el resultado del test sea negativo.
+Con la prevalencia supuesta, un resultado negativo se asocia a un VPN muy alto.
 
-Sin embargo, el valor tan bajo de $\mathrm{P}(\mathrm{E} /+)$ no permite poder considerar al test como un predictor válido para diagnosticar la sordera.
+Con esa misma prevalencia, el VPP es bajo: un positivo por sí solo no confirma
+la sordera y debe interpretarse en el contexto clínico y, si procede, con una
+prueba confirmatoria.
+
+Si se mantienen sensibilidad $0,98$ y especificidad $0,95$, pero la
+prevalencia aumenta a $0,03$, entonces
+$P(D\mid +)=0,98\cdot0,03/(0,98\cdot0,03+0,05\cdot0,97)\approx0,378$.
+El VPP aumenta de forma notable únicamente por cambiar la prevalencia.
 
 Obsérvese que:
 
