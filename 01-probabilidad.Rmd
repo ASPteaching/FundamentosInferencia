@@ -5,6 +5,22 @@
 
 ## Introducción
 
+La probabilidad proporciona un lenguaje para describir el azar y la
+incertidumbre. En biología, bioestadística y ciencias de la salud permite
+formular con claridad preguntas sobre la respuesta a un tratamiento, la
+presencia de una variante genética o el resultado de una prueba diagnóstica.
+En esta unidad estudiaremos sucesos, probabilidades, condicionamiento,
+independencia y algunas reglas de cálculo que servirán más adelante como base
+para la inferencia estadística.
+
+Por ejemplo, podemos llamar $R=\{\text{el paciente responde al tratamiento}\}$
+al suceso «respuesta al tratamiento» y
+$V=\{\text{el individuo es portador de una determinada variante genética}\}$
+al suceso «portador de la variante». Más adelante podremos combinar estos y
+otros sucesos para formular preguntas más interesantes. Para introducir estas
+ideas formalmente comenzaremos, sin embargo, con un experimento especialmente
+sencillo: el lanzamiento de un dado de seis caras.
+
 ### Fenómenos deterministas y fenómenos aleatorios
 
 Supongamos que disponemos de un dado regular con todas las caras
@@ -24,11 +40,11 @@ resultante. El resultado puede ser : $1,2,3,4,5$ o 6 . Se trata de un
 experimento o fenómeno aleatorio.
 
 El conjunto de resultados se anotará con el símbolo: $\Omega$. En este
-caso, $\Omega=\{1,2,3,4,5,6\}$. En los fenómenos aleatorios, al hacer
-muchas veces una misma experiencia en condiciones independientes e
-idénticamente distribuidas, la frecuencia relativa de un suceso fijo se
-aproxima a su probabilidad. Esta es una propiedad asintótica, no una
-definición general de probabilidad.
+caso, $\Omega=\{1,2,3,4,5,6\}$. Si repetimos muchas veces un mismo
+experimento aleatorio en las mismas condiciones, la frecuencia relativa con
+que ocurre un suceso tiende a estabilizarse alrededor de un determinado valor.
+Esta propiedad proporciona una interpretación intuitiva de la probabilidad y
+se estudiará con más detalle posteriormente.
 
 ### Sucesos
 
@@ -78,18 +94,13 @@ verificado.
 Por lo tanto, sería interesante el tener alguna función que midiera el
 grado de confianza a depositar en que se verifique el suceso.
 
-A esta función la denominaremos función de probabilidad. Formalmente,
-en un espacio probabilizable $(\Omega,\mathcal A)$ es una aplicación
+A esta función la denominaremos función de probabilidad. Una probabilidad es
+una función $P$ que asigna a cada suceso $A$ un número $P(A)$ entre 0 y 1,
+cumpliendo las propiedades que veremos a continuación.
 
-$$
-P:\mathcal A\longrightarrow [0,1].
-$$
-
-Aquí $\mathcal A$ es la colección de sucesos a los que se puede asignar
-probabilidad. Formalmente es una *sigma-álgebra*: contiene $\Omega$ y es
-estable frente a complementos y uniones numerables. En espacios finitos
-suele tomarse $\mathcal A=\mathcal P(\Omega)$, el conjunto de todos los
-subconjuntos de $\Omega$.
+En una formulación matemática más general, no siempre se consideran todos los
+subconjuntos de $\Omega$, sino una determinada colección de sucesos denominada
+sigma-álgebra. Este nivel de formalización no será necesario en este curso.
 
 La notación $P(A)$ significará: probabilidad de que
 se verifique el suceso A . Pero claro, de funciones de probabilidad
@@ -100,8 +111,7 @@ es construir una serie de propiedades (denominadas axiomas) que se
 exigirán a una función para poder ser catalogada como función de
 probabilidad.
 
-Y, ¿cuáles son estos axiomas? Pues los siguientes, para sucesos de
-$\mathcal A$:
+Y, ¿cuáles son estos axiomas? Pues los siguientes:
 
 - Axioma 1: Para cualquier suceso A, la probabilidad debe ser
 mayor o igual que 0. 
@@ -124,10 +134,8 @@ las funciones de probabilidad más razonables asociadas con la
 experiencia que está manejando.
 
 :::: {.pedagogical-box .key}
-**Idea clave.** Un modelo probabilístico distingue los resultados posibles
-($\Omega$), los sucesos sobre los que tiene sentido preguntar ($\mathcal A$)
-y la regla que les asigna probabilidades ($P$). En el caso finito habitual,
-todos los subconjuntos de $\Omega$ pueden considerarse sucesos.
+**Idea clave.** $\Omega$ describe los resultados posibles; un suceso es un
+conjunto de resultados; y $P$ asigna probabilidades a los sucesos.
 ::::
 
 ### ¿Diferentes funciones de probabilidad para una misma experiencia aleatoria?
@@ -214,11 +222,10 @@ experiencia en condiciones independientes.
 ## Sucesos elementales y sucesos observables
 
 En el contexto de la probabilidad conviene distinguir los **resultados
-elementales**, que son los elementos de $\Omega$, de los **sucesos medibles**,
-que son los elementos de $\mathcal A$. En un dado ordinario podemos observar
-cada número y tomar todos sus subconjuntos como sucesos. Si el modo de
-observación es más limitado, no todos los subconjuntos tienen por qué estar en
-$\mathcal A$.
+elementales**, que son los elementos de $\Omega$, de los sucesos que podemos
+distinguir según la información disponible. En un dado ordinario podemos
+observar cada número; si el modo de observación es más limitado, algunos
+subconjuntos dejan de poder distinguirse directamente.
 
 :::: {.ejemplo}
 **Ejemplo**
@@ -230,15 +237,11 @@ Sin embargo tan solo "Par" ("blanco") o impar ("negro") se pueden observar.
 ::::
 
 
-Para formalizar estos conceptos, el par $(\Omega,\mathcal A)$ se denomina
-**espacio medible** (o espacio probabilizable). $\mathcal A$ recoge los
-sucesos medibles y debe ser una sigma-álgebra. En el dado pintado con tres
-colores, por ejemplo, los colores son átomos observables y la sigma-álgebra
-generada por ellos contiene $\varnothing$, los tres colores, sus uniones y
-$\Omega$; no contiene necesariamente el suceso «sale par».
-
-- $\Omega$ es el conjunto de todos los resultados posibles (el conjunto de resultados o sucesos elementales).
-- $\mathcal{A}$ es el conjunto de todos los sucesos observables, que vienen definidos por el _nivel de observación_ del experimento.
+En el dado pintado con tres colores, por ejemplo, podemos distinguir los
+colores y sus agrupaciones, pero no necesariamente el suceso «sale par» si
+cada color reúne una cara par y una impar. El ejemplo muestra que los sucesos
+que podemos formular dependen de la información disponible al observar el
+experimento.
 
 
 ## Propiedades inmediatas de la probabilidad
@@ -317,9 +320,8 @@ P\left(\bigcap_{i=1}^{n} A_i\right) \geq 1-\sum_{i=1}^{n} P(A_i^c).
 $$
 
 El lado derecho puede ser negativo; como una probabilidad nunca lo es, la
-cota útil puede truncarse en cero. La terna $(\Omega,\mathcal A,P)$ definida
-arriba es el **espacio de probabilidad**: $P$ solo se asigna a sucesos de
-$\mathcal A$.
+cota útil puede truncarse en cero. El conjunto de resultados, los sucesos y
+la función $P$ constituyen el modelo probabilístico con el que trabajaremos.
 
 ## Probabilidad condicionada
 
@@ -344,8 +346,8 @@ P(A)=1 / 2
 \end{gathered}
 $$
 
-En términos generales, si $A,B\in\mathcal A$ y $P(B)>0$, definimos la
-probabilidad condicionada como:
+En términos generales, si $P(B)>0$, definimos la probabilidad condicionada
+como:
 
 $$
 P(A\mid B)=\frac{P(A \cap B)}{P(B)}.
@@ -382,8 +384,8 @@ if (knitr::is_html_output()) {
 
 ### La probabilidad condicionada es una medida de probabilidad
 
-Para un $B$ fijo con $P(B)>0$, la aplicación $P_B(A)=P(A\mid B)$ es una
-medida de probabilidad sobre $\mathcal A$ y verifica los tres axiomas:
+Para un $B$ fijo con $P(B)>0$, la aplicación $P_B(A)=P(A\mid B)$ verifica
+los tres axiomas de una probabilidad:
 
 Axioma 1:
 
@@ -702,9 +704,9 @@ En la simulación podéis definir:
 - La verdadera probabilidad" de que al tirar la moneda salga cara,
 - EL número de tiradas.
 
-Para un suceso fijo bajo repeticiones i.i.d., la ley de los grandes números
-expresa que la frecuencia relativa converge en probabilidad hacia su
-probabilidad. No implica una aproximación monótona en una trayectoria concreta.
+Al aumentar el número de repeticiones, la frecuencia relativa tiende a
+estabilizarse alrededor de $P(A)$. Esto no significa que se aproxime a $P(A)$
+de forma continua o monótona: seguirá presentando fluctuaciones aleatorias.
 
 Eso sí, observad lo que sucede si fijáis probabilidades cercanas a 0,5 o muy alejadas de él.
 
