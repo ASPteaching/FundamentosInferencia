@@ -29,3 +29,12 @@
 - B12 y C2–C5: no se abre una revisión estilística, de figuras o de estructura global.
 - La normalización de notación se limita al capítulo 1 y a los fragmentos modificados.
 - No se rediseñan los PDF ni se modifica ningún otro capítulo.
+
+## Validación de render
+
+- 2026-09-19, perfil HTML combinado mediante `scripts/build.ps1`, scratch
+  externo `../_phase4-ch1-validation-html`: **fallido antes del render**.
+  Se usaron explícitamente R 4.4.3 y el directorio Pandoc indicados. El error
+  exacto del runner fue: `there is no package called 'rmarkdown'`.
+- Por instrucción, no se intentó el PDF de teoría tras este fallo y no se
+  modificó contenido para resolverlo.
