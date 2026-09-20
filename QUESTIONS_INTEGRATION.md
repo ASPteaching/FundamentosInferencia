@@ -1,12 +1,13 @@
 # Cuestiones: integración HTML
 
-La fuente canónica editable es `../Cuestiones/Unidad_1/questions.yml`. Es un
+La fuente canónica editable es
+`../FundamentosInferencia-QuestionBank/Unidad_01/questions.yml`. Es un
 banco JSON válido también como YAML 1.2, independiente de Bookdown y de futuros
 formatos LMS.
 
 En el perfil HTML `scripts/build.ps1` llama a `scripts/build-questions.ps1`.
-El script valida el banco y genera `docs/questions/unit1.json` en el resultado
-del build. Ese recurso público contiene únicamente `id`, `topic`,
+El script valida el banco, filtra `visibility: self_assessment` y genera
+`docs/questions/unit1.json` en el resultado del build. Ese recurso público contiene únicamente `id`, `topic`,
 `difficulty`, `question`, `options`, `correct` y, cuando existe,
 `explanation`.
 

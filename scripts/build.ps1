@@ -11,7 +11,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $sourceRoot = (Resolve-Path -LiteralPath $Repository).Path
-$questionsSourcePath = if ($QuestionsSource) { [IO.Path]::GetFullPath($QuestionsSource) } else { Join-Path (Split-Path $sourceRoot -Parent) 'Cuestiones\Unidad_1\questions.yml' }
+$questionsSourcePath = if ($QuestionsSource) { [IO.Path]::GetFullPath($QuestionsSource) } else { Join-Path (Split-Path $sourceRoot -Parent) 'FundamentosInferencia-QuestionBank\Unidad_01\questions.yml' }
 $scratchRoot = [IO.Path]::GetFullPath($ScratchDirectory)
 if ($scratchRoot.StartsWith($sourceRoot + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase) -or $scratchRoot -eq $sourceRoot) {
     throw 'Scratch must be outside the source repository.'
