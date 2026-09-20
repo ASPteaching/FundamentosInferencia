@@ -145,6 +145,20 @@ nav[aria-label="Descargas PDF"] a::before {
   content: "↓ ";
 }
 
+.materials-nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin: 0 0 1rem;
+}
+
+.materials-nav a {
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
 .sourceCode, pre:not(.sourceCode) {
   background: var(--uocub-code);
   border: 1px solid #e0e5e9;

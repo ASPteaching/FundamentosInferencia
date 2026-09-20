@@ -5,6 +5,8 @@ html_renderer <- if (length(args) == 3L) args[3] else "bs4_book"
 stopifnot(html_renderer %in% c("bs4_book", "gitbook"))
 setwd(normalizePath(args[1], mustWork = TRUE))
 stopifnot(!dir.exists(".git"), file.exists("_bookdown.yml"))
+user_library <- Sys.getenv("R_LIBS_USER")
+if (nzchar(user_library) && dir.exists(user_library)) .libPaths(c(user_library, .libPaths()))
 started <- Sys.time()
 status <- 0L
 cat("START:", format(started), "\nWORKDIR:", getwd(), "\n")

@@ -6,10 +6,12 @@ param(
     [Parameter(Mandatory)][string]$ScratchDirectory,
     [Parameter(Mandatory)][string]$Rscript,
     [Parameter(Mandatory)][string]$PandocDirectory,
+    [string]$QuestionsSource,
     [ValidateSet('bs4_book','gitbook')][string]$HtmlRenderer = 'bs4_book'
 )
 $ErrorActionPreference = 'Stop'
 $sourceRoot = (Resolve-Path -LiteralPath $Repository).Path
+$questionsSourcePath = if ($QuestionsSource) { [IO.Path]::GetFullPath($QuestionsSource) } else { Join-Path (Split-Path $sourceRoot -Parent) 'Cuestiones\Unidad_1\questions.yml' }
 $scratchRoot = [IO.Path]::GetFullPath($ScratchDirectory)
 if ($scratchRoot.StartsWith($sourceRoot + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase) -or $scratchRoot -eq $sourceRoot) {
     throw 'Scratch must be outside the source repository.'
@@ -28,7 +30,7 @@ if (!$chapters.Count -or $chapters[0] -ne 'index.Rmd') { throw 'Expected explici
 $inputs = @($manifestName, '_output.yml') + $chapters
 if ($Profile -eq 'exercises') { $inputs += 'profiles/exercises-index.Rmd' }
 if ($Profile -eq 'html' -and $HtmlRenderer -eq 'bs4_book') {
-    $inputs += @('scripts/prepare-bs4.R', 'profiles/bs4-downloads.html', 'profiles/bs4-book-es.html')
+    $inputs += @('scripts/prepare-bs4.R', 'scripts/build-questions.ps1', 'profiles/bs4-downloads.html', 'profiles/bs4-book-es.html')
 }
 $inputs += @(Get-ChildItem -LiteralPath $sourceRoot -File | Where-Object { $_.Extension -in '.css','.bib' } | ForEach-Object Name)
 foreach ($relative in $inputs) {
@@ -47,6 +49,11 @@ foreach ($relative in $inputs) {
 foreach ($assetDir in @('images','Rcode','htmlWidgets')) {
     $assetPath = Join-Path $sourceRoot $assetDir
     if (Test-Path -LiteralPath $assetPath) { Copy-Item -LiteralPath $assetPath -Destination $work -Recurse }
+}
+if ($Profile -eq 'html' -and $HtmlRenderer -eq 'bs4_book') {
+    if (!(Test-Path -LiteralPath $questionsSourcePath)) { throw "Canonical question source not found: $questionsSourcePath" }
+    Copy-Item -LiteralPath (Join-Path $sourceRoot 'questions') -Destination $work -Recurse
+    & (Join-Path $PSScriptRoot 'build-questions.ps1') -CanonicalSource $questionsSourcePath -OutputPath (Join-Path $work 'questions\unit1.json')
 }
 function Get-Manifest([string]$Directory) {
     @(Get-ChildItem -LiteralPath $Directory -Recurse -File | ForEach-Object {
@@ -72,6 +79,13 @@ try {
     $env:LC_ALL = 'English_United States.utf8'
     & $Rscript --vanilla (Join-Path $PSScriptRoot 'build-render.R') $work $Format $HtmlRenderer *> (Join-Path $scratchRoot 'render.log')
     $renderExit = $LASTEXITCODE
+    if ($renderExit -eq 0 -and $Profile -eq 'html' -and $HtmlRenderer -eq 'bs4_book') {
+        $publishedQuestions = Join-Path $work 'docs\questions'
+        New-Item -ItemType Directory -Path $publishedQuestions -Force | Out-Null
+        Get-ChildItem -LiteralPath (Join-Path $work 'questions') -File | ForEach-Object {
+            Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $publishedQuestions $_.Name) -Force
+        }
+    }
 } finally {
     $env:RSTUDIO_PANDOC = $oldPandoc
     $env:LC_ALL = $oldLocale

@@ -1,0 +1,535 @@
+{
+  "unit": "Unidad_1",
+  "questions": [
+    {
+      "id": "PROB-001",
+      "topic": "espacio muestral",
+      "difficulty": "basic",
+      "question": "Sea el experimento de lanzar simultáneamente tres monedas. ¿Cuántos resultados contiene el espacio muestral?",
+      "options": [
+        "8 resultados",
+        "20 resultados",
+        "10 resultados",
+        "27 resultados"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": "PROB-002",
+      "topic": "operaciones con sucesos",
+      "difficulty": "intermediate",
+      "question": "Si A es un suceso con P(A)=0,2 y B un suceso con P(B)=0,3, y P(A∩B)=0,02, ¿cuál es la probabilidad de la unión de A y el complementario de B?",
+      "options": [
+        "0,9",
+        "0,72",
+        "0,48",
+        "0,5"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-003",
+      "topic": "experimentos repetidos",
+      "difficulty": "basic",
+      "question": "La probabilidad de obtener exactamente dos caras y una cruz al lanzar tres monedas es:",
+      "options": [
+        "1/8",
+        "1/3",
+        "3/8",
+        "1/16"
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "PROB-004",
+      "topic": "independencia",
+      "difficulty": "intermediate",
+      "question": "Si A y B son sucesos independientes tales que P(A)+2P(B)=1, ¿cuál es el valor máximo de P(A∩B)?",
+      "options": [
+        "3/8",
+        "7/8",
+        "1/2",
+        "1/8"
+      ],
+      "correct": "d"
+    },
+    {
+      "id": "PROB-005",
+      "topic": "probabilidad total y Bayes",
+      "difficulty": "intermediate",
+      "question": "Una empresa tiene tres líneas A, B y C que producen el 10 %, 40 % y 50 % del total. Sus porcentajes de piezas defectuosas son 2 %, 1 % y 0,5 %. Si una pieza es defectuosa, ¿cuál es la probabilidad de que proceda de A?",
+      "options": [
+        "0,085",
+        "0,565",
+        "0,235",
+        "0,5"
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "PROB-006",
+      "topic": "probabilidad condicionada",
+      "difficulty": "intermediate",
+      "question": "Una urna A contiene dos bolas blancas y tres negras; una urna B, tres blancas y cuatro negras. Se pasa una bola al azar de A a B y después se extrae una bola de B. ¿Cuál es la probabilidad de que sea negra?",
+      "options": [
+        "10/35",
+        "23/40",
+        "3/5",
+        "21/30"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-007",
+      "topic": "operaciones con sucesos",
+      "difficulty": "basic",
+      "question": "Si A y B son sucesos incompatibles:",
+      "options": [
+        "Los complementarios de A y B también lo son.",
+        "La unión de los complementarios de A y B es el espacio muestral.",
+        "Los complementarios de A y B son independientes.",
+        "Todas las anteriores son correctas."
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-008",
+      "topic": "independencia",
+      "difficulty": "intermediate",
+      "question": "En una ciudad, el 60 % de la población pertenece al grupo A y el resto al grupo B. Al elegir dos personas al azar de forma independiente, ¿cuál es la probabilidad de que ambas pertenezcan al grupo A?",
+      "options": [
+        "0,24",
+        "0,40",
+        "0,12",
+        "0,36"
+      ],
+      "correct": "d"
+    },
+    {
+      "id": "PROB-009",
+      "topic": "experimentos repetidos",
+      "difficulty": "intermediate",
+      "question": "¿Cuál es la probabilidad de obtener exactamente cuatro caras al lanzar una moneda diez veces?",
+      "options": [
+        "0,205",
+        "0,425",
+        "0,642",
+        "0,102"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": "PROB-010",
+      "topic": "probabilidad total y Bayes",
+      "difficulty": "intermediate",
+      "question": "Los genotipos AA, Aa y aa tienen probabilidades 1/4, 1/2 y 1/4. Una prueba es positiva con probabilidades 0,95, 0,90 y 0,04, respectivamente. Si la prueba es positiva, ¿cuál es la probabilidad de que el individuo presente el alelo A?",
+      "options": [
+        "0,0143",
+        "0,985",
+        "0,555",
+        "0,365"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-011",
+      "topic": "espacio muestral",
+      "difficulty": "intermediate",
+      "question": "En una quiniela se apuesta por el resultado de catorce partidos: 1, X o 2. ¿Cuántos resultados contiene el espacio muestral?",
+      "options": [
+        "42 resultados",
+        "2744 resultados",
+        "4782969 resultados",
+        "868754 resultados"
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "PROB-012",
+      "topic": "operaciones con sucesos",
+      "difficulty": "intermediate",
+      "question": "Si P(A)=0,2, P(B)=0,3 y P(A∪B)=0,42, ¿cuál es la probabilidad de la intersección de A y el complementario de B?",
+      "options": [
+        "0,05",
+        "0,04",
+        "0,12",
+        "0,20"
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "PROB-013",
+      "topic": "experimentos repetidos",
+      "difficulty": "basic",
+      "question": "¿Cuál es la probabilidad de obtener un doble seis al lanzar dos dados simultáneamente?",
+      "options": [
+        "1/36",
+        "2/6",
+        "2/36",
+        "1/12"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": "PROB-014",
+      "topic": "probabilidad total y Bayes",
+      "difficulty": "intermediate",
+      "question": "Las respuestas a tratamientos A y B son buenas, malas o regulares. Con A, las probabilidades son 0,20, 0,30 y 0,50; con B, 0,15, 0,27 y 0,58. Si se administra uno al azar, ¿cuál es la probabilidad de una respuesta buena?",
+      "options": [
+        "0,20",
+        "0,175",
+        "0,45",
+        "0,50"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-015",
+      "topic": "probabilidad total y Bayes",
+      "difficulty": "intermediate",
+      "question": "Una empresa tiene tres líneas A, B y C que producen 10 %, 40 % y 50 % del total. Sus tasas de defecto son 2 %, 1 % y 0,5 %. ¿Cuál es la probabilidad de que una pieza elegida al azar sea defectuosa?",
+      "options": [
+        "0,0025",
+        "0,0085",
+        "0,0065",
+        "0,0002"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-016",
+      "topic": "probabilidad condicionada",
+      "difficulty": "intermediate",
+      "question": "Se pasa una bola al azar de la urna A a la urna B y después se extrae una bola de B. Si la extraída de B es negra, ¿cuál es la probabilidad de que la transferida desde A fuese negra?",
+      "options": [
+        "15/40",
+        "5/8",
+        "20/70",
+        "15/23"
+      ],
+      "correct": "d"
+    },
+    {
+      "id": "PROB-017",
+      "topic": "independencia",
+      "difficulty": "intermediate",
+      "question": "Si A y B son sucesos independientes:",
+      "options": [
+        "Los complementarios de A y B también lo son.",
+        "A y el complementario de B también lo son.",
+        "B y el complementario de A también lo son.",
+        "Todas las anteriores son correctas."
+      ],
+      "correct": "d"
+    },
+    {
+      "id": "PROB-018",
+      "topic": "experimentos repetidos",
+      "difficulty": "intermediate",
+      "question": "En una ciudad, el 60 % de la población pertenece al grupo A. Al elegir dos personas al azar, ¿cuál es la probabilidad de que al menos una pertenezca al grupo A?",
+      "options": [
+        "0,84",
+        "0,16",
+        "0,36",
+        "0,08"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": "PROB-019",
+      "topic": "experimentos repetidos",
+      "difficulty": "basic",
+      "question": "Al jugar con dos dados, ¿qué suma es la más probable?",
+      "options": [
+        "La suma 7",
+        "La suma 9",
+        "La suma 5",
+        "La suma 8"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": "PROB-020",
+      "topic": "experimentos repetidos",
+      "difficulty": "intermediate",
+      "question": "Los genotipos AA, Aa y aa tienen probabilidades 1/4, 1/2 y 1/4. Al elegir ocho individuos, ¿cuál es la probabilidad de que exactamente cuatro sean aa?",
+      "options": [
+        "0,5",
+        "0,0865",
+        "0,0234",
+        "0,0526"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-021",
+      "topic": "espacio muestral",
+      "difficulty": "basic",
+      "question": "Una urna A contiene cuatro bolas negras y tres blancas; una urna B, tres negras y cinco blancas. Se extrae una bola de cada urna y solo se anota su color. ¿Cuántos resultados contiene el espacio muestral?",
+      "options": [
+        "8 resultados",
+        "4 resultados",
+        "15 resultados",
+        "12 resultados"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-022",
+      "topic": "operaciones con sucesos",
+      "difficulty": "advanced",
+      "question": "Sean P(A)=0,2, P(B)=0,3 y P(C)=0,4; P(A∩B)=0,02 y C es independiente, por separado, de A y de B. Si P(A∪B∪C)=0,69, ¿cuál es P(A∩B∩C)?",
+      "options": [
+        "0,01",
+        "0,05",
+        "0,10",
+        "0,20"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": "PROB-023",
+      "topic": "combinatoria",
+      "difficulty": "intermediate",
+      "question": "En una lotería de cuarenta billetes hay diez premios. Si una persona compra tres billetes, ¿cuál es la probabilidad de obtener algún premio?",
+      "options": [
+        "0,80",
+        "0,41",
+        "0,59",
+        "0,90"
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "PROB-024",
+      "topic": "experimentos repetidos",
+      "difficulty": "intermediate",
+      "question": "En un sorteo anual de una fiesta de submarinismo participan cien personas. Si un individuo asiste a diez ediciones, ¿cuál es la probabilidad de que le toque alguna vez el ordenador sorteado?",
+      "options": [
+        "0,605",
+        "0,904",
+        "0,102",
+        "0,096"
+      ],
+      "correct": "d"
+    },
+    {
+      "id": "PROB-025",
+      "topic": "probabilidad total y Bayes",
+      "difficulty": "intermediate",
+      "question": "Dos líneas A y B producen el 40 % y 60 % del total, con tasas de defecto 1 % y 2 %. Si una pieza no es defectuosa, ¿cuál es la probabilidad de que proceda de A?",
+      "options": [
+        "0,306",
+        "0,402",
+        "0,664",
+        "0,104"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-026",
+      "topic": "probabilidad condicionada",
+      "difficulty": "advanced",
+      "question": "Se pasa una bola de A a B, después una de B a A y finalmente se extrae una de A. ¿Cuál es la probabilidad de que la última bola extraída sea negra?",
+      "options": [
+        "12/200",
+        "130/200",
+        "119/200",
+        "59/200"
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "PROB-027",
+      "topic": "probabilidad total y Bayes",
+      "difficulty": "intermediate",
+      "question": "Las respuestas a tratamientos A y B son buenas, malas o regulares. Con A, las probabilidades son 0,20, 0,30 y 0,50; con B, 0,15, 0,27 y 0,58. Si se administra uno al azar y la respuesta es buena, ¿cuál es la probabilidad de que se haya administrado A?",
+      "options": [
+        "0,57",
+        "0,64",
+        "0,32",
+        "0,84"
+      ],
+      "correct": "a"
+    },
+    {
+      "id": "PROB-028",
+      "topic": "experimentos repetidos",
+      "difficulty": "advanced",
+      "question": "Se lanza una moneda regular seis veces. ¿Cuál es la probabilidad de que aparezca al menos una racha ininterrumpida de tres caras?",
+      "options": [
+        "1/64",
+        "10/64",
+        "15/32",
+        "10/32"
+      ],
+      "correct": "d"
+    },
+    {
+      "id": "PROB-029",
+      "topic": "experimentos repetidos",
+      "difficulty": "intermediate",
+      "question": "Se lanza un dado seis veces. ¿Cuál es la probabilidad de obtener exactamente tres veces el 6?",
+      "options": [
+        "0,018",
+        "0,053",
+        "0,832",
+        "0,126"
+      ],
+      "correct": "b"
+    },
+    {
+      "id": "PROB-030",
+      "topic": "probabilidad total y Bayes",
+      "difficulty": "intermediate",
+      "question": "Los genotipos AA, Aa y aa tienen probabilidades 1/4, 1/2 y 1/4. ¿Cuál es la probabilidad de que un individuo elegido al azar dé positivo en la prueba?",
+      "options": [
+        "0,8876",
+        "0,9215",
+        "0,6975",
+        "0,7642"
+      ],
+      "correct": "c"
+    },
+    {
+      "id": "PROB-031",
+      "topic": "frecuencia relativa",
+      "difficulty": "basic",
+      "question": "En 200 repeticiones de un experimento, el suceso A ocurre 58 veces. ¿Cuál es su frecuencia relativa observada?",
+      "options": [
+        "0,029",
+        "0,29",
+        "0,42",
+        "2,9"
+      ],
+      "correct": "b",
+      "explanation": "La frecuencia relativa es el número de veces que ocurre el suceso dividido entre el número total de repeticiones: 58/200=0,29."
+    },
+    {
+      "id": "PROB-032",
+      "topic": "frecuencia relativa",
+      "difficulty": "basic",
+      "question": "Al repetir muchas veces un experimento, la frecuencia relativa de A pasa de 0,46 a 0,49 y después a 0,48. ¿Qué interpretación es adecuada?",
+      "options": [
+        "La probabilidad de A cambia en cada repetición.",
+        "La frecuencia relativa observada se está estabilizando cerca de 0,48.",
+        "A debe ocurrir exactamente el 48 % de las veces en cualquier serie futura.",
+        "La probabilidad de A es necesariamente 1."
+      ],
+      "correct": "b",
+      "explanation": "La frecuencia relativa resume lo observado en una serie de repeticiones. Su estabilización sugiere un valor próximo a 0,48, pero no impone un porcentaje exacto en cada serie futura."
+    },
+    {
+      "id": "PROB-033",
+      "topic": "probabilidad condicionada",
+      "difficulty": "intermediate",
+      "question": "Sea R el suceso «respuesta favorable al tratamiento» y V el suceso «presencia de una variante genética». Si P(R)=0,40, P(V)=0,30 y P(R∩V)=0,18, ¿cuál es P(V|R)?",
+      "options": [
+        "0,12",
+        "0,45",
+        "0,60",
+        "0,72"
+      ],
+      "correct": "b",
+      "explanation": "Por definición, P(V|R)=P(R∩V)/P(R)=0,18/0,40=0,45."
+    },
+    {
+      "id": "PROB-034",
+      "topic": "probabilidad condicionada",
+      "difficulty": "intermediate",
+      "question": "Con los sucesos R («respuesta favorable») y V («variante genética»), se sabe que P(R)=0,40, P(V)=0,30 y P(R∩V)=0,18. ¿Cuál es P(V|Rᶜ)?",
+      "options": [
+        "0,12",
+        "0,20",
+        "0,30",
+        "0,45"
+      ],
+      "correct": "b",
+      "explanation": "P(V∩Rᶜ)=P(V)-P(V∩R)=0,30-0,18=0,12. Como P(Rᶜ)=0,60, resulta 0,12/0,60=0,20."
+    },
+    {
+      "id": "PROB-035",
+      "topic": "diagnóstico",
+      "difficulty": "basic",
+      "question": "Una prueba diagnóstica tiene sensibilidad 0,90. Entre las personas que realmente tienen la enfermedad, ¿qué proporción se espera que dé positivo?",
+      "options": [
+        "0,10",
+        "0,50",
+        "0,90",
+        "0,95"
+      ],
+      "correct": "c",
+      "explanation": "La sensibilidad es P(positivo|enfermedad). Por tanto, una sensibilidad de 0,90 significa que el 90 % de las personas enfermas da positivo."
+    },
+    {
+      "id": "PROB-036",
+      "topic": "diagnóstico",
+      "difficulty": "basic",
+      "question": "Una prueba tiene especificidad 0,85. Entre las personas sin la enfermedad, ¿cuál es la probabilidad de un falso positivo?",
+      "options": [
+        "0,15",
+        "0,85",
+        "0,05",
+        "0,95"
+      ],
+      "correct": "a",
+      "explanation": "La especificidad es P(negativo|sin enfermedad). Un falso positivo tiene probabilidad 1-0,85=0,15 entre las personas sin enfermedad."
+    },
+    {
+      "id": "PROB-037",
+      "topic": "diagnóstico",
+      "difficulty": "intermediate",
+      "question": "En una población, la prevalencia de una enfermedad es 0,01. Una prueba tiene sensibilidad 0,90 y especificidad 0,95. Si una persona da positivo, ¿cuál es aproximadamente la probabilidad de que tenga la enfermedad?",
+      "options": [
+        "0,01",
+        "0,15",
+        "0,90",
+        "0,95"
+      ],
+      "correct": "b",
+      "explanation": "P(enfermedad|positivo)=0,01·0,90/[0,01·0,90+0,99·0,05]≈0,154. Una prevalencia baja hace que muchos positivos correspondan a falsos positivos."
+    },
+    {
+      "id": "PROB-038",
+      "topic": "diagnóstico",
+      "difficulty": "intermediate",
+      "question": "La prevalencia de una enfermedad es 0,20. Una prueba tiene sensibilidad 0,80 y especificidad 0,90. Si una persona da negativo, ¿cuál es aproximadamente la probabilidad de que no tenga la enfermedad?",
+      "options": [
+        "0,20",
+        "0,72",
+        "0,90",
+        "0,95"
+      ],
+      "correct": "d",
+      "explanation": "P(sin enfermedad|negativo)=0,80·0,90/[0,20·0,20+0,80·0,90]=0,72/0,76≈0,947."
+    },
+    {
+      "id": "PROB-039",
+      "topic": "operaciones con sucesos",
+      "difficulty": "basic",
+      "question": "En un grupo de 200 personas, 120 presentan R, 80 presentan V y 50 presentan ambos sucesos. ¿Cuántas presentan al menos uno de los dos sucesos?",
+      "options": [
+        "50",
+        "120",
+        "150",
+        "200"
+      ],
+      "correct": "c",
+      "explanation": "Se aplica inclusión-exclusión: 120+80-50=150. La intersección se resta porque se habría contado dos veces."
+    },
+    {
+      "id": "PROB-040",
+      "topic": "independencia",
+      "difficulty": "basic",
+      "question": "Sean R («respuesta favorable») y V («variante genética») con P(R)=0,60, P(V)=0,20 y P(R∩V)=0,12. ¿Cuál es la conclusión correcta?",
+      "options": [
+        "R y V son independientes.",
+        "R y V son incompatibles.",
+        "R implica V.",
+        "No se puede comparar P(R∩V) con P(R)P(V)."
+      ],
+      "correct": "a",
+      "explanation": "P(R)P(V)=0,60·0,20=0,12, que coincide con P(R∩V). Esa es precisamente la condición de independencia."
+    }
+  ]
+}
