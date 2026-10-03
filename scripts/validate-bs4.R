@@ -20,7 +20,10 @@ extract <- function(text, pattern) {
 ids <- lapply(contents, extract, ' id="([^"]+)"')
 duplicates <- lapply(ids, function(values) sort(unique(values[duplicated(values)])))
 duplicates <- duplicates[lengths(duplicates) > 0]
-links <- lapply(contents, extract, ' (?:href|src)="([^"]+)"')
+# JavaScript strings (for example MathJax src="true") are not HTML resources.
+links <- lapply(contents, function(text) extract(
+  gsub('(?is)(<script\\b[^>]*>).*?(</script>)', '\\1\\2', text, perl = TRUE),
+  ' (?:href|src)="([^"]+)"'))
 missing <- character()
 broken <- character()
 for (name in names(links)) for (value in links[[name]]) {

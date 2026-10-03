@@ -1,4 +1,7 @@
 .questions-page { margin: 0 auto; }
+.questions-page select { font: inherit; max-width: 100%; padding: .3rem; }
+.questions-page #quiz fieldset { min-width: 0; }
+.questions-page legend, .questions-page label, .questions-page #result { overflow-wrap: anywhere; }
 .materials-nav { border-bottom: 1px solid var(--uocub-rule); display: flex; flex-wrap: wrap; gap: .7rem 1.1rem; margin-bottom: 2.2rem; padding-bottom: 1rem; }
 .materials-nav a { font-size: .92rem; font-weight: 650; text-decoration: none; }
 .materials-nav a[aria-current="page"] { color: var(--uocub-ink); text-decoration: underline; }

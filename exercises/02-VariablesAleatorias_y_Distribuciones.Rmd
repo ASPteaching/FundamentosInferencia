@@ -1,5 +1,11 @@
 # Variables aleatorias y Distribuciones de probabilidad {#ex-variables-aleatorias}
 
+:::: {.pedagogical-box .key}
+**Conceptos generales: ejercicios 2.1–2.3**
+
+Aplicación directa de variable aleatoria, masa, densidad, distribución, esperanza y varianza. Los datos biomédicos son modelos didácticos.
+::::
+
 ## Ejercicio 2.1
 
 Se sabe que la presencia de algunas mutaciones en una región genómica puede influir en la sobreexpresión ("Up") o la inhibición ("Down") de dos genes distintos. Se conocen 6 variantes de dicha mutación y, dado que los efectos de la sobreexpresión de los dos genes son muy similares se ha optado por contar únicamente cuántos genes se sobre-expresan en presencia de cada una de ellas (un individuo puede presentar una única variante). Un estudio realizado sobre 300 pacientes ha permitido estimar las siguientes probabilidades de aparición de cada mutación así como el número de genes sobre-expresados asociados a las mismas. Los resultados se encuentran disponibles en la tabla siguiente:
@@ -13,7 +19,7 @@ Se sabe que la presencia de algunas mutaciones en una región genómica puede in
 | $e_{5}$ | 0.20 | 2 |
 | $e_{6}$ | 0.15 | 0 |
 
-Consideremos la variable aleatoria: $X=$ "Número de genes sobre expresados" 
+Consideremos la variable aleatoria: $X=$ "Número de genes sobre expresados"
 
 1. Obtener su distribución de probabilidad y representarla gráficamente
 
@@ -60,14 +66,14 @@ $$
 
 Podemos representarla gráficamente usando R:
 
-```{r, echo=TRUE}
+```{r u2-ex1-masa, echo=TRUE, fig.width=6, fig.height=3.5, fig.cap="Masa del número de genes sobreexpresados."}
 # Valores de X y sus probabilidades
 X_values <- c(0, 1, 2)
 probabilities <- c(0.30, 0.20, 0.50)
 
 # Crear el gráfico
 barplot(probabilities, names.arg = X_values, col = "lightblue",
-        main = "Distribución de Probabilidad de X",
+        main = "Función de masa de probabilidad de X",
         xlab = "Número de genes sobre-expresados", ylab = "Probabilidad")
 ```
 
@@ -126,7 +132,7 @@ varianza
 
 <hr>
 
-## Ejercicio 2.2 
+## Ejercicio 2.2
 
 Para describir el número de mutaciones presentes en un volumen estándar de un tumor unos investigadores han propuesto el modelo siguiente
 
@@ -224,7 +230,7 @@ varianza
 
 ### Probabilidades
 
-**Probabilidad de que un tumor presente exactamente tres mutaciones** 
+**Probabilidad de que un tumor presente exactamente tres mutaciones **
 
 La probabilidad de que $X = 3$ es:
 
@@ -256,7 +262,7 @@ P_X_1 <- 1 - K / (2 + 0)
 P_X_1
 ```
 
-**Probabilidad de que un tumor presente como máximo dos mutaciones**
+**Probabilidad de que un tumor presente como máximo dos mutaciones **
 
 La probabilidad de que $X \leq 2$ es:
 
@@ -274,7 +280,7 @@ P_X_2
 
 
 
-## Ejercicio 2.3 
+## Ejercicio 2.3
 
 Un modelo simplificado del tiempo de supervivencia, en años, tras un diagnóstico de una variante de leucemia es el siguiente:
 
@@ -296,10 +302,10 @@ $$
 6. En vista que el modelo anterior no ha resultado satisfactorio una bioestadística ha propuesto un modelo alternativo consistente en modelizar la variable como:
 
 $$
-g_{X}(x)=\exp (-k x), \text { dondex } \geq 0
+g_{X}(x)=\exp (-k x), \text { donde x } \geq 0
 $$
 
-Calcular la constante $k$ para que $\mathrm{g}_{\mathrm{x}}$ sea una función de densidad de probabilidad. Repetir los cálculos de los apartados b), c), d) y e) con el nuevo modelo. Discutir adecuación de ambos modelos a una situación real.
+Calcular la constante $k$ para que $\mathrm{g}_{\mathrm{x}}$ sea una función de densidad de probabilidad. Repetir los cálculos de los apartados 2, 3, 4 y 5 con el nuevo modelo. Discutir adecuación de ambos modelos a una situación real.
 
 **SOLUCIÓN**
 
@@ -333,9 +339,9 @@ Por lo tanto, $f_X(x)$ cumple con ambas condiciones y es una función de densida
 
 ### Gráfica de $f_X(x)$
 
-```{r}
-# R code to plot the density function
-f_x <- function(x) -0.5 * x + 1
+```{r u2-ex3-densidad, fig.width=6, fig.height=3.5, fig.cap="Densidad del modelo de supervivencia con máximo de dos años."}
+# Densidad
+f_x <- function(x) ifelse(x >= 0 & x <= 2, -0.5*x + 1, 0)
 curve(f_x, from = 0, to = 2, col = "blue", lwd = 2, ylab = "f_X(x)", xlab = "x",
       main = "Densidad f_X(x)")
 ```
@@ -358,10 +364,10 @@ $$
 
 Para $x < 0$, $F_X(x) = 0$, y para $x > 2$, $F_X(x) = 1$.
 
-**Gráfica de $F_X(x)$ç**
+**Gráfica de $F_X(x)$**
 
-```{r}
-# R code to plot the CDF function
+```{r u2-ex3-distribucion, fig.width=6, fig.height=3.5, fig.cap="Función de distribución del primer modelo de supervivencia."}
+# Función de distribución
 F_x <- function(x) ifelse(x < 0, 0, ifelse(x > 2, 1, -0.25 * x^2 + x))
 curve(F_x, from = -1, to = 3, col = "red", lwd = 2, ylab = "F_X(x)", xlab = "x",
       main = "Distribución acumulada F_X(x)")
@@ -397,7 +403,7 @@ $$
 2. Entre seis meses y un año ($x \in [0.5, 1]$):
 
 $$
-P(0.5 \leq X \leq 1) = F_X(1) - F_X(0.5) = 0.75 - 0.375 = 0.375
+P(0.5 \leq X \leq 1) = F_X(1) - F_X(0.5) = 0.75 - 0.4375 = 0.3125
 $$
 
 3. Más de dos años ($x > 2$): Como el dominio de $X$ es $[0, 2]$, $P(X > 2) = 0$.
@@ -458,7 +464,7 @@ $$
 \int_0^\infty \exp(-k \cdot x) \, dx = 1
 $$
 
-Resolviendo:
+La integral solo converge para $k>0$. Resolviendo:
 
 $$
 \frac{1}{k} = 1 \implies k = 1
@@ -466,14 +472,40 @@ $$
 
 Por lo tanto, el nuevo modelo de densidad es $g_X(x) = \exp(-x)$.
 
+La densidad es cero para $x<0$. Su función de distribución es $G_X(x)=0$ para $x<0$ y $G_X(x)=1-e^{-x}$ para $x\geq0$.
 
-## Ejercicio 2.4 
+```{r u2-ex3-alternativa, fig.width=7, fig.height=3.5, fig.cap="Densidad y distribución del modelo alternativo de supervivencia."}
+par(mfrow=c(1,2))
+curve(dexp(x,rate=1),from=0,to=5,xlab="Años",ylab="Densidad",col="#245a81",lwd=2)
+curve(pexp(x,rate=1),from=0,to=5,xlab="Años",ylab="G(x)",col="#245a81",lwd=2)
+par(mfrow=c(1,1))
+```
+
+Para este modelo, $P(X\geq1)=P(X>1)=e^{-1}$, $P(X=1)=0$ y $g_X(1)=e^{-1}$. Las probabilidades de los apartados de supervivencia son:
+
+```{r}
+c(menos_seis_meses=pexp(0.5,rate=1),
+  entre_seis_meses_y_un_ano=pexp(1,rate=1)-pexp(0.5,rate=1),
+  mas_dos_anos=pexp(2,rate=1,lower.tail=FALSE))
+```
+
+Por integración, $E(X)=1$ y $E(X^2)=2$; por tanto $\operatorname{Var}(X)=1$ (años cuadrados). El primer modelo impone supervivencia máxima de dos años; el alternativo permite superar ese tiempo. La elección requiere contrastar datos y supuestos: normalizar una densidad no demuestra que represente adecuadamente una situación real.
+
+
+
+:::: {.pedagogical-box .attention}
+**Aplicaciones de modelos: ejercicios 2.4–2.9**
+
+Se conserva la numeración de la Unidad 2. Estos ejercicios presuponen las distribuciones de la Unidad 3 y pueden trabajarse después de ella. Las cifras son didácticas y no criterios clínicos.
+::::
+
+## Ejercicio 2.4
 
 Para estudiar la regulación hormonal de una línea metabólica se inyectan ratas albinas con un fármaco que inhibe la síntesis de proteínas del organismo. En general, 4 de cada 20 ratas mueren a causa del fármaco antes de que el experimento haya concluido. Si se trata a 10 animales con el fármaco, ¿cuál es la probabilidad de que al menos 8 lleguen vivas al final del experimento?
 
-**SOLUCION**
+**SOLUCIÓN**
 
-En este problema en el que tenemos grupos de 10 animales  independientes, cada uno de los cuales puede sobrevivir o no resulta apropiada **la distribución binomial**.
+En este problema en el que tenemos grupos de 10 animales que modelamos como independientes, con una misma probabilidad de supervivencia, cada uno de los cuales puede sobrevivir o no resulta apropiada **la distribución binomial**.
 
 - La probabilidad de que una rata sobreviva al fármaco es $p = \frac{16}{20} = 0.8$, dado que 4 de cada 20 ratas mueren.
 
@@ -536,9 +568,9 @@ Si usamos la funcion de distribución, `pbinom`
 1-pbinom (7, size = n, prob = p)
 ```
 
-Naturalmente ambos resultados coinciden. Obsérvese que al ser $p=0.8$ valores altos resultan bastante probables, con lo que la
+Naturalmente ambos resultados coinciden. Obsérvese que al ser $p=0.8$ valores altos resultan bastante probables, con lo que la probabilidad de que sobrevivan al menos ocho animales es relativamente alta.
 
-## Ejercicio 2.5 
+## Ejercicio 2.5
 
 En una cierta población se ha observado un número medio anual de 12 muertes por cáncer de pulmón. Si el número de muertes causadas por la enfermedad sigue una distribución de Poisson, ¿cuál es la probabilidad de que durante el año en curso:
 1. haya exactamente 10 muertes por cáncer de pulmón?
@@ -593,33 +625,14 @@ prob_10_o_menos <- ppois(k, lambda)
 prob_10_o_menos
 ```
 
-### Conclusión
+Los tres cálculos distinguen una probabilidad puntual, una cola superior y una probabilidad acumulada.
 
-1. La probabilidad de que haya exactamente 10 muertes es:
-
-```{r}
-prob_10_muertes
-```
-
-2. La probabilidad de que 15 o más personas mueran es:
-
-```{r}
-prob_15_o_mas
-```
-
-3. La probabilidad de que 10 o menos personas mueran es:
-
-```{r}
-prob_10_o_menos
-```
-
-
-## Ejercicio 2.6 
+## Ejercicio 2.6
 
 Los daños a los cromosomas del óvulo o del espermatozoide, pueden causar mutaciones que conducen a abortos, defectos de nacimiento, u otras deficiencias genéticas. Un estudio sobre los efectos teratogénicos de la radiación ha determinado que la probabilidad de que tal mutación se produzca por radiación es del 10\%. El resto son atribuibles a otras causas.
-Una vez detectadas 150 mutaciones, 
+Una vez detectadas 150 mutaciones,
 
-1. ¿cuántas se esperaría que se debiesen a radiaciones? 
+1. ¿cuántas se esperaría que se debiesen a radiaciones?
 2. ¿Cuál es la probabilidad de que solamente 10 se debiesen a radiaciones?
 
 **Solución**
@@ -636,43 +649,11 @@ Esto se ajusta perfectamente a las condiciones del problema:
 - La probabilidad de éxito es constante y pequeña ($p = 0.1$).
 Por tanto, el número de mutaciones debidas a radiación se puede modelizar bien mediante una distribución binomial $X \sim \text{Binomial}(n = 150, p = 0.1)$.
 
-### Justificación del uso de distribución de Poisson
+### Aproximación binomial por Poisson
 
-La distribución de Poisson es adecuada para modelar el número de eventos raros que ocurren en un intervalo de tiempo, espacio, o cualquier otra unidad, cuando estos eventos ocurren de forma independiente y su probabilidad de ocurrencia es baja. 
+Con un total fijo de 150 mutaciones, el modelo es binomial bajo independencia y probabilidad común $p=0.1$. No se deduce un proceso de Poisson del hecho de que podríamos observar más mutaciones. Podemos comparar la binomial con una **aproximación** de Poisson de media $\lambda=np=15$.
 
-En este caso las "mutaciones debidas a radiación" pueden considerarse eventos raros dentro de un gran conjunto de mutaciones (150 mutaciones observadas, pero solo un 10% de ellas son debidas a radiación).
-
-Puede considerarse además, que las mutaciones individuales pueden ocurrir de forma independiente entre sí, ya que la probabilidad de que una mutación se deba a radiación no afecta a la probabilidad de que otra mutación sea causada por radiación.
-
-Estas condiciones son características de los *procesos de Poisson* y por tanto la distribución de Poisson es una elección natural para describir procesos en los que los eventos ocurren de manera aleatoria en un intervalo dado (por ejemplo, en un periodo de tiempo o un espacio), siempre que:
-
-- Los eventos ocurran con una tasa promedio constante (en este caso, la tasa de mutaciones debidas a radiaciones es proporcional a la tasa global de mutaciones, multiplicada por la probabilidad $p = 0.1$).
-- No haya límite teórico en el número de eventos que puedan ocurrir en un intervalo (aunque observamos un total de 150 mutaciones, teóricamente podríamos seguir detectando más mutaciones).
-
-En el modelo de Poisson, el parámetro $\lambda$ representa la tasa promedio de ocurrencia de los eventos (en este caso, mutaciones debidas a radiación). Si conocemos la tasa promedio de aparición de mutaciones por radiación ($\lambda = n \cdot p$ en el contexto binomial, pero también se puede calcular directamente si conocemos la tasa de aparición de eventos raros), entonces podemos usar directamente la distribución de Poisson para modelar el número de eventos.
-
-En este caso, $\lambda = 150 \cdot 0.1 = 15$, que representa el número esperado de mutaciones debidas a radiación en el total observado de mutaciones.
-
-
-### Aproximación del modelo binomial por el de Poisson
-
-La distribución de Poisson puede considerarse una aproximación de la binomial cuando el número de ensayos ($n$) es grande y la probabilidad de éxito ($p$) es pequeña. En este caso, el número esperado de éxitos, $n \cdot p$, se mantiene moderado (en este caso, $n \cdot p = 15$).
-
-Este resultado que se conoce como _límite de Poisson_  establece que si:
-
-- $n$ es grande (muchos ensayos),
-- $p$ es pequeño (baja probabilidad de éxito),
-- el producto $n \cdot p = \lambda$ es moderado,
-
-entonces la binomial $X \sim \text{Binomial}(n, p)$ se puede aproximar por una distribución de Poisson con parámetro $\lambda = n \cdot p$.
-
-En este caso:
-
-- $n = 150$ es suficientemente grande.
-- $p = 0.1$ es pequeño.
-- $n \cdot p = 15$, lo cual es un valor razonable para usar la aproximación de Poisson.
-
-Por tanto, el número de mutaciones debidas a radiaciones puede aproximarse por una distribución de Poisson $X \sim \text{Poisson}(\lambda = 15)$.
+La aproximación procede del límite en que $n$ crece, $p$ disminuye y $np$ tiende a una constante. En un caso concreto, que $n$ sea grande no garantiza por sí solo precisión; debemos comprobar el error en la probabilidad de interés.
 
 ### Número esperado de mutaciones
 
@@ -714,29 +695,24 @@ prob_pois_10 <- dpois(k, lambda)
 prob_pois_10
 ```
 
-### Conclusión
+### Comparación de los modelos
 
-- Se espera que 15 de las 150 mutaciones se deban a radiaciones.
-- La probabilidad de que exactamente 10 mutaciones se deban a radiaciones es:
+Se esperan 15 mutaciones debidas a radiación; las dos probabilidades calculadas corresponden al modelo exacto y a su aproximación.
 
-  - Usando la distribución binomial: 
-  ```{r}
-  prob_binom_10
-  ```
-  
-  - Usando la aproximación de Poisson:
-  ```{r}
-  prob_pois_10
-  ```
+La aproximación de Poisson conserva la media, pero no es exacta: su varianza es 15, frente a 13.5 de la binomial. Para $X=10$ el error relativo es aproximadamente 5.87%:
 
-Ambos métodos dan resultados similares, pero el modelo de Poisson es útil para simplificar los cálculos cuando el número total de mutaciones es grande y la probabilidad de cada evento es pequeña.
+```{r}
+100 * (prob_pois_10 - prob_binom_10) / prob_binom_10
+```
 
-## Ejercicio 2.7 
+R permite calcular la binomial exacta directamente; no necesitamos la aproximación para simplificar este cálculo.
+
+## Ejercicio 2.7
 
 Entre los diabéticos, el nivel de glucosa en sangre $X$, en ayunas, puede suponerse de distribución aproximadamente normal, con media $106 \mathrm{mg} / 100 \mathrm{ml}$ y desviación típica $8 \mathrm{mg} / 100 \mathrm{ml}$, es decir : $X \sim N\left(\mu=106, \sigma^{2}=64\right)$.
 
-Hallar;
-1. El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ( $P[X \leq 120]$
+Hallar:
+1. El porcentaje de diabéticos con niveles de glucosa inferiores a 120 ($P[X \leq 120]$)
 2. ¿Qué porcentaje de diabéticos tienen niveles comprendidos entre 90 y 120?
 3. Hallar el nivel de glucosa "p25", caracterizado por la propiedad de que el $25 \%$ de todos los diabéticos tiene un nivel de glucosa en ayunas inferior o igual a $x$.
 
@@ -803,33 +779,36 @@ p25 <- 106 + z_p25 * 8
 p25
 ```
 
-### Resumen de resultados:
+### Resumen de resultados
+
+Las probabilidades siguientes equivalen, respectivamente, a 95.99% y 93.72%.
+
 1. La probabilidad de que el nivel de glucosa sea menor o igual a 120 es aproximadamente:
 
 $$ P[X \leq 120] = 0.9599 $$
 
 2. El porcentaje de diabéticos con niveles de glucosa comprendidos entre 90 y 120 es aproximadamente:
 
-$$ P[90 \leq X \leq 120] = 0.9104 $$
+$$ P[90 \leq X \leq 120] = 0.9372 $$
 
 3. El nivel de glucosa correspondiente al percentil 25, es decir, el valor $p_{25}$, es aproximadamente:
 
-$$ p_{25} \approx 100.61 \, \mathrm{mg/100ml} $$
+$$ p_{25} \approx 100.60 \, \mathrm{mg/100ml} $$
 
-## Ejercicio 2.8 
+## Ejercicio 2.8
 
-De forma simplificada, podemos suponer que la glucemia ("azucar en sangre") basal en individuos sanos, $X_{s}$ sigue una distribución $X \sim N(\mu=80, \sigma=10)$, mientras que en los diabéticos $X_{d}$, sigue una distribución $X \sim N(\mu=160, \sigma=31.4)$. Si se conviene en clasificar como sanos al $2 \%$ de los diabéticos:
+De forma simplificada, podemos suponer que la glucemia ("azúcar en sangre") basal en individuos sanos, $X_{s}$ sigue una distribución $X \sim N(\mu=80, \sigma=10)$, mientras que en los diabéticos $X_{d}$, sigue una distribución $X \sim N(\mu=160, \sigma=31.4)$. Si se conviene en clasificar como sanos al $2 \%$ de los diabéticos:
 
-a) ¿Por debajo de qué valor se considera sano a un individuo? 
+a) ¿Por debajo de qué valor se considera sano a un individuo?
 b) ¿Cuántos sanos serán clasificados (erróneamente) como diabéticos?
 c) Se sabe que en la población en general el $10 \%$ de los individuos son diabéticos ¿cuál es la probabilidad de que un individuo elegido al azar y diagnosticado como diabético, realmente lo sea?
 
 
-### ¿Por debajo de qué valor se considera sano a un individuo? 
+### ¿Por debajo de qué valor se considera sano a un individuo?
 
 **Solución**
 
-Para determinar el valor por debajo del cual un individuo se considera sano, necesitamos encontrar el cuantil correspondiente al 2% superior de la distribución de la glucemia basal en diabéticos, $X_d \sim N(\mu = 160, \sigma = 31.4)$. Es decir, debemos encontrar el valor de $X_d$ tal que:
+Para determinar el valor por debajo del cual un individuo se considera sano, necesitamos encontrar el cuantil correspondiente al 2% inferior de la distribución de la glucemia basal en diabéticos, $X_d \sim N(\mu = 160, \sigma = 31.4)$. Es decir, debemos encontrar el valor de $X_d$ tal que:
 
 $$
 P(X_d \leq x) = 0.02
@@ -843,7 +822,7 @@ percentil_sano <- qnorm(0.02, mean = 160, sd = 31.4)
 percentil_sano
 ```
 
-El valor obtenido nos da el límite de glucosa por debajo del cual un individuo será considerado sano. 
+El valor obtenido nos da el límite de glucosa por debajo del cual un individuo será considerado sano.
 
 ### ¿Cuántos sanos serán clasificados como diabéticos?
 
@@ -863,59 +842,41 @@ prob_sano_como_diabetico
 
 Esto nos dará la probabilidad de que un individuo sano sea clasificado erróneamente como diabético. Para encontrar el número de sanos clasificados como diabéticos en una población, multiplicamos esta probabilidad por el número total de sanos en la población.
 
-```{r }
-# Parámetros de las distribuciones
-mu_s <- 80;  sigma_s <- 10       # sanos
-mu_d <- 160; sigma_d <- 31.4     # diabéticos
-
-# 1. Punto de corte: 2% de los diabéticos por debajo
-corte <- qnorm(0.02, mean = mu_d, sd = sigma_d)
-
-# 2. Probabilidad de que un sano sea clasificado como diabético
-p_error_sano <- 1 - pnorm(corte, mean = mu_s, sd = sigma_s)
-
-# Mostrar resultados
-cat("Punto de corte:", round(corte, 2), "\n")
-cat("Proporción de sanos mal clasificados:", round(100 * p_error_sano, 2), "%\n")
+```{r}
+mu_s <- 80; sigma_s <- 10
+mu_d <- 160; sigma_d <- 31.4
+cat("Punto de corte:", round(percentil_sano, 2), "\n")
+cat("Porcentaje de sanos mal clasificados:", round(100*prob_sano_como_diabetico, 2), "%\n")
 ```
 
 
 Podemos representar gráficamente la distribución de diabéticos y sanos lo que nos proporciona también una imagen de las probabilidades de clasificación erróneas.
 
 
-```{r, fig.align='center', out.width="100%"} 
-require(ggplot2)
-require(dplyr)
+```{r u2-ex8-clasificacion, fig.align="center", out.width="100%", fig.width=7, fig.height=4.5, fig.cap="Modelos didácticos de glucemia y errores de clasificación.", message=FALSE}
+library(ggplot2)
+x <- seq(40, 240, length.out=1000)
+df <- data.frame(x=x, sano=dnorm(x,mu_s,sigma_s),
+                 diabetico=dnorm(x,mu_d,sigma_d))
+zona_sanos_mal <- subset(df, x > percentil_sano)
+zona_diabeticos_mal <- subset(df, x <= percentil_sano)
 
-# Datos para las curvas
-x <- seq(40, 240, length.out = 1000)
-df <- data.frame(
-  x = x,
-  sano = dnorm(x, mu_s, sigma_s),
-  diabetico = dnorm(x, mu_d, sigma_d)
-)
-
-# Datos para el sombreado
-zona_sanos_mal <- df %>% filter(x > percentil_sano) %>% mutate(dens = sano)
-zona_diabeticos_mal <- df %>% filter(x <= percentil_sano) %>% mutate(dens = diabetico)
-
-# Gráficos
-  
-ggplot(data = df, mapping = aes(x = x)) +
-  geom_line(aes(y = sano, color = "Sanos"), size = 1.2) +
-  geom_line(aes(y = diabetico, color = "Diabéticos"), size = 1.2) +
-  geom_area(data = zona_sanos_mal, aes(y = dens, fill = "Sanos → diagnóstico diabético"), alpha = 0.4) +
-  geom_area(data = zona_diabeticos_mal, aes(y = dens, fill = "Diabéticos → diagnóstico sano"), alpha = 0.4) +
-  geom_vline(xintercept = percentil_sano, linetype = "dashed", color = "black") +
-  annotate("text", x = percentil_sano + 5, y = 0.004, 
-           label = paste0("Corte = ", round(percentil_sano, 1)), hjust = 0, size = 4) +
-  scale_color_manual(values = c("Sanos" = "blue", "Diabéticos" = "red")) +
-  scale_fill_manual(values = c("Sanos → diagnóstico diabético" = "skyblue", 
-                               "Diabéticos → diagnóstico sano" = "salmon")) +
-  labs(title = "Distribuciones de glucemia en sanos y diabéticos",
-       y = "Densidad", x = "Glucemia (mg/dL)",
-       color = "Distribución", fill = "Zona sombreada") +
-  theme_minimal(base_size = 12)
+ggplot(df, aes(x=x)) +
+  geom_line(aes(y=sano, color="Sanos"), linewidth=1.2) +
+  geom_line(aes(y=diabetico, color="Diabéticos"), linewidth=1.2) +
+  geom_area(data=zona_sanos_mal,
+            aes(y=sano, fill="Sano → diabético"), alpha=0.4) +
+  geom_area(data=zona_diabeticos_mal,
+            aes(y=diabetico, fill="Diabético → sano"), alpha=0.4) +
+  geom_vline(xintercept=percentil_sano, linetype="dashed") +
+  scale_color_manual(values=c("Sanos"="blue", "Diabéticos"="red")) +
+  scale_fill_manual(values=c("Sano → diabético"="skyblue",
+                             "Diabético → sano"="salmon")) +
+  labs(title="Modelos de glucemia y errores de clasificación",
+       y="Densidad", x="Glucemia (mg/dL)",
+       color="Distribución", fill="Error de clasificación") +
+  theme_minimal(base_size=12) +
+  theme(legend.position="bottom", legend.box="vertical")
 ```
 
 
@@ -923,7 +884,7 @@ ggplot(data = df, mapping = aes(x = x)) +
 
 **Solución**
 
-Este problema es un caso de probabilidad condicional. 
+Este problema es un caso de probabilidad condicional.
 
 La probabilidad de que un individuo seleccionado al azar y diagnosticado como diabético realmente lo sea se puede obtener usando la fórmula de probabilidad condicional de Bayes:
 
@@ -932,13 +893,13 @@ P(D | \text{diagnóstico}) = \frac{P(\text{diagnóstico} | D) P(D)}{P(\text{diag
 $$
 
 Donde:
-- $P(\text{diagnóstico} | D)$:  es la probabilidad de que un indivíduo diabético sea diagnosticado (correctamente) como tal,
+- $P(\text{diagnóstico} | D)$:  es la probabilidad de que un individuo diabético sea diagnosticado (correctamente) como tal,
 - $P(\text{diagnóstico} | S)$ es la probabilidad de que un sano sea diagnosticado (erróneamente) como diabético,
-- $P(D)$: Es la probabilidad de encontrar un indivíduo diabético en la población.
-- $P(S)$: Es la probabilidad de encontrar un indivíduo sano  en la población.
-- $P(\text{diagnóstico})$ es la probabilidad total de que un individuo sea diagnosticado como diabético. 
+- $P(D)$: Es la probabilidad de encontrar un individuo diabético en la población.
+- $P(S)$: Es la probabilidad de encontrar un individuo sano  en la población.
+- $P(\text{diagnóstico})$ es la probabilidad total de que un individuo sea diagnosticado como diabético.
 
-Esta ultima probabilidad, $P(\text{diagnóstico})$,  es la probabilidad de que un diabético sea diagnosticado como tal más la probabilidad de que un sano sea diagnosticado erróneamente como diabético, donde cada probabilidad se pondera por la probabilidad de encontrar un indivíduo diabético o uno sano en la población.
+Esta última probabilidad, $P(\text{diagnóstico})$,  es la probabilidad de que un diabético sea diagnosticado como tal más la probabilidad de que un sano sea diagnosticado erróneamente como diabético, donde cada probabilidad se pondera por la probabilidad de encontrar un individuo diabético o uno sano en la población.
 
 $$
 P(\text{diagnóstico}) = P(\text{diagnóstico} | D) P(D) + P(\text{diagnóstico} | S) P(S)
@@ -949,7 +910,7 @@ Sabemos que:
 - El 10% de la población son diabéticos, por lo que la probabilidad de que un individuo seleccionado al azar sea diabético es $P(D) = 0.10$.
 - Así pues $P(S) = 0.90$ es la probabilidad de que un individuo seleccionado al azar sea sano.
 
-- La probabilidad de que un diabético sea diagnosticado como diabético es $P(\text{diagnóstico} | D)$ (`prob_diabetico_diagnosticado` en R), lo cual corresponde a la probabilidad de que un individuo con glucosa $X_d \sim N(160, 31.4)$ sea diagnosticado como diabético, es decir, que su nivel de glucosa sea superior al valor límite de clasificación (el valor con el que hemos definido que es "estar sano").
+- La probabilidad de que un diabético sea diagnosticado como diabético es $P(\text{diagnóstico} | D)$ (`prob_diabetico_diagnosticado` en R), lo cual corresponde a la probabilidad de que un individuo con glucosa $X_d \sim N(160, 31.4^2)$ sea diagnosticado como diabético, es decir, que su nivel de glucosa sea superior al valor límite de clasificación (el valor con el que hemos definido que es "estar sano").
 
 ```{r}
 # Probabilidad de que un diabético sea diagnosticado como diabético
@@ -957,10 +918,10 @@ prob_diabetico_diagnosticado <- 1 - pnorm(percentil_sano, mean = 160, sd = 31.4)
 prob_diabetico_diagnosticado
 ```
 
-De forma análoga podemos calcular $P(\text{diagnóstico} | S)$ (`prob_sano_diagnosticado` en R), la probabilidad dwe que estando sano, un indivíduo sea diagnosticado como diabético, es decir que su glucosa supere el punto de corte que hemos denominado `percentil_sano`.
+De forma análoga podemos calcular $P(\text{diagnóstico} | S)$ (`prob_sano_diagnosticado` en R), la probabilidad de que estando sano, un individuo sea diagnosticado como diabético, es decir que su glucosa supere el punto de corte que hemos denominado `percentil_sano`.
 
 ```{r}
-prob_sano_diagnosticado <- 
+prob_sano_diagnosticado <-
  1- pnorm(percentil_sano, mean = 80, sd = 10)
 prob_sano_diagnosticado
 ```
@@ -971,8 +932,8 @@ $P(\text{diagnóstico})$:
 
 ```{r}
 # Probabilidad de diagnóstico en la población general
-prob_diagnostico_total <- 
-  prob_diabetico_diagnosticado * 0.10 + 
+prob_diagnostico_total <-
+  prob_diabetico_diagnosticado * 0.10 +
   prob_sano_diagnosticado * 0.90
 prob_diagnostico_total
 ```
@@ -980,17 +941,17 @@ prob_diagnostico_total
 Luego, calculamos la probabilidad (condicional) de que un individuo diagnosticado como diabético realmente lo sea:
 
 ```{r}
-# 
-prob_diagnostico_given_diabetico <- 
-  (prob_diabetico_diagnosticado * 0.10) / 
+#
+prob_diabetico_given_diagnostico <-
+  (prob_diabetico_diagnosticado * 0.10) /
   prob_diagnostico_total
-prob_diagnostico_given_diabetico
+prob_diabetico_given_diagnostico
 ```
 
-Este valor es** la probabilidad de que un individuo diagnosticado como diabético realmente lo sea, teniendo en cuenta tanto los errores de diagnóstico como las probabilidades de ser diabético o sano en la población.**
+Este valor es ** la probabilidad de que un individuo diagnosticado como diabético realmente lo sea, teniendo en cuenta tanto los errores de diagnóstico como las probabilidades de ser diabético o sano en la población.**
 
 
-## Ejercicio 2.9 
+## Ejercicio 2.9
 
 Supóngase que se van a utilizar 20 ratas en un estudio de agentes coagulantes de la sangre. Como primera experiencia, se dio un anticoagulante a 10 de ellos, pero por inadvertencia se pusieron todas sin marcas en el mismo recinto. Se necesitaron 12 ratas para la segunda fase del estudio y se le tomó al azar sin reemplazamiento. ¿Cuál es la probabilidad de que de las 12 elegidas 6 tengan la droga y 6 no la tengan?
 
@@ -1028,8 +989,3 @@ probabilidad
 ```
 
 Este cálculo nos dará la probabilidad de que, al seleccionar al azar 12 ratas sin reemplazo, exactamente 6 tengan la droga y 6 no la tengan.
-
-
-
-
-

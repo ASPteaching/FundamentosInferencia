@@ -15,7 +15,7 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
-<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
 <link rel="stylesheet" href="blocks.css">
 <link rel="stylesheet" href="bs4-style.css">
 <meta name="description" content="Teoría  Problemas  Cuestiones Teoría (PDF)  Ejercicios (PDF)  En el capítulo anterior hemos introducido el concepto de probabilidad y como calcular probabilidades asociadas a sucesos observables,...">
@@ -78,16 +78,23 @@
 </h1>
 <p>En el capítulo anterior hemos introducido el concepto de probabilidad y
 como calcular probabilidades asociadas a sucesos observables, formados
-por uno o mas sucesos elementales, resultado de un experimento
+por uno o más sucesos elementales, resultado de un experimento
 aleatorio.</p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo breve — Dos dados</strong></p>
+<p>Al lanzar dos dados distinguibles hay 36 resultados
+elementales, como <span class="math inline">\((1,6)\)</span> o <span class="math inline">\((3,4)\)</span>. Si nos interesa la puntuación total,
+definimos <span class="math inline">\(X=\)</span> suma de las dos caras: ambos resultados dan <span class="math inline">\(X=7\)</span>.
+La variable resume el aspecto del experimento que queremos estudiar.</p>
+</div>
 <p>En muchas ocasiones nos interesa representar los resultados de un
 experimento aleatorio mediante un valor numérico que lo caracterice. Por
 ejemplo si tiramos tres monedas y contamos el número de caras, nos será
 indiferente cuando salgan dos caras, en que monedas ha salido una cara y
 en cual ha salido una cruz.</p>
 <p>En la práctica, esto significa que en dichas ocasiones, aunque haya un
-experimento aleatorio detras de los valores que observamos, tan sólo nos
-interesan los resultados que expresamos a traves de valores numéricos.</p>
+experimento aleatorio detrás de los valores que observamos, tan sólo nos
+interesan los resultados que expresamos a través de valores numéricos.</p>
 <p>Las variables aleatorias son la forma que hemos desarrollado para
 <em>trasladar la estructura proporcionada por los espacios de probabilidad
 el espacio muestral, el conjunto de sucesos elementales, al conjunto de
@@ -97,6 +104,10 @@ podamos seguir calculando probabilidades de sucesos observables</em>.</p>
 <em>transportar</em> la probabilidad del espacio de probabilidad original a la
 recta real. Para ello, introduciremos una función que es la que se ocupa
 de ello, la <em>función de distribución de probabilidad</em>.</p>
+<div class="pedagogical-box key">
+<p><strong>Objetivos de la unidad</strong></p>
+<p>Al finalizar, deberíais poder definir una variable a partir de un experimento, interpretar su función de distribución, calcular probabilidades con masas o densidades y obtener esperanzas, varianzas y momentos univariantes. Las familias concretas de modelos se estudiarán en la Unidad 3.</p>
+</div>
 <div id="el-espacio-muestral-y-sus-elementos" class="section level2" number="2.1">
 <h2>
 <span class="header-section-number">2.1</span> El espacio muestral y sus elementos<a class="anchor" aria-label="anchor" href="#el-espacio-muestral-y-sus-elementos"><i class="fas fa-link"></i></a>
@@ -133,8 +144,17 @@ un experimento.</p>
 asignación corresponde a una determinada variable que se puede medir
 sobre los sucesos elementales.</p>
 <p>Nótese que es posible construir múltiples variables sobre un mismo
-espacio de probabilidad. En términos algo más formales, las reglas de
-asignación se pueden interpretar como una aplicación de <span class="math inline">\(\Omega\)</span> en el
+espacio de probabilidad.</p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.2.1 — Espacio y recorrido</strong></p>
+<p>Con dos dados,
+<span class="math inline">\(\Omega=\{(i,j):i,j=1,\ldots,6\}\)</span> contiene 36 resultados, mientras que
+<span class="math inline">\(X(\Omega)=\{2,3,\ldots,12\}\)</span> contiene solo 11 sumas posibles.
+El resultado <span class="math inline">\((1,6)\)</span> pertenece al espacio muestral; su suma 7 pertenece al
+recorrido. No son el mismo conjunto.</p>
+</div>
+<p>Las reglas de asignación se pueden interpretar, en términos algo más formales,
+como una aplicación de <span class="math inline">\(\Omega\)</span> en el
 conjunto de números reales. <span class="math display">\[
 \begin{aligned}
 X: \Omega &amp; \rightarrow \mathbb{R} \\
@@ -162,7 +182,7 @@ tratamiento matemático de las variables.</p>
 <h2>
 <span class="header-section-number">2.3</span> Caracterización de una variable aleatoria a través de la probabilidad. Función de distribución<a class="anchor" aria-label="anchor" href="#caracterizaci%C3%B3n-de-una-variable-aleatoria-a-trav%C3%A9s-de-la-probabilidad.-funci%C3%B3n-de-distribuci%C3%B3n"><i class="fas fa-link"></i></a>
 </h2>
-<p>Una vez que tenemos definida una variable aleatoria, ésta queda
+<p>Una vez que tenemos definida una variable aleatoria, su distribución queda
 totalmente caracterizada en el momento en que somos capaces de
 determinar la probabilidad de que la variable tome valores en cualquier
 intervalo de la recta real. Dado que los posibles valores que puede
@@ -170,7 +190,14 @@ tomar la variable, es decir, su recorrido, pueden ser muy grandes
 (infinitos de hecho), el problema de caracterizar una variable aleatoria
 se resuelve introduciendo una función especial, <em>la función de
 distribución</em>.</p>
-<div class="definicion">
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.3.1 — Acumular probabilidades</strong></p>
+<p>Para la suma <span class="math inline">\(X\)</span> de dos dados
+regulares e independientes, <span class="math inline">\(F(4)=P(X\leq4)=6/36\)</span>: contamos las sumas 2, 3
+y 4, que proceden de 1, 2 y 3 resultados elementales, respectivamente.
+En cambio, <span class="math inline">\(P(X=4)=3/36\)</span>. La CDF acumula hasta el umbral, no solo en él.</p>
+</div>
+<div class="pedagogical-box key">
 <p><strong>Definición</strong></p>
 <p>La función de distribución de una variable aleatoria <span class="math inline">\(X\)</span> es la
 aplicación que, a cada punto de la recta real, le asigna la probabilidad
@@ -206,16 +233,26 @@ A medida que un valor se hace más y más negativo, la probabilidad de encontrar
 <li><p><span class="math inline">\(x_{1}&lt;x_{2} \Rightarrow F\left(x_{1}\right) \leq F\left(x_{2}\right). \quad\)</span>
 Por construcción, es una función monótona, es decir, si un valor es inferior a otro, la probabilidad de encontrar valores inferiores al menor de los dos será menor o igual que la de encontrarlos inferiores al mayor de los dos.</p></li>
 <li><p><span class="math inline">\(\lim _{x \rightarrow a^{+}} F(x)=F(a) \quad \forall a \in \mathbb{R}. \quad\)</span>
-Por la forma en que se ha definido, la función de distribución es <em>contínua por la derecha</em>.</p></li>
+Por la forma en que se ha definido, la función de distribución es <em>continua por la derecha</em>.</p></li>
 </ol>
 <p>Toda función que verifique las propiedades anteriores es una función de
 distribución y toda función de distribución caracteriza una determinada
 variable aleatoria sobre algún espacio de probabilidad.</p>
-<p>Las propiedades anteriores determinan la forma de la función de distribución. En concreto, según la variable sea contínua o discreta, conceptos definidos a continuación en el capítulo, la forma de la función será: :</p>
-<p>Primer tipo (Variables contínuas)</p>
-<div class="inline-figure"><img src="images/cdfContinua.png" alt="" width="90%"></div>
+<p>Las propiedades anteriores determinan restricciones sobre la forma de la función de distribución. Las gráficas siguientes ilustran ejemplos habituales; no agotan todas las distribuciones posibles. En concreto, según la variable sea continua o discreta, conceptos definidos a continuación en el capítulo, las gráficas ilustran dos situaciones habituales:</p>
+<p>Primer tipo (Variables continuas)</p>
+<div class="figure">
+<span style="display:block;" id="fig:cdfContinuas"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/cdfContinuas-1.png" alt="Función de distribución continua de una uniforme en (0,1)." width="576"><p class="caption">
+Figure 2.1: Función de distribución continua de una uniforme en (0,1).
+</p>
+</div>
 <p>Segundo tipo (variables discretas)</p>
-<div class="inline-figure"><img src="images/cdfDiscreta.png" alt="" width="90%"></div>
+<div class="figure">
+<span style="display:block;" id="fig:cdfDiscretas"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/cdfDiscretas-1.png" alt="CDF de la suma de dos dados: continua por la derecha." width="576"><p class="caption">
+Figure 2.2: CDF de la suma de dos dados: continua por la derecha.
+</p>
+</div>
 <!-- Evidentemente, podrían aparecer distribuciones, y por tanto gráficas, -->
 <!-- que combinen las características de los dos modelos anteriores. -->
 </div>
@@ -223,13 +260,12 @@ variable aleatoria sobre algún espacio de probabilidad.</p>
 <h2>
 <span class="header-section-number">2.5</span> Clasificación de las variables aleatorias<a class="anchor" aria-label="anchor" href="#clasificaci%C3%B3n-de-las-variables-aleatorias"><i class="fas fa-link"></i></a>
 </h2>
-<p>Para su estudio, las variables aleatorias se clasifican en variables
-discretas o variables contínuas.</p>
+<p>Estudiaremos principalmente variables discretas y continuas. Esta clasificación no agota todas las posibilidades; también existen distribuciones mixtas.</p>
 <div id="variables-aleatorias-discretas" class="section level3" number="2.5.1">
 <h3>
 <span class="header-section-number">2.5.1</span> Variables aleatorias discretas<a class="anchor" aria-label="anchor" href="#variables-aleatorias-discretas"><i class="fas fa-link"></i></a>
 </h3>
-<div class="definicion">
+<div class="pedagogical-box key">
 <p><strong>Definición: Variable aleatoria discreta</strong></p>
 <p>Diremos que una variable aleatoria es discreta si su recorrido, es decir, el conjunto de valores que puede tomar, es finito
 o infinito numerable.</p>
@@ -237,19 +273,17 @@ o infinito numerable.</p>
 <p>Generalmente, este tipo de variables van asociadas
 a experimentos en los cuales se cuenta el número de veces que se ha
 presentado un suceso o donde el resultado es una puntuación concreta.</p>
-<p>Los puntos del recorrido se corresponden con saltos en la gráfica de la
-función de distribución, que correspondería al segundo tipo de gráfica
-visto anteriormente.</p>
+<p>Los valores con probabilidad positiva se corresponden con saltos de la función de distribución. En los ejemplos con valores aislados se observa una gráfica escalonada; la fórmula de acumulación sigue siendo válida para cualquier distribución discreta.</p>
 </div>
 <div id="variables-aleatorias-continuas" class="section level3" number="2.5.2">
 <h3>
 <span class="header-section-number">2.5.2</span> Variables aleatorias continuas<a class="anchor" aria-label="anchor" href="#variables-aleatorias-continuas"><i class="fas fa-link"></i></a>
 </h3>
-<div class="definicion">
-<p><strong>Definición: Variable aleatoria contínua</strong></p>
+<div class="pedagogical-box key">
+<p><strong>Definición: Variable aleatoria continua</strong></p>
 <p>Diremos que una variable aleatoria es continua si su función de distribución es una función
 continua.</p>
-<p>También puede definirse, de forma análoga a las variables discretas como aquellas cuyo recorrido, es decir, el conjunto de valores que puede tomar, es un intervalo o subconjunto no numerable de los números reales. En otras palabras, aquellas que pueden tomar cualquier valor dentro de un rango continuo, sin saltos entre los valores posibles.</p>
+<p>El recorrido por sí solo no permite decidir si una distribución es continua. La clasificación se basa en su función de distribución.</p>
 </div>
 <p>Se corresponde con el primer tipo de gráfica visto.</p>
 <p>Generalmente, se corresponden con variables asociadas a experimentos en
@@ -258,10 +292,10 @@ intervalo; mediciones biométricas, por ejemplo.</p>
 <p>Un caso particular dentro de las variables aleatorias continuas y al
 cual pertenecen todos los ejemplos usualmente utilizados, son las
 denominadas variables aleatorias absolutamente continuas.</p>
-<div class="definicion">
-<p><strong>Definición: Distribución absolutamente contínua</strong></p>
+<div class="pedagogical-box key">
+<p><strong>Definición: Distribución absolutamente continua</strong></p>
 <p>Diremos que una variable aleatoria <span class="math inline">\(X\)</span> continua tiene una distribución
-absolutamente continua si existe una función real <span class="math inline">\(f\)</span>, positiva e integrable en el conjunto de números reales, tal que la función de
+absolutamente continua si existe una función real <span class="math inline">\(f\)</span>, no negativa e integrable en el conjunto de números reales, tal que la función de
 distribución <span class="math inline">\(F\)</span> de <span class="math inline">\(X\)</span> se puede expresar como</p>
 <p><span class="math display">\[
 F(x)=\int_{-\infty}^{x} f(t) d t
@@ -270,15 +304,14 @@ F(x)=\int_{-\infty}^{x} f(t) d t
 <p>Una variable aleatoria con distribución absolutamente continua, por
 extensión, se la clasifica como variable aleatoria absolutamente
 continua.</p>
-<div class="definicion">
+<div class="pedagogical-box key">
 <p><strong>Definición: función de densidad de probabilidad</strong></p>
 <p>A la función <span class="math inline">\(f\)</span> se la denomina función de densidad de probabilidad de
 la variable <span class="math inline">\(X\)</span>.</p>
 </div>
-<p>Hay que hacer notar que no toda variable continua es absolutamente
-continua, pero los ejemplos son complicados, algunos utilizan para su
-construcción el conjunto de Cantor, y quedan fuera del nivel y del
-objetivo de este curso.</p>
+<div class="pedagogical-box attention">
+<p><strong>Nota opcional.</strong> Existen distribuciones con función de distribución continua que no admiten densidad. En este curso, cuando utilicemos densidades, trabajaremos con distribuciones absolutamente continuas.</p>
+</div>
 <p>Igualmente indicaremos que los tipos de variables comentados
 anteriormente forman únicamente una parte de todos los posibles tipos de
 variables, sin embargo contienen prácticamente todas las variables
@@ -288,26 +321,30 @@ funciones de distribución, tanto dentro del grupo de las discretas como
 de las continuas, que por su importancia reciben un nombre propio y se
 estudiarán en los capítulos siguientes.</p>
 <p>En ocasiones encontramos variables de tipo mixto, es decir que se
-comportan como discretas o contínuas para distintos grupos de valores.</p>
+comportan como discretas o continuas para distintos grupos de valores.</p>
 </div>
 </div>
-<div id="variable-aleatoria-discretas" class="section level2" number="2.6">
+<div id="variables-aleatorias-discretas-1" class="section level2" number="2.6">
 <h2>
-<span class="header-section-number">2.6</span> Variable aleatoria discretas<a class="anchor" aria-label="anchor" href="#variable-aleatoria-discretas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.6</span> Variables aleatorias discretas<a class="anchor" aria-label="anchor" href="#variables-aleatorias-discretas-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>Tal como se ha definido, una variable aleatoria <span class="math inline">\(X\)</span> discreta toma valores en un conjunrto finito o numerables.</p>
+<p>Tal como se ha definido, una variable aleatoria <span class="math inline">\(X\)</span> discreta toma valores en un conjunto finito o infinito numerable.</p>
 <p>Indicaremos el recorrido de la variable <span class="math inline">\(X\)</span> como:
 <span class="math inline">\(\left\{x_{1}, x_{2}, \ldots, x_{\mathrm{k}}, \ldots\right\}\)</span>.</p>
-<div class="ejemplo">
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.6.1 — Variable indicadora</strong></p>
 <p>El ejemplo más sencillo de variable aleatoria discreta lo constituyen
 las variables indicadoras. Sea <span class="math inline">\(A\)</span> un suceso observable, se llama
-indicador de <span class="math inline">\(A\)</span> a la variable aleatoria definida por</p>
+indicador de <span class="math inline">\(A\)</span> a una variable que registra si ocurre el suceso.
+Por ejemplo, si <span class="math inline">\(A=\)</span> «la suma de dos dados es 7», entonces
+<span class="math inline">\(I_A(1,6)=1\)</span> e <span class="math inline">\(I_A(1,1)=0\)</span>. Sus valores son 0 y 1, aunque los
+resultados del experimento sean pares de caras. Formalmente se define por</p>
 <p><span class="math display">\[
 \begin{aligned}
 I_{A}: \Omega &amp; \rightarrow \mathbb{R} \\
 \omega &amp; \rightarrow I_{A}(\omega)=\left\{\begin{array}{lll}
 1 &amp; \text { si } \omega \in A \\
-0 &amp; \text { si } &amp; A
+0 &amp; \text { si } &amp; \omega \notin A
 \end{array}\right.
 \end{aligned}
 \]</span></p>
@@ -319,7 +356,7 @@ I_{A}: \Omega &amp; \rightarrow \mathbb{R} \\
 <p>Construir, a partir de las variables indicadoras de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>, las
 siguientes variables indicadoras</p>
 <p><span class="math display">\[
-I_{A \cap B} ; I_{A \cup B} ; I_{A} c ; I_{\Omega}
+I_{A \cap B} ; I_{A \cup B} ; I_{A^{c}} ; I_{\Omega}
 \]</span></p>
 <div id="solución" class="section level5" number="2.6.0.1.1">
 <h5>
@@ -329,8 +366,8 @@ I_{A \cap B} ; I_{A \cup B} ; I_{A} c ; I_{\Omega}
 \begin{gathered}
 I_{A \cap B}=I_{A} \cdot I_{B} \\
 I_{A \cup B}=I_{A}+I_{B}-I_{A \cap B} \\
-I_{A} c=1-I_{A} \\
-\Omega=1
+I_{A^{c}}=1-I_{A} \\
+I_{\Omega}=1
 \end{gathered}
 \]</span></p>
 </div>
@@ -341,13 +378,14 @@ I_{A} c=1-I_{A} \\
 </h3>
 <p>Una variable aleatoria discreta puede caracterizarse a través de la
 función que asocia cada elemento del recorrido su probabilidad.
-Dicha función recibe varios nombres según los autores:
-- función de probabilidad
-- ley de probabilidad,
-- función de densidad de la variable aleatoria
-discreta.
-- función de masa de probabilidad.</p>
-<p>Aunque es habitual encontrar, en muchos libros el término <em>función de densidad</em> para variables (absolutamente) contínuas y el término <em>función de masa de probabilidad</em> para variables discretas, también lo es referirse a ambas como “función de densidad”.</p>
+La denominaremos <strong>función de masa de probabilidad</strong>. En los materiales antiguos de Statmedia aparece también el nombre «densidad discreta». Usaremos aquí el primer término para distinguirla de una densidad continua.</p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.6.1.1 — Repartir la masa</strong></p>
+<p>Para la suma de dos dados regulares e
+independientes, <span class="math inline">\(f(7)=6/36\)</span> y <span class="math inline">\(f(2)=1/36\)</span>: hay seis maneras de sumar 7 y
+solo una de sumar 2. Para un valor imposible, como 13, <span class="math inline">\(f(13)=0\)</span>.
+Las masas de las once sumas posibles deben sumar 1.</p>
+</div>
 <p>La función de probabilidad de una variable discreta se puede representar de la manera siguiente:</p>
 <p><span class="math display">\[
 \begin{array}{rll}
@@ -357,25 +395,25 @@ f: &amp; \mathbb{R} &amp; \rightarrow[0,1] \\
 \]</span></p>
 <p>Obsérvese que, a diferencia de la función de distribución que toma valores para cualquier valor real, la función definida anteriormente es nula en todo punto que no
 pertenezca al recorrido.</p>
-<p>En cambio, siguiendo con la análogía, y dado que se trata de una probabilidad, la
-función de densidad discreta está acotada <span class="math inline">\(0 \leq f(x) \leq 1\)</span>.</p>
+<p>En cambio, siguiendo con la analogía, y dado que se trata de una probabilidad, la
+función de masa de probabilidad está acotada <span class="math inline">\(0 \leq f(x) \leq 1\)</span>.</p>
 <p>Toda
-función de densidad discreta puede expresarse de manera explícita a
+función de masa de probabilidad puede expresarse de manera explícita a
 través de una tabla que asocie directamente puntos del recorrido con sus
 probabilidades.</p>
-<div class="ejemplo">
-<p><strong>Ejemplo: Función de densidad de una variable indicadora</strong></p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.6.1.2 — Función de masa de probabilidad de una variable indicadora</strong></p>
 <p>Consideremos la variable indicadora del suceso <span class="math inline">\(A\)</span> :</p>
 <p><span class="math display">\[
 \begin{aligned}
 I_{A}: \Omega &amp; \rightarrow \mathbb{R} \\
 \omega &amp; \rightarrow I_{A}(\omega)=\left\{\begin{array}{lll}
 1 &amp; \text { si } &amp; \omega \in A \\
-0 &amp; \text { si } &amp; A
+0 &amp; \text { si } &amp; \omega \notin A
 \end{array}\right.
 \end{aligned}
 \]</span></p>
-<p>La función de densidad de esta variable sería la siguiente:</p>
+<p>La función de masa de probabilidad de esta variable sería la siguiente:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center"><span class="math inline">\(x\)</span></th>
@@ -388,25 +426,71 @@ I_{A}: \Omega &amp; \rightarrow \mathbb{R} \\
 <td align="center"><span class="math inline">\(P(A)\)</span></td>
 </tr></tbody>
 </table></div>
-<p>El recorrido está formado por dos valores: 1 y 0 , con las mismas
+<p>El recorrido está contenido en los valores 1 y 0 , con las mismas
 probabilidades que las del suceso <span class="math inline">\(A\)</span> y su complementario,
-respectivamente.</p>
+respectivamente. Si ambos resultados son posibles, el recorrido es exactamente {0,1}.</p>
 </div>
-<p>En muchos casos será posible expresar la función de probabilidadmediante una fórmula
+<p>En muchos casos será posible expresar la función de probabilidad mediante una fórmula
 matemática que define una regla de asignación de probabilidades para los
 valores del recorrido.</p>
-<div class="ejemplo">
-<p><strong>Ejemplo: Un modelo matemático para la función de probabilidad</strong></p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.6.1.3 — Un modelo matemático para la función de probabilidad</strong></p>
 <p><span class="math display">\[
-P(X=x)=0,2 \cdot 0,8^{x-1}, \quad x=1,2, \ldots
+P(X=x)=0,2 \cdot 0,8^{x-1}, \quad x=1,2, \ldots \quad (0 \text{ fuera de este conjunto})
 \]</span></p>
-<p>es la función de densidad de una variable aleatoria discreta con
+<p>es la función de masa de probabilidad de una variable aleatoria discreta con
 recorrido numerable.</p>
 </div>
+<div class="pedagogical-box r">
+<p><strong>En R: valores y probabilidades</strong></p>
+<p>Contamos los resultados que producen cada suma; no suponemos que las once
+sumas sean equiprobables. <code>x</code> guarda los valores y <code>p</code> sus probabilidades.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">2</span><span class="op">:</span><span class="fl">12</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="fl">5</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span> <span class="op">/</span> <span class="fl">36</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>valor <span class="op">=</span> <span class="va">x</span>, probabilidad <span class="op">=</span> <span class="va">p</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##    valor probabilidad
+## 1      2   0.02777778
+## 2      3   0.05555556
+## 3      4   0.08333333
+## 4      5   0.11111111
+## 5      6   0.13888889
+## 6      7   0.16666667
+## 7      8   0.13888889
+## 8      9   0.11111111
+## 9     10   0.08333333
+## 10    11   0.05555556
+## 11    12   0.02777778</code></pre>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>  <span class="co"># La masa total es 1</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>La acumulación reproduce la CDF: el último valor es 1 y, hasta 4, sumamos 6/36.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>  <span class="co"># F(x) en el orden de los valores de x</span></span></code></pre></div>
+<pre><code>##  [1] 0.02777778 0.08333333 0.16666667 0.27777778 0.41666667 0.58333333
+##  [7] 0.72222222 0.83333333 0.91666667 0.97222222 1.00000000</code></pre>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">p</span><span class="op">[</span><span class="va">x</span> <span class="op">&lt;=</span> <span class="fl">4</span><span class="op">]</span><span class="op">)</span>  <span class="co"># F(4)</span></span></code></pre></div>
+<pre><code>## [1] 0.1666667</code></pre>
+<p>En el gráfico de masa cada altura es una probabilidad puntual; la CDF
+sube al acumular esas masas. <code>stepfun</code> construye los escalones continuos por la derecha.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">p</span>, type <span class="op">=</span> <span class="st">"h"</span>, xlab <span class="op">=</span> <span class="st">"Suma"</span>, ylab <span class="op">=</span> <span class="st">"Masa"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/stepfun.html">stepfun</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">13</span><span class="op">)</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Umbral"</span>, ylab <span class="op">=</span> <span class="st">"F(x)"</span>, main <span class="op">=</span> <span class="st">""</span>, verticals <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<span style="display:block;" id="fig:u2-r-masa-cdf"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/u2-r-masa-cdf-1.png" alt="Masa triangular y CDF escalonada de las sumas 2 a 12." width="672"><p class="caption">
+Figure 2.3: Masa y CDF de la suma de dos dados: probabilidades puntuales y acumuladas.
+</p>
 </div>
-<div id="propiedades-de-la-función-de-densidad-discreta" class="section level3" number="2.6.2">
+</div>
+</div>
+<div id="propiedades-de-la-función-de-masa-de-probabilidad" class="section level3" number="2.6.2">
 <h3>
-<span class="header-section-number">2.6.2</span> Propiedades de la función de densidad discreta<a class="anchor" aria-label="anchor" href="#propiedades-de-la-funci%C3%B3n-de-densidad-discreta"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.6.2</span> Propiedades de la función de masa de probabilidad<a class="anchor" aria-label="anchor" href="#propiedades-de-la-funci%C3%B3n-de-masa-de-probabilidad"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li>
@@ -422,19 +506,19 @@ recorrido numerable.</p>
 numerable.</li>
 </ol>
 </div>
-<div id="relaciones-entre-la-función-de-distribución-y-la-función-de-densidad-discreta.-probabilidad-de-intervalos." class="section level3" number="2.6.3">
+<div id="distribución-masa-y-probabilidad-de-intervalos" class="section level3" number="2.6.3">
 <h3>
-<span class="header-section-number">2.6.3</span> Relaciones entre la función de distribución y la función de densidad discreta. <br> Probabilidad de intervalos.<a class="anchor" aria-label="anchor" href="#relaciones-entre-la-funci%C3%B3n-de-distribuci%C3%B3n-y-la-funci%C3%B3n-de-densidad-discreta.-probabilidad-de-intervalos."><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.6.3</span> Distribución, masa y probabilidad de intervalos<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-masa-y-probabilidad-de-intervalos"><i class="fas fa-link"></i></a>
 </h3>
 <p>Existe una relación muy importante entre las funciones de distribución
-<span class="math inline">\(F(x)\)</span> y de densidad <span class="math inline">\(f(x)\)</span> de una variable aleatoria discreta. La
+<span class="math inline">\(F(x)\)</span> y de masa <span class="math inline">\(f(x)\)</span> de una variable aleatoria discreta. La
 función de distribución en un punto se obtiene acumulando el valor de la
-función de densidad para todos los valores del recorrido menores o
+función de masa de probabilidad para todos los valores del recorrido menores o
 iguales al punto en cuestión.</p>
 <p><span class="math display">\[
-F(x)=\sum_{x_{i} \leq x} f\left(x_{i}\right) \quad \text { para todo } \mathrm{x}_{\mathrm{i}} \text { perteneciente al recorrido de la variable. }
+F(x)=\sum_{x_{i} \leq x} f\left(x_{i}\right) \quad \text { para todo } x\in\mathbb R \text {; se suma sobre los valores del recorrido. }
 \]</span></p>
-<p>En efecto, supongamos que el recorrido de una variable discreta <span class="math inline">\(X\)</span> es
+<p>Para un recorrido con valores aislados ordenados de menor a mayor, supongamos que el recorrido de una variable discreta <span class="math inline">\(X\)</span> es
 <span class="math inline">\(\left\{x_{1}, x_{2}, \ldots, x_{k}, \ldots\right\}\)</span> y que deseamos
 conocer el valor de la función de distribución en un punto <span class="math inline">\(x\)</span> tal que
 <span class="math inline">\(x_{i} \leq x&lt;x_{i+1}\)</span>, entonces es inmediato que</p>
@@ -485,7 +569,7 @@ relación siguiente:</p>
 </table></div>
 <p>A partir de las funciones de densidad y de distribución es posible
 expresar las probabilidades para cualquier posible intervalo de valores
-de la variable. Por ejemplo:</p>
+de la variable. Para <span class="math inline">\(a&lt;b\)</span>, por ejemplo:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left">Intervalo</th>
@@ -501,7 +585,7 @@ de la variable. Por ejemplo:</p>
 <td align="left"><span class="math inline">\(P(X&gt;a)=1-F(a)=1-P(X \leq a)\)</span></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(P(X \geq a)=1-F(a)+f(a)=1-P(X&gt;a)\)</span></td>
+<td align="left"><span class="math inline">\(P(X \geq a)=1-F(a)+f(a)=1-P(X&lt;a)\)</span></td>
 </tr>
 <tr class="odd">
 <td align="left"><span class="math inline">\(P(a&lt;X \leq b)=F(b)-F(a)\)</span></td>
@@ -528,8 +612,8 @@ distribución es una función continua. En la práctica, se corresponden
 con variables asociadas con experimentos en los cuales la variable
 medida puede tomar cualquier valor en un intervalo: mediciones
 biométricas, intervalos de tiempo, áreas, etc.</p>
-<div class="ejemplo">
-<p><strong>Ejemplo: Variables aleatorias continuas</strong></p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.7.1 — Variables aleatorias continuas</strong></p>
 <ul>
 <li>Resultado de un generador de números aleatorios entre 0 y 1. Es el
 ejemplo más sencillo que podemos considerar, es un caso particular
@@ -550,7 +634,7 @@ por una campana de Gauss.</li>
 <p>Dentro de las variables aleatorias continuas tenemos las variables
 aleatorias absolutamente continuas.</p>
 <p>Diremos que una variable aleatoria <span class="math inline">\(X\)</span> continua tiene una distribución
-absolutamente continua si existe una función real <span class="math inline">\(f\)</span>, positiva e
+absolutamente continua si existe una función real <span class="math inline">\(f\)</span>, no negativa e
 integrable en el conjunto de números reales, tal que la función de
 distribución <span class="math inline">\(F\)</span> de <span class="math inline">\(X\)</span> se puede expresar como</p>
 <p><span class="math display">\[
@@ -565,21 +649,28 @@ continuas, en particular, los ejemplos y casos expuestos.</p>
 <h3>
 <span class="header-section-number">2.7.1</span> Función de densidad continua<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-densidad-continua"><i class="fas fa-link"></i></a>
 </h3>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.7.1.1 — Altura y área</strong></p>
+<p>Consideremos una densidad que vale 2 entre
+0 y 0.5 y cero fuera. El área total es <span class="math inline">\(2\times0.5=1\)</span>.
+La probabilidad entre 0.1 y 0.2 es el área <span class="math inline">\(2(0.2-0.1)=0.2\)</span>;
+la probabilidad de un punto exacto es 0. La altura 2 no es una probabilidad.</p>
+</div>
 <p>La función que caracteriza las variables continuas es aquella función
-<span class="math inline">\(f\)</span> positiva e integrable en los reales, tal que acumulada desde
+<span class="math inline">\(f\)</span> no negativa e integrable en los reales, tal que acumulada desde
 <span class="math inline">\(-\infty\)</span> hasta un punto <span class="math inline">\(x\)</span>, nos proporciona el valor de la función de
 distribución en <span class="math inline">\(x, F(\mathrm{x})\)</span>. Recibe el nombre de función de
 densidad de la variable aleatoria continua.</p>
 <p><span class="math display">\[
 F(x)=\int_{-\infty}^{x} f(t) d t
 \]</span></p>
-<p>Las funciones de densidad discreta y continua tienen, por tanto, un
+<p>Las funciones de masa de probabilidad y de densidad continua tienen, por tanto, un
 significado análogo, ambas son las funciones que acumuladas (en forma de
 sumatorio en el caso discreto o en forma de integral en el caso
 continuo) dan como resultado la función de distribución.</p>
 <p>La diferencia entre ambas, sin embargo, es notable.</p>
 <ul>
-<li>La función de densidad discreta toma valores positivos únicamente en
+<li>La función de masa de probabilidad toma valores positivos únicamente en
 los puntos del recorrido y se interpreta como la probabilidad de la
 que la variable tome ese valor <span class="math inline">\(f(x)=P(X=x)\)</span>.</li>
 <li>La función de densidad continua toma valores en el conjunto de
@@ -611,14 +702,13 @@ determinada familia depende de la naturaleza de la variable en cuestión.</p>
 la gráfica para los ejemplos comentados con anterioridad:</p>
 <ul>
 <li>Resultado de un generador de números aleatorios entre
-<span class="math inline">\(\boldsymbol{a}\)</span> y <span class="math inline">\(\boldsymbol{b}\)</span>. Modelo Uniforme.
+<span class="math inline">\(\boldsymbol{a}\)</span> y <span class="math inline">\(\boldsymbol{b}\)</span>. Modelo uniforme, con <span class="math inline">\(a&lt;b\)</span>.
 <span class="math inline">\(f(x)=\left\{\begin{array}{cc}\frac{1}{b-a} &amp; x \in[a, b] \\ 0 &amp; x \notin[a, b]\end{array}\right\}\)</span>
 </li>
-<li>Estatura de una persona elegida al azar en una población. Modelo
-Normal.</li>
+<li>Estatura de una persona elegida al azar en una población. Modelo normal ilustrativo, con valores en cm, media 170 y desviación típica 1. No representa datos clínicos ni una población concreta.</li>
 </ul>
 <p><span class="math display">\[
-f(x)=\frac{1}{\sqrt{2 \pi}} e^{\frac{-(x-170)^{2}}{2}}-\infty&lt;x&lt;\infty
+f(x)=\frac{1}{\sqrt{2 \pi}} e^{\frac{-(x-170)^{2}}{2}},\qquad -\infty&lt;x&lt;\infty
 \]</span></p>
 </div>
 <div id="relaciones-entre-la-función-de-distribución-y-la-función-de-densidad." class="section level3" number="2.7.2">
@@ -640,7 +730,7 @@ F(x)=\int_{-\infty}^{x} f(t) d t
 <p>A partir de las funciones de densidad y de distribución, y teniendo en
 cuenta que <span class="math inline">\(P(X=x)=0\)</span> para todo <span class="math inline">\(x\)</span> real, es posible expresar las
 probabilidades para cualquier posible intervalo de valores de la
-variable. Por ejemplo:</p>
+variable. Para <span class="math inline">\(a&lt;b\)</span>, por ejemplo:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center">Intervalo</th>
@@ -656,13 +746,18 @@ variable. Por ejemplo:</p>
 <td align="center"><span class="math inline">\(P(a&lt;X \leq b)=P(a&lt;X&lt;b)=P(a \leq X \leq b)=P(a \leq X&lt;b)\)</span></td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math inline">\(=F(b)-F(a)=\int^{b} f(x) d x\)</span></td>
+<td align="center"><span class="math inline">\(=F(b)-F(a)=\int_a^{b} f(x) d x\)</span></td>
 </tr>
 </tbody>
 </table></div>
 <p>Fijémonos que la probabilidad de los intervalos se corresponde con el
 área bajo la función de densidad dentro del intervalo considerado.</p>
-<div class="inline-figure"><img src="images/probsDNormal.png" alt="" width="80%"></div>
+<div class="figure">
+<span style="display:block;" id="fig:u2-area-normal"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/u2-area-normal-1.png" alt="Probabilidad como área bajo una densidad normal estándar; distinta del ejemplo de estaturas." width="576"><p class="caption">
+Figure 2.4: Probabilidad como área bajo una densidad normal estándar; distinta del ejemplo de estaturas.
+</p>
+</div>
 <!-- ![](https://cdn.mathpix.com/cropped/2024_09_12_f7af3f47a4aa56dad47ag-19.jpg  height=2339&width=1236&top_left_y=92&top_left_x=409) -->
 </div>
 </div>
@@ -671,9 +766,7 @@ variable. Por ejemplo:</p>
 <h2>
 <span class="header-section-number">2.8</span> Caracterización de una variable aleatoria a través de parámetros<a class="anchor" aria-label="anchor" href="#caracterizaci%C3%B3n-de-una-variable-aleatoria-a-trav%C3%A9s-de-par%C3%A1metros"><i class="fas fa-link"></i></a>
 </h2>
-<p>Hasta el momento hemos visto que toda variable aleatoria viene
-caracterizada a través de unas determinadas funciones matemáticas, las
-funciones de distribución y de densidad. Una vez caracterizada, y por
+<p>Hasta el momento hemos visto que toda distribución queda caracterizada por su función de distribución. Las distribuciones discretas tienen una función de masa; las absolutamente continuas tienen una densidad. Una vez caracterizada, y por
 tanto conocida, la distribución de una variable aleatoria, podemos
 obtener cualquier probabilidad asociada.</p>
 <p>En ocasiones podemos acotar más el problema y reducir el estudio de una
@@ -685,8 +778,7 @@ las técnicas estadísticas que desarrollaremos a lo largo del curso.</p>
 <p>Por ejemplo, supuesta la pertenencia de una variable aleatoria a una
 determinada familia de distribuciones de probabilidad, bien sea discreta
 o continua, los diferentes miembros de la familia diferirán en el valor
-de esas características numéricas. En este caso, denominaremos a tales
-características los parámetros de la distribución.</p>
+de esas características numéricas. Estas características pueden estar relacionadas con los parámetros de la familia. Sin especificar una familia, la esperanza y la varianza por sí solas no determinan la distribución.</p>
 <p>Existe un buen número de tales características, pero nos centraremos en
 las dos más importantes: la esperanza y la varianza. La primera nos
 informa sobre la localización de los valores de la variable y la
@@ -704,13 +796,20 @@ centralización o de localización.</p>
 medio teórico de los posibles valores que pueda tomar la variable
 aleatoria, o también con el centro de gravedad de los valores de la
 variable supuesto que cada valor tuviera una masa proporcional a la
-función de densidad en ellos.</p>
-<p>La definición matemática de la esperanza en el caso de las variables
+función de masa de probabilidad en ellos.</p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.9.1 — Promedio ponderado</strong></p>
+<p>Si <span class="math inline">\(Z\)</span> toma los valores 0, 1 y 2
+con probabilidades 0.25, 0.50 y 0.25, su esperanza es
+<span class="math inline">\(E(Z)=0(0.25)+1(0.50)+2(0.25)=1\)</span>. Cada valor pesa según su probabilidad;
+no calculamos un promedio sin ponderar de los valores del recorrido.</p>
+</div>
+<p>En general, la definición matemática para variables
 aleatorias discretas se corresponde directamente con las
 interpretaciones proporcionadas en el párrafo anterior. Efectivamente,
 supuesta una variable aleatoria discreta <span class="math inline">\(X\)</span> con recorrido
 <span class="math inline">\(\left\{x_{1}, x_{2}, \ldots, x_{k}, \ldots\right\}\)</span> y con función de
-densidad <span class="math inline">\(f(x)\)</span>, se define la esperanza matemática de <span class="math inline">\(X\)</span> como el valor</p>
+masa de probabilidad <span class="math inline">\(f(x)\)</span>, se define la esperanza matemática de <span class="math inline">\(X\)</span> como el valor</p>
 <p><span class="math display">\[
 E(X)=\sum_{x_{i} \in X(\Omega)} x_{i} f\left(x_{i}\right)
 \]</span></p>
@@ -726,6 +825,12 @@ con la idea de un valor medio teórico.</p>
 <h2>
 <span class="header-section-number">2.10</span> Esperanza de una variable aleatoria continua<a class="anchor" aria-label="anchor" href="#esperanza-de-una-variable-aleatoria-continua"><i class="fas fa-link"></i></a>
 </h2>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.10.1 — Esperanza con una densidad</strong></p>
+<p>Con la densidad rectangular anterior, los valores se
+reparten simétricamente entre 0 y 0.5; su centro es 0.25.
+La integral confirma <span class="math inline">\(E(X)=\int_0^{0.5}2x\,dx=0.25\)</span>.</p>
+</div>
 <p>La idea intuitiva que más nos puede ayudar en la definición de la
 esperanza matemática de una variable aleatoria continua es la idea del
 centro de gravedad de los valores de la variable, donde cada valor tiene
@@ -735,12 +840,23 @@ densidad <span class="math inline">\(f(x)\)</span>, se define la esperanza matem
 <p><span class="math display">\[
 E(X)=\int_{-\infty}^{+\infty} x f(x) d x
 \]</span></p>
-<p>suponiendo que la integral exista.</p>
+<p>si la integral de <span class="math inline">\(|x|f(x)\)</span> es finita. Esta condición garantiza una esperanza finita.</p>
+<div class="pedagogical-box attention">
+<p><strong>Condiciones de existencia</strong></p>
+<p>Las identidades siguientes se utilizan cuando las esperanzas implicadas son finitas. Para <span class="math inline">\(E(h(X))\)</span> se requiere <span class="math inline">\(E(|h(X)|)&lt;\infty\)</span>. Una variable no negativa puede tener esperanza <span class="math inline">\(+\infty\)</span>, como veremos en el caso final; esto es distinto de una esperanza no definida por compensación de partes positiva y negativa infinitas.</p>
+</div>
 </div>
 <div id="propiedades-de-la-esperanza-matemática" class="section level2" number="2.11">
 <h2>
 <span class="header-section-number">2.11</span> Propiedades de la esperanza matemática<a class="anchor" aria-label="anchor" href="#propiedades-de-la-esperanza-matem%C3%A1tica"><i class="fas fa-link"></i></a>
 </h2>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.11.1 — Transformar una variable</strong></p>
+<p>Si <span class="math inline">\(X\)</span> es la suma de dos dados y
+<span class="math inline">\(Y=2X-3\)</span>, un resultado con <span class="math inline">\(X=7\)</span> produce <span class="math inline">\(Y=11\)</span>.
+Para obtener <span class="math inline">\(E(Y)\)</span> ponderamos los valores <span class="math inline">\(2x-3\)</span> con las probabilidades
+originales de <span class="math inline">\(X\)</span>; no damos el mismo peso a todas las sumas posibles.</p>
+</div>
 <ol style="list-style-type: decimal">
 <li>Esperanza de una función de una variable aleatoria</li>
 </ol>
@@ -774,9 +890,10 @@ E(h(X))=\int_{-\infty}^{+\infty} h(x) f(x) d x
 </h3>
 <ul>
 <li>
-<span class="math inline">\(E(X \cdot Y)=E(X) \cdot E(Y)\)</span> únicamente en el caso de que <span class="math inline">\(X\)</span> e
-<span class="math inline">\(Y\)</span> sean variables aleatorias independientes.</li>
+<span class="math inline">\(E(X \cdot Y)=E(X) \cdot E(Y)\)</span> si <span class="math inline">\(X\)</span> e
+<span class="math inline">\(Y\)</span> son variables aleatorias independientes.</li>
 </ul>
+<p>La linealidad de la esperanza no requiere independencia. La independencia es suficiente para la identidad del producto, pero no es necesaria.</p>
 </div>
 </div>
 <div id="varianza-de-una-variable-aleatoria" class="section level2" number="2.12">
@@ -786,7 +903,14 @@ E(h(X))=\int_{-\infty}^{+\infty} h(x) f(x) d x
 <p>La varianza de una variable aleatoria es una característica numérica que
 proporciona una idea de la dispersión de la variable aleatoria respecto
 de su esperanza. Decimos que es un parámetro de dispersión.</p>
-<p>La definición es la siguiente:</p>
+<div class="pedagogical-box example-section">
+<p><strong>Ejemplo 2.12.1 — Misma media, distinta dispersión</strong></p>
+<p>La variable <span class="math inline">\(Z\)</span> anterior
+tiene media 1 y varianza <span class="math inline">\((0-1)^2(0.25)+(1-1)^2(0.50)+(2-1)^2(0.25)=0.5\)</span>.
+Una variable que vale siempre 1 tiene la misma media, pero varianza 0.
+La varianza distingue cuánto se separan los valores del centro.</p>
+</div>
+<p>Para una varianza finita suponemos <span class="math inline">\(E(X^2)&lt;\infty\)</span>, lo que también garantiza una esperanza finita. La definición es la siguiente:</p>
 <p><span class="math display">\[
 \operatorname{Var}(X)=E\left((X-E(X))^{2}\right)
 \]</span></p>
@@ -806,6 +930,25 @@ generalmente de cálculo más fácil:</p>
 <p><span class="math display">\[
 \operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}
 \]</span></p>
+<div class="pedagogical-box r">
+<p><strong>En R: promedio y dispersión teóricos</strong></p>
+<p>Retomamos <code>x</code> y <code>p</code>, definidos al estudiar la masa de la suma de dos dados.
+Calculamos un promedio ponderado, no la media de una muestra.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">media</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span> <span class="op">*</span> <span class="va">p</span><span class="op">)</span></span>
+<span><span class="va">varianza</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">media</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">*</span> <span class="va">p</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>esperanza <span class="op">=</span> <span class="va">media</span>, varianza <span class="op">=</span> <span class="va">varianza</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## esperanza  varianza 
+##  7.000000  5.833333</code></pre>
+<p>Obtenemos esperanza 7 y varianza <span class="math inline">\(35/6\)</span>. Aquí <code>mean(x)</code> también da 7 por
+simetría, pero omite las probabilidades y no es el cálculo general de la esperanza;
+<code>var(x)</code> calcularía una varianza muestral de esa lista, no la varianza del modelo.
+Para comparar con la transformación anterior:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">x</span> <span class="op">-</span> <span class="fl">3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">y</span> <span class="op">*</span> <span class="va">p</span><span class="op">)</span>  <span class="co"># E(2X - 3) = 11</span></span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+</div>
 <p>Una de las características de la varianza es que viene expresada en
 unidades cuadráticas respecto de las unidades originales de la variable.
 Un parámetro de dispersión derivado de la varianza y que tiene las
@@ -822,16 +965,17 @@ define como la raíz cuadrada de la varianza.</p>
 <li><span class="math inline">\(\operatorname{Var}(X) \geq 0\)</span></li>
 <li>
 <span class="math inline">\(\operatorname{Var}(k \cdot X)=k^{2} \cdot \operatorname{Var}(X)\)</span>
-para todo numero real <span class="math inline">\(k\)</span>.</li>
+para todo número real <span class="math inline">\(k\)</span>.</li>
 <li>
-<span class="math inline">\(\operatorname{Var}(k)=0\)</span> para todo numero real <span class="math inline">\(k\)</span>.</li>
+<span class="math inline">\(\operatorname{Var}(k)=0\)</span> para todo número real <span class="math inline">\(k\)</span>.</li>
 <li>
 <span class="math inline">\(\operatorname{Var}(a \cdot X+b)=a^{2} \cdot \operatorname{Var}(X)\)</span>
-para todo par de números reales <span class="math inline">\(a\)</span> i <span class="math inline">\(b\)</span>.</li>
+para todo par de números reales <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.</li>
 <li>
 <span class="math inline">\(\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\)</span>
-únicamente en el caso que <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> sean independientes.</li>
+si <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> son independientes.</li>
 </ol>
+<p>La independencia es suficiente para sumar varianzas; no es una condición necesaria. El capítulo de vectores aleatorios precisará esta relación mediante la covarianza.</p>
 </div>
 </div>
 <div id="momentos-de-orden-k-de-una-variable-aleatoria" class="section level2" number="2.13">
@@ -855,30 +999,14 @@ momento de orden <span class="math inline">\(1, E(X)=m_{1}\)</span>.</p>
 \]</span></p>
 <p>Con la denominación anterior, la varianza es el momento central de orden
 <span class="math inline">\(2, \operatorname{Var}(X)=\mu_{2}\)</span>.</p>
-<ul>
-<li>Es posible también definir momentos mixtos de dos variables
-aleatorias. Dadas dos variables aleatorias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> definimos el
-momento mixto de orden <span class="math inline">\((r, k)\)</span> como</li>
-</ul>
-<p><span class="math display">\[
-m_{r k}=E\left(X^{r} \cdot Y^{k}\right)
-\]</span></p>
-<p>y el momento mixto central de orden <span class="math inline">\((r, k)\)</span> como</p>
-<p><span class="math display">\[
-\left.\mu_{r k}=E(X-E(X))^{r} \cdot(Y-E(Y))^{k}\right)
-\]</span></p>
-<ul>
-<li>El momento mixto central más importante es el <span class="math inline">\(\mu_{11}\)</span>, denominado
-la covarianza de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, y con una interpretación en el sentido
-de cuantificar el grado de dependencia entre dos variables
-aleatorias, puesto que si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes se verifica
-que <span class="math inline">\(\mu_{11}=0\)</span>, mientras que si <span class="math inline">\(\mu_{11} \neq 0\)</span> entonces las
-variables son dependientes.</li>
-</ul>
+<div class="pedagogical-box key">
+<p><strong>Anticipación opcional: Unidad 4</strong></p>
+<p>Los momentos mixtos describen dos variables conjuntamente: <span class="math inline">\(m_{rk}=E(X^rY^k)\)</span> y <span class="math inline">\(\mu_{rk}=E[(X-E(X))^r(Y-E(Y))^k]\)</span>, cuando existen. La covarianza es <span class="math inline">\(\mu_{11}\)</span>. La independencia implica covarianza cero bajo existencia de segundos momentos, pero el recíproco no es cierto. Estos conceptos se desarrollarán en la Unidad 4 y no son contenido exigible ni objeto del cuestionario de esta unidad.</p>
 </div>
-<div id="definición-formal-de-variable-aleatoria" class="section level2" number="2.14">
+</div>
+<div id="definición-formal-de-variable-aleatoria-lectura-opcional" class="section level2" number="2.14">
 <h2>
-<span class="header-section-number">2.14</span> Definición formal de variable aleatoria<a class="anchor" aria-label="anchor" href="#definici%C3%B3n-formal-de-variable-aleatoria"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.14</span> Definición formal de variable aleatoria (lectura opcional)<a class="anchor" aria-label="anchor" href="#definici%C3%B3n-formal-de-variable-aleatoria-lectura-opcional"><i class="fas fa-link"></i></a>
 </h2>
 <p>Tal como hemos comentado, la definición formal de variable aleatoria
 impone una restricción matemática en la formulación vista hasta el
@@ -944,8 +1072,10 @@ aleatorias discretas, definido por:</p>
 obtenido.</p>
 <p>El conjunto de resultados posibles forma el espacio muestral <span class="math inline">\(\Omega\)</span> asociado a dicho experimento. Sus elementos serán como los que se
 muestran a continuación:</p>
-<div class="inline-figure"><img src="images/clipboard-1434716414.png"></div>
-<p>En total, el espacio muestral estaría formado por 36 resultados posibles
+<div class="float">
+<img src="images/clipboard-1434716414.png" alt="Resultados elementales de dos dados."><div class="figcaption">Resultados elementales de dos dados.</div>
+</div>
+<p>Suponemos dados regulares e independientes. En total, el espacio muestral estaría formado por 36 resultados posibles
 que, en principio y suponiendo los dados regulares, son todos ellos
 equiprobables con probabilidad <span class="math inline">\(1 / 36\)</span>.</p>
 <p>Nótese que consideramos diferentes resultados del tipo: un uno en el
@@ -983,7 +1113,9 @@ resultado.</p>
 <p>Una posible regla sería, por ejemplo, asignar a cada resultado la suma
 de puntos de las caras. Este enunciado nos define una variable que
 representa cada suceso elemental por un valor numérico.</p>
-<div class="inline-figure"><img src="images/clipboard-2572516778.png"></div>
+<div class="float">
+<img src="images/clipboard-2572516778.png" alt="Asignación de la suma de puntos."><div class="figcaption">Asignación de la suma de puntos.</div>
+</div>
 <p>Los 36 posibles resultados del experimento se transforman en 11 posibles
 valores numéricos para la variable: <span class="math inline">\(2,3,4,5,6,7,8,9,10,11\)</span> y 12 .</p>
 <p>Este conjunto de valores forman el <em>recorrido de la variable suma de
@@ -1000,7 +1132,9 @@ bajo de cada tirada, de forma que podríamos construir una nueva variable
 a partir del enunciado o regla de asignación asignar a cada resultado el
 menor de los puntos de las dos caras. Tenemos una nueva variable sobre
 el mismo espacio anterior.</p>
-<div class="inline-figure"><img src="images/clipboard-3898377838.png"></div>
+<div class="float">
+<img src="images/clipboard-3898377838.png" alt="Asignación del mínimo de las caras."><div class="figcaption">Asignación del mínimo de las caras.</div>
+</div>
 <p>El recorrido, en este caso, está formado por los valores: <span class="math inline">\(1,2,3,4,5\)</span> y
 6 . Las dos variables estudiadas y otras muchas que se podrían definir
 sobre este experimento son ejemplos absolutamente equivalentes desde el
@@ -1014,9 +1148,11 @@ punto de vista formal.</p>
 <p><span class="math display">\[
 X=\text { Suma de puntos de las caras }
 \]</span></p>
-<div class="inline-figure"><img src="images/clipboard-1018442669.png"></div>
+<div class="float">
+<img src="images/clipboard-1018442669.png" alt="Variable suma de dos dados."><div class="figcaption">Variable suma de dos dados.</div>
+</div>
 <p>El recorrido de la variable está formado por los números
-<span class="math inline">\(\{2,3,4,5,6,7,8,9,10,11\)</span> i 12<span class="math inline">\(\}\)</span>. Vamos a calcular algunas
+<span class="math inline">\(\{2,3,4,5,6,7,8,9,10,11,12\}\)</span>$. Vamos a calcular algunas
 probabilidades:</p>
 <ul>
 <li>
@@ -1039,7 +1175,9 @@ probabilidades: (a) <span class="math inline">\(P(X \leq 6)\)</span> (b) <span c
 </h3>
 <p>Para calcular la función de distribución de la variable X <span class="math inline">\(=\)</span> Suma de
 puntos de las caras :</p>
-<div class="inline-figure"><img src="images/clipboard-2353777197.png"></div>
+<div class="float">
+<img src="images/clipboard-2353777197.png" alt="Recorrido de la suma."><div class="figcaption">Recorrido de la suma.</div>
+</div>
 <p>necesitamos conocer el recorrido de la variable, que es:
 <span class="math inline">\(\{2,3,4,5,6,7,8,9,10,11, 12\}\)</span> y, utilizando este recorrido como pauta,
 determinar <em>para todo punto</em> <span class="math inline">\(x\)</span> <em>de la recta real</em> la probabilidad
@@ -1051,7 +1189,12 @@ F(x)=P(X \leq x)= \begin{cases}0 &amp; x&lt;2 \\ 1 / 36 &amp; 2 \leq x&lt;3 \\ 3
 <p>Acabamos de construir la función de distribución de la variable suma de
 la puntuación al lanzar dos dados.</p>
 <p>Vamos a ver su representación gráfica:</p>
-<div class="inline-figure"><img src="images/clipboard-1894572766.png" alt="" width="90%"></div>
+<div class="figure">
+<span style="display:block;" id="fig:cdfSumaDados"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/cdfSumaDados-1.png" alt="CDF de la suma de dos dados regulares e independientes." width="576"><p class="caption">
+Figure 2.5: CDF de la suma de dos dados regulares e independientes.
+</p>
+</div>
 <p>Ejercicio : Haced lo mismo para la variable aleatoria el menor de los
 puntos de las dos caras al lanzar dos dados.</p>
 </div>
@@ -1072,30 +1215,35 @@ que en ambos casos el recorrido es finito:
 <span class="math inline">\(\{1,2,3,4,5, 6\}\)</span> para la variable <span class="math inline">\(Y\)</span>.</p>
 <p>También son discretas aquellas variables aleatorias con recorrido
 infinito numerable.</p>
-<p>Ejercicio: ¿Sabríais construir una variable aleatoria discreta con
-recorrido infinito numerable basada en el experimento que consiste en el
-lanzamiento de dos dados?</p>
+<p>Ejercicio: ¿Sabríais construir una variable discreta con recorrido infinito numerable basada en <strong>repetir</strong> lanzamientos independientes de dos dados? Una única tirada tiene solo 36 resultados y no permite ese recorrido.</p>
 </div>
-<div id="función-de-densidad-discreta" class="section level3" number="2.15.6">
+<div id="función-de-masa-de-probabilidad" class="section level3" number="2.15.6">
 <h3>
-<span class="header-section-number">2.15.6</span> Función de densidad discreta<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-densidad-discreta"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.15.6</span> función de masa de probabilidad<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-masa-de-probabilidad"><i class="fas fa-link"></i></a>
 </h3>
-<p>Para calcular la función de densidad de la variable</p>
+<p>Para calcular la función de masa de probabilidad de la variable</p>
 <p><span class="math display">\[
 X=\text { suma de puntos de las caras }
 \]</span></p>
-<div class="inline-figure"><img src="images/clipboard-2707476680.png"></div>
+<div class="float">
+<img src="images/clipboard-2707476680.png" alt="Suma de puntos y valores posibles."><div class="figcaption">Suma de puntos y valores posibles.</div>
+</div>
 <p>necesitamos conocer el recorrido de la variable, es decir:
 <span class="math inline">\(\{2,3,4,5,6,7,8,9,10,11, 12\}\)</span> y, a partir del recorrido, determinar
 para todo punto del recorrido la probabilidad <span class="math inline">\(P(X=x)\)</span>.</p>
 <p>En nuestro ejemplo</p>
 <p><span class="math display">\[
-f(x)=P(X=x)= \begin{cases}1 / 36 &amp; x=2 \\ 2 / 36 &amp; x=3 \\ 3 / 36 &amp; x=4 \\ 4 / 36 &amp; x=5 \\ 5 / 36 &amp; x=6 \\ 6 / 36 &amp; x=7 \\ 5 / 36 &amp; x=8 \\ 4 / 36 &amp; x=9 \\ 3 / 36 &amp; x=10 \\ 2 / 36 &amp; x=11 \\ 1 / 36 &amp; x=12\end{cases}
+f(x)=P(X=x)= \begin{cases}1 / 36 &amp; x=2 \\ 2 / 36 &amp; x=3 \\ 3 / 36 &amp; x=4 \\ 4 / 36 &amp; x=5 \\ 5 / 36 &amp; x=6 \\ 6 / 36 &amp; x=7 \\ 5 / 36 &amp; x=8 \\ 4 / 36 &amp; x=9 \\ 3 / 36 &amp; x=10 \\ 2 / 36 &amp; x=11 \\ 1 / 36 &amp; x=12 \\ 0 &amp; \text{en otro caso}\end{cases}
 \]</span></p>
-<p>Acabamos de construir la función de densidad de la variable suma de la
+<p>Acabamos de construir la función de masa de probabilidad de la variable suma de la
 puntuación al lanzar dos dados.</p>
 <p>Vamos a ver su representación gráfica:</p>
-<div class="inline-figure"><img src="images/fmp2Dados.png" alt="" width="80%"></div>
+<div class="figure">
+<span style="display:block;" id="fig:u2-masa-dados"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/u2-masa-dados-1.png" alt="Masa de probabilidad de la suma de dos dados." width="576"><p class="caption">
+Figure 2.6: Masa de probabilidad de la suma de dos dados.
+</p>
+</div>
 <!-- ![](https://cdn.mathpix.com/cropped/2024_10_04_2edee4cf6770c9882ee9g-12.jpg?height=712&width=1123&top_left_y=129&top_left_x=472) -->
 <p>Hemos optado por la representación con barras en lugar de puntos para
 permitir una visualización de la función óptima.</p>
@@ -1110,35 +1258,9 @@ puntos de las dos caras al lanzar dos dados.</p>
 <p><span class="math display">\[
 X=\text { Suma de puntos de las caras }
 \]</span></p>
-<p>Las funciones de distribución y de densidad son, respectivamente,</p>
-<p><span class="math display">\[
-F(x)=P(X \leq x)=\left\{\begin{array}{ll}
-0 &amp; x&lt;2 \\
-1 / 36 &amp; 2 \leq x&lt;3 \\
-3 / 36 &amp; 3 \leq x&lt;4 \\
-6 / 36 &amp; 4 \leq x&lt;5 \\
-10 / 36 &amp; 5 \leq x&lt;6 \\
-15 / 36 &amp; 6 \leq x&lt;7 \\
-21 / 36 &amp; 7 \leq x&lt;8 \\
-26 / 36 &amp; 8 \leq x&lt;9 \\
-30 / 36 &amp; 9 \leq x&lt;10 \\
-33 / 36 &amp; 10 \leq x&lt;11 \\
-35 / 36 &amp; 11 \leq x&lt;12 \\
-36 / 36=1 &amp; x \geq 12
-\end{array} \quad f(x)=P(X=x)= \begin{cases}1 / 36 &amp; x=2 \\
-2 / 36 &amp; x=3 \\
-3 / 36 &amp; x=4 \\
-4 / 36 &amp; x=5 \\
-5 / 36 &amp; x=6 \\
-6 / 36 &amp; x=7 \\
-5 / 36 &amp; x=8 \\
-4 / 36 &amp; x=9 \\
-3 / 36 &amp; x=10 \\
-2 / 36 &amp; x=11 \\
-1 / 36 &amp; x=12\end{cases}\right.
-\]</span></p>
+<p>Utilizaremos la función de distribución y la función de masa de probabilidad calculadas en los apartados anteriores.</p>
 <p>Puede observarse cómo los valores de la función de distribución se
-obtienen acumulando los valores de la función de densidad
+obtienen acumulando los valores de la función de masa de probabilidad
 correspondientes.</p>
 <p>Vamos a calcular algunas probabilidades utilizando las funciones
 anteriores. Compárese con los resultados obtenidos con anterioridad
@@ -1160,11 +1282,9 @@ medio teórico de la variable</p>
 <p><span class="math display">\[
 X=\text { Suma de puntos de las caras }
 \]</span></p>
-<p>La función de densidad es:</p>
-<p><span class="math display">\[
-f(x)=P(X=x)= \begin{cases}1 / 36 &amp; x=2 \\ 2 / 36 &amp; x=3 \\ 3 / 36 &amp; x=4 \\ 4 / 36 &amp; x=5 \\ 5 / 36 &amp; x=6 \\ 6 / 36 &amp; x=7 \\ 5 / 36 &amp; x=8 \\ 4 / 36 &amp; x=9 \\ 3 / 36 &amp; x=10 \\ 2 / 36 &amp; x=11 \\ 1 / 36 &amp; x=12\end{cases}
-\]</span></p>
-<p>La misma función de densidad nos da información sobre el recorrido de la
+<p>La función de masa de probabilidad es:</p>
+<p>La masa de probabilidad es la tabla triangular de la suma de los dos dados, calculada anteriormente.</p>
+<p>La misma función de masa de probabilidad nos da información sobre el recorrido de la
 variable. Calcular el valor medio teórico de la variable quiere decir
 calcular la esperanza. A partir de la fórmula de la esperanza para
 variables discretas, tenemos</p>
@@ -1187,9 +1307,7 @@ sería</p>
 como la suma de dos variables que representen la puntuación de cada
 dado. La esperanza de la suma es, efectivamente, la suma de las
 esperanzas de cada variable sumada.</p>
-<p>En la aplicación siguiente, podéis calcular la esperanza de la variable
-Puntuación de un dado y modificar las probabilidades de las diferentes
-caras, de este modo se modifica la esperanza.</p>
+<p>La esperanza cambia al modificar las probabilidades de las caras. En R podéis comprobarlo con <code>sum((1:6) * probabilidades)</code>, usando seis probabilidades no negativas que sumen uno.</p>
 <p>Ejercicio: ¿Podríais hacer lo mismo para la variable <span class="math inline">\(X=\)</span> El menor de
 los puntos de las dos caras al lanzar dos dados?</p>
 </div>
@@ -1205,11 +1323,9 @@ conviene jugar a este juego?</p>
 aleatoria discreta que toma dos valores: +100 si ganamos y -100 si
 perdemos. Nos interesa conocer las probabilidades de los diferentes
 resultados. Consideremos la variable <span class="math inline">\(X=\)</span> Suma de puntos de las caras,
-cuya función de densidad conocemos:</p>
-<p><span class="math display">\[
-f(x)=P(X=x)= \begin{cases}1 / 36 &amp; x=2 \\ 2 / 36 &amp; x=3 \\ 3 / 36 &amp; x=4 \\ 4 / 36 &amp; x=5 \\ 5 / 36 &amp; x=6 \\ 6 / 36 &amp; x=7 \\ 5 / 36 &amp; x=8 \\ 4 / 36 &amp; x=9 \\ 3 / 36 &amp; x=10 \\ 2 / 36 &amp; x=11 \\ 1 / 36 &amp; x=12\end{cases}
-\]</span></p>
-<p>A partir de aquí es fácil ver que la función de densidad de la variable
+cuya función de masa de probabilidad conocemos:</p>
+<p>La masa de probabilidad es la tabla triangular de la suma de los dos dados, calculada anteriormente.</p>
+<p>A partir de aquí es fácil ver que la función de masa de probabilidad de la variable
 <span class="math inline">\(Y=\)</span> Resultado del juego será la siguiente:</p>
 <p><span class="math display">\[
 f(100)=15 / 36 ; f(-100)=21 / 36
@@ -1227,20 +1343,20 @@ favorable dicho juego para el jugador, es un juego no equitativo.</p>
 <span class="header-section-number">2.15.10</span> Esperanza con recorrido infinito<a class="anchor" aria-label="anchor" href="#esperanza-con-recorrido-infinito"><i class="fas fa-link"></i></a>
 </h3>
 <p>Vamos a tratar de calcular la esperanza de la siguiente variable
-aleatoria: <span class="math inline">\(X=\)</span> Número de lanzamientos que hemos de hacer para conseguir
-que aparezca un doble seis La variable que acabamos de definir es una
+aleatoria: <span class="math inline">\(X=\)</span> Número de lanzamientos independientes de dos dados regulares que hemos de hacer para conseguir
+que aparezca un doble seis. La variable que acabamos de definir es una
 variable discreta con recorrido infinito numerable. El recorrido sería
 el siguiente:</p>
 <p><span class="math display">\[
 \{1,2,3,4, \ldots\}
 \]</span></p>
-<p>Vamos a ver como calculamos la función de densidad: <span class="math inline">\(P(X=1)=\)</span>
+<p>Vamos a ver como calculamos la función de masa de probabilidad: <span class="math inline">\(P(X=1)=\)</span>
 Probabilidad de que aparezca un doble seis en el primer lanzamiento
 <span class="math inline">\(=1 / 36\)</span> <span class="math inline">\(P(X=2)=\)</span> Probabilidad de que el doble seis no aparezca en el
 primer lanzamiento y sí en el segundo =
 <span class="math inline">\(35 / 36 \cdot 1 / 36=35 / 36^{2}\)</span> <span class="math inline">\(P(X=3)=\)</span> Probabilidad de que el
 doble seis no aparezca ni en el primer ni en el segundo lanzamientos y
-sí en el tercero <span class="math inline">\(=35 / 36 \cdot 35 / 361 / 36=35^{2} / 36^{3}\)</span></p>
+sí en el tercero <span class="math inline">\(=35 / 36 \cdot 35 / 36 \cdot 1 / 36=35^{2} / 36^{3}\)</span></p>
 <p>En general, <span class="math inline">\(P(X=k)=35^{k-1} / 36^{k}\)</span> Para simplificar, vamos a llamar
 <span class="math inline">\(p=1 / 36\)</span> y <span class="math inline">\(q=1-p=35 / 36\)</span>, con esta nomenclatura
 <span class="math inline">\(P(X=\mathrm{k})=q^{k-1} p\)</span>. Por tanto, la esperanza será:</p>
@@ -1251,14 +1367,14 @@ E(X)&amp; =\sum_{i=1}^{\infty} i q^{i-1} p=p \sum_{i=1}^{\infty} i q^{i-1}=p \fr
 &amp; = \frac{1}{p}
 \end{aligned}
 \]</span></p>
-<p>En nuestro ejemplo el número medio de tiradas antes de salir un doble
+<p>En nuestro ejemplo el número medio de tiradas hasta que aparezca un doble
 seis será 36 .</p>
 </div>
 <div id="esperanza-infinita" class="section level3" number="2.15.11">
 <h3>
 <span class="header-section-number">2.15.11</span> Esperanza infinita<a class="anchor" aria-label="anchor" href="#esperanza-infinita"><i class="fas fa-link"></i></a>
 </h3>
-<p>Ahora calcularemos la esperanza del juego siguiente: lanzamos un dado
+<p>Ahora calcularemos la esperanza del juego siguiente: lanzamos un dado regular de forma independiente
 hasta que aparece un número par, el jugador gana <span class="math inline">\(2^{n}\)</span> unidades
 monetarias si aparece un número par por primera vez en la tirada nésima.</p>
 <p>El recorrido de la variable aleatoria <span class="math inline">\(X=\)</span> Ganancia del juego, está
@@ -1272,9 +1388,9 @@ E(X)=\sum_{n=1}^{\infty} 2^{n}(1 / 2)^{n}=\sum_{n=1}^{\infty} 1=\infty
 \]</span></p>
 <p>Como vemos, la variable aleatoria <span class="math inline">\(X\)</span> no tiene esperanza finita. El
 enunciado presentado es una versión del problema presentado alrededor de
-1730 por el matemático Daniel Bernouilli a la Academia de San
+1730 por el matemático Daniel Bernoulli a la Academia de San
 Petersburgo y conocido como la paradoja de San Petersburgo, dado que la
-esperanza del juego es aparentemente infinita.</p>
+esperanza del juego es infinita.</p>
 </div>
 <div id="varianza" class="section level3" number="2.15.12">
 <h3>
@@ -1284,10 +1400,8 @@ esperanza del juego es aparentemente infinita.</p>
 <p><span class="math display">\[
 X=\text { Suma de puntos de las caras }
 \]</span></p>
-<p>con función de densidad:</p>
-<p><span class="math display">\[
-f(x)=P(X=x)= \begin{cases}1 / 36 &amp; x=2 \\ 2 / 36 &amp; x=3 \\ 3 / 36 &amp; x=4 \\ 4 / 36 &amp; x=5 \\ 5 / 36 &amp; x=6 \\ 6 / 36 &amp; x=7 \\ 5 / 36 &amp; x=8 \\ 4 / 36 &amp; x=9 \\ 3 / 36 &amp; x=10 \\ 2 / 36 &amp; x=11 \\ 1 / 36 &amp; x=12\end{cases}
-\]</span></p>
+<p>con función de masa de probabilidad:</p>
+<p>La masa de probabilidad es la tabla triangular de la suma de los dos dados, calculada anteriormente.</p>
 <p>Podemos aplicar la fórmula</p>
 <p><span class="math display">\[
 \operatorname{Var}(X)=E\left(X^{2}\right)-(E(X))^{2}
@@ -1327,6 +1441,10 @@ E \left(X^{2}\right)&amp;=1^{2} \cdot 1 / 6+2^{2} \cdot 1 / 6+3^{2} \cdot 1 / 6+
 \]</span></p>
 <p>y se cumple que la varianza de la variable Suma de puntos de las dos
 caras es la suma de las varianzas de las puntuaciones de cada dado por separado. Recordemos que esto sólo sucede si las variables sumadas son independientes, como así ocurre con las puntuaciones de cada dado por separado.</p>
+<div class="pedagogical-box r">
+<p><strong>En R: funciones de probabilidad</strong></p>
+<p>En la Unidad 3 se utilizarán funciones <code>d...</code> para masas o densidades, <code>p...</code> para probabilidades acumuladas y <code>q...</code> para cuantiles. En una variable discreta de valores enteros, <span class="math inline">\(P(X\geq k)=1-F(k-1)\)</span>; el extremo importa.</p>
+</div>
 
 <div style="page-break-after: always;"></div>
 </div>
@@ -1350,10 +1468,10 @@ caras es la suma de las varianzas de las puntuaciones de cada dado por separado.
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#variable-aleatoria-discretas"><span class="header-section-number">2.6</span> Variable aleatoria discretas</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#variables-aleatorias-discretas-1"><span class="header-section-number">2.6</span> Variables aleatorias discretas</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#caracterizaci%C3%B3n-de-las-v.a.-discretas"><span class="header-section-number">2.6.1</span> Caracterización de las v.a. discretas</a></li>
-<li><a class="nav-link" href="#propiedades-de-la-funci%C3%B3n-de-densidad-discreta"><span class="header-section-number">2.6.2</span> Propiedades de la función de densidad discreta</a></li>
-<li><a class="nav-link" href="#relaciones-entre-la-funci%C3%B3n-de-distribuci%C3%B3n-y-la-funci%C3%B3n-de-densidad-discreta.-probabilidad-de-intervalos."><span class="header-section-number">2.6.3</span> Relaciones entre la función de distribución y la función de densidad discreta.  Probabilidad de intervalos.</a></li>
+<li><a class="nav-link" href="#propiedades-de-la-funci%C3%B3n-de-masa-de-probabilidad"><span class="header-section-number">2.6.2</span> Propiedades de la función de masa de probabilidad</a></li>
+<li><a class="nav-link" href="#distribuci%C3%B3n-masa-y-probabilidad-de-intervalos"><span class="header-section-number">2.6.3</span> Distribución, masa y probabilidad de intervalos</a></li>
 </ul>
 </li>
 <li>
@@ -1375,7 +1493,7 @@ caras es la suma de las varianzas de las puntuaciones de cada dado por separado.
 <a class="nav-link" href="#varianza-de-una-variable-aleatoria"><span class="header-section-number">2.12</span> Varianza de una variable aleatoria</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#propiedades-de-la-varianza"><span class="header-section-number">2.12.1</span> Propiedades de la varianza</a></li></ul>
 </li>
 <li><a class="nav-link" href="#momentos-de-orden-k-de-una-variable-aleatoria"><span class="header-section-number">2.13</span> Momentos (de orden \(k\)) de una variable aleatoria</a></li>
-<li><a class="nav-link" href="#definici%C3%B3n-formal-de-variable-aleatoria"><span class="header-section-number">2.14</span> Definición formal de variable aleatoria</a></li>
+<li><a class="nav-link" href="#definici%C3%B3n-formal-de-variable-aleatoria-lectura-opcional"><span class="header-section-number">2.14</span> Definición formal de variable aleatoria (lectura opcional)</a></li>
 <li>
 <a class="nav-link" href="#caso-pr%C3%A1ctico-lanzamiento-de-dos-dados"><span class="header-section-number">2.15</span> Caso práctico: Lanzamiento de dos dados</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#espacio-muestral"><span class="header-section-number">2.15.1</span> Espacio muestral</a></li>
@@ -1383,7 +1501,7 @@ caras es la suma de las varianzas de las puntuaciones de cada dado por separado.
 <li><a class="nav-link" href="#algunas-probabilidades"><span class="header-section-number">2.15.3</span> Algunas probabilidades</a></li>
 <li><a class="nav-link" href="#funci%C3%B3n-de-distribuci%C3%B3n"><span class="header-section-number">2.15.4</span> Función de distribución</a></li>
 <li><a class="nav-link" href="#clasificaci%C3%B3n-de-las-variables"><span class="header-section-number">2.15.5</span> Clasificación de las variables</a></li>
-<li><a class="nav-link" href="#funci%C3%B3n-de-densidad-discreta"><span class="header-section-number">2.15.6</span> Función de densidad discreta</a></li>
+<li><a class="nav-link" href="#funci%C3%B3n-de-masa-de-probabilidad"><span class="header-section-number">2.15.6</span> función de masa de probabilidad</a></li>
 <li><a class="nav-link" href="#probabilidad-de-intervalos-1"><span class="header-section-number">2.15.7</span> Probabilidad de intervalos</a></li>
 <li><a class="nav-link" href="#esperanza"><span class="header-section-number">2.15.8</span> Esperanza</a></li>
 <li><a class="nav-link" href="#esperanza-de-un-juego"><span class="header-section-number">2.15.9</span> Esperanza de un juego</a></li>
@@ -1398,7 +1516,7 @@ caras es la suma de las varianzas de las puntuaciones de cada dado por separado.
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-20.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-10-03.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

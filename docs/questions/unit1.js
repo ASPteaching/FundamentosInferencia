@@ -1,4 +1,4 @@
-{
+window.questionData.banks["unit1.js"] = {
   "unit": "Unidad_1",
   "questions": [
     {
@@ -532,4 +532,4 @@
       "explanation": "P(R)P(V)=0,60·0,20=0,12, que coincide con P(R∩V). Esa es precisamente la condición de independencia."
     }
   ]
-}
+};

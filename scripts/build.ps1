@@ -11,7 +11,8 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $sourceRoot = (Resolve-Path -LiteralPath $Repository).Path
-$questionsSourcePath = if ($QuestionsSource) { [IO.Path]::GetFullPath($QuestionsSource) } else { Join-Path (Split-Path $sourceRoot -Parent) 'FundamentosInferencia-QuestionBank\Unidad_01\questions.yml' }
+$questionsRoot = Join-Path (Split-Path $sourceRoot -Parent) 'FundamentosInferencia-QuestionBank'
+$questionsSources = if ($QuestionsSource) { @([IO.Path]::GetFullPath($QuestionsSource)) } else { @(Get-ChildItem -LiteralPath $questionsRoot -Directory | Where-Object Name -Match '^Unidad_\d{2}$' | Sort-Object Name | ForEach-Object { Join-Path $_.FullName 'questions.yml' }) }
 $scratchRoot = [IO.Path]::GetFullPath($ScratchDirectory)
 if ($scratchRoot.StartsWith($sourceRoot + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase) -or $scratchRoot -eq $sourceRoot) {
     throw 'Scratch must be outside the source repository.'
@@ -51,9 +52,27 @@ foreach ($assetDir in @('images','Rcode','htmlWidgets')) {
     if (Test-Path -LiteralPath $assetPath) { Copy-Item -LiteralPath $assetPath -Destination $work -Recurse }
 }
 if ($Profile -eq 'html' -and $HtmlRenderer -eq 'bs4_book') {
-    if (!(Test-Path -LiteralPath $questionsSourcePath)) { throw "Canonical question source not found: $questionsSourcePath" }
+    if (!$questionsSources.Count) { throw 'No canonical question banks found.' }
     Copy-Item -LiteralPath (Join-Path $sourceRoot 'questions') -Destination $work -Recurse
-    & (Join-Path $PSScriptRoot 'build-questions.ps1') -CanonicalSource $questionsSourcePath -OutputPath (Join-Path $work 'questions\unit1.json')
+    $units = @()
+    $allQuestionIds = @{}
+    foreach ($questionsSourcePath in $questionsSources) {
+        if (!(Test-Path -LiteralPath $questionsSourcePath)) { throw "Canonical question source not found: $questionsSourcePath" }
+        $bank = (Get-Content -LiteralPath $questionsSourcePath -Raw -Encoding utf8 | ConvertFrom-Json).bank
+        if ($bank.unit -notmatch '^Unidad_(\d+)$') { throw 'Invalid bank unit.' }
+        $number = [int]$Matches[1]
+        if ($number -lt 1 -or $number -in @($units.id)) { throw 'Duplicate or invalid unit number.' }
+        foreach ($q in $bank.questions) {
+            if ($allQuestionIds.ContainsKey($q.id)) { throw "Duplicate question ID across units: $($q.id)" }
+            $allQuestionIds[$q.id] = $true
+        }
+        $file = "unit$number.js"
+        & (Join-Path $PSScriptRoot 'build-questions.ps1') -CanonicalSource $questionsSourcePath -OutputPath (Join-Path $work "questions\$file")
+        $title = if ($bank.title) { $bank.title } elseif ($number -eq 1) { 'Probabilidad' } else { "Unidad $number" }
+        $units += [pscustomobject]@{id=$number; title=$title; file=$file}
+    }
+    $catalog = ConvertTo-Json -InputObject @($units) -Depth 3
+    "window.questionData = { units: $catalog, banks: {} };" | Set-Content -LiteralPath (Join-Path $work 'questions\units.js') -Encoding utf8
 }
 function Get-Manifest([string]$Directory) {
     @(Get-ChildItem -LiteralPath $Directory -Recurse -File | ForEach-Object {

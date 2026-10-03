@@ -1,23 +1,15 @@
 # Cuestiones: integración HTML
 
-La fuente canónica editable es
-`../FundamentosInferencia-QuestionBank/Unidad_01/questions.yml`. Es un
-banco JSON válido también como YAML 1.2, independiente de Bookdown y de futuros
-formatos LMS.
+La fuente editable es el repositorio privado hermano `FundamentosInferencia-QuestionBank`. Cada unidad usa `Unidad_XX/questions.yml` (JSON compatible con YAML 1.2), con `bank.unit: Unidad_N`. El build descubre automáticamente estas carpetas y valida todas las unidades; los IDs son únicos también entre unidades.
 
-En el perfil HTML `scripts/build.ps1` llama a `scripts/build-questions.ps1`.
-El script valida el banco, filtra `visibility: self_assessment` y genera
-`docs/questions/unit1.json` en el resultado del build. Ese recurso público contiene únicamente `id`, `topic`,
-`difficulty`, `question`, `options`, `correct` y, cuando existe,
-`explanation`.
+`scripts/build-questions.ps1` valida preguntas no vacías, cuatro opciones, una clave a–d, identidad de unidad y visibilidad. El número de preguntas no está fijado a 40. Solo exporta `visibility: self_assessment`; los datos originales y notas de revisión permanecen privados.
 
-El motor estático está en `questions/index.html`, `questions/quiz.js` y
-`questions/quiz.css`; el build lo copia a `docs/questions/`. La navegación
-HTML incluye Teoría, Problemas y Cuestiones. Para probarlo localmente, ejecute
-el perfil HTML en un scratch nuevo con `scripts/build.ps1` y sirva el
-directorio `work/docs`; abra `questions/index.html`.
+El perfil HTML de `scripts/build.ps1` genera `questions/units.js` (catálogo) y `unitN.js` (un banco público por unidad) en el scratch. Son datos derivados automáticamente del banco canónico, sin mantener copias editoriales. No se publican además JSON equivalentes. El exportador sigue admitiendo salida JSON para otras herramientas. El consumidor compartido `questions/index.html`, `quiz.js` y `quiz.css` ofrece un selector de unidad; el parámetro `?unit=2` permite abrir directamente U2. Sin parámetro se mantiene U1. No se duplican motores ni páginas por unidad.
 
-Las claves están visibles deliberadamente en el JSON porque la funcionalidad es
-de autoevaluación en el navegador, no una prueba evaluativa. Se posponen
-intencionadamente usuarios, historial, almacenamiento, adaptación, selección
-por dificultad, exportación Canvas/QTI y explicaciones para los ítems heredados.
+El catálogo se incluye como script clásico y cada banco se carga mediante un script local, una sola vez por sesión. No se usa `fetch()` ni módulos ES: los navegadores normalmente permiten scripts clásicos relativos tanto con `file://` como con HTTP, mientras que bloquean la lectura de JSON con `fetch()` desde un origen local. No se cambia ninguna protección del navegador. Tras cambiar de unidad se descartan respuestas y resultados, incluso en el DOM, y una respuesta de carga tardía no puede reemplazar la unidad seleccionada.
+
+Cada intento mantiene ocho preguntas, al menos cinco temas cuando sea posible y máximo dos por tema, con selección sin duplicados. Los enunciados han de ser autosuficientes. El texto se escapa para que las desigualdades no se interpreten como HTML. Cambiar de unidad limpia respuestas y resultados; la generación se habilita solo tras cargar el banco correcto.
+
+Las claves son públicas deliberadamente: esto es autoevaluación, no una prueba acreditativa. La publicación requiere aceptación docente; el runner construye en scratch y no publica. Para revisar desde disco, abrir `work/docs/index.html` del scratch y entrar en Cuestiones; conservar toda la carpeta, incluidos `questions/units.js` y `unitN.js`. Para reproducir HTTP localmente, desde `work/docs` ejecutar `python -m http.server 8000 --bind 127.0.0.1` y abrir `http://127.0.0.1:8000/index.html`; Ctrl+C detiene el servidor. Es equivalente al transporte HTTP de GitHub Pages, sin publicar.
+
+Pruebas reproducibles: `node scripts/test-questions.js`, `scripts/test-questions.ps1` y `node scripts/test-questions-loading.js SCRATCH/work/docs/questions`. Comprueban selección/diversidad, fórmulas, regresión de exportación U1/U2, privacidad, recuento variable, rechazo de IDs duplicados y carga de scripts/switch sin fetch. El último es un test del motor con DOM simulado; no sustituye la prueba visual de file:// en un navegador real. El navegador de automatización de esta sesión rechaza file://; esa prueba visual queda pendiente de revisión manual y debe constar en U02.md.

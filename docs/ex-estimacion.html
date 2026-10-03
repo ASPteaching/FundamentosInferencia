@@ -15,7 +15,7 @@
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><style type="text/css">div.hanging-indent{margin-left:1.5em;text-indent:-1.5em;}</style>
-<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;margin-bottom:0em;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
+<style type="text/css">div.csl-bib-body{}div.csl-entry{clear:both;}.hanging div.csl-entry{margin-left:2em;text-indent:-2em;}div.csl-left-margin{min-width:2em;float:left;}div.csl-right-inline{margin-left:2em;padding-left:1em;}div.csl-indent{margin-left:2em;}</style>
 <link rel="stylesheet" href="blocks.css">
 <link rel="stylesheet" href="bs4-style.css">
 <meta name="description" content="Teoría  Problemas  Cuestiones Teoría (PDF)  Ejercicios (PDF)   20.1 Ejercicio 1  Suponga que \(Y_{1}, Y_{2}, Y_{3}\) denotan una muestra aleatoria de una distribución exponencial con función de...">
@@ -351,7 +351,7 @@ E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
 <h4>
 <span class="header-section-number">20.2.2.2</span> Código en R<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-en-r"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>  <span class="co"># Fijar la semilla para reproducibilidad</span></span>
 <span></span>
 <span><span class="co"># Parámetros</span></span>
@@ -416,7 +416,7 @@ E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
 <h4>
 <span class="header-section-number">20.2.3.2</span> Código en R<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-en-r-1"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular la varianza de cada estimador</span></span>
 <span><span class="va">varianzas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">simulaciones</span>, <span class="fl">2</span>, <span class="va">var</span><span class="op">)</span></span>
 <span></span>
@@ -443,16 +443,16 @@ E[\hat{\theta}_2] = E[2\overline{X}] = 2 \cdot \frac{\theta}{2} = \theta.
 \text{Eficiencia relativa} = \frac{\text{Var}(\hat{\theta}_2)}{\text{Var}(\hat{\theta}_1)}.
 \]</span></p>
 <p>En este caso, la eficiencia relativa es:</p>
-<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eficiencia</span> <span class="op">&lt;-</span> <span class="va">varianzas</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">/</span> <span class="va">varianzas</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="va">eficiencia</span></span></code></pre></div>
 <pre><code>## [1] 4.350592</code></pre>
 <p>El resultado indica que <span class="math inline">\(\hat{\theta}_1\)</span> es más eficiente que <span class="math inline">\(\hat{\theta}_2\)</span> en términos de varianza, ya que tiene menor varianza.</p>
 </div>
 </div>
-<div id="conclusión-4" class="section level3" number="20.2.4">
+<div id="conclusión-2" class="section level3" number="20.2.4">
 <h3>
-<span class="header-section-number">20.2.4</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.2.4</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-2"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>
@@ -567,7 +567,7 @@ V(\hat\theta_2) = \frac{V(\hat\theta_1)}{n}
 <li>Calculamos <span class="math inline">\(\hat\theta_1\)</span> y <span class="math inline">\(\hat\theta_2\)</span> para diferentes tamaños muestrales.</li>
 <li>Estimamos la varianza de cada estimador y verificamos la consistencia de <span class="math inline">\(\hat\theta_2\)</span>.</li>
 </ol>
-<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Parámetros</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">theta</span> <span class="op">&lt;-</span> <span class="fl">2</span>   <span class="co"># Verdadera esperanza (1 / lambda)</span></span>
@@ -605,9 +605,9 @@ V(\hat\theta_2) = \frac{V(\hat\theta_1)}{n}
 ## 4  50    1.988857   3.778938    2.001839 0.07945138
 ## 5 100    1.982399   3.968018    1.998176 0.03879560</code></pre>
 </div>
-<div id="conclusión-5" class="section level3" number="20.3.4">
+<div id="conclusión-3" class="section level3" number="20.3.4">
 <h3>
-<span class="header-section-number">20.3.4</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20.3.4</span> Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n-3"><i class="fas fa-link"></i></a>
 </h3>
 <ol style="list-style-type: decimal">
 <li><p><strong>Sesgo:</strong> Ambos estimadores son insesgados, como confirman las medias de <span class="math inline">\(\hat\theta_1\)</span> y <span class="math inline">\(\hat\theta_2\)</span> cercanas a <span class="math inline">\(\theta\)</span> en las simulaciones.</p></li>
@@ -661,7 +661,7 @@ L(\lambda; X = 4) = \frac{\lambda^4 e^{-\lambda}}{4!}, \quad \lambda &gt; 0
 <h4>
 <span class="header-section-number">20.5.1.3</span> 3. Representación gráfica en R<a class="anchor" aria-label="anchor" href="#representaci%C3%B3n-gr%C3%A1fica-en-r"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Función de densidad de probabilidad</span></span>
 <span><span class="va">x_vals</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">10</span></span>
 <span><span class="va">lambda_fixed</span> <span class="op">&lt;-</span> <span class="fl">4</span></span>
@@ -683,8 +683,8 @@ L(\lambda; X = 4) = \frac{\lambda^4 e^{-\lambda}}{4!}, \quad \lambda &gt; 0
 <span><span class="co"># Gráfico de la función de verosimilitud</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">lambda_vals</span>, <span class="va">likelihood_vals</span>, type <span class="op">=</span> <span class="st">"l"</span>, lwd <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red"</span>,</span>
 <span>     xlab <span class="op">=</span> <span class="st">"lambda"</span>, ylab <span class="op">=</span> <span class="st">"L(lambda; X=4)"</span>, main <span class="op">=</span> <span class="st">"Función de verosimilitud (X=4)"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="FundamentosInferencia-completo_files/figure-html/unnamed-chunk-145-1.png" alt="" width="672"></div>
-<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<div class="inline-figure"><img src="FundamentosInferencia-completo_files/figure-html/unnamed-chunk-136-1.png" alt="" width="672"></div>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="va">opt</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
@@ -947,7 +947,7 @@ P(Y = 0) = e^{-\lambda}
 <li><a class="nav-link" href="#a.-insesgadez-de-los-estimadores-1"><span class="header-section-number">20.2.1</span> a. Insesgadez de los estimadores</a></li>
 <li><a class="nav-link" href="#b.-simulaci%C3%B3n-para-evaluar-el-sesgo"><span class="header-section-number">20.2.2</span> b. Simulación para evaluar el sesgo</a></li>
 <li><a class="nav-link" href="#c.-estimaci%C3%B3n-de-la-varianza-y-eficiencia-de-los-estimadores"><span class="header-section-number">20.2.3</span> c. Estimación de la varianza y eficiencia de los estimadores</a></li>
-<li><a class="nav-link" href="#conclusi%C3%B3n-4"><span class="header-section-number">20.2.4</span> Conclusión</a></li>
+<li><a class="nav-link" href="#conclusi%C3%B3n-2"><span class="header-section-number">20.2.4</span> Conclusión</a></li>
 </ul>
 </li>
 <li>
@@ -955,7 +955,7 @@ P(Y = 0) = e^{-\lambda}
 <li><a class="nav-link" href="#soluci%C3%B3n-13"><span class="header-section-number">20.3.1</span> Solución</a></li>
 <li><a class="nav-link" href="#an%C3%A1lisis-te%C3%B3rico"><span class="header-section-number">20.3.2</span> 1. Análisis teórico</a></li>
 <li><a class="nav-link" href="#simulaci%C3%B3n-de-monte-carlo"><span class="header-section-number">20.3.3</span> 2. Simulación de Monte Carlo</a></li>
-<li><a class="nav-link" href="#conclusi%C3%B3n-5"><span class="header-section-number">20.3.4</span> Conclusión</a></li>
+<li><a class="nav-link" href="#conclusi%C3%B3n-3"><span class="header-section-number">20.3.4</span> Conclusión</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#ejercicio-4-1"><span class="header-section-number">20.4</span> Ejercicio 4</a></li>
@@ -984,7 +984,7 @@ P(Y = 0) = e^{-\lambda}
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-09-20.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-10-03.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>
