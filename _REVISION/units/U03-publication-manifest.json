@@ -1,6 +1,6 @@
 {
   "date": "2026-10-17",
-  "status": "publication authorized; final corrected build promoted using exact approved paths; pending commits and postpublication verification",
+  "status": "published and verified by HTTPS; U3 validated and teacher-reviewed",
   "repositories": {
     "FundamentosInferencia": {
       "branch": "main",
@@ -543,7 +543,7 @@
   "source_hashes": {
     "03-distribucionesNotables.Rmd": "6990a03b09393bfc3436be2998f728815c54fb6ad34e343e1d5c48fbb492bbb1",
     "_REVISION/UNIT_REVISION_PROTOCOL.md": "73885383e5eda2484d37d6cd7630d0b697cad9777372f0b5f617fac785ffc4b6",
-    "_REVISION/units/U03.md": "fff8320629a396d01cce28e7a19788229c2dae215750bb402e96416d5bcc550c",
+    "_REVISION/units/U03.md": "c588356fd98f7fbe6938a8c5c460cd3e6dc3899c8caf2b69b9d2a151389469c6",
     "questions/index.html": "97f03a4773a3d2e295e3b2345f4f36d4beb5807d02c726fbe5af68da98644f58",
     "scripts/test-questions-loading.js": "34f38f6480a73a84469e9b1cd4f96f7f007e5cce675309f1c44b259ae668e497",
     "scripts/test-questions.js": "9defc5d443dd2d0151bfb5262468d145a30fae49fadfa81d8fe9bd722d68a50e",
@@ -563,5 +563,25 @@
   ],
   "promotion_rule": "After explicit approval, promote only these final docs paths; do not add docs wholesale or delete historical images. Revalidate and inspect git diff before commit. No source edits to U1/U2.",
   "approved_manifest_docs_source": "_revision-u3-editorial-final-20261017/work/docs",
-  "preserved_unrelated_output": "docs/images/LLN1.png retained from published HEAD; no incidental regeneration of the U5 asset"
+  "preserved_unrelated_output": "docs/images/LLN1.png retained from published HEAD; no incidental regeneration of the U5 asset",
+  "published_commits": {
+    "book": "9cab6ee450ec45d21d79e32ce9896862c0cf4579",
+    "private_bank": "6efe7bd6ee6da44e91f26574edcd93ab9b3a28e0"
+  },
+  "postpublication": {
+    "pages_status": "built",
+    "url": "https://aspteaching.github.io/FundamentosInferencia/distribuciones-notables.html",
+    "exact_https_resources": 14,
+    "figures": 6,
+    "folds": 6,
+    "examples": 10,
+    "tables": 7,
+    "question_counts": [
+      40,
+      40,
+      66
+    ],
+    "private_bank_is_private": true,
+    "file_protocol_non_blocking": true
+  }
 }
