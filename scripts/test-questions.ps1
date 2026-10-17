@@ -5,7 +5,7 @@ $bankRoot = Join-Path (Split-Path (Split-Path $PSScriptRoot -Parent) -Parent) 'F
 $tempRoot = Join-Path ([IO.Path]::GetTempPath()) ('questions-test-' + [guid]::NewGuid())
 New-Item -ItemType Directory -Path $tempRoot | Out-Null
 try {
-    foreach ($unit in @('Unidad_01','Unidad_02')) {
+    foreach ($unit in @('Unidad_01','Unidad_02','Unidad_03')) {
         $inputPath = Join-Path $bankRoot "$unit\questions.yml"
         $source = Get-Content -LiteralPath $inputPath -Raw -Encoding utf8 | ConvertFrom-Json
         $output = Join-Path $tempRoot "$unit.json"
@@ -18,7 +18,8 @@ try {
         $dataStart = $script.IndexOf(' = ') + 3
         $jsData = $script.Substring($dataStart).Trim().TrimEnd(';') | ConvertFrom-Json
         if (($jsData | ConvertTo-Json -Depth 8 -Compress) -cne ($actual | ConvertTo-Json -Depth 8 -Compress)) { throw 'JS/JSON payload mismatch.' }
-        if ($actual.questions.Count -ne 40) { throw 'Regression: expected 40 public questions.' }
+        $expectedCount = if ($unit -eq 'Unidad_03') { 66 } else { 40 }
+        if ($actual.questions.Count -ne $expectedCount) { throw 'Regression: unexpected public question count.' }
         for ($i=0; $i -lt $expected.Count; $i++) {
             $q = $actual.questions[$i]; $original = $expected[$i]
             foreach ($pair in @(@('id','id'),@('topic','topic'),@('difficulty','difficulty'),@('question','question_es'),@('correct','correct'))) {
@@ -42,7 +43,7 @@ try {
     $rejected = $false
     try { & "$PSScriptRoot/build-questions.ps1" -CanonicalSource $fixture -OutputPath $output } catch { $rejected = $_.Exception.Message -match 'unique' }
     if (!$rejected) { throw 'Duplicate IDs were not rejected.' }
-    Write-Output 'PASS: U1/U2 JS/JSON export equivalence, explanations, visibility, arbitrary counts, duplicate rejection.'
+    Write-Output 'PASS: U1/U2/U3 JS/JSON export equivalence, explanations, visibility, arbitrary counts, duplicate rejection.'
 } finally {
     # This exact temporary directory was created above and contains only test fixtures.
     if ((Split-Path $tempRoot -Parent) -ne [IO.Path]::GetTempPath().TrimEnd('\')) { throw 'Unexpected temp root.' }

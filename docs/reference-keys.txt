@@ -5,6 +5,12 @@ fig:u2-r-masa-cdf
 fig:u2-area-normal
 fig:cdfSumaDados
 fig:u2-masa-dados
+fig:u3-fig-bernoulli-masa
+fig:u3-fig-bernoulli-cdf
+fig:u3-fig-uniforme-discreta-masa
+fig:u3-fig-uniforme-discreta-cdf
+fig:u3-fig-uniforme-continua-densidad
+fig:u3-fig-uniforme-continua-cdf
 eq:pivote
 fig:u2-ex1-masa
 fig:u2-ex3-densidad
@@ -89,8 +95,8 @@ esperanza-infinita
 varianza
 distribuciones-notables
 distribuciones-discretas
-la-distribución-de-bernouilli
-propiedades-del-modelo-de-bernouilli
+la-distribución-de-bernoulli
+propiedades-del-modelo-de-bernoulli
 la-distribución-binomial
 los-parámetros-de-la-distribución-binomial
 propiedades-del-modelo-binomial
@@ -117,6 +123,7 @@ la-distribución-exponencial
 propiedades-del-modelo-exponencial
 la-distribución-normal
 propiedades-del-modelo-normal
+la-función-de-distribución-del-modelo-normal
 la-distribución-gamma
 propiedades-de-la-distribución-gamma
 la-distribución-de-cauchy

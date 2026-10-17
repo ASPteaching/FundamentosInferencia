@@ -1,0 +1,567 @@
+{
+  "date": "2026-10-17",
+  "status": "publication authorized; final corrected build promoted using exact approved paths; pending commits and postpublication verification",
+  "repositories": {
+    "FundamentosInferencia": {
+      "branch": "main",
+      "head": "b9f0a3b",
+      "selected_sources": [
+        "03-distribucionesNotables.Rmd",
+        "_REVISION/UNIT_REVISION_PROTOCOL.md",
+        "_REVISION/units/U03.md",
+        "_REVISION/units/U03-publication-manifest.json",
+        "questions/index.html",
+        "scripts/test-questions-loading.js",
+        "scripts/test-questions.js",
+        "scripts/test-questions.ps1",
+        "scripts/test-u3-distributions.R",
+        "scripts/test-u3-figures.R"
+      ]
+    },
+    "FundamentosInferencia-QuestionBank": {
+      "branch": "main",
+      "head": "09c21c5",
+      "selected_files": [
+        "Unidad_03/questions.yml",
+        "Unidad_03/QUESTIONS_AUDIT.md",
+        "Unidad_03/review-calculations.R",
+        "Unidad_03/source_review.json",
+        "Unidad_03/sources/Capitulo3/B1C3m3t0.htm",
+        "Unidad_03/sources/Capitulo3/B1C3m3t1.htm",
+        "Unidad_03/sources/Capitulo3/B1C3m3t2.htm",
+        "Unidad_03/sources/Capitulo3/B1C3m3t3.htm",
+        "Unidad_03/sources/Capitulo4/B1C4m3t0.htm",
+        "Unidad_03/sources/Capitulo4/B1C4m3t1.htm",
+        "Unidad_03/sources/Capitulo4/B1C4m3t2.htm",
+        "Unidad_03/sources/Capitulo4/B1C4m3t3.htm"
+      ]
+    }
+  },
+  "future_docs_source": "_revision-u3-publication-final-20261017/work/docs",
+  "future_docs_files": [
+    {
+      "path": "docs/404.html",
+      "sha256": "00df73da279603c5d8f7efafa8caf94e179d0edf280eadeb5473d50b872c39bf"
+    },
+    {
+      "path": "docs/agradecimiento-y-fuentes-utilizadas.html",
+      "sha256": "1a3eac1ae74970f02c9210519a6fdc2ff8a758fbb9d05ea439d6d94aa2956f11"
+    },
+    {
+      "path": "docs/bibliografia.html",
+      "sha256": "ca266324a859b0fa74374cbdbc01c5083bb6253387ac2b584f532be15e6383f7"
+    },
+    {
+      "path": "docs/blocks.css",
+      "sha256": "c44757b3283f5fc00646cd1804d018a9a93d546d5001693cead832a904812ef2"
+    },
+    {
+      "path": "docs/bs4-style.css",
+      "sha256": "70196c7f9f7f78eda6c687cb69e5ff1124859b1cee2782e8dc2e16e47348e264"
+    },
+    {
+      "path": "docs/construcción-de-contrastes-de-hipótesis.html",
+      "sha256": "91bd58d8bd4020daa5bdf42e370edbc00b10d25805f111384b39bafb4db4700a"
+    },
+    {
+      "path": "docs/contrastes-con-dos-muestras.html",
+      "sha256": "046e0d7ec6a142ebbd7472c79b8b5dcad8f72c03374c760d57e26ed10bdba82a"
+    },
+    {
+      "path": "docs/distribuciones-de-probabilidad-multidimensionales.html",
+      "sha256": "9e8071c17eab25a3e23535a34341ce7be0adfbd101ce5264c11762558fd63b75"
+    },
+    {
+      "path": "docs/distribuciones-notables.html",
+      "sha256": "fa1edc9c4de93f894bbd93d1367227dc27e1713243d29b2e79e582bf26444565"
+    },
+    {
+      "path": "docs/estadística-no-paramétrica.html",
+      "sha256": "c490b3268ddbb14fe15960ad0950ea511f6e9cd0c6311b6f652cbc59b61e7c0c"
+    },
+    {
+      "path": "docs/estimación-por-intérvalos.html",
+      "sha256": "dc4e290d862b936bb86dcdfd38696d7e4d9ff676044c431f1ddd8a4358a66c8f"
+    },
+    {
+      "path": "docs/estimación-puntual.html",
+      "sha256": "cf1c160c4d32b3371132d9265862810e4bd14975000357b712bbf1c9ca783040"
+    },
+    {
+      "path": "docs/ex-computacion-intensiva.html",
+      "sha256": "8dbf93991f2f35bbb84f4248904d31cccdbb88eedfeef20a7c957130a3c5ac4b"
+    },
+    {
+      "path": "docs/ex-contrastes.html",
+      "sha256": "a5c34af624a6903425d18e4c44eaebdf9fa6bfcee0595d07f58aa082d927eefc"
+    },
+    {
+      "path": "docs/ex-distribuciones-multivariantes.html",
+      "sha256": "8650faf4413e96915631b5a5c875b28dbc2a147d481213fd6df1f7bfb3ebafbe"
+    },
+    {
+      "path": "docs/ex-estimacion.html",
+      "sha256": "5fed5e27cbb477e9b8c3964b3532f7a50ea170e924ae596bb20782c2a104a555"
+    },
+    {
+      "path": "docs/ex-inferencia-aplicada.html",
+      "sha256": "f26ffea33dade9c90b9da862d80bda0eea33a8c73a8901bad013a9462ff73250"
+    },
+    {
+      "path": "docs/ex-intervalos.html",
+      "sha256": "dcad1f8c8904b7fe58b0d6fda7eb06bd7e1a045ca47d6bfe9ed0f88aea091d3b"
+    },
+    {
+      "path": "docs/ex-muestreo.html",
+      "sha256": "f5a44256316d938100efe743250d025af8f5586b1a191dd9918149fba10e7d48"
+    },
+    {
+      "path": "docs/ex-presentacion.html",
+      "sha256": "f6ffa9523c0fdf697883019b4d886357bff43a42ee02ce8750f36fb0f9a6808b"
+    },
+    {
+      "path": "docs/ex-probabilidad.html",
+      "sha256": "31e04dfed66581b2cb19ff8d80a1f292ded47ff2159247bae5b281824e36e46b"
+    },
+    {
+      "path": "docs/ex-variables-aleatorias.html",
+      "sha256": "3fab23c34ddef977679db4ed0df15e2ee9e630aa9524a3cd4334207e68a7c552"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/cdfContinuas-1.png",
+      "sha256": "7f07dd8a75986420fa014a8fb2e22bfd2252797dc6ff05e04a0651fbb9c5206e"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/cdfDiscretas-1.png",
+      "sha256": "d547519ccd474ff7827c7ae8059b169bca93610a8463002adcf8c8c5a68a4682"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/cdfSumaDados-1.png",
+      "sha256": "d547519ccd474ff7827c7ae8059b169bca93610a8463002adcf8c8c5a68a4682"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej1-plot-1.png",
+      "sha256": "31ae4988311bc61eb0fd47670e83f05dfc6f8a268ba4fabff84a630c8fa27edb"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej2-tabla-plot-1.png",
+      "sha256": "0a99c934b6b7314fbbaccdc386c9eab2caf4ac55d022d8d1ddcc701835861513"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej3-plot-1.png",
+      "sha256": "8b59e78934790d6883e1630c1e0dd058f45b62cbc20c9ff8fa5a4ccadd4a7dc3"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej4-plot-1.png",
+      "sha256": "5406aeff35b459e39f390af6ca96deb5399c3688f09bfcf793e01585f01831da"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej5-plot-1.png",
+      "sha256": "261e773cacefa18a03cc50d498546041d1e80a4ed38ad38f2790c38d6febb112"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej5-plot-2.png",
+      "sha256": "884d5c12a7b5e48534120160eba3179423edff5bbcc01abf37f3714ea6eee59d"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej6-plot-1.png",
+      "sha256": "dddaf3f5a0a51762458fddfc0a3e5a7daa43c24f2eb5bc92e29f445fbc8bb746"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/ej6-plot-2.png",
+      "sha256": "370daf47e4ed4c2eb22b65ed4e1d31bfcfb37cca83e12e8917a86a0fbaf80ada"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/frecuencia-relativa-1.png",
+      "sha256": "6bea2e7fb1b5ecfb3f673b371e8ac1f8e89e19be2338da9e9fb6880c9119e984"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-area-normal-1.png",
+      "sha256": "2ea19aebd917789299e03833a2d429f5932461b20df3ea2a5ad2b4381191e382"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-ex1-masa-1.png",
+      "sha256": "cef374e67baf88ec4bb43ce0c9bcbcb515cca11bedc0c74be247d21732410c9d"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-ex3-alternativa-1.png",
+      "sha256": "0b64d4052d1eda439062bf8ead5c68e757607b5fde9991e91da7564778b97f74"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-ex3-densidad-1.png",
+      "sha256": "81777a0675b99bf5de158717c26f4394f9db4c1421c78b801aa61776f07f27fe"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-ex3-distribucion-1.png",
+      "sha256": "c2d9ad078ea7396ed7501dcebaa9a3cef205d1465b0296fdb517ce44f96b9632"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-ex8-clasificacion-1.png",
+      "sha256": "667a1800f1676be241b2e4f994cb5a9af4cd79088659917d2a18788677822a73"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-masa-dados-1.png",
+      "sha256": "1f8af6579686080a61350ce04a783395b288f4f43ab8615ec258125952b032d8"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u2-r-masa-cdf-1.png",
+      "sha256": "117f86d4e28c667d5023403cd7e96b67db3bc8e1e9f5386e54461231e4c88218"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u3-fig-bernoulli-cdf-1.png",
+      "sha256": "7d2584ace86a2cbb899c0ba1c1ab6d772b65484aa755bcfbc8c61ecb794a29a6"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u3-fig-bernoulli-masa-1.png",
+      "sha256": "72980474c97ef5b129af37f0e7aee59a2de2bfbb32795393d416175c306e1834"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u3-fig-uniforme-continua-cdf-1.png",
+      "sha256": "d3ce322fe111609bf9719d6826908390af9849115aa9f0911904f9260685d2d8"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u3-fig-uniforme-continua-densidad-1.png",
+      "sha256": "ee9e91d95f500746940b9921d540f9e25ae2759d94367789aab9e31de7e7fea2"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u3-fig-uniforme-discreta-cdf-1.png",
+      "sha256": "190e5ec09278fb75aeaf8a5011ab33d2acbd153325cfcbcbd7ab8577ea03d1bb"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/u3-fig-uniforme-discreta-masa-1.png",
+      "sha256": "a9a33ca3f1bde5cfccc05d807cfa1d61086ccb1a6d9dcc03ff53c1c785fb5b25"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-11-1.png",
+      "sha256": "2521143292c1964727bbc63140b2254f11f70c32daec5632f4ecc3a65a1a353e"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-12-1.png",
+      "sha256": "5cd4e21a840337fc5acc5a2f8033a080d4e417a9c8b0ddffae739837d8c827ff"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-13-1.png",
+      "sha256": "4d4d4ccb35de424df43761948acb90fed870cd976bfc9c8e52955fdd5f43162c"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-130-1.png",
+      "sha256": "30ecefbae717ee0026a3b24be75e1e0d70f6bd19d6aba21e02a7ef8fde77a9db"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-14-1.png",
+      "sha256": "057d4ab5422b3c74d251b6c05546c9af4846ff1ba27e65521e90116ebcb75b4d"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-154-1.png",
+      "sha256": "50d6f58a8068397d0a65cef637e9c3884de17fbba56ed69641913383aecb7291"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-7-1.png",
+      "sha256": "49b650558019d3a1abde91dd1bddf5435ee9998401be7b05fa69457f446784ed"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-8-1.png",
+      "sha256": "4a1a7baac524b689ddb960013f7d28b6665f47bc04143d67ff686adb1f6c8be0"
+    },
+    {
+      "path": "docs/FundamentosInferencia-completo_files/figure-html/unnamed-chunk-80-1.png",
+      "sha256": "b624dd1604ca9857fd38f8381b63b5e255fa2c3a9fee7534f91811c0aaa036a9"
+    },
+    {
+      "path": "docs/FundamentosInferencia-Ejercicios.pdf",
+      "sha256": "4d051b6ffb654f6e010a14eb5d70424cba3885de638cc278bbee25d89a77b1c6"
+    },
+    {
+      "path": "docs/FundamentosInferencia.pdf",
+      "sha256": "c0a151a355acdf2ae49d79e6f6fb1ebbc38d2eaf1724d3add6a5b14d1b70fec6"
+    },
+    {
+      "path": "docs/grandes-muestras.html",
+      "sha256": "5dd6e1d7ac9935c426fb9b794b716185c8fe9ac0bbd5d954a4dec47eaffb5f47"
+    },
+    {
+      "path": "docs/images/cap9-CalculPvalorBilateral.png",
+      "sha256": "4389712d8acd8c7c3acafce10603b5b055f4e45cdb8ffef121a6a58a39f748f3"
+    },
+    {
+      "path": "docs/images/cap9-CalculPvalorUnilateral.png",
+      "sha256": "0ef565804361ce55a9662b13660b5a9677055f62ec2e54a846b9bfb47e855731"
+    },
+    {
+      "path": "docs/images/cap9-comparaProbs.png",
+      "sha256": "412d16abf62355b3389814d3d206df3d843ca598c33855348d07ef8ccdd83046"
+    },
+    {
+      "path": "docs/images/cap9-FuncPotencia1.png",
+      "sha256": "0fd83ec21eafa5a608b39ab4028c68fe372d12bcee901de9aadcd98fff23b1d1"
+    },
+    {
+      "path": "docs/images/cap9-FuncPotencia2.png",
+      "sha256": "0eb16873934592a59cba06ea78d64514edcc16b3396a00fd1eb7b7697b63e597"
+    },
+    {
+      "path": "docs/images/cap9-FuncPotencia3.png",
+      "sha256": "6bf6ef0d17852c7673585e2d6dc63d777eca413c4c2480e71e90d8ff9c610c73"
+    },
+    {
+      "path": "docs/images/cap9-PlotProbsErrTipo2b.png",
+      "sha256": "8451db974bfb040f5d275d6cdb86ba109753938b2281f6e30b3c2466afc0a1ad"
+    },
+    {
+      "path": "docs/images/cap9-PlotProbsErrTipo_1_y_2.png",
+      "sha256": "9f9b64483e99851239eb7324177ca599bdaab1ddca79a7bf724150c61548dbe2"
+    },
+    {
+      "path": "docs/images/cap9-PlotProbsErrTipo_1_y_2b.png",
+      "sha256": "a931481ac4c788645d380f48da82c34d841d68695ecd447d5f418e0438a54bba"
+    },
+    {
+      "path": "docs/images/cap9-PlotProbsTestOptim.png",
+      "sha256": "44ccf5a572bf47e8a618f64670f1cb5b110208f56ac88714def1c9a94c50efbf"
+    },
+    {
+      "path": "docs/images/cap9-PotenciaHipotesisComposta.png",
+      "sha256": "a0403f58efb98a0e438d9d05796f146879916785c8b6c0efe1bde48fabdeb968"
+    },
+    {
+      "path": "docs/images/cap9-ProbsErrTipo2b.png",
+      "sha256": "62ff92d2ffb1c588f132d74c50bd72942fa28cbda4b31c86fb013c2c7950175d"
+    },
+    {
+      "path": "docs/images/cap9-ProbsTestOptim.png",
+      "sha256": "33ad046ba8654be8391d2bd66afcdad44a362fa4b9928463b346d9725b031565"
+    },
+    {
+      "path": "docs/images/cap9-RCHipotesisComposta.png",
+      "sha256": "92e121b24a80969475434ac3147d4a2dd224ba6ad36cdb1e5f515fbeeb420aa1"
+    },
+    {
+      "path": "docs/images/cap9-RCHipotesisComposta2.png",
+      "sha256": "a0403f58efb98a0e438d9d05796f146879916785c8b6c0efe1bde48fabdeb968"
+    },
+    {
+      "path": "docs/images/cap9-RCSimpleVsComposta.png",
+      "sha256": "a0a8280ce6bc72483fb2234d5793c1608a637174505d6a09a6cbe0c0137b2308"
+    },
+    {
+      "path": "docs/images/cap9-SampleSize_i_MDS.png",
+      "sha256": "2c7f6b21add2dd6a6618bf36cc5fd27d670ac34bbebbfd12de4a2dc6f1dc2c6d"
+    },
+    {
+      "path": "docs/images/cap9-SampleSizeEffect-1.png",
+      "sha256": "d7d7ff0d0e9635a341d36d3a113a419aeddbbf4354d78cf39a0573b6df2d828c"
+    },
+    {
+      "path": "docs/images/cap9-SampleSizeEffect-2.png",
+      "sha256": "5b91b0d818a3591c3c5ff3f47cad8b975e65e3b56bec74a970da78b7d9ae9bc3"
+    },
+    {
+      "path": "docs/images/cap9-SampleSizeEffect-3.png",
+      "sha256": "cf7fe2a86011a0ce7de034f81c351f23a895e41171c4419661ab34bcce950caa"
+    },
+    {
+      "path": "docs/images/clipboard-1018442669.png",
+      "sha256": "3f940097ddc27be5ca24f58dfc99ffce86ab19e04448fa97d3270e0a10f94e92"
+    },
+    {
+      "path": "docs/images/clipboard-1434716414.png",
+      "sha256": "64536801aebec395af3d0e3e628b231cd6cd929a816f8f40fe985c2f92b82b6a"
+    },
+    {
+      "path": "docs/images/clipboard-2353777197.png",
+      "sha256": "876aba6199b56856d96e35a487ffd354d9a5a0f80dd88748e4eed0c71b23aa6a"
+    },
+    {
+      "path": "docs/images/clipboard-2572516778.png",
+      "sha256": "1efb0e88e4596c337a92fcbaead13b608eb2b2d7f39a1c4338e3be8f31004e0e"
+    },
+    {
+      "path": "docs/images/clipboard-2707476680.png",
+      "sha256": "9c5a5500b076b3429f249e9090c9b152950459e8f3fd808a6b7da74f94d580a0"
+    },
+    {
+      "path": "docs/images/clipboard-3898377838.png",
+      "sha256": "03190139e66b3c358e549c6959de9cc3f65fae5e4147f6b743501bc70924170a"
+    },
+    {
+      "path": "docs/images/distribucion_conjunta.png",
+      "sha256": "e4294d9a320e921456284332d94632a3d3f25fe010688d25c581d2aab00642c8"
+    },
+    {
+      "path": "docs/images/dNormalQuantil975.png",
+      "sha256": "4aa7fa6f4b6e0cb4aa486d504206c17aff136b887efb9fc35a1805bb5839070f"
+    },
+    {
+      "path": "docs/images/freqVsprop.png",
+      "sha256": "0e05e124d8d94c1cf53690dc57f396b2f5e3f290e7f49377a55d142f47bd5f0e"
+    },
+    {
+      "path": "docs/images/interpretacionGeometrica.png",
+      "sha256": "a20fbf139ce0b0f172e7797678417de9778821f3dfcd31d01f26ec9365c93c29"
+    },
+    {
+      "path": "docs/images/LLN1.png",
+      "sha256": "0b3ab87fb22a3854d1dcf6b82db0d84c4e5c16c1da46ef2aa4b9cb25697ec674"
+    },
+    {
+      "path": "docs/images/pesosVaronesCat.jpg",
+      "sha256": "e6f33619115c40c07655b3a4079a5336f0fdf5aa76cf6ed4e643b0f016233ac3"
+    },
+    {
+      "path": "docs/images/pmfTrinomial.png",
+      "sha256": "c808ccc9971a594729bfaa38f82312c83ebcb2a9beeaa904465127f83b3ab259"
+    },
+    {
+      "path": "docs/images/simPoisson_1_11.png",
+      "sha256": "29eef4fcb051ad7d70e4f586702a6c0d3b56ba18af063421bba342d04efea533"
+    },
+    {
+      "path": "docs/images/simulaIC.png",
+      "sha256": "9d516f8888b6bbe04053e8e405a9293947349179ba7fd2154be2ff35f455be12"
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "aba2092d6228ac20b3611a3e4070f9393d0e0725408eef2de3deeddb3487d17e"
+    },
+    {
+      "path": "docs/introducción-a-la-inferencia-estadística.html",
+      "sha256": "4a84f2b3798679899cf536806a99252805b297434d20cabb5af9541d4b24e6a9"
+    },
+    {
+      "path": "docs/las-pruebas-chi-cuadrado.html",
+      "sha256": "f991b2a64df938894557dd0fed07e20020caaa933754339700828f1e328c4821"
+    },
+    {
+      "path": "docs/libs/bootstrap-4.6.0/bootstrap.bundle.min.js",
+      "sha256": "0147f667a4d111081e2d6b925a2413e5cf92b6efdf96694295b1d0ce1c9da822"
+    },
+    {
+      "path": "docs/libs/bootstrap-4.6.0/bootstrap.min.css",
+      "sha256": "779955dc304077c5786151de7f9c8797ba2322ea1a93d25ec6faa4eddce088ef"
+    },
+    {
+      "path": "docs/libs/bootstrap-4.6.0/fonts/bootstrap/glyphicons-halflings-regular.eot",
+      "sha256": "13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407"
+    },
+    {
+      "path": "docs/libs/bootstrap-4.6.0/fonts/bootstrap/glyphicons-halflings-regular.svg",
+      "sha256": "42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5"
+    },
+    {
+      "path": "docs/libs/bootstrap-4.6.0/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+      "sha256": "e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456"
+    },
+    {
+      "path": "docs/libs/bootstrap-4.6.0/fonts/bootstrap/glyphicons-halflings-regular.woff",
+      "sha256": "a26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742"
+    },
+    {
+      "path": "docs/libs/bootstrap-4.6.0/fonts/bootstrap/glyphicons-halflings-regular.woff2",
+      "sha256": "fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c"
+    },
+    {
+      "path": "docs/libs/bs3compat-0.10.0/bs3compat.js",
+      "sha256": "5db34b7252185c718bbacd96036ea6e13802626e54da2f05c76d6d8723a77891"
+    },
+    {
+      "path": "docs/libs/bs3compat-0.10.0/tabs.js",
+      "sha256": "a6ca5ff3cf5c920e8982c38980196711bec2ef7d107118fc3c8ae5e3b60408d0"
+    },
+    {
+      "path": "docs/libs/bs3compat-0.10.0/transition.js",
+      "sha256": "dc196add559410fdc17eb14684352c7b5d0c98dc8175206f82fd41cb9291a132"
+    },
+    {
+      "path": "docs/libs/bs4_book-1.0.0/bs4_book.css",
+      "sha256": "95bb547debfc30560d4f3d7a18f4912876dc5c6ad205ae482c1c21d3c5b10418"
+    },
+    {
+      "path": "docs/libs/bs4_book-1.0.0/bs4_book.js",
+      "sha256": "08486492fc810b649dd248da510adf124792c44024a98adbf8e375d7e502d0b5"
+    },
+    {
+      "path": "docs/libs/jquery-3.6.0/jquery-3.6.0.min.js",
+      "sha256": "ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e"
+    },
+    {
+      "path": "docs/métodos-de-computación-intensiva-el-bootstrap.html",
+      "sha256": "74f44087664b4f0568d8fec018b1c9af65b9f90fb41594d50ce3742403fd1940"
+    },
+    {
+      "path": "docs/probabilidad-y-experimentos-aleatorios.html",
+      "sha256": "7c3f1b864e83c160eaa22721290da1a34ddff98c2f7ee3d3d460051e05e492b2"
+    },
+    {
+      "path": "docs/pruebas-de-hipótesis.html",
+      "sha256": "58d1e6111b7c92064e39496e5152d4fa8c70121cae71a31833b67d49fdca4ff0"
+    },
+    {
+      "path": "docs/pruebas-de-una-muestra.html",
+      "sha256": "5ebbc84ea1ab8cc0dd5d7276ae82c2651e056424695cbe54063ed88a08c83b04"
+    },
+    {
+      "path": "docs/questions/index.html",
+      "sha256": "97f03a4773a3d2e295e3b2345f4f36d4beb5807d02c726fbe5af68da98644f58"
+    },
+    {
+      "path": "docs/questions/quiz.css",
+      "sha256": "c6b9d5ef50813f0abd457b8a08493693c0b20466ffbea68866b51700a88b035f"
+    },
+    {
+      "path": "docs/questions/quiz.js",
+      "sha256": "1eaf5048b6ce4839381897d9e99911b53e26ad5652cd1b9316122612ef1520aa"
+    },
+    {
+      "path": "docs/questions/unit1.js",
+      "sha256": "c3fd85f3f4c518753b51519da44723f3bf649486d4554118a5f0989565f9f648"
+    },
+    {
+      "path": "docs/questions/unit2.js",
+      "sha256": "1aec9b94b6d5d066f10995bd6be4ecde1a675522d26231dcae1189970a9fdad4"
+    },
+    {
+      "path": "docs/questions/unit3.js",
+      "sha256": "32645845244c9601c5690bc33c771fb1900ea77ea8004ffd2e078d86b8109112"
+    },
+    {
+      "path": "docs/questions/units.js",
+      "sha256": "56649b1a9adb20bc773d2a557a167467fb4d9edec63c8ee78a10ade0d8169b54"
+    },
+    {
+      "path": "docs/reference-keys.txt",
+      "sha256": "354c9e17cc2b6e07ecef2aa3a820a7add59c3da52455c1e03222bd9ce9b5bbe3"
+    },
+    {
+      "path": "docs/search.json",
+      "sha256": "0491d319983ebf4c0b7a7ce17de21249166fdf4d330dbd2058bffb969f665436"
+    },
+    {
+      "path": "docs/variables-aleatorias-y-distribuciones-de-probabilidad.html",
+      "sha256": "ef71602aed3872665ad4f979fd7f5191fc5af0f7f24e105082a5fa30efa88d0d"
+    }
+  ],
+  "source_hashes": {
+    "03-distribucionesNotables.Rmd": "6990a03b09393bfc3436be2998f728815c54fb6ad34e343e1d5c48fbb492bbb1",
+    "_REVISION/UNIT_REVISION_PROTOCOL.md": "73885383e5eda2484d37d6cd7630d0b697cad9777372f0b5f617fac785ffc4b6",
+    "_REVISION/units/U03.md": "fff8320629a396d01cce28e7a19788229c2dae215750bb402e96416d5bcc550c",
+    "questions/index.html": "97f03a4773a3d2e295e3b2345f4f36d4beb5807d02c726fbe5af68da98644f58",
+    "scripts/test-questions-loading.js": "34f38f6480a73a84469e9b1cd4f96f7f007e5cce675309f1c44b259ae668e497",
+    "scripts/test-questions.js": "9defc5d443dd2d0151bfb5262468d145a30fae49fadfa81d8fe9bd722d68a50e",
+    "scripts/test-questions.ps1": "bb50082b798a8af89b218ac1d6f9965aeab196776acb6fe64f7e1e05ca6e46b2",
+    "scripts/test-u3-distributions.R": "30983ef06b2074a00e90ead0a6b14eb52300a851d0ce6571dbbb14e79535e551",
+    "scripts/test-u3-figures.R": "f3fe779eacdcfb09f34a8eed14755ca71c5d322022fea577d644e2397bedf496"
+  },
+  "exclude": [
+    "Dropbox conflicts (Copia en conflicto, conflicted copy)",
+    "scratch _revision-*",
+    "build logs, inputs/outputs/changes CSV and result JSON",
+    "local screenshots and previews",
+    "AUDIT_FORMAT.md",
+    "HANDOFF.md",
+    "REVIEW_01_PROBABILIDAD.md",
+    "unrelated untracked files"
+  ],
+  "promotion_rule": "After explicit approval, promote only these final docs paths; do not add docs wholesale or delete historical images. Revalidate and inspect git diff before commit. No source edits to U1/U2.",
+  "approved_manifest_docs_source": "_revision-u3-editorial-final-20261017/work/docs",
+  "preserved_unrelated_output": "docs/images/LLN1.png retained from published HEAD; no incidental regeneration of the U5 asset"
+}

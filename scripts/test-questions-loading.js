@@ -70,10 +70,23 @@ async function run(protocol) {
   assert.equal(nodes['#result'].innerHTML, '');
   assert.equal(scripts.length, 2); // Each bank loaded only once.
   assert.equal(requests, 0);
-  const failure = context.readBank('unit99.js'); scripts[2].onerror();
+  // The new unit uses the same loader and supports a different bank size.
+  assert.ok(unitIds.includes('3'));
+  nodes['#unit'].value = '3'; events['#unit:change'](); load(2); await tick();
+  assert.equal(context.state().bank.length, 66);
+  assert.ok(context.state().bank.every(q => q.id.startsWith('DN-')));
+  assert.equal(Object.keys(answers).length, 0);
+  events['#generate:click']();
+  for (const q of context.state().selected) answers[q.id] = q.correct;
+  events['#finish:click']();
+  assert.match(nodes['#result'].innerHTML, /Puntuación: 8\/8/);
+  nodes['#unit'].value = '1'; events['#unit:change'](); await tick();
+  assert.equal(context.state().bank.length, 40);
+  assert.equal(Object.keys(answers).length, 0);
+  const failure = context.readBank('unit99.js'); scripts[3].onerror();
   await assert.rejects(failure, /Bank not found/);
   await assert.rejects(context.readBank('../private.js'), /Invalid bank file/);
   assert.equal(fs.existsSync(path.join(directory,'units.json')), false);
-  console.log(`PASS: ${protocol} engine fixture, 40+40, score/explanations, reset, cached load, late response, errors, no fetch.`);
+  console.log(`PASS: ${protocol} engine fixture, 40+40+66, score/explanations, reset, cached load, late response, errors, no fetch.`);
 }
 run('file:').then(() => run('http:')).catch(error => { console.error(error); process.exitCode = 1; });

@@ -39,7 +39,7 @@
 <li class="book-part">Teoría</li>
 <li><a class="" href="probabilidad-y-experimentos-aleatorios.html"><span class="header-section-number">1</span> Probabilidad y Experimentos aleatorios</a></li>
 <li><a class="" href="variables-aleatorias-y-distribuciones-de-probabilidad.html"><span class="header-section-number">2</span> Variables aleatorias y Distribuciones de probabilidad</a></li>
-<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones Notables</a></li>
+<li><a class="" href="distribuciones-notables.html"><span class="header-section-number">3</span> Distribuciones notables</a></li>
 <li><a class="" href="distribuciones-de-probabilidad-multidimensionales.html"><span class="header-section-number">4</span> Distribuciones de probabilidad multidimensionales</a></li>
 <li><a class="" href="grandes-muestras.html"><span class="header-section-number">5</span> Grandes muestras</a></li>
 <li><a class="" href="introducci%C3%B3n-a-la-inferencia-estad%C3%ADstica.html"><span class="header-section-number">6</span> Introducción a la inferencia estadística</a></li>
@@ -235,7 +235,7 @@ P(Neg)&amp;=P(Neg|A) \cdot  P(A)+P(Neg|B) \cdot  P(B)=
 \end{aligned}
 \]</span></p>
 <p>Las probabilidades las hemos calculado con R a partir de la información del enunciado:</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pA</span><span class="op">&lt;-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span></span>
 <span><span class="va">pB</span><span class="op">&lt;-</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span></span>
 <span><span class="va">ppA</span><span class="op">&lt;-</span><span class="fl">0.99</span></span>
@@ -266,7 +266,7 @@ P(Neg)&amp;=P(Neg|A) \cdot  P(A)+P(Neg|B) \cdot  P(B)=
 <p><span class="math display">\[
 V P+=P(\text { Embolismo } / \text { Test }+)=\frac{\text { Sens}\times\text{Prev }}{\text { Sens}\times\text{Prev }+(1-\text { Esp })(1-\text { Prev })}
 \]</span></p>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sens</span><span class="op">&lt;-</span><span class="fl">0.95</span></span>
 <span><span class="va">esp</span><span class="op">&lt;-</span><span class="fl">0.75</span></span>
 <span><span class="va">prev</span><span class="op">&lt;-</span><span class="fl">0.20</span></span>
@@ -279,7 +279,7 @@ V P+=P(\text { Embolismo } / \text { Test }+)=\frac{\text { Sens}\times\text{Pre
 <p><span class="math display">\[
 V P-=\frac{\operatorname{Esp}(1-\operatorname{Prev})}{\operatorname{Esp}(1-\operatorname{Prev})+(1-\text { Sens }) \operatorname{Prev}}
 \]</span></p>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vpn</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">sens</span><span class="op">)</span><span class="op">*</span><span class="va">prev</span><span class="op">)</span></span>
 <span><span class="va">vpn</span></span></code></pre></div>
 <pre><code>## [1] 0.9836066</code></pre>
@@ -287,12 +287,12 @@ V P-=\frac{\operatorname{Esp}(1-\operatorname{Prev})}{\operatorname{Esp}(1-\oper
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Responde a las preguntas anteriores si la prevalencia fuera del 80%</li>
 </ol>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prev</span><span class="op">&lt;-</span><span class="fl">0.80</span></span>
 <span><span class="va">vpp</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">sens</span><span class="op">*</span><span class="va">prev</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">sens</span><span class="op">*</span><span class="va">prev</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">esp</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">vpp</span></span></code></pre></div>
 <pre><code>## [1] 0.9382716</code></pre>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vpn</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">esp</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">sens</span><span class="op">)</span><span class="op">*</span><span class="va">prev</span><span class="op">)</span></span>
 <span><span class="va">vpn</span></span></code></pre></div>
 <pre><code>## [1] 0.7894737</code></pre>
@@ -336,14 +336,14 @@ VP- &amp; = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
 \end{aligned}
 \]</span></p>
 <p>Estos cálculos se reañlizan de forma imediata usando R:</p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sensi</span> <span class="op">&lt;-</span> <span class="fl">0.68</span></span>
 <span><span class="va">espec</span> <span class="op">&lt;-</span> <span class="fl">0.82</span></span>
 <span><span class="va">prev</span> <span class="op">&lt;-</span> <span class="fl">0.0021</span></span>
 <span><span class="va">vp.pos</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sensi</span> <span class="op">*</span> <span class="va">prev</span> <span class="op">)</span><span class="op">/</span> <span class="op">(</span><span class="va">sensi</span> <span class="op">*</span> <span class="va">prev</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">espec</span><span class="op">)</span><span class="op">*</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span> <span class="op">(</span><span class="st">"El valor predictivo positivo es: "</span>, <span class="va">vp.pos</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## El valor predictivo positivo es:  0.007887324</code></pre>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vp.neg</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">espec</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span> <span class="op">)</span><span class="op">/</span> <span class="op">(</span><span class="va">espec</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">prev</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">sensi</span><span class="op">)</span><span class="op">*</span> <span class="op">(</span><span class="va">prev</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span> <span class="op">(</span><span class="st">"El valor predictivo negativo es: "</span>, <span class="va">vp.neg</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## El valor predictivo negativo es:  0.9991794</code></pre>
@@ -380,7 +380,7 @@ VP- &amp; = P[SMS^c | T-]= \frac {P[T- | SMS^c]\times P[SMS^c]}{P[T-]} =\\
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-10-03.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-10-17.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

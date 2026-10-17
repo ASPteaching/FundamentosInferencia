@@ -1,0 +1,21 @@
+# Independent numerical checks of the corrected mathematical identities.
+near <- function(x,y) stopifnot(isTRUE(all.equal(x,y,tolerance=1e-10)))
+p <- .3;xx <- c(-1,0,.5,1,2)
+near(pbinom(xx,1,p),ifelse(xx<0,0,ifelse(xx<1,1-p,1)))
+near(pbinom(2.7,4,.5),sum(choose(4,0:2)*.5^(0:2)*.5^(4-(0:2))))
+near(dpois(0:8,2),exp(-2)*2^(0:8)/factorial(0:8))
+k <- 0:10;mass <- dhyper(k,10,10,12)
+near(sum(k*mass),6);near(sum((k-6)^2*mass),24/19)
+near(dgeom(3,1/6),(5/6)^3/6)
+near(dnbinom(4,2,1/3),choose(5,1)*(1/3)^2*(2/3)^4)
+near(pexp(3,rate=.5,lower.tail=FALSE),exp(-3/2))
+near(pnorm(115,100,15),pnorm(1))
+near(pgamma(8,shape=4,scale=2),pgamma(8,shape=4,rate=.5))
+near(pweibull(c(-1,0,2),shape=2,scale=2),c(0,0,1-exp(-1)))
+near(qbinom(c(.01,.5,.99),5,.75),c(1,4,5))
+# Factorizations C(theta) h(x) exp(Q(theta) T(x)).
+x <- 2;n <- 5;p <- .3;lambda <- 1.7;mu <- 2;sd <- 3
+near((1-p)^n*choose(n,x)*exp(log(p/(1-p))*x),dbinom(x,n,p))
+near(exp(-lambda)/factorial(x)*exp(log(lambda)*x),dpois(x,lambda))
+near(exp(-mu^2/(2*sd^2))/(sqrt(2*pi)*sd)*exp(-x^2/(2*sd^2))*exp(mu*x/sd^2),dnorm(x,mu,sd))
+cat('PASS: 15 numerical checks of CDF, mass, moments, conventions, scale/rate, quantiles and exponential factorizations.\n')
