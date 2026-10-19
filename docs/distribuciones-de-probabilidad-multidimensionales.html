@@ -77,7 +77,7 @@
 <span class="header-section-number">Capítulo 4</span> Distribuciones de probabilidad multidimensionales<a class="anchor" aria-label="anchor" href="#distribuciones-de-probabilidad-multidimensionales"><i class="fas fa-link"></i></a>
 </h1>
 <p>En este capítulo se extiende el concepto de variable aleatoria a un conjunto de variables que pueden interpretarse asociadas a un conjunto de medidas distintas y que pueden estar, o no relacionadas.</p>
-<p>Tras introducir los conceptos de distribuciones multidimensionales, condicionales y marginales, se pasa a considerar el caso más habitual en inferencia estadística en el que las componentes de los vectrores son independientes entre ellas.</p>
+<p>Tras introducir los conceptos de distribuciones multidimensionales, condicionales y marginales, se pasa a considerar el caso más habitual en inferencia estadística en el que las componentes de los vectores son independientes entre ellas.</p>
 <p>Este es, de hecho, el punto de partida de muchos modelos y métodos en estadística.</p>
 <div id="distribuciones-conjuntas-de-probabilidades" class="section level2" number="4.1">
 <h2>
@@ -97,14 +97,14 @@
 <p>Las distribuciones de probabilidad que, siguiendo con la analogía, asociaremos a los vectores aleatorios se denominan <strong>distribuciones de probabilidades conjuntas</strong> o <strong>multivariantes</strong>.</p>
 <p>Antes de desarrollar el tema es importante remarcar que consideraremos dos escenarios:</p>
 <ul>
-<li><p>El primero, el “natural” es considerar que si trabajamos con distintas variables asociadas a un mismo fenómeno, es razonable suponer que varien de alguna forma coordinada. De ahí la expresión <em>distribución conjnta</em>.</p></li>
+<li><p>El primero, el “natural” es considerar que si trabajamos con distintas variables asociadas a un mismo fenómeno, es razonable suponer que varien de alguna forma coordinada. De ahí la expresión <em>distribución conjunta</em>.</p></li>
 <li><p>En ocasiones, sin embargo, dispondremos de vectores aleatorios que varian independientemente los unos de los otros. En este caso su distribución conjunta será de un tipo especial que se conoce <em>independencia</em>.</p></li>
 </ul>
 <div id="variable-aleatoria-bivariante" class="section level3" number="4.1.1">
 <h3>
 <span class="header-section-number">4.1.1</span> Variable aleatoria bivariante<a class="anchor" aria-label="anchor" href="#variable-aleatoria-bivariante"><i class="fas fa-link"></i></a>
 </h3>
-<p>Empezaremos por el caso más sencillo que, sin embargo permite estudiar la mayoría de los conceptos quenos interesas: Las distribuciones conjuntas de dos variables aleatorias.</p>
+<p>Empezaremos por el caso más sencillo que, sin embargo permite estudiar la mayoría de los conceptos que nos interesan: Las distribuciones conjuntas de dos variables aleatorias.</p>
 <p>Una <strong>variable aleatoria bivariante</strong> es una aplicación que, a cada resultado de un experimento, le asocia dos números:</p>
 <p><span class="math display">\[
 (X, Y): \Omega \to \mathbb{R}^2
@@ -117,7 +117,7 @@ w \mapsto (X(w), Y(w))
 \{w \in \Omega \mid X(w) \leq x,\quad Y(w) \leq y\} \in \mathcal{A}
 \]</span>
 donde <span class="math inline">\(\mathcal{A}\)</span> representa el conjunto de <em>sucesos observables</em> definido en el capítulo 1.</p>
-<p>Lo que viene a significar esta definición es que una variable aleatoria bidimensional es un conjunto de medidas (números reales) a los que, por el ehecho de poderse asociar con sucesos observables a traves de los intérvalos <span class="math inline">\(X(w) \leq x,\quad Y(w) \leq y\)</span> se les puede asociar (calcular) una probabilidad.</p>
+<p>Lo que viene a significar esta definición es que una variable aleatoria bidimensional es un conjunto de medidas (números reales) a los que, por el hecho de poderse asociar con sucesos observables a traves de los intérvalos <span class="math inline">\(X(w) \leq x,\quad Y(w) \leq y\)</span> se les puede asociar (calcular) una probabilidad.</p>
 <p>Fijémonos también que, como en el caso univariante, la función que <em>transporta</em> la probabilidad, del espació de probabilidad al conjunto de los reales, será la función de distribución, que se define a continuación.</p>
 </div>
 <div id="función-de-distribución-bivariante" class="section level3" number="4.1.2">
@@ -129,12 +129,9 @@ donde <span class="math inline">\(\mathcal{A}\)</span> representa el conjunto de
 F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y]
 \]</span></p>
 <p>Como en el caso univariante, esta es la función que define la forma en que podemos calcular probabilidades sobre los valores de las variables, en este caso de dimensión 2.</p>
-</div>
 <div class="ejemplo">
-<div id="ejemplo-distribución-conjunta-del-estado-de-infección-y-activación-de-células" class="section level3" number="4.1.3">
-<h3>
-<span class="header-section-number">4.1.3</span> Ejemplo: Distribución conjunta del estado de infección y activación de células<a class="anchor" aria-label="anchor" href="#ejemplo-distribuci%C3%B3n-conjunta-del-estado-de-infecci%C3%B3n-y-activaci%C3%B3n-de-c%C3%A9lulas"><i class="fas fa-link"></i></a>
-</h3>
+<p><strong>Ejemplo 4.1.1. Distribución conjunta del estado de infección y activación de células</strong>
+</p>
 <p>Supongamos que estamos observando dos características de células en un experimento de inmunología. Las variables que describen las células son:</p>
 <ul>
 <li>
@@ -171,9 +168,9 @@ F(x, y) = P\{w \in \Omega \mid X(w) \leq x, Y(w) \leq y\} = P[X \leq x, Y \leq y
 </tr>
 </tbody>
 </table></div>
-<div id="función-de-distribución-conjunta" class="section level4" number="4.1.3.1">
+<div id="función-de-distribución-conjunta" class="section level4" number="4.1.2.1">
 <h4>
-<span class="header-section-number">4.1.3.1</span> 1. Función de distribución conjunta<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-distribuci%C3%B3n-conjunta"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.2.1</span> 1. Función de distribución conjunta<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-distribuci%C3%B3n-conjunta"><i class="fas fa-link"></i></a>
 </h4>
 <p>La función de distribución conjunta <span class="math inline">\(F(x, y)\)</span> para esta situación se calcula como:</p>
 <p><span class="math display">\[
@@ -187,49 +184,47 @@ F(x, y) = P(X \leq x, Y \leq y)
 <li><span class="math inline">\(F(1, 1) = P(X \leq 1, Y \leq 1) = 1\)</span></li>
 </ul>
 </div>
-<div id="cálculo-de-la-probabilidad-de-eventos-específicos" class="section level4" number="4.1.3.2">
+<div id="cálculo-de-la-probabilidad-de-eventos-específicos" class="section level4" number="4.1.2.2">
 <h4>
-<span class="header-section-number">4.1.3.2</span> 2. Cálculo de la probabilidad de eventos específicos<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-de-la-probabilidad-de-eventos-espec%C3%ADficos"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.2.2</span> 2. Cálculo de la probabilidad de eventos específicos<a class="anchor" aria-label="anchor" href="#c%C3%A1lculo-de-la-probabilidad-de-eventos-espec%C3%ADficos"><i class="fas fa-link"></i></a>
 </h4>
 <p>Por ejemplo, la probabilidad de que una célula esté infectada pero no activada es:</p>
 <p><span class="math display">\[
 P(X = 1, Y = 0) = 0.1
 \]</span></p>
-</div>
-</div>
-<div id="implementación-en-r" class="section level3" number="4.1.4">
-<h3>
-<span class="header-section-number">4.1.4</span> Implementación en R<a class="anchor" aria-label="anchor" href="#implementaci%C3%B3n-en-r"><i class="fas fa-link"></i></a>
-</h3>
+<p><strong>Comprobación y representación con R</strong></p>
 <p>Podemos visualizar esta distribución conjunta con un gráfico en R.</p>
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Crear los datos de la distribución conjunta</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span>X <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, Y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">data</span><span class="op">$</span><span class="va">Prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span><span class="op">)</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">Prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Crear el gráfico</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">X</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"No infectada"</span>, <span class="st">"Infectada"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">X</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"No infectada"</span>, <span class="st">"Infectada"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                      y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Y</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"No activada"</span>, <span class="st">"Activada"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Prob</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"white"</span>, high <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Prob</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Estado de infección (X)"</span>, y <span class="op">=</span> <span class="st">"Estado de activación (Y)"</span>, </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Prob</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_gradient.html">scale_fill_gradient</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"white"</span>, high <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Prob</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Estado de infección (X)"</span>, y <span class="op">=</span> <span class="st">"Estado de activación (Y)"</span>, </span>
 <span>       title <span class="op">=</span> <span class="st">"Distribución Conjunta de Infección y Activación Celular"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Guardar el gráfico en el subdirectorio imagenes</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"images/distribucion_conjunta.png"</span>, plot <span class="op">=</span> <span class="va">p</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4</span>, dpi <span class="op">=</span> <span class="fl">300</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"images/distribucion_conjunta.png"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/distribucion_conjunta.png" alt="" width="80%"></div>
+<span><span class="va">p</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:u4-infeccion"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/u4-infeccion-1.png" alt="Tabla gráfica: masas 0.4, 0.1, 0.2 y 0.3 en los pares (0,0), (1,0), (0,1) y (1,1)." width="95%"><p class="caption">
+Figure 4.1: Probabilidades conjuntas de infección y activación.
+</p>
 </div>
 </div>
 </div>
-<div id="variable-aleatorias-bivariantes-discretas" class="section level2" number="4.2">
+</div>
+</div>
+<div id="variables-aleatorias-bivariantes-discretas" class="section level2" number="4.2">
 <h2>
-<span class="header-section-number">4.2</span> Variable aleatorias bivariantes discretas<a class="anchor" aria-label="anchor" href="#variable-aleatorias-bivariantes-discretas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2</span> Variables aleatorias bivariantes discretas<a class="anchor" aria-label="anchor" href="#variables-aleatorias-bivariantes-discretas"><i class="fas fa-link"></i></a>
 </h2>
 <p>Una vez introducidos los conceptos de forma general pasamos a estudiar el problema en el caso discreto, que es muy intuitivo y, a la vez permite introducir todos los conceptos relevantes.</p>
 <div class="definicion">
@@ -264,8 +259,12 @@ f(x, y) = P\{w \in \Omega \mid X(w) = x, Y(w) = y\} = P[X = x, Y = y]
 \sum_{(x_i, y_j) \in \mathbb{R}^{2}} f(x_i, y_j) = 1
 \]</span></p>
 <ul>
-<li>Para todo subconjunto <span class="math inline">\(B \subseteq \mathbb{R}^2\)</span>, se verifica:</li>
+<li>Para un conjunto de valores posibles <span class="math inline">\(B\)</span>, su probabilidad se obtiene sumando las masas de sus puntos:</li>
 </ul>
+<p><span class="math display">\[
+P((X,Y)\in B)=\sum_{(x_i,y_j)\in B}f(x_i,y_j).
+\]</span></p>
+<p>En particular, la función de distribución es:</p>
 <p><span class="math display">\[
 F(x, y) = P[X \leq x, Y \leq y] = \sum_{x_i \leq x, y_j \leq y} f(x_i, y_j)
 \]</span></p>
@@ -276,8 +275,8 @@ F(x, y) = P[X \leq x, Y \leq y] = \sum_{x_i \leq x, y_j \leq y} f(x_i, y_j)
 </h4>
 <p>La presentación de los conceptos anteriores suele generar cierto desasosiego entre los estudiantes que afrontan estos conceptos por primera (o siguientes) vez.</p>
 <p>El motivo de este desasosiego es que el papel de la función de distribución no suele ser tan intuitivo como el de la función de masa de probabilidad.</p>
-<p>Es decir, es más intuitivo pensar en como calcular lña probabilidad que la variable tome un valor concreto (<span class="math inline">\(P[X=x]\)</span>) , que la probabilidad de que no alcance cierto valor (<span class="math inline">\(P[X\leq x]\)</span>).</p>
-<p>Sin embargo, la función que realmente permite transportar la probabilidad no es la función de masa de probabilidad (fmp) sino la función de distribución (fdd). De ahí el contraste entre intuición (fmp) y construcción (fdd)</p>
+<p>Es decir, es más intuitivo pensar en como calcular la probabilidad que la variable tome un valor concreto (<span class="math inline">\(P[X=x]\)</span>) , que la probabilidad de que no alcance cierto valor (<span class="math inline">\(P[X\leq x]\)</span>).</p>
+<p>La función de distribución caracteriza cualquier distribución conjunta. En el caso discreto, la función de masa también determina completamente las probabilidades; la CDF ofrece una descripción común al caso discreto y al continuo.</p>
 </div>
 </div>
 <div id="ejemplo-de-distribución-bivariante-discreta" class="section level3" number="4.2.3">
@@ -285,101 +284,105 @@ F(x, y) = P[X \leq x, Y \leq y] = \sum_{x_i \leq x, y_j \leq y} f(x_i, y_j)
 <span class="header-section-number">4.2.3</span> Ejemplo de distribución bivariante discreta<a class="anchor" aria-label="anchor" href="#ejemplo-de-distribuci%C3%B3n-bivariante-discreta"><i class="fas fa-link"></i></a>
 </h3>
 <div class="ejemplo">
+<p><strong>Ejemplo 4.2.1.</strong>
+</p>
 <p>Supongamos que un estudio mide el número de células infectadas y el número de linfocitos activados en un campo microscópico. Dado el tamaño del campo y el grado de infección los valores observados de cada variables son:</p>
 <ul>
 <li>
-<span class="math inline">\(X\)</span>: Número de células infectadas (<span class="math inline">\(X \in \{0, 1, 2, 3, 4, 5\}\)</span>)).</li>
+<span class="math inline">\(X\)</span>: Número de células infectadas (<span class="math inline">\(X \in \{0, 1, 2, 3, 4, 5\}\)</span>).</li>
 <li>
-<span class="math inline">\(Y\)</span>: Número de linfocitos activados (<span class="math inline">\(Y \in \{0, 1, 2, 3\}\)</span>)).</li>
+<span class="math inline">\(Y\)</span>: Número de linfocitos activados (<span class="math inline">\(Y \in \{0, 1, 2, 3\}\)</span>).</li>
 </ul>
 <p>La distribución conjunta se refleja en la siguiente tabla de probabilidades conjuntas:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
-<th align="center"><span class="math inline">\(P[X=x]\)</span></th>
-<th align="center"><span class="math inline">\(P[Y = 0]\)</span></th>
-<th align="center"><span class="math inline">\(P[Y = 1]\)</span></th>
-<th align="center"><span class="math inline">\(P[Y = 2]\)</span></th>
-<th align="center"><span class="math inline">\(P[Y = 3]\)</span></th>
+<th align="center">
+<span class="math inline">\(X\)</span> / <span class="math inline">\(Y\)</span>
+</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="center">0</td>
-<td align="center">0.12</td>
-<td align="center">0.06</td>
-<td align="center">0.02</td>
-<td align="center">0.00</td>
+<td align="center">12/150</td>
+<td align="center">6/150</td>
+<td align="center">2/150</td>
+<td align="center">0</td>
 </tr>
 <tr class="even">
 <td align="center">1</td>
-<td align="center">0.10</td>
-<td align="center">0.10</td>
-<td align="center">0.04</td>
-<td align="center">0.01</td>
+<td align="center">10/150</td>
+<td align="center">10/150</td>
+<td align="center">4/150</td>
+<td align="center">1/150</td>
 </tr>
 <tr class="odd">
 <td align="center">2</td>
-<td align="center">0.06</td>
-<td align="center">0.12</td>
-<td align="center">0.08</td>
-<td align="center">0.02</td>
+<td align="center">6/150</td>
+<td align="center">12/150</td>
+<td align="center">8/150</td>
+<td align="center">2/150</td>
 </tr>
 <tr class="even">
 <td align="center">3</td>
-<td align="center">0.03</td>
-<td align="center">0.12</td>
-<td align="center">0.10</td>
-<td align="center">0.05</td>
+<td align="center">3/150</td>
+<td align="center">12/150</td>
+<td align="center">10/150</td>
+<td align="center">5/150</td>
 </tr>
 <tr class="odd">
 <td align="center">4</td>
-<td align="center">0.01</td>
-<td align="center">0.08</td>
-<td align="center">0.12</td>
-<td align="center">0.06</td>
+<td align="center">1/150</td>
+<td align="center">8/150</td>
+<td align="center">12/150</td>
+<td align="center">6/150</td>
 </tr>
 <tr class="even">
 <td align="center">5</td>
-<td align="center">0.00</td>
-<td align="center">0.03</td>
-<td align="center">0.10</td>
-<td align="center">0.07</td>
+<td align="center">0</td>
+<td align="center">3/150</td>
+<td align="center">10/150</td>
+<td align="center">7/150</td>
 </tr>
 </tbody>
 </table></div>
-<p>Puede comprobarse como la suma de todos los valores de la tabla es 1, y calcular probabilidades de sucesos como</p>
+<p>Esta tabla ilustrativa se construye a partir de 150 observaciones hipotéticas: cada entrada es un recuento dividido por 150. La suma de las probabilidades es 1. Podemos calcular probabilidades de sucesos como los siguientes.</p>
 <p><strong>Probabilidad de que hayan dos células infectadas y un linfocito:</strong></p>
 <p>Para calcular la probabilidad de que haya exactamente 2 células infectadas y 1 linfocito activado, se puede usar el valor directamente de la tabla.</p>
 <p><span class="math display">\[
-P(X = 2, Y = 1) = 0.12
+P(X = 2, Y = 1) = 12/150 = 0.08
 \]</span></p>
 <p><strong>Probabilidad de que hayan menos de tres celulas infectadas y menos de dos linfocitos:</strong></p>
-<p>Esta probabilidad es la suma de todas las combinaciones de <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>) que cumplen con la condición de <span class="math inline">\(X &lt; 3\)</span>) y <span class="math inline">\(Y &lt; 2\)</span>). Es decir, sumamos las probabilidades de los casos</p>
-<p><span class="math inline">\((X = 0, Y = 0)\)</span>), <span class="math inline">\((X = 0, Y = 1)\)</span>), <span class="math inline">\((X = 1, Y = 0)\)</span>), <span class="math inline">\((X = 1, Y = 1)\)</span>), <span class="math inline">\((X = 2, Y = 0)\)</span>), y <span class="math inline">\((X = 2, Y = 1)\)</span>).</p>
+<p>Esta probabilidad es la suma de todas las combinaciones de <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> que cumplen con la condición de <span class="math inline">\(X &lt; 3\)</span> y <span class="math inline">\(Y &lt; 2\)</span>. Es decir, sumamos las probabilidades de los casos</p>
+<p><span class="math inline">\((X = 0, Y = 0)\)</span>, <span class="math inline">\((X = 0, Y = 1)\)</span>, <span class="math inline">\((X = 1, Y = 0)\)</span>, <span class="math inline">\((X = 1, Y = 1)\)</span>, <span class="math inline">\((X = 2, Y = 0)\)</span>, y <span class="math inline">\((X = 2, Y = 1)\)</span>.</p>
 <p><span class="math display">\[
-P(X &lt; 3, Y &lt; 2) = P(X = 0, Y = 0) + P(X = 0, Y = 1) + P(X = 1, Y = 0) + P(X = 1, Y = 1) + P(X = 2, Y = 0) + P(X = 2, Y = 1)
+P(X&lt;3,Y&lt;2)=\sum_{x=0}^{2}\sum_{y=0}^{1}P(X=x,Y=y)
 \]</span></p>
 <p><span class="math display">\[
-P(X &lt; 3, Y &lt; 2) = 0.12 + 0.06 + 0.10 + 0.10 + 0.06 + 0.12 = 0.56
+P(X &lt; 3, Y &lt; 2) = (12 + 6 + 10 + 10 + 6 + 12)/150 = 56/150 \approx 0.3733
 \]</span></p>
 <p>Recordemos que, al tratarse de variables discretas, no es lo mismo <span class="math inline">\(P[X &lt; x]\)</span> que <span class="math inline">\(P[X \leq x]\)</span>, por lo que si la pregunta fuera “Probabilidad de que hayan al menos tres celulas infectadas y al menos dos linfocitos” deberíamos calcular:</p>
 <p><span class="math display">\[
-P(X \leq 3, Y \leq 2)
+P(X \geq 3, Y \geq 2)
 \]</span>
-Esta última expresión se corresponde con la función de distribución evaluada en <span class="math inline">\((3,2)\)</span>.</p>
+Esta probabilidad se obtiene sumando las entradas con <span class="math inline">\(X\geq3\)</span> e <span class="math inline">\(Y\geq2\)</span>; no es <span class="math inline">\(F(3,2)\)</span>, que corresponde a <span class="math inline">\(X\leq3\)</span> e <span class="math inline">\(Y\leq2\)</span>.</p>
 </div>
 <div id="código-r-para-el-cálculo-de-la-pmf" class="section level4" number="4.2.3.1">
 <h4>
 <span class="header-section-number">4.2.3.1</span> Código R para el cálculo de la pmf<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-r-para-el-c%C3%A1lculo-de-la-pmf"><i class="fas fa-link"></i></a>
 </h4>
 <p>Podemos hacer los cálculos usando R:</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">prob_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.02</span>, <span class="fl">0.00</span>,</span>
-<span>                       <span class="fl">0.10</span>, <span class="fl">0.10</span>, <span class="fl">0.04</span>, <span class="fl">0.01</span>,</span>
-<span>                       <span class="fl">0.06</span>, <span class="fl">0.12</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>,</span>
-<span>                       <span class="fl">0.03</span>, <span class="fl">0.12</span>, <span class="fl">0.10</span>, <span class="fl">0.05</span>,</span>
-<span>                       <span class="fl">0.01</span>, <span class="fl">0.08</span>, <span class="fl">0.12</span>, <span class="fl">0.06</span>,</span>
-<span>                       <span class="fl">0.00</span>, <span class="fl">0.03</span>, <span class="fl">0.10</span>, <span class="fl">0.07</span><span class="op">)</span>, </span>
-<span>                     nrow <span class="op">=</span> <span class="fl">6</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">prob_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">6</span>, <span class="fl">2</span>, <span class="fl">0</span>,</span>
+<span>                       <span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">4</span>, <span class="fl">1</span>,</span>
+<span>                       <span class="fl">6</span>, <span class="fl">12</span>, <span class="fl">8</span>, <span class="fl">2</span>,</span>
+<span>                       <span class="fl">3</span>, <span class="fl">12</span>, <span class="fl">10</span>, <span class="fl">5</span>,</span>
+<span>                       <span class="fl">1</span>, <span class="fl">8</span>, <span class="fl">12</span>, <span class="fl">6</span>,</span>
+<span>                       <span class="fl">0</span>, <span class="fl">3</span>, <span class="fl">10</span>, <span class="fl">7</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">6</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">/</span> <span class="fl">150</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">1e-12</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Asignar nombres a las filas y columnas</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">0</span><span class="op">:</span><span class="fl">5</span></span>
@@ -388,65 +391,43 @@ Esta última expresión se corresponde con la función de distribución evaluada
 <span><span class="co"># Mostrar la tabla</span></span>
 <span></span>
 <span><span class="va">prob_table</span></span></code></pre></div>
-<pre><code>##      0    1    2    3
-## 0 0.12 0.06 0.02 0.00
-## 1 0.10 0.10 0.04 0.01
-## 2 0.06 0.12 0.08 0.02
-## 3 0.03 0.12 0.10 0.05
-## 4 0.01 0.08 0.12 0.06
-## 5 0.00 0.03 0.10 0.07</code></pre>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<pre><code>##             0          1          2           3
+## 0 0.080000000 0.04000000 0.01333333 0.000000000
+## 1 0.066666667 0.06666667 0.02666667 0.006666667
+## 2 0.040000000 0.08000000 0.05333333 0.013333333
+## 3 0.020000000 0.08000000 0.06666667 0.033333333
+## 4 0.006666667 0.05333333 0.08000000 0.040000000
+## 5 0.000000000 0.02000000 0.06666667 0.046666667</code></pre>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular la probabilidad de (X = 2, Y = 1)</span></span>
 <span><span class="va">prob_X2_Y1</span> <span class="op">&lt;-</span> <span class="va">prob_table</span><span class="op">[</span><span class="st">"2"</span>, <span class="st">"1"</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"P(X = 2, Y = 1) ="</span>, <span class="va">prob_X2_Y1</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## P(X = 2, Y = 1) = 0.12</code></pre>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<pre><code>## P(X = 2, Y = 1) = 0.08</code></pre>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Calcular la probabilidad de (X &lt; 3, Y &lt; 2)</span></span>
 <span><span class="va">prob_X_lt_3_Y_lt_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"P(X &lt; 3, Y &lt; 2) ="</span>, <span class="va">prob_X_lt_3_Y_lt_2</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## P(X &lt; 3, Y &lt; 2) = 0.56</code></pre>
+<pre><code>## P(X &lt; 3, Y &lt; 2) = 0.3733333</code></pre>
 </div>
 <div id="código-r-para-visualizar-la-distribución-conjunta" class="section level4" number="4.2.3.2">
 <h4>
 <span class="header-section-number">4.2.3.2</span> Código R para visualizar la distribución conjunta<a class="anchor" aria-label="anchor" href="#c%C3%B3digo-r-para-visualizar-la-distribuci%C3%B3n-conjunta"><i class="fas fa-link"></i></a>
 </h4>
 <p>Para visualizar la distribución conjunta, podemos usar el código siguiente;</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Es preciso instalar y cargar el paquete scatterplot3d si no lo tienes instalado</span></span>
-<span><span class="co"># install.packages("scatterplot3d")</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">scatterplot3d</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Crear una matriz con los datos de la tabla de probabilidades</span></span>
-<span><span class="va">X_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">Y_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Crear un grid de valores X e Y</span></span>
-<span><span class="va">X_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">X_vals</span>, each <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Y_vals</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">Y_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">Y_vals</span>, times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">X_vals</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Extraer las probabilidades como un vector</span></span>
-<span><span class="va">Z_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Enviar el gráfico 3D de barras simuladas a pdf</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"images/pmfTrinomial.png"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/scatterplot3d/man/scatterplot3d.html">scatterplot3d</a></span><span class="op">(</span><span class="va">X_grid</span>, <span class="va">Y_grid</span>, <span class="va">Z_vals</span>,</span>
-<span>                     type <span class="op">=</span> <span class="st">"h"</span>, color <span class="op">=</span> <span class="st">"lightblue"</span>, </span>
-<span>                     pch <span class="op">=</span> <span class="fl">16</span>, lwd <span class="op">=</span> <span class="fl">5</span>, </span>
-<span>                     cex.symbols <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                     angle<span class="op">=</span><span class="fl">60</span>,</span>
-<span>                     xlab <span class="op">=</span> <span class="st">"Celulas Infectadas (X)"</span>, </span>
-<span>                     ylab <span class="op">=</span> <span class="st">"Linfocitos Activados (Y)"</span>, </span>
-<span>                     zlab <span class="op">=</span> <span class="st">"Probabilidad"</span>,</span>
-<span>                     main <span class="op">=</span> <span class="st">"Distribución Conjunta de \n Celulas Infectadas y Linfocitos Activados"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## png 
-##   2</code></pre>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Añadir texto con los valores de las probabilidades en la parte superior de las barras</span></span>
-<span><span class="co"># s3d$text(X_grid, Y_grid, Z_vals, labels = round(Z_vals, 2), pos = 3, col = "black")</span></span></code></pre></div>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span><span class="op">(</span><span class="st">"images/pmfTrinomial.png"</span>, rel_path <span class="op">=</span> <span class="cn">TRUE</span> <span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="images/pmfTrinomial.png" alt="" width="90%"></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">u4_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span>X <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">5</span>, Y <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">u4_grid</span><span class="op">$</span><span class="va">prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="va">prob_table</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">u4_grid</span>, <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, fill <span class="op">=</span> <span class="va">prob</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_tile.html">geom_tile</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_gradient.html">scale_fill_gradient</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"white"</span>, high <span class="op">=</span> <span class="st">"#0072B2"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Células infectadas"</span>, y <span class="op">=</span> <span class="st">"Linfocitos activados"</span>, fill <span class="op">=</span> <span class="st">"Probabilidad"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:u4-masa-celulas"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/u4-masa-celulas-1.png" alt="Mapa de masas conjuntas de X entre 0 y 5 e Y entre 0 y 3, calculadas a partir de 150 observaciones." width="95%"><p class="caption">
+Figure 4.2: Masa conjunta de los recuentos de células y linfocitos; la masa total es uno.
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -459,8 +440,8 @@ Esta última expresión se corresponde con la función de distribución evaluada
 <h3>
 <span class="header-section-number">4.3.1</span> Generación de las observaciones<a class="anchor" aria-label="anchor" href="#generaci%C3%B3n-de-las-observaciones"><i class="fas fa-link"></i></a>
 </h3>
-<p>Supongamos un experimentoaleatorio que puede producir <span class="math inline">\(k\)</span> resultados posibles <span class="math inline">\(A_1, A_2, \dots, A_k\)</span> con probabilidades <span class="math inline">\(p_1, p_2, \dots, p_k\)</span>, tales que <span class="math inline">\(p_1 + p_2 + \dots + p_k = 1\)</span>.</p>
-<p>Repetimos el experimento <span class="math inline">\(n\)</span> veces y llamamos <span class="math inline">\(X_1, X_2, \dots, X_k\)</span> al número de veces que se presenta <span class="math inline">\(A_1, A_2, \dots, A_k\)</span>.</p>
+<p>Supongamos un experimento aleatorio que puede producir <span class="math inline">\(k\)</span> resultados mutuamente excluyentes y exhaustivos <span class="math inline">\(A_1, A_2, \dots, A_k\)</span> con probabilidades <span class="math inline">\(p_1, p_2, \dots, p_k\)</span>, tales que <span class="math inline">\(p_1 + p_2 + \dots + p_k = 1\)</span>.</p>
+<p>Repetimos el experimento <span class="math inline">\(n\)</span> veces de forma independiente, manteniendo las mismas probabilidades en cada ensayo, y llamamos <span class="math inline">\(X_1, X_2, \dots, X_k\)</span> al número de veces que se presenta <span class="math inline">\(A_1, A_2, \dots, A_k\)</span>.</p>
 <p>La distribución conjunta de <span class="math inline">\(X_1, X_2, \dots, X_k\)</span> recibe el nombre de <strong>multinomial</strong>.</p>
 </div>
 <div id="funcion-de-masa-de-probabilidad-de-la-distribución-multinomial" class="section level3" number="4.3.2">
@@ -468,17 +449,17 @@ Esta última expresión se corresponde con la función de distribución evaluada
 <span class="header-section-number">4.3.2</span> Funcion de masa de probabilidad de la distribución multinomial<a class="anchor" aria-label="anchor" href="#funcion-de-masa-de-probabilidad-de-la-distribuci%C3%B3n-multinomial"><i class="fas fa-link"></i></a>
 </h3>
 <p>El vector <span class="math inline">\(\mathbf{X} = (X_1, \dots, X_k)\)</span> tiene distribución multinomial de parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(\mathbf{p} = (p_1, \dots, p_k),\)</span> denotado por <span class="math inline">\(\mathbf{X} \sim \mathrm{M}(n, \mathbf{p})\)</span>, con <span class="math inline">\(n\)</span> entero positivo, <span class="math inline">\(p_i \geq 0\)</span> y <span class="math inline">\(\sum_{i=1}^{k} p_i = 1\)</span>.</p>
-<p>Su función de densidad conjunta es:</p>
+<p>Su función de masa de probabilidad conjunta es:</p>
 <p><span class="math display">\[
 f(\mathbf{x}) = P[\mathbf{X} = \mathbf{x}] = \frac{n!}{x_1!x_2!\cdots x_k!} p_1^{x_1} p_2^{x_2} \dots p_k^{x_k}
 \]</span></p>
-<p>donde <span class="math inline">\(x_i\)</span> son enteros no negativos tales que <span class="math inline">\(\sum_{i=1}^{k} x_i = n\)</span>.</p>
+<p>donde <span class="math inline">\(x_i\)</span> son enteros no negativos tales que <span class="math inline">\(\sum_{i=1}^{k} x_i = n\)</span>; fuera de este soporte la masa es cero. Si <span class="math inline">\(p_i=0\)</span> y <span class="math inline">\(x_i=0\)</span>, se interpreta <span class="math inline">\(p_i^{x_i}=1\)</span>.</p>
 </div>
 <div id="relación-con-la-distribución-binomial" class="section level3" number="4.3.3">
 <h3>
 <span class="header-section-number">4.3.3</span> Relación con la distribución binomial<a class="anchor" aria-label="anchor" href="#relaci%C3%B3n-con-la-distribuci%C3%B3n-binomial"><i class="fas fa-link"></i></a>
 </h3>
-<p>Esta distribución puede verse como una generalización de la distribución binomial en el que, en lugar de tener dos posibles resultados, tenemos <span class="math inline">\(r\)</span> resultados posibles.</p>
+<p>Esta distribución puede verse como una generalización de la distribución binomial en el que, en lugar de tener dos posibles resultados, tenemos <span class="math inline">\(k\)</span> categorías. Para <span class="math inline">\(k=2\)</span>, <span class="math inline">\(X_1\sim\operatorname{Bin}(n,p_1)\)</span> y <span class="math inline">\(X_2=n-X_1\)</span>. En general, cada marginal es <span class="math inline">\(X_i\sim\operatorname{Bin}(n,p_i)\)</span>: en cada ensayo basta distinguir la categoría <span class="math inline">\(i\)</span> de todas las demás.</p>
 </div>
 <div id="un-caso-particular-la-distribución-trinomial" class="section level3" number="4.3.4">
 <h3>
@@ -487,17 +468,51 @@ f(\mathbf{x}) = P[\mathbf{X} = \mathbf{x}] = \frac{n!}{x_1!x_2!\cdots x_k!} p_1^
 <p>Veamos un ejemplo propio del análisis de secuencias en el que se aplica esta distribución:</p>
 <p>Si consideramos el alineamiento de dos secuencias <span class="math inline">\(x, y\)</span> de tamaño <span class="math inline">\(n\)</span>, podemos observar:</p>
 <ul>
-<li>$A_1 $: <span class="math inline">\(x_i\)</span> alineado con $y_i $, con $P(A_1) = p_1 $</li>
-<li>$A_2 $: <span class="math inline">\(x_i\)</span> alineado con “-”, con $P(A_2) = p_2 $</li>
-<li>$A_3 $: “-” alineado con $y_i $, con $P(A_3) = 1 - p_1 - p_2 $</li>
+<li>
+<span class="math inline">\(A_1\)</span>: <span class="math inline">\(x_i\)</span> alineado con <span class="math inline">\(y_i\)</span>, con <span class="math inline">\(P(A_1) = p_1\)</span>
+</li>
+<li>
+<span class="math inline">\(A_2\)</span>: <span class="math inline">\(x_i\)</span> alineado con “-”, con <span class="math inline">\(P(A_2) = p_2\)</span>
+</li>
+<li>
+<span class="math inline">\(A_3\)</span>: “-” alineado con <span class="math inline">\(y_i\)</span>, con <span class="math inline">\(P(A_3) = 1 - p_1 - p_2\)</span>
+</li>
 </ul>
-<p>La variable $(X_1, X_2) $, que cuenta el número de veces que se observa <span class="math inline">\(A_1, A_2\)</span> (con $X_3 = n - X_1 - X_2 $), sigue una distribución trinomial de parámetros <span class="math inline">\(n\)</span>, $p_1 $, $p_2 $.</p>
-<p>Obsérvese que, dado que el total de observaciones <span class="math inline">\(n\)</span> está prefijado, aunque haya tres categorías, <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_3\)</span> el número de observaciones de <span class="math inline">\(A_3\)</span> es el total menos la suma de las observaciones de <span class="math inline">\(A_1+A_2\)</span>. O dicho de otra forma el número de probabilidades que són parámetros de la distribución es <span class="math inline">\(n-1=2\)</span>, lo que junto con <span class="math inline">\(n\)</span> que es otyro parámetro determina que “trinomial” se refiera tanto al total de categorías como al número de parámetros, aunque, en realidad tan sólo hay dos componentes <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> independientes (concepto este que se definirá con precisión más adelante).</p>
+<p>La variable <span class="math inline">\((X_1, X_2)\)</span>, que cuenta el número de veces que se observa <span class="math inline">\(A_1, A_2\)</span> (con <span class="math inline">\(X_3 = n - X_1 - X_2\)</span>), sigue una distribución trinomial de parámetros <span class="math inline">\(n\)</span>, <span class="math inline">\(p_1\)</span>, <span class="math inline">\(p_2\)</span>.</p>
+<p>El total está fijado: <span class="math inline">\(X_1+X_2+X_3=n\)</span>. Podemos describir el vector mediante dos componentes libres, pero estas no son variables independientes. El número de probabilidades libres es <span class="math inline">\(k-1=2\)</span>, además del parámetro <span class="math inline">\(n\)</span>. El ejemplo de alineamientos supone un número fijo de posiciones clasificadas de forma independiente y con probabilidades constantes; es un modelo simplificado.</p>
 <div class="ejemplo">
+<p><strong>Ejemplo 4.3.1. Dos estudios y tres laboratorios</strong>
+</p>
+<p>Cada uno de dos estudios se asigna, independientemente, a A, B o C con probabilidad <span class="math inline">\(1/3\)</span>. Si <span class="math inline">\(X_i\)</span> cuenta los estudios asignados a cada laboratorio,
+<span class="math display">\[
+P(X_A=1,X_B=1,X_C=0)=\frac{2!}{1!1!0!}(1/3)^2=2/9.
+\]</span>
+La marginal <span class="math inline">\(X_A\)</span> es <span class="math inline">\(\operatorname{Bin}(2,1/3)\)</span>, con masas <span class="math inline">\(4/9,4/9,1/9\)</span> para <span class="math inline">\(0,1,2\)</span>. Los ejercicios 1, 3 y 6 desarrollan este mismo modelo.</p>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Multinom.html">dmultinom</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">2</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.2222222</code></pre>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">2</span>, size <span class="op">=</span> <span class="fl">2</span>, prob <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.4444444 0.4444444 0.1111111</code></pre>
+</div>
+<div class="ejemplo">
+<p><strong>Ejemplo 4.3.2.</strong>
+</p>
 <p>Estudiamos los posibles alineamientos de dos secuencias de 5 nucleótidos, en un contexto en el que las probabilidades de <span class="math inline">\(A_1\)</span> y <span class="math inline">\(A_2\)</span> son, respectivamente 0.6 y 0.2, es decir una Trinomial M(5; 0.6, 0.2) que dan lugar a la tabla siguiente.</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="21%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+</colgroup>
 <thead><tr class="header">
-<th align="center"><span class="math inline">\(X_{1} \backslash X_{2}\)</span></th>
+<th align="center">
+<span class="math inline">\(X_1\)</span> / <span class="math inline">\(X_2\)</span>
+</th>
 <th align="center">0</th>
 <th align="center">1</th>
 <th align="center">2</th>
@@ -562,10 +577,12 @@ f(\mathbf{x}) = P[\mathbf{X} = \mathbf{x}] = \frac{n!}{x_1!x_2!\cdots x_k!} p_1^
 </tr>
 </tbody>
 </table></div>
-<p>A partir de la tabla anterior podemos determinar las probabilidades conjuntas:</p>
+<p>A partir de la tabla anterior podemos determinar las probabilidades conjuntas. Se muestran redondeadas a cuatro decimales; los cálculos posteriores utilizan los valores sin redondear:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
-<th align="center"><span class="math inline">\(X_{1} \backslash X_{2}\)</span></th>
+<th align="center">
+<span class="math inline">\(X_1\)</span> / <span class="math inline">\(X_2\)</span>
+</th>
 <th align="center">0</th>
 <th align="center">1</th>
 <th align="center">2</th>
@@ -646,16 +663,14 @@ f(\mathbf{x}) = P[\mathbf{X} = \mathbf{x}] = \frac{n!}{x_1!x_2!\cdots x_k!} p_1^
 <h3>
 <span class="header-section-number">4.4.1</span> Las marginales están en los márgenes<a class="anchor" aria-label="anchor" href="#las-marginales-est%C3%A1n-en-los-m%C3%A1rgenes"><i class="fas fa-link"></i></a>
 </h3>
-<ul>
-<li>El nombre de <strong>distribución marginal</strong> proviene del hecho de que en una distribución bivariada discreta como la trinomial, los valores de una fila coinciden con los valores de <span class="math inline">\(X_2\)</span>, y todos los de una columna con los de <span class="math inline">\(X_1\)</span>. Los valores en la fila 0 o columna 0 (los márgenes) representan precisamente las distribuciones marginales.</li>
-</ul>
+<p>El nombre procede de escribir las sumas de filas y columnas en los márgenes de una tabla conjunta. Con <span class="math inline">\(X_1\)</span> en las filas y <span class="math inline">\(X_2\)</span> en las columnas, la suma de cada fila es una masa marginal de <span class="math inline">\(X_1\)</span>, y la de cada columna, de <span class="math inline">\(X_2\)</span>. La fila o columna cero no es una marginal.</p>
 </div>
-<div id="densidades-marginales-discretas" class="section level3" number="4.4.2">
+<div id="funciones-de-masa-marginales" class="section level3" number="4.4.2">
 <h3>
-<span class="header-section-number">4.4.2</span> Densidades marginales discretas<a class="anchor" aria-label="anchor" href="#densidades-marginales-discretas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4.2</span> Funciones de masa marginales<a class="anchor" aria-label="anchor" href="#funciones-de-masa-marginales"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>La densidad marginal de <span class="math inline">\(X\)</span> es:</li>
+<li>La masa marginal de <span class="math inline">\(X\)</span> es:</li>
 </ul>
 <p><span class="math display">\[
 f_X(x) = f_1(x) = \sum_j f(x, y_j)
@@ -670,117 +685,59 @@ f_Y(y) = f_2(y) = \sum_i f(x_i, y)
 <span class="header-section-number">4.4.3</span> Trinomial M(5; 0.6, 0.2): Distribuciones marginales<a class="anchor" aria-label="anchor" href="#trinomial-m5-0.6-0.2-distribuciones-marginales"><i class="fas fa-link"></i></a>
 </h3>
 <div class="ejemplo">
-<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<p><strong>Ejemplo 4.4.1.</strong>
+</p>
+<p>Las sumas de las filas y columnas de la tabla conjunta anterior dan las siguientes marginales binomiales (valores redondeados):</p>
+<div class="inline-table"><table class="table table-sm">
 <colgroup>
-<col width="11%">
-<col width="11%">
-<col width="11%">
-<col width="11%">
-<col width="11%">
-<col width="11%">
-<col width="11%">
-<col width="11%">
-<col width="11%">
+<col width="33%">
+<col width="33%">
+<col width="33%">
 </colgroup>
 <thead><tr class="header">
-<th align="center"><span class="math inline">\(X_1 \backslash X_2\)</span></th>
-<th align="center">0</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center"><span class="math inline">\(X_2\)</span></th>
-<th align="center"><span class="math inline">\(P[X_2 = x]\)</span></th>
+<th align="center"><span class="math inline">\(x\)</span></th>
+<th align="center">
+<span class="math inline">\(P(X_1=x)\)</span>, <span class="math inline">\(\operatorname{Bin}(5,0.6)\)</span>
+</th>
+<th align="center">
+<span class="math inline">\(P(X_2=x)\)</span>, <span class="math inline">\(\operatorname{Bin}(5,0.2)\)</span>
+</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="center">0</td>
-<td align="center">(0,0,5)</td>
-<td align="center">(0,1,4)</td>
-<td align="center">(0,2,3)</td>
-<td align="center">(0,3,2)</td>
-<td align="center">(0,4,1)</td>
-<td align="center">(0,5,0)</td>
-<td align="center">0</td>
-<td align="center">0.0102</td>
+<td align="center">0.01024</td>
+<td align="center">0.32768</td>
 </tr>
 <tr class="even">
 <td align="center">1</td>
-<td align="center">(1,0,4)</td>
-<td align="center">(1,1,3)</td>
-<td align="center">(1,2,2)</td>
-<td align="center">(1,3,1)</td>
-<td align="center">(1,4,0)</td>
-<td align="center"></td>
+<td align="center">0.07680</td>
+<td align="center">0.40960</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">0.23040</td>
+<td align="center">0.20480</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">0.34560</td>
+<td align="center">0.05120</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">0.25920</td>
+<td align="center">0.00640</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">0.07776</td>
+<td align="center">0.00032</td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
 <td align="center">1</td>
-<td align="center">0.0768</td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="center">(2,0,3)</td>
-<td align="center">(2,1,2)</td>
-<td align="center">(2,2,1)</td>
-<td align="center">(2,3,0)</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">2</td>
-<td align="center">0.2304</td>
-</tr>
-<tr class="even">
-<td align="center">3</td>
-<td align="center">(3,0,2)</td>
-<td align="center">(3,1,1)</td>
-<td align="center">(3,2,0)</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">3</td>
-<td align="center">0.3456</td>
-</tr>
-<tr class="odd">
-<td align="center">4</td>
-<td align="center">(4,0,1)</td>
-<td align="center">(4,1,0)</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">4</td>
-<td align="center">0.2592</td>
-</tr>
-<tr class="even">
-<td align="center">5</td>
-<td align="center">(5,0,0)</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">5</td>
-<td align="center">0.0778</td>
-</tr>
-<tr class="odd">
-<td align="center">X_2</td>
-<td align="center">0</td>
 <td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center"></td>
-<td align="center">1.0000</td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(P[X_2 = x]\)</span></td>
-<td align="center">0.3277</td>
-<td align="center">0.4096</td>
-<td align="center">0.2048</td>
-<td align="center">0.0512</td>
-<td align="center">0.0064</td>
-<td align="center">0.0003</td>
-<td align="center">1.0000</td>
-<td align="center"></td>
 </tr>
 </tbody>
 </table></div>
@@ -795,9 +752,9 @@ f_Y(y) = f_2(y) = \sum_i f(x_i, y)
 <li><p>A veces nos interesa la distribución de una componente si conocemos que la otra ha tomado un valor determinado.</p></li>
 <li><p>En el ejemplo de los alineamientos, podríamos querer conocer los posibles valores y probabilidades de un alineamiento, si sabemos que hay exactamente un “gap” en la secuencia de prueba.</p></li>
 </ul>
-<div id="densidad-condicional" class="section level3" number="4.5.1">
+<div id="función-de-masa-condicional" class="section level3" number="4.5.1">
 <h3>
-<span class="header-section-number">4.5.1</span> Densidad condicional<a class="anchor" aria-label="anchor" href="#densidad-condicional"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.5.1</span> Función de masa condicional<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-masa-condicional"><i class="fas fa-link"></i></a>
 </h3>
 <p>¿Qué podemos decir de la distribución de <span class="math inline">\(Y\)</span> si conocemos el valor de <span class="math inline">\(X\)</span>?</p>
 <p><span class="math display">\[
@@ -810,7 +767,9 @@ f(y \mid X = x) = P[Y = y \mid X = x] = \frac{P[X = x, Y = y]}{P[X = x]} = \frac
 <span class="header-section-number">4.5.2</span> Trinomial M(5; 0.6, 0.2): Distribución condicional<a class="anchor" aria-label="anchor" href="#trinomial-m5-0.6-0.2-distribuci%C3%B3n-condicional"><i class="fas fa-link"></i></a>
 </h3>
 <div class="ejemplo">
-<p>Distribución de <span class="math inline">\(X_1\)</span> condicionada a que <span class="math inline">\(X_2 = 1\)</span>.</p>
+<p><strong>Ejemplo 4.5.1.</strong>
+</p>
+<p>Distribución de <span class="math inline">\(X_1\)</span> condicionada a que <span class="math inline">\(X_2=1\)</span>: quedan cuatro posiciones y la probabilidad de la categoría 1 entre las restantes es <span class="math inline">\(0.6/(1-0.2)=0.75\)</span>. Por tanto, <span class="math inline">\(X_1\mid X_2=1\sim\operatorname{Bin}(4,0.75)\)</span>.</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="left"><span class="math inline">\((X_1, 1)\)</span></th>
@@ -821,33 +780,33 @@ f(y \mid X = x) = P[Y = y \mid X = x] = \frac{P[X = x, Y = y]}{P[X = x]} = \frac
 <tbody>
 <tr class="odd">
 <td align="left">(0,1,4)</td>
-<td align="right">0.002</td>
-<td align="right">0.41</td>
-<td align="right">0.004</td>
+<td align="right">0.0016</td>
+<td align="right">0.4096</td>
+<td align="right">0.00390625</td>
 </tr>
 <tr class="even">
 <td align="left">(1,1,3)</td>
-<td align="right">0.019</td>
-<td align="right">0.41</td>
-<td align="right">0.047</td>
+<td align="right">0.0192</td>
+<td align="right">0.4096</td>
+<td align="right">0.04687500</td>
 </tr>
 <tr class="odd">
 <td align="left">(2,1,2)</td>
-<td align="right">0.086</td>
-<td align="right">0.41</td>
-<td align="right">0.211</td>
+<td align="right">0.0864</td>
+<td align="right">0.4096</td>
+<td align="right">0.21093750</td>
 </tr>
 <tr class="even">
 <td align="left">(3,1,1)</td>
-<td align="right">0.173</td>
-<td align="right">0.41</td>
-<td align="right">0.422</td>
+<td align="right">0.1728</td>
+<td align="right">0.4096</td>
+<td align="right">0.42187500</td>
 </tr>
 <tr class="odd">
 <td align="left">(4,1,0)</td>
-<td align="right">0.13</td>
-<td align="right">0.41</td>
-<td align="right">0.316</td>
+<td align="right">0.1296</td>
+<td align="right">0.4096</td>
+<td align="right">0.31640625</td>
 </tr>
 <tr class="even">
 <td align="left">Total</td>
@@ -868,10 +827,10 @@ f(y \mid X = x) = P[Y = y \mid X = x] = \frac{P[X = x, Y = y]}{P[X = x]} = \frac
 <li>Diremos que <span class="math inline">\((X, Y)\)</span> es absolutamente continua si existe una función <span class="math inline">\(f(x, y)\)</span>, llamada <strong>función de densidad conjunta absolutamente continua</strong> o <strong>bivariada</strong>, tal que, para todo <span class="math inline">\((x, y) \in \mathbb{R}^2\)</span>,</li>
 </ul>
 <p><span class="math display">\[
-F(x, y) = \int_{-\infty}^{x} \int_{-\infty}^{y} f(u, v)\, du \, dv
+F(x, y) = \int_{-\infty}^{x} \int_{-\infty}^{y} f(u, v)\, dv \, du
 \]</span></p>
 <ul>
-<li>Si existe, la función de densidad absolutamente continua es única.</li>
+<li>La densidad es única salvo cambios en conjuntos de área cero (casi por todas partes).</li>
 </ul>
 <div id="propiedades-de-la-función-de-densidad-conjunta" class="section level3" number="4.6.1">
 <h3>
@@ -892,7 +851,7 @@ P\{(X, Y) \in S\} = \int_S f(x, y) \, dx \, dy
 \]</span></p>
 <p>En particular, la probabilidad de que <span class="math inline">\((X, Y)\)</span> esté en un rectángulo:</p>
 <p><span class="math display">\[
-P(a_1 &lt; X \leq a_2, b_1 &lt; Y \leq b_2) = \int_{a_1}^{a_2} \int_{b_1}^{b_2} f(x, y) \, dx \, dy
+P(a_1 &lt; X \leq a_2, b_1 &lt; Y \leq b_2) = \int_{a_1}^{a_2} \int_{b_1}^{b_2} f(x, y) \, dy \, dx
 \]</span></p>
 </div>
 <div id="densidades-marginales-en-el-caso-continuo" class="section level3" number="4.6.2">
@@ -920,10 +879,22 @@ f_Y(y) = \int_{-\infty}^{\infty} f(x, y) \, dx
 f(y \mid X = x) = \frac{f(x, y)}{f_X(x)}
 \]</span></p>
 <p>siempre que <span class="math inline">\(f_X(x) &gt; 0\)</span>.</p>
+<p>En el caso continuo <span class="math inline">\(P(X=x)=0\)</span>: la densidad condicional se define mediante este cociente de densidades, no dividiendo probabilidades de sucesos puntuales.</p>
+<div class="ejemplo">
+<p><strong>Ejemplo 4.6.1. Densidad sobre un triángulo</strong>
+</p>
+<p>Sea <span class="math inline">\(f(x,y)=2\)</span> si <span class="math inline">\(0&lt;y&lt;x&lt;1\)</span>, y cero fuera. Su integral es <span class="math inline">\(\int_0^1\int_0^x2\,dy\,dx=1\)</span>. Para <span class="math inline">\(0&lt;x&lt;1\)</span>, <span class="math inline">\(f_X(x)=2x\)</span>, de modo que <span class="math inline">\(f_{Y\mid X}(y\mid x)=1/x\)</span> si <span class="math inline">\(0&lt;y&lt;x\)</span>. En particular, <span class="math inline">\(Y\mid X=1/2\)</span> es uniforme en <span class="math inline">\((0,1/2)\)</span> y <span class="math inline">\(P(Y&lt;1/4\mid X=1/2)=1/2\)</span>.</p>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fl">2</span><span class="op">*</span><span class="va">x</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+</div>
 </div>
 <div id="la-distribución-normal-bivariante" class="section level3" number="4.6.4">
 <h3>
-<span class="header-section-number">4.6.4</span> La Distribución Normal Bivariante<a class="anchor" aria-label="anchor" href="#la-distribuci%C3%B3n-normal-bivariante"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.6.4</span> La distribución normal bivariante<a class="anchor" aria-label="anchor" href="#la-distribuci%C3%B3n-normal-bivariante"><i class="fas fa-link"></i></a>
 </h3>
 <p>El ejemplo más importante de una distribución de probabilidad absolutamente continua para vectores aleatorios es la <strong>distribución normal bivariante</strong>. Esta distribución describe dos variables aleatorias continuas, <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>, cuya relación está modelada por una correlación lineal y tiene forma de campana (gaussiana) en dos dimensiones.</p>
 <div id="función-de-densidad-conjunta" class="section level4" number="4.6.4.1">
@@ -931,25 +902,45 @@ f(y \mid X = x) = \frac{f(x, y)}{f_X(x)}
 <span class="header-section-number">4.6.4.1</span> Función de Densidad Conjunta<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-densidad-conjunta"><i class="fas fa-link"></i></a>
 </h4>
 <p>La función de densidad conjunta de la distribución normal bivariante con medias <span class="math inline">\(\mu_X\)</span>, <span class="math inline">\(\mu_Y\)</span>, desviaciones estándar <span class="math inline">\(\sigma_X\)</span>, <span class="math inline">\(\sigma_Y\)</span> y coeficiente de correlación <span class="math inline">\(\rho\)</span> es:</p>
+<p>Escribiendo <span class="math inline">\(z_X=(x-\mu_X)/\sigma_X\)</span> y <span class="math inline">\(z_Y=(y-\mu_Y)/\sigma_Y\)</span>,</p>
 <p><span class="math display">\[
-f(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp \left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
+f(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}
+\exp\left[-\frac{z_X^2-2\rho z_Xz_Y+z_Y^2}{2(1-\rho^2)}\right].
 \]</span></p>
-<p>Esta expresión se generaliza fácilmente de la distribución normal univariante, pero en este caso incluye términos adicionales que representan la interacción entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.</p>
+<p>La fórmula requiere <span class="math inline">\(\sigma_X&gt;0\)</span>, <span class="math inline">\(\sigma_Y&gt;0\)</span> y <span class="math inline">\(|\rho|&lt;1\)</span>. Los casos <span class="math inline">\(|\rho|=1\)</span> son degenerados y no tienen esta densidad sobre el plano. Esta expresión se generaliza fácilmente de la distribución normal univariante, pero en este caso incluye términos adicionales que representan la interacción entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span>.</p>
+<div class="ejemplo">
+<p><strong>Ejemplo 4.6.2.</strong>
+</p>
+<p>La siguiente representación reproduce una normal bivariante estándar con correlación <span class="math inline">\(0.5\)</span>.</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">u4_dnorm2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">rho</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="va">rho</span><span class="op">*</span><span class="va">x</span><span class="op">*</span><span class="va">y</span> <span class="op">+</span> <span class="va">y</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">rho</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span></span>
+<span>    <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">rho</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">u4_axis</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span>, length.out <span class="op">=</span> <span class="fl">101</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/contour.html">contour</a></span><span class="op">(</span><span class="va">u4_axis</span>, <span class="va">u4_axis</span>, <span class="fu"><a href="https://rdrr.io/r/base/outer.html">outer</a></span><span class="op">(</span><span class="va">u4_axis</span>, <span class="va">u4_axis</span>, <span class="va">u4_dnorm2</span><span class="op">)</span>,</span>
+<span>        xlab <span class="op">=</span> <span class="st">"X"</span>, ylab <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:u4-normal-contornos"></span>
+<img src="FundamentosInferencia-completo_files/figure-html/u4-normal-contornos-1.png" alt="Elipses inclinadas que muestran asociación positiva entre X e Y." width="95%"><p class="caption">
+Figure 4.3: Contornos de una densidad normal bivariante estándar con correlación 0.5.
+</p>
 </div>
-<div id="ejemplo" class="section level4 ejemplo" number="4.6.4.2">
-<h4>
-<span class="header-section-number">4.6.4.2</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo"><i class="fas fa-link"></i></a>
-</h4>
-<p>En vez de proporcionar un código para visualizar la distribución normal bivariante podéis seguir este enlace: <a href="https://datasciencegenie.com/3d-contour-plots-of-bivariate-normal-distribution/">https://datasciencegenie.com/3d-contour-plots-of-bivariate-normal-distribution/</a> en donde se extiende lo que acabamos de discutir y se proporciona algunos ejemplos con R.</p>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Comprobación de la marginal en X = 1</span></span>
+<span><span class="va">u4_marginal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/integrate.html">integrate</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="fu">u4_dnorm2</span><span class="op">(</span><span class="fl">1</span>, <span class="va">y</span><span class="op">)</span>, <span class="op">-</span><span class="cn">Inf</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">$</span><span class="va">value</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>integral <span class="op">=</span> <span class="va">u4_marginal</span>, normal <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  integral    normal 
+## 0.2419707 0.2419707</code></pre>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">u4_marginal</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">1e-7</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="distribuciones-marginales-1" class="section level4" number="4.6.4.3">
+</div>
+<div id="distribuciones-marginales-1" class="section level4" number="4.6.4.2">
 <h4>
-<span class="header-section-number">4.6.4.3</span> Distribuciones Marginales<a class="anchor" aria-label="anchor" href="#distribuciones-marginales-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.6.4.2</span> Distribuciones Marginales<a class="anchor" aria-label="anchor" href="#distribuciones-marginales-1"><i class="fas fa-link"></i></a>
 </h4>
-<p>Para obtener las <strong>distribuciones marginales</strong> a partir de una <strong>normal bivariante</strong>, debemos integrar la densidad conjunta sobre una de las variables. Dado que estamos trabajando con una distribución normal bivariante, su densidad conjunta está dada por:</p>
-<p><span class="math display">\[
-f_{X,Y}(x, y) = \frac{1}{2 \pi \sigma_X \sigma_Y \sqrt{1 - \rho^2}} \exp\left( -\frac{1}{2(1 - \rho^2)} \left[ \frac{(x - \mu_X)^2}{\sigma_X^2} + \frac{(y - \mu_Y)^2}{\sigma_Y^2} - \frac{2\rho(x - \mu_X)(y - \mu_Y)}{\sigma_X \sigma_Y} \right] \right)
-\]</span></p>
+<p>Para obtener las <strong>distribuciones marginales</strong> a partir de una <strong>normal bivariante</strong>, debemos integrar la densidad conjunta sobre una de las variables. Utilizamos la densidad conjunta de la sección anterior.</p>
 <p>Para obtener la <strong>marginal de <span class="math inline">\(X\)</span></strong>, debemos integrar sobre <span class="math inline">\(Y\)</span>:</p>
 <p><span class="math display">\[
 f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dy
@@ -968,11 +959,9 @@ f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x, y) \, dx
 f_Y(y) = \frac{1}{\sqrt{2 \pi \sigma_Y^2}} \exp\left( -\frac{(y - \mu_Y)^2}{2 \sigma_Y^2} \right)
 \]</span></p>
 <p>Lo que significa que <span class="math inline">\(Y\)</span> sigue una distribución normal con media <span class="math inline">\(\mu_Y\)</span> y varianza <span class="math inline">\(\sigma_Y^2\)</span>, es decir, <span class="math inline">\(Y \sim N(\mu_Y, \sigma_Y^2)\)</span>.</p>
-</div>
-<div id="ejemplo-1" class="section level4 ejemplo" number="4.6.4.4">
-<h4>
-<span class="header-section-number">4.6.4.4</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-1"><i class="fas fa-link"></i></a>
-</h4>
+<div class="ejemplo">
+<p><strong>Ejemplo 4.6.3.</strong>
+</p>
 <p>Supongamos que tenemos una distribución normal bivariante con los siguientes parámetros:</p>
 <ul>
 <li>
@@ -983,12 +972,7 @@ f_Y(y) = \frac{1}{\sqrt{2 \pi \sigma_Y^2}} \exp\left( -\frac{(y - \mu_Y)^2}{2 \s
 </li>
 <li><span class="math inline">\(\rho = 0.5\)</span></li>
 </ul>
-<p>La densidad conjunta es:</p>
-<p><span class="math display">\[
-f_{X,Y}(x, y) = \frac{1}{2 \pi (15)(10) \sqrt{1 - 0.5^2}} \exp\left( -\frac{1}{2(1 - 0.5^2)} \left[ \frac{(x - 100)^2}{15^2} +
-       \frac{(y - 50)^2}{10^2} - \frac{2(0.5)(x - 100)(y - 50)}{(15)(10)} \right] \right)
-\]</span></p>
-<p>Integrando sobre <span class="math inline">\(Y\)</span>, obtenemos la distribución marginal de <span class="math inline">\(X\)</span>:</p>
+<p>Aplicamos la densidad anterior con estos parámetros. Integrando sobre <span class="math inline">\(Y\)</span>, obtenemos la distribución marginal de <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[
 f_X(x) = \frac{1}{\sqrt{2 \pi (15^2)}} \exp\left( -\frac{(x - 100)^2}{2 \cdot 15^2} \right)
 \]</span></p>
@@ -996,6 +980,7 @@ f_X(x) = \frac{1}{\sqrt{2 \pi (15^2)}} \exp\left( -\frac{(x - 100)^2}{2 \cdot 15
 <p><span class="math display">\[
 f_Y(y) = \frac{1}{\sqrt{2 \pi (10^2)}} \exp\left( -\frac{(y - 50)^2}{2 \cdot 10^2} \right)
 \]</span></p>
+</div>
 </div>
 </div>
 <div id="distribuciones-condicionales-1" class="section level3" number="4.6.5">
@@ -1010,29 +995,28 @@ X \mid Y = y \sim N \left( \mu_X + \rho \frac{\sigma_X}{\sigma_Y} (y - \mu_Y), (
 <p><span class="math display">\[
 Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (1 - \rho^2)\sigma_Y^2 \right)
 \]</span></p>
-<div id="ejemplo-2" class="section level4 ejemplo" number="4.6.5.1">
-<h4>
-<span class="header-section-number">4.6.5.1</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-2"><i class="fas fa-link"></i></a>
-</h4>
-<p>Podemos calcular la distribución condicional de <span class="math inline">\(X\)</span> dado que <span class="math inline">\(Y = 180\)</span> cm, y mostrar cómo cambia la distribución de <span class="math inline">\(X\)</span> bajo esta condición:</p>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="ejemplo">
+<p><strong>Ejemplo 4.6.4.</strong>
+</p>
+<p>Con los parámetros del ejemplo anterior, medimos dos indicadores en unidades arbitrarias: <span class="math inline">\(\mu_X=100\)</span>, <span class="math inline">\(\mu_Y=50\)</span>, <span class="math inline">\(\sigma_X=15\)</span>, <span class="math inline">\(\sigma_Y=10\)</span> y <span class="math inline">\(\rho=0.5\)</span>. Calculemos <span class="math inline">\(X\mid Y=60\)</span>.</p>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Valores originales</span></span>
 <span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">50</span><span class="op">)</span></span>
 <span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">rho</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
 <span></span>
-<span><span class="co"># Condicionar X dado Y = 180</span></span>
-<span><span class="va">y_cond</span> <span class="op">&lt;-</span> <span class="fl">180</span></span>
-<span><span class="va">mu_cond</span> <span class="op">&lt;-</span> <span class="va">mu</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="fl">0.6</span> <span class="op">*</span> <span class="op">(</span><span class="fl">10</span><span class="op">/</span><span class="fl">7</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="va">y_cond</span> <span class="op">-</span> <span class="va">mu</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="va">sigma_cond</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.6</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">*</span> <span class="fl">10</span></span>
+<span><span class="co"># Condicionar X dado Y = 60</span></span>
+<span><span class="va">y_cond</span> <span class="op">&lt;-</span> <span class="fl">60</span></span>
+<span><span class="va">mu_cond</span> <span class="op">&lt;-</span> <span class="va">mu</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">rho</span> <span class="op">*</span> <span class="op">(</span><span class="va">sigma</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">/</span><span class="va">sigma</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="va">y_cond</span> <span class="op">-</span> <span class="va">mu</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">sigma_cond</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">rho</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">*</span> <span class="va">sigma</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span></span>
 <span><span class="co"># Mostrar la media y desviación estándar condicionales</span></span>
 <span><span class="va">mu_cond</span></span></code></pre></div>
-<pre><code>## [1] 211.4286</code></pre>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<pre><code>## [1] 107.5</code></pre>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sigma_cond</span></span></code></pre></div>
-<pre><code>## [1] 8</code></pre>
-<p>Esto nos dice que el peso medio de una persona con altura de 180 cm es mayor que el peso medio de la población total, y su desviación estándar es menor debido a la correlación positiva entre peso y altura.</p>
+<pre><code>## [1] 12.99038</code></pre>
+<p>La media condicional es 107.5 y la desviación típica es aproximadamente 12.9904. Así, <span class="math inline">\(X\mid Y=60\sim N(107.5,168.75)\)</span>, usando <span class="math inline">\(N(\mu,\sigma^2)\)</span>. La varianza condicional es menor que la marginal porque <span class="math inline">\(\rho\ne0\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1041,7 +1025,7 @@ Y \mid X = x \sim N \left( \mu_Y + \rho \frac{\sigma_Y}{\sigma_X} (x - \mu_X), (
 <span class="header-section-number">4.7</span> Independencia de variables aleatorias<a class="anchor" aria-label="anchor" href="#independencia-de-variables-aleatorias"><i class="fas fa-link"></i></a>
 </h2>
 <p>Una vez introducido el concepto de distribución conjunta pasamos a estudiar un caso particularmente importante de distribución conjunta, la independencia.
-De forma aparentemente contradictoria, en este caso, las variables se caracterizan por el hecho de que <em>no varían conjuntamente</em> sino que lo hacen <em>independientemente</em> las unas de las otras.</p>
+La independencia significa que conocer una componente no cambia la distribución de la otra; ambas siguen teniendo una distribución conjunta.</p>
 <p>De manera intuitiva podemos decir que dos variables aleatorias son independientes si los valores que toma una de ellas no afectan a los de la otra ni a sus probabilidades.</p>
 <p>En muchas ocasiones la independencia será evidente a partir del experimento, por ejemplo, es independiente el resultado del lanzamiento de un dado y el de una moneda tres veces. Por tanto las variables:</p>
 <ul>
@@ -1057,8 +1041,8 @@ De forma aparentemente contradictoria, en este caso, las variables se caracteriz
 <li>
 <span class="math inline">\(Y_2=\)</span>: variable indicadora de puntuación par.</li>
 </ul>
-<p>Es evidente que existe una clara dependencia, si sabemos que <span class="math inline">\(Y=1\)</span>, la variable <span class="math inline">\(X\)</span> sólo puede tomar los valores 2 , 4 o 6 ; si sabemos que <span class="math inline">\(X=3\)</span>, entonces, <span class="math inline">\(Y=0\)</span> forzosamente.</p>
-<p>Algunas veces podemos suponer la existencia de una cierta relación entre variables, aunque sea en forma algo abstracta y sin concretar. Por ejemplo si realizamos unas mediciones sobre unos individuos, las variables altura en cm y peso en Kg probablemente estarán relacionadas, los valores de una influirán en los valores de la otra. Intentar determinar la naturaleza exacta de la relación entre ambas es lo que en estadística conocemos como un problema de correlación (si nos interesa unicamente la asociación) o de regresión (si uqeremos modelizar una variable en función d ela otra).</p>
+<p>Es evidente que existe una clara dependencia, si sabemos que <span class="math inline">\(Y_2=1\)</span>, la variable <span class="math inline">\(Y_1\)</span> sólo puede tomar los valores 2, 4 o 6; si sabemos que <span class="math inline">\(Y_1=3\)</span>, entonces <span class="math inline">\(Y_2=0\)</span> forzosamente.</p>
+<p>Algunas veces podemos suponer la existencia de una cierta relación entre variables, aunque sea en forma algo abstracta y sin concretar. Por ejemplo si realizamos unas mediciones sobre unos individuos, las variables altura en cm y peso en Kg probablemente estarán relacionadas, los valores de una influirán en los valores de la otra. Intentar determinar la naturaleza exacta de la relación entre ambas es lo que en estadística conocemos como un problema de asociación (o de correlación lineal si nos interesa específicamente la relación lineal) o de regresión (si queremos modelizar una variable en función de la otra).</p>
 <p>Si queremos una definición algo más formal, basta con que recordemos que dos sucesos son independientes si la probabilidad de la intersección es igual al producto de probabilidades, aplicando esta definición a sucesos del tipo <span class="math inline">\(X \leq a\)</span> tenemos la definición siguiente:</p>
 <div id="primera-caracterización-de-la-independencia" class="section level3" number="4.7.1">
 <h3>
@@ -1067,7 +1051,7 @@ De forma aparentemente contradictoria, en este caso, las variables se caracteriz
 <div class="definicion">
 <p>Diremos que dos variables aleatorias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes si y sólo si su función de distribución conjunta puede expresarse como el producto de las funciones de distribución marginales, es decir si</p>
 <p><span class="math display">\[
-F_{X,Y}(x,y)= P\left( (X \leq x) \cap (Y \leq b)\right)=P(X \leq x) \times P(Y \leq y)=F_{X}(x) \times F_{Y}(y)
+F_{X,Y}(x,y)=F_X(x)F_Y(y)\qquad\text{para todo }(x,y)\in\mathbb R^2.
 \]</span></p>
 </div>
 <p>Fijémonos que, como en otros casos, la función que nos permite caracterizar una condición de forma general es la función de distribución.</p>
@@ -1079,18 +1063,28 @@ F_{X,Y}(x,y)= P\left( (X \leq x) \cap (Y \leq b)\right)=P(X \leq x) \times P(Y \
 <div class="definicion">
 <p>Diremos que dos variables aleatorias <strong>discretas</strong> <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes si y sólo si su función de masa de probabilidad conjunta puede expresarse como el producto de las funciones de masa de probabilidad marginales, es decir si</p>
 <p><span class="math display">\[
-f_{X,Y}(x,y)= P\left( (X = x) \cap (Y = y)\right)=P(X = x) \times P(Y = y)=f_{X}(x) \times f_{Y}(y)
+f_{X,Y}(x,y)=f_X(x)f_Y(y)\qquad\text{para todo }(x,y)\in\mathbb R^2.
 \]</span></p>
 </div>
 </div>
 </div>
-<div id="propiedades-de-las-variables-independientes" class="section level3" number="4.7.2">
+<div id="variables-absolutamente-continuas-independientes" class="section level3" number="4.7.2">
 <h3>
-<span class="header-section-number">4.7.2</span> Propiedades de las variables independientes<a class="anchor" aria-label="anchor" href="#propiedades-de-las-variables-independientes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.7.2</span> Variables absolutamente continuas independientes<a class="anchor" aria-label="anchor" href="#variables-absolutamente-continuas-independientes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Si existe una densidad conjunta, <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes si y solo si
+<span class="math display">\[
+f_{X,Y}(x,y)=f_X(x)f_Y(y)
+\]</span>
+casi por todas partes. La igualdad debe comprobarse en todo el plano salvo conjuntos de área cero, incluyendo dónde las densidades son cero; no basta comprobarla en un punto.</p>
+</div>
+<div id="propiedades-de-las-variables-independientes" class="section level3" number="4.7.3">
+<h3>
+<span class="header-section-number">4.7.3</span> Propiedades de las variables independientes<a class="anchor" aria-label="anchor" href="#propiedades-de-las-variables-independientes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Como consecuencia inmediata de la independencia de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, se cumple lo siguiente:</p>
 <p><span class="math display">\[
-P(a&lt;X \leq c \cap b&lt;Y \leq d)=P(a&lt;X \leq c) \cdot P(b&lt;Y \leq d)
+P((a&lt;X \leq c) \cap (b&lt;Y \leq d))=P(a&lt;X \leq c) \cdot P(b&lt;Y \leq d)
 \]</span>
 Que podría re-enunciarse diciendo que la probabilidad conjunta en un rectangulo definido por los valores “a, c, b, d” es el producto de las probabilidades marginales en los segmentos “ac”, para <span class="math inline">\(X\)</span> y “bd” para <span class="math inline">\(Y\)</span>.</p>
 </div>
@@ -1100,11 +1094,11 @@ Que podría re-enunciarse diciendo que la probabilidad conjunta en un rectangulo
 <span class="header-section-number">4.8</span> Momentos de vectores aleatorios<a class="anchor" aria-label="anchor" href="#momentos-de-vectores-aleatorios"><i class="fas fa-link"></i></a>
 </h2>
 <p>Una vez hemos introducido los vectores aleatorios, que como hemos señalado, son variables aleatorias bi, tri o <span class="math inline">\(n\)</span>-dimensionales tiene sentido preguntarse como se extienden a dichos vectores los conceptos y propiedades que introdujimos para variables aleatorias unidimensionales.</p>
-<p>Ya hemos visto como, para las funciones de probabilidad, la función de densidad o la función de distribución, existen extensiones imediatas, la función de densidad conjunta o la función de distribución conjunmta.</p>
+<p>Ya hemos visto como, para las funciones de probabilidad, la función de densidad o la función de distribución, existen extensiones inmediatas, la función de densidad conjunta o la función de distribución conjunta.</p>
 <p>Hemos visto también que, además de dichas extensiones, aparecen nuevos conceptos, que sólo tienen sentido en dos o más dimensiones, como las funciones de densidad condicionales o funciones de densidad marginales.</p>
 <p>Al considerar conceptos como la media o la varianza veremos que sucede algo similar:</p>
 <ul>
-<li>Por un lado conceptos como el de esperanza se extiende imediatamente al vector de medias.</li>
+<li>Por un lado conceptos como el de esperanza se extiende inmediatamente al vector de medias.</li>
 <li>Por otro, conceptos como la varianza, han de tener en cuenta ahora, la posibilidad de variación conjunta entre dos o más variables lo que lleva a introducir magnitudes como la covarianza y la correlación.
 <ul>
 <li>La extensión del concepto de varianza pasa ahora a combinar extensiones y conceptos nuevos en lo que se conoce como matriz de varianzas-covarianzas.</li>
@@ -1115,7 +1109,7 @@ Que podría re-enunciarse diciendo que la probabilidad conjunta en un rectangulo
 <h3>
 <span class="header-section-number">4.8.1</span> Esperanza de un vector aleatorio o vector de medias<a class="anchor" aria-label="anchor" href="#esperanza-de-un-vector-aleatorio-o-vector-de-medias"><i class="fas fa-link"></i></a>
 </h3>
-<p>La <strong>esperanza matemática</strong> de un vector aleatorio es un vector que contiene las esperanzas matemáticas de cada una de las componentes de dicho vector.</p>
+<p>Si todas las componentes son integrables, la <strong>esperanza matemática</strong> de un vector aleatorio es el vector de sus esperanzas matemáticas.</p>
 <p>Si tenemos un vector aleatorio bivariante <span class="math inline">\(\mathbf{X}=(X_1,X_2)\)</span>, su esperanza <span class="math inline">\(\mathbb{E}(\mathbf{X})\)</span> está dada por:</p>
 <p><span class="math display">\[
 \mathbb{E}(\mathbf{X})=
@@ -1125,6 +1119,8 @@ Que podría re-enunciarse diciendo que la probabilidad conjunta en un rectangulo
 \end{pmatrix}
 \]</span></p>
 <div class="ejemplo">
+<p><strong>Ejemplo 4.8.1.</strong>
+</p>
 <p>Consideremos un experimento en el que estamos midiendo el nivel de expresión génica de dos genes <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> en una muestra de células. Si los niveles promedio de expresión son <span class="math inline">\(\mu_1=5\)</span> y <span class="math inline">\(\mu_2=8\)</span>, entonces la esperanza del vector aleatorio sería:</p>
 <p><span class="math display">\[
 \mathbb{E}(\mathbf{X})=
@@ -1141,28 +1137,36 @@ Que podría re-enunciarse diciendo que la probabilidad conjunta en un rectangulo
 </h3>
 <p>La <strong>covarianza</strong> entre dos variables aleatorias <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> es una medida del grado de dependencia <em>lineal</em> entre ellas.</p>
 <div class="definicion">
-<p>La covarianza se define como</p>
+<p>Si <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> tienen segundos momentos finitos, la covarianza se define como</p>
 <p><span class="math display">\[
-\text{Cov}(X_1,X_2)=\mathbb{E}[(X_1-\mathbb{E}(X_1))(X_2-\mathbb{E}(X_2))]
+\begin{aligned}
+\operatorname{Cov}(X_1,X_2)
+&amp;=\mathbb{E}[(X_1-\mathbb{E}(X_1))(X_2-\mathbb{E}(X_2))]\\
+&amp;=\mathbb{E}(X_1X_2)-\mathbb{E}(X_1)\mathbb{E}(X_2).
+\end{aligned}
 \]</span></p>
 </div>
 <div class="ejemplo">
-<p>Supongamos que estamos midiendo la cantidad de dos metabolitos <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> en una muestra, y queremos saber si sus concentraciones tienden a aumentar o disminuir juntas. Si obtenemos una covarianza de 0.5, y conocemos la escala en que varían los datos, podemos concluir que existe ligera tendencia a que los aumentos en <span class="math inline">\(X_1\)</span> estén asociados con aumentos en <span class="math inline">\(X_2\)</span>.</p>
+<p><strong>Ejemplo 4.8.2.</strong>
+</p>
+<p>Supongamos que estamos midiendo la cantidad de dos metabolitos <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> en una muestra, y queremos saber si sus concentraciones tienden a aumentar o disminuir juntas. Si obtenemos una covarianza de 0.5, y conocemos la escala en que varían los datos, el signo positivo indica asociación lineal positiva; su intensidad no puede juzgarse a partir de 0.5 sin tener en cuenta las escalas y varianzas.</p>
 </div>
 </div>
 <div id="covarianza-y-correlación" class="section level3" number="4.8.3">
 <h3>
 <span class="header-section-number">4.8.3</span> Covarianza y correlación<a class="anchor" aria-label="anchor" href="#covarianza-y-correlaci%C3%B3n"><i class="fas fa-link"></i></a>
 </h3>
-<p>El ejemplo anterior es claramente insatisfactorio, puesto que valores de 0.5 pueden sugerir una gran dependencia o cas ninguna, segun cual sea la escala o el rango de variación de los valores que se consideran.</p>
+<p>La magnitud de la covarianza depende de las unidades: multiplicar una variable por una constante multiplica también su covarianza. Para interpretar la intensidad de la asociación lineal necesitamos una medida estandarizada.</p>
 <p>Para evitar esta arbitrariedad se introduce la correlación lineal.</p>
 <div class="definicion">
-<p>La <strong>correlación</strong> entre dos variables aleatorias es una medida estandarizada del grado de dependencia lineal entre dos variables (es decir de lacovarianza), que toma valores entre -1 y 1 y que se define como:</p>
+<p>La <strong>correlación</strong> entre dos variables aleatorias es una medida estandarizada del grado de dependencia lineal entre dos variables (es decir de la covarianza), que toma valores entre -1 y 1. Requiere varianzas finitas y estrictamente positivas y se define como:</p>
 <p><span class="math display">\[
 \text{Corr}(X_1,X_2)=\frac{\text{Cov}(X_1,X_2)}{\sqrt{\text{Var}(X_1)\text{Var}(X_2)}}
 \]</span></p>
 </div>
 <div class="ejemplo">
+<p><strong>Ejemplo 4.8.3.</strong>
+</p>
 <p>En el caso de los metabolitos mencionados anteriormente, si <span class="math inline">\(\text{Cov}(X_1,X_2)=0.5\)</span>, <span class="math inline">\(\text{Var}(X_1)=2\)</span> y <span class="math inline">\(\text{Var}(X_2)=3\)</span>, podemos calcular la correlación, que valdría:</p>
 <p><span class="math display">\[
 \text{Corr}(X_1,X_2)=\frac{0.5}{\sqrt{2\times 3}}=\frac{0.5}{\sqrt{6}}\approx 0.204
@@ -1190,6 +1194,8 @@ Este ejemplo muestra como la correlación aporta más información sobre la depe
 \]</span></p>
 </div>
 <div class="ejemplo">
+<p><strong>Ejemplo 4.8.4.</strong>
+</p>
 <p>Siguiendo con el ejemplo de los metabolitos, si <span class="math inline">\(\text{Var}(X_1)=2\)</span>, <span class="math inline">\(\text{Var}(X_2)=3\)</span>, y la covarianza es <span class="math inline">\(0.5\)</span>, la matriz de covarianzas sería:</p>
 <p><span class="math display">\[
 \text{Cov}(\mathbf{X})=
@@ -1200,15 +1206,7 @@ Este ejemplo muestra como la correlación aporta más información sobre la depe
 \]</span></p>
 <p>Esto nos indica la dispersión de cada variable y la relación entre ambas.</p>
 </div>
-<div class="ejemplo">
-<p><strong>La distribución normal bivariante</strong></p>
-<p>Una de las distribuciones más importantes que describe el comportamiento conjunto de dos variables aleatorias es la <strong>distribución normal bivariante</strong>.</p>
-<p>Un vector aleatorio <span class="math inline">\(\mathbf{X}=(X_1,X_2)\)</span> tiene una distribución normal bivariante si su función de densidad conjunta está dada por:</p>
-<p><span class="math display">\[
-f(x_1,x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\frac{1}{2(1-\rho^2)}\left[\frac{(x_1-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(x_2-\mu_2)^2}{\sigma_2^2}\right]\right)
-\]</span></p>
-<p>Aquí, <span class="math inline">\(\mu_1\)</span> y <span class="math inline">\(\mu_2\)</span> son las medias de <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>, <span class="math inline">\(\sigma_1^2\)</span> y <span class="math inline">\(\sigma_2^2\)</span> son las varianzas, y <span class="math inline">\(\rho\)</span> es el coeficiente de correlación.</p>
-</div>
+<p>En la normal bivariante anterior, <span class="math inline">\(\operatorname{Cov}(X,Y)=\rho\sigma_X\sigma_Y\)</span>; esta identidad conecta sus parámetros con la matriz de covarianzas.</p>
 </div>
 <div id="matriz-de-correlaciones" class="section level3" number="4.8.5">
 <h3>
@@ -1244,6 +1242,8 @@ f(x_1,x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\frac{1}{2(1-
 \]</span></p>
 <p>donde <span class="math inline">\(\sigma_1=\sqrt{\text{Var}(X_1)}\)</span> y <span class="math inline">\(\sigma_2=\sqrt{\text{Var}(X_2)}\)</span>.</p>
 <div class="ejemplo">
+<p><strong>Ejemplo 4.8.5.</strong>
+</p>
 <p>Supongamos que medimos dos variables, como la altura <span class="math inline">\(X_1\)</span> y el peso <span class="math inline">\(X_2\)</span> de un grupo de personas. Sabemos que:</p>
 <ul>
 <li>
@@ -1277,41 +1277,78 @@ f(x_1,x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\frac{1}{2(1-
 </div>
 </div>
 </div>
-<div id="segunda-caracterización-de-la-independencia" class="section level3" number="4.8.6">
+<div id="independencia-y-producto-de-esperanzas" class="section level3" number="4.8.6">
 <h3>
-<span class="header-section-number">4.8.6</span> Segunda caracterización de la independencia<a class="anchor" aria-label="anchor" href="#segunda-caracterizaci%C3%B3n-de-la-independencia"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.8.6</span> Independencia y producto de esperanzas<a class="anchor" aria-label="anchor" href="#independencia-y-producto-de-esperanzas"><i class="fas fa-link"></i></a>
 </h3>
-<p>La <strong>independencia</strong> entre dos variables aleatorias <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> puede caracterizarse también a través de sus <strong>esperanzas</strong> de la siguiente manera:</p>
-<p>Dos variables son <strong>independientes</strong> si la esperanza del producto de ambas es igual al producto de las esperanzas de cada una por separado. Es decir si se verifica que:</p>
-<p><span class="math display">\[
-\mathbb{E}[X_1 X_2] = \mathbb{E}[X_1] \mathbb{E}[X_2]
-\]</span></p>
-<p>Esta propiedad refleja que, cuando las variables son independientes, el valor esperado del producto no se ve afectado por la interacción entre ellas, lo que implica que no hay dependencia entre las dos.</p>
-<p>Una consecuencia importante de esta propiedad es cómo afecta a la <strong>covarianza</strong> entre <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span>.</p>
-<p>Si <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son <strong>independientes</strong>, entonces, por la propiedad anterior, <span class="math inline">\(\mathbb{E}[X_1 X_2] = \mathbb{E}[X_1] \mathbb{E}[X_2]\)</span> lo que, a su vez, significa que la covarianza es cero:</p>
-<p><span class="math display">\[
-\text{Cov}(X_1, X_2) = \mathbb{E}[X_1]\mathbb{E}[X_2] - \mathbb{E}[X_1]\mathbb{E}[X_2] = 0
-\]</span></p>
-<p>Por lo tanto, <strong>si dos variables son independientes, necesariamente su covarianza es cero</strong>.</p>
-<p>Sin embargo, la inversa no es cierta: el hecho de que la covarianza sea cero no implica que las variables sean independientes.</p>
+<p>Si <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son independientes e integrables, entonces
+<span class="math display">\[
+\mathbb{E}(X_1X_2)=\mathbb{E}(X_1)\mathbb{E}(X_2).
+\]</span>
+La recíproca es falsa. En particular, con segundos momentos finitos, la independencia implica covarianza cero, pero covarianza cero no caracteriza la independencia.</p>
 </div>
-<div id="relación-entre-incorrelación-e-independencia" class="section level3" number="4.8.7">
+<div id="momentos-de-combinaciones-lineales" class="section level3" number="4.8.7">
 <h3>
-<span class="header-section-number">4.8.7</span> Relación entre incorrelación e independencia<a class="anchor" aria-label="anchor" href="#relaci%C3%B3n-entre-incorrelaci%C3%B3n-e-independencia"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.8.7</span> Momentos de combinaciones lineales<a class="anchor" aria-label="anchor" href="#momentos-de-combinaciones-lineales"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para variables integrables y constantes reales <span class="math inline">\(a_i,b\)</span>, la linealidad no exige independencia:
+<span class="math display">\[
+\mathbb{E}\left(b+\sum_{i=1}^k a_iX_i\right)=b+\sum_{i=1}^k a_i\mathbb{E}(X_i).
+\]</span>
+Si además existen segundos momentos finitos,
+<span class="math display">\[
+\begin{aligned}
+\operatorname{Var}\left(b+\sum_{i=1}^k a_iX_i\right)
+&amp;=\sum_{i=1}^k a_i^2\operatorname{Var}(X_i)\\
+&amp;\quad+2\sum_{i&lt;j}a_ia_j\operatorname{Cov}(X_i,X_j).
+\end{aligned}
+\]</span>
+Para dos variables, <span class="math inline">\(\operatorname{Var}(X-Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)-2\operatorname{Cov}(X,Y)\)</span>. Las covarianzas desaparecen si las variables son incorreladas; la independencia es suficiente, pero no necesaria. La fórmula no presupone que la combinación sea normal.</p>
+</div>
+<div id="momentos-de-la-multinomial" class="section level3" number="4.8.8">
+<h3>
+<span class="header-section-number">4.8.8</span> Momentos de la multinomial<a class="anchor" aria-label="anchor" href="#momentos-de-la-multinomial"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para <span class="math inline">\(\mathbf X\sim\mathrm M(n,\mathbf p)\)</span>,
+<span class="math display">\[
+\begin{aligned}
+\mathbb E(X_i)&amp;=np_i,\\
+\operatorname{Var}(X_i)&amp;=np_i(1-p_i),\\
+\operatorname{Cov}(X_i,X_j)&amp;=-np_ip_j\quad(i\ne j).
+\end{aligned}
+\]</span>
+Las dos primeras igualdades proceden de las marginales binomiales. Para la tercera, escribimos cada recuento como suma de indicadores por ensayo: dos categorías distintas no ocurren en el mismo ensayo, así que la covarianza de sus indicadores es <span class="math inline">\(0-p_ip_j\)</span>; entre ensayos es cero por independencia. Sumando resulta <span class="math inline">\(-np_ip_j\)</span>.</p>
+<div class="ejemplo">
+<p><strong>Ejemplo 4.8.6. Momentos de las asignaciones a laboratorios</strong>
+</p>
+<p>Con dos estudios y tres laboratorios equiprobables, <span class="math inline">\(\mathbb E(X_A)=2/3\)</span>, <span class="math inline">\(\operatorname{Var}(X_A)=4/9\)</span> y <span class="math inline">\(\operatorname{Cov}(X_A,X_B)=-2/9\)</span>. Por tanto,
+<span class="math display">\[
+\operatorname{Var}(X_A-X_B)=4/9+4/9-2(-2/9)=4/3.
+\]</span>
+El signo negativo refleja que un estudio asignado a A ya no puede asignarse a B.</p>
+</div>
+</div>
+<div id="relación-entre-incorrelación-e-independencia" class="section level3" number="4.8.9">
+<h3>
+<span class="header-section-number">4.8.9</span> Relación entre incorrelación e independencia<a class="anchor" aria-label="anchor" href="#relaci%C3%B3n-entre-incorrelaci%C3%B3n-e-independencia"><i class="fas fa-link"></i></a>
 </h3>
 <p>Cuando la covarianza entre dos variables es cero, se dice que las variables son <strong>incorreladas</strong>.
 Aunque la <strong>independencia</strong> implica que las variables son incorreladas, lo contrario no siempre es verdad: dos variables pueden ser incorreladas (tener covarianza cero) pero <strong>no independientes</strong>.</p>
 <div class="ejemplo">
-<p>Un ejemplo clásico es el siguiente: si consideramos una variable aleatoria <span class="math inline">\(X\)</span> y definimos <span class="math inline">\(Y = X^2\)</span>, entonces, aunque la covarianza entre <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> puede ser cero (especialmente si <span class="math inline">\(X\)</span> tiene una distribución simétrica alrededor de 0, como la normal estándar), <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> no son independientes, porque el valor de <span class="math inline">\(Y\)</span> está completamente determinado por <span class="math inline">\(X\)</span>.</p>
+<p><strong>Ejemplo 4.8.7.</strong>
+</p>
+<p>Un ejemplo clásico es el siguiente: si <span class="math inline">\(X\sim N(0,1)\)</span> y <span class="math inline">\(Y=X^2\)</span>, entonces <span class="math inline">\(\operatorname{Cov}(X,Y)=E(X^3)-E(X)E(X^2)=0\)</span>. Sin embargo, no son independientes: <span class="math inline">\(P(Y\leq1\mid |X|\leq1)=1\)</span>, mientras que <span class="math inline">\(P(Y\leq1)&lt;1\)</span>.</p>
 </div>
 <div class="ejemplo">
+<p><strong>Ejemplo 4.8.8.</strong>
+</p>
 <p>Consideremos dos variables aleatorias <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> que siguen una distribución normal conjunta bivariante con media cero:</p>
 <p><span class="math display">\[
 (X_1, X_2) \sim \mathcal{N}\left(\mathbf{0}, \Sigma \right)
 \]</span></p>
 <p>Si la <strong>matriz de covarianzas</strong> <span class="math inline">\(\Sigma\)</span> es diagonal, es decir, <span class="math inline">\(\text{Cov}(X_1, X_2) = 0\)</span>, entonces <span class="math inline">\(X_1\)</span> y <span class="math inline">\(X_2\)</span> son incorreladas.</p>
-<p>En este caso particular, cuando las variables son normales, la incorrelación <strong>sí</strong> implica independencia, porque en distribuciones normales la ausencia de correlación (covarianza cero) también implica que no hay ninguna dependencia entre las variables.</p>
-<p>Sin embargo, en otras distribuciones que no son normales, la incorrelación no garantiza la independencia, lo que subraya la importancia de distinguir entre los dos conceptos.</p>
+<p>En este caso particular, cuando tienen distribución normal conjunta, la incorrelación <strong>sí</strong> implica independencia, porque en la normal conjunta la ausencia de correlación (covarianza cero) también implica que no hay ninguna dependencia entre las variables.</p>
+<p>Sin embargo, en otras distribuciones que no tienen distribución normal conjunta, la incorrelación no garantiza la independencia, lo que subraya la importancia de distinguir entre los dos conceptos.</p>
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -1329,12 +1366,10 @@ Aunque la <strong>independencia</strong> implica que las variables son incorrela
 <a class="nav-link" href="#distribuciones-conjuntas-de-probabilidades"><span class="header-section-number">4.1</span> Distribuciones conjuntas de probabilidades</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#variable-aleatoria-bivariante"><span class="header-section-number">4.1.1</span> Variable aleatoria bivariante</a></li>
 <li><a class="nav-link" href="#funci%C3%B3n-de-distribuci%C3%B3n-bivariante"><span class="header-section-number">4.1.2</span> Función de distribución bivariante</a></li>
-<li><a class="nav-link" href="#ejemplo-distribuci%C3%B3n-conjunta-del-estado-de-infecci%C3%B3n-y-activaci%C3%B3n-de-c%C3%A9lulas"><span class="header-section-number">4.1.3</span> Ejemplo: Distribución conjunta del estado de infección y activación de células</a></li>
-<li><a class="nav-link" href="#implementaci%C3%B3n-en-r"><span class="header-section-number">4.1.4</span> Implementación en R</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#variable-aleatorias-bivariantes-discretas"><span class="header-section-number">4.2</span> Variable aleatorias bivariantes discretas</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#variables-aleatorias-bivariantes-discretas"><span class="header-section-number">4.2</span> Variables aleatorias bivariantes discretas</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#funci%C3%B3n-de-masa-de-probabilidad-discreta-fmp"><span class="header-section-number">4.2.1</span> Función de masa de probabilidad discreta (fmp)</a></li>
 <li><a class="nav-link" href="#propiedades-de-la-fmp-bivariante"><span class="header-section-number">4.2.2</span> Propiedades de la fmp bivariante</a></li>
 <li><a class="nav-link" href="#ejemplo-de-distribuci%C3%B3n-bivariante-discreta"><span class="header-section-number">4.2.3</span> Ejemplo de distribución bivariante discreta</a></li>
@@ -1351,13 +1386,13 @@ Aunque la <strong>independencia</strong> implica que las variables son incorrela
 <li>
 <a class="nav-link" href="#distribuciones-marginales"><span class="header-section-number">4.4</span> Distribuciones marginales</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#las-marginales-est%C3%A1n-en-los-m%C3%A1rgenes"><span class="header-section-number">4.4.1</span> Las marginales están en los márgenes</a></li>
-<li><a class="nav-link" href="#densidades-marginales-discretas"><span class="header-section-number">4.4.2</span> Densidades marginales discretas</a></li>
+<li><a class="nav-link" href="#funciones-de-masa-marginales"><span class="header-section-number">4.4.2</span> Funciones de masa marginales</a></li>
 <li><a class="nav-link" href="#trinomial-m5-0.6-0.2-distribuciones-marginales"><span class="header-section-number">4.4.3</span> Trinomial M(5; 0.6, 0.2): Distribuciones marginales</a></li>
 </ul>
 </li>
 <li>
 <a class="nav-link" href="#distribuciones-condicionales"><span class="header-section-number">4.5</span> Distribuciones condicionales</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#densidad-condicional"><span class="header-section-number">4.5.1</span> Densidad condicional</a></li>
+<li><a class="nav-link" href="#funci%C3%B3n-de-masa-condicional"><span class="header-section-number">4.5.1</span> Función de masa condicional</a></li>
 <li><a class="nav-link" href="#trinomial-m5-0.6-0.2-distribuci%C3%B3n-condicional"><span class="header-section-number">4.5.2</span> Trinomial M(5; 0.6, 0.2): Distribución condicional</a></li>
 </ul>
 </li>
@@ -1366,14 +1401,15 @@ Aunque la <strong>independencia</strong> implica que las variables son incorrela
 <li><a class="nav-link" href="#propiedades-de-la-funci%C3%B3n-de-densidad-conjunta"><span class="header-section-number">4.6.1</span> Propiedades de la función de densidad conjunta</a></li>
 <li><a class="nav-link" href="#densidades-marginales-en-el-caso-continuo"><span class="header-section-number">4.6.2</span> Densidades marginales en el caso continuo</a></li>
 <li><a class="nav-link" href="#densidad-condicional-en-el-caso-continuo"><span class="header-section-number">4.6.3</span> Densidad condicional en el caso continuo</a></li>
-<li><a class="nav-link" href="#la-distribuci%C3%B3n-normal-bivariante"><span class="header-section-number">4.6.4</span> La Distribución Normal Bivariante</a></li>
+<li><a class="nav-link" href="#la-distribuci%C3%B3n-normal-bivariante"><span class="header-section-number">4.6.4</span> La distribución normal bivariante</a></li>
 <li><a class="nav-link" href="#distribuciones-condicionales-1"><span class="header-section-number">4.6.5</span> Distribuciones Condicionales</a></li>
 </ul>
 </li>
 <li>
 <a class="nav-link" href="#independencia-de-variables-aleatorias"><span class="header-section-number">4.7</span> Independencia de variables aleatorias</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#primera-caracterizaci%C3%B3n-de-la-independencia"><span class="header-section-number">4.7.1</span> Primera caracterización de la independencia</a></li>
-<li><a class="nav-link" href="#propiedades-de-las-variables-independientes"><span class="header-section-number">4.7.2</span> Propiedades de las variables independientes</a></li>
+<li><a class="nav-link" href="#variables-absolutamente-continuas-independientes"><span class="header-section-number">4.7.2</span> Variables absolutamente continuas independientes</a></li>
+<li><a class="nav-link" href="#propiedades-de-las-variables-independientes"><span class="header-section-number">4.7.3</span> Propiedades de las variables independientes</a></li>
 </ul>
 </li>
 <li>
@@ -1383,8 +1419,10 @@ Aunque la <strong>independencia</strong> implica que las variables son incorrela
 <li><a class="nav-link" href="#covarianza-y-correlaci%C3%B3n"><span class="header-section-number">4.8.3</span> Covarianza y correlación</a></li>
 <li><a class="nav-link" href="#matriz-de-varianzas-covarianzas"><span class="header-section-number">4.8.4</span> Matriz de varianzas-covarianzas</a></li>
 <li><a class="nav-link" href="#matriz-de-correlaciones"><span class="header-section-number">4.8.5</span> Matriz de correlaciones</a></li>
-<li><a class="nav-link" href="#segunda-caracterizaci%C3%B3n-de-la-independencia"><span class="header-section-number">4.8.6</span> Segunda caracterización de la independencia</a></li>
-<li><a class="nav-link" href="#relaci%C3%B3n-entre-incorrelaci%C3%B3n-e-independencia"><span class="header-section-number">4.8.7</span> Relación entre incorrelación e independencia</a></li>
+<li><a class="nav-link" href="#independencia-y-producto-de-esperanzas"><span class="header-section-number">4.8.6</span> Independencia y producto de esperanzas</a></li>
+<li><a class="nav-link" href="#momentos-de-combinaciones-lineales"><span class="header-section-number">4.8.7</span> Momentos de combinaciones lineales</a></li>
+<li><a class="nav-link" href="#momentos-de-la-multinomial"><span class="header-section-number">4.8.8</span> Momentos de la multinomial</a></li>
+<li><a class="nav-link" href="#relaci%C3%B3n-entre-incorrelaci%C3%B3n-e-independencia"><span class="header-section-number">4.8.9</span> Relación entre incorrelación e independencia</a></li>
 </ul>
 </li>
 </ul>
@@ -1393,7 +1431,7 @@ Aunque la <strong>independencia</strong> implica que las variables son incorrela
 </div>
 </div>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-10-17.</p></div>
+<div class="col-12 col-md-6 mt-3"><p>"<strong>Fundamentos de Inferencia Estadistica</strong>" was written by Alex Sanchez Pla y Santiago Pérez Hoyos. It was last built on 2026-10-19.</p></div>
 <div class="col-12 col-md-6 mt-3"><p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p></div>
 </div></div></footer><script>(function(){var script=document.createElement("script");script.type="text/javascript";var src="true";if(src===""||src==="true")src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";if(location.protocol!=="file:")if(/^https?:/.test(src))src=src.replace(/^https?:/,'');script.src=src;document.getElementsByTagName("head")[0].appendChild(script);})();</script><script type="text/x-mathjax-config">const popovers=document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');for(let popover of popovers){const div=document.createElement('div');div.setAttribute('style','position:absolute;top:0,left:0;width:0,height:0,overflow:hidden;visibility:hidden;');div.innerHTML=popover.getAttribute('data-content');var has_math=div.querySelector("span.math");if(has_math){document.body.appendChild(div);MathJax.Hub.Queue(["Typeset",MathJax.Hub,div]);MathJax.Hub.Queue(function(){popover.setAttribute('data-content',div.innerHTML);document.body.removeChild(div)})}}</script>
 </body>

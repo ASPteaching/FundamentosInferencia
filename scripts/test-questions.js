@@ -10,12 +10,13 @@ vm.createContext(context);
 vm.runInContext(source + '\nthis.testAPI = {diverseSelection, escapeHTML};', context);
 const {diverseSelection, escapeHTML} = context.testAPI;
 assert.equal(escapeHTML('P(a<X<b) & "x"'), 'P(a&lt;X&lt;b) &amp; &quot;x&quot;');
-for (const folder of ['Unidad_01', 'Unidad_02', 'Unidad_03']) {
+for (const folder of ['Unidad_01', 'Unidad_02', 'Unidad_03', 'Unidad_04']) {
   const bank = JSON.parse(fs.readFileSync(path.join(__dirname,
     '../../FundamentosInferencia-QuestionBank', folder, 'questions.yml'), 'utf8')).bank;
   const items = bank.questions.filter(q => q.visibility === 'self_assessment');
   assert.equal(new Set(items.map(q => q.id)).size, items.length);
-  assert.equal(items.length, folder === 'Unidad_03' ? 66 : 40);
+  if (folder !== 'Unidad_04') assert.equal(items.length, folder === 'Unidad_03' ? 66 : 40);
+  else assert.ok(items.length >= 8);
   for (let attempt = 0; attempt < 200; attempt++) {
     const picked = diverseSelection(items, 8);
     assert.equal(picked.length, 8);
@@ -27,4 +28,4 @@ for (const folder of ['Unidad_01', 'Unidad_02', 'Unidad_03']) {
   }
   assert.equal(diverseSelection(items.slice(0,3), 8).length, 3);
 }
-console.log('PASS: U1/U2/U3 selection (600 attempts), unique IDs, diversity, small banks, formula escaping.');
+console.log('PASS: U1/U2/U3/U4 selection (800 attempts), unique IDs, diversity, small banks, formula escaping.');

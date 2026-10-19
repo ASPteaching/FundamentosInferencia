@@ -13,5 +13,10 @@ window.questionData = { units: [
     "id": 3,
     "title": "Distribuciones notables",
     "file": "unit3.js"
+  },
+  {
+    "id": 4,
+    "title": "Vectores aleatorios",
+    "file": "unit4.js"
   }
 ], banks: {} };

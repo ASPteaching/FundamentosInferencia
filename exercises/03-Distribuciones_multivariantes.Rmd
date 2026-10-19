@@ -2,7 +2,7 @@
 
 ## Ejercicio 1
 
-Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados aleatoriamente a uno o más de tres laboratorios, $\mathrm{A}, \mathrm{B}$ y C . Denote con $Y_{1}$ el número de estudios asignados al laboratorio A y con $Y_{2}$ el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0,1 o 2 estudios.
+Se tienen dos estudios clínicos importantes, cuyos análisis genéticos deben ser asignados, cada uno, a exactamente uno de tres laboratorios, de forma independiente y con probabilidad $1/3$ para cada laboratorio: $\mathrm{A}, \mathrm{B}$ y C . Denote con $Y_{1}$ el número de estudios asignados al laboratorio A y con $Y_{2}$ el número de estudios asignados al laboratorio B. Cada laboratorio puede recibir 0,1 o 2 estudios.
 a. Encuentre la función de probabilidad conjunta para $Y_{1}$ y $Y_{2}$.
 b. Encuentre $F(1,0)$, es decir, la probabilidad de que el laboratorio A reciba como máximo un estudio y el laboratorio B no reciba ninguno.
 
@@ -14,7 +14,7 @@ Vamos a analizar el espacio muestral, $S$, que representa las posibles combinaci
 
 | $S$             | AA    | AB    | AC    | BA    | BB    | BC    | CA    | CB    | CC    |
 | --------------- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| $(y_1, y_2)$    | (2,0) | (1,1) | (1,0) | (1,1) | (0,2) | (1,0) | (1,0) | (0,1) | (0,0) |
+| $(y_1, y_2)$    | (2,0) | (1,1) | (1,0) | (1,1) | (0,2) | (0,1) | (1,0) | (0,1) | (0,0) |
 
 Cada punto muestral es igualmente probable, con una probabilidad de $\frac{1}{9}$, ya que existen 9 combinaciones posibles. 
 
@@ -92,7 +92,8 @@ Con esto, la función de probabilidad conjunta $P(Y_1 = y_1, Y_2 = y_2)$ se defi
 $$
 P(Y_1 = y_1, Y_2 = y_2) = 
 \begin{cases}
-\frac{1}{8}, & (y_1, y_2) = (3, 1), (2, 1), (2, 2), (1, 1), (1, 2), (1, 3), (0, -1) \\
+\frac{2}{8}, & (y_1, y_2) = (2, 1) \\
+\frac{1}{8}, & (y_1, y_2) = (3, 1), (2, 2), (1, 1), (1, 2), (1, 3), (0, -1) \\
 0, & \text{en cualquier otro caso}
 \end{cases}
 $$
@@ -218,7 +219,7 @@ $$
 Esto es, $Y_{1}$ y $Y_{2}$ están uniformemente distribuidas sobre la región dentro del triángulo limitado por $y_{1}=2, y_{2}=0$ y $2 y_{2}=y_{1}$.
 
 1. Encuentre el valor de $k$ que haga de ésta una función de densidad de probabilidad.
-2. Encuentre $P\left(Y_{1} \geq 3 Y_{2}\right)$. Esto es, encuentre la probabilidad de que el aparato limpiador reduzca la cantidad de contaminante en un tercio o más.
+2. Encuentre $P\left(Y_{1} \geq 3 Y_{2}\right)$. Esto es, encuentre la probabilidad de que el aparato limpiador reduzca la cantidad de contaminante en dos tercios o más respecto a la cantidad sin limpiador.
 
 
 **Solución**
@@ -306,7 +307,7 @@ es una función de densidad de probabilidad conjunta válida para $Y_{1}$, la ca
 
 1. Si consideramos la chimenea con el limpiador instalado, encuentre la probabilidad de que la cantidad de contaminante en una muestra determinada sea mayor que 0.5.
 
-b. Dado que se observa que la cantidad de contaminante en una muestra tomada arriba de la chimenea con el limpiador es 0.5 , encuentre la probabilidad de que la cantidad de contaminante exceda de 1.5 arriba de la otra chimenea (la que no tiene limpiador).
+2. Dado que se observa que la cantidad de contaminante en una muestra tomada arriba de la chimenea con el limpiador es 0.5 , encuentre la probabilidad de que la cantidad de contaminante exceda de 1.5 arriba de la otra chimenea (la que no tiene limpiador).
 
 **Solución**
 
@@ -339,17 +340,12 @@ $$
 
 Evaluamos esta integral en dos pasos.
 
-```{r eval=FALSE}
-## Calculo de la probabilidad con R
-
-## Definir la función de integración para y1
-integrate_y1 <- function(y2) {
-  integrate(function(y1) 1, lower = 2 * y2, upper = 2)$value
-}
-
-## Integrar respecto a y2
-result <- integrate(function(y2) integrate_y1(y2), lower = 0.5, upper = 1)
+```{r u4-ej5-integral}
+# La integral interior de 1 entre 2*y2 y 2 es 2-2*y2.
+# Esta función admite el vector de puntos que utiliza integrate().
+result <- integrate(function(y2) 2 - 2*y2, lower = 0.5, upper = 1)
 result$value
+stopifnot(abs(result$value - 0.25) < 1e-12)
 ```
 
 #### Resultado
@@ -417,7 +413,7 @@ En el ejercicio 1 determinamos que la distribución conjunta de $Y_{1}$, el núm
 | 1 | $2 / 9$ | $2 / 9$ | 0 |
 | 2 | $1 / 9$ | 0 | 0 |
 
-a. Encuentre $\operatorname{Cov}\left(Y_{1}, Y_{2}\right) \cdot{ }_{i}$
+a. Encuentre $\operatorname{Cov}\left(Y_{1}, Y_{2}\right)$
 b. Le sorprende que $\operatorname{Cov}\left(Y_{1}, Y_{2}\right)$ sea negativa? ${ }_{\text {¿Por qué? }}$
 
 **Solución** 
@@ -484,106 +480,6 @@ Para calcular la covarianza, necesitamos obtener los valores de $E(Y_1)$, $E(Y_2
 
 La covarianza calculada es negativa. Este resultado tiene sentido en el contexto del problema. Dado que los estudios se asignan a tres laboratorios y cada laboratorio recibe un número limitado de estudios, un incremento en el número de estudios asignados a un laboratorio reduce la cantidad disponible para los otros. Así, si $Y_1$ aumenta, $Y_2$ tiende a disminuir, lo que explica una relación inversa entre ambas variables y resulta en una covarianza negativa.
 
-**Solución**
-
-### Ejercicio
-
-#### 1. Probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5
-
-Queremos encontrar la probabilidad de que $Y_2 > 0.5$, donde $Y_2$ representa la cantidad de contaminante en la chimenea con el aparato limpiador. Recordando que $f(y_1, y_2)$ es la función de densidad conjunta y que hemos hallado $k = 1$, calcularemos la probabilidad integrando sobre la región correspondiente a $y_2 > 0.5$ y $y_1$ dentro de su rango definido por la condición $2y_2 \leq y_1 \leq 2$.
-
-La probabilidad se calcula como:
-
-$$
-P(Y_2 > 0.5) = \iint_{\{y_2 > 0.5, 2 y_2 \leq y_1 \leq 2\}} f(y_1, y_2) \, dy_1 \, dy_2
-$$
-
-##### Paso 1: Establecer los límites de integración
-
-Para $y_2 > 0.5$, los límites de $y_1$ están restringidos por la región triangular dada:
-- $2 y_2 \leq y_1 \leq 2$
-
-Entonces, los límites de integración son:
-- $y_2$: desde 0.5 hasta 1
-- $y_1$: desde $2 y_2$ hasta 2
-
-##### Paso 2: Integrar la función de densidad conjunta
-
-Dado que $f(y_1, y_2) = 1$ en esta región, la probabilidad es la integral de 1 sobre el área triangular correspondiente:
-
-$$
-P(Y_2 > 0.5) = \int_{0.5}^{1} \int_{2 y_2}^{2} 1 \, dy_1 \, dy_2
-$$
-
-Evaluamos esta integral en dos pasos.
-
-```{r eval=FALSE}
-## Calculo de la probabilidad con R
-
-## Definir la función de integración para y1
-integrate_y1 <- function(y2) {
-  integrate(function(y1) 1, lower = 2 * y2, upper = 2)$value
-}
-
-## Integrar respecto a y2
-result <- integrate(function(y2) integrate_y1(y2), lower = 0.5, upper = 1)
-result$value
-```
-
-##### Resultado
-
-Al resolver esta integral, obtenemos la probabilidad:
-
-$$
-P(Y_2 > 0.5) \approx 0.25
-$$
-
-#### 2. Probabilidad condicional dada una observación de $Y_2 = 0.5$
-
-Queremos calcular $P(Y_1 > 1.5 \mid Y_2 = 0.5)$, la probabilidad de que la cantidad de contaminante en la chimenea sin limpiador (representada por $Y_1$) sea mayor que 1.5, dado que en la chimenea con limpiador se observó $Y_2 = 0.5$.
-
-##### Paso 1: Identificar la función de densidad condicional
-
-Para la función de densidad condicional $f_{Y_1|Y_2}(y_1 | y_2)$, aplicamos:
-
-$$
-f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = \frac{f(y_1, 0.5)}{f_{Y_2}(0.5)}
-$$
-
-Calcularemos $f_{Y_2}(0.5)$ integrando $f(y_1, y_2)$ sobre los valores de $y_1$ en la región donde $Y_2 = 0.5$:
-
-$$
-f_{Y_2}(0.5) = \int_{y_1 = 2 \cdot 0.5}^{2} f(y_1, 0.5) \, dy_1 = \int_{1}^{2} 1 \, dy_1
-$$
-
-Evaluamos la integral:
-
-$$
-f_{Y_2}(0.5) = \int_{1}^{2} 1 \, dy_1 = (2 - 1) = 1
-$$
-
-Por lo tanto, $f_{Y_2}(0.5) = 1$.
-
-##### Paso 2: Calcular la probabilidad condicional
-
-La probabilidad de interés es:
-
-$$
-P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) \, dy_1
-$$
-
-Como $f_{Y_1|Y_2}(y_1 | Y_2 = 0.5) = 1$ para $1 \leq y_1 \leq 2$, tenemos:
-
-$$
-P(Y_1 > 1.5 | Y_2 = 0.5) = \int_{1.5}^{2} 1 \, dy_1 = 2 - 1.5 = 0.5
-$$
-
-#### Respuesta final
-
-1. La probabilidad de que la cantidad de contaminante en la chimenea con limpiador sea mayor que 0.5 es aproximadamente 0.25.
-2. La probabilidad de que la cantidad de contaminante en la chimenea sin limpiador exceda 1.5, dado que en la otra chimenea se observó 0.5, es 0.5.
-
-
 ## Ejercicio 7
 
 Las variables aleatorias $Y_{1}$ y $Y_{2}$ son tales que $E\left(Y_{1}\right)=4, E\left(Y_{2}\right)=-1, V\left(Y_{1}\right)=2$ y $V\left(Y_{2}\right)=8$.
@@ -640,11 +536,11 @@ $$
 
 Esto significa que el valor máximo posible de $\operatorname{Cov}(Y_1, Y_2)$ es $4$. De manera similar, si $\rho = -1$, el valor mínimo posible de $\operatorname{Cov}(Y_1, Y_2)$ sería $-4$, indicando una asociación lineal negativa perfecta.
 
-Cuando $\operatorname{Cov}(Y_1, Y_2) = 4$, significa que $Y_1$ y $Y_2$ están perfectamente correlacionadas en forma positiva, es decir, existe una relación lineal exacta en la que un aumento en $Y_1$ siempre corresponde a un aumento proporcional en $Y_2$.
+Cuando $\operatorname{Cov}(Y_1, Y_2) = 4$, significa que $Y_1$ y $Y_2$ están perfectamente correlacionadas en forma positiva, es decir, se cumple $Y_2=2Y_1-9$ casi seguramente: la pendiente es $\sqrt{8/2}=2$ y la ordenada es $-1-2\cdot4=-9$.
 
 ## Ejercicio 8
 
-Un experimento de aprendizaje requiere que una rata corra por un laberinto (una red de pasillos) hasta que localice una de tres posibles salidas. La salida 1 presenta una recompensa de alimento, no así las salidas 2 y 3. (Si la rata finalmente selecciona la salida 1 casi siempre, puede tener lugar el aprendizaje.) Denote con $Y_{i}$ el número de veces que la salida $i$ es seleccionada en corridas sucesivas. Para lo siguiente, suponga que la rata escoge una salida aleatoriamente en cada corrida.
+Un experimento de aprendizaje requiere que una rata corra por un laberinto (una red de pasillos) hasta que localice una de tres posibles salidas. La salida 1 presenta una recompensa de alimento, no así las salidas 2 y 3. (Si la rata finalmente selecciona la salida 1 casi siempre, puede tener lugar el aprendizaje.) Denote con $Y_{i}$ el número de veces que la salida $i$ es seleccionada en corridas sucesivas. Para lo siguiente, suponga que la rata escoge cada salida con probabilidad $1/3$, de forma independiente entre corridas y sin cambiar estas probabilidades.
 
 1. Encuentre la probabilidad de que $n=6$ corridas resulte en $Y_{1}=3, Y_{2}=1$ y $Y_{3}=2$.
 2. Para $n$ general, encuentre $E\left(Y_{1}\right)$ y $V\left(Y_{1}\right)$.

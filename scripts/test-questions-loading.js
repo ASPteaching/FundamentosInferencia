@@ -30,7 +30,7 @@ async function run(protocol) {
     fetch() { requests++; throw Error('fetch must not be used'); }};
   vm.createContext(context);
   vm.runInContext(fs.readFileSync(path.join(directory,'units.js'),'utf8'), context);
-  vm.runInContext(source + '\nthis.state = () => ({bank,selected}); this.readBank = readBank;', context);
+  vm.runInContext(source + '\nthis.state = () => ({bank,selected}); this.readBank = readBank; this.testEscape = escapeHTML;', context);
   function load(index) {
     const script = scripts[index];
     vm.runInContext(fs.readFileSync(path.join(directory,script.src),'utf8'), context);
@@ -83,10 +83,36 @@ async function run(protocol) {
   nodes['#unit'].value = '1'; events['#unit:change'](); await tick();
   assert.equal(context.state().bank.length, 40);
   assert.equal(Object.keys(answers).length, 0);
-  const failure = context.readBank('unit99.js'); scripts[3].onerror();
+  assert.ok(unitIds.includes('4'));
+  nodes['#unit'].value = '4'; events['#unit:change'](); load(3); await tick();
+  assert.equal(context.state().bank.length, 20);
+  assert.ok(context.state().bank.every(q => q.id.startsWith('VEC-')));
+  // Every U4 item: render options, select its key and show its explanation.
+  const u4 = context.state().bank.slice();
+  for (const q of u4) {
+    vm.runInContext(`bank = bank.filter(q => q.id === ${JSON.stringify(q.id)}); renderQuiz();`, context);
+    assert.equal(nodes['#quiz'].children.length, 1);
+    assert.equal(nodes['#quiz'].children[0].children.length, 4);
+    answers[q.id] = q.correct;
+    events['#finish:click']();
+    assert.match(nodes['#result'].innerHTML, /Puntuación: 1\/1/);
+    assert.ok(nodes['#result'].innerHTML.includes(context.testEscape(q.explanation)));
+    const incorrect = ['a','b','c','d'].filter(letter => letter !== q.correct);
+    for (const letter of incorrect) {
+      answers[q.id] = letter;
+      events['#finish:click']();
+      assert.match(nodes['#result'].innerHTML, /Puntuación: 0\/1/);
+    }
+    context.restoreU4 = u4;
+    vm.runInContext('bank = restoreU4.slice();', context);
+  }
+  nodes['#unit'].value = '3'; events['#unit:change'](); await tick();
+  assert.equal(context.state().bank.length, 66);
+  assert.equal(Object.keys(answers).length, 0);
+  const failure = context.readBank('unit99.js'); scripts[4].onerror();
   await assert.rejects(failure, /Bank not found/);
   await assert.rejects(context.readBank('../private.js'), /Invalid bank file/);
   assert.equal(fs.existsSync(path.join(directory,'units.json')), false);
-  console.log(`PASS: ${protocol} engine fixture, 40+40+66, score/explanations, reset, cached load, late response, errors, no fetch.`);
+  console.log(`PASS: ${protocol} engine fixture, 40+40+66+20, score/explanations, reset, cached load, late response, errors, no fetch.`);
 }
 run('file:').then(() => run('http:')).catch(error => { console.error(error); process.exitCode = 1; });
